@@ -273,11 +273,15 @@ export function lineBase(id: LineId): string | null {
  * The Mumbai Metro line a text names ("Metro Line 5 (Thane-Bhiwandi-Kalyan)"): its number, and its entry in
  * lines.json when the site covers it. Navi Mumbai's lines are a separate network, so they get no mark.
  */
-export function lineMark(text: string): { number: string; line?: LineInfo } | null {
+export function lineMark(text: string): { number: string; line?: LineInfo; colour?: string } | null {
   const m = /^Metro Line (\d+[A-Z]?)\b/.exec(text);
   if (!m) return null;
-  return { number: m[1], line: lines.find((l) => l.number === m[1]) };
+  const line = lines.find((l) => l.number === m[1]);
+  return { number: m[1], line, colour: line?.colour ?? otherLines.find((o) => o.number === m[1])?.colour };
 }
+
+/** Lines the site does not cover but whose colour it shows on their mark (lines.json `other_lines`, Line 4). */
+export const otherLines: { number: string; name: string; colour: string }[] = (linesJson as { other_lines?: { number: string; name: string; colour: string }[] }).other_lines ?? [];
 
 /** A Google Street View link: a chosen view when the station has one (`street_view`), else the nearest panorama. */
 export function streetViewUrl(s: Station): string | null {

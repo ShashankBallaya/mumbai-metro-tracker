@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "description": "The lines this site covers, in hub order. Each line's facts live in src/data/lines/<id>/. project.json and stations.json are required; every other file is optional, and a section without its file does not show. 'alignment' names the GeoJSON file the map and schematic draw from. 'about' feeds the line's schema.org node on every page of that line. 'position_basis' names where station coordinates come from: 'by_source' matches part of a station's location source_url, else 'default'. 'copy' holds the line's own wording for shared pages; {total}, {km} and {name} are filled in. Tokens in copy: {stations}, {as_of}, {pct:<activity>}, {target}, {earlier}, {rest}, {alt}, {minutes} come from project.json. Keys ending in _html may contain inline markup. 'number' is the line's mark; 'colour' names its colour token in src/styles/tokens.css (with an on- token for text on it). Line 5 and Line 12 share orange, so every mention of a line shows its number with the colour (LineMark.astro).",
+    "description": "The lines this site covers, in hub order. Each line's facts live in src/data/lines/<id>/. project.json and stations.json are required; every other file is optional, and a section without its file does not show. 'alignment' names the GeoJSON file the map and schematic draw from. 'about' feeds the line's schema.org node on every page of that line. 'position_basis' names where station coordinates come from: 'by_source' matches part of a station's location source_url, else 'default'. 'copy' holds the line's own wording for shared pages; {total}, {km} and {name} are filled in. Tokens in copy: {stations}, {as_of}, {pct:<activity>}, {target}, {earlier}, {rest}, {alt}, {minutes} come from project.json. Keys ending in _html may contain inline markup. 'number' is the line's mark; 'colour' names its colour token in src/styles/tokens.css (with an on- token for text on it). 'other_lines' gives a colour to lines the site does not cover, for their mark only; a line in neither list gets a neutral outlined mark. Line 5 and Line 12 share orange, so every mention of a line shows its number with the colour (LineMark.astro).",
     "last_reviewed": "2026-10-09"
   },
   "lines": [
@@ -208,6 +208,17 @@
         "status_lead": "The questions people ask about Mumbai Metro Line 5, Thane to Kalyan.",
         "footer_disclaimer": "This tracker is an independent public-interest site. It is not affiliated with, endorsed by or connected to MMRDA or the Government of Maharashtra. Drawings are original illustrations, not official designs; the one exception, the train render, is credited to its maker. Check official sources before making decisions."
       }
+    }
+  ],
+  "other_lines": [
+    {
+      "number": "4",
+      "name": "Green Line",
+      "colour": "line-4",
+      "status": "verified",
+      "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+      "last_verified": "2026-10-12",
+      "notes": "MMRDA's Line 4 page gives its line colour as \"Green Line\". MMRDA publishes no colour value, so the site's green is its own. Shown on the owner's request (2026-10-12)."
     }
   ]
 }

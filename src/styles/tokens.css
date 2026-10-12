@@ -81,6 +81,9 @@
   --signal-line: #c24a08;     /* orange used as text or thin lines on paper (4:1) */
   --signal-graphic: #d5530a;  /* orange route lines and bars on paper (3:1+) */
   --on-signal: #0c1422;
+  /* Lines the site does not cover, for their LineMark only (lines.json other_lines). White on it: 5.6:1. */
+  --line-4: #1d7a3a;
+  --on-line-4: #ffffff;
   --concrete: #a69e91;
   --halftone: rgb(17 26 40 / 0.14);
   --focus: #c24a08;

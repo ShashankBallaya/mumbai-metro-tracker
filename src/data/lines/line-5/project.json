@@ -27,10 +27,10 @@
   },
   "line_color": {
     "value": "Orange Line",
-    "status": "unverified",
-    "source_url": "https://en.wikipedia.org/wiki/Orange_Line_(Mumbai_Metro)",
-    "last_verified": "2026-10-09",
-    "notes": "MMRDA's Line 5 page names no colour. MMRDA's Line 12 page calls Line 12 the Orange Line, and Wikipedia treats Lines 5 and 12 as one Orange Line."
+    "status": "reported",
+    "source_url": "https://themetrorailguy.com/mumbai-metro-orange-line-information-route-map-fares-timings-tenders-status-updates/",
+    "last_verified": "2026-10-12",
+    "notes": "MMRDA's Line 5 page names no colour. The Metro Rail Guy (updated 14 Sep 2025) treats Lines 5 and 12 as one Orange Line and says MMRDA revealed the colour on 28 Feb 2020; MMRDA's Line 12 page calls Line 12 the Orange Line. No MMRDA document naming Line 5's colour was found."
   },
   "route": {
     "value": "Thane (Kapurbawdi) to Kalyan, via Bhiwandi and Durgadi, with a spur from Bhoirwadi to Ulhasnagar",
