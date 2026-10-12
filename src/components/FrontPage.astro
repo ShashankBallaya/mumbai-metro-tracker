@@ -1,6 +1,7 @@
 ---
 import Grade from './Grade.astro';
 import LeadPicture from './LeadPicture.astro';
+import LeadPictureKasheli from './LeadPictureKasheli.astro';
 import { formatDate, lineBase, openedOf, announcedOf, sectionSubject, clock, type Line } from '../lib/data';
 import { schematic } from '../lib/route';
 import { hasStatusPage } from '../lib/answers';
@@ -99,7 +100,11 @@ const spurEnd = line.spurStations.at(-1)?.name;
 
   {copy.lead_scene && (
     <div class="front__picture scene-host" data-scene={copy.lead_scene} data-line-number={line.id === 'line-12' ? undefined : line.info.number}>
-      <LeadPicture number={line.info.number} label={line.info.label} />
+      {copy.lead_scene === 'kasheli' ? (
+        <LeadPictureKasheli number={line.info.number} label={line.info.label} caption={(copy as { lead_caption?: string }).lead_caption} />
+      ) : (
+        <LeadPicture number={line.info.number} label={line.info.label} />
+      )}
     </div>
   )}
 

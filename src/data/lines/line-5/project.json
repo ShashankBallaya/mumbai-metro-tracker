@@ -520,6 +520,32 @@
     },
     "notes": "Letter of acceptance announced by Titagarh on 31 Oct 2025, for Phases 1 and 2. Details in rollingstock.json. The same contract is noted in Line 12's rollingstock.json (line5_contract)."
   },
+  "kasheli_creek_bridge": {
+    "value": "Kasheli creek bridge, between Balkum Naka and Kasheli",
+    "length_m": 550,
+    "span_m": 42.23,
+    "spans": 13,
+    "spans_over_water": 9,
+    "height_above_water_m": 15,
+    "superstructure": "Precast box segments, 15 to a span, erected in 123 days",
+    "builder": "Afcons Infrastructure (civil package CA-28)",
+    "completed": "2023-01-22",
+    "status": "conflicting",
+    "source_url": "https://www.constructionworld.in/transport-infrastructure/metro-rail-and-railways-infrastructure/first-of-a-kind-for-mumbai--metro-viaduct-over-water/39405",
+    "last_verified": "2026-10-12",
+    "alternatives": [
+      {
+        "value": "13 piers, 9 in the creek and 4 on land",
+        "context": "The Metro Rail Guy, 25 Jan 2023, which also gives the 15 m height above water",
+        "source_url": "https://themetrorailguy.com/2023/01/25/mumbai-metro-line-5s-550m-kasheli-creek-bridge-completed/"
+      }
+    ],
+    "also_see": [
+      "https://www.mumbailive.com/en/transport/now-preparing-to-run-metro-in-thane-550-meter-long-bridge-ready-for-metro-5-line-76842",
+      "https://themetrorailguy.com/2021/05/31/work-begins-for-mumbai-metro-line-5s-kasheli-creek-bridge/"
+    ],
+    "notes": "Construction World (Feb 2023) gives 13 spans, 9 over water, of 42.23 m each: 13 x 42.23 m = 549 m, which fits the 550 m length. The Metro Rail Guy (Jan 2023) gives 13 piers, 9 in the creek. The height of 15 m above water comes from The Metro Rail Guy only. The last span was reported complete on 22 Jan 2023. No MMRDA document with these figures was found. Where: MMRDA's 2025 alignment file crosses the water at about 19.2276, 73.0000, between Balkum Naka and Kasheli; OpenStreetMap names that water the Ulhas river, whose estuary the creek is (checked 12 Oct 2026). Line 5 lead picture: scripts/draw-lead-picture.py and src/scripts/three/kasheli.ts draw this bridge, not to scale."
+  },
   "related_projects": [
     {
       "name": "Metro Line 5A (Bhoirwadi to Ulhasnagar spur)",

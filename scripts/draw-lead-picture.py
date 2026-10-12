@@ -130,3 +130,76 @@ const {{ number = '12', label = 'Line 12' }} = Astro.props;
 '''
 open('src/components/LeadPicture.astro', 'w', encoding='utf-8', newline='\n').write(astro)
 print(view)
+
+# ---------------------------------------------------------------------------------------------
+# Line 5: the Kasheli creek bridge (src/components/LeadPictureKasheli.astro).
+# Reported figures (project.json kasheli_creek_bridge): 550 m, spans of 42.23 m, each of 15
+# precast box segments, about 15 m above the water. Drawn: three spans over the creek, piers on
+# pile caps, a box-girder deck with its segment joints, and a train on top. Not to scale in detail.
+SPAN = 42.23
+SEG = SPAN / 15
+DECK0, DECK1 = 15.0, 17.4   # underside 15 m above the water, top of the deck slab
+k5 = []
+
+# Water across the frame, a dark band of bank, and the near bank where the number lies.
+k5.append(poly([(-60, -40, 0), (170, -40, 0), (170, 15, 0), (-60, 15, 0)], 'var(--iso-water)'))
+# Ripples: thin pale strokes of uneven length, scattered on a fixed pattern (no lane-mark rhythm),
+# so the drawing never changes from one run to the next.
+for i in range(140):
+    x = -55 + (i * 53.7) % 225
+    y = -12 + (i * 17.3) % 26
+    w = 1.2 + (i * 7) % 5 * 0.7
+    k5.append(poly([(x, y, 0), (x + w, y, 0), (x + w, y + 0.22, 0), (x, y + 0.22, 0)], 'var(--iso-ripple)'))
+k5.insert(0, poly([(-60, 15, 0), (170, 15, 0), (170, 50, 0), (-60, 50, 0)], 'var(--iso-ground)'))
+k5 += box(-60, 170, 15, 16.5, 0, 0.8, 'var(--iso-bank-top)', 'var(--iso-bank-front)', 'var(--iso-bank-front)')
+k5.append('__TWELVE__')
+
+# Piers far to near, each on a pile cap just above the water, then the pier caps.
+piers = [-34 + SPAN * n for n in range(5)][::-1]
+for x0 in piers:
+    k5 += box(x0 - 2.0, x0 + 4.4, 1.2, 7.8, 0, 1.2, *CON)
+    k5 += box(x0, x0 + 2.4, 3.0, 6.0, 1.2, DECK0 - 1.6, *CON)
+    k5 += box(x0 - 0.8, x0 + 3.2, 1.2, 7.8, DECK0 - 1.6, DECK0, *CON)
+
+# Box girder: a narrower box under a wider top slab, with a joint line between segments.
+k5 += box(-60, 170, 1.8, 7.2, DECK0, DECK1 - 0.9, *CON)
+k5 += box(-60, 170, 0.6, 8.4, DECK1 - 0.9, DECK1, *CON)
+for n in range(-30, 80):
+    x = -34 + n * SEG + 1.2
+    if -60 < x < 170:
+        k5.append(poly([(x, 7.2, DECK0), (x + 0.12, 7.2, DECK0), (x + 0.12, 7.2, DECK1 - 0.9), (x, 7.2, DECK1 - 0.9)], 'var(--iso-joint)'))
+        k5.append(poly([(x, 8.4, DECK1 - 0.9), (x + 0.12, 8.4, DECK1 - 0.9), (x + 0.12, 8.4, DECK1), (x, 8.4, DECK1)], 'var(--iso-joint)'))
+k5 += box(-60, 170, 0.6, 1.0, DECK1, DECK1 + 1.0, *CON)
+
+# Train: six cars, the same stainless drawing as Line 12's, partly out of frame.
+for x0 in (126, 102.5, 79, 55.5, 32, 8.5):
+    x1 = x0 + 22.5
+    k5 += box(x0, x1, 2.4, 5.6, DECK1 + 0.4, DECK1 + 4.2, *T)
+    k5.append(poly([(x0, 5.6, DECK1 + 1.4), (x1, 5.6, DECK1 + 1.4), (x1, 5.6, DECK1 + 2.1), (x0, 5.6, DECK1 + 2.1)], 'var(--signal)'))
+    k5.append(poly([(x0 + 1, 5.6, DECK1 + 2.5), (x1 - 1, 5.6, DECK1 + 2.5), (x1 - 1, 5.6, DECK1 + 3.5), (x0 + 1, 5.6, DECK1 + 3.5)], 'var(--iso-window)'))
+    for dx in (5.5, 16):
+        k5.append(poly([(x0 + dx, 5.6, DECK1 + 0.6), (x0 + dx + 1.6, 5.6, DECK1 + 0.6), (x0 + dx + 1.6, 5.6, DECK1 + 3.5), (x0 + dx, 5.6, DECK1 + 3.5)], 'var(--iso-door)'))
+k5 += box(-60, 170, 8.0, 8.4, DECK1, DECK1 + 1.0, *CON)
+
+# Same frame size as Line 12's drawing, so the front page keeps its layout.
+k_svg = svg.replace('lead-clip', 'lead5-clip').replace('lead-title', 'lead5-title')
+body = chr(10).join('  ' + (twelve if o == '__TWELVE__' else o) for o in out)
+k_body = chr(10).join('  ' + (twelve if o == '__TWELVE__' else o) for o in k5)
+k_svg = k_svg.replace(body, k_body).replace(
+    "{`Isometric drawing of the ${label} viaduct: concrete piers carry a U-girder deck over a road marked ${number}, and a three-car train runs on top.`}",
+    "{`Isometric drawing of the ${label} bridge over Kasheli creek: concrete piers on pile caps carry a box-girder deck high over the water, and a six-car train runs on top. The number ${number} is painted on the bank.`}",
+)
+k_astro = astro.split('<style>')[0].replace(svg, k_svg).replace(
+    "<figcaption>Illustration, not to scale. Original drawing, not an official design.</figcaption>",
+    "<figcaption>{caption ?? 'Illustration, not to scale. Original drawing, not an official design.'}</figcaption>",
+).replace(
+    "  /** The line's name, for the description. */\n  label?: string;\n}\nconst { number = '12', label = 'Line 12' } = Astro.props;",
+    "  /** The line's name, for the description. */\n  label?: string;\n  /** What the drawing shows, in a sentence. */\n  caption?: string;\n}\nconst { number = '5', label = 'Line 5', caption } = Astro.props;",
+) + '<style>' + astro.split('<style>')[1].replace(
+    "    --iso-ground: rgb(12 20 34 / 0.08);",
+    "    --iso-ground: rgb(12 20 34 / 0.08);\n    --iso-water: #22405b;\n    --iso-ripple: rgb(239 233 222 / 0.3);\n    --iso-bank-top: #6b5a45;\n    --iso-bank-front: #4f4233;\n    --iso-joint: rgb(12 20 34 / 0.35);",
+)
+k_astro = k_astro.replace('/* Generated by scripts/draw-lead-picture.py. Edit the script, not this file. */',
+                          '/* Generated by scripts/draw-lead-picture.py (Line 5, Kasheli creek). Edit the script, not this file. */')
+assert 'Kasheli' in k_astro and 'caption ??' in k_astro and '--iso-water' in k_astro
+open('src/components/LeadPictureKasheli.astro', 'w', encoding='utf-8', newline='\n').write(k_astro)

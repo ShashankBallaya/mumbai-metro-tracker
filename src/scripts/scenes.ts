@@ -89,8 +89,12 @@ document.addEventListener('click', async (event) => {
 
 const sceneLoaders: Record<string, () => Promise<{ mount: (host: HTMLElement, opts: { reduced: boolean }) => unknown }>> = {
   viaduct: () => import('./three/viaduct'),
+  kasheli: () => import('./three/kasheli'),
   station: () => import('./three/station'),
 };
+
+/** Front-page lead scenes: on screen at load, so they wait for idle (wide) or the first touch (phones). */
+const HERO = new Set(['viaduct', 'kasheli']);
 
 /** Runs fn once the page has loaded and the browser is idle, so 3D never competes with first paint. */
 function afterIdle(fn: () => void, timeout = 2500) {
@@ -106,13 +110,13 @@ if (webgl()) {
     const mount = () => load().then((m) => m.mount(host, { reduced })).catch((e) => console.error('3D scene failed to load', e));
     // The hero is on screen at load. Wide screens: load after idle. Phones: load on the first
     // scroll or touch, so the 3D never slows the first paint on a mobile connection.
-    if (host.dataset.scene === 'viaduct' && window.matchMedia('(max-width: 47.99rem)').matches) {
+    if (HERO.has(host.dataset.scene!) && window.matchMedia('(max-width: 47.99rem)').matches) {
       const once = () => {
         ['scroll', 'touchstart', 'pointerdown'].forEach((t) => window.removeEventListener(t, once));
         whenNear(host, mount, '300px');
       };
       ['scroll', 'touchstart', 'pointerdown'].forEach((t) => window.addEventListener(t, once, { passive: true, once: true }));
-    } else if (host.dataset.scene === 'viaduct') afterIdle(() => whenNear(host, mount, '300px'));
+    } else if (HERO.has(host.dataset.scene!)) afterIdle(() => whenNear(host, mount, '300px'));
     else whenNear(host, mount, '300px');
   });
 }
