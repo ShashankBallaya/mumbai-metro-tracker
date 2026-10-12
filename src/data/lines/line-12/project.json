@@ -162,7 +162,7 @@
     "notes": "Civil progress is verified (see 'progress'). The systems tender stage is from trade press, June 2026."
   },
   "stages": {
-    "notes": "Each section of the line from planning to opening. 'sections' has one entry per part of the line that is built on its own (label null when the line is built as one). state: done, now (the current stage), started, next (not started). A note may contain {progress_as_of} or {event:<timeline id>}, which the page fills with that date, so the note stays current when the data changes. The facts behind each note are in timeline.json and in this file.",
+    "notes": "Each section of the line from planning to opening. 'sections' has one entry per part of the line that is built on its own (label null when the line is built as one). state: done, now (the current stage), started, next (not started). A note may contain {progress_as_of} or {event:<timeline id>}, which the page fills with that date, so the note stays current when the data changes. The facts behind each note are in timeline.json and in this file. 'service' is opening mode: how the section runs once it opens. opening.date (YYYY-MM-DD) is the day it opens to riders; before that day the site counts down to it as an announced date, and from that day the section shows as open. hours (first and last train, 24-hour HH:MM), frequency (minutes between trains, peak and off-peak) and fares (lowest and highest single fare in rupees) show as soon as a source gives them. Each is null until then, and each carries its own status, source_url and last_verified.",
     "sections": [
       {
         "label": null,
@@ -197,7 +197,13 @@
             "state": "next",
             "note": "Reported target May 2028"
           }
-        ]
+        ],
+        "service": {
+          "opening": null,
+          "hours": null,
+          "frequency": null,
+          "fares": null
+        }
       }
     ]
   },

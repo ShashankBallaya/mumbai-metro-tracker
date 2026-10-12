@@ -9,7 +9,7 @@ import Colophon from '../../components/Colophon.astro';
 import Grade from '../../components/Grade.astro';
 import LocatorMap from '../../components/LocatorMap.astro';
 import LineMark from '../../components/LineMark.astro';
-import { getLine, lines, lineNodeId, lineBase, stationHref, positionBasis, streetViewUrl, plannedInterchanges, formatDate, type LineId, type Station } from '../../lib/data';
+import { getLine, lines, lineNodeId, lineBase, stationHref, positionBasis, streetViewUrl, plannedInterchanges, formatDate, sectionOf, openedOf, announcedOf, sectionName, clock, inr, type LineId, type Station } from '../../lib/data';
 import type { GetStaticPathsOptions } from 'astro';
 import { hasStatusPage } from '../../lib/answers';
 import '../../styles/inner.css';
@@ -52,7 +52,12 @@ const on = spur ? `the Line ${s.phase} spur of ${about.name}` : about.name;
 const [endA, endB] = spur ? [spurFrom!.name, list.at(-1)!.name] : copy.ends;
 // A line built as one says its state (Line 12: under construction); a line in parts names the part.
 const section = stages.find((sec) => sec.phases?.includes(s.phase!));
-const state = copy.station_state ?? (section?.label ? `Part of ${section.label}.` : '');
+// Opening mode: the station's section has opened, or has an announced opening date.
+const own = sectionOf(line, s);
+const opened = openedOf(own);
+const announced = announcedOf(own);
+const service = own?.service;
+const state = opened ? `Open since ${formatDate(opened.date)}.` : copy.station_state ?? (section?.label ? `Part of ${section.label}.` : '');
 type SameSite = { line: LineId; station: string };
 const other = (s as { same_site_as?: SameSite }).same_site_as;
 const otherLine = other && getLine(other.line);
@@ -250,9 +255,18 @@ const schema: Record<string, unknown>[] = [
       </div>
 
       <div>
-        <dt>When it opens</dt>
+        <dt>{opened ? 'Open' : 'When it opens'}</dt>
         <dd>
-          {opening.scope ? (
+          {opened ? (
+            <>
+              <p>Open since {formatDate(opened.date)}, with the rest of {sectionName(line, own!)}. <Grade status={opened.status} source={opened.source_url} compact /></p>
+              {service?.hours && <p>Trains run from {clock(service.hours.first)} to {clock(service.hours.last)}. <Grade status={service.hours.status} source={service.hours.source_url} compact /></p>}
+              {service?.frequency && <p>A train every {service.frequency.peak_min} minutes at peak{service.frequency.off_peak_min && <>, every {service.frequency.off_peak_min} off-peak</>}. <Grade status={service.frequency.status} source={service.frequency.source_url} compact /></p>}
+              {service?.fares && <p>A single fare costs {service.fares.min_inr === service.fares.max_inr ? `₹${inr(service.fares.min_inr)}` : `₹${inr(service.fares.min_inr)} to ₹${inr(service.fares.max_inr)}`}. <Grade status={service.fares.status} source={service.fares.source_url} compact /></p>}
+            </>
+          ) : announced ? (
+            <p>Opens to riders on {formatDate(announced.date)}, with the rest of {sectionName(line, own!)}.</p>
+          ) : opening.scope ? (
             <p>
               No date has been announced for this station on its own. For {opening.scope}, the {opening.reported ? 'reported ' : ''}target is{' '}
               {opening.when}.
@@ -263,7 +277,7 @@ const schema: Record<string, unknown>[] = [
               {formatDate(target.value)}; an earlier reported target was {formatDate(target.alternatives[0].value)}.
             </p>
           )}
-          <p class="grades"><Grade status={opening.status} source={opening.source_url} /></p>
+          {!opened && <p class="grades">{announced ? <Grade status={announced.status} source={announced.source_url} /> : <Grade status={opening.status} source={opening.source_url} />}</p>}
           {hasStatusPage(line) && <p><a href={`${base}status/`}>{label} status and opening date, answered</a></p>}
         </dd>
       </div>

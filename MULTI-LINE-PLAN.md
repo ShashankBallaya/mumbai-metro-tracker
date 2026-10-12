@@ -133,7 +133,7 @@ Status 2026-10-09. The page reuses Line 12's components and layout; this list is
 
 ### New for Line 5 (Line 12 does not have it yet)
 
-- **Opening mode.** Phase 1 may open before the end of 2026. Plan sections for a running line: opening date, timings, fares, frequency, and "open" against "under construction" per station. Line 12 will need the same later.
+- **Opening mode.** Done 2026-10-12, for every line. Each stage section in `project.json` has a `service` block: `opening` (date), `hours` (first and last train), `frequency` (peak and off-peak minutes) and `fares` (lowest and highest single fare), each null until sourced and graded. An opening date still ahead turns the countdown into "Days to opening" on that date; from that day (India time, at build) the section is open: the front page says so with its times, a "Riding the line" section shows the facts per section (it shows once any fact is known), the strip and the route ride draw the open stretch solid, open stations say "Open since", and the status page answers "When did it open?" and the times and fares. The data check holds each fact to its shape. With every fact null the pages are unchanged. Still to do when it happens: the headline and standfirst for an open line (lines.json `copy`), and a timeline event for the opening.
 - **Phase status at a glance.** Done 2026-10-09: Progress shows one row of stages per phase (item 3).
 - **The 2017 plan against the 2026 plan.** A short "what changed" view: Gopal Nagar, Sahajanand Chowk and APMC Kalyan dropped, the loop to Kalyan, Bhiwandi underground.
 

@@ -1,6 +1,6 @@
 /**
- * Refreshes the "days to the reported target" figure in the reader's browser.
- * The target date comes from project.json (target_completion.countdown_date), in IST.
+ * Refreshes the "days to" figure in the reader's browser: to the reported target, or to an announced opening date (opening mode).
+ * The date comes from project.json (target_completion.countdown_date, or the first section's service.opening.date), in IST.
  */
 const el = document.querySelector<HTMLElement>('[data-countdown]');
 const value = el?.querySelector<HTMLElement>('[data-countdown-value]');

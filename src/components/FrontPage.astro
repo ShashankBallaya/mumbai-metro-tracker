@@ -1,7 +1,7 @@
 ---
 import Grade from './Grade.astro';
 import LeadPicture from './LeadPicture.astro';
-import { formatDate, lineBase, type Line } from '../lib/data';
+import { formatDate, lineBase, openedOf, announcedOf, sectionSubject, clock, type Line } from '../lib/data';
 import { schematic } from '../lib/route';
 import { hasStatusPage } from '../lib/answers';
 
@@ -16,9 +16,17 @@ const target = project.target_completion;
 const progress = project.progress;
 const pct = (name: string) => Math.round(progress.items.find((i) => i.activity.startsWith(name))!.percent_complete);
 
+// Opening mode: the first section of the line is the one the countdown is about. Once it has an
+// announced opening date the countdown runs to that date; once that day comes, the box says it is open.
+const firstSection = line.stages[0];
+const opened = openedOf(firstSection);
+const announced = announcedOf(firstSection);
+const service = firstSection?.service;
+const countTo = announced?.date ?? target.countdown_date;
+
 // Build-time value; the countdown script refreshes it in the browser.
 const msPerDay = 86_400_000;
-const daysLeft = Math.max(0, Math.ceil((Date.parse(`${target.countdown_date}T23:59:59+05:30`) - Date.now()) / msPerDay));
+const daysLeft = Math.max(0, Math.ceil((Date.parse(`${countTo}T23:59:59+05:30`) - Date.now()) / msPerDay));
 const t = target as typeof target & { rest_of_line?: { value: string } };
 const earlier = t.alternatives?.[0];
 const copy = line.info.copy;
@@ -36,7 +44,7 @@ const first = stations[0].name;
 const last = stations[stations.length - 1].name;
 
 // Schematic strip (shared geometry with the route ride).
-const { width: W, height: H, path, points: dots, placed, underground, branch } = schematic(line);
+const { width: W, height: H, path, points: dots, placed, underground, open, branch } = schematic(line);
 const spurEnd = line.spurStations.at(-1)?.name;
 ---
 
@@ -52,12 +60,40 @@ const spurEnd = line.spurStations.at(-1)?.name;
   </div>
 
   <aside class="front__countdown" aria-labelledby="countdown-title">
-    <h2 id="countdown-title" class="front__countdown-title">{copy.countdown_title}</h2>
-    <p class="front__days num" data-countdown={target.countdown_date} aria-live="off">
-      <span data-countdown-value>{daysLeft.toLocaleString('en-IN')}</span>
-    </p>
-    <p class="front__target" set:html={fill(copy.target_html)} />
-    <p><Grade status={target.status} source={target.source_url} /></p>
+    {opened ? (
+      <>
+        <h2 id="countdown-title" class="front__countdown-title">Open to riders</h2>
+        <p class="front__days front__days--date num">{formatDate(opened.date)}</p>
+        <p class="front__target">
+          {sectionSubject(line, firstSection)} opened on <strong>{formatDate(opened.date)}</strong>.
+          {service?.hours && <> Trains run from {clock(service.hours.first)} to {clock(service.hours.last)}.</>}
+          {service?.frequency && <> Every {service.frequency.peak_min} minutes at peak{service.frequency.off_peak_min && <>, {service.frequency.off_peak_min} off-peak</>}.</>}
+          {t.rest_of_line && <> The rest of the line has a reported target of <span class="nowrap">{t.rest_of_line.value}</span>.</>}
+        </p>
+        <p><Grade status={opened.status} source={opened.source_url} /></p>
+      </>
+    ) : announced ? (
+      <>
+        <h2 id="countdown-title" class="front__countdown-title">Days to opening</h2>
+        <p class="front__days num" data-countdown={countTo} aria-live="off">
+          <span data-countdown-value>{daysLeft.toLocaleString('en-IN')}</span>
+        </p>
+        <p class="front__target">
+          {sectionSubject(line, firstSection)} opens to riders on <strong>{formatDate(announced.date)}</strong>.
+          {t.rest_of_line && <> The rest of the line has a reported target of <span class="nowrap">{t.rest_of_line.value}</span>.</>}
+        </p>
+        <p><Grade status={announced.status} source={announced.source_url} /></p>
+      </>
+    ) : (
+      <>
+        <h2 id="countdown-title" class="front__countdown-title">{copy.countdown_title}</h2>
+        <p class="front__days num" data-countdown={target.countdown_date} aria-live="off">
+          <span data-countdown-value>{daysLeft.toLocaleString('en-IN')}</span>
+        </p>
+        <p class="front__target" set:html={fill(copy.target_html)} />
+        <p><Grade status={target.status} source={target.source_url} /></p>
+      </>
+    )}
     {hasStatusPage(line) && <p class="front__status"><a href={`${lineBase(line.id)}status/`}>Opening date and status, answered</a></p>}
   </aside>
 
@@ -74,6 +110,7 @@ const spurEnd = line.spurStations.at(-1)?.name;
       {branch && <path d={branch.path} class="line-casing" vector-effect="non-scaling-stroke" />}
       <path d={path} class="line-core" vector-effect="non-scaling-stroke" />
       {branch && <path d={branch.path} class="line-core" vector-effect="non-scaling-stroke" />}
+      {open && <path d={open} class="line-open" vector-effect="non-scaling-stroke" />}
       {underground && <path d={underground} class="line-tunnel" vector-effect="non-scaling-stroke" />}
     </svg>
     <span class="front__strip-dots" aria-hidden="true">
@@ -186,6 +223,11 @@ const spurEnd = line.spurStations.at(-1)?.name;
     line-height: 0.85;
     color: var(--ink);
   }
+  /* Open: the opening date in place of the days, a size down so "20 Dec 2026" fits a phone. */
+  .front__days--date {
+    font-size: var(--step-3);
+    text-transform: uppercase;
+  }
   .front__status a {
     display: inline-flex;
     align-items: center;
@@ -239,6 +281,13 @@ const spurEnd = line.spurStations.at(-1)?.name;
   .front__strip-line .line-core {
     stroke: var(--paper);
     stroke-width: 5px;
+  }
+  /* In service: the hollow line filled in. */
+  .front__strip-line .line-open {
+    fill: none;
+    stroke: var(--signal-graphic);
+    stroke-width: 14px;
+    stroke-linecap: round;
   }
   /* Underground: the hollow line drawn as a dashed outline. */
   .front__strip-line .line-tunnel {

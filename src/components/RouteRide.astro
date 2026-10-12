@@ -7,7 +7,7 @@
  */
 import Grade from './Grade.astro';
 import LineMark from './LineMark.astro';
-import { lineCopy, plannedInterchanges, type Line } from '../lib/data';
+import { lineCopy, plannedInterchanges, openedOf, sectionOf, formatDate, type Line, type Station } from '../lib/data';
 import { schematic } from '../lib/route';
 
 interface Props {
@@ -25,6 +25,8 @@ const py = (i: number) => (strip.points[i][1] / strip.height) * 100;
 // Stations on the 45-degree bend get their label to the right, clear of the line.
 const onBend = (i: number) => strip.points[i][1] > strip.points[0][1] + 1 && strip.points[i][1] < strip.points[stations.length - 1][1] - 1;
 const cap = (t: string) => t.charAt(0).toUpperCase() + t.slice(1);
+/** Opening mode: the opening fact of the station's section, once it has opened. */
+const openedAt = (s: Station) => openedOf(sectionOf(line, s));
 const km = (m: number) => (m / 1000).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 ---
 
@@ -44,6 +46,7 @@ const km = (m: number) => (m / 1000).toLocaleString('en-IN', { minimumFractionDi
           {strip.branch && <path d={strip.branch.path} class="casing" vector-effect="non-scaling-stroke" />}
           <path d={strip.path} class="core" vector-effect="non-scaling-stroke" />
           {strip.branch && <path d={strip.branch.path} class="core" vector-effect="non-scaling-stroke" />}
+          {strip.open && <path d={strip.open} class="open" vector-effect="non-scaling-stroke" />}
           {strip.underground && <path d={strip.underground} class="tunnel" vector-effect="non-scaling-stroke" />}
         </svg>
         {stations.map((s, i) => (
@@ -103,9 +106,15 @@ const km = (m: number) => (m / 1000).toLocaleString('en-IN', { minimumFractionDi
               </p>
             )}
             {s.type !== 'Elevated' && <p class="ride__status">{s.type} station</p>}
-            <p class="ride__status">
-              {s.construction_status.value} <Grade status={s.construction_status.status} compact noSource />
-            </p>
+            {openedAt(s) ? (
+              <p class="ride__status ride__status--open">
+                Open since {formatDate(openedAt(s)!.date)} <Grade status={openedAt(s)!.status} source={openedAt(s)!.source_url} compact />
+              </p>
+            ) : (
+              <p class="ride__status">
+                {s.construction_status.value} <Grade status={s.construction_status.status} compact noSource />
+              </p>
+            )}
             {s.notes && <p class="ride__note">{s.notes}</p>}
             </div>
           </li>
@@ -116,6 +125,12 @@ const km = (m: number) => (m / 1000).toLocaleString('en-IN', { minimumFractionDi
         <span class="ride__legend-line" aria-hidden="true"></span>
         {lineCopy(line, 'route_legend')}
       </p>
+      {strip.open && (
+        <p class="ride__legend">
+          <span class="ride__legend-line ride__legend-line--open" aria-hidden="true"></span>
+          A solid line marks track in service.
+        </p>
+      )}
     </div>
   </div>
 
@@ -129,9 +144,15 @@ const km = (m: number) => (m / 1000).toLocaleString('en-IN', { minimumFractionDi
             <p class="num">
               {km(s.location.along_m)} km along the spur <Grade status={s.location.status} source={s.location.source_url} compact />
             </p>
-            <p class="ride__status">
-              {s.construction_status.value} <Grade status={s.construction_status.status} compact noSource />
-            </p>
+            {openedAt(s) ? (
+              <p class="ride__status ride__status--open">
+                Open since {formatDate(openedAt(s)!.date)} <Grade status={openedAt(s)!.status} source={openedAt(s)!.source_url} compact />
+              </p>
+            ) : (
+              <p class="ride__status">
+                {s.construction_status.value} <Grade status={s.construction_status.status} compact noSource />
+              </p>
+            )}
             {s.notes && <p class="ride__note">{s.notes}</p>}
           </li>
         ))}
@@ -306,6 +327,11 @@ const km = (m: number) => (m / 1000).toLocaleString('en-IN', { minimumFractionDi
     stroke: var(--paper);
     stroke-width: 9px;
   }
+  /* In service: the hollow line filled in. */
+  .ride__line .open {
+    stroke: var(--signal-graphic);
+    stroke-width: 22px;
+  }
   /* Underground: the hollow line drawn as a dashed outline. */
   .ride__line .tunnel {
     stroke: var(--paper);
@@ -479,5 +505,11 @@ const km = (m: number) => (m / 1000).toLocaleString('en-IN', { minimumFractionDi
     border-radius: 1rem;
     background: var(--paper);
     border: 0.25rem solid var(--signal-graphic);
+  }
+  .ride__legend-line--open {
+    background: var(--signal-graphic);
+  }
+  .ride__status--open {
+    font-weight: 700;
   }
 </style>

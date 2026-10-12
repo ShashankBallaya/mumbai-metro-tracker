@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Masthead from '../components/Masthead.astro';
 import FrontPage from '../components/FrontPage.astro';
+import Service from '../components/Service.astro';
 import RouteRide from '../components/RouteRide.astro';
 import MapSection from '../components/MapSection.astro';
 import BeforeAfter from '../components/BeforeAfter.astro';
@@ -14,7 +15,7 @@ import Stations from '../components/Stations.astro';
 import StationModel from '../components/StationModel.astro';
 import Updates from '../components/Updates.astro';
 import SourcesFooter from '../components/SourcesFooter.astro';
-import { getLine, type LineId } from '../lib/data';
+import { getLine, hasService, type LineId } from '../lib/data';
 
 interface Props {
   /** Set by the `astro dev` preview (src/preview/[line].astro); the live page is Line 12's. */
@@ -28,6 +29,7 @@ const { about, route_short, copy } = line.info;
   <Masthead line={line} />
   <main id="main">
     <FrontPage line={line} />
+    {line.stages.some(hasService) && <Service line={line} />}
     <RouteRide line={line} />
     {line.alignmentRaw && <MapSection line={line} />}
     {line.beforeAfter && <BeforeAfter line={line} />}

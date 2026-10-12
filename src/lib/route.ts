@@ -11,8 +11,9 @@
  * - `underground_along_m`: [from, to] along the line, a stretch to draw dashed.
  * A station without a published position sits midway between its neighbours and is marked not placed.
  * A line that loops back (Line 5 at Kalyan) is drawn unrolled: x stays distance along the line.
+ * Opening mode: the stretch between the first and last open station is drawn solid (`open`).
  */
-import type { Line, Station } from './data';
+import { isOpen, type Line, type Station } from './data';
 
 /** Metres from the start of the line, along the centre line. */
 export const alongOf = (line: Line, i: number) => line.stations[i].location.along_m;
@@ -27,6 +28,8 @@ export interface Schematic {
   placed: boolean[];
   /** The stretch to draw dashed (underground), on the line's path. */
   underground?: string;
+  /** The stretch in service, from the first to the last open station, drawn solid. */
+  open?: string;
   /** A spur: the index of the station it leaves from, its path, and its station points in order. */
   branch?: { from: number; path: string; points: [number, number][] };
 }
@@ -91,6 +94,7 @@ export function schematic(line: Line, { width = 1000, top = 26, drop = 44, pad =
       points: spur.map((c) => [xAt(c), spurY(xAt(c))]),
     };
   }
+  const openAt = along.filter((_, i) => isOpen(line, stations[i]));
   const lowest = Math.max(top + (bendAt === undefined ? 0 : drop), ...(branch ? branch.points.map(([, y]) => y) : []));
   return {
     width,
@@ -99,6 +103,7 @@ export function schematic(line: Line, { width = 1000, top = 26, drop = 44, pad =
     points,
     placed,
     underground: props.underground_along_m ? stretch(...props.underground_along_m) : undefined,
+    open: openAt.length > 1 ? stretch(Math.min(...openAt), Math.max(...openAt)) : undefined,
     branch,
   };
 }

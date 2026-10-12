@@ -1,7 +1,7 @@
 ---
 import Grade from './Grade.astro';
 import LineMark from './LineMark.astro';
-import { lineCopy, stationHref, getLine, plannedInterchanges, type Line, type LineId, type Station } from '../lib/data';
+import { lineCopy, stationHref, getLine, plannedInterchanges, isOpen, type Line, type LineId, type Station } from '../lib/data';
 
 interface Props {
   line: Line;
@@ -43,6 +43,7 @@ const sameSite = (s: Station) => {
           </span>
         )}
         {plannedInterchanges(s) && <span class="entry__change">Planned interchange: {plannedInterchanges(s)!.value.join(', ')}</span>}
+        {isOpen(line, s) && <span class="entry__change">Open</span>}
         {s.type !== 'Elevated' && <span class="entry__change">{s.type}</span>}
         {s.location.lat === null && <span class="entry__change">Position not yet mapped</span>}
         {page(s) && <a class="entry__page" href={page(s)}>Station page<span class="visually-hidden">: {s.name}</span></a>}
@@ -61,6 +62,7 @@ const sameSite = (s: Station) => {
               <span class="entry__name">{s.name}</span>
             </a>
             {s.name_mr && <span class="entry__mr mr" lang="mr">{s.name_mr}</span>}
+            {isOpen(line, s) && <span class="entry__change">Open</span>}
             {page(s) && <a class="entry__page" href={page(s)}>Station page<span class="visually-hidden">: {s.name}</span></a>}
           </li>
         ))}

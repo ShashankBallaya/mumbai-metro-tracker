@@ -1,5 +1,5 @@
 ---
-import { formatDate, lineBase, lastReviewed as siteReviewed, type Line } from '../lib/data';
+import { formatDate, lineBase, hasService, lastReviewed as siteReviewed, type Line } from '../lib/data';
 
 interface Props {
   /** The line this page is about. Off a line page, dates are site-wide. */
@@ -16,6 +16,7 @@ const to = (id: string) => (home ? `#${id}` : `${base}#${id}`);
 const edition = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' });
 
 const inside = [
+  ['service', 'Riding it'],
   ['route', 'Route'],
   ['map', 'Map'],
   ['before-after', 'Before and after'],
@@ -30,8 +31,9 @@ const inside = [
   ['sources', 'Sources'],
 ].filter(([id]) => {
   // Only the sections this line's page shows (src/pages/index.astro shows a section when its data exists).
-  if (!line) return true;
+  if (!line) return id !== 'service';
   const shows: Record<string, boolean> = {
+    service: line.stages.some(hasService),
     map: Boolean(line.alignmentRaw),
     'before-after': Boolean(line.beforeAfter),
     station: Boolean(line.stationModel),

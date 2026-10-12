@@ -1,0 +1,174 @@
+---
+/**
+ * Opening mode: how each section of the line runs, from project.json `stages.sections[].service`.
+ * The page shows this section once a source gives any service fact for any section (hasService);
+ * until then the countdown on the front page says all there is.
+ */
+import Grade from './Grade.astro';
+import { formatDate, inr, openedOf, announcedOf, sectionName, clock, type Line, type StageSection } from '../lib/data';
+
+interface Props {
+  line: Line;
+}
+const { line } = Astro.props;
+const parts = line.stages.length > 1;
+
+/** The section's state in one sentence: open, opening on a date, or not open. */
+const stateOf = (sec: StageSection) => {
+  const opened = openedOf(sec);
+  if (opened) return { open: true, text: `Open since ${formatDate(opened.date)}.` };
+  const announced = announcedOf(sec);
+  if (announced) return { open: false, text: `Opens to riders on ${formatDate(announced.date)}.` };
+  return { open: false, text: 'Not open yet. No opening date announced.' };
+};
+---
+
+<section id="service" class="section page" aria-labelledby="service-title">
+  <header class="section-head">
+    <h2 id="service-title">Riding the line</h2>
+    <p>The opening date, train times, how often trains run and what a ticket costs. Each fact shows once MMRDA or a news source gives it, with its source.</p>
+  </header>
+
+  {line.stages.map((sec) => {
+    const state = stateOf(sec);
+    const sv = sec.service;
+    return (
+      <div class:list={['service', parts && 'service--part']}>
+        {parts && <h3 class="service__label">{sec.label}</h3>}
+        <p class:list={['service__state', state.open && 'service__state--open']}>
+          <span class="service__mark" aria-hidden="true"></span>
+          <span>
+            {parts ? state.text : `${sectionName(line, sec)}: ${state.text.charAt(0).toLowerCase()}${state.text.slice(1)}`}
+            {sv?.opening && <> <Grade status={sv.opening.status} source={sv.opening.source_url} compact /></>}
+          </span>
+        </p>
+        {sv?.opening?.notes && <p class="fact__note">{sv.opening.notes}</p>}
+        {sv && (sv.hours || sv.frequency || sv.fares) && (
+          <dl class="service__facts">
+            <div class="fact">
+              <dt>First and last train</dt>
+              {sv.hours ? (
+                <>
+                  <dd class="fact__value num">{clock(sv.hours.first)} to {clock(sv.hours.last)}</dd>
+                  {sv.hours.notes && <dd class="fact__note">{sv.hours.notes}</dd>}
+                  <dd><Grade status={sv.hours.status} source={sv.hours.source_url} /></dd>
+                </>
+              ) : (
+                <dd class="fact__none">Not announced yet</dd>
+              )}
+            </div>
+            <div class="fact">
+              <dt>A train every</dt>
+              {sv.frequency ? (
+                <>
+                  <dd class="fact__value num">{sv.frequency.peak_min} min<span class="fact__unit"> at peak</span></dd>
+                  {sv.frequency.off_peak_min && <dd class="fact__note">{sv.frequency.off_peak_min} minutes off-peak.</dd>}
+                  {sv.frequency.notes && <dd class="fact__note">{sv.frequency.notes}</dd>}
+                  <dd><Grade status={sv.frequency.status} source={sv.frequency.source_url} /></dd>
+                </>
+              ) : (
+                <dd class="fact__none">Not announced yet</dd>
+              )}
+            </div>
+            <div class="fact">
+              <dt>Single fare</dt>
+              {sv.fares ? (
+                <>
+                  <dd class="fact__value num">
+                    {sv.fares.min_inr === sv.fares.max_inr ? `₹${inr(sv.fares.min_inr)}` : `₹${inr(sv.fares.min_inr)} to ₹${inr(sv.fares.max_inr)}`}
+                  </dd>
+                  {sv.fares.notes && <dd class="fact__note">{sv.fares.notes}</dd>}
+                  <dd><Grade status={sv.fares.status} source={sv.fares.source_url} /></dd>
+                </>
+              ) : (
+                <dd class="fact__none">Not announced yet</dd>
+              )}
+            </div>
+          </dl>
+        )}
+      </div>
+    );
+  })}
+</section>
+
+<style>
+  .service {
+    display: grid;
+    gap: var(--s-4);
+  }
+  /* A line in parts: one block per part, ruled off like the progress stages. */
+  .service--part {
+    margin-bottom: var(--s-6);
+    padding-bottom: var(--s-5);
+    border-bottom: var(--rule-w) solid var(--rule);
+  }
+  .service__label {
+    font-size: var(--step-0);
+    font-family: var(--font-body);
+    font-weight: 700;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  /* The state's mark matches the strip: a hollow bar for not open, a solid bar for open. Words carry the state too. */
+  .service__state {
+    display: flex;
+    align-items: center;
+    gap: var(--s-3);
+    color: var(--ink-2);
+  }
+  .service__mark {
+    flex: none;
+    width: 2.5rem;
+    height: 0.875rem;
+    border: 0.3125rem solid var(--signal-graphic);
+    border-radius: 999px;
+    background: var(--paper);
+  }
+  .service__state--open {
+    color: var(--ink);
+    font-weight: 700;
+  }
+  .service__state--open .service__mark {
+    background: var(--signal-graphic);
+  }
+  .service__facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    gap: var(--s-5) var(--s-4);
+    margin: 0;
+  }
+  .fact {
+    display: grid;
+    gap: var(--s-1);
+    align-content: start;
+    padding-top: var(--s-3);
+    border-top: var(--rule-heavy) solid var(--rule-strong);
+  }
+  .fact dt {
+    font-size: var(--step--1);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-3);
+  }
+  .fact dd {
+    margin: 0;
+  }
+  .fact__value {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-stretch: 75%;
+    font-size: var(--step-2);
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .fact__unit {
+    font-size: var(--step-0);
+  }
+  .fact__note {
+    font-size: var(--step--1);
+    color: var(--ink-2);
+  }
+  .fact__none {
+    color: var(--ink-3);
+  }
+</style>

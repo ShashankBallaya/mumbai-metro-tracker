@@ -6,6 +6,7 @@
 //   - every line in lines.json has a folder with project.json, stations.json and its alignment file,
 //     and every line folder is listed in lines.json
 //   - project.json stages: a known state, and every {event:<id>} names an event in that line's timeline.json
+//   - project.json stages: every section has a service block (opening mode), each fact null or in its shape
 // Run: npm run validate
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
@@ -55,6 +56,20 @@ for (const line of lines) {
   }
 }
 const STATES = new Set(['done', 'now', 'started', 'next']);
+const HHMM = /^([01]\d|2[0-3]):[0-5]\d$/;
+const num = (v) => typeof v === 'number' && v > 0;
+const SERVICE = {
+  opening: (v) => /^\d{4}-\d{2}-\d{2}$/.test(v.date),
+  hours: (v) => HHMM.test(v.first) && HHMM.test(v.last),
+  frequency: (v) => num(v.peak_min) && (v.off_peak_min === null || num(v.off_peak_min)),
+  fares: (v) => num(v.min_inr) && num(v.max_inr) && v.min_inr <= v.max_inr,
+};
+const SERVICE_SHAPE = {
+  opening: 'date YYYY-MM-DD',
+  hours: 'first and last as HH:MM',
+  frequency: 'peak_min a number, off_peak_min a number or null',
+  fares: 'min_inr and max_inr numbers, min not above max',
+};
 for (const line of lines) {
   const read = (f) => (existsSync(join(DIR, 'lines', line.id, f)) ? JSON.parse(readFileSync(join(DIR, 'lines', line.id, f), 'utf8')) : null);
   const sections = read('project.json')?.stages?.sections ?? [];
@@ -66,6 +81,17 @@ for (const line of lines) {
       for (const [, ev] of st.note.matchAll(/\{event:([^}]+)\}/g)) if (!events.has(ev)) errors.push(`${at}: no timeline event "${ev}"`);
     }),
   );
+  // Opening mode: every section has all four service facts, each null or in its shape.
+  sections.forEach((sec, i) => {
+    const at = `lines/${line.id}/project.json stages.sections[${i}].service`;
+    const sv = sec.service;
+    if (!sv) return errors.push(`${at}: missing (opening, hours, frequency, fares, each null until sourced)`);
+    for (const k of Object.keys(SERVICE)) if (!(k in sv)) errors.push(`${at}: missing "${k}" (null until sourced)`);
+    for (const [k, v] of Object.entries(sv)) {
+      if (!(k in SERVICE)) errors.push(`${at}: unknown fact "${k}"`);
+      else if (v !== null && !SERVICE[k](v)) errors.push(`${at}.${k}: not in its shape (${SERVICE_SHAPE[k]})`);
+    }
+  });
 }
 for (const dir of readdirSync(join(DIR, 'lines'))) {
   if (!ids.has(dir)) errors.push(`lines/${dir}: folder not listed in lines.json`);

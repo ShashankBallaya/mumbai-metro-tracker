@@ -3,7 +3,7 @@
  * each answer with its grades. The same answers feed the page's FAQPage structured data.
  * A line without a set here has no status page (hasStatusPage).
  */
-import { formatDate, inr, lineBase, type Line } from './data';
+import { formatDate, inr, lineBase, openedOf, announcedOf, sectionName, sectionSubject, clock, type Line } from './data';
 
 export interface Answer {
   id: string;
@@ -268,9 +268,45 @@ function line5(line: Line): Answer[] {
 
 const sets: Record<string, (line: Line) => Answer[]> = { 'line-12': line12, 'line-5': line5 };
 
+/**
+ * Opening mode: once the line's first section has an announced or past opening date, that date answers
+ * "when will it open", and the train times, frequency and fares known so far answer a question of their own.
+ */
+function withService(line: Line, answers: Answer[]): Answer[] {
+  const sec = line.stages[0];
+  const opened = openedOf(sec);
+  const opening = opened ?? announcedOf(sec);
+  if (!sec || !opening) return answers;
+  const name = sectionName(line, sec);
+  const label = line.info.label;
+  const rest = (line.project.target_completion as { rest_of_line?: { value: string; status: string; source_url: string } }).rest_of_line;
+  const when: Answer = {
+    id: 'opening',
+    q: opened ? `When did Mumbai Metro ${label} open?` : `When will Mumbai Metro ${label} open?`,
+    a: `${sectionSubject(line, sec)} ${opened ? 'opened' : 'opens'} to riders on ${formatDate(opening.date)}.${rest ? ` The rest of the line has a reported target of ${rest.value}.` : ''}`,
+    grades: [{ status: opening.status, source: opening.source_url }, ...(rest ? [{ status: rest.status, source: rest.source_url }] : [])],
+  };
+  const { hours, frequency, fares } = sec.service!;
+  const facts = [
+    hours && `Trains run from ${clock(hours.first)} to ${clock(hours.last)}.`,
+    frequency && `A train comes every ${frequency.peak_min} minutes at peak${frequency.off_peak_min ? ` and every ${frequency.off_peak_min} minutes off-peak` : ''}.`,
+    fares && (fares.min_inr === fares.max_inr ? `A single fare costs Rs ${inr(fares.min_inr)}.` : `A single fare costs Rs ${inr(fares.min_inr)} to Rs ${inr(fares.max_inr)}.`),
+  ].filter(Boolean);
+  const riding: Answer | undefined = facts.length
+    ? {
+        id: 'riding',
+        q: `What are the train times and fares on ${label}?`,
+        a: `On ${name}: ${facts.join(' ')}`,
+        grades: [hours, frequency, fares].filter((f) => f !== null).map((f) => ({ status: f!.status, source: f!.source_url })),
+      }
+    : undefined;
+  return answers.flatMap((x) => (x.id === 'opening' ? (riding ? [when, riding] : [when]) : [x]));
+}
+
 /** A line's status answers, or undefined when it has no status page. */
 export function answersFor(line: Line): Answer[] | undefined {
-  return sets[line.id]?.(line);
+  const set = sets[line.id]?.(line);
+  return set && withService(line, set);
 }
 
 /** Whether the line has a status page. */

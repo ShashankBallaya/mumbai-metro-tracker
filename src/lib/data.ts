@@ -87,6 +87,26 @@ export interface StageSection {
   /** The station phases (stations.json `phase`) this section covers, on a line built in parts. */
   phases?: (number | string)[];
   stages: Stage[];
+  /** How the section runs once it opens. Each fact is null until a source gives it. */
+  service?: Service;
+}
+
+/** A sourced fact about a running line. */
+export interface ServiceFact extends Sourced {
+  notes?: string;
+}
+/**
+ * Opening mode (project.json `stages.sections[].service`). A section is open from its opening date
+ * (in India time) at build; before that date the date is an announced opening, and the countdown runs to it.
+ */
+export interface Service {
+  opening: (ServiceFact & { date: string }) | null;
+  /** First and last train, 24-hour "HH:MM". */
+  hours: (ServiceFact & { first: string; last: string }) | null;
+  /** Minutes between trains. */
+  frequency: (ServiceFact & { peak_min: number; off_peak_min: number | null }) | null;
+  /** The lowest and highest single fare, in rupees. */
+  fares: (ServiceFact & { min_inr: number; max_inr: number }) | null;
 }
 
 /**
@@ -175,6 +195,47 @@ export function getLine(id: LineId): Line {
   }
   byId.set(id, line);
   return line;
+}
+
+/** The day of this build in India time, "YYYY-MM-DD". Opening mode compares opening dates with it. */
+export const buildDay: string = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' });
+
+/** The section of the line a station belongs to: the one naming its phase, or the only one on a line built as one. */
+export function sectionOf(line: Line, s: Station): StageSection | undefined {
+  return line.stages.find((sec) => sec.phases?.includes(s.phase!)) ?? (line.stages.length === 1 && !line.stages[0].phases ? line.stages[0] : undefined);
+}
+
+/** The opening fact of a section that has opened by this build, else undefined. */
+export const openedOf = (sec: StageSection | undefined) => {
+  const o = sec?.service?.opening;
+  return o && o.date <= buildDay ? o : undefined;
+};
+
+/** The opening fact of a section whose opening date is announced but still ahead, else undefined. */
+export const announcedOf = (sec: StageSection | undefined) => {
+  const o = sec?.service?.opening;
+  return o && o.date > buildDay ? o : undefined;
+};
+
+/** Whether a station's section is open. */
+export const isOpen = (line: Line, s: Station) => Boolean(openedOf(sectionOf(line, s)));
+
+/** Whether any service fact is known for a section: an opening date, hours, frequency or fares. */
+export const hasService = (sec: StageSection) => Boolean(sec.service && Object.values(sec.service).some(Boolean));
+
+/** The name of a section in a sentence: its label, or the line's when it is built as one. */
+export const sectionName = (line: Line, sec: StageSection) => sec.label ?? line.info.label;
+
+/** The section's name as the subject of a sentence: "Phase 1, Kapurbawdi to Dhamankar Naka, opened". */
+export const sectionSubject = (line: Line, sec: StageSection) => {
+  const name = sectionName(line, sec);
+  return name.includes(',') ? `${name},` : name;
+};
+
+/** "06:00" -> "6:00 am", "22:30" -> "10:30 pm". */
+export function clock(hhmm: string): string {
+  const [h, m] = hhmm.split(':').map(Number);
+  return `${h % 12 || 12}:${String(m).padStart(2, '0')} ${h < 12 ? 'am' : 'pm'}`;
 }
 
 /** The latest review date across every line, for site-wide pages such as the sitemap. */
