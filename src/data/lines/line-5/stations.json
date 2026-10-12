@@ -1,6 +1,6 @@
 {
  "_meta": {
-  "description": "Line 5's stations in order from Kapurbawdi, as MMRDA's revised plan of 2026 has them. 'stations' is the line itself; 'spur_stations' is the Line 5A spur from Bhoirwadi to Ulhasnagar (along_m measured on the spur); 'dropped_stations' were on the 2017 route and are not in the revised plan. Positions to the Ulhas river bridge come from MMRDA's alignment file (March 2025, verified); past it, from the tentative key plan in MMRDA's tender documents of March 2026 (reported, good to about 50 m), with the 2025 point under location.earlier where a station moved. Both by scripts/build-alignment-line5.py. Kongaon West is new and has no published position. 'phase': 1 Kapurbawdi to Dhamankar Naka, 2 to Kongaon West, 3 Durgadi to Kalyan, '5A' the spur. 'eia_chainage_m' is the chainage in MMRDA's Phase 1 environmental report (Sep 2023), which does not match the distances between the station points (for example Kalher to Purna: 0.83 km in the report, about 2 km apart on the map); kept as published. 'keyplan_chainage_m' is the chainage on the key plan, from the corridor start at the bridge (Phase 3) or the spur start (5A). 'same_site_as' names a station of another line at the same place, with the distance between the two points.",
+  "description": "Line 5's stations in order from Kapurbawdi, as MMRDA's revised plan of 2026 has them. 'stations' is the line itself; 'spur_stations' is the Line 5A spur from Bhoirwadi to Ulhasnagar (along_m measured on the spur); 'dropped_stations' were on the 2017 route and are not in the revised plan. Positions to the Ulhas river bridge come from MMRDA's alignment file (March 2025, verified); past it, from the tentative key plan in MMRDA's tender documents of March 2026 (reported, good to about 50 m), with the 2025 point under location.earlier where a station moved. Both by scripts/build-alignment-line5.py. Kongaon West is new and has no published position. 'phase': 1 Kapurbawdi to Dhamankar Naka, 2 to Kongaon West, 3 Durgadi to Kalyan, '5A' the spur. 'eia_chainage_m' is the chainage in MMRDA's Phase 1 environmental report (Sep 2023), kept as published; it runs 420 to 460 m short of along_m at every Phase 1 station (a different zero). 'keyplan_chainage_m' is the chainage on the key plan, from the corridor start at the bridge (Phase 3) or the spur start (5A). 'same_site_as' names a station of another line at the same place, with the distance between the two points.",
   "order_source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc",
   "count_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-5/overview",
   "names_mr_source_url": "https://mmrda.maharashtra.gov.in/mr/projects/transport/metro-line-5/overview",
@@ -175,13 +175,21 @@
    "name_status": "verified",
    "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-5/overview",
    "location": {
-    "lng": 73.019526,
-    "lat": 19.251814,
-    "along_m": 7422,
+    "lng": 73.022888,
+    "lat": 19.254022,
+    "along_m": 7859,
     "eia_chainage_m": 7416.328,
-    "method": "MMRDA alignment file for Line 5 (KML on the Metro Influence Zone page, uploaded March 2025): point \"Kalhar(M) Station\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start at Kapurbawdi; the point is 7 m from that line.",
-    "status": "verified",
-    "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+    "method": "Centre of the built station on Esri World Imagery (Wayback release of 24 Sep 2026, captured 12 Oct 2025): a deck of about 145 m with platforms on both sides, checked 2026-10-12. It fits the station's chainage in MMRDA's Phase 1 environmental report (Sep 2023). The point is 8 m from the line.",
+    "status": "reported",
+    "source_url": "https://livingatlas.arcgis.com/wayback/#active=63116&mapCenter=73.02289%2C19.25402%2C19",
+    "earlier": [
+     {
+      "lat": 19.251814,
+      "lng": 73.019526,
+      "basis": "MMRDA's alignment file of March 2025, which puts it about 430 m south-west of the built station, beside the viaduct where it is single width",
+      "distance_m": 430
+     }
+    ]
    },
    "interchanges": {
     "value": [],
@@ -215,13 +223,21 @@
    "name_status": "verified",
    "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-5/overview",
    "location": {
-    "lng": 73.032815,
-    "lat": 19.264678,
-    "along_m": 9440,
+    "lng": 73.027936,
+    "lat": 19.259831,
+    "along_m": 8694,
     "eia_chainage_m": 8250.753,
-    "method": "MMRDA alignment file for Line 5 (KML on the Metro Influence Zone page, uploaded March 2025): point \"Purna(M) Station\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start at Kapurbawdi; the point is 5 m from that line.",
-    "status": "verified",
-    "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+    "method": "Centre of the built station on Esri World Imagery (Wayback release of 24 Sep 2026, captured 12 Oct 2025): a deck of about 145 m with platforms on both sides, checked 2026-10-12. It fits the station's chainage in MMRDA's Phase 1 environmental report (Sep 2023). The point is 1 m from the line.",
+    "status": "reported",
+    "source_url": "https://livingatlas.arcgis.com/wayback/#active=63116&mapCenter=73.02794%2C19.25983%2C19",
+    "earlier": [
+     {
+      "lat": 19.264678,
+      "lng": 73.032815,
+      "basis": "MMRDA's alignment file of March 2025, which puts it about 740 m north-east of the built station, beside the viaduct where it is single width",
+      "distance_m": 744
+     }
+    ]
    },
    "interchanges": {
     "value": [],
@@ -299,7 +315,7 @@
     "lat": 19.285912,
     "along_m": 12581,
     "eia_chainage_m": 12125.569,
-    "method": "Centre of the built station on Esri World Imagery (Wayback release of 24 Sep 2026, captured 12 Oct 2025): a 145 m deck with platforms and stair blocks at the end of the Phase 1 viaduct, checked 2026-10-12. The point is 2 m from the line.",
+    "method": "Centre of the built station on Esri World Imagery (Wayback release of 24 Sep 2026, captured 12 Oct 2025): a deck of about 145 m with platforms on both sides, checked 2026-10-12. It fits the station's chainage in MMRDA's Phase 1 environmental report (Sep 2023). The point is 2 m from the line.",
     "status": "reported",
     "source_url": "https://livingatlas.arcgis.com/wayback/#active=63116&mapCenter=73.05241%2C19.28591%2C19",
     "earlier": [

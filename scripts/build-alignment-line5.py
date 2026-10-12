@@ -244,24 +244,34 @@ along_of['kapurbawdi'] = k_at
 print(f'kapurbawdi         {k_at / 1000:7.3f} km  (OpenStreetMap; {moved} m from MMRDA\'s point)')
 
 
-# ---------- Dhamankar Naka station: the built station on satellite imagery, not MMRDA's point ----------
-# MMRDA's point is on Agra Road about 250 m past the end of the Phase 1 viaduct, where there is no station
-# (the owner spotted it, 2026-10-12). The built station, a 145 m deck with platforms and stair blocks, is
-# the last stretch of the viaduct; this is its centre on Esri World Imagery (Wayback release of
-# 24 Sep 2026, captured 12 Oct 2025).
-DHAMANKAR = {'lat': 19.285912, 'lng': 73.052414, 'checked': '2026-10-12',
-             'imagery': 'https://livingatlas.arcgis.com/wayback/#active=63116&mapCenter=73.05241%2C19.28591%2C19'}
-dham = by_id['dhamankar-naka']['location']
-d_off, d_at = along(DHAMANKAR['lng'], DHAMANKAR['lat'])
-d_moved = round(math.dist(to_xy(DHAMANKAR['lng'], DHAMANKAR['lat']), to_xy(dham['lng'], dham['lat'])))
-dham['earlier'] = [{'lat': dham['lat'], 'lng': dham['lng'], 'basis': "MMRDA's alignment file of March 2025, which puts it on Agra Road past the end of the built viaduct, where there is no station", 'distance_m': d_moved}]
-dham.update({
-    'lng': DHAMANKAR['lng'], 'lat': DHAMANKAR['lat'], 'along_m': round(d_at),
-    'method': f"Centre of the built station on Esri World Imagery (Wayback release of 24 Sep 2026, captured 12 Oct 2025): a 145 m deck with platforms and stair blocks at the end of the Phase 1 viaduct, checked {DHAMANKAR['checked']}. The point is {round(d_off)} m from the line.",
-    'status': 'reported', 'source_url': DHAMANKAR['imagery'],
-})
-along_of['dhamankar-naka'] = d_at
-print(f'dhamankar-naka     {d_at / 1000:7.3f} km  (satellite imagery; {d_moved} m from MMRDA\'s point)')
+# ---------- Stations where MMRDA's point misses the built station: the station on satellite imagery ----------
+# Checked on Esri World Imagery (Wayback release of 24 Sep 2026, captured 12 Oct 2025), after the owner
+# spotted Dhamankar Naka and then Kalher and Purna (2026-10-12). Each built station is a deck of about
+# 145 m with platforms on both sides; the point is its centre. MMRDA's Phase 1 environmental report
+# (Sep 2023) agrees: its chainages sit 420 to 460 m short of along_m at every other Phase 1 station
+# (its zero is elsewhere), and at that offset put Kalher near 7.85 km and Purna near 8.68 km, where
+# these stations are, not at MMRDA's points (7.42 and 9.44 km).
+WAYBACK = 'https://livingatlas.arcgis.com/wayback/#active=63116&mapCenter={lng}%2C{lat}%2C19'
+IMAGERY = {
+    'kalher': {'lat': 19.254022, 'lng': 73.022888,
+               'why': "MMRDA's alignment file of March 2025, which puts it about 430 m south-west of the built station, beside the viaduct where it is single width"},
+    'purna': {'lat': 19.259831, 'lng': 73.027936,
+              'why': "MMRDA's alignment file of March 2025, which puts it about 740 m north-east of the built station, beside the viaduct where it is single width"},
+    'dhamankar-naka': {'lat': 19.285912, 'lng': 73.052414,
+                       'why': "MMRDA's alignment file of March 2025, which puts it on Agra Road past the end of the built viaduct, where there is no station"},
+}
+for sid, fix in IMAGERY.items():
+    loc = by_id[sid]['location']
+    f_off, f_at = along(fix['lng'], fix['lat'])
+    f_moved = round(math.dist(to_xy(fix['lng'], fix['lat']), to_xy(loc['lng'], loc['lat'])))
+    loc['earlier'] = [{'lat': loc['lat'], 'lng': loc['lng'], 'basis': fix['why'], 'distance_m': f_moved}]
+    loc.update({
+        'lng': fix['lng'], 'lat': fix['lat'], 'along_m': round(f_at),
+        'method': f"Centre of the built station on Esri World Imagery (Wayback release of 24 Sep 2026, captured 12 Oct 2025): a deck of about 145 m with platforms on both sides, checked 2026-10-12. It fits the station's chainage in MMRDA's Phase 1 environmental report (Sep 2023). The point is {round(f_off)} m from the line.",
+        'status': 'reported', 'source_url': WAYBACK.format(lng=f"{fix['lng']:.5f}", lat=f"{fix['lat']:.5f}"),
+    })
+    along_of[sid] = f_at
+    print(f'{sid:18s} {f_at / 1000:7.3f} km  (satellite imagery; {f_moved} m from MMRDA\'s point)')
 
 
 # ---------- Past the Ulhas bridge: the key plan in the March 2026 tender documents ----------
