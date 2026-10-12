@@ -127,6 +127,7 @@
         "default": "MMRDA's alignment file, Mar 2025",
         "by_source": {
           "openstreetmap.org": "OpenStreetMap, checked on satellite imagery",
+          "livingatlas.arcgis.com/wayback": "the built station on satellite imagery, Oct 2025",
           "x.com/Maha7Arindam": "tentative key plan, MMRDA tender, Mar 2026"
         }
       },

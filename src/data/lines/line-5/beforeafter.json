@@ -4,9 +4,63 @@
     "zoom": 18,
     "before_rule": "Latest imagery captured before 7 Jan 2020 (Phase 1 civil contract awarded).",
     "began": "January 2020",
-    "last_reviewed": "2026-10-09"
+    "last_reviewed": "2026-10-12"
   },
   "spots": [
+    {
+      "id": "kapurbawdi",
+      "title": "Kapurbawdi",
+      "station_id": "kapurbawdi",
+      "lat": 19.2241429,
+      "lng": 72.9774245,
+      "location_status": "reported",
+      "before": {
+        "release_id": "11135",
+        "release_date": "2020-06-10",
+        "tile_url": "https://wayback.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/WMTS/1.0.0/default028mm/MapServer/tile/11135/{level}/{row}/{col}",
+        "captured": "2018-10-24",
+        "provider": "Maxar",
+        "resolution_m": 0.31
+      },
+      "after": {
+        "release_id": "63116",
+        "release_date": "2026-09-24",
+        "tile_url": "https://wayback.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/WMTS/1.0.0/default028mm/MapServer/tile/63116/{level}/{row}/{col}",
+        "captured": "2025-10-12",
+        "provider": "Vantor",
+        "resolution_m": 0.5
+      },
+      "status": "verified",
+      "source_url": "https://livingatlas.arcgis.com/wayback/",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "balkum-naka",
+      "title": "Balkum Naka",
+      "station_id": "balkum-naka",
+      "lat": 19.220853,
+      "lng": 72.988592,
+      "location_status": "verified",
+      "before": {
+        "release_id": "11135",
+        "release_date": "2020-06-10",
+        "tile_url": "https://wayback.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/WMTS/1.0.0/default028mm/MapServer/tile/11135/{level}/{row}/{col}",
+        "captured": "2018-10-24",
+        "provider": "Maxar",
+        "resolution_m": 0.31
+      },
+      "after": {
+        "release_id": "63116",
+        "release_date": "2026-09-24",
+        "tile_url": "https://wayback.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/WMTS/1.0.0/default028mm/MapServer/tile/63116/{level}/{row}/{col}",
+        "captured": "2025-10-12",
+        "provider": "Vantor",
+        "resolution_m": 0.5
+      },
+      "status": "verified",
+      "source_url": "https://livingatlas.arcgis.com/wayback/",
+      "last_verified": "2026-10-12"
+    },
     {
       "id": "kasheli",
       "title": "Kasheli",
@@ -32,7 +86,61 @@
       },
       "status": "verified",
       "source_url": "https://livingatlas.arcgis.com/wayback/",
-      "last_verified": "2026-10-09"
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "kalher",
+      "title": "Kalher",
+      "station_id": "kalher",
+      "lat": 19.251814,
+      "lng": 73.019526,
+      "location_status": "verified",
+      "before": {
+        "release_id": "11135",
+        "release_date": "2020-06-10",
+        "tile_url": "https://wayback.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/WMTS/1.0.0/default028mm/MapServer/tile/11135/{level}/{row}/{col}",
+        "captured": "2018-10-24",
+        "provider": "Maxar",
+        "resolution_m": 0.31
+      },
+      "after": {
+        "release_id": "63116",
+        "release_date": "2026-09-24",
+        "tile_url": "https://wayback.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/WMTS/1.0.0/default028mm/MapServer/tile/63116/{level}/{row}/{col}",
+        "captured": "2025-10-12",
+        "provider": "Vantor",
+        "resolution_m": 0.5
+      },
+      "status": "verified",
+      "source_url": "https://livingatlas.arcgis.com/wayback/",
+      "last_verified": "2026-10-12"
+    },
+    {
+      "id": "purna",
+      "title": "Purna",
+      "station_id": "purna",
+      "lat": 19.264678,
+      "lng": 73.032815,
+      "location_status": "verified",
+      "before": {
+        "release_id": "11135",
+        "release_date": "2020-06-10",
+        "tile_url": "https://wayback.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/WMTS/1.0.0/default028mm/MapServer/tile/11135/{level}/{row}/{col}",
+        "captured": "2018-10-24",
+        "provider": "Maxar",
+        "resolution_m": 0.31
+      },
+      "after": {
+        "release_id": "63116",
+        "release_date": "2026-09-24",
+        "tile_url": "https://wayback.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/WMTS/1.0.0/default028mm/MapServer/tile/63116/{level}/{row}/{col}",
+        "captured": "2025-10-12",
+        "provider": "Vantor",
+        "resolution_m": 0.5
+      },
+      "status": "verified",
+      "source_url": "https://livingatlas.arcgis.com/wayback/",
+      "last_verified": "2026-10-12"
     },
     {
       "id": "anjurphata",
@@ -59,15 +167,15 @@
       },
       "status": "verified",
       "source_url": "https://livingatlas.arcgis.com/wayback/",
-      "last_verified": "2026-10-09"
+      "last_verified": "2026-10-12"
     },
     {
       "id": "dhamankar-naka",
       "title": "Dhamankar Naka",
       "station_id": "dhamankar-naka",
-      "lat": 19.287582,
-      "lng": 73.054086,
-      "location_status": "verified",
+      "lat": 19.285912,
+      "lng": 73.052414,
+      "location_status": "reported",
       "before": {
         "release_id": "11135",
         "release_date": "2020-06-10",
@@ -86,7 +194,7 @@
       },
       "status": "verified",
       "source_url": "https://livingatlas.arcgis.com/wayback/",
-      "last_verified": "2026-10-09"
+      "last_verified": "2026-10-12"
     }
   ]
 }

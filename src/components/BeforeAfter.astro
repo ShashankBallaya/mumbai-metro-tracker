@@ -6,7 +6,7 @@
  * Optional dated ground photos from the line's photos.json appear below when the owner adds them.
  */
 import Grade from './Grade.astro';
-import { formatDate, type Line } from '../lib/data';
+import { formatDate, positionBasis, type Line } from '../lib/data';
 
 interface Props {
   line: Line;
@@ -51,6 +51,11 @@ const pairs = photoPairs as { place: string; credit: string; before: Shot; after
 // The newest "after" capture across the spots, and when the site last asked Esri for newer imagery.
 const latestCapture = data.spots.map((s) => s.after.captured).sort().at(-1)!;
 const checked = data._meta.last_reviewed;
+/** Where a spot's centre comes from: its station's position source (MMRDA's file, OpenStreetMap, imagery). */
+const basisOf = (id: string) => {
+  const st = [...line.stations, ...line.spurStations].find((x) => x.id === id);
+  return st ? positionBasis(line, st) : 'the station point';
+};
 ---
 
 <section id="before-after" class="section page ba" aria-labelledby="ba-title" data-ba>
@@ -104,7 +109,7 @@ const checked = data._meta.last_reviewed;
           {' '}{formatDate(s.after.captured)} ({s.after.provider}). Imagery: Esri World Imagery Wayback.
         </span>
         <Grade status={s.status} source={s.source_url} />
-        <span class="ba__approx">Centred on MMRDA's station point.</span>
+        <span class="ba__approx">Centred on the station's position: {basisOf(s.station_id)}.</span>
       </figcaption>
     </figure>
   ))}

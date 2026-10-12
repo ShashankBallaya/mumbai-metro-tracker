@@ -244,6 +244,26 @@ along_of['kapurbawdi'] = k_at
 print(f'kapurbawdi         {k_at / 1000:7.3f} km  (OpenStreetMap; {moved} m from MMRDA\'s point)')
 
 
+# ---------- Dhamankar Naka station: the built station on satellite imagery, not MMRDA's point ----------
+# MMRDA's point is on Agra Road about 250 m past the end of the Phase 1 viaduct, where there is no station
+# (the owner spotted it, 2026-10-12). The built station, a 145 m deck with platforms and stair blocks, is
+# the last stretch of the viaduct; this is its centre on Esri World Imagery (Wayback release of
+# 24 Sep 2026, captured 12 Oct 2025).
+DHAMANKAR = {'lat': 19.285912, 'lng': 73.052414, 'checked': '2026-10-12',
+             'imagery': 'https://livingatlas.arcgis.com/wayback/#active=63116&mapCenter=73.05241%2C19.28591%2C19'}
+dham = by_id['dhamankar-naka']['location']
+d_off, d_at = along(DHAMANKAR['lng'], DHAMANKAR['lat'])
+d_moved = round(math.dist(to_xy(DHAMANKAR['lng'], DHAMANKAR['lat']), to_xy(dham['lng'], dham['lat'])))
+dham['earlier'] = [{'lat': dham['lat'], 'lng': dham['lng'], 'basis': "MMRDA's alignment file of March 2025, which puts it on Agra Road past the end of the built viaduct, where there is no station", 'distance_m': d_moved}]
+dham.update({
+    'lng': DHAMANKAR['lng'], 'lat': DHAMANKAR['lat'], 'along_m': round(d_at),
+    'method': f"Centre of the built station on Esri World Imagery (Wayback release of 24 Sep 2026, captured 12 Oct 2025): a 145 m deck with platforms and stair blocks at the end of the Phase 1 viaduct, checked {DHAMANKAR['checked']}. The point is {round(d_off)} m from the line.",
+    'status': 'reported', 'source_url': DHAMANKAR['imagery'],
+})
+along_of['dhamankar-naka'] = d_at
+print(f'dhamankar-naka     {d_at / 1000:7.3f} km  (satellite imagery; {d_moved} m from MMRDA\'s point)')
+
+
 # ---------- Past the Ulhas bridge: the key plan in the March 2026 tender documents ----------
 KP = json.load(open(KEYPLAN, encoding='utf-8'))
 tf = KP['transform']

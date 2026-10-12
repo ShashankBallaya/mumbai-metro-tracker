@@ -295,13 +295,21 @@
    "name_status": "verified",
    "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-5/overview",
    "location": {
-    "lng": 73.054086,
-    "lat": 19.287582,
-    "along_m": 12837,
+    "lng": 73.052414,
+    "lat": 19.285912,
+    "along_m": 12581,
     "eia_chainage_m": 12125.569,
-    "method": "MMRDA alignment file for Line 5 (KML on the Metro Influence Zone page, uploaded March 2025): point \"Dhamankar Naka (M) Station\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start at Kapurbawdi; the point is 1 m from that line.",
-    "status": "verified",
-    "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+    "method": "Centre of the built station on Esri World Imagery (Wayback release of 24 Sep 2026, captured 12 Oct 2025): a 145 m deck with platforms and stair blocks at the end of the Phase 1 viaduct, checked 2026-10-12. The point is 2 m from the line.",
+    "status": "reported",
+    "source_url": "https://livingatlas.arcgis.com/wayback/#active=63116&mapCenter=73.05241%2C19.28591%2C19",
+    "earlier": [
+     {
+      "lat": 19.287582,
+      "lng": 73.054086,
+      "basis": "MMRDA's alignment file of March 2025, which puts it on Agra Road past the end of the built viaduct, where there is no station",
+      "distance_m": 256
+     }
+    ]
    },
    "interchanges": {
     "value": [],

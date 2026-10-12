@@ -30,9 +30,13 @@ const LINES = {
     rule: 'Latest imagery captured before 7 Jan 2020 (Phase 1 civil contract awarded).',
     began: 'January 2020',
     searchFrom: '2020-06-30',
-    // Phase 1, built: Kasheli near the creek crossing, the Agra Road junction at Anjurphata, and the end at Dhamankar Naka.
+    // Phase 1, built: every station from Kapurbawdi to Dhamankar Naka (owner's request, 2026-10-12).
     spots: [
+      { id: 'kapurbawdi', station: 'kapurbawdi', title: 'Kapurbawdi' },
+      { id: 'balkum-naka', station: 'balkum-naka', title: 'Balkum Naka' },
       { id: 'kasheli', station: 'kasheli', title: 'Kasheli' },
+      { id: 'kalher', station: 'kalher', title: 'Kalher' },
+      { id: 'purna', station: 'purna', title: 'Purna' },
       { id: 'anjurphata', station: 'anjurphata', title: 'Anjurphata' },
       { id: 'dhamankar-naka', station: 'dhamankar-naka', title: 'Dhamankar Naka' },
     ],
