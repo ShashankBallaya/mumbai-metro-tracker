@@ -1,0 +1,236 @@
+---
+/**
+ * What changed between a line's 2017 plan and its current plan (Line 5): the route in a few figures,
+ * then every 2017 station with what became of it, then the stations the current plan adds.
+ * Built from stations.json `plan_2017` and the 2017 entries in project.json's histories.
+ */
+import Grade from './Grade.astro';
+import { stationHref, type Line, type Station } from '../lib/data';
+
+interface Props {
+  line: Line;
+}
+const { line } = Astro.props;
+const { project: p, stations, spurStations, droppedStations } = line;
+const plan = line.plan2017!;
+
+type History = { value: number | string; context: string; source_url: string }[];
+/** The 2017 entry of a fact's history. */
+const then = (h: History | undefined) => h?.find((e) => e.context.startsWith('2017 plan'));
+const routeThen = then((p.route as { history?: History }).history);
+const lengthThen = then(p.length_km.history as History);
+const countThen = then(p.stations_count.history as History);
+const under = (p as unknown as { underground_section: { status: string; source_url: string } }).underground_section;
+
+type Revised = { value: string; status: string; source_url: string };
+const revised = (s: Station) => (s as { revised_plan_2026?: Revised }).revised_plan_2026;
+const all = [...stations, ...spurStations];
+const byId = (id: string) => all.find((s) => s.id === id)!;
+const droppedById = (id: string) => droppedStations.find((s) => s.id === id)!;
+/** "Kept: the end of Phase 3, at the Line 12 interchange (MMRDA's ...)" -> without the aside. */
+const short = (t: string) => t.replace(/\s*\([^)]*\)\s*$/, '');
+
+const ledger = plan.stations.map((e) => {
+  if (e.now) {
+    const s = byId(e.now);
+    return { name: e.name, kept: true, now: s, text: short(revised(s)?.value ?? 'Kept') };
+  }
+  if (e.dropped) return { name: e.name, kept: false, text: `Dropped. ${revised(droppedById(e.dropped))?.value ?? ''}.`.replace('..', '.') };
+  return { name: e.name, kept: false, text: e.note ?? '' };
+});
+const kept = new Set(plan.stations.map((e) => e.now).filter(Boolean));
+const phaseName = (s: Station) => (s.phase === '5A' ? 'Line 5A spur' : `Phase ${s.phase}`);
+const added = all.filter((s) => !kept.has(s.id));
+const keptCount = ledger.filter((e) => e.kept).length;
+const href = (s: Station) => stationHref(line.id, s.id);
+const revisedSource = revised(stations[0]);
+---
+
+<section id="changes" class="section page" aria-labelledby="changes-title">
+  <header class="section-head">
+    <h2 id="changes-title">What changed since 2017</h2>
+    <p>{(line.info.copy as { changes_section?: string }).changes_section}</p>
+  </header>
+
+  <table class="then-now">
+    <caption class="visually-hidden">The 2017 plan against the plan of 2026</caption>
+    <thead>
+      <tr>
+        <th scope="col"><span class="visually-hidden">Fact</span></th>
+        <th scope="col">2017 plan</th>
+        <th scope="col">2026 plan</th>
+      </tr>
+    </thead>
+    <tbody>
+      {routeThen && (
+        <tr>
+          <th scope="row">Route</th>
+          <td>{routeThen.value}</td>
+          <td>{p.route.value} <Grade status={p.route.status} source={p.route.source_url} compact /></td>
+        </tr>
+      )}
+      {lengthThen && (
+        <tr>
+          <th scope="row">Length</th>
+          <td class="num">{lengthThen.value} km</td>
+          <td class="num">{p.length_km.value} km, with the spur <Grade status={p.length_km.status} source={p.length_km.source_url} compact /></td>
+        </tr>
+      )}
+      {countThen && (
+        <tr>
+          <th scope="row">Stations</th>
+          <td class="num">{countThen.value}</td>
+          <td class="num">{p.stations_count.value}, as MMRDA counts them <Grade status={p.stations_count.status} source={p.stations_count.source_url} compact /></td>
+        </tr>
+      )}
+      {plan.structure && (
+        <tr>
+          <th scope="row">Built</th>
+          <td>{plan.structure}</td>
+          <td>{p.length_km.structure} <Grade status={under.status} source={under.source_url} compact /></td>
+        </tr>
+      )}
+    </tbody>
+  </table>
+  <p class="then-now__source">2017 plan: <Grade status={plan.status} source={plan.source_url} /></p>
+
+  <div class="ledger">
+    <div class="ledger__col">
+      <h3 class="ledger__title">The {ledger.length} stations of 2017</h3>
+      <p class="ledger__sum">{keptCount} kept, {ledger.length - keptCount} not in the 2026 plan.</p>
+      <ol class="ledger__list">
+        {ledger.map((e) => (
+          <li class:list={['ledger__item', !e.kept && 'ledger__item--gone']}>
+            <span class="ledger__mark" aria-hidden="true"></span>
+            <span class="ledger__name">
+              {!e.now ? <s>{e.name}</s> : e.now.name === e.name && href(e.now) ? <a href={href(e.now)!}>{e.name}</a> : e.name}
+              {e.now && e.now.name !== e.name && <span class="ledger__now"> now {href(e.now) ? <a href={href(e.now)!}>{e.now.name}</a> : e.now.name}</span>}
+            </span>
+            <span class="ledger__what">{e.text}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+
+    <div class="ledger__col">
+      <h3 class="ledger__title">New since 2017</h3>
+      <p class="ledger__sum">{added.length} stations that the 2017 plan did not have.</p>
+      <ol class="ledger__list">
+        {added.map((s) => (
+          <li class="ledger__item ledger__item--new">
+            <span class="ledger__mark" aria-hidden="true"></span>
+            <span class="ledger__name">{href(s) ? <a href={href(s)!}>{s.name}</a> : s.name}</span>
+            <span class="ledger__what">{phaseName(s)}{s.id === stations[0].id && ', built as part of Metro Line 4'}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </div>
+  {revisedSource && <p class="then-now__source">2026 plan: <Grade status={revisedSource.status} source={revisedSource.source_url} /></p>}
+  {line.alignmentRaw && <p class="then-now__map"><a href="#map">See both routes on the map</a>: tick "Show the earlier plan's route and dropped stations". The map draws MMRDA's 2025 file of the earlier route.</p>}
+</section>
+
+<style>
+  .then-now {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--s-3);
+  }
+  .then-now th,
+  .then-now td {
+    padding: var(--s-3) var(--s-3) var(--s-3) 0;
+    border-bottom: var(--rule-w) solid var(--rule);
+    text-align: left;
+    vertical-align: top;
+  }
+  .then-now thead th {
+    font-size: var(--step--1);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-3);
+    font-weight: 400;
+    border-bottom: var(--rule-heavy) solid var(--rule-strong);
+  }
+  .then-now tbody th {
+    width: 7rem;
+    font-weight: 700;
+  }
+  /* The old plan in grey, the current one in full ink. */
+  .then-now tbody td:nth-child(2) {
+    color: var(--ink-2);
+    width: 38%;
+  }
+  .then-now__source {
+    margin-bottom: var(--s-6);
+  }
+  .then-now__map {
+    margin-top: var(--s-4);
+    color: var(--ink-2);
+  }
+  @media (max-width: 40rem) {
+    .then-now tbody th {
+      width: auto;
+    }
+  }
+
+  .ledger {
+    display: grid;
+    gap: var(--s-6);
+  }
+  @media (min-width: 56rem) {
+    .ledger {
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      column-gap: var(--s-7);
+    }
+  }
+  .ledger__title {
+    font-size: var(--step-2);
+    text-transform: uppercase;
+  }
+  .ledger__sum {
+    margin: var(--s-2) 0 var(--s-4);
+    color: var(--ink-2);
+  }
+  .ledger__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .ledger__item {
+    display: grid;
+    grid-template-columns: 1rem minmax(0, 1fr);
+    column-gap: var(--s-3);
+    padding: var(--s-2) 0;
+    border-top: var(--rule-w) solid var(--rule);
+  }
+  /* Mark and words together, never colour alone: solid dot kept, struck ring gone, outlined square new. */
+  .ledger__mark {
+    grid-row: 1 / 3;
+    width: 0.75rem;
+    height: 0.75rem;
+    margin-top: 0.35rem;
+    border-radius: 50%;
+    background: var(--ink);
+  }
+  .ledger__item--gone .ledger__mark {
+    background: transparent;
+    border: 2px solid var(--ink-3);
+  }
+  .ledger__item--new .ledger__mark {
+    border-radius: 0;
+    background: var(--signal-graphic);
+  }
+  .ledger__name {
+    font-weight: 700;
+  }
+  .ledger__item--gone .ledger__name {
+    color: var(--ink-3);
+  }
+  .ledger__now {
+    font-weight: 400;
+  }
+  .ledger__what {
+    font-size: var(--step--1);
+    color: var(--ink-2);
+  }
+</style>

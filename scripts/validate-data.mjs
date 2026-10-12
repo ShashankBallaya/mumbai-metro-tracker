@@ -6,6 +6,7 @@
 //   - every line in lines.json has a folder with project.json, stations.json and its alignment file,
 //     and every line folder is listed in lines.json
 //   - project.json stages: a known state, and every {event:<id>} names an event in that line's timeline.json
+//   - stations.json plan_2017: each entry names a current or dropped station, or has a note
 //   - project.json stages: every section has a service block (opening mode), each fact null or in its shape
 // Run: npm run validate
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
@@ -91,6 +92,20 @@ for (const line of lines) {
       if (!(k in SERVICE)) errors.push(`${at}: unknown fact "${k}"`);
       else if (v !== null && !SERVICE[k](v)) errors.push(`${at}.${k}: not in its shape (${SERVICE_SHAPE[k]})`);
     }
+  });
+}
+// An earlier plan's stations point at stations of the current plan, or at dropped ones.
+for (const line of lines) {
+  const f = join(DIR, 'lines', line.id, 'stations.json');
+  const st = existsSync(f) ? JSON.parse(readFileSync(f, 'utf8')) : null;
+  if (!st?.plan_2017) continue;
+  const now = new Set([...st.stations, ...(st.spur_stations ?? [])].map((s) => s.id));
+  const dropped = new Set((st.dropped_stations ?? []).map((s) => s.id));
+  st.plan_2017.stations.forEach((e, i) => {
+    const at = `lines/${line.id}/stations.json plan_2017.stations[${i}]`;
+    if (e.now && !now.has(e.now)) errors.push(`${at}: no station "${e.now}"`);
+    if (e.dropped && !dropped.has(e.dropped)) errors.push(`${at}: no dropped station "${e.dropped}"`);
+    if ([e.now, e.dropped, e.note].filter(Boolean).length !== 1) errors.push(`${at}: give one of now, dropped or note`);
   });
 }
 for (const dir of readdirSync(join(DIR, 'lines'))) {

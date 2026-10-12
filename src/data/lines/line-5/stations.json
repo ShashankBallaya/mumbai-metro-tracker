@@ -1036,5 +1036,74 @@
    "notes": "The end of the spur. In the key plan it lies about 1.1 km east of Ulhasnagar railway station; MMRDA's press release promises direct access to that station, which the key plan does not show.",
    "last_verified": "2026-10-09"
   }
- ]
+ ],
+ "plan_2017": {
+  "description": "The 2017 plan as MMRDA's Line 5 page still lists it (checked 12 Oct 2026): 15 stations, all elevated, Balkum Naka to Kalyan APMC. Each entry names the station it became in the 2026 plan (now) or its entry in dropped_stations (dropped). MMRDA's 2025 alignment file has a later form of this route, with Durgadi Fort and Sahajanand Chowk where the page lists Lal Chowki; the map draws that file.",
+  "status": "verified",
+  "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-5/overview",
+  "last_verified": "2026-10-12",
+  "structure": "All elevated",
+  "stations": [
+   {
+    "name": "Balkum Naka",
+    "now": "balkum-naka"
+   },
+   {
+    "name": "Kasheli",
+    "now": "kasheli"
+   },
+   {
+    "name": "Kalher",
+    "now": "kalher"
+   },
+   {
+    "name": "Purna",
+    "now": "purna"
+   },
+   {
+    "name": "Anjurphata",
+    "now": "anjurphata"
+   },
+   {
+    "name": "Dhamankar Naka",
+    "now": "dhamankar-naka"
+   },
+   {
+    "name": "Bhiwandi",
+    "now": "bhiwandi"
+   },
+   {
+    "name": "Gopal Nagar",
+    "dropped": "gopal-nagar"
+   },
+   {
+    "name": "Temghar",
+    "now": "temghar"
+   },
+   {
+    "name": "Rajnouli",
+    "now": "rajnouli"
+   },
+   {
+    "name": "Gove Gaon",
+    "now": "gove-gaon"
+   },
+   {
+    "name": "Kon Gaon",
+    "now": "kon-gaon"
+   },
+   {
+    "name": "Lal Chowki",
+    "note": "Not in the 2026 list. MMRDA's 2025 alignment file has no Lal Chowki; it has Durgadi Fort and Sahajanand Chowk on this stretch."
+   },
+   {
+    "name": "Kalyan Station",
+    "now": "kalyan"
+   },
+   {
+    "name": "Kalyan APMC",
+    "dropped": "apmc-kalyan"
+   }
+  ]
+ }
 }

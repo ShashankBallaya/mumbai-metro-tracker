@@ -7,6 +7,7 @@ import RouteRide from '../components/RouteRide.astro';
 import MapSection from '../components/MapSection.astro';
 import BeforeAfter from '../components/BeforeAfter.astro';
 import Numbers from '../components/Numbers.astro';
+import PlanChanges from '../components/PlanChanges.astro';
 import Progress from '../components/Progress.astro';
 import Timeline from '../components/Timeline.astro';
 import Tenders from '../components/Tenders.astro';
@@ -35,6 +36,7 @@ const { about, route_short, copy } = line.info;
     {line.beforeAfter && <BeforeAfter line={line} />}
     {line.stationModel && <StationModel line={line} />}
     <Numbers line={line} />
+    {line.plan2017 && <PlanChanges line={line} />}
     <Progress line={line} />
     {line.tenders.length > 0 && <Tenders line={line} />}
     {line.rollingstock && <Trains line={line} />}

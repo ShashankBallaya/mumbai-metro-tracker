@@ -109,6 +109,22 @@ export interface Service {
   fares: (ServiceFact & { min_inr: number; max_inr: number }) | null;
 }
 
+/** An earlier plan's station list (stations.json `plan_2017`, Line 5), each entry tied to what it became. */
+export interface EarlierPlan extends Sourced {
+  description: string;
+  /** "All elevated", as the plan's source puts it. */
+  structure?: string;
+  stations: {
+    name: string;
+    /** The station it became in the current plan. */
+    now?: string;
+    /** Its entry in dropped_stations. */
+    dropped?: string;
+    /** Neither: what is known about it. */
+    note?: string;
+  }[];
+}
+
 /**
  * Everything the data holds about one line. Only project and stations are required:
  * lists are empty and other parts undefined when the line has no file for them,
@@ -125,6 +141,8 @@ export interface Line {
   droppedStations: Station[];
   /** The station the spur leaves from (alignment property `branch_from_station`), when the line has a spur. */
   spurFrom?: Station;
+  /** The 2017 plan's stations, when the line's plan has changed since (Line 5). */
+  plan2017?: EarlierPlan;
   stationsMeta: StationsFile['_meta'];
   timeline: TimelineEvent[];
   tenders: Tender[];
@@ -169,6 +187,7 @@ export function getLine(id: LineId): Line {
     stations: stations.stations,
     spurStations: (stations as { spur_stations?: Station[] }).spur_stations ?? [],
     droppedStations: (stations as { dropped_stations?: Station[] }).dropped_stations ?? [],
+    plan2017: (stations as { plan_2017?: EarlierPlan }).plan_2017,
     stationsMeta: stations._meta,
     timeline: timeline?.events ?? [],
     tenders: tenders?.tenders ?? [],

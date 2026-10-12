@@ -22,6 +22,7 @@ const inside = [
   ['before-after', 'Before and after'],
   ['station', 'Up close'],
   ['numbers', 'Numbers'],
+  ['changes', 'What changed'],
   ['progress', 'Progress'],
   ['tenders', 'Tenders'],
   ['trains', 'Trains'],
@@ -31,9 +32,10 @@ const inside = [
   ['sources', 'Sources'],
 ].filter(([id]) => {
   // Only the sections this line's page shows (src/pages/index.astro shows a section when its data exists).
-  if (!line) return id !== 'service';
+  if (!line) return id !== 'service' && id !== 'changes';
   const shows: Record<string, boolean> = {
     service: line.stages.some(hasService),
+    changes: Boolean(line.plan2017),
     map: Boolean(line.alignmentRaw),
     'before-after': Boolean(line.beforeAfter),
     station: Boolean(line.stationModel),
