@@ -3,45 +3,37 @@
  * One page per station: everything the data holds about it, each fact with its grade.
  * Built from the line's stations.json; nothing here is typed by hand.
  */
-import Base from '../../layouts/Base.astro';
-import Masthead from '../../components/Masthead.astro';
-import Colophon from '../../components/Colophon.astro';
-import Grade from '../../components/Grade.astro';
-import LocatorMap from '../../components/LocatorMap.astro';
-import LineMark from '../../components/LineMark.astro';
-import { getLine, lines, lineNodeId, lineBase, stationHref, positionBasis, streetViewUrl, plannedInterchanges, formatDate, sectionOf, openedOf, announcedOf, sectionName, clock, inr, type LineId, type Station } from '../../lib/data';
-import type { GetStaticPathsOptions } from 'astro';
-import { hasStatusPage } from '../../lib/answers';
-import '../../styles/inner.css';
+import Base from '../../../layouts/Base.astro';
+import Masthead from '../../../components/Masthead.astro';
+import Colophon from '../../../components/Colophon.astro';
+import Grade from '../../../components/Grade.astro';
+import LocatorMap from '../../../components/LocatorMap.astro';
+import LineMark from '../../../components/LineMark.astro';
+import { getLine, lines, lineNodeId, lineBase, SITE_NAME, stationHref, positionBasis, streetViewUrl, plannedInterchanges, formatDate, sectionOf, openedOf, announcedOf, sectionName, clock, inr, type LineId, type Station } from '../../../lib/data';
+import { hasStatusPage } from '../../../lib/answers';
+import '../../../styles/inner.css';
 
 interface PageProps {
   i: number;
-  /** Absent for Line 12, the line these pages were built for. */
-  lineId?: LineId;
+  lineId: LineId;
   /** The station is on the line's spur (spurStations), not on the line itself. */
   spur?: boolean;
 }
 
-export function getStaticPaths({ routePattern }: GetStaticPathsOptions) {
-  // `astro dev` also serves other lines' station pages from this file, at /preview/<line>/stations/<id>/ (astro.config.mjs).
-  if (routePattern.startsWith('/preview')) {
-    return lines
-      .filter((l) => l.id !== 'line-12')
-      .flatMap((l) => {
-        const other = getLine(l.id);
-        const own = other.stations.map((s, i) => ({ params: { line: l.id, id: s.id }, props: { i, lineId: l.id } as PageProps }));
-        const spur = other.spurStations.map((s, i) => ({ params: { line: l.id, id: s.id }, props: { i, lineId: l.id, spur: true } as PageProps }));
-        return [...own, ...spur];
-      });
-  }
-  return getLine('line-12').stations.map((s, i) => ({ params: { id: s.id }, props: { i } }));
+export function getStaticPaths() {
+  return lines.flatMap((l) => {
+    const line = getLine(l.id);
+    const own = line.stations.map((s, i) => ({ params: { line: l.id, id: s.id }, props: { i, lineId: l.id } as PageProps }));
+    const spur = line.spurStations.map((s, i) => ({ params: { line: l.id, id: s.id }, props: { i, lineId: l.id, spur: true } as PageProps }));
+    return [...own, ...spur];
+  });
 }
 
-const { i, lineId = 'line-12', spur = false } = Astro.props as PageProps;
+const { i, lineId, spur = false } = Astro.props as PageProps;
 const line = getLine(lineId);
 const { stations, spurStations, spurFrom, stationsMeta, stationPhotos, project, stages } = line;
 const { label, route_short, about, copy } = line.info;
-const base = lineBase(line.id)!;
+const base = lineBase(line.id);
 const list = spur ? spurStations : stations;
 const s: Station = list[i];
 // The spur's first station steps back to the station the spur leaves from.
@@ -97,9 +89,10 @@ const schema: Record<string, unknown>[] = [
   {
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Line 12 Tracker', item: site },
-      { '@type': 'ListItem', position: 2, name: 'Stations', item: `${site}${base.slice(1)}stations/` },
-      { '@type': 'ListItem', position: 3, name: s.name, item: `${site}${base.slice(1)}stations/${s.id}/` },
+      { '@type': 'ListItem', position: 1, name: SITE_NAME, item: site },
+      { '@type': 'ListItem', position: 2, name: label, item: `${site}${base.slice(1)}` },
+      { '@type': 'ListItem', position: 3, name: 'Stations', item: `${site}${base.slice(1)}stations/` },
+      { '@type': 'ListItem', position: 4, name: s.name, item: `${site}${base.slice(1)}stations/${s.id}/` },
     ],
   },
   {
@@ -120,6 +113,7 @@ const schema: Record<string, unknown>[] = [
   <main id="main" class="page inner">
     <nav class="crumbs" aria-label="Breadcrumb">
       <ol>
+        <li><a href="/">All lines</a></li>
         <li><a href={base}>{label}</a></li>
         <li><a href={`${base}stations/`}>Stations</a></li>
         <li aria-current="page">{s.name}</li>

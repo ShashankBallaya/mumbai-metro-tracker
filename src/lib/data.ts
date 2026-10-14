@@ -260,13 +260,12 @@ export function clock(hhmm: string): string {
 /** The latest review date across every line, for site-wide pages such as the sitemap. */
 export const lastReviewed: string = lines.map((l) => getLine(l.id).lastReviewed).sort().at(-1)!;
 
-/**
- * Where a line's pages live, or null while it has none. Line 12 sits at the site root until the move to
- * /line-12/ (MULTI-LINE-PLAN.md, step 4); other lines have pages only in the `astro dev` preview.
- */
-export function lineBase(id: LineId): string | null {
-  if (id === 'line-12') return '/';
-  return import.meta.env.DEV ? `/preview/${id}/` : null;
+/** The site's name (owner, 2026-10-14). The site root is the hub of all lines. */
+export const SITE_NAME = 'Mumbai Metro Tracker';
+
+/** Where a line's pages live: /line-12/, /line-5/ (src/pages/[line]/). */
+export function lineBase(id: LineId): string {
+  return `/${id}/`;
 }
 
 /**
@@ -295,10 +294,9 @@ export function streetViewUrl(s: Station): string | null {
 export type PlannedInterchanges = { value: string[]; status: string; source_url: string; notes?: string };
 export const plannedInterchanges = (s: Station) => (s as { interchanges_planned?: PlannedInterchanges }).interchanges_planned;
 
-/** A station's page, or null when its line has no pages yet (then show its name as plain text). */
+/** A station's page. Typed to allow null, so callers keep a plain-text fallback for a line without pages. */
 export function stationHref(id: LineId, station: string): string | null {
-  const base = lineBase(id);
-  return base && `${base}stations/${station}/`;
+  return `${lineBase(id)}stations/${station}/`;
 }
 
 /** Where a station's coordinates come from, in a few words: matched on the source of its position. */

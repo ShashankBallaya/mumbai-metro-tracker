@@ -3,7 +3,7 @@ import '../styles/global.css';
 import anekUrl from '@fontsource-variable/anek-latin/files/anek-latin-latin-standard-normal.woff2?url';
 import muktaUrl from '@fontsource/mukta/files/mukta-latin-400-normal.woff2?url';
 import { schematic } from '../lib/route';
-import { lastReviewed as siteReviewed, lineNodeId, type Line } from '../lib/data';
+import { lastReviewed as siteReviewed, lineNodeId, SITE_NAME, type Line } from '../lib/data';
 
 interface Props {
   title: string;
@@ -12,14 +12,19 @@ interface Props {
   schema?: Record<string, unknown>[];
   /** The line this page is about. Off a line page (the hub), the graph has no line node. */
   line?: Line;
+  /** A line's front page: it opens with the route-drawing preloader. */
+  front?: boolean;
 }
 
-const { title, description, schema = [], line } = Astro.props;
+const { title, description, schema = [], line, front = false } = Astro.props;
 const lastReviewed = line?.lastReviewed ?? siteReviewed;
 const pre = line ? schematic(line, { width: 1000, top: 30, drop: 70, pad: 10, bottom: 30 }) : undefined;
 const canonical = new URL(Astro.url.pathname, Astro.site);
-// The route-drawing preloader belongs to the front page; inside pages open straight on their answer.
-const front = Astro.url.pathname === '/';
+// The share card: the line's own (scripts/og.mjs), or the hub's off a line page.
+const card = line ? `/og-${line.id}.png` : '/og.png';
+const cardAlt = line
+  ? `${SITE_NAME}: ${line.info.about.name}, ${line.info.route_short}. ${line.project.length_km.value} km, ${line.project.stations_count.value} stations.`
+  : `${SITE_NAME}: every Mumbai Metro line it follows, each fact with its source.`;
 const siteUrl = Astro.site!.toString();
 // One graph per page: the site, the page, what it is about, then the page's own nodes.
 const graph = {
@@ -29,8 +34,9 @@ const graph = {
       '@type': 'WebSite',
       '@id': `${siteUrl}#site`,
       // Google reads the site name from here on the home page (a pages.dev subdomain otherwise shows as "Cloudflare").
-      name: 'Line 12 Tracker',
-      alternateName: ['Line 12 Tracker, Mumbai Metro', 'Metro Line 12 Tracker'],
+      name: SITE_NAME,
+      // The site's name until 14 Oct 2026, when it grew from Line 12 to more lines.
+      alternateName: ['Line 12 Tracker'],
       url: siteUrl,
       inLanguage: 'en-IN',
       publisher: { '@id': `${siteUrl}#maintainer` },
@@ -87,13 +93,13 @@ const graph = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={new URL('/og.png', Astro.site)} />
+    <meta property="og:image" content={new URL(card, Astro.site)} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Line 12 Tracker: Watch Mumbai Metro Line 12 rise, pillar by pillar. Kalyan to Taloja, 23.57 km, 19 stations." />
+    <meta property="og:image:alt" content={cardAlt} />
     <meta property="og:locale" content="en_IN" />
-    <meta property="og:site_name" content="Line 12 Tracker" />
-    <meta name="application-name" content="Line 12 Tracker" />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta name="application-name" content={SITE_NAME} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:creator" content="@SBallaya" />
     <meta name="author" content="Shashank Ballaya" />

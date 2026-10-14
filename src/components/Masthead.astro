@@ -9,7 +9,7 @@ interface Props {
 }
 const { line, home = true } = Astro.props;
 const lastReviewed = line?.lastReviewed ?? siteReviewed;
-const base = (line && lineBase(line.id)) ?? '/';
+const base = line ? lineBase(line.id) : '/';
 const to = (id: string) => (home ? `#${id}` : `${base}#${id}`);
 
 // Edition = the day this page was built (India time). Facts checked = the latest data review.
@@ -32,7 +32,8 @@ const inside = [
   ['sources', 'Sources'],
 ].filter(([id]) => {
   // Only the sections this line's page shows (src/pages/index.astro shows a section when its data exists).
-  if (!line) return id !== 'service' && id !== 'changes';
+  // Off a line page (the hub) there are no sections to list.
+  if (!line) return false;
   const shows: Record<string, boolean> = {
     service: line.stages.some(hasService),
     changes: Boolean(line.plan2017),
@@ -76,12 +77,12 @@ const inside = [
       <span data-theme-label>Switch edition</span>
     </button>
   </div>
-  <nav class="page masthead__inside" aria-label="Inside this edition">
+  {inside.length > 0 && <nav class="page masthead__inside" aria-label="Inside this edition">
     <span class="masthead__inside-label">Inside</span>
     <ul>
       {inside.map(([id, label]) => <li><a href={to(id)}>{label}</a></li>)}
     </ul>
-  </nav>
+  </nav>}
 </header>
 
 <style>

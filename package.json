@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "version": "0.1.0",
-  "description": "Unofficial public-interest tracker for Mumbai Metro Line 12 (Kalyan to Taloja).",
+  "description": "Unofficial public-interest tracker for the Mumbai Metro lines around Kalyan (Line 12, Line 5).",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",

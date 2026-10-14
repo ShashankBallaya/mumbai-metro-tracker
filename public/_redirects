@@ -1,0 +1,7 @@
+# Line 12's pages moved under /line-12/ on 14 Oct 2026, when the site grew to more lines (MULTI-LINE-PLAN.md, step 4).
+# The site root is now the hub of all lines.
+/status /line-12/status/ 301
+/status/ /line-12/status/ 301
+/stations /line-12/stations/ 301
+/stations/ /line-12/stations/ 301
+/stations/* /line-12/stations/:splat 301

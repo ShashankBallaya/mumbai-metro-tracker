@@ -19,7 +19,7 @@ Both are primary. Residents set the first-read clarity; enthusiasts set the dept
 
 ## Product Purpose
 
-Line 12 Tracker is an unofficial, public-interest website that tracks everything about Mumbai Metro Line 12 (Kalyan to Taloja, MMRDA): route and stations, progress, timeline, tenders, rolling stock and news. It exists because the official information is scattered across MMRDA pages, a 2019 DPR and trade press, and often conflicts. Success: a resident can answer "when, where, how far along" in seconds, and an enthusiast can trace every number to its source.
+Mumbai Metro Tracker (until 2026-10-14 Line 12 Tracker) is an unofficial, public-interest website that tracks everything about the Mumbai Metro lines around Kalyan, first Line 12 (Kalyan to Taloja, MMRDA) and Line 5 (Thane to Kalyan): route and stations, progress, timeline, tenders, rolling stock and news. It exists because the official information is scattered across MMRDA pages, a 2019 DPR and trade press, and often conflicts. Success: a resident can answer "when, where, how far along" in seconds, and an enthusiast can trace every number to its source.
 
 ## Positioning
 
@@ -45,7 +45,7 @@ Every fact is sourced and graded (verified, reported, unverified, conflicting), 
 
 ## Brand Commitments
 
-- Name: Line 12 Tracker. Masthead mark "LINE 12" with the Marathi "मेट्रो १२" beside it (confirmed by the owner, 2026-09-28). The Marathi mark is decorative; site copy stays English only.
+- Name: Mumbai Metro Tracker (owner, 2026-10-14; the site was "Line 12 Tracker" until it grew to Line 5). On a line page, the masthead mark "LINE 12" with the Marathi "मेट्रो १२" beside it (confirmed by the owner, 2026-09-28). The Marathi mark is decorative; site copy stays English only.
 
 ## Evidence on Hand
 

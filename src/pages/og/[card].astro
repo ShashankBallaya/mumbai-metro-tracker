@@ -1,0 +1,72 @@
+---
+/* Open Graph card sources: /og/hub/ and one per line (/og/line-12/). scripts/og.mjs captures each at
+   1200x630 into public/og.png (the hub) and public/og-<line>.png. Not linked from the site and marked noindex. */
+import '../../styles/global.css';
+import { getLine, lines, formatDate, lastReviewed as siteReviewed, SITE_NAME, type LineId } from '../../lib/data';
+import { schematic } from '../../lib/route';
+
+export function getStaticPaths() {
+  return [{ params: { card: 'hub' } }, ...lines.map((l) => ({ params: { card: l.id } }))];
+}
+const card = Astro.params.card as 'hub' | LineId;
+const line = card === 'hub' ? undefined : getLine(card);
+const strip = line && schematic(line, { width: 1000, top: 20, drop: 60, pad: 10, bottom: 20 });
+const all = lines.map((l) => getLine(l.id));
+---
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>{SITE_NAME} card</title>
+    <style>
+      body { margin: 0; width: 1200px; height: 630px; overflow: hidden; background: var(--paper); }
+      .card { display: grid; grid-template-rows: auto 1fr auto; height: 630px; }
+      .band { background: var(--signal); color: var(--on-signal); padding: 28px 56px 18px; display: flex; align-items: flex-end; justify-content: space-between; }
+      .band b { font-family: var(--font-display); font-weight: 800; font-stretch: 75%; font-size: 120px; line-height: 0.8; text-transform: uppercase; }
+      .band span { font-family: var(--font-display); font-weight: 600; font-stretch: 87.5%; font-size: 30px; }
+      .body { padding: 36px 56px 0; color: var(--ink); }
+      .body h1 { font-size: 78px; text-transform: uppercase; line-height: 0.9; }
+      .body p { margin-top: 16px; font-size: 26px; color: var(--ink-2); }
+      svg { display: block; margin: 0 56px 36px; width: 1088px; height: 110px; }
+      .casing { stroke: var(--signal-graphic); stroke-width: 20px; fill: none; stroke-linejoin: round; stroke-linecap: round; }
+      .core { stroke: var(--paper); stroke-width: 8px; fill: none; stroke-linejoin: round; stroke-linecap: round; }
+      .dot { fill: var(--ink); stroke: var(--paper); stroke-width: 4px; }
+      .lines { list-style: none; margin: 0 56px 44px; padding: 0; display: grid; gap: 14px; }
+      .lines li { display: flex; align-items: baseline; gap: 20px; font-size: 34px; color: var(--ink); }
+      .lines b { font-family: var(--font-display); font-weight: 800; font-stretch: 75%; min-width: 84px; padding: 4px 10px 0; text-align: center; background: var(--signal); color: var(--on-signal); }
+      .lines span { color: var(--ink-2); font-size: 26px; }
+    </style>
+  </head>
+  <body>
+    {line && strip ? (
+      <div class="card">
+        <div class="band"><b>{line.info.label}</b><span>{SITE_NAME}. Unofficial</span></div>
+        <div class="body">
+          <h1 set:html={line.info.copy.headline_html} />
+          <p>{line.info.route_short}, {line.project.length_km.value} km, {line.project.stations_count.value} stations. Every figure sourced. Facts checked {formatDate(line.lastReviewed)}.</p>
+        </div>
+        <svg viewBox={`0 0 ${strip.width} ${strip.height}`} preserveAspectRatio="none" aria-hidden="true">
+          <path d={strip.path} class="casing" vector-effect="non-scaling-stroke" />
+          {strip.branch && <path d={strip.branch.path} class="casing" vector-effect="non-scaling-stroke" />}
+          <path d={strip.path} class="core" vector-effect="non-scaling-stroke" />
+          {strip.branch && <path d={strip.branch.path} class="core" vector-effect="non-scaling-stroke" />}
+          {strip.points.map(([x, y]) => <circle cx={x} cy={y} r="7" class="dot" vector-effect="non-scaling-stroke" />)}
+        </svg>
+      </div>
+    ) : (
+      <div class="card">
+        <div class="band"><b>Mumbai Metro</b><span>The unofficial tracker</span></div>
+        <div class="body">
+          <h1>{SITE_NAME}</h1>
+          <p>The lines being built around Kalyan, each fact with its grade and source. Facts checked {formatDate(siteReviewed)}.</p>
+        </div>
+        <ul class="lines">
+          {all.map((l) => (
+            <li><b>{l.info.number}</b>{l.info.about.name} <span>{l.info.route_short}, {l.project.length_km.value} km</span></li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </body>
+</html>

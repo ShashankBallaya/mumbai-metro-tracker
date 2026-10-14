@@ -1,10 +1,10 @@
-# Line 12 Tracker
+# Mumbai Metro Tracker
 
-An unofficial, public-interest website that tracks Mumbai Metro Line 12 (Kalyan to Taloja, MMRDA): route, stations, progress, timeline, tenders and trains. Every figure links to its source and carries a grade (verified, reported, unverified, conflicting).
+An unofficial, public-interest website that tracks the Mumbai Metro lines MMRDA is building around Kalyan: Line 12 (Kalyan to Taloja) and Line 5 (Thane to Kalyan). For each line: route, stations, progress, timeline, tenders and trains. The site root is a hub of all lines; each line lives under `/line-12/`, `/line-5/`. Every figure links to its source and carries a grade (verified, reported, unverified, conflicting).
 
 **Not affiliated with MMRDA or the Government of Maharashtra.**
 
-Live site: https://line12-tracker.pages.dev (after the Cloudflare Pages setup below)
+Live site: https://line12-tracker.pages.dev (the Cloudflare Pages project keeps its first name until the domain move)
 
 ## Stack
 

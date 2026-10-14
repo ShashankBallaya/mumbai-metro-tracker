@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "description": "The 19 Line 12 stations, in order from Kalyan. Names follow the CA-240 civil contract scope. Positions are MMRDA's station points from the approved alignment of 20 Mar 2025 (scripts/build-alignment.py); earlier positions are kept under location.earlier.",
+    "description": "The 19 Line 12 stations, in order from Kalyan. Names follow the CA-240 civil contract scope. Positions are MMRDA's station points from the approved alignment of 20 Mar 2025 (scripts/build-alignment.py); earlier positions are kept under location.earlier. 'same_site_as' names a station of another line at the same place, with the distance between the two points.",
     "order_source_url": "https://themetrorailguy.com/2024/02/09/gawar-wins-mumbai-metro-line-12s-construction-contract-ca-240/",
     "count_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-12/overview",
     "names_mr_source_url": "https://www.loksatta.com/mumbai/kalyan-taloja-metro-12-construction-status-mmrda-mumbai-print-news-rnb-99-6159080/",
@@ -41,6 +41,11 @@
         ],
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-12/overview"
+      },
+      "same_site_as": {
+        "line": "line-5",
+        "station": "kalyan",
+        "distance_m": 131
       },
       "context": [],
       "construction_status": {

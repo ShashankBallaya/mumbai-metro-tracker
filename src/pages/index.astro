@@ -1,48 +1,292 @@
 ---
+/**
+ * The hub: every line the site follows, in lines.json order, each with its state, figures and route strip.
+ * Each line's own pages live under /<line>/ (src/pages/[line]/).
+ */
 import Base from '../layouts/Base.astro';
 import Masthead from '../components/Masthead.astro';
-import FrontPage from '../components/FrontPage.astro';
-import Service from '../components/Service.astro';
-import RouteRide from '../components/RouteRide.astro';
-import MapSection from '../components/MapSection.astro';
-import BeforeAfter from '../components/BeforeAfter.astro';
-import Numbers from '../components/Numbers.astro';
-import PlanChanges from '../components/PlanChanges.astro';
-import Progress from '../components/Progress.astro';
-import Timeline from '../components/Timeline.astro';
-import Tenders from '../components/Tenders.astro';
-import Trains from '../components/Trains.astro';
-import Stations from '../components/Stations.astro';
-import StationModel from '../components/StationModel.astro';
-import Updates from '../components/Updates.astro';
-import SourcesFooter from '../components/SourcesFooter.astro';
-import { getLine, hasService, type LineId } from '../lib/data';
+import Colophon from '../components/Colophon.astro';
+import Grade from '../components/Grade.astro';
+import LineMark from '../components/LineMark.astro';
+import { getLine, lines, lineBase, formatDate, SITE_NAME } from '../lib/data';
+import { schematic } from '../lib/route';
+import { hasStatusPage } from '../lib/answers';
+import '../styles/inner.css';
 
-interface Props {
-  /** Set by the `astro dev` preview (src/preview/[line].astro); the live page is Line 12's. */
-  lineId?: LineId;
-}
-const line = getLine(Astro.props.lineId ?? 'line-12');
-const { about, route_short, copy } = line.info;
+const all = lines.map((l) => getLine(l.id));
+// Strips share one scale, so a longer line draws longer.
+const longest = Math.max(...all.map((l) => l.project.length_km.value));
+// Where two lines meet (stations.json `same_site_as`): Kalyan.
+const meets = all.flatMap((line) =>
+  [...line.stations, ...line.spurStations].flatMap((s) => {
+    const o = (s as { same_site_as?: { line: string; station: string; distance_m: number } }).same_site_as;
+    const other = o && all.find((l) => l.id === o.line);
+    return other ? [{ line, s, other, otherStation: other.stations.find((x) => x.id === o.station)!, distance: o.distance_m }] : [];
+  }),
+);
+const kalyan = meets.find((m) => m.s.id === 'kalyan');
+
+const title = `${SITE_NAME}: Mumbai Metro Lines 12 and 5, status, stations, maps`;
+const description = 'An unofficial, sourced tracker for the Mumbai Metro lines being built around Kalyan: Line 12 to Taloja and Line 5 to Thane. Route, stations, progress and opening targets, each fact with its source.';
 ---
 
-<Base title={`${about.name} Tracker: ${route_short} status, stations, map`} line={line} description={copy.page_description}>
-  <Masthead line={line} />
-  <main id="main">
-    <FrontPage line={line} />
-    {line.stages.some(hasService) && <Service line={line} />}
-    <RouteRide line={line} />
-    {line.alignmentRaw && <MapSection line={line} />}
-    {line.beforeAfter && <BeforeAfter line={line} />}
-    {line.stationModel && <StationModel line={line} />}
-    <Numbers line={line} />
-    {line.plan2017 && <PlanChanges line={line} />}
-    <Progress line={line} />
-    {line.tenders.length > 0 && <Tenders line={line} />}
-    {line.rollingstock && <Trains line={line} />}
-    <Stations line={line} />
-    <Updates line={line} />
-    {line.timeline.length > 0 && <Timeline line={line} />}
-    <SourcesFooter line={line} />
+<Base title={title} description={description}>
+  <Masthead />
+  <main id="main" class="page hub">
+    <header class="hub__head">
+      <h1 class="hub__title">The metro lines<br /> reaching Kalyan</h1>
+      <p class="hub__standfirst">
+        An unofficial tracker for the Mumbai Metro lines MMRDA is building around Kalyan. Each line has its own page: route, map,
+        progress, tenders, trains and every station. Every fact carries a grade and a link to its source.
+      </p>
+    </header>
+
+    <ul class="hub__lines" role="list">
+      {all.map((line) => {
+        const { project, stations, spurStations, info } = line;
+        const base = lineBase(line.id);
+        const t = project.target_completion as typeof project.target_completion & { scope?: string };
+        const strip = schematic(line);
+        const share = (project.length_km.value / longest) * 100;
+        return (
+          <li class="hub__line">
+            <article aria-labelledby={`${line.id}-name`}>
+              <h2 id={`${line.id}-name`} class="hub__name">
+                <a href={base}><LineMark lineId={line.id} />{info.about.name}</a>
+              </h2>
+              <p class="hub__route">{info.route_short}</p>
+              <p class="hub__state">
+                {project.current_phase.value} <Grade status={project.current_phase.status} source={project.current_phase.source_url} />
+              </p>
+              <dl class="hub__figures">
+                <div>
+                  <dt>Length</dt>
+                  <dd class="num">{project.length_km.value} km</dd>
+                </div>
+                <div>
+                  <dt>Stations</dt>
+                  <dd class="num">{project.stations_count.value}</dd>
+                </div>
+                <div>
+                  <dt>{t.scope ? 'Phase 1 target' : 'Reported target'}</dt>
+                  <dd class="num">{formatDate(t.value)}</dd>
+                </div>
+              </dl>
+              <p class="hub__grade"><Grade status={t.status} source={t.source_url} /></p>
+              <a class="hub__strip" href={base} style={`--share:${share}%`} tabindex="-1" aria-hidden="true">
+                <span class="hub__strip-end">{stations[0].name}</span>
+                <svg viewBox={`0 0 ${strip.width} ${strip.height}`} preserveAspectRatio="none" focusable="false">
+                  <path d={strip.path} class="line-casing" vector-effect="non-scaling-stroke" />
+                  {strip.branch && <path d={strip.branch.path} class="line-casing" vector-effect="non-scaling-stroke" />}
+                  <path d={strip.path} class="line-core" vector-effect="non-scaling-stroke" />
+                  {strip.branch && <path d={strip.branch.path} class="line-core" vector-effect="non-scaling-stroke" />}
+                  {strip.underground && <path d={strip.underground} class="line-tunnel" vector-effect="non-scaling-stroke" />}
+                </svg>
+                <span class="hub__strip-end hub__strip-end--b">{stations.at(-1)!.name}{spurStations.length > 0 && <>, spur to {spurStations.at(-1)!.name}</>}</span>
+              </a>
+              <ul class="hub__links" role="list">
+                <li><a class="hub__open" href={base}>Open the {info.label} tracker</a></li>
+                <li><a href={`${base}stations/`}>All stations</a></li>
+                {hasStatusPage(line) && <li><a href={`${base}status/`}>Status, answered</a></li>}
+              </ul>
+            </article>
+          </li>
+        );
+      })}
+    </ul>
+
+    {kalyan && (
+      <section class="hub__meet" aria-labelledby="meet-title">
+        <h2 id="meet-title">Where the lines meet</h2>
+        <p>
+          Both lines end at Kalyan, by the railway junction.{' '}
+          <a href={`${lineBase(kalyan.line.id)}stations/${kalyan.s.id}/`}>{kalyan.line.info.label}'s {kalyan.s.name}</a> station is planned about{' '}
+          {kalyan.distance} m from{' '}
+          <a href={`${lineBase(kalyan.other.id)}stations/${kalyan.otherStation.id}/`}>{kalyan.other.info.label}'s {kalyan.otherStation.name}</a>, measured
+          between the two published station points.
+        </p>
+      </section>
+    )}
   </main>
+  <Colophon />
 </Base>
+
+<style>
+  .hub {
+    padding-block: var(--s-7) var(--s-6);
+  }
+  .hub__head {
+    display: grid;
+    gap: var(--s-5);
+    padding-bottom: var(--s-7);
+  }
+  .hub__title {
+    font-size: var(--step-4);
+    text-transform: uppercase;
+    line-height: 0.88;
+  }
+  .hub__standfirst {
+    max-width: 52ch;
+    font-size: var(--step-1);
+    line-height: 1.45;
+    color: var(--ink-2);
+  }
+  .hub__lines {
+    display: grid;
+    gap: var(--s-7);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .hub__line article {
+    display: grid;
+    gap: var(--s-4);
+    padding-top: var(--s-5);
+    border-top: var(--rule-heavy) solid var(--rule-strong);
+  }
+  .hub__name {
+    font-size: var(--step-3);
+    text-transform: uppercase;
+    line-height: 0.95;
+  }
+  .hub__name a {
+    color: inherit;
+    text-decoration: none;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .hub__name a:hover {
+      text-decoration: underline;
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.12em;
+    }
+  }
+  .hub__route {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-stretch: 87.5%;
+    font-size: var(--step-1);
+    color: var(--ink-2);
+  }
+  .hub__state {
+    max-width: var(--measure);
+    color: var(--ink-2);
+  }
+  .hub__figures {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-4) var(--s-7);
+    margin: 0;
+  }
+  .hub__figures dt {
+    font-size: var(--step--1);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-3);
+  }
+  .hub__figures dd {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-stretch: 75%;
+    font-size: var(--step-2);
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .hub__grade {
+    font-size: var(--step--1);
+  }
+  /* The route strip, drawn to one scale for every line. */
+  .hub__strip {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--s-3);
+    width: max(var(--share), 18rem);
+    max-width: 100%;
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-stretch: 75%;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .hub__strip svg {
+    width: 100%;
+    height: 3rem;
+  }
+  .hub__strip .line-casing,
+  .hub__strip .line-core,
+  .hub__strip .line-tunnel {
+    fill: none;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+  }
+  .hub__strip .line-casing {
+    stroke: var(--signal-graphic);
+    stroke-width: 12px;
+  }
+  .hub__strip .line-core {
+    stroke: var(--paper);
+    stroke-width: 4px;
+  }
+  .hub__strip .line-tunnel {
+    stroke: var(--paper);
+    stroke-width: 12px;
+    stroke-linecap: butt;
+    stroke-dasharray: 6px 5px;
+  }
+  @media (max-width: 47.99rem) {
+    .hub__strip {
+      grid-template-columns: minmax(0, 1fr);
+      width: 100%;
+    }
+    .hub__strip-end--b {
+      justify-self: end;
+    }
+  }
+  .hub__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-2) var(--s-5);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .hub__links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-weight: 500;
+  }
+  .hub__links .hub__open {
+    padding: var(--s-2) var(--s-5);
+    background: var(--signal);
+    color: var(--on-signal);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-stretch: 75%;
+    font-size: var(--step-1);
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: scale 0.16s var(--ease-out);
+  }
+  .hub__open:active {
+    scale: 0.97;
+  }
+  .hub__meet {
+    display: grid;
+    gap: var(--s-3);
+    margin-top: var(--s-8);
+    padding-top: var(--s-5);
+    border-top: var(--rule-heavy) solid var(--rule-strong);
+  }
+  .hub__meet h2 {
+    font-size: var(--step-2);
+    text-transform: uppercase;
+  }
+  .hub__meet p {
+    max-width: var(--measure);
+    color: var(--ink-2);
+  }
+</style>

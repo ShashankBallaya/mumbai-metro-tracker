@@ -1,0 +1,47 @@
+---
+import Base from '../../layouts/Base.astro';
+import Masthead from '../../components/Masthead.astro';
+import FrontPage from '../../components/FrontPage.astro';
+import Service from '../../components/Service.astro';
+import RouteRide from '../../components/RouteRide.astro';
+import MapSection from '../../components/MapSection.astro';
+import BeforeAfter from '../../components/BeforeAfter.astro';
+import Numbers from '../../components/Numbers.astro';
+import PlanChanges from '../../components/PlanChanges.astro';
+import Progress from '../../components/Progress.astro';
+import Timeline from '../../components/Timeline.astro';
+import Tenders from '../../components/Tenders.astro';
+import Trains from '../../components/Trains.astro';
+import Stations from '../../components/Stations.astro';
+import StationModel from '../../components/StationModel.astro';
+import Updates from '../../components/Updates.astro';
+import SourcesFooter from '../../components/SourcesFooter.astro';
+import { getLine, lines, hasService, type LineId } from '../../lib/data';
+
+export function getStaticPaths() {
+  return lines.map((l) => ({ params: { line: l.id } }));
+}
+const line = getLine(Astro.params.line as LineId);
+const { about, route_short, copy } = line.info;
+---
+
+<Base title={`${about.name} Tracker: ${route_short} status, stations, map`} line={line} description={copy.page_description} front>
+  <Masthead line={line} />
+  <main id="main">
+    <FrontPage line={line} />
+    {line.stages.some(hasService) && <Service line={line} />}
+    <RouteRide line={line} />
+    {line.alignmentRaw && <MapSection line={line} />}
+    {line.beforeAfter && <BeforeAfter line={line} />}
+    {line.stationModel && <StationModel line={line} />}
+    <Numbers line={line} />
+    {line.plan2017 && <PlanChanges line={line} />}
+    <Progress line={line} />
+    {line.tenders.length > 0 && <Tenders line={line} />}
+    {line.rollingstock && <Trains line={line} />}
+    <Stations line={line} />
+    <Updates line={line} />
+    {line.timeline.length > 0 && <Timeline line={line} />}
+    <SourcesFooter line={line} />
+  </main>
+</Base>

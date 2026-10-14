@@ -47,14 +47,14 @@ function line12(line: Line): Answer[] {
       q: 'What is the route of Metro Line 12?',
       a: `${p.route.value}. The line is ${p.length_km.value} km long, fully elevated, with ${p.stations_count.value} stations. It runs above Kalyan-Shilphata Road from Kalyan to Sonarpada.`,
       grades: [{ status: p.route.status, source: p.route.source_url }],
-      more: { href: '/#map', label: 'See the route on the map' },
+      more: { href: `${lineBase(line.id)}#map`, label: 'See the route on the map' },
     },
     {
       id: 'stations',
       q: 'Which stations are on Line 12?',
       a: `${stations.length} stations, in order: ${stations.map((s) => s.name).join(', ')}.`,
       grades: [{ status: p.stations_count.status, source: p.stations_count.source_url }],
-      more: { href: '/stations/', label: 'A page for every station' },
+      more: { href: `${lineBase(line.id)}stations/`, label: 'A page for every station' },
     },
     {
       id: 'interchanges',
@@ -126,7 +126,7 @@ function line5(line: Line): Answer[] {
     procurement: { manufacturer: string; trains: number; coaches: number; package: string; date: string; built_at: string; status: string; source_url: string };
     specs: { status: string; source_url: string };
   };
-  const base = lineBase(line.id) ?? '/';
+  const base = lineBase(line.id);
   const t = p.target_completion as typeof p.target_completion & {
     rest_of_line: { value: string; status: string; source_url: string };
     scope: string;
