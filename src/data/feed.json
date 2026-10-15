@@ -1,13 +1,22 @@
 {
   "_meta": {
     "description": "Written by scripts/fetch-feed.mjs. Do not edit by hand: add an item's URL to exclude_urls in feed-sources.json to hide it. Items are found automatically and are not checked by a person.",
-    "updated_at": "2026-10-09T10:35:25.670Z",
+    "updated_at": "2026-10-15T17:11:33.436Z",
     "updated_at_by_line": {
-      "line-12": "2026-09-28T19:44:02.963Z",
+      "line-12": "2026-10-15T17:11:33.436Z",
       "line-5": "2026-10-09T10:35:25.670Z"
     }
   },
   "news": [
+    {
+      "title": "Mumbai Metro Line 12 Safety Breach Leaves Pillion Rider in ICU",
+      "outlet": "Urban Acres",
+      "date": "2026-10-15",
+      "url": "https://urbanacres.in/mumbai-metro-line-12-safety-breach-leaves-pillion-rider-in-icu/",
+      "lines": [
+        "line-12"
+      ]
+    },
     {
       "title": "Kalyan-Taloja Metro Line 12 Crosses 53% Work, May 2028 Target Set",
       "outlet": "Urban Acres",
