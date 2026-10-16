@@ -1,0 +1,223 @@
+---
+/**
+ * From the air: a creator's drone flight along the line (aerial.json), shared with permission.
+ * The page shows our own still until the reader presses play; only then does the YouTube player load
+ * (youtube-nocookie.com). Each stop starts the video where the flight reaches that station.
+ * Without JavaScript, the poster and the stops are plain links to the video on YouTube.
+ */
+import { formatDate, stationHref, videoTime, type Line } from '../lib/data';
+
+interface Props {
+  line: Line;
+}
+const { line } = Astro.props;
+// The page shows this section only for a line with aerial.json.
+const { video, stops } = line.aerial!;
+const all = [...line.stations, ...line.spurStations];
+const nameOf = (id: string) => all.find((s) => s.id === id)?.name ?? id;
+const watch = (t = 0) => `https://www.youtube.com/watch?v=${video.id}${t ? `&t=${t}s` : ''}`;
+---
+
+<section id="from-the-air" class="section page air" aria-labelledby="air-title" data-air={video.id}>
+  <header class="section-head">
+    <h2 id="air-title">From the air</h2>
+    <p>
+      A drone flight along {video.covers}, by <a href={video.channel_url} rel="noopener">{video.creator}</a>, published
+      {' '}<time datetime={video.published}>{formatDate(video.published)}</time>. Shared with permission. Pick a station to start the
+      video where the flight reaches it.
+    </p>
+    <p class="air__note">The video loads from YouTube only when you press play.</p>
+  </header>
+
+  <div class="air__body">
+    <figure class="air__player">
+      <div class="air__frame" data-air-frame>
+        <a class="air__poster" href={watch()} rel="noopener" data-air-play="0">
+          <img src={video.poster} alt="" width="1600" height="900" loading="lazy" decoding="async" />
+          <span class="air__play">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor" /></svg>
+            <span data-air-label>Play the flight ({videoTime(video.duration_s)})</span>
+          </span>
+        </a>
+      </div>
+      <figcaption class="air__caption">
+        {video.title}. Video by {video.creator} on YouTube.
+      </figcaption>
+    </figure>
+
+    <ol class="air__stops" aria-label="Stations on the flight">
+      {stops.map((st) => (
+        <li class="air__stop" data-air-stop={st.station}>
+          <a class="air__jump" href={watch(st.t)} rel="noopener" data-air-play={st.t}>
+            <span class="air__time num">{videoTime(st.t)}</span>
+            <span class="air__name">{nameOf(st.station)}</span>
+            <span class="visually-hidden">: play the flight from here</span>
+          </a>
+          <a class="air__page" href={stationHref(line.id, st.station)}>Station page<span class="visually-hidden">: {nameOf(st.station)}</span></a>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .section-head .air__note {
+    font-size: var(--step--1);
+    color: var(--ink-3);
+  }
+  .air__body {
+    display: grid;
+    gap: var(--s-5);
+  }
+  @media (min-width: 64rem) {
+    .air__body {
+      grid-template-columns: minmax(0, 2fr) minmax(16rem, 1fr);
+      align-items: start;
+    }
+  }
+  .air__player {
+    margin: 0;
+    display: grid;
+    gap: var(--s-2);
+  }
+  .air__frame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--paper-2);
+    border-top: var(--rule-heavy) solid var(--rule-strong);
+  }
+  .air__frame :global(iframe),
+  .air__poster,
+  .air__poster img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .air__poster img {
+    object-fit: cover;
+  }
+  .air__play {
+    position: absolute;
+    left: var(--s-4);
+    bottom: var(--s-4);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--s-2);
+    min-height: 44px;
+    padding: 0 var(--s-4) 0 var(--s-3);
+    font-weight: 700;
+    color: var(--paper);
+    background: var(--ink);
+    border-radius: 999px;
+    transition: scale 0.16s var(--ease-out);
+  }
+  .air__play svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  .air__poster:active .air__play {
+    scale: 0.97;
+  }
+  .air__poster:focus-visible {
+    outline-offset: -4px;
+  }
+  .air__caption {
+    font-size: var(--step--1);
+    color: var(--ink-3);
+  }
+  .air__stops {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: var(--rule-w) solid var(--rule);
+  }
+  .air__stop {
+    display: flex;
+    align-items: center;
+    gap: var(--s-3);
+    border-bottom: var(--rule-w) solid var(--rule);
+  }
+  .air__jump {
+    flex: 1;
+    display: flex;
+    align-items: baseline;
+    gap: var(--s-3);
+    min-height: 44px;
+    padding: var(--s-2) var(--s-2);
+    color: var(--ink);
+    text-decoration: none;
+    transition: background-color 0.2s var(--ease-out);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .air__jump:hover {
+      background: var(--paper-2);
+    }
+    .air__jump:hover .air__name {
+      text-decoration: underline;
+    }
+  }
+  .air__time {
+    min-width: 5ch;
+    color: var(--ink-3);
+    font-variant-numeric: tabular-nums;
+  }
+  .air__name {
+    font-weight: 700;
+  }
+  .air__stop[aria-current='true'] .air__jump {
+    background: var(--paper-2);
+    box-shadow: inset var(--bar) 0 0 var(--signal-graphic);
+  }
+  .air__page {
+    flex: none;
+    padding: var(--s-2);
+    font-size: var(--step--1);
+    color: var(--ink-2);
+  }
+</style>
+
+<script>
+  // Press play (or a station): swap our still for the YouTube player, started at that second.
+  document.querySelectorAll<HTMLElement>('[data-air]').forEach((root) => {
+    const id = root.dataset.air!;
+    const frame = root.querySelector<HTMLElement>('[data-air-frame]')!;
+    const stops = root.querySelectorAll<HTMLElement>('[data-air-stop]');
+    const poster = root.querySelector<HTMLAnchorElement>('.air__poster');
+    const mark = (station: string | undefined) => stops.forEach((s) => s.setAttribute('aria-current', String(s.dataset.airStop === station)));
+
+    const play = (t: number) => {
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&start=${t}`;
+      iframe.title = 'Drone flight along the line (YouTube video)';
+      iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      iframe.allowFullscreen = true;
+      frame.replaceChildren(iframe);
+    };
+
+    root.querySelectorAll<HTMLAnchorElement>('[data-air-play]').forEach((a) =>
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        const t = Number(a.dataset.airPlay);
+        mark(a.closest<HTMLElement>('[data-air-stop]')?.dataset.airStop);
+        play(t);
+        if (a !== poster) frame.scrollIntoView({ block: 'nearest', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      }),
+    );
+
+    // From a station page (?flight=<station>): mark that stop and make play start there.
+    const wanted = new URLSearchParams(location.search).get('flight');
+    const stop = wanted ? root.querySelector<HTMLElement>(`[data-air-stop="${CSS.escape(wanted)}"]`) : null;
+    const jump = stop?.querySelector<HTMLAnchorElement>('[data-air-play]');
+    if (poster && jump) {
+      mark(wanted!);
+      poster.dataset.airPlay = jump.dataset.airPlay;
+      poster.href = jump.href;
+      const label = poster.querySelector<HTMLElement>('[data-air-label]');
+      if (label) label.textContent = `Play from ${stop!.querySelector('.air__name')!.textContent}`;
+    }
+  });
+</script>

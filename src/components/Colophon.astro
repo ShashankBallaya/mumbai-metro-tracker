@@ -30,8 +30,8 @@ const disclaimer = line?.info.copy.footer_disclaimer ?? DISCLAIMER;
             <li>
               <p class="thanks__name">{c.credit}</p>
               <p class="thanks__line">
-                <a class="thanks__handle" href={`https://x.com/${c.handle}`} rel="noopener" target="_blank">@{c.handle}<span class="visually-hidden"> on X (opens in a new tab)</span></a>
-                <span>Ground photos of {stationName} station on this page, shared with permission. Thank you.</span>
+                <a class="thanks__handle" href={c.href} rel="noopener" target="_blank">{c.label}<span class="visually-hidden">{c.site && ` on ${c.site}`} (opens in a new tab)</span></a>
+                <span>{c.drone ? 'Drone stills' : 'Ground photos'} of {stationName} station on this page, shared with permission. Thank you.</span>
               </p>
             </li>
           ))}

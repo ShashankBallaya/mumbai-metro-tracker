@@ -1,0 +1,20 @@
+---
+/** The credit line under a station photo: who took it and when. A drone still links to its moment in the video. */
+import { formatDate, videoTime, type StationPhoto } from '../lib/data';
+
+interface Props {
+  photo: StationPhoto;
+}
+const { photo: ph } = Astro.props;
+---
+
+{ph.kind === 'drone' ? (
+  <span class="shot__meta">
+    Drone still from <a href={ph.channel_url} rel="noopener">{ph.credit}</a>'s video
+    {ph.video_t !== undefined && ph.source_url && <> (<a href={ph.source_url} rel="noopener">watch from {videoTime(ph.video_t)}</a>)</>}, published <time datetime={ph.date}>{formatDate(ph.date)}</time>
+  </span>
+) : (
+  <span class="shot__meta">
+    Photo by {ph.source_url ? <a href={ph.source_url} rel="noopener">{ph.credit}</a> : ph.credit}{ph.handle && <> (<a href={`https://x.com/${ph.handle}`} rel="noopener">@{ph.handle}</a>)</>}, <time datetime={ph.date}>{formatDate(ph.date)}</time>
+  </span>
+)}

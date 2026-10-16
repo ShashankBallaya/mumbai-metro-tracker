@@ -1,0 +1,28 @@
+{
+  "_meta": {
+    "description": "A drone flight along the line, by a creator who gave permission to use it. 'video' is the YouTube video; 'stops' are the stations in the order the flight reaches them, with 't' the second in the video where the station comes into view (each checked against the creator's on-screen station label). Stills from the video are in photos.json under each station. See UPDATING.md.",
+    "permission": "The creator allowed use on the tracker; the owner confirmed this in chat on 2026-10-16.",
+    "last_reviewed": "2026-10-16"
+  },
+  "video": {
+    "id": "xpX7xRPnxf8",
+    "title": "Mumbai Metro Line 12 BIG Update | 4 Month Progress | Kalyan to Taloja Ground Report",
+    "creator": "InfraUnfiltered",
+    "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+    "published": "2026-10-10",
+    "duration_s": 817,
+    "poster": "/photos/manpada-aerial-2026-10-10-a.jpg",
+    "covers": "Kalyan APMC to Amandoot"
+  },
+  "stops": [
+    { "station": "apmc-kalyan", "t": 219 },
+    { "station": "ganesh-nagar", "t": 270 },
+    { "station": "pisavali-gaon", "t": 339 },
+    { "station": "golavli", "t": 384 },
+    { "station": "dombivli-midc", "t": 444 },
+    { "station": "sagaon", "t": 486 },
+    { "station": "sonarpada", "t": 528 },
+    { "station": "manpada", "t": 570 },
+    { "station": "amandoot", "t": 720 }
+  ]
+}

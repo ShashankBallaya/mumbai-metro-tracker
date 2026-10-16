@@ -66,12 +66,38 @@ export interface StationPhoto {
   credit: string;
   /** The photographer's X handle without the @, when the photo is not the owner's. */
   handle?: string;
-  /** The photographer's own post, when the photo is not the owner's. */
+  /** The photographer's own post, when the photo is not the owner's. For a drone still, the video at that moment. */
   source_url?: string;
   width: number;
   height: number;
   caption?: string;
+  /** A still from a drone video (the line's aerial.json). `date` is then the day the video was published. */
+  kind?: 'drone';
+  /** The creator's YouTube channel, for a drone still. */
+  channel_url?: string;
+  /** The second in the video the still is from. */
+  video_t?: number;
 }
+
+/** A drone flight along the line (aerial.json), by a creator who gave permission. */
+export interface Aerial {
+  video: {
+    id: string;
+    title: string;
+    creator: string;
+    channel_url: string;
+    published: string;
+    duration_s: number;
+    /** A still of our own (public/photos) shown before the reader starts the video, so nothing loads from YouTube until then. */
+    poster: string;
+    covers: string;
+  };
+  /** Stations in the order the flight reaches them; `t` is the second the station comes into view. */
+  stops: { station: string; t: number }[];
+}
+
+/** "4:05" from 245 seconds. */
+export const videoTime = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
 
 /** Where a section of the line stands on the way from planning to opening. Drawn as a pattern and written in words, never colour alone. */
 export type StageState = 'done' | 'now' | 'started' | 'next';
@@ -156,6 +182,8 @@ export interface Line {
   stages: StageSection[];
   beforeAfter?: BeforeAfterFile;
   stationModel?: StationModelFile;
+  /** A drone flight along the line, when there is one. */
+  aerial?: Aerial;
   /** The GeoJSON named by `alignment` in lines.json, as text. */
   alignmentRaw?: string;
   /** The latest review date across this line's fact files. */
@@ -200,6 +228,7 @@ export function getLine(id: LineId): Line {
     stages: fillStages(id, (project as { stages?: { sections: StageSection[] } }).stages?.sections ?? [], project.progress.as_of, timeline?.events ?? []),
     beforeAfter: file('beforeafter.json'),
     stationModel: file('station-model.json'),
+    aerial: file<Aerial>('aerial.json'),
     alignmentRaw: info.alignment ? rawFiles[dir + info.alignment] : undefined,
     lastReviewed: [project, stations, timeline, tenders, contractors, rollingstock, social]
       .map((f) => f?._meta.last_reviewed)
@@ -327,13 +356,18 @@ export const feed = feedJson as {
 /** Whether a feed item is about the line. Items written before the feed knew of lines are Line 12's. */
 export const aboutLine = (item: { lines?: string[] }, line: Line) => (item.lines ?? ['line-12']).includes(line.id);
 
-/** People who shared their photos with permission (those with an X handle) on one station page. */
+/**
+ * People who shared their photos with permission on one station page: those with an X handle,
+ * and drone video creators, linked to their YouTube channel.
+ */
 export const photoContributorsFor = (line: Line, stationId: string) => {
-  const byHandle = new Map<string, { credit: string; handle: string }>();
+  const byCredit = new Map<string, { credit: string; href: string; label: string; site: string; drone: boolean }>();
   for (const ph of line.stationPhotos[stationId] ?? []) {
-    if (ph.handle && !byHandle.has(ph.handle)) byHandle.set(ph.handle, { credit: ph.credit, handle: ph.handle });
+    if (byCredit.has(ph.credit)) continue;
+    if (ph.handle) byCredit.set(ph.credit, { credit: ph.credit, href: `https://x.com/${ph.handle}`, label: `@${ph.handle}`, site: 'X', drone: false });
+    else if (ph.channel_url) byCredit.set(ph.credit, { credit: ph.credit, href: ph.channel_url, label: 'YouTube channel', site: '', drone: ph.kind === 'drone' });
   }
-  return [...byHandle.values()];
+  return [...byCredit.values()];
 };
 
 /** Plain-language labels for each grade, used in text next to every mark. */

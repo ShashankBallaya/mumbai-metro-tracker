@@ -1,0 +1,205 @@
+{
+  "_meta": {
+    "description": "Dated ground photos, by the owner or by people who gave permission to use them. Entries with kind \"drone\" are stills from a drone video by a creator who gave permission (the video is in aerial.json); video_t is the second in the video, and source_url opens the video there. 'pairs' are before/after pairs shown under the satellite comparison. 'stations' holds photos for each station page, keyed by the station id in stations.json. Put the image files in public/photos/ (location data removed) and add entries below. See UPDATING.md.",
+    "last_reviewed": "2026-10-16"
+  },
+  "pairs": [],
+  "stations": {
+    "dhamankar-naka": [
+      {
+        "src": "/photos/dhamankar-naka-aerial-2026-10-13-a.jpg",
+        "alt": "Drone view along the orange roof of Dhamankar Naka station, with low-rise buildings, palms and a parking lot around it",
+        "caption": "The station roof from above",
+        "date": "2026-10-13",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=l3cL7pU6rtI&t=106s",
+        "video_t": 106,
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "src": "/photos/dhamankar-naka-aerial-2026-10-13-b.jpg",
+        "alt": "Drone view down the two tracks through Dhamankar Naka station, under the steel roof frame, with packing crates on one platform",
+        "caption": "The tracks through the station, where Phase 1 ends",
+        "date": "2026-10-13",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=l3cL7pU6rtI&t=93s",
+        "video_t": 93,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "anjurphata": [
+      {
+        "src": "/photos/anjurphata-aerial-2026-10-13-a.jpg",
+        "alt": "Drone view along the viaduct towards Anjurphata station and its orange roof, between buildings under construction",
+        "caption": "Coming up to the station along the viaduct",
+        "date": "2026-10-13",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=l3cL7pU6rtI&t=172s",
+        "video_t": 172,
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "src": "/photos/anjurphata-aerial-2026-10-13-b.jpg",
+        "alt": "The two tracks entering Anjurphata station under its orange roof, with overhead wire masts on both sides",
+        "caption": "The platforms and the overhead wires",
+        "date": "2026-10-13",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=l3cL7pU6rtI&t=176s",
+        "video_t": 176,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "purna": [
+      {
+        "src": "/photos/purna-aerial-2026-10-13-a.jpg",
+        "alt": "Drone view of Purna station's orange roof over the viaduct, among sheds with tin and tarpaulin roofs",
+        "caption": "The station among the warehouses around it",
+        "date": "2026-10-13",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=l3cL7pU6rtI&t=289s",
+        "video_t": 289,
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "src": "/photos/purna-aerial-2026-10-13-b.jpg",
+        "alt": "The front of Purna station from just above the tracks, with orange panels along the platform edges",
+        "caption": "The station's front, from above the tracks",
+        "date": "2026-10-13",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=l3cL7pU6rtI&t=297s",
+        "video_t": 297,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "kalher": [
+      {
+        "src": "/photos/kalher-aerial-2026-10-13-a.jpg",
+        "alt": "Drone view of Kalher station's orange roof at the end of a straight stretch of viaduct, with warehouses on both sides",
+        "caption": "The station from the viaduct",
+        "date": "2026-10-13",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=l3cL7pU6rtI&t=342s",
+        "video_t": 342,
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "src": "/photos/kalher-aerial-2026-10-13-b.jpg",
+        "alt": "The front of Kalher station from above the tracks, with buildings close against both sides of the viaduct",
+        "caption": "The station's front, from above the tracks",
+        "date": "2026-10-13",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=l3cL7pU6rtI&t=349s",
+        "video_t": 349,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "kasheli": [
+      {
+        "src": "/photos/kasheli-aerial-2026-10-13-a.jpg",
+        "alt": "Drone view of Kasheli station's orange roof over the viaduct, between low buildings with tin roofs",
+        "caption": "The station and the streets around it",
+        "date": "2026-10-13",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=l3cL7pU6rtI&t=467s",
+        "video_t": 467,
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "src": "/photos/kasheli-aerial-2026-10-13-b.jpg",
+        "alt": "The two tracks under Kasheli station's roof, with overhead wire masts and the station building on either side",
+        "caption": "The platforms and the overhead wires",
+        "date": "2026-10-13",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=l3cL7pU6rtI&t=481s",
+        "video_t": 481,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "balkum-naka": [
+      {
+        "src": "/photos/balkum-naka-aerial-2026-10-13-a.jpg",
+        "alt": "Drone view of Balkum Naka station with its orange roof and yellow stair towers, trees on one side and a road junction below",
+        "caption": "The station, its stair towers and the junction",
+        "date": "2026-10-13",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=l3cL7pU6rtI&t=686s",
+        "video_t": 686,
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "src": "/photos/balkum-naka-aerial-2026-10-13-b.jpg",
+        "alt": "The front of Balkum Naka station from above the tracks, with work still going on at the platform level",
+        "caption": "Finishing work at the station",
+        "date": "2026-10-13",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=l3cL7pU6rtI&t=690s",
+        "video_t": 690,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "kapurbawdi": [
+      {
+        "src": "/photos/kapurbawdi-aerial-2026-10-13-a.jpg",
+        "alt": "Line 5's tracks beside Line 4's yellow-edged viaduct, leading to Kapurbawdi station and its green roof between office towers",
+        "caption": "Line 5 runs beside Line 4 into the station",
+        "date": "2026-10-13",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=l3cL7pU6rtI&t=776s",
+        "video_t": 776,
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "src": "/photos/kapurbawdi-aerial-2026-10-13-b.jpg",
+        "alt": "Kapurbawdi station's green roof from above, among trees and tall residential towers",
+        "caption": "The station, built with Line 4, from above",
+        "date": "2026-10-13",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=l3cL7pU6rtI&t=813s",
+        "video_t": 813,
+        "width": 1600,
+        "height": 900
+      }
+    ]
+  }
+}

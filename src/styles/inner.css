@@ -206,3 +206,7 @@
   padding: 0;
   list-style: none;
 }
+/* A drone still is a 16:9 video frame: shown whole, not cropped to the photo frame. */
+.shot--wide img {
+  aspect-ratio: 16 / 9;
+}

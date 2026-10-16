@@ -9,7 +9,8 @@ import Colophon from '../../../components/Colophon.astro';
 import Grade from '../../../components/Grade.astro';
 import LocatorMap from '../../../components/LocatorMap.astro';
 import LineMark from '../../../components/LineMark.astro';
-import { getLine, lines, lineNodeId, lineBase, SITE_NAME, stationHref, positionBasis, streetViewUrl, plannedInterchanges, formatDate, sectionOf, openedOf, announcedOf, sectionName, clock, inr, type LineId, type Station } from '../../../lib/data';
+import PhotoCredit from '../../../components/PhotoCredit.astro';
+import { getLine, lines, lineNodeId, lineBase, SITE_NAME, stationHref, positionBasis, streetViewUrl, plannedInterchanges, formatDate, sectionOf, openedOf, announcedOf, sectionName, clock, inr, videoTime, type LineId, type Station, type StationPhoto } from '../../../lib/data';
 import { hasStatusPage } from '../../../lib/answers';
 import '../../../styles/inner.css';
 
@@ -81,6 +82,13 @@ const site = Astro.site!.toString();
 // Dated ground photos (the maintainer's, or shared with permission), when there are any; otherwise the slot waits for them.
 const photos = stationPhotos[s.id] ?? [];
 const [lead, ...more] = photos;
+// Drone stills are 16:9 video frames; ground photos keep the 4:3 frame.
+const wide = (ph: StationPhoto) => ph.width / ph.height > 1.5;
+const moreTitle = more.every((ph) => ph.kind === 'drone')
+  ? lead?.kind === 'drone' ? 'More from the air' : 'From the air'
+  : more.some((ph) => ph.kind === 'drone') ? 'More pictures' : 'More from the ground';
+// The flight past this station in the line's drone video, when there is one.
+const flight = line.aerial?.stops.find((st) => st.station === s.id);
 
 const title = `${s.name} Metro Station, ${about.name} (${route_short})`;
 const description = `${s.name} is station ${s.order} of ${total} on ${on}, ${route_short}. Where it is, what is around it, interchanges and construction status, each with its source.`;
@@ -131,11 +139,11 @@ const schema: Record<string, unknown>[] = [
       </header>
 
       {lead ? (
-        <figure class="shot">
+        <figure class:list={['shot', wide(lead) && 'shot--wide']}>
           <img src={lead.src} alt={lead.alt} width={lead.width} height={lead.height} decoding="async" />
           <figcaption>
             {lead.caption && <span>{lead.caption}</span>}
-            <span class="shot__meta">Photo by {lead.source_url ? <a href={lead.source_url} rel="noopener">{lead.credit}</a> : lead.credit}{lead.handle && <> (<a href={`https://x.com/${lead.handle}`} rel="noopener">@{lead.handle}</a>)</>}, <time datetime={lead.date}>{formatDate(lead.date)}</time></span>
+            <PhotoCredit photo={lead} />
           </figcaption>
         </figure>
       ) : (
@@ -168,6 +176,12 @@ const schema: Record<string, unknown>[] = [
                   <>
                     <span aria-hidden="true"> / </span>
                     <a href={streetViewUrl(s)!} target="_blank" rel="noopener">Street View of the station<span class="visually-hidden"> (opens in a new tab)</span></a>
+                  </>
+                )}
+                {flight && (
+                  <>
+                    <span aria-hidden="true"> / </span>
+                    <a href={`${base}?flight=${s.id}#from-the-air`}>The drone flight past it, from {videoTime(flight.t)}</a>
                   </>
                 )}
               </p>
@@ -290,15 +304,15 @@ const schema: Record<string, unknown>[] = [
 
     {more.length > 0 && (
       <section class="inner__block" aria-labelledby="more-photos">
-        <h2 id="more-photos">More from the ground</h2>
+        <h2 id="more-photos">{moreTitle}</h2>
         <ul class="shots">
           {more.map((ph) => (
             <li>
-              <figure class="shot">
+              <figure class:list={['shot', wide(ph) && 'shot--wide']}>
                 <img src={ph.src} alt={ph.alt} width={ph.width} height={ph.height} loading="lazy" decoding="async" />
                 <figcaption>
                   {ph.caption && <span>{ph.caption}</span>}
-                  <span class="shot__meta">Photo by {ph.source_url ? <a href={ph.source_url} rel="noopener">{ph.credit}</a> : ph.credit}{ph.handle && <> (<a href={`https://x.com/${ph.handle}`} rel="noopener">@{ph.handle}</a>)</>}, <time datetime={ph.date}>{formatDate(ph.date)}</time></span>
+                  <PhotoCredit photo={ph} />
                 </figcaption>
               </figure>
             </li>

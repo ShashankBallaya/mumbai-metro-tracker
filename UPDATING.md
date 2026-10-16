@@ -193,3 +193,13 @@ Every station page has a photo slot beside its headline. Until you add a photo, 
 The first photo fills the slot. Any more appear under "More from the ground" further down the page. `width` and `height` are the file's real pixel size, so the page does not jump while the photo loads.
 
 A photo by someone else needs their permission first. Put their name in `credit`, their X handle (without the @) in `handle`, and a link to their own post in `source_url`. The caption then links the name to that post and shows the handle. A large credit with their name and handle also shows at the top of the footer of that station page.
+
+## Drone video stills
+
+A creator's drone flight along a line can fill the station photo slots and a "From the air" section on the line page. Get the creator's permission first.
+
+1. Add `src/data/lines/<line>/aerial.json` (see Line 5's): the video's YouTube id, title, creator, channel link, publish date, length in seconds, and a poster still of our own. Under `stops`, list the stations in the order the flight reaches them, with `t` the second where each one comes into view. Check each against the creator's on-screen station label, or the station's position on imagery.
+2. Take stills at 1600 x 900 from frames with no picture-in-picture inset. Keep each under 400 KB and name them `<station>-aerial-<publish date>-a.jpg`.
+3. Add each still under the station in `photos.json`, with `"kind": "drone"`, `credit` (the channel name), `channel_url`, `video_t` (the second of the frame) and `source_url` (the video link with `&t=<seconds>s`). `date` is the publish date, because the flight date is not known.
+
+The page loads nothing from YouTube until a reader presses play. Then it uses youtube-nocookie.com.

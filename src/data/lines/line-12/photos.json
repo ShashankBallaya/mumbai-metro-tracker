@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "description": "Dated ground photos, by the owner or by people who gave permission to use them. 'pairs' are before/after pairs shown under the satellite comparison. 'stations' holds photos for each station page, keyed by the station id in stations.json. Put the image files in public/photos/ (location data removed) and add entries below. See UPDATING.md.",
-    "last_reviewed": "2026-10-06"
+    "description": "Dated ground photos, by the owner or by people who gave permission to use them. Entries with kind \"drone\" are stills from a drone video by a creator who gave permission (the video is in aerial.json); video_t is the second in the video, and source_url opens the video there. 'pairs' are before/after pairs shown under the satellite comparison. 'stations' holds photos for each station page, keyed by the station id in stations.json. Put the image files in public/photos/ (location data removed) and add entries below. See UPDATING.md.",
+    "last_reviewed": "2026-10-16"
   },
   "pairs": [],
   "stations": {
@@ -23,6 +23,19 @@
         "credit": "Shashank Ballaya",
         "width": 1200,
         "height": 1600
+      },
+      {
+        "src": "/photos/apmc-kalyan-aerial-2026-10-10-a.jpg",
+        "alt": "Drone view along the Line 12 piers and viaduct past a blue-roofed building and an open lot at APMC Kalyan",
+        "caption": "The viaduct at the station site, from above",
+        "date": "2026-10-10",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=xpX7xRPnxf8&t=231s",
+        "video_t": 231,
+        "width": 1600,
+        "height": 900
       }
     ],
     "amandoot": [
@@ -113,6 +126,124 @@
         "source_url": "https://x.com/Maha7Arindam/status/2074820038897582352",
         "width": 1600,
         "height": 1200
+      },
+      {
+        "src": "/photos/amandoot-aerial-2026-10-10-a.jpg",
+        "alt": "Drone view of Navi Mumbai Metro Line 1's green-roofed Amandoot station, with Line 12's piers on the cleared land beside it",
+        "caption": "The Line 12 piers beside Line 1's station",
+        "date": "2026-10-10",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=xpX7xRPnxf8&t=729s",
+        "video_t": 729,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "ganesh-nagar": [
+      {
+        "src": "/photos/ganesh-nagar-aerial-2026-10-10-a.jpg",
+        "alt": "Drone view of the Line 12 piers and viaduct along the road beside a shopping mall, with dense housing on the other side",
+        "caption": "The station site beside the mall, from above",
+        "date": "2026-10-10",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=xpX7xRPnxf8&t=276s",
+        "video_t": 276,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "pisavali-gaon": [
+      {
+        "src": "/photos/pisavali-gaon-aerial-2026-10-10-a.jpg",
+        "alt": "Drone view of the Line 12 piers along a busy road through dense housing at Pisavali Gaon",
+        "caption": "The station site among the houses, from above",
+        "date": "2026-10-10",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=xpX7xRPnxf8&t=345s",
+        "video_t": 345,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "golavli": [
+      {
+        "src": "/photos/golavli-aerial-2026-10-10-a.jpg",
+        "alt": "Drone view down the finished Line 12 viaduct deck along the road at Golavli, with factory sheds on both sides",
+        "caption": "The viaduct deck along the road",
+        "date": "2026-10-10",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=xpX7xRPnxf8&t=390s",
+        "video_t": 390,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "dombivli-midc": [
+      {
+        "src": "/photos/dombivli-midc-aerial-2026-10-10-a.jpg",
+        "alt": "Drone view of the Line 12 piers and viaduct along the road through Dombivli MIDC, with trees and low buildings on both sides",
+        "caption": "The station site in the industrial area, from above",
+        "date": "2026-10-10",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=xpX7xRPnxf8&t=456s",
+        "video_t": 456,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "sagaon": [
+      {
+        "src": "/photos/sagaon-aerial-2026-10-10-a.jpg",
+        "alt": "Drone view of the Line 12 viaduct along the road at Sagaon, with the station's piers in the middle of the picture",
+        "caption": "The station site on the road, from above",
+        "date": "2026-10-10",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=xpX7xRPnxf8&t=495s",
+        "video_t": 495,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "sonarpada": [
+      {
+        "src": "/photos/sonarpada-aerial-2026-10-10-a.jpg",
+        "alt": "Drone view down the Line 12 viaduct deck along the road at Sonarpada, with a tall building under construction on the left",
+        "caption": "The viaduct deck at the station site",
+        "date": "2026-10-10",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=xpX7xRPnxf8&t=531s",
+        "video_t": 531,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "manpada": [
+      {
+        "src": "/photos/manpada-aerial-2026-10-10-a.jpg",
+        "alt": "Drone view of the Line 12 piers beside a curving road at Manpada, with a building site and open green land around them",
+        "caption": "The station site, with open land on both sides",
+        "date": "2026-10-10",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=xpX7xRPnxf8&t=582s",
+        "video_t": 582,
+        "width": 1600,
+        "height": 900
       }
     ]
   }

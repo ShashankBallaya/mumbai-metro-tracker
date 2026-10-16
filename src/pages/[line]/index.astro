@@ -14,6 +14,7 @@ import Tenders from '../../components/Tenders.astro';
 import Trains from '../../components/Trains.astro';
 import Stations from '../../components/Stations.astro';
 import StationModel from '../../components/StationModel.astro';
+import Aerial from '../../components/Aerial.astro';
 import Updates from '../../components/Updates.astro';
 import SourcesFooter from '../../components/SourcesFooter.astro';
 import { getLine, lines, hasService, type LineId } from '../../lib/data';
@@ -33,6 +34,7 @@ const { about, route_short, copy } = line.info;
     <RouteRide line={line} />
     {line.alignmentRaw && <MapSection line={line} />}
     {line.beforeAfter && <BeforeAfter line={line} />}
+    {line.aerial && <Aerial line={line} />}
     {line.stationModel && <StationModel line={line} />}
     <Numbers line={line} />
     {line.plan2017 && <PlanChanges line={line} />}
