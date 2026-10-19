@@ -12,18 +12,21 @@ const { timeline } = line;
 
 
 /**
- * A line whose trains are ordered (Line 5) has a maker, the contract, and the maker's published figures.
+ * A line whose trains are ordered (Lines 5 and 4) has a maker, the contract, and the published figures.
+ * The contract may be held by a prime contractor (Line 4: L&T, with Alstom for the trains), and its date and value
+ * may not be published yet.
  * A line whose trains are not ordered yet (Line 12) shows its project report's planning figures.
  */
 interface Graded { status: string; source_url: string | null }
 interface Ordered {
   procurement: Graded & {
-    manufacturer: string; value: string; package: string; date: string; value_crore: number; trains: number;
-    cars_per_train: number; coaches: number; phases: string; scope: string; built_at: string;
+    manufacturer: string; contractor?: string; value: string; package: string; date: string | null; value_crore: number | null;
+    estimate_crore?: number; trains: number; cars_per_train: number; coaches: number; phases: string; scope: string; built_at?: string;
     commissioning_weeks?: number; commissioning_source_url?: string; maintenance?: Graded & { value: string };
   };
-  specs: Graded & { rows: [string, string][]; notes?: string };
+  specs: Graded & { rows: [string, string][]; label?: string; notes?: string };
   traction?: Graded & { supplier: string; value: string };
+  first_train?: Graded & { value: string };
 }
 const ordered = rollingstock.procurement.manufacturer ? (rollingstock as unknown as Ordered) : undefined;
 const d = rollingstock.dpr_design_assumptions;
@@ -34,6 +37,12 @@ const tender = timeline.find((e) => e.id === 'systems-tender');
 const cars = ordered ? ordered.procurement.cars_per_train : 3;
 const carW = (680 - (cars - 1) * 10) / cars;
 const carXs = Array.from({ length: cars }, (_, i) => 20 + i * (carW + 10));
+const carWord = ordered ? (['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight'][ordered.procurement.cars_per_train] ?? `${ordered.procurement.cars_per_train}`) : '';
+const packageLabel = ordered && [
+  `Package ${ordered.procurement.package}`,
+  ordered.procurement.contractor && `held by ${ordered.procurement.contractor}`,
+  ordered.procurement.value_crore !== null && `₹${ordered.procurement.value_crore.toLocaleString('en-IN')} crore`,
+].filter(Boolean).join(', ');
 const specs: [string, string][] = ordered ? ordered.specs.rows : [
   ['Car width', `${d.car_width_m} m`],
   ['Body', d.body],
@@ -54,11 +63,19 @@ const specs: [string, string][] = ordered ? ordered.specs.rows : [
   <header class="section-head">
     <h2 id="trains-title">Trains</h2>
     {ordered ? (
+      ordered.procurement.contractor ? (
+        <p>
+          The trains are ordered. {ordered.procurement.manufacturer} is building {ordered.procurement.trains}{' '}
+          {carWord}-car trains for {ordered.procurement.phases}. They are part of one contract held by{' '}
+          {ordered.procurement.contractor}, with the signalling, platform screen doors and depot machinery{ordered.procurement.date ? ` (announced on ${formatDate(ordered.procurement.date)})` : ''}.
+        </p>
+      ) : (
       <p>
         The trains are ordered. {ordered.procurement.manufacturer} is building {ordered.procurement.trains} six-car trains for{' '}
         {ordered.procurement.phases}, with the signalling, platform screen doors and depot machinery, under one contract
         announced on {formatDate(ordered.procurement.date)}.
       </p>
+      )
     ) : (
       <p>
         No train has been ordered yet. The trains, signalling and power systems are in one tender floated in {formatDate(tender!.date)}. Until a maker is chosen, these are the 2019 project report's planning figures.
@@ -108,7 +125,7 @@ const specs: [string, string][] = ordered ? ordered.specs.rows : [
       </svg>
         {ordered ? (
           <figcaption>
-            Generic drawing, not the maker's design.
+            Generic drawing, not the maker's design.{' '}
             {(img as { link_url?: string }).link_url
               ? <>The maker shows a picture on <a href={(img as { link_url?: string }).link_url} rel="noopener">its own project page</a>; it is not copied here.</>
               : 'No image of this train is sourced yet.'}
@@ -127,12 +144,20 @@ const specs: [string, string][] = ordered ? ordered.specs.rows : [
       {ordered ? (
         <>
           <p class="trains__line5">
-            <strong>Package {ordered.procurement.package}, ₹{ordered.procurement.value_crore.toLocaleString('en-IN')} crore:</strong>{' '}
-            {ordered.procurement.trains} trains of {ordered.procurement.cars_per_train} cars ({ordered.procurement.coaches} coaches), built at{' '}
-            {ordered.procurement.built_at}.{' '}
+            <strong>{packageLabel}:</strong>{' '}
+            {`${ordered.procurement.trains} trains of ${ordered.procurement.cars_per_train} cars (${ordered.procurement.coaches} coaches)${ordered.procurement.built_at ? `, built at ${ordered.procurement.built_at}` : ''}.`}{' '}
+            {ordered.procurement.value_crore === null && ordered.procurement.estimate_crore && (
+              <>The award value is not published; the tender estimate was ₹{ordered.procurement.estimate_crore.toLocaleString('en-IN')} crore. </>
+            )}
             {ordered.procurement.commissioning_weeks && <>To be commissioned within {ordered.procurement.commissioning_weeks} weeks. </>}
             <Grade status={ordered.procurement.status} source={ordered.procurement.source_url} />
           </p>
+          {ordered.first_train && (
+            <p class="trains__line5">
+              <strong>First train:</strong> {ordered.first_train.value}.{' '}
+              <Grade status={ordered.first_train.status} source={ordered.first_train.source_url} />
+            </p>
+          )}
           {ordered.procurement.maintenance && (
             <p class="trains__line5">
               <strong>Maintenance:</strong> {ordered.procurement.maintenance.value}.{' '}
@@ -164,7 +189,7 @@ const specs: [string, string][] = ordered ? ordered.specs.rows : [
       </dl>
       {ordered ? (
         <p class="trains__note">
-          MMRDA's published figures. {ordered.specs.notes} <Grade status={ordered.specs.status} source={ordered.specs.source_url} />
+          {ordered.specs.label ?? "MMRDA's published figures."} {ordered.specs.notes} <Grade status={ordered.specs.status} source={ordered.specs.source_url} />
         </p>
       ) : (
       <p class="trains__note">

@@ -257,7 +257,7 @@ function line5(line: Line): Answer[] {
     {
       id: 'names',
       q: 'What else is Metro Line 5 called?',
-      a: `${p.name.value} is also called ${p.name.also_known_as.join(' or the ')}. Trade press treats Lines 5 and 12 as one Orange Line, a colour MMRDA announced in 2020; MMRDA's Line 5 page names no colour.`,
+      a: `${p.name.value} is also called ${p.name.also_known_as[0]}, the ${p.name.also_known_as[1]} or the ${p.name.also_known_as[2]}. Trade press treats Lines 5 and 12 as one Orange Line, a colour MMRDA announced in 2020; MMRDA's Line 5 page names no colour.`,
       grades: [
         { status: p.name.status, source: p.name.source_url },
         { status: colour.status, source: colour.source_url },
@@ -266,7 +266,166 @@ function line5(line: Line): Answer[] {
   ];
 }
 
-const sets: Record<string, (line: Line) => Answer[]> = { 'line-12': line12, 'line-5': line5 };
+function line4(line: Line): Answer[] {
+  const { project: p, stations, timeline, tenders } = line;
+  const base = lineBase(line.id);
+  type Graded = { value: string; status: string; source_url: string };
+  const x = p as unknown as {
+    target_completion: Graded & { scope: string; rest_of_line: Graded };
+    phases: (Graded & { length_km: number; stations: number; stations_note: string; alternatives: { value: string }[] })[];
+    line_4a: { length_km: number; cost_crore: number; status: string; source_url: string; alternatives: { value: number }[]; cost_history: { value: number }[] };
+    length_km: { value: number; with_4a_km: number; with_4a_source_url: string };
+    completion_cost_crore_inr: { value: number; status: string; source_url: string; history: { value: number }[] };
+    funding: Graded;
+    depot: { value: string; area_ha: number; status: string; source_url: string; contract: Graded; interim: Graded };
+    interchanges: { value: { station: string; connects_to: string }[]; lines: string[]; status: string; source_url: string };
+    rolling_stock: { trains: number; cars_per_train: number; status: string; source_url: string; trial_trains: Graded };
+    technical: { status: string; source_url: string };
+    line_color: Graded;
+    related_projects: { name: string; status: string; source_url: string }[];
+  };
+  const t = x.target_completion;
+  const prog = p.progress;
+  const cur = p.current_phase;
+  const [ph1, ph2, ph3] = x.phases;
+  const event = (id: string) => timeline.find((e) => e.id === id)!;
+  const tender = (id: string) => tenders.find((e) => e.id === id)!;
+  const list = (names: string[]) => `${names.slice(0, -1).join(', ')} and ${names.at(-1)}`;
+  const pcts = prog.items.map((i) => i.percent_complete);
+  const main = stations.filter((s) => (s as { section?: string }).section === '4');
+  const ext = stations.filter((s) => (s as { section?: string }).section === '4A');
+  const dropped = event('stations-dropped');
+  const line10 = x.related_projects[0];
+  const rs = x.rolling_stock;
+  return [
+    {
+      id: 'opening',
+      q: 'When will Mumbai Metro Line 4 open?',
+      a: `MMRDA has announced no opening date. News reports of August and September 2026 say MMRDA aims to open the first stretch, ${ph1.value}, around Diwali or by the end of 2026, once the safety approvals are in. The site counts down to 31 Dec 2026 as a reported target. Trial runs on this stretch began in September 2025, and the safety commissioner's report on the Gaimukh pit line is awaited. Earlier targets of December 2025 and April 2026 have passed. For the rest of the line, the reported targets are ${t.rest_of_line.value}; the first of these has passed.`,
+      grades: [
+        { status: t.status, source: t.source_url },
+        { status: cur.status, source: cur.source_url },
+        { status: t.rest_of_line.status, source: t.rest_of_line.source_url },
+      ],
+    },
+    {
+      id: 'first-stations',
+      q: 'Which stretch of Line 4 opens first?',
+      a: `${ph1.value}, about ${ph1.length_km} km at the Thane end, with Line 4A. It has ${ph1.stations} stations: ${ph1.stations_note.replace(/\.$/, '')}. A report of August 2026, quoting an MMRDA official, names only 8 of them, without Manpada and Gowniwada; no source says whether those two open with the rest. Next, as reported in September 2025: ${ph2.value}, with ${ph2.stations} stations, then ${ph3.value}, with ${ph3.stations}. MMRDA itself names no phases.`,
+      grades: [
+        { status: ph1.status, source: ph1.source_url },
+        { status: ph2.status, source: ph2.source_url },
+      ],
+    },
+    {
+      id: 'progress',
+      q: 'How much of Line 4 is built?',
+      a: `MMRDA's progress table for ${formatDate(prog.as_of)} covers the whole line and puts each civil activity at ${Math.min(...pcts)}% to ${Math.max(...pcts)}%: ${prog.items.map((i) => `${/^[A-Z][a-z]/.test(i.activity) ? i.activity.charAt(0).toLowerCase() + i.activity.slice(1) : i.activity} ${i.percent_complete}%`).join(', ')}. MMRDA publishes no figure by station or by stretch. The first stretch, Gaimukh to Cadbury Junction, is built and in trial runs; RDSO certified it on ${formatDate(event('rdso-certificate').date)}, as reported.`,
+      grades: [
+        { status: prog.status, source: prog.source_url },
+        { status: cur.status, source: cur.source_url },
+      ],
+    },
+    {
+      id: 'route',
+      q: 'What is the route of Metro Line 4?',
+      a: `${p.route.value}. Line 4 is ${x.length_km.value} km long, fully elevated, with ${p.stations_count.value} stations; with Line 4A, MMRDA gives ${x.length_km.with_4a_km} km. The 2016 project report runs it along the Eastern Express Highway from Wadala to Mulund, then through Thane on Lal Bahadur Shastri Marg and Ghodbunder Road.`,
+      grades: [
+        { status: p.route.status, source: p.route.source_url },
+        { status: x.technical.status, source: x.technical.source_url },
+      ],
+      more: { href: `${base}#map`, label: 'See the route on the map' },
+    },
+    {
+      id: 'stations',
+      q: 'Which stations are on Line 4?',
+      a: `${main.length} on Line 4, in order from Wadala: ${main.map((s) => s.name).join(', ')}. Line 4A adds ${list(ext.map((s) => s.name))}. The 2016 plan also had Suman Nagar and Amar Mahal Junction; both were dropped in ${formatDate(dropped.date)}, for cost and lack of space, as reported.`,
+      grades: [
+        { status: p.stations_count.status, source: p.stations_count.source_url },
+        { status: dropped.status, source: dropped.source_url },
+      ],
+      more: { href: `${base}stations/`, label: 'A page for every station' },
+    },
+    {
+      id: 'line-4a',
+      q: 'What is Line 4A?',
+      a: `The extension of Line 4 from Kasarvadavali to Gaimukh, with ${list(ext.map((s) => s.name))} stations. Sources differ on its length: ${x.line_4a.length_km} km from MMRDA's figures of 2023, ${x.line_4a.alternatives[0].value} km in the 2017 project report, ${x.line_4a.alternatives[1].value} km in trade press. Its cost is reported as Rs ${inr(x.line_4a.cost_crore)} crore (Rs ${inr(x.line_4a.cost_history[0].value)} crore in the 2017 report). J Kumar holds its civil contract (package CA-54, Rs ${inr(tender('ca-54').awarded_value_crore!)} crore, ${formatDate(tender('ca-54').award_date)}). It is part of the first stretch to open, as reported.`,
+      grades: [
+        { status: x.line_4a.status, source: x.line_4a.source_url },
+        { status: tender('ca-54').status, source: tender('ca-54').source_url },
+      ],
+    },
+    {
+      id: 'interchanges',
+      q: 'Where does Line 4 meet other lines?',
+      a: `${x.interchanges.value.map((i) => `At ${i.station}, with ${i.connects_to}`).join('. ')}. MMRDA also names connections with ${list(x.interchanges.lines.filter((l) => !l.startsWith('Metro Line 5')))}, but not the stations where they meet. Siddharth Colony is to connect with Line 2B's Eastern Express Highway station, as reported in December 2023. ${line10.name} is to continue the line from Gaimukh; it is approved, not built.`,
+      grades: [
+        { status: x.interchanges.status, source: x.interchanges.source_url },
+        { status: dropped.status, source: dropped.source_url },
+        { status: line10.status, source: line10.source_url },
+      ],
+    },
+    {
+      id: 'cost',
+      q: 'How much does Metro Line 4 cost?',
+      a: `MMRDA gives a base cost of Rs ${inr(x.completion_cost_crore_inr.value)} crore for Line 4, including taxes and duties. With Line 4A's reported Rs ${inr(x.line_4a.cost_crore)} crore, that makes Rs ${inr(x.completion_cost_crore_inr.value + x.line_4a.cost_crore)} crore. The 2016 project report had Rs ${inr(x.completion_cost_crore_inr.history[0].value)} crore at March 2016 prices. Germany's KfW lends EUR 545 million for the systems of Lines 4 and 4A, the trains and ticketing among them; MMRDA pays the rest.`,
+      grades: [
+        { status: x.completion_cost_crore_inr.status, source: x.completion_cost_crore_inr.source_url },
+        { status: x.line_4a.status, source: x.line_4a.source_url },
+        { status: x.funding.status, source: x.funding.source_url },
+      ],
+    },
+    {
+      id: 'builder',
+      q: 'Who is building Line 4?',
+      a: `MMRDA (Mumbai Metropolitan Region Development Authority) is building the line. On ${formatDate(event('civil-award').date)} it gave the viaduct and stations to two joint ventures: Reliance Infrastructure and Astaldi (packages CA-08, CA-10 and CA-12) and Tata Projects and CHEC (CA-09 and CA-11). L&T holds the systems contract, with Alstom for the trains (CA-234), and the power and traction contract from Wadala to Cadbury Junction (CA-298).`,
+      grades: [
+        { status: p.implementing_agency.status, source: p.implementing_agency.source_url },
+        { status: event('civil-award').status, source: event('civil-award').source_url },
+        { status: tender('ca-234').status, source: tender('ca-234').source_url },
+        { status: tender('ca-298').status, source: tender('ca-298').source_url },
+      ],
+    },
+    {
+      id: 'depot',
+      q: 'Where is the Line 4 depot?',
+      a: `At ${x.depot.value}, on ${x.depot.area_ha} hectares. SEW Infrastructure and Vishwa Samudra Engineering hold its contract (package CA-160). The depot was not ready for the first stretch, so a pit line at Gaimukh serves it for now: two island platforms and four tracks. The safety commissioner inspected the pit line in August 2026.`,
+      grades: [
+        { status: x.depot.status, source: x.depot.source_url },
+        { status: x.depot.contract.status, source: x.depot.contract.source_url },
+        { status: x.depot.interim.status, source: x.depot.interim.source_url },
+      ],
+    },
+    {
+      id: 'trains',
+      q: 'Which trains will run on Line 4?',
+      a: `Alstom is building ${rs.trains} driverless ${rs.cars_per_train}-car Metropolis trains for Lines 4 and 4A, through L&T's systems contract (package CA-234), which also covers the signalling and platform screen doors. The first was unveiled at Alstom's factory at Sri City on ${formatDate(event('first-alstom-train').date)}, built in 14 months; delivery to Mumbai is expected in December 2026. The first trial runs used two trains borrowed from Line 2A. An earlier order, for 234 cars from Bombardier, was cancelled in 2022.`,
+      grades: [
+        { status: rs.status, source: rs.source_url },
+        { status: rs.trial_trains.status, source: rs.trial_trains.source_url },
+        { status: event('train-order-cancelled').status, source: event('train-order-cancelled').source_url },
+      ],
+      more: { href: `${base}#trains`, label: 'The trains' },
+    },
+    {
+      id: 'riders',
+      q: 'How many people will use Line 4?',
+      a: `About ${p.daily_ridership_2031.display} riders a day by 2031, as projected. MMRDA says the line cuts travel time by 50% to 75%, depending on road conditions.`,
+      grades: [
+        { status: p.daily_ridership_2031.status, source: p.daily_ridership_2031.source_url },
+        { status: p.travel_time_benefit.status, source: p.travel_time_benefit.source_url },
+      ],
+    },
+    {
+      id: 'names',
+      q: 'What else is Metro Line 4 called?',
+      a: `${p.name.value} is also called ${p.name.also_known_as[0]}, the ${p.name.also_known_as[1]} or the ${p.name.also_known_as[2]}. MMRDA gives its colour as the ${x.line_color.value}.`,
+      grades: [{ status: p.name.status, source: p.name.source_url }],
+    },
+  ];
+}
+
+const sets: Record<string, (line: Line) => Answer[]> = { 'line-12': line12, 'line-5': line5, 'line-4': line4 };
 
 /**
  * Opening mode: once the line's first section has an announced or past opening date, that date answers

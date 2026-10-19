@@ -1,0 +1,89 @@
+{
+ "_meta": {
+  "description": "Rolling stock for Lines 4 and 4A. The trains are ordered: L&T holds package CA-234 (trains, signalling, telecom, platform screen doors, depot machinery), with Alstom for the trains. 'specs' are the design values of the Line 4 project report (DMRC for MMRDA, May 2016) and the train count from the contract, shown as rows. The award date and value of CA-234 are not published (SOURCES.md, Line 4, leads to verify).",
+  "last_reviewed": "2026-10-19"
+ },
+ "procurement": {
+  "manufacturer": "Alstom",
+  "contractor": "L&T",
+  "value": "Integrated systems contract to L&T, with Alstom for the trains; L&T was the lowest bidder on 14 Feb 2025",
+  "package": "CA-234",
+  "date": null,
+  "value_crore": null,
+  "estimate_crore": 4297.49,
+  "trains": 39,
+  "cars_per_train": 6,
+  "coaches": 234,
+  "phases": "Lines 4 and 4A",
+  "scope": "Trains, CBTC signalling and train control, telecom, platform screen doors and depot machinery for Mogharpada",
+  "model": "Alstom Metropolis, driverless",
+  "maintenance": {
+   "value": "17 years of maintenance under the same contract, paid for by MMRDA; the KfW loan pays for the design and build",
+   "status": "reported",
+   "source_url": "https://themetrorailguy.com/2025/02/15/lt-alstom-win-mumbai-metro-line-4s-rolling-stock-signaling-contract-ca-234/",
+   "last_verified": "2026-10-19"
+  },
+  "status": "reported",
+  "source_url": "https://www.railwaygazette.com/india/2026/10/19/mumbai-metro-line-4-4a-train-rolled-out-in-record-time/",
+  "also_see": [
+   "https://metrorailnews.in/alstom-rolls-out-first-driverless-metropolis-trainset-for-mumbai-metro-lines-4-and-4a/",
+   "https://themetrorailguy.com/2025/02/15/lt-alstom-win-mumbai-metro-line-4s-rolling-stock-signaling-contract-ca-234/"
+  ],
+  "last_verified": "2026-10-19",
+  "notes": "Railway Gazette (19 Oct 2026) confirms MMRDA awarded L&T the integrated systems contract. MMRDA re-tendered the trains in February 2024 at an estimate of Rs 4,297.49 crore (The Metro Rail Guy; NBM gives Rs 4,279.49 crore). An earlier order for 234 cars, won by Bombardier in January 2021, was cancelled by Alstom in March 2022."
+ },
+ "first_train": {
+  "value": "The first train was unveiled at Alstom's factory at Sri City on 14 Oct 2026, built in 14 months. Delivery to Mumbai is expected in December 2026",
+  "date": "2026-10-14",
+  "status": "reported",
+  "source_url": "https://www.railwaygazette.com/india/2026/10/19/mumbai-metro-line-4-4a-train-rolled-out-in-record-time/",
+  "also_see": [
+   "https://metrorailnews.in/alstom-rolls-out-first-driverless-metropolis-trainset-for-mumbai-metro-lines-4-and-4a/"
+  ],
+  "last_verified": "2026-10-19",
+  "notes": "Railway Gazette describes a green and blue livery. Until the Alstom trains arrive, the trial runs used two trains from Line 2A (Construction World, Sep 2025, reported; see project.json rolling_stock.trial_trains)."
+ },
+ "specs": {
+  "label": "Design values from the 2016 project report, with the train count from the contract.",
+  "rows": [
+   [
+    "Cars per train",
+    "6"
+   ],
+   [
+    "Trains",
+    "39"
+   ],
+   [
+    "Track gauge",
+    "1,435 mm"
+   ],
+   [
+    "Power",
+    "25 kV AC overhead"
+   ],
+   [
+    "Top operating speed",
+    "80 km/h"
+   ],
+   [
+    "Design speed",
+    "90 km/h"
+   ]
+  ],
+  "status": "verified",
+  "source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2021-10/Metro%20Line%204.pdf",
+  "last_verified": "2026-10-19",
+  "notes": "The project report (DMRC for MMRDA, May 2016) gives gauge, power and speeds as design values; the trains built under CA-234 may differ. Trains and cars per train come from the contract (reported)."
+ },
+ "image": {
+  "src": null,
+  "alt": "",
+  "caption": "",
+  "credit": null,
+  "status": "unverified",
+  "source_url": null,
+  "last_verified": "2026-10-19",
+  "notes": "No image of the Line 4 train is sourced for use. Railway Gazette and Metro Rail News show the first train; their photos are not copied. Owner to add one the site has the right to publish."
+ }
+}
