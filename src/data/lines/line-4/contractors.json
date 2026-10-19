@@ -1,0 +1,81 @@
+{
+  "_meta": {
+    "description": "Firms appointed on Lines 4 and 4A. 'tender_ids' link to tenders.json.",
+    "last_reviewed": "2026-10-19"
+  },
+  "contractors": [
+    {
+      "id": "rajv",
+      "name": "Reliance Infrastructure and Astaldi (JV)",
+      "role": "Civil contractor, three packages: Wadala to Amar Mahal Junction, Gandhi Nagar to Sonapur, Kapurbawdi to Kasarvadavali",
+      "tender_ids": ["ca-08", "ca-10", "ca-12"],
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2018/02/13/tata-reliance-lowest-bidders-for-mumbai-metros-line-4/",
+      "last_verified": "2026-10-19",
+      "notes": "Fined Rs 5 crore after the Mulund parapet collapse of 14 Feb 2026. Free Press Journal reports that work on its Mulund stretch passed to a subcontractor in 2022 because of delays."
+    },
+    {
+      "id": "tpl-chec",
+      "name": "Tata Projects and China Harbour Engineering Company (JV)",
+      "role": "Civil contractor, two packages: Garodia Nagar to Surya Nagar, Mulund Fire Station to Majiwada",
+      "tender_ids": ["ca-09", "ca-11"],
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2018/02/13/tata-reliance-lowest-bidders-for-mumbai-metros-line-4/",
+      "last_verified": "2026-10-19"
+    },
+    {
+      "id": "j-kumar",
+      "name": "J Kumar Infraprojects",
+      "role": "Civil contractor, Line 4A, Kasarvadavali to Gaimukh",
+      "tender_ids": ["ca-54"],
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/mumbai-metro-green-line-information-route-map-fares-timings-tenders-status-updates/",
+      "last_verified": "2026-10-19"
+    },
+    {
+      "id": "sew-vse",
+      "name": "SEW Infrastructure and Vishwa Samudra Engineering (JV)",
+      "role": "Mogharpada depot",
+      "tender_ids": ["ca-160"],
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2023/04/07/sew-vse-jv-wins-mumbai-metro-line-4-mogharpada-depots-work/",
+      "last_verified": "2026-10-19"
+    },
+    {
+      "id": "lt",
+      "name": "Larsen & Toubro",
+      "role": "Integrated systems (trains, signalling, telecom, platform screen doors, depot machinery), track, and power supply from Wadala to Cadbury Junction",
+      "tender_ids": ["ca-234", "ca-298"],
+      "status": "reported",
+      "source_url": "https://www.railwaygazette.com/india/2026/10/19/mumbai-metro-line-4-4a-train-rolled-out-in-record-time/",
+      "last_verified": "2026-10-19"
+    },
+    {
+      "id": "alstom",
+      "name": "Alstom",
+      "role": "Trains (39 Metropolis, six cars each), signalling and depot equipment, as L&T's partner, with five years of maintenance",
+      "tender_ids": ["ca-234"],
+      "status": "reported",
+      "source_url": "https://metrorailnews.in/alstom-rolls-out-first-driverless-metropolis-trainset-for-mumbai-metro-lines-4-and-4a/",
+      "last_verified": "2026-10-19"
+    },
+    {
+      "id": "gc-db-lb-hill",
+      "name": "DB Engineering & Consulting, Louis Berger and Hill International (JV)",
+      "role": "General consultant, Lines 4 and 4A, from 2017 until MMRDA ended its services on 18 Feb 2026",
+      "tender_ids": [],
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2017/08/09/db-hill-louis-berger-jv-wins-mumbai-metro-line-4s-gc-contract/",
+      "last_verified": "2026-10-19",
+      "also_see": [
+        "https://www.freepressjournal.in/mumbai/mumbai-news-mmrda-blames-contractor-negligence-for-fatal-metro-line-4-slab-collapse-incident"
+      ]
+    }
+  ],
+  "excluded_claims": [
+    {
+      "claim": "Ballastless track contracts CA-161 (Apurvakriti) and CA-168 (L&T), station finishing CA-194 (Eagle Infra) and CA-222 (Godrej & Boyce), power CA-236 (IRCON-Jakson), fare collection CA-237 (Aurionpro)",
+      "reason": "Listed by The Metro Rail Guy's Green Line page as lowest bidders or awards; the individual reports were not read yet. Railway Gazette (Oct 2026) says L&T executes the track and power packages, which may mean some of these changed hands."
+    }
+  ]
+}

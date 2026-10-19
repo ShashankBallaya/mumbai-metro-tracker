@@ -4,7 +4,7 @@
 //   - last_verified is a YYYY-MM-DD date
 //   - no em dashes anywhere (house style)
 //   - every line in lines.json has a folder with project.json, stations.json and its alignment file,
-//     and every line folder is listed in lines.json
+//     and every line folder is listed in lines.json, or in RESEARCH (data only, no pages yet)
 //   - project.json stages: a known state, and every {event:<id>} names an event in that line's timeline.json
 //   - stations.json plan_2017: each entry names a current or dropped station, or has a note
 //   - project.json stages: every section has a service block (opening mode), each fact null or in its shape
@@ -49,9 +49,12 @@ for (const entry of readdirSync(DIR, { recursive: true })) {
   if (name.endsWith('.json')) walk(data, '$', name);
 }
 
-const lines = JSON.parse(readFileSync(join(DIR, 'lines.json'), 'utf8')).lines;
+// Line folders under research: checked like the others, but not in lines.json, so no page builds them yet.
+const RESEARCH = ['line-4'];
+const listed = JSON.parse(readFileSync(join(DIR, 'lines.json'), 'utf8')).lines;
+const lines = [...listed, ...RESEARCH.map((id) => ({ id }))];
 const ids = new Set(lines.map((l) => l.id));
-for (const line of lines) {
+for (const line of listed) {
   for (const need of ['project.json', 'stations.json', line.alignment].filter(Boolean)) {
     if (!existsSync(join(DIR, 'lines', line.id, need))) errors.push(`lines.json: ${line.id} has no lines/${line.id}/${need}`);
   }

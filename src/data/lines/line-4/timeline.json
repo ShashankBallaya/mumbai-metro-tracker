@@ -1,0 +1,250 @@
+{
+  "_meta": {
+    "description": "Key milestones of Lines 4 and 4A, oldest first. 'date_precision' is day, month or year. 'kind' is planning, approval, tender, award, construction, related or future. Only events whose source was read are listed; the foundation stone (reported as 24 Dec 2016) waits for a source.",
+    "last_reviewed": "2026-10-19"
+  },
+  "events": [
+    {
+      "id": "dpr-2016",
+      "date": "2016-05",
+      "date_precision": "month",
+      "kind": "planning",
+      "title": "Project report for Line 4: 32.322 km, 32 stations",
+      "summary": "DMRC's updated project report for MMRDA plans a fully elevated line from Wadala to Kasarvadavali, at Rs 14,502 crore by completion.",
+      "status": "verified",
+      "source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2021-10/Metro%20Line%204.pdf",
+      "last_verified": "2026-10-19"
+    },
+    {
+      "id": "mmrda-approval",
+      "date": "2016-06-03",
+      "date_precision": "day",
+      "kind": "approval",
+      "title": "MMRDA approves the project report",
+      "summary": "MMRDA's authority approves the report for the 32.32 km Wadala-Kasarvadavali line.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2016/06/07/mmrda-approves-mumbais-32-32-km-wadala-kasaradavali-line/",
+      "last_verified": "2026-10-19"
+    },
+    {
+      "id": "state-approval",
+      "date": "2016-09-27",
+      "date_precision": "day",
+      "kind": "approval",
+      "title": "State Cabinet approves Line 4",
+      "summary": "The Maharashtra Cabinet approves Metro 4, at about Rs 14,549 crore, together with Metro 2B.",
+      "status": "reported",
+      "source_url": "https://www.pressreader.com/india/the-free-press-journal/20160928/281655369560710",
+      "last_verified": "2026-10-19"
+    },
+    {
+      "id": "gc-award",
+      "date": "2017-08",
+      "date_precision": "month",
+      "kind": "award",
+      "title": "General consultants appointed",
+      "summary": "A joint venture of DB Engineering, Louis Berger and Hill International becomes general consultant for Line 4.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2017/08/09/db-hill-louis-berger-jv-wins-mumbai-metro-line-4s-gc-contract/",
+      "last_verified": "2026-10-19"
+    },
+    {
+      "id": "dpr-4a",
+      "date": "2017-10",
+      "date_precision": "month",
+      "kind": "planning",
+      "title": "Project report for Line 4A to Gaimukh",
+      "summary": "DMRC plans a 2.668 km extension from Kasarvadavali with two stations, Gowniwada and Gaimukh, at Rs 940 crore by completion.",
+      "status": "verified",
+      "source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2021-10/Metro%20Line%204A.pdf",
+      "last_verified": "2026-10-19"
+    },
+    {
+      "id": "civil-award",
+      "date": "2018-03-03",
+      "date_precision": "day",
+      "kind": "award",
+      "title": "Five civil contracts awarded",
+      "summary": "MMRDA awards the viaduct and stations in five packages: CA-08, CA-10 and CA-12 to Reliance Infrastructure and Astaldi, CA-09 and CA-11 to Tata Projects and CHEC.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2018/02/13/tata-reliance-lowest-bidders-for-mumbai-metros-line-4/",
+      "last_verified": "2026-10-19"
+    },
+    {
+      "id": "4a-approval",
+      "date": "2018-12",
+      "date_precision": "month",
+      "kind": "approval",
+      "title": "State approves Line 4A",
+      "summary": "The State Cabinet approves the extension from Kasarvadavali to Gaimukh.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/mumbai-metro-green-line-information-route-map-fares-timings-tenders-status-updates/",
+      "last_verified": "2026-10-19"
+    },
+    {
+      "id": "4a-civil-award",
+      "date": "2019-09",
+      "date_precision": "month",
+      "kind": "award",
+      "title": "J Kumar wins the Line 4A civil contract",
+      "summary": "Package CA-54, the viaduct and two stations from Kasarvadavali to Gaimukh, for Rs 342 crore.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/mumbai-metro-green-line-information-route-map-fares-timings-tenders-status-updates/",
+      "last_verified": "2026-10-19"
+    },
+    {
+      "id": "first-train-order",
+      "date": "2021-01",
+      "date_precision": "month",
+      "kind": "award",
+      "title": "234 cars ordered from Bombardier",
+      "summary": "Bombardier, soon part of Alstom, wins the first order for Line 4's trains.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2021/01/17/bombardier-wins-mumbai-metro-line-4s-234-coach-contract/",
+      "last_verified": "2026-10-19"
+    },
+    {
+      "id": "kfw-loan",
+      "date": "2021-11-06",
+      "date_precision": "day",
+      "kind": "planning",
+      "title": "KfW approves EUR 545 million for Lines 4 and 4A",
+      "summary": "Two German loans pay for trains, ticketing and links around the stations.",
+      "status": "verified",
+      "source_url": "https://www.mmrda.maharashtra.gov.in/sites/default/files/2021-12/news%20(20).pdf",
+      "last_verified": "2026-10-19"
+    },
+    {
+      "id": "train-order-cancelled",
+      "date": "2022-03",
+      "date_precision": "month",
+      "kind": "tender",
+      "title": "Alstom cancels the train order",
+      "summary": "Alstom ends the 234-car contract, reportedly because the depot site was not settled.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2022/03/06/alstom-cancels-mumbai-metro-line-4s-234-coach-contract/",
+      "last_verified": "2026-10-19"
+    },
+    {
+      "id": "depot-award",
+      "date": "2023-04",
+      "date_precision": "month",
+      "kind": "award",
+      "title": "Mogharpada depot contract",
+      "summary": "SEW Infrastructure and Vishwa Samudra Engineering win package CA-160 for the depot.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2023/04/07/sew-vse-jv-wins-mumbai-metro-line-4-mogharpada-depots-work/",
+      "last_verified": "2026-10-19"
+    },
+    {
+      "id": "depot-land",
+      "date": "2023-10",
+      "date_precision": "month",
+      "kind": "approval",
+      "title": "Land for the Mogharpada depot",
+      "summary": "The State approves the transfer of 174.01 ha at Mogharpada for Lines 4, 4A, 10 and 11; 41.5 ha is for the depot.",
+      "status": "verified",
+      "source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2024-02/reminiscence_of_mmrda_s_monumental_achievements_in_2023.pdf",
+      "last_verified": "2026-10-19"
+    },
+    {
+      "id": "stations-dropped",
+      "date": "2023-12",
+      "date_precision": "month",
+      "kind": "planning",
+      "title": "Suman Nagar and Amar Mahal Junction dropped",
+      "summary": "Two planned stations go, for cost and lack of space. Line 4 now has 30 stations.",
+      "status": "reported",
+      "source_url": "https://www.constructionworld.in/transport-infrastructure/metro-rail-and-railways-infrastructure/suman-nagar-amar-mahal-metro-stations-dropped-for-space-cost-reasons/48209",
+      "last_verified": "2026-10-19"
+    },
+    {
+      "id": "systems-bid",
+      "date": "2025-02-14",
+      "date_precision": "day",
+      "kind": "tender",
+      "title": "L&T and Alstom lowest for the trains and signalling",
+      "summary": "Package CA-234: 39 six-car trains, signalling, telecom, platform screen doors and depot machinery.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2025/02/15/lt-alstom-win-mumbai-metro-line-4s-rolling-stock-signaling-contract-ca-234/",
+      "last_verified": "2026-10-19"
+    },
+    {
+      "id": "first-trial-run",
+      "date": "2025-09-22",
+      "date_precision": "day",
+      "kind": "construction",
+      "title": "First trial run, Gaimukh to Vijay Garden",
+      "summary": "The Chief Minister flags off a trial on the 4.4 km stretch through Gaimukh, Gowniwada, Kasarvadavali and Vijay Garden.",
+      "status": "reported",
+      "source_url": "https://www.freepressjournal.in/mumbai/thane-enters-metro-era-trial-run-of-line-4-and-4a-marks-historic-milestone-in-mumbais-transit-future",
+      "last_verified": "2026-10-19"
+    },
+    {
+      "id": "ca298-award",
+      "date": "2025-12-24",
+      "date_precision": "day",
+      "kind": "award",
+      "title": "L&T wins power and traction from Wadala to Cadbury Junction",
+      "summary": "Package CA-298: power supply, traction, lifts and escalators for 22 stations, and SCADA for Lines 4 and 4A.",
+      "status": "reported",
+      "source_url": "https://www.lntecc.com/news-room/press-releases/l-t-wins-significant-order-for-its-transportation-infrastructure-business-dec-2025/",
+      "last_verified": "2026-10-19"
+    },
+    {
+      "id": "mulund-collapse",
+      "date": "2026-02-14",
+      "date_precision": "day",
+      "kind": "construction",
+      "title": "Parapet segment falls at Mulund",
+      "summary": "One man dies and three are hurt. MMRDA fines the contractor and the consultants and ends the consultants' services.",
+      "status": "reported",
+      "source_url": "https://www.newsonair.gov.in/metro-parapet-section-collapse-in-mulund-cm-eknath-shinde-orders-suspension-of-executive-engineer",
+      "last_verified": "2026-10-19"
+    },
+    {
+      "id": "rdso-certificate",
+      "date": "2026-06-02",
+      "date_precision": "day",
+      "kind": "construction",
+      "title": "RDSO certifies the first stretch",
+      "summary": "After about 209 days of tests of trains, track, signalling and safety systems.",
+      "status": "reported",
+      "source_url": "https://www.freepressjournal.in/mumbai/thane-metro-4-4a-trial-runs-resume-as-gaimukh-cadbury-stretch-moves-closer-to-launch",
+      "last_verified": "2026-10-19"
+    },
+    {
+      "id": "cmrs-pit-line",
+      "date": "2026-08",
+      "date_precision": "month",
+      "kind": "construction",
+      "title": "CMRS inspects the Gaimukh pit line",
+      "summary": "The safety commissioner's report is awaited before the first stretch can open.",
+      "status": "reported",
+      "source_url": "https://www.freepressjournal.in/mumbai/mumbai-infra-update-metro-4-pit-line-clears-cmrs-inspection-mmrda-awaits-safety-report-ahead-of-diwali-launch",
+      "last_verified": "2026-10-19"
+    },
+    {
+      "id": "trials-resume",
+      "date": "2026-09-10",
+      "date_precision": "day",
+      "kind": "construction",
+      "title": "Trial runs resume, Gaimukh to Cadbury Junction",
+      "summary": "No opening date announced; MMRDA aims for around Diwali or the end of 2026.",
+      "status": "reported",
+      "source_url": "https://www.freepressjournal.in/mumbai/thane-metro-4-4a-trial-runs-resume-as-gaimukh-cadbury-stretch-moves-closer-to-launch",
+      "last_verified": "2026-10-19"
+    },
+    {
+      "id": "first-alstom-train",
+      "date": "2026-10-14",
+      "date_precision": "day",
+      "kind": "construction",
+      "title": "First of 39 driverless trains unveiled",
+      "summary": "Alstom shows the first Metropolis train for Lines 4 and 4A at Sri City, built in 14 months.",
+      "status": "reported",
+      "source_url": "https://www.railwaygazette.com/india/2026/10/19/mumbai-metro-line-4-4a-train-rolled-out-in-record-time/",
+      "last_verified": "2026-10-19"
+    }
+  ]
+}

@@ -1,0 +1,1258 @@
+{
+  "_meta": {
+    "description": "Line 4's stations in order from Bhakti Park (Wadala), as MMRDA's Line 4 page lists them, then the two stations of the Line 4A extension to Gaimukh. 'section' is '4' or '4A'. 'phase' is the order of opening reported for the line, not an MMRDA phase name: 1 Cadbury Junction to Gaimukh, 2 Gandhi Nagar to Mahapalika Marg, 3 Bhakti Park to Surya Nagar (Free Press Journal, 22 Sep 2025, reported). 'dpr_chainage_m' is the chainage in the project reports (Line 4, May 2016; Line 4A, Oct 2017), from Bhakti Park. 'kml_name' is the station's point in MMRDA's alignment file. Positions and along_m come from scripts/build-alignment-line4.py. 'dropped_stations' were in the 2016 plan and are not on MMRDA's list now. 'same_site_as' names a station of another line at the same place.",
+    "order_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+    "count_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+    "names_mr_source_url": "https://mmrda.maharashtra.gov.in/mr/projects/transport/metro-line-4/overview",
+    "names_mr_status": "verified",
+    "phase_source_url": "https://www.freepressjournal.in/mumbai/thane-enters-metro-era-trial-run-of-line-4-and-4a-marks-historic-milestone-in-mumbais-transit-future",
+    "phase_status": "reported",
+    "last_reviewed": "2026-10-19"
+  },
+  "stations": [
+    {
+      "id": "bhakti-park",
+      "order": 1,
+      "name": "Bhakti Park Metro",
+      "name_mr": "भक्तीपार्क मेट्रो",
+      "phase": 3,
+      "section": "4",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+      "dpr_name": "BHAKTI PARK METRO",
+      "kml_name": "BHAKTI PARK (M) STATION",
+      "location": {
+        "lng": 72.878166,
+        "lat": 19.03013,
+        "along_m": 492,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"BHAKTI PARK (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 9 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+        "notes": "MMRDA publishes progress for the whole line only (pier work 95%, U-girders 94%, deck slab 92% as of 31 Aug 2026), not by station."
+      },
+      "notes": null,
+      "last_verified": "2026-10-19",
+      "dpr_chainage_m": 0
+    },
+    {
+      "id": "wadala-tt",
+      "order": 2,
+      "name": "Wadala TT",
+      "name_mr": "वडाळा टीटी",
+      "phase": 3,
+      "section": "4",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+      "dpr_name": "WADALA TT",
+      "kml_name": "WADALA TT(M) STATION",
+      "location": {
+        "lng": 72.880027,
+        "lat": 19.038452,
+        "along_m": 1459,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"WADALA TT(M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 5 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+        "notes": "MMRDA publishes progress for the whole line only (pier work 95%, U-girders 94%, deck slab 92% as of 31 Aug 2026), not by station."
+      },
+      "notes": null,
+      "last_verified": "2026-10-19",
+      "dpr_chainage_m": 1000
+    },
+    {
+      "id": "anik-nagar-bus-depot",
+      "order": 3,
+      "name": "Anik Nagar Bus Depot",
+      "name_mr": "अनिकनगर बसडेपो",
+      "phase": 3,
+      "section": "4",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+      "dpr_name": "ANIK NAGAR BUS DEPOT",
+      "kml_name": "ANIK BUS STOP (M) STATION",
+      "location": {
+        "lng": 72.878392,
+        "lat": 19.046734,
+        "along_m": 2400,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"ANIK BUS STOP (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 1 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+        "notes": "MMRDA publishes progress for the whole line only (pier work 95%, U-girders 94%, deck slab 92% as of 31 Aug 2026), not by station."
+      },
+      "notes": null,
+      "last_verified": "2026-10-19",
+      "dpr_chainage_m": 1861.61
+    },
+    {
+      "id": "siddharth-colony",
+      "order": 4,
+      "name": "Siddharth Colony",
+      "name_mr": "सिद्धार्थ कॉलनी",
+      "phase": 3,
+      "section": "4",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+      "dpr_name": "SIDDHARTH COLONY",
+      "kml_name": "SIDDARTH NAGAR (M) STATION",
+      "location": {
+        "lng": 72.891969,
+        "lat": 19.060024,
+        "along_m": 4584,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"SIDDARTH NAGAR (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 3 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [
+          "Metro Line 2B (D N Nagar-Mandale)"
+        ],
+        "status": "reported",
+        "source_url": "https://www.constructionworld.in/transport-infrastructure/metro-rail-and-railways-infrastructure/suman-nagar-amar-mahal-metro-stations-dropped-for-space-cost-reasons/48209",
+        "notes": "Construction World (Dec 2023): after Suman Nagar was dropped, Siddharth Colony is to be designed to connect with Line 2B's Eastern Express Highway station. MMRDA's Line 4 page names Line 2B as an interchange but not the station."
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+        "notes": "MMRDA publishes progress for the whole line only (pier work 95%, U-girders 94%, deck slab 92% as of 31 Aug 2026), not by station."
+      },
+      "notes": null,
+      "last_verified": "2026-10-19",
+      "dpr_chainage_m": 3994.43
+    },
+    {
+      "id": "garodia-nagar",
+      "order": 5,
+      "name": "Garodia Nagar",
+      "name_mr": "गरोडिया नगर",
+      "phase": 3,
+      "section": "4",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+      "dpr_name": "GARODIA NAGAR",
+      "kml_name": "GARODIA NAGAR (M) STATION",
+      "location": {
+        "lng": 72.902207,
+        "lat": 19.072299,
+        "along_m": 6395,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"GARODIA NAGAR (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 2 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+        "notes": "MMRDA publishes progress for the whole line only (pier work 95%, U-girders 94%, deck slab 92% as of 31 Aug 2026), not by station."
+      },
+      "notes": null,
+      "last_verified": "2026-10-19",
+      "dpr_chainage_m": 5936.538
+    },
+    {
+      "id": "pant-nagar",
+      "order": 6,
+      "name": "Pant Nagar",
+      "name_mr": "पंतनगर",
+      "phase": 3,
+      "section": "4",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+      "dpr_name": "PANT NAGAR",
+      "kml_name": "PANT NAGAR STATION (M) STATION",
+      "location": {
+        "lng": 72.913005,
+        "lat": 19.082475,
+        "along_m": 8116,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"PANT NAGAR STATION (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 4 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+        "notes": "MMRDA publishes progress for the whole line only (pier work 95%, U-girders 94%, deck slab 92% as of 31 Aug 2026), not by station."
+      },
+      "notes": null,
+      "last_verified": "2026-10-19",
+      "dpr_chainage_m": 7569.215
+    },
+    {
+      "id": "laxmi-nagar",
+      "order": 7,
+      "name": "Laxmi Nagar",
+      "name_mr": "लक्ष्मीनगर",
+      "phase": 3,
+      "section": "4",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+      "dpr_name": "LAXMI NAGAR",
+      "kml_name": "LAXMI NAGAR (M) STATION",
+      "location": {
+        "lng": 72.918267,
+        "lat": 19.090212,
+        "along_m": 9199,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"LAXMI NAGAR (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 4 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+        "notes": "MMRDA publishes progress for the whole line only (pier work 95%, U-girders 94%, deck slab 92% as of 31 Aug 2026), not by station."
+      },
+      "notes": null,
+      "last_verified": "2026-10-19",
+      "dpr_chainage_m": 8646.73
+    },
+    {
+      "id": "shreyas-cinema",
+      "order": 8,
+      "name": "Shreyas Cinema",
+      "name_mr": "श्रेयस सिनेमा",
+      "phase": 3,
+      "section": "4",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+      "dpr_name": "SHREYES CINEMA",
+      "kml_name": "SHREYAS CINEMA (M) STATION",
+      "location": {
+        "lng": 72.916497,
+        "lat": 19.09498,
+        "along_m": 9777,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"SHREYAS CINEMA (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 0 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+        "notes": "MMRDA publishes progress for the whole line only (pier work 95%, U-girders 94%, deck slab 92% as of 31 Aug 2026), not by station."
+      },
+      "notes": "MMRDA's English page spells it 'Shreyes Cinema'; its Marathi page (श्रेयस), its alignment file and the civil contract say Shreyas. The site uses Shreyas.",
+      "last_verified": "2026-10-19",
+      "dpr_chainage_m": 9267.54
+    },
+    {
+      "id": "godrej-company",
+      "order": 9,
+      "name": "Godrej Company",
+      "name_mr": "गोदरेज कंपनी",
+      "phase": 3,
+      "section": "4",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+      "dpr_name": "GODREJ COMPANY",
+      "kml_name": "GODREJ COLONY (M) STATION",
+      "location": {
+        "lng": 72.9205,
+        "lat": 19.103118,
+        "along_m": 10876,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"GODREJ COLONY (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 2 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+        "notes": "MMRDA publishes progress for the whole line only (pier work 95%, U-girders 94%, deck slab 92% as of 31 Aug 2026), not by station."
+      },
+      "notes": null,
+      "last_verified": "2026-10-19",
+      "dpr_chainage_m": 10430.356
+    },
+    {
+      "id": "vikhroli",
+      "order": 10,
+      "name": "Vikhroli Metro",
+      "name_mr": "विक्रोळी मेट्रो",
+      "phase": 3,
+      "section": "4",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+      "dpr_name": "VIKHROLI METRO",
+      "kml_name": "VIKHROLI (M) STATION",
+      "location": {
+        "lng": 72.924486,
+        "lat": 19.108791,
+        "along_m": 11634,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"VIKHROLI (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 3 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+        "notes": "MMRDA publishes progress for the whole line only (pier work 95%, U-girders 94%, deck slab 92% as of 31 Aug 2026), not by station."
+      },
+      "notes": null,
+      "last_verified": "2026-10-19",
+      "dpr_chainage_m": 11153.477
+    },
+    {
+      "id": "surya-nagar",
+      "order": 11,
+      "name": "Surya Nagar",
+      "name_mr": "सूर्यानगर",
+      "phase": 3,
+      "section": "4",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+      "dpr_name": "SURYA NAGAR",
+      "kml_name": "SURYA NAGAR(M) STATION",
+      "location": {
+        "lng": 72.926066,
+        "lat": 19.117787,
+        "along_m": 12672,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"SURYA NAGAR(M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 0 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+        "notes": "MMRDA publishes progress for the whole line only (pier work 95%, U-girders 94%, deck slab 92% as of 31 Aug 2026), not by station."
+      },
+      "notes": null,
+      "last_verified": "2026-10-19",
+      "dpr_chainage_m": 12158.246
+    },
+    {
+      "id": "gandhi-nagar",
+      "order": 12,
+      "name": "Gandhi Nagar",
+      "name_mr": "गांधीनगर",
+      "phase": 2,
+      "section": "4",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+      "dpr_name": "GANDHI NAGAR",
+      "kml_name": "GANDHI NAGAR (M) STATION",
+      "location": {
+        "lng": 72.925196,
+        "lat": 19.126585,
+        "along_m": 13655,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"GANDHI NAGAR (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 9 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+        "notes": "MMRDA publishes progress for the whole line only (pier work 95%, U-girders 94%, deck slab 92% as of 31 Aug 2026), not by station."
+      },
+      "notes": null,
+      "last_verified": "2026-10-19",
+      "dpr_chainage_m": 13160.357
+    },
+    {
+      "id": "naval-housing",
+      "order": 13,
+      "name": "Naval Housing",
+      "name_mr": "नेव्हल हाऊसिंग",
+      "phase": 2,
+      "section": "4",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+      "dpr_name": "NAVAL HOUSING",
+      "kml_name": "NAVAL HOUSING (M) STATION",
+      "location": {
+        "lng": 72.927663,
+        "lat": 19.132962,
+        "along_m": 14421,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"NAVAL HOUSING (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 8 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+        "notes": "MMRDA publishes progress for the whole line only (pier work 95%, U-girders 94%, deck slab 92% as of 31 Aug 2026), not by station."
+      },
+      "notes": null,
+      "last_verified": "2026-10-19",
+      "dpr_chainage_m": 13852.242
+    },
+    {
+      "id": "bhandup-mahapalika",
+      "order": 14,
+      "name": "Bhandup Mahapalika",
+      "name_mr": "भांडुप महापालिका",
+      "phase": 2,
+      "section": "4",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+      "dpr_name": "BHANDUP MAHAPALIKA",
+      "kml_name": "BHANDUP MAHAPALIKA (M) STATION",
+      "location": {
+        "lng": 72.930568,
+        "lat": 19.138523,
+        "along_m": 15112,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"BHANDUP MAHAPALIKA (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 6 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+        "notes": "MMRDA publishes progress for the whole line only (pier work 95%, U-girders 94%, deck slab 92% as of 31 Aug 2026), not by station."
+      },
+      "notes": null,
+      "last_verified": "2026-10-19",
+      "dpr_chainage_m": 14631.584
+    },
+    {
+      "id": "bhandup",
+      "order": 15,
+      "name": "Bhandup Metro",
+      "name_mr": "भांडुप मेट्रो",
+      "phase": 2,
+      "section": "4",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+      "dpr_name": "BHANDUP METRO",
+      "kml_name": "BHANDUP (M) STATION",
+      "location": {
+        "lng": 72.936305,
+        "lat": 19.146483,
+        "along_m": 16190,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"BHANDUP (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 0 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+        "notes": "MMRDA publishes progress for the whole line only (pier work 95%, U-girders 94%, deck slab 92% as of 31 Aug 2026), not by station."
+      },
+      "notes": null,
+      "last_verified": "2026-10-19",
+      "dpr_chainage_m": 15680.41
+    },
+    {
+      "id": "shangrila",
+      "order": 16,
+      "name": "Shangrila",
+      "name_mr": "शांग्रीला",
+      "phase": 2,
+      "section": "4",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+      "dpr_name": "SHANGRILA",
+      "kml_name": "SHANGRILA (M) STATION",
+      "location": {
+        "lng": 72.937543,
+        "lat": 19.153931,
+        "along_m": 17075,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"SHANGRILA (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 3 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+        "notes": "MMRDA publishes progress for the whole line only (pier work 95%, U-girders 94%, deck slab 92% as of 31 Aug 2026), not by station."
+      },
+      "notes": null,
+      "last_verified": "2026-10-19",
+      "dpr_chainage_m": 16524.058
+    },
+    {
+      "id": "sonapur",
+      "order": 17,
+      "name": "Sonapur",
+      "name_mr": "सोनापूर",
+      "phase": 2,
+      "section": "4",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+      "dpr_name": "SONAPUR",
+      "kml_name": "SONAPUR (M) STATION",
+      "location": {
+        "lng": 72.938443,
+        "lat": 19.166433,
+        "along_m": 18478,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"SONAPUR (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 5 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+        "notes": "MMRDA publishes progress for the whole line only (pier work 95%, U-girders 94%, deck slab 92% as of 31 Aug 2026), not by station."
+      },
+      "notes": null,
+      "last_verified": "2026-10-19",
+      "dpr_chainage_m": 17914.818
+    },
+    {
+      "id": "mulund-fire-station",
+      "order": 18,
+      "name": "Mulund Fire Station",
+      "name_mr": "फायर स्टेशन",
+      "phase": 2,
+      "section": "4",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+      "dpr_name": "MULUND FIRE STATION",
+      "kml_name": "MULUND FIRE STATION (M) STATION",
+      "location": {
+        "lng": 72.942316,
+        "lat": 19.175293,
+        "along_m": 19548,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"MULUND FIRE STATION (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 4 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+        "notes": "MMRDA publishes progress for the whole line only (pier work 95%, U-girders 94%, deck slab 92% as of 31 Aug 2026), not by station."
+      },
+      "notes": "MMRDA's Marathi page calls it फायर स्टेशन (Fire Station) only.",
+      "last_verified": "2026-10-19",
+      "dpr_chainage_m": 19027.799
+    },
+    {
+      "id": "mulund-naka",
+      "order": 19,
+      "name": "Mulund Naka",
+      "name_mr": "मुलुंड नाका",
+      "phase": 2,
+      "section": "4",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+      "dpr_name": "MULUND NAKA",
+      "kml_name": "MULUND NAKA(M) STATION",
+      "location": {
+        "lng": 72.950506,
+        "lat": 19.183333,
+        "along_m": 20870,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"MULUND NAKA(M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 7 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+        "notes": "MMRDA publishes progress for the whole line only (pier work 95%, U-girders 94%, deck slab 92% as of 31 Aug 2026), not by station."
+      },
+      "notes": null,
+      "last_verified": "2026-10-19",
+      "dpr_chainage_m": 20375.897
+    },
+    {
+      "id": "teen-haath-naka",
+      "order": 20,
+      "name": "Thane Teen Haath Naka",
+      "name_mr": "ठाणे तीनहात नाका",
+      "phase": 2,
+      "section": "4",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+      "dpr_name": "TEEN HAATH NAKA(THANE)",
+      "kml_name": "TEEN HAATH NAKA (M) STATION",
+      "location": {
+        "lng": 72.961444,
+        "lat": 19.186788,
+        "along_m": 22101,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"TEEN HAATH NAKA (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 18 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+        "notes": "MMRDA publishes progress for the whole line only (pier work 95%, U-girders 94%, deck slab 92% as of 31 Aug 2026), not by station."
+      },
+      "notes": null,
+      "last_verified": "2026-10-19",
+      "dpr_chainage_m": 21612.245
+    },
+    {
+      "id": "rto-thane",
+      "order": 21,
+      "name": "RTO Thane",
+      "name_mr": "आरटीओ ठाणे",
+      "phase": 2,
+      "section": "4",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+      "dpr_name": "RTO THANE",
+      "kml_name": "RTO THANE (M) STATION",
+      "location": {
+        "lng": 72.962788,
+        "lat": 19.192639,
+        "along_m": 22833,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"RTO THANE (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 9 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+        "notes": "MMRDA publishes progress for the whole line only (pier work 95%, U-girders 94%, deck slab 92% as of 31 Aug 2026), not by station."
+      },
+      "notes": null,
+      "last_verified": "2026-10-19",
+      "dpr_chainage_m": 22290.786
+    },
+    {
+      "id": "mahapalika-marg",
+      "order": 22,
+      "name": "Mahapalika Marg",
+      "name_mr": "महापालिका मार्ग",
+      "phase": 2,
+      "section": "4",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+      "dpr_name": "MAHAPALIKA MARG",
+      "kml_name": "MAHAPALIKA MARG(M) STATION",
+      "location": {
+        "lng": 72.965108,
+        "lat": 19.201174,
+        "along_m": 23886,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"MAHAPALIKA MARG(M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 9 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+        "notes": "MMRDA publishes progress for the whole line only (pier work 95%, U-girders 94%, deck slab 92% as of 31 Aug 2026), not by station."
+      },
+      "notes": null,
+      "last_verified": "2026-10-19",
+      "dpr_chainage_m": 23326.751
+    },
+    {
+      "id": "cadbury-junction",
+      "order": 23,
+      "name": "Cadbury Junction",
+      "name_mr": "कॅडबरी जंक्शन",
+      "phase": 1,
+      "section": "4",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+      "dpr_name": "CADBURY JUNCTION",
+      "kml_name": "CADBURY Jn (M) STATION",
+      "location": {
+        "lng": 72.970259,
+        "lat": 19.205955,
+        "along_m": 24645,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"CADBURY Jn (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 11 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Built. Trial runs on the Gaimukh-Cadbury Junction stretch; awaiting the CMRS safety report.",
+        "status": "reported",
+        "source_url": "https://www.freepressjournal.in/mumbai/mumbai-infra-update-metro-4-pit-line-clears-cmrs-inspection-mmrda-awaits-safety-report-ahead-of-diwali-launch",
+        "notes": "Free Press Journal (22 Aug 2026) names this station among the eight of the first stretch to open."
+      },
+      "notes": null,
+      "last_verified": "2026-10-19",
+      "dpr_chainage_m": 24119.463
+    },
+    {
+      "id": "majiwada",
+      "order": 24,
+      "name": "Majiwada",
+      "name_mr": "माजिवडा",
+      "phase": 1,
+      "section": "4",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+      "dpr_name": "MAJIWADA",
+      "kml_name": "MAJIWADA (M) STATION",
+      "location": {
+        "lng": 72.975724,
+        "lat": 19.211598,
+        "along_m": 25496,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"MAJIWADA (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 8 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Built. Trial runs on the Gaimukh-Cadbury Junction stretch; awaiting the CMRS safety report.",
+        "status": "reported",
+        "source_url": "https://www.freepressjournal.in/mumbai/mumbai-infra-update-metro-4-pit-line-clears-cmrs-inspection-mmrda-awaits-safety-report-ahead-of-diwali-launch",
+        "notes": "Free Press Journal (22 Aug 2026) names this station among the eight of the first stretch to open."
+      },
+      "notes": null,
+      "last_verified": "2026-10-19",
+      "dpr_chainage_m": 24943.751
+    },
+    {
+      "id": "kapurbawdi",
+      "order": 25,
+      "name": "Kapurbawdi",
+      "name_mr": "कापूरबावडी",
+      "phase": 1,
+      "section": "4",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+      "dpr_name": "KAPURBAWDI",
+      "kml_name": "KAPURBAWDI (M) STATION",
+      "location": {
+        "lng": 72.977414,
+        "lat": 19.223477,
+        "along_m": 26888,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"KAPURBAWDI (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 8 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [
+          "Metro Line 5 (Thane-Bhiwandi-Kalyan)"
+        ],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2026-05/extended_metro_line_5_to_strengthen_connectivity_across_thane_bhiwandi_kalyan_and_ulhasnagar.pdf",
+        "notes": "MMRDA's Line 5 press release (May 2026) puts the Line 4 interchange 'at Balkhum (Kapurbawadi)'; MMRDA's Line 5 environmental report (Sep 2023) says Kapurbawdi station is built as part of Line 4."
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Built. Trial runs on the Gaimukh-Cadbury Junction stretch; awaiting the CMRS safety report.",
+        "status": "reported",
+        "source_url": "https://www.freepressjournal.in/mumbai/mumbai-infra-update-metro-4-pit-line-clears-cmrs-inspection-mmrda-awaits-safety-report-ahead-of-diwali-launch",
+        "notes": "Free Press Journal (22 Aug 2026) names this station among the eight of the first stretch to open."
+      },
+      "notes": null,
+      "last_verified": "2026-10-19",
+      "dpr_chainage_m": 26333.014,
+      "same_site_as": {
+        "line": "line-5",
+        "station": "kapurbawdi",
+        "distance_m": 74
+      }
+    },
+    {
+      "id": "manpada",
+      "order": 26,
+      "name": "Manpada",
+      "name_mr": "मानपाडा",
+      "phase": 1,
+      "section": "4",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+      "dpr_name": "MANPADA",
+      "kml_name": "MANPADA (M) STATION",
+      "location": {
+        "lng": 72.976526,
+        "lat": 19.231524,
+        "along_m": 27787,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"MANPADA (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 3 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Built. On the first stretch, Gaimukh to Cadbury Junction; awaiting the CMRS safety report.",
+        "status": "conflicting",
+        "source_url": "https://www.freepressjournal.in/mumbai/thane-enters-metro-era-trial-run-of-line-4-and-4a-marks-historic-milestone-in-mumbais-transit-future",
+        "notes": "Free Press Journal (22 Sep 2025) counts 10 stations on the first stretch, which takes in this one; its report of 22 Aug 2026 names 8 and leaves this station out. No source says why."
+      },
+      "notes": null,
+      "last_verified": "2026-10-19",
+      "dpr_chainage_m": 27198.395
+    },
+    {
+      "id": "tikujiniwadi",
+      "order": 27,
+      "name": "Tikuji-Ni-Wadi",
+      "name_mr": "टिकूजी-नि-वाडी",
+      "phase": 1,
+      "section": "4",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+      "dpr_name": "TIKUJI-NI-WADI",
+      "kml_name": "TIKUJI WADI (M) STATION",
+      "location": {
+        "lng": 72.97555,
+        "lat": 19.238207,
+        "along_m": 28538,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"TIKUJI WADI (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 2 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Built. Trial runs on the Gaimukh-Cadbury Junction stretch; awaiting the CMRS safety report.",
+        "status": "reported",
+        "source_url": "https://www.freepressjournal.in/mumbai/mumbai-infra-update-metro-4-pit-line-clears-cmrs-inspection-mmrda-awaits-safety-report-ahead-of-diwali-launch",
+        "notes": "Free Press Journal (22 Aug 2026) names this station among the eight of the first stretch to open."
+      },
+      "notes": "Tikuji-Ni-Wadi on MMRDA's English page; 'Tikuji Wadi' in its alignment file.",
+      "last_verified": "2026-10-19",
+      "dpr_chainage_m": 27974.044
+    },
+    {
+      "id": "dongripada",
+      "order": 28,
+      "name": "Dongari Pada",
+      "name_mr": "डोंगरीपाडा",
+      "phase": 1,
+      "section": "4",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+      "dpr_name": "DONGARI PADA",
+      "kml_name": "DONGARIPADA (M) STATION",
+      "location": {
+        "lng": 72.973069,
+        "lat": 19.25051,
+        "along_m": 29982,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"DONGARIPADA (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 19 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Built. Trial runs on the Gaimukh-Cadbury Junction stretch; awaiting the CMRS safety report.",
+        "status": "reported",
+        "source_url": "https://www.freepressjournal.in/mumbai/mumbai-infra-update-metro-4-pit-line-clears-cmrs-inspection-mmrda-awaits-safety-report-ahead-of-diwali-launch",
+        "notes": "Free Press Journal (22 Aug 2026) names this station among the eight of the first stretch to open."
+      },
+      "notes": "Dongari Pada on MMRDA's English page; Dongripada in its alignment file and its Marathi page (डोंगरीपाडा).",
+      "last_verified": "2026-10-19",
+      "dpr_chainage_m": 29439.645
+    },
+    {
+      "id": "vijay-garden",
+      "order": 29,
+      "name": "Vijay Garden",
+      "name_mr": "विजय गार्डन",
+      "phase": 1,
+      "section": "4",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+      "dpr_name": "VIJAY GARDEN",
+      "kml_name": "VIJAY GARDEN(M) STATION",
+      "location": {
+        "lng": 72.970157,
+        "lat": 19.258354,
+        "along_m": 30906,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"VIJAY GARDEN(M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 2 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+      },
+      "context": [
+        {
+          "text": "On the 4.4 km stretch from Gaimukh to Vijay Garden where the first trial run was held, 22 Sep 2025.",
+          "source_url": "https://www.freepressjournal.in/mumbai/thane-enters-metro-era-trial-run-of-line-4-and-4a-marks-historic-milestone-in-mumbais-transit-future",
+          "status": "reported"
+        }
+      ],
+      "construction_status": {
+        "value": "Built. Trial runs on the Gaimukh-Cadbury Junction stretch; awaiting the CMRS safety report.",
+        "status": "reported",
+        "source_url": "https://www.freepressjournal.in/mumbai/mumbai-infra-update-metro-4-pit-line-clears-cmrs-inspection-mmrda-awaits-safety-report-ahead-of-diwali-launch",
+        "notes": "Free Press Journal (22 Aug 2026) names this station among the eight of the first stretch to open."
+      },
+      "notes": null,
+      "last_verified": "2026-10-19",
+      "dpr_chainage_m": 30348.515
+    },
+    {
+      "id": "kasarvadavali",
+      "order": 30,
+      "name": "Kasarvadavali",
+      "name_mr": "कासारवडवली",
+      "phase": 1,
+      "section": "4",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
+      "dpr_name": "KASARVADAVALI",
+      "kml_name": "KASARVADAVLI (M) STATION",
+      "location": {
+        "lng": 72.966546,
+        "lat": 19.267374,
+        "along_m": 31978,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"KASARVADAVLI (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 1 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+      },
+      "context": [
+        {
+          "text": "On the 4.4 km stretch from Gaimukh to Vijay Garden where the first trial run was held, 22 Sep 2025.",
+          "source_url": "https://www.freepressjournal.in/mumbai/thane-enters-metro-era-trial-run-of-line-4-and-4a-marks-historic-milestone-in-mumbais-transit-future",
+          "status": "reported"
+        }
+      ],
+      "construction_status": {
+        "value": "Built. Trial runs on the Gaimukh-Cadbury Junction stretch; awaiting the CMRS safety report.",
+        "status": "reported",
+        "source_url": "https://www.freepressjournal.in/mumbai/mumbai-infra-update-metro-4-pit-line-clears-cmrs-inspection-mmrda-awaits-safety-report-ahead-of-diwali-launch",
+        "notes": "Free Press Journal (22 Aug 2026) names this station among the eight of the first stretch to open."
+      },
+      "notes": null,
+      "last_verified": "2026-10-19",
+      "dpr_chainage_m": 31422.088
+    },
+    {
+      "id": "gowniwada",
+      "order": 31,
+      "name": "Gowniwada",
+      "name_mr": null,
+      "phase": 1,
+      "section": "4A",
+      "type": "Elevated",
+      "name_status": "conflicting",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2021-10/Metro%20Line%204A.pdf",
+      "dpr_name": "GOWNIWADA",
+      "kml_name": "GOWNIPADA (M) STATION",
+      "location": {
+        "lng": 72.958032,
+        "lat": 19.276691,
+        "along_m": 33367,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"GOWNIPADA (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 18 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+      },
+      "context": [
+        {
+          "text": "On the 4.4 km stretch from Gaimukh to Vijay Garden where the first trial run was held, 22 Sep 2025.",
+          "source_url": "https://www.freepressjournal.in/mumbai/thane-enters-metro-era-trial-run-of-line-4-and-4a-marks-historic-milestone-in-mumbais-transit-future",
+          "status": "reported"
+        }
+      ],
+      "construction_status": {
+        "value": "Built. On the first stretch, Gaimukh to Cadbury Junction; awaiting the CMRS safety report.",
+        "status": "conflicting",
+        "source_url": "https://www.freepressjournal.in/mumbai/thane-enters-metro-era-trial-run-of-line-4-and-4a-marks-historic-milestone-in-mumbais-transit-future",
+        "notes": "Free Press Journal (22 Sep 2025) counts 10 stations on the first stretch, which takes in this one; its report of 22 Aug 2026 names 8 and leaves this station out. No source says why."
+      },
+      "notes": "Gowniwada in the Line 4A project report (Oct 2017); 'Gownipada' in MMRDA's alignment file (Mar 2025); 'Govaniwada' in news reports. MMRDA's Line 4 page does not list Line 4A's stations. No Marathi name found in an MMRDA source.",
+      "last_verified": "2026-10-19",
+      "dpr_chainage_m": 32807.032
+    },
+    {
+      "id": "gaimukh",
+      "order": 32,
+      "name": "Gaimukh",
+      "name_mr": null,
+      "phase": 1,
+      "section": "4A",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2021-10/Metro%20Line%204A.pdf",
+      "dpr_name": "GAIMUKH",
+      "kml_name": "GAIMUKH (M) STATION",
+      "location": {
+        "lng": 72.946949,
+        "lat": 19.284363,
+        "along_m": 34939,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"GAIMUKH (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 3 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [
+          "Metro Line 10 (Gaimukh-Shivaji Chowk, Mira Road), planned"
+        ],
+        "status": "reported",
+        "source_url": "https://themetrorailguy.com/mumbai-metro-green-line-information-route-map-fares-timings-tenders-status-updates/",
+        "notes": "Line 10 is approved, not built. Its first station is listed as Gaimukh Reti Bunder."
+      },
+      "context": [
+        {
+          "text": "On the 4.4 km stretch from Gaimukh to Vijay Garden where the first trial run was held, 22 Sep 2025.",
+          "source_url": "https://www.freepressjournal.in/mumbai/thane-enters-metro-era-trial-run-of-line-4-and-4a-marks-historic-milestone-in-mumbais-transit-future",
+          "status": "reported"
+        }
+      ],
+      "construction_status": {
+        "value": "Built. Trial runs on the Gaimukh-Cadbury Junction stretch; awaiting the CMRS safety report.",
+        "status": "reported",
+        "source_url": "https://www.freepressjournal.in/mumbai/mumbai-infra-update-metro-4-pit-line-clears-cmrs-inspection-mmrda-awaits-safety-report-ahead-of-diwali-launch",
+        "notes": "Free Press Journal (22 Aug 2026) names this station among the eight of the first stretch to open."
+      },
+      "notes": "Line 4A's last station and, until the Mogharpada depot is ready, the line's pit line for stabling and maintenance (Free Press Journal, 22 Aug 2026). No Marathi name found in an MMRDA source. MMRDA's alignment file puts it about 850 m further along than the 2017 report's chainage would, against about 550 m at every other station: the Line 4A route or the station moved after 2017 (no source says which).",
+      "last_verified": "2026-10-19",
+      "dpr_chainage_m": 34090.12
+    }
+  ],
+  "dropped_stations": [
+    {
+      "id": "suman-nagar",
+      "order": 1,
+      "name": "Suman Nagar",
+      "name_mr": null,
+      "type": "Elevated",
+      "dpr_name": "SUMAN NAGAR",
+      "dpr_chainage_m": 2939.997,
+      "kml_name": "SUMAN NAGAR(M) STATION",
+      "location": {
+        "lng": 72.883303,
+        "lat": 19.053511,
+        "along_m": 3419,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"SUMAN NAGAR(M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 5 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "dropped": {
+        "value": "Dropped to cut costs. It was to sit at the junction of Sion-Trombay Road and the Eastern Express Highway.",
+        "status": "reported",
+        "source_url": "https://www.constructionworld.in/transport-infrastructure/metro-rail-and-railways-infrastructure/suman-nagar-amar-mahal-metro-stations-dropped-for-space-cost-reasons/48209",
+        "notes": "Construction World (18 Dec 2023), citing unnamed sources: MMRDA's decision, ratified at a meeting chaired by the Chief Minister. MMRDA's Line 4 page now lists 30 stations without it (verified). MMRDA's alignment file of March 2025 still has its point.",
+        "last_verified": "2026-10-19"
+      },
+      "last_verified": "2026-10-19"
+    },
+    {
+      "id": "amar-mahal-junction",
+      "order": 2,
+      "name": "Amar Mahal Junction",
+      "name_mr": null,
+      "type": "Elevated",
+      "dpr_name": "AMAR MAHAL JUNCTION",
+      "dpr_chainage_m": 5338.012,
+      "kml_name": "AMAR MAHAL JUNCTION(M) STATION",
+      "location": {
+        "lng": 72.900219,
+        "lat": 19.067976,
+        "along_m": 5870,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"AMAR MAHAL JUNCTION(M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 2 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "dropped": {
+        "value": "Dropped as not feasible: flyovers and high-tension towers leave no room for a station. Riders use Garodia Nagar, about 1 km away.",
+        "status": "reported",
+        "source_url": "https://www.constructionworld.in/transport-infrastructure/metro-rail-and-railways-infrastructure/suman-nagar-amar-mahal-metro-stations-dropped-for-space-cost-reasons/48209",
+        "notes": "Construction World (18 Dec 2023), citing unnamed sources: MMRDA's decision, ratified at a meeting chaired by the Chief Minister. MMRDA's Line 4 page now lists 30 stations without it (verified). MMRDA's alignment file of March 2025 still has its point.",
+        "last_verified": "2026-10-19"
+      },
+      "last_verified": "2026-10-19"
+    }
+  ]
+}
