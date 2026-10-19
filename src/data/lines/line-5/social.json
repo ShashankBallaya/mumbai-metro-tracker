@@ -1,0 +1,18 @@
+{
+ "_meta": {
+  "description": "Hand-curated X (Twitter) posts, newest first. Each post is printed as a ruled row (date, author, text); X's script loads only when a reader asks for one full post with its photos. 'status' grades the post's claims, not the account: posts by enthusiasts are 'reported' at best. Dates come from the post ID.",
+  "last_reviewed": "2026-10-19"
+ },
+ "posts": [
+  {
+   "url": "https://x.com/MH04Thane/status/2044433883182317833",
+   "author": "Better Thane",
+   "handle": "MH04Thane",
+   "date": "2026-04-15",
+   "text": "MMRDA has floated a tender for signage graphics and station furniture at the six elevated stations of Metro Line 5, Thane-Bhiwandi-Kalyan. Its drawings show the station signs, such as Balkum Naka's, numbered 501, on an orange band.",
+   "status": "reported",
+   "source_url": "https://x.com/MH04Thane/status/2044433883182317833",
+   "last_verified": "2026-10-19"
+  }
+ ]
+}

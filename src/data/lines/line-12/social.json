@@ -1,9 +1,19 @@
 {
   "_meta": {
     "description": "Hand-curated X (Twitter) posts, newest first. Each post is printed as a ruled row (date, author, text); X's script loads only when a reader asks for one full post with its photos. 'status' grades the post's claims, not the account: posts by enthusiasts are 'reported' at best. Dates come from the post ID.",
-    "last_reviewed": "2026-09-28"
+    "last_reviewed": "2026-10-19"
   },
   "posts": [
+  {
+   "url": "https://x.com/bodkeitis/status/2112166374789284190",
+   "author": "Swarup Bodke",
+   "handle": "bodkeitis",
+   "date": "2026-10-19",
+   "text": "MMRDA's trackwork tender for Metro Line 12 has 5 bidders, not yet disclosed. The tender, posted on 16 Sep 2026, covers ballastless track from Kalyan to Katai Naka and the tracks of the Nilje depot.",
+   "status": "reported",
+   "source_url": "https://x.com/bodkeitis/status/2112166374789284190",
+   "last_verified": "2026-10-19"
+  },
     {
       "url": "https://x.com/bodkeitis/status/2103876217736962323",
       "author": "Swarup Bodke",
