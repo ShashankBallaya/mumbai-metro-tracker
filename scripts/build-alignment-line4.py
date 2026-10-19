@@ -30,6 +30,9 @@ K = '{http://www.opengis.net/kml/2.2}'
 STATIONS = 'src/data/lines/line-4/stations.json'
 OUT = 'src/data/lines/line-4/alignment-mmrda-2025.geojson'
 END_OF_LINE_4_M = 450  # Line 4A starts 450 m past Kasarvadavali station (project reports, 2016 and 2017)
+# The schematic's one 45-degree bend (src/lib/route.ts): at Teen Haath Naka, where the line leaves Lal Bahadur
+# Shastri Marg for the Eastern Expressway into Thane (project report, May 2016, 3.0.1). It starts midway between
+# Mulund Naka and Teen Haath Naka, as Line 12's bend starts where that line leaves its road.
 
 # A flat projection, good to well under a metre across this 35 km line.
 LAT0 = 19.15
@@ -192,13 +195,14 @@ feature = lambda props, coords: {'type': 'Feature', 'properties': props, 'geomet
 geo = {
     'type': 'FeatureCollection',
     'properties': {
-        'note': f'Derived from MMRDA\'s alignment file for Line 4 ({KML_URL}), which gives the corridor from Bhakti Park to Gaimukh as one polygon; the centre line runs midway between its two sides from Bhakti Park station, along the Eastern Express Highway, LBS Marg and Ghodbunder Road (verified). Line 4 ends {END_OF_LINE_4_M} m past Kasarvadavali, where Line 4A starts (project reports, 2016 and 2017). Simplified to about 1 m by scripts/build-alignment-line4.py.',
+        'note': f'Derived from MMRDA\'s alignment file for Line 4 ({KML_URL}), which gives the corridor from Bhakti Park to Gaimukh as one polygon; the centre line runs midway between its two sides from Bhakti Park station: beside the Eastern Expressway to Amar Mahal Junction, along Lal Bahadur Shastri Marg to Teen Haath Naka in Thane, then on the Eastern Expressway and Ghodbunder Road (verified). Line 4 ends {END_OF_LINE_4_M} m past Kasarvadavali, where Line 4A starts (project reports, 2016 and 2017). Simplified to about 1 m by scripts/build-alignment-line4.py.',
         'source_url': PAGE_URL,
         'status': 'verified',
         'last_verified': CHECKED,
         'length_m': round(length),
         'line_4_m': round(split),
         'line_4a_m': round(length - split),
+        'bend_along_m': round((along_of['mulund-naka'] + along_of['teen-haath-naka']) / 2),
     },
     'features': [
         feature({'name': 'Line 4 centre line', 'part': 'current', 'note': 'Bhakti Park (Wadala) to the end of line past Kasarvadavali, from MMRDA\'s 2025 file (verified).'}, cut(0, split)),

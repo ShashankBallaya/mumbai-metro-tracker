@@ -1,13 +1,14 @@
 {
  "type": "FeatureCollection",
  "properties": {
-  "note": "Derived from MMRDA's alignment file for Line 4 (https://mmrda.maharashtra.gov.in/sites/default/files/2025-03/line_4.kml), which gives the corridor from Bhakti Park to Gaimukh as one polygon; the centre line runs midway between its two sides from Bhakti Park station, along the Eastern Express Highway, LBS Marg and Ghodbunder Road (verified). Line 4 ends 450 m past Kasarvadavali, where Line 4A starts (project reports, 2016 and 2017). Simplified to about 1 m by scripts/build-alignment-line4.py.",
+  "note": "Derived from MMRDA's alignment file for Line 4 (https://mmrda.maharashtra.gov.in/sites/default/files/2025-03/line_4.kml), which gives the corridor from Bhakti Park to Gaimukh as one polygon; the centre line runs midway between its two sides from Bhakti Park station: beside the Eastern Expressway to Amar Mahal Junction, along Lal Bahadur Shastri Marg to Teen Haath Naka in Thane, then on the Eastern Expressway and Ghodbunder Road (verified). Line 4 ends 450 m past Kasarvadavali, where Line 4A starts (project reports, 2016 and 2017). Simplified to about 1 m by scripts/build-alignment-line4.py.",
   "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc",
   "status": "verified",
   "last_verified": "2026-10-19",
   "length_m": 34889,
   "line_4_m": 31936,
-  "line_4a_m": 2952
+  "line_4a_m": 2952,
+  "bend_along_m": 20993
  },
  "features": [
   {
