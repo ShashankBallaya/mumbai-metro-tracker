@@ -1,6 +1,6 @@
 {
  "_meta": {
-  "description": "Rolling stock for Lines 4 and 4A. The trains are ordered: L&T holds package CA-234 (trains, signalling, telecom, platform screen doors, depot machinery), with Alstom for the trains. 'specs' are the design values of the Line 4 project report (DMRC for MMRDA, May 2016) and the train count from the contract, shown as rows. The award date and value of CA-234 are not published (SOURCES.md, Line 4, leads to verify).",
+  "description": "Rolling stock for Lines 4 and 4A. The trains are ordered: L&T holds package CA-234 (trains, signalling, telecom, platform screen doors, depot machinery), with Alstom for the trains. 'specs' are the design values of the Line 4 project report (DMRC for MMRDA, May 2016) and the train count from the contract, shown as rows. The award date and value of CA-234 are not published (SOURCES.md, Line 4, leads to verify). 'facts' are further graded facts about the ordered trains, shown in order under the contract.",
   "last_reviewed": "2026-10-19"
  },
  "procurement": {
@@ -33,15 +33,16 @@
   "notes": "Railway Gazette (19 Oct 2026) confirms MMRDA awarded L&T the integrated systems contract. MMRDA re-tendered the trains in February 2024 at an estimate of Rs 4,297.49 crore (The Metro Rail Guy; NBM gives Rs 4,279.49 crore). An earlier order for 234 cars, won by Bombardier in January 2021, was cancelled by Alstom in March 2022."
  },
  "first_train": {
-  "value": "The first train was unveiled at Alstom's factory at Sri City on 14 Oct 2026, built in 14 months. Delivery to Mumbai is expected in December 2026",
+  "value": "The first train was unveiled at Alstom's factory at Sri City on 14 Oct 2026, built in 14 months. Alstom expects to ship it by the end of November and to reach Mumbai in the first or second week of December 2026",
   "date": "2026-10-14",
   "status": "reported",
   "source_url": "https://www.railwaygazette.com/india/2026/10/19/mumbai-metro-line-4-4a-train-rolled-out-in-record-time/",
   "also_see": [
-   "https://metrorailnews.in/alstom-rolls-out-first-driverless-metropolis-trainset-for-mumbai-metro-lines-4-and-4a/"
+   "https://metrorailnews.in/alstom-rolls-out-first-driverless-metropolis-trainset-for-mumbai-metro-lines-4-and-4a/",
+   "https://psuwatch.com/newsupdates/alstom-to-deliver-first-metro-line-4-train-in-mumbai-by-december-official"
   ],
   "last_verified": "2026-10-19",
-  "notes": "Railway Gazette describes a green and blue livery. Until the Alstom trains arrive, the trial runs used two trains from Line 2A (Construction World, Sep 2025, reported; see project.json rolling_stock.trial_trains)."
+  "notes": "Railway Gazette describes a green and blue livery. Champak Panda, Alstom India's head of rolling stock, gave PTI the shipping and arrival dates (PSU Watch, 14 Oct 2026)."
  },
  "specs": {
   "label": "Design values from the 2016 project report, with the train count from the contract.",
@@ -85,5 +86,60 @@
   "source_url": null,
   "last_verified": "2026-10-19",
   "notes": "No image of the Line 4 train is sourced for use. Railway Gazette and Metro Rail News show the first train; their photos are not copied. Owner to add one the site has the right to publish."
- }
+ },
+ "facts": [
+  {
+   "label": "Driving",
+   "value": "Driverless, at the highest grade of automation (GoA4), with Alstom's Urbalis Forward CBTC signalling",
+   "status": "reported",
+   "source_url": "https://rajendrabaklekar.in/2026/10/16/here-are-the-metro-trains-for-mumbais-lbs-road/",
+   "last_verified": "2026-10-19",
+   "notes": "Rajendra B. Aklekar (16 Oct 2026). Railway Gazette and Metro Rail News say driverless but give no grade."
+  },
+  {
+   "label": "Built in India",
+   "value": "Designed at Alstom's engineering centre in Bengaluru and built at Sri City in Andhra Pradesh, with propulsion from Coimbatore and bogies from Savli in Gujarat",
+   "status": "reported",
+   "source_url": "https://www.railwaygazette.com/india/2026/10/19/mumbai-metro-line-4-4a-train-rolled-out-in-record-time/",
+   "also_see": [
+    "https://metrorailnews.in/alstom-rolls-out-first-driverless-metropolis-trainset-for-mumbai-metro-lines-4-and-4a/"
+   ],
+   "last_verified": "2026-10-19"
+  },
+  {
+   "label": "On board",
+   "value": "Airflow-based cooling, wheelchair spaces and bicycle racks, which Alstom calls a first for its trains in India",
+   "status": "reported",
+   "source_url": "https://metrorailnews.in/alstom-rolls-out-first-driverless-metropolis-trainset-for-mumbai-metro-lines-4-and-4a/",
+   "also_see": [
+    "https://www.railwaygazette.com/india/2026/10/19/mumbai-metro-line-4-4a-train-rolled-out-in-record-time/",
+    "https://rajendrabaklekar.in/2026/10/16/here-are-the-metro-trains-for-mumbais-lbs-road/"
+   ],
+   "last_verified": "2026-10-19"
+  },
+  {
+   "label": "Tests before service",
+   "value": "After it arrives, each train must pass RDSO and CMRS tests, including runs up to 90 km/h, braking, ride and oscillation trials. Alstom says its signalling work is done",
+   "status": "reported",
+   "source_url": "https://psuwatch.com/newsupdates/alstom-to-deliver-first-metro-line-4-train-in-mumbai-by-december-official",
+   "last_verified": "2026-10-19",
+   "notes": "PTI interview with Champak Panda, Alstom India, as reported by PSU Watch (14 Oct 2026)."
+  },
+  {
+   "label": "Until they arrive",
+   "value": "MMRDA plans to open the first stretch with trains from Lines 2 and 7, as reported, and to replace them once the Alstom trains are tested. Alstom's contract milestone for passenger service with its trains is August 2027",
+   "status": "reported",
+   "source_url": "https://psuwatch.com/newsupdates/alstom-to-deliver-first-metro-line-4-train-in-mumbai-by-december-official",
+   "last_verified": "2026-10-19",
+   "notes": "PSU Watch (PTI), 14 Oct 2026. Construction World (Sep 2025) also reports trains from the Yellow Line in the first trials."
+  },
+  {
+   "label": "Where they will be kept",
+   "value": "The first 20 trains at the Mandale depot (Line 2B), which also holds the operation control centre, and the other 19 at the Kasheli depot (Line 5), linked to Line 4; a backup control centre at Mogharpada. Line 4 has no depot of its own yet",
+   "status": "conflicting",
+   "source_url": "https://rajendrabaklekar.in/2026/10/16/here-are-the-metro-trains-for-mumbais-lbs-road/",
+   "last_verified": "2026-10-19",
+   "notes": "Rajendra B. Aklekar (16 Oct 2026). It conflicts with the plan for a Line 4 depot at Mogharpada (MMRDA's 2023 review; package CA-160) and with the scope of CA-234, which names Mogharpada depot machinery. Alstom told PTI it has arrangements for testing, stabling and maintenance, without naming a depot."
+  }
+ ]
 }

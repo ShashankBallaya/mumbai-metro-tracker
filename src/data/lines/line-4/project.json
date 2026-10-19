@@ -168,7 +168,7 @@
   "depot": {
     "value": "Mogharpada, Thane",
     "area_ha": 41.5,
-    "status": "verified",
+    "status": "conflicting",
     "source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2024-02/reminiscence_of_mmrda_s_monumental_achievements_in_2023.pdf",
     "last_verified": "2026-10-19",
     "context": "Shared with Lines 4A, 10 and 11. In October 2023 the State approved the transfer of 174.01 ha at Mogharpada to MMRDA for Lines 4, 4A, 10 and 11, of which 41.5 ha is earmarked for the depot (MMRDA's review of 2023).",
@@ -198,6 +198,11 @@
         "value": "27.50 ha",
         "context": "Car shed area in MMRDA's environmental report for the depot approach and spur line (May 2019)",
         "source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2023-05/4.pdf"
+      },
+      {
+        "value": "Mandale depot (Line 2B) for the first 20 trains and Kasheli depot (Line 5) for the other 19; Mogharpada for a backup control centre only",
+        "context": "Rajendra B. Aklekar, 16 Oct 2026: 'Line 4 has no dedicated depot yet'",
+        "source_url": "https://rajendrabaklekar.in/2026/10/16/here-are-the-metro-trains-for-mumbais-lbs-road/"
       }
     ],
     "history": [
@@ -212,7 +217,7 @@
         "source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2021-10/Metro%20Line%204A.pdf"
       }
     ],
-    "notes": "The depot was not finished when the first stretch was ready, so the Gaimukh pit line serves until it is (Free Press Journal, Aug 2026). A first depot tender (L4-C01) was cancelled in May 2021 (The Metro Rail Guy)."
+    "notes": "The depot was not finished when the first stretch was ready, so the Gaimukh pit line serves until it is (Free Press Journal, Aug 2026). A first depot tender (L4-C01) was cancelled in May 2021 (The Metro Rail Guy). A report of October 2026 (Rajendra B. Aklekar) says the trains will be kept at the Mandale and Kasheli depots instead; see alternatives. Graded conflicting."
   },
   "interchanges": {
     "value": [
@@ -544,7 +549,7 @@
       "notes": "Construction World (Sep 2025, from Mid-day) says two trains from 'Yellow Line-2'. Swarajya (Aug 2026) says six rakes are planned for the first stretch, without naming them.",
       "last_verified": "2026-10-19"
     },
-    "notes": "MMRDA re-tendered the trains in February 2024 at an estimate of Rs 4,297.49 crore; L&T, with Alstom, was the lowest bidder on 14 Feb 2025 (The Metro Rail Guy). An earlier order for 234 cars, won by Bombardier and taken over by Alstom, was cancelled by Alstom in March 2022. The award value of CA-234 was not found. Design speed 90 km/h, operating speed 80 km/h, wheelchair spaces and bicycle racks."
+    "notes": "MMRDA re-tendered the trains in February 2024 at an estimate of Rs 4,297.49 crore; L&T, with Alstom, was the lowest bidder on 14 Feb 2025 (The Metro Rail Guy). An earlier order for 234 cars, won by Bombardier and taken over by Alstom, was cancelled by Alstom in March 2022. The award value of CA-234 was not found. Design speed 90 km/h, operating speed 80 km/h, wheelchair spaces and bicycle racks. Driverless at GoA4 with Urbalis Forward CBTC (Rajendra B. Aklekar, Oct 2026, reported). MMRDA plans to open with trains from Lines 2 and 7 until these are tested; Alstom's milestone for passenger service is August 2027 (PSU Watch, PTI, Oct 2026)."
   },
   "incidents": [
     {

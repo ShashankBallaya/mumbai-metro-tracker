@@ -27,6 +27,8 @@ interface Ordered {
   specs: Graded & { rows: [string, string][]; label?: string; notes?: string };
   traction?: Graded & { supplier: string; value: string };
   first_train?: Graded & { value: string };
+  /** More published facts about the ordered trains (Line 4: automation, where built, features, arrival, depots), each graded. */
+  facts?: (Graded & { label: string; value: string })[];
 }
 const ordered = rollingstock.procurement.manufacturer ? (rollingstock as unknown as Ordered) : undefined;
 const d = rollingstock.dpr_design_assumptions;
@@ -170,6 +172,12 @@ const specs: [string, string][] = ordered ? ordered.specs.rows : [
               <Grade status={ordered.traction.status} source={ordered.traction.source_url} />
             </p>
           )}
+          {ordered.facts?.map((f) => (
+            <p class="trains__line5">
+              <strong>{f.label}:</strong> {f.value}.{' '}
+              <Grade status={f.status} source={f.source_url} />
+            </p>
+          ))}
         </>
       ) : (
       <p class="trains__line5">

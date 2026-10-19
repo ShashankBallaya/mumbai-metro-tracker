@@ -420,6 +420,8 @@ export function outletName(url: string | null | undefined): string {
     'lntecc.com': 'L&T',
     'pressreader.com': 'PressReader',
     'indianinfrastructure.com': 'Indian Infrastructure',
+    'psuwatch.com': 'PSU Watch (PTI)',
+    'rajendrabaklekar.in': 'Rajendra B. Aklekar',
   };
   if (url.includes('Metro%20Line%2012.pdf')) return 'MMRDA DPR (2019)';
   if (url.includes('Metro%20Line%204.pdf')) return 'MMRDA DPR (2016)';
