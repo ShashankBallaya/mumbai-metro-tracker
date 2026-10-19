@@ -87,6 +87,9 @@
   /* Line 6, Pink Line (reported): its mark only; the site does not cover it. White on it is 5.3:1; it is 4.4:1 on morning paper and 3.5:1 on night paper. */
   --line-6: #c2306e;
   --on-line-6: #ffffff;
+  /* Line 2B, Yellow Line (MMRDA): its mark only. Navy on it is 10.9:1. */
+  --line-2b: #f2c11d;
+  --on-line-2b: #0c1422;
   /* Lines 5 and 12 on any page, whatever that page's accent (LineMark). */
   --line-orange: #f26b1d;
   --on-line-orange: #0c1422;
