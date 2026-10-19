@@ -7,7 +7,7 @@
  */
 import Grade from './Grade.astro';
 import LineMark from './LineMark.astro';
-import { lineCopy, dprLabel, plannedInterchanges, openedOf, sectionOf, formatDate, type Line, type Station } from '../lib/data';
+import { lineCopy, dprLabel, extensionOf, plannedInterchanges, openedOf, sectionOf, formatDate, type Line, type Station } from '../lib/data';
 import { schematic } from '../lib/route';
 
 interface Props {
@@ -65,6 +65,13 @@ const km = (m: number) => (m / 1000).toLocaleString('en-IN', { minimumFractionDi
             <span class="ride__tick-name">{spurStations[k].name}</span>
           </span>
         ))}
+        {strip.extension && (
+          // Where the extension (Line 4A) begins: a joint across the line, and its shield just under it.
+          <>
+            <span class="ride__joint" style={`--x:${(strip.extension.joint[0] / strip.width) * 100}%;--y:${(strip.extension.joint[1] / strip.height) * 100}%`}></span>
+            <span class="ride__shield" style={`--x:${(strip.extension.shield[0] / strip.width) * 100}%;--y:${(strip.extension.shield[1] / strip.height) * 100}%`}>{strip.extension.label}</span>
+          </>
+        )}
         <span class="ride__train" data-ride-train></span>
       </div>
 
@@ -75,6 +82,7 @@ const km = (m: number) => (m / 1000).toLocaleString('en-IN', { minimumFractionDi
             <h3 class="ride__name">{s.name}</h3>
             {s.location.along_m !== null && <p class="ride__km num" aria-hidden="true">{km(s.location.along_m)}<span> km</span></p>}
             <p class="ride__order num">Station {s.order} of {stations.length}</p>
+            {extensionOf(line, s) && <p class="ride__ext"><LineMark lineId={line.id} label={extensionOf(line, s)} />{(line.info.copy as { extension_note?: string }).extension_note}</p>}
             {s.dpr_name && s.dpr_name !== s.name && <p class="ride__alias">Called "{s.dpr_name}" in {dprLabel(line)}.</p>}
             {s.location.along_m !== null ? (
               <p class="ride__distance num">
@@ -397,6 +405,35 @@ const km = (m: number) => (m / 1000).toLocaleString('en-IN', { minimumFractionDi
     top: 1.15rem;
     transform-origin: 0 0;
     rotate: 45deg;
+  }
+  .ride__joint {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: 4px;
+    height: 2.75rem;
+    translate: -50% -50%;
+    background: var(--ink);
+  }
+  /* Under the line, clear of the train when it stops at the last station, and of the angled names. */
+  .ride__shield {
+    position: absolute;
+    left: var(--x);
+    top: calc(var(--y) + 1.6rem);
+    translate: -50% -50%;
+    padding: 0.1em 0.35em 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-stretch: 75%;
+    font-size: 1rem;
+    line-height: 1.15;
+    background: var(--signal);
+    color: var(--on-signal);
+    outline: 3px solid var(--paper);
+  }
+  .ride__ext {
+    font-size: var(--step--1);
+    color: var(--ink-2);
   }
   .ride__tick--side .ride__tick-name {
     left: 2.4rem;

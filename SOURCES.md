@@ -277,7 +277,7 @@ Decided by the owner on 2026-10-19 (all as proposed):
 1. **Foundation stone, 24 Dec 2016**, by the Prime Minister with Line 2B (several news sites; none read).
 2. **Packages not yet read:** CA-161 and CA-168 (track), CA-194, CA-222, CA-243 and CA-257 (station finishing), CA-236 (power, IRCON-Jakson, Feb 2025) and CA-237 (fare collection). Railway Gazette says L&T now does track and power, so some of these may have changed hands.
 3. **CA-234 award date and value.** No MMRDA notice found.
-4. **Which station meets which line:** Line 2B (Siddharth Colony, reported), Line 6 (Vikhroli or Gandhi Nagar?), the Monorail (Bhakti Park?), the Central Railway (Thane, Mulund?).
+4. **Which station meets which line.** Checked 2026-10-19. Found: the Monorail at Bhakti Park (2016 project report: opposite Bhakti Park Monorail station; 155 m apart in MMRDA's files, verified); Line 6 at Gandhi Nagar (MMRDA's Line 6 page; Line 6's side is Kanjur Marg (W); 161 m apart, verified); Line 2B at Siddharth Colony (Construction World, reported; 635 m from Line 2B's EEH station in MMRDA's files); Line 11 at Anik Nagar Bus Depot (The Metro Rail Guy, proposed); the Thane Integral Ring Metro's Dongripada, 186 m from Dongari Pada on the ring line's official map file (reported; neither project calls it an interchange); Line 10 at Gaimukh (approved). Still open: the Central Railway, which MMRDA names without a station, and MMRDA's Line 11 and Line 10 pages (both URLs return 404).
 5. **Mogharpada depot progress and the CA-160 value** (Rs 905 Cr in one report).
 6. **Line 4A cost, Rs 949 Cr**, from an MMRDA document.
 

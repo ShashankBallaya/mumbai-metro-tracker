@@ -45,7 +45,7 @@ const first = stations[0].name;
 const last = stations[stations.length - 1].name;
 
 // Schematic strip (shared geometry with the route ride).
-const { width: W, height: H, path, points: dots, placed, underground, open, branch } = schematic(line);
+const { width: W, height: H, path, points: dots, placed, underground, open, branch, extension } = schematic(line);
 const spurEnd = line.spurStations.at(-1)?.name;
 ---
 
@@ -121,6 +121,8 @@ const spurEnd = line.spurStations.at(-1)?.name;
     <span class="front__strip-dots" aria-hidden="true">
       {dots.map(([x, y], i) => <span class={placed[i] ? 'front__strip-dot' : 'front__strip-dot front__strip-dot--unplaced'} style={`left:${(x / W) * 100}%;top:${(y / H) * 100}%`}></span>)}
       {branch?.points.map(([x, y]) => <span class="front__strip-dot" style={`left:${(x / W) * 100}%;top:${(y / H) * 100}%`}></span>)}
+      {extension && <span class="front__strip-joint" style={`left:${(extension.joint[0] / W) * 100}%;top:${(extension.joint[1] / H) * 100}%`}></span>}
+      {extension && <span class="front__strip-shield" style={`left:${(extension.shield[0] / W) * 100}%;top:${(extension.shield[1] / H) * 100}%`}>{extension.label}</span>}
     </span>
     <span class="front__strip-end front__strip-end--b">{last}</span>
     {branch && <span class="front__strip-end front__strip-end--spur">{spurEnd}</span>}
@@ -301,6 +303,33 @@ const spurEnd = line.spurStations.at(-1)?.name;
     stroke-width: 14px;
     stroke-linecap: butt;
     stroke-dasharray: 6px 5px;
+  }
+  /* Where an extension (Line 4A) begins, and its shield on the line. */
+  .front__strip-joint {
+    position: absolute;
+    width: 3px;
+    height: 1.9rem;
+    translate: -50% -50%;
+    background: var(--ink);
+  }
+  .front__strip-shield {
+    position: absolute;
+    translate: -50% -50%;
+    padding: 0.1em 0.3em 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-stretch: 75%;
+    font-size: 0.8rem;
+    line-height: 1.15;
+    background: var(--signal);
+    color: var(--on-signal);
+    outline: 2.5px solid var(--paper);
+  }
+  /* On a phone the extension's stations sit too close for the shield: the joint alone marks it. */
+  @media (max-width: 40rem) {
+    .front__strip-shield {
+      display: none;
+    }
   }
   .front__strip-dot {
     position: absolute;

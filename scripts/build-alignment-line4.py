@@ -202,6 +202,9 @@ geo = {
         'length_m': round(length),
         'line_4_m': round(split),
         'line_4a_m': round(length - split),
+        # Where Line 4A begins, for the schematic's section joint and its '4A' shield (src/lib/route.ts).
+        'extension_from_m': round(split),
+        'extension_label': '4A',
         'bend_along_m': round((along_of['mulund-naka'] + along_of['teen-haath-naka']) / 2),
     },
     'features': [

@@ -217,6 +217,14 @@
   "interchanges": {
     "value": [
       {
+        "station": "Bhakti Park Metro",
+        "connects_to": "Mumbai Monorail, at Bhakti Park"
+      },
+      {
+        "station": "Gandhi Nagar",
+        "connects_to": "Metro Line 6 (Swami Samarth Nagar-Vikhroli), at Kanjur Marg (W)"
+      },
+      {
         "station": "Kapurbawdi",
         "connects_to": "Metro Line 5 (Thane-Bhiwandi-Kalyan)"
       }
@@ -232,7 +240,37 @@
       "Metro Line 5 (Thane-Kalyan)",
       "Metro Line 6 (Swami Samarth Nagar-Vikhroli)"
     ],
-    "notes": "MMRDA's Line 4 page names these connections but not the stations where they meet. The Line 5 interchange at Kapurbawdi is named in MMRDA's Line 5 press release (May 2026). Siddharth Colony is to connect with Line 2B's Eastern Express Highway station (Construction World, Dec 2023, reported). Line 10 is to continue from Gaimukh to Mira Road (approved, not built). The other stations are open questions in SOURCES.md."
+    "notes": "MMRDA's Line 4 page names Line 4's connections (Eastern Express Highway, Central Railway, Monorail, Lines 2B, 5 and 6) but not the stations where they meet. Stations: the Monorail at Bhakti Park (2016 project report: opposite Bhakti Park Monorail station), Line 6 at Gandhi Nagar (MMRDA's Line 6 page) and Line 5 at Kapurbawdi (MMRDA's Line 5 press release, May 2026). Line 2B at Siddharth Colony is reported (Construction World, Dec 2023), 635 m from Line 2B's EEH station. No source names a Line 4 station for the Central Railway.",
+    "planned": [
+      {
+        "station": "Siddharth Colony",
+        "connects_to": "Metro Line 2B (D N Nagar-Mandale), at EEH",
+        "status": "reported",
+        "source_url": "https://www.constructionworld.in/transport-infrastructure/metro-rail-and-railways-infrastructure/suman-nagar-amar-mahal-metro-stations-dropped-for-space-cost-reasons/48209",
+        "last_verified": "2026-10-19"
+      },
+      {
+        "station": "Anik Nagar Bus Depot",
+        "connects_to": "Metro Line 11 (Wadala-Gateway of India), proposed",
+        "status": "reported",
+        "source_url": "https://themetrorailguy.com/mumbai-metro-green-line-information-route-map-fares-timings-tenders-status-updates/",
+        "last_verified": "2026-10-19"
+      },
+      {
+        "station": "Dongari Pada",
+        "connects_to": "the Thane Integral Ring Metro (Maha-Metro), at its Dongripada station, 186 m away",
+        "status": "reported",
+        "source_url": "https://thanemetrorail.com/route-map",
+        "last_verified": "2026-10-19"
+      },
+      {
+        "station": "Gaimukh",
+        "connects_to": "Metro Line 10 (Gaimukh-Mira Road), approved",
+        "status": "reported",
+        "source_url": "https://themetrorailguy.com/mumbai-metro-green-line-information-route-map-fares-timings-tenders-status-updates/",
+        "last_verified": "2026-10-19"
+      }
+    ]
   },
   "daily_ridership_2031": {
     "value": 1213000,

@@ -328,6 +328,12 @@ export function stationHref(id: LineId, station: string): string | null {
   return `${lineBase(id)}stations/${station}/`;
 }
 
+/** The extension a station is on (Line 4A on Line 4: stations.json `section`), when it is not the line itself. */
+export function extensionOf(line: Line, s: Station): string | undefined {
+  const section = (s as { section?: string }).section;
+  return section && section !== line.info.number ? section : undefined;
+}
+
 /** Where a station's coordinates come from, in a few words: matched on the source of its position. */
 export function positionBasis(line: Line, s: Station): string {
   const { default: fallback, by_source } = line.info.position_basis as { default: string; by_source: Record<string, string> };
