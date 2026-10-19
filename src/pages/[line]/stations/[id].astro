@@ -10,7 +10,7 @@ import Grade from '../../../components/Grade.astro';
 import LocatorMap from '../../../components/LocatorMap.astro';
 import LineMark from '../../../components/LineMark.astro';
 import PhotoCredit from '../../../components/PhotoCredit.astro';
-import { getLine, lines, lineNodeId, lineBase, SITE_NAME, stationHref, positionBasis, streetViewUrl, plannedInterchanges, formatDate, sectionOf, openedOf, announcedOf, sectionName, clock, inr, videoTime, type LineId, type Station, type StationPhoto } from '../../../lib/data';
+import { getLine, dprLabel, lines, lineNodeId, lineBase, SITE_NAME, stationHref, positionBasis, streetViewUrl, plannedInterchanges, formatDate, sectionOf, openedOf, announcedOf, sectionName, clock, inr, videoTime, type LineId, type Station, type StationPhoto } from '../../../lib/data';
 import { hasStatusPage } from '../../../lib/answers';
 import '../../../styles/inner.css';
 
@@ -203,7 +203,7 @@ const schema: Record<string, unknown>[] = [
           {loc.along_m !== null && (
             <p>
               {km(loc.along_m)} km {spur ? `along the spur from ${spurFrom!.name}` : `from the start of the line at ${stations[0].name}`}
-              {ch != null && <span class="fact__note num"> (2019 project report: chainage {ch.toLocaleString('en-IN')} m)</span>}
+              {ch != null && <span class="fact__note num"> ({cap(dprLabel(line).replace(/^the /, ''))}: chainage {ch.toLocaleString('en-IN')} m)</span>}
             </p>
           )}
         </dd>
@@ -244,7 +244,7 @@ const schema: Record<string, unknown>[] = [
             <ul class="graded">
               {s.context.map((c) => (
                 <li>
-                  <span>{cap(c.text.replace(/^DPR: /, 'In the 2019 project report: '))}</span>
+                  <span>{cap(c.text.replace(/^DPR: /, `In ${dprLabel(line)}: `))}</span>
                   <span class="grades"><Grade status={c.status} source={c.source_url} /></span>
                 </li>
               ))}
@@ -293,7 +293,7 @@ const schema: Record<string, unknown>[] = [
       <div>
         <dt>Name</dt>
         <dd>
-          <p>{s.name}{s.dpr_name && s.dpr_name !== s.name ? ` (the 2019 project report calls it ${s.dpr_name})` : ''}</p>
+          <p>{s.name}{s.dpr_name && s.dpr_name !== s.name ? ` (${dprLabel(line)} calls it ${s.dpr_name})` : ''}</p>
           {s.notes && <p class="fact__note">{s.notes}</p>}
           <p class="grades"><Grade status={s.name_status} source={s.name_source_url} /></p>
           {s.name_mr ? <p>In Marathi: <span class="mr" lang="mr">{s.name_mr}</span></p> : <p>Marathi name not yet found in a source.</p>}

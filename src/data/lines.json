@@ -1,14 +1,14 @@
 {
   "_meta": {
-    "description": "The lines this site covers, in hub order. Each line's facts live in src/data/lines/<id>/. project.json and stations.json are required; every other file is optional, and a section without its file does not show. 'alignment' names the GeoJSON file the map and schematic draw from. 'about' feeds the line's schema.org node on every page of that line. 'position_basis' names where station coordinates come from: 'by_source' matches part of a station's location source_url, else 'default'. 'copy' holds the line's own wording for shared pages; {total}, {km} and {name} are filled in. Tokens in copy: {stations}, {as_of}, {pct:<activity>}, {target}, {earlier}, {rest}, {alt}, {minutes} come from project.json. Keys ending in _html may contain inline markup. 'number' is the line's mark; 'colour' names its colour token in src/styles/tokens.css (with an on- token for text on it). 'other_lines' gives a colour to lines the site does not cover, for their mark only; a line in neither list gets a neutral outlined mark. Line 5 and Line 12 share orange, so every mention of a line shows its number with the colour (LineMark.astro).",
-    "last_reviewed": "2026-10-09"
+    "description": "The lines this site covers, in hub order. Each line's facts live in src/data/lines/<id>/. project.json and stations.json are required; every other file is optional, and a section without its file does not show. 'alignment' names the GeoJSON file the map and schematic draw from. 'about' feeds the line's schema.org node on every page of that line. 'position_basis' names where station coordinates come from: 'by_source' matches part of a station's location source_url, else 'default'. 'copy' holds the line's own wording for shared pages; {total}, {km} and {name} are filled in. Tokens in copy: {stations}, {as_of}, {pct:<activity>}, {target}, {earlier}, {rest}, {alt}, {minutes} come from project.json. Keys ending in _html may contain inline markup. 'number' is the line's mark; 'colour' names its colour token in src/styles/tokens.css (with an on- token for text on it); a line page whose colour is not line-orange takes it as its accent (data-accent on <html>). 'other_lines' gives a colour to lines the site does not cover, for their mark only; a line in neither list gets a neutral outlined mark. Line 5 and Line 12 share orange, so every mention of a line shows its number with the colour (LineMark.astro). 'dpr_label' names the project report that stations.json dpr_name and dpr_chainage_m come from (default: the 2019 project report, Line 12's).",
+    "last_reviewed": "2026-10-19"
   },
   "lines": [
     {
       "id": "line-12",
       "label": "Line 12",
       "number": "12",
-      "colour": "signal",
+      "colour": "line-orange",
       "mark_mr": "मेट्रो १२",
       "route_short": "Kalyan to Taloja",
       "alignment": "alignment-mmrda-2025.geojson",
@@ -106,7 +106,7 @@
       "id": "line-5",
       "label": "Line 5",
       "number": "5",
-      "colour": "signal",
+      "colour": "line-orange",
       "mark_mr": "मेट्रो ५",
       "route_short": "Thane to Kalyan",
       "alignment": "alignment-mmrda-2025.geojson",
@@ -208,17 +208,115 @@
         "status_lead": "The questions people ask about Mumbai Metro Line 5, Thane to Kalyan.",
         "footer_disclaimer": "Mumbai Metro Tracker is an independent public-interest site. It is not affiliated with, endorsed by or connected to MMRDA or the Government of Maharashtra. Drawings are original illustrations, not official designs; the one exception, the train render, is credited to its maker. Check official sources before making decisions."
       }
+    },
+    {
+      "id": "line-4",
+      "label": "Line 4",
+      "number": "4",
+      "colour": "line-4",
+      "mark_mr": "मेट्रो ४",
+      "route_short": "Wadala to Thane and Gaimukh",
+      "alignment": "alignment-mmrda-2025.geojson",
+      "about": {
+        "name": "Mumbai Metro Line 4",
+        "alternate_names": [
+          "Metro Line 4",
+          "Metro 4",
+          "Green Line",
+          "Wadala-Thane-Kasarvadavali Metro",
+          "Metro Line 4A"
+        ],
+        "description": "An elevated metro line from Wadala through Ghatkopar, Mulund and Thane to Kasarvadavali, with the Line 4A extension to Gaimukh, built by MMRDA. The first stretch, Gaimukh to Cadbury Junction, is built and in trial runs.",
+        "same_as": [
+          "https://en.wikipedia.org/wiki/Green_Line_(Mumbai_Metro)",
+          "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+        ]
+      },
+      "position_basis": {
+        "default": "MMRDA's alignment file, Mar 2025",
+        "by_source": {}
+      },
+      "copy": {
+        "ends": [
+          "Wadala",
+          "Gaimukh"
+        ],
+        "runs": "which will run fully elevated from Wadala through Ghatkopar, Mulund and Thane to Kasarvadavali, and on to Gaimukh as Line 4A",
+        "station_state": null,
+        "stations_section": "All {total}, in order from Bhakti Park in Wadala: the 30 of Line 4 to Kasarvadavali, then the two of Line 4A to Gaimukh, then the two the 2016 plan had. Names follow MMRDA. Select a station to ride to it, or open its own page.",
+        "stations_page": "All {total}, in order from Bhakti Park in Wadala to Kasarvadavali, then Line 4A to Gaimukh. Every station is elevated. Line 4 is {km} km long; Line 4A adds about 2.9 km.",
+        "stations_page_description": "The stations of {name} in order, from Wadala through Ghatkopar, Vikhroli, Bhandup, Mulund and Thane to Kasarvadavali, and Line 4A to Gaimukh, with interchanges and a page for each station.",
+        "route_section": "Thirty-two stations, Bhakti Park in Wadala to Gaimukh in Thane, Line 4A included. Scroll to ride the line station by station. Distances follow MMRDA's alignment file of March 2025.",
+        "route_legend": "A hollow line marks track that is not yet open. No part of Line 4 has opened; the first stretch, Gaimukh to Cadbury Junction, is in trial runs.",
+        "drawn_from": [
+          "MMRDA's alignment file",
+          " of March 2025"
+        ],
+        "headline_html": "Watch Mumbai Metro Line&nbsp;4 reach Thane,<br> stretch by stretch.",
+        "front_standfirst": "The first stretch, Gaimukh to Cadbury Junction in Thane, is built and in trial runs; it waits for the safety commissioner's approval. The rest of the line to Wadala is still being built: on {as_of}, MMRDA put pier work at about {pct:Pier (viaduct and station, up to platform level)} per cent and the deck slab at about {pct:Deck slab} per cent. {stations} stations on Line 4, as MMRDA counts them, and two more on Line 4A.",
+        "countdown_title": "Days to the reported target",
+        "target_html": "Target: <strong>{target}</strong> for the first stretch, Gaimukh to Cadbury Junction, as reported: MMRDA aims for “around Diwali or by the end of 2026”. MMRDA has announced no date. Earlier reported targets, December 2025 and April 2026, passed. For the rest of the line to Wadala, the last reported target is October 2027.",
+        "lead_scene": null,
+        "map_section": "The line on a street map. Choose a station to see where it sits, what surrounds it and what the street looks like today. The route and stations come from MMRDA's alignment file of March 2025.",
+        "map_legend": "Route not yet open, MMRDA's alignment file",
+        "map_first_station": "kapurbawdi",
+        "numbers": {
+          "length_unit": "km, fully elevated; Line 4A adds about 2.9 km",
+          "stations_unit": "all elevated, plus 2 on Line 4A",
+          "cost_unit": ", Line 4, with taxes",
+          "cost_note": "MMRDA's Line 4 page. Line 4A adds ₹949 crore (reported). The 2016 project report gave ₹14,502 crore by completion.",
+          "funding_head": "Loans for the systems",
+          "funding_note": "In November 2021 Germany's KfW approved two loans, EUR 545 million in all, for the trains, ticketing and links around the stations of Lines 4 and 4A. MMRDA funds the rest.",
+          "depot_history": [
+            [
+              "Kasarvadavali, with stabling near Ghatkopar",
+              "2016 project report"
+            ],
+            [
+              "Near Gaimukh, 23.1 ha",
+              "2017 project report for Line 4A"
+            ]
+          ],
+          "travel_head": "50 to 75% shorter",
+          "travel_unit": "than by road today, depending on traffic (MMRDA)"
+        },
+        "primary_sources": [
+          {
+            "name": "MMRDA, Metro Line 4 project page",
+            "note": "Length, stations, colour, cost, riders, connections, monthly progress.",
+            "url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+          },
+          {
+            "name": "Detailed project report, Wadala to Kasarvadavali (DMRC for MMRDA, May 2016)",
+            "note": "Design basis, station chainages, depot, cost.",
+            "url": "https://mmrda.maharashtra.gov.in/sites/default/files/2021-10/Metro%20Line%204.pdf"
+          },
+          {
+            "name": "Detailed project report, Line 4A to Gaimukh (DMRC for MMRDA, October 2017)",
+            "note": "Line 4A's length, stations and cost.",
+            "url": "https://mmrda.maharashtra.gov.in/sites/default/files/2021-10/Metro%20Line%204A.pdf"
+          },
+          {
+            "name": "Alignment file of Line 4 (MMRDA, March 2025)",
+            "note": "The route line and every station position on the map.",
+            "url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+          },
+          {
+            "name": "KfW loan for Lines 4 and 4A (MMRDA, November 2021)",
+            "note": "The EUR 545 million loans and what they pay for.",
+            "url": "https://www.mmrda.maharashtra.gov.in/sites/default/files/2021-12/news%20(20).pdf"
+          }
+        ],
+        "page_description": "Unofficial, sourced tracker for Mumbai Metro Line 4 (Green Line), Wadala to Thane, and Line 4A to Gaimukh: opening target of the first stretch, progress, all 32 stations, map, tenders and trains. Every figure links to its source.",
+        "status_title": "Mumbai Metro Line 4 Status: opening date, progress, route",
+        "status_description": "When will Metro Line 4 (Wadala to Thane and Gaimukh) open, which stretch opens first, cost and trains. Answers from MMRDA and news sources, checked {checked}.",
+        "status_h1": "Metro Line 4 status, answered",
+        "status_mr": "वडाळा-ठाणे-कासारवडवली मेट्रो ४",
+        "status_lead": "The questions people ask about Mumbai Metro Line 4, Wadala to Thane and Gaimukh.",
+        "footer_disclaimer": "Mumbai Metro Tracker is an independent public-interest site. It is not affiliated with, endorsed by or connected to MMRDA or the Government of Maharashtra. Drawings are original illustrations, not official designs. Check official sources before making decisions.",
+        "dpr_label": "the 2016 project report"
+      }
     }
   ],
-  "other_lines": [
-    {
-      "number": "4",
-      "name": "Green Line",
-      "colour": "line-4",
-      "status": "verified",
-      "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview",
-      "last_verified": "2026-10-12",
-      "notes": "MMRDA's Line 4 page gives its line colour as \"Green Line\". MMRDA publishes no colour value, so the site's green is its own. Shown on the owner's request (2026-10-12)."
-    }
-  ]
+  "other_lines": []
 }

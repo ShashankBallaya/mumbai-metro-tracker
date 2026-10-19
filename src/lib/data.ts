@@ -343,6 +343,9 @@ export function lineCopy(line: Line, key: 'stations_section' | 'stations_page' |
     .replace('{name}', line.info.about.name);
 }
 
+/** The project report a station's dpr_name and dpr_chainage_m come from, e.g. "the 2019 project report". */
+export const dprLabel = (line: Line): string => (line.info.copy as { dpr_label?: string }).dpr_label ?? 'the 2019 project report';
+
 /** The schema.org @id of a line's node, e.g. "https://example.org/#line12". Station pages point at it. */
 export const lineNodeId = (siteUrl: string, line: Line) => `${siteUrl}#${line.id.replace('-', '')}`;
 
@@ -406,8 +409,15 @@ export function outletName(url: string | null | undefined): string {
     'x.com': 'X',
     'livingatlas.arcgis.com': 'Esri Wayback',
     'thanemetrorail.com': 'Thane Ring Metro (official)',
+    'newsonair.gov.in': 'News On AIR',
+    'railwaygazette.com': 'Railway Gazette',
+    'lntecc.com': 'L&T',
+    'pressreader.com': 'PressReader',
+    'indianinfrastructure.com': 'Indian Infrastructure',
   };
   if (url.includes('Metro%20Line%2012.pdf')) return 'MMRDA DPR (2019)';
+  if (url.includes('Metro%20Line%204.pdf')) return 'MMRDA DPR (2016)';
+  if (url.includes('Metro%20Line%204A.pdf')) return 'MMRDA DPR, Line 4A (2017)';
   // A map anyone can make: say so, so it is never read as Google's own.
   if (host === 'google.com' && url.includes('/maps/d/')) return 'User map on Google My Maps';
   // A post on X is named by its account, so the reader sees who posted it.

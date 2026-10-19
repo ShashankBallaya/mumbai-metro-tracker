@@ -208,7 +208,7 @@ Line 5's Kalyan point (2025 file) is 14 m from Line 12's, and its APMC Kalyan po
 
 # Line 4 and Line 4A (Wadala-Thane-Kasarvadavali-Gaimukh)
 
-Research started 2026-10-19. Data in `src/data/lines/line-4/`. Figures follow MMRDA's Line 4 page (primary source 1). Line 4A is kept in the same files, as Line 5A is in Line 5's. Not shown on the site yet (see MULTI-LINE-PLAN.md, step 8). The status values above apply.
+Research started 2026-10-19. Data in `src/data/lines/line-4/`. Figures follow MMRDA's Line 4 page (primary source 1). Line 4A is kept in the same files, as Line 5A is in Line 5's. Shown at /line-4/ since 2026-10-19 (see MULTI-LINE-PLAN.md, step 8). The status values above apply.
 
 ## Primary sources
 
@@ -264,11 +264,13 @@ Kapurbawdi: MMRDA's Line 4 point is 74 m from the OpenStreetMap point that Line 
 
 ## Items that need your review
 
-1. **Countdown.** Proposed: count down to 31 Dec 2026 for the first stretch, labelled as a reported target. MMRDA has announced no date; news reports say MMRDA aims for "around Diwali or by the end of 2026".
-2. **Line 4A on the Line 4 page.** Proposed, as for Line 5A. MMRDA has no Line 4A page; its 2023 review treats the two together.
+Decided by the owner on 2026-10-19 (all as proposed):
+
+1. **Countdown.** To 31 Dec 2026 for the first stretch, labelled as a reported target. MMRDA has announced no date; news reports say MMRDA aims for "around Diwali or by the end of 2026".
+2. **Line 4A on the Line 4 page**, as for Line 5A. MMRDA has no Line 4A page; its 2023 review treats the two together.
 3. **Phases.** MMRDA names none. The data uses the three opening stretches reported in September 2025 (Gaimukh to Cadbury Junction, then to Gandhi Nagar, then to Wadala).
 4. **First stretch: 8 or 10 stations.** Manpada and Gowniwada are on the stretch but left out of the August 2026 report. Both are shown as built, graded conflicting.
-5. **The Mulund collapse (14 Feb 2026).** In project.json `incidents`. Decide whether the page shows it.
+5. **The Mulund collapse (14 Feb 2026)** is shown under Progress, from project.json `incidents`, with its sources.
 
 ## Leads to verify
 

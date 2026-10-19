@@ -65,7 +65,12 @@
     "fov": 75,
     "note": "Looking south at the station from about 110 m north, on Ghodbunder Road. Picked by the owner, 2026-10-09. A link only: Google's imagery is not copied onto the site."
    },
-   "last_verified": "2026-10-09"
+   "last_verified": "2026-10-09",
+   "same_site_as": {
+    "line": "line-4",
+    "station": "kapurbawdi",
+    "distance_m": 74
+   }
   },
   {
    "id": "balkum-naka",

@@ -14,7 +14,7 @@ const strip = line && schematic(line, { width: 1000, top: 20, drop: 60, pad: 10,
 const all = lines.map((l) => getLine(l.id));
 ---
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="dark" data-accent={line && line.info.colour !== 'line-orange' ? line.info.colour : undefined}>
   <head>
     <meta charset="utf-8" />
     <meta name="robots" content="noindex" />
@@ -59,11 +59,11 @@ const all = lines.map((l) => getLine(l.id));
         <div class="band"><b>Mumbai Metro</b><span>The unofficial tracker</span></div>
         <div class="body">
           <h1>{SITE_NAME}</h1>
-          <p>The lines being built around Kalyan, each fact with its grade and source. Facts checked {formatDate(siteReviewed)}.</p>
+          <p>The lines being built around Kalyan and Thane, each fact with its grade and source. Facts checked {formatDate(siteReviewed)}.</p>
         </div>
         <ul class="lines">
           {all.map((l) => (
-            <li><b>{l.info.number}</b>{l.info.about.name} <span>{l.info.route_short}, {l.project.length_km.value} km</span></li>
+            <li data-accent={l.info.colour !== 'line-orange' ? l.info.colour : undefined}><b>{l.info.number}</b>{l.info.about.name} <span>{l.info.route_short}, {l.project.length_km.value} km</span></li>
           ))}
         </ul>
       </div>

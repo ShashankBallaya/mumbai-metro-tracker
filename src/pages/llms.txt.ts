@@ -16,9 +16,12 @@ export const GET: APIRoute = ({ site }) => {
   const b12 = lineBase('line-12');
   const b5 = lineBase('line-5');
   const all5 = [...line5.stations, ...line5.spurStations];
+  const line4 = getLine('line-4');
+  const p4 = line4.project as typeof line4.project & { length_km: { with_4a_km: number }; target_completion: { scope: string } };
+  const b4 = lineBase('line-4');
   const body = `# ${SITE_NAME}
 
-> An unofficial, sourced tracker for the Mumbai Metro lines MMRDA is building around Kalyan: Line 12 (Kalyan to Taloja) and Line 5 (Thane to Kalyan). Every fact carries a grade (verified, reported, unverified, sources conflict) and a source link. Facts last checked ${formatDate(siteReviewed)}. Not affiliated with MMRDA.
+> An unofficial, sourced tracker for the Mumbai Metro lines MMRDA is building around Kalyan and Thane: Line 12 (Kalyan to Taloja), Line 5 (Thane to Kalyan) and Line 4 with Line 4A (Wadala to Thane and Gaimukh). Every fact carries a grade (verified, reported, unverified, sources conflict) and a source link. Facts last checked ${formatDate(siteReviewed)}. Not affiliated with MMRDA.
 
 - [${SITE_NAME}](${url('/')}): every line on one page.
 
@@ -64,10 +67,29 @@ ${stations.map((s) => `- [${s.name} metro station, Line 12](${url(`${b12}station
 ${hasStatusPage(line5) ? `- [Line 5 status, answered](${url(`${b5}status/`)}): opening date, phases, route, cost, interchanges.\n` : ''}- [All Line 5 stations](${url(`${b5}stations/`)}): the ${line5.stations.length} stations in order, and the ${line5.spurStations.length} on the spur.
 ${all5.map((s) => `- [${s.name} metro station, Line 5](${url(`${b5}stations/${s.id}/`)})`).join('\n')}
 
+## Line 4: key facts
+
+- Name: ${p4.name.value} (${p4.line_color.value}), also called ${p4.name.also_known_as.join(', ')}.
+- Route: ${p4.route.value}.
+- Length: ${p4.length_km.value} km, fully elevated, ${p4.stations_count.value} stations (MMRDA, verified). With Line 4A to Gaimukh: ${p4.length_km.with_4a_km} km and ${line4.stations.length} stations.
+- Opening target: ${p4.target_completion.scope}, ${formatDate(p4.target_completion.value)} (reported; MMRDA has announced no date).
+- State: ${p4.current_phase.value}
+- Progress (MMRDA, ${formatDate(p4.progress.as_of)}): ${p4.progress.items.map((i) => `${i.activity} ${i.percent_complete}%`).join('; ')}.
+- Cost: Rs ${inr(p4.completion_cost_crore_inr.value)} crore for Line 4, with taxes (MMRDA, verified).
+- Depot: ${p4.depot.value}.
+- Trains: 39 six-car Alstom Metropolis trains through L&T's systems contract CA-234 (reported).
+
+## Line 4: pages
+
+- [Line 4](${url(b4)}): route, map, progress, tenders, trains, timeline and sources.
+- [All Line 4 stations](${url(`${b4}stations/`)}): the ${line4.stations.length} stations in order, Line 4A included.
+${line4.stations.map((s) => `- [${s.name} metro station, Line 4](${url(`${b4}stations/${s.id}/`)})`).join('\n')}
+
 ## Sources
 
 - [MMRDA Metro Line 12 project page](https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-12/overview)
 - [MMRDA Metro Line 5 project page](https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-5/overview)
+- [MMRDA Metro Line 4 project page](https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview)
 - [MMRDA press release on the extended Line 5, May 2026](https://mmrda.maharashtra.gov.in/sites/default/files/2026-05/extended_metro_line_5_to_strengthen_connectivity_across_thane_bhiwandi_kalyan_and_ulhasnagar.pdf)
 - [Line 12 Detailed Project Report, April 2019](https://mmrda.maharashtra.gov.in/sites/default/files/2021-10/Metro%20Line%2012.pdf)
 - [Full source list](https://github.com/ShashankBallaya/mumbai-metro-tracker/blob/main/SOURCES.md)
