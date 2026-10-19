@@ -38,6 +38,7 @@
   "status": "reported",
   "source_url": "https://www.railwaygazette.com/india/2026/10/19/mumbai-metro-line-4-4a-train-rolled-out-in-record-time/",
   "also_see": [
+   "https://www.alstom.com/press-releases-news/2026/10/alstom-unveils-its-first-trainset-mumbai-metro-line-4-4a",
    "https://metrorailnews.in/alstom-rolls-out-first-driverless-metropolis-trainset-for-mumbai-metro-lines-4-and-4a/",
    "https://psuwatch.com/newsupdates/alstom-to-deliver-first-metro-line-4-train-in-mumbai-by-december-official"
   ],
@@ -78,14 +79,16 @@
   "notes": "The project report (DMRC for MMRDA, May 2016) gives gauge, power and speeds as design values; the trains built under CA-234 may differ. Trains and cars per train come from the contract (reported)."
  },
  "image": {
-  "src": null,
-  "alt": "",
-  "caption": "",
-  "credit": null,
-  "status": "unverified",
-  "source_url": null,
+  "src": "/images/alstom-mumbai-line4-train.webp",
+  "width": 960,
+  "height": 720,
+  "alt": "The first Line 4 train in Alstom's factory shed: a glossy black front with a green stripe sweeping along the roof, blue and green panels at the doors, grey sides, car number D4P001, and a worker in a hard hat in the cab.",
+  "caption": "The first of 39 trains for Lines 4 and 4A at Alstom's Sri City factory, October 2026: car D4P001, in the green and blue livery.",
+  "credit": "Alstom",
+  "status": "reported",
+  "source_url": "https://www.alstom.com/press-releases-news/2026/10/alstom-unveils-its-first-trainset-mumbai-metro-line-4-4a",
   "last_verified": "2026-10-19",
-  "notes": "No image of the Line 4 train is sourced for use. Railway Gazette and Metro Rail News show the first train; their photos are not copied. Owner to add one the site has the right to publish."
+  "notes": "From Alstom's press release of 14 Oct 2026 (its 'Download the HD image' set). The maker's photo, shown with credit at the owner's request (2026-10-19), as the Titagarh render is for Line 5. Resized to 1600 by 1200 px (shown at up to 960 px wide) and its EXIF data (camera, date) removed."
  },
  "facts": [
   {
@@ -102,6 +105,7 @@
    "status": "reported",
    "source_url": "https://www.railwaygazette.com/india/2026/10/19/mumbai-metro-line-4-4a-train-rolled-out-in-record-time/",
    "also_see": [
+    "https://www.alstom.com/press-releases-news/2026/10/alstom-unveils-its-first-trainset-mumbai-metro-line-4-4a",
     "https://metrorailnews.in/alstom-rolls-out-first-driverless-metropolis-trainset-for-mumbai-metro-lines-4-and-4a/"
    ],
    "last_verified": "2026-10-19"
@@ -112,6 +116,7 @@
    "status": "reported",
    "source_url": "https://metrorailnews.in/alstom-rolls-out-first-driverless-metropolis-trainset-for-mumbai-metro-lines-4-and-4a/",
    "also_see": [
+    "https://www.alstom.com/press-releases-news/2026/10/alstom-unveils-its-first-trainset-mumbai-metro-line-4-4a",
     "https://www.railwaygazette.com/india/2026/10/19/mumbai-metro-line-4-4a-train-rolled-out-in-record-time/",
     "https://rajendrabaklekar.in/2026/10/16/here-are-the-metro-trains-for-mumbais-lbs-road/"
    ],
