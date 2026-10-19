@@ -11,8 +11,10 @@ interface Props {
   text?: string;
   /** Or a line the site covers, by id. */
   lineId?: LineId;
+  /** Printed instead of the line's number, for an extension of that line in its colour (Line 4A). */
+  label?: string;
 }
-const { text, lineId } = Astro.props;
+const { text, lineId, label } = Astro.props;
 const known = lineId && lines.find((l) => l.id === lineId);
 const mark = known ? { number: known.number, line: known, colour: known.colour } : text ? lineMark(text) : null;
 const colour = mark?.colour;
@@ -22,7 +24,7 @@ const colour = mark?.colour;
   <span
     class:list={['line-mark', !colour && 'line-mark--other']}
     style={colour ? `--mark:var(--${colour});--on-mark:var(--on-${colour})` : undefined}
-    aria-hidden="true">{mark.number}</span>
+    aria-hidden="true">{label ?? mark.number}</span>
 )}
 
 <style>

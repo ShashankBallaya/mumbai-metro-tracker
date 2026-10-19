@@ -12,6 +12,9 @@
  * A station without a published position sits midway between its neighbours and is marked not placed.
  * A line that loops back (Line 5 at Kalyan) is drawn unrolled: x stays distance along the line.
  * Opening mode: the stretch between the first and last open station is drawn solid (`open`).
+ * - `extension_from_m` and `extension_label`: an extension built as its own project on the same line
+ *   (Line 4A past Kasarvadavali). The schematic marks the joint where it begins and places a shield
+ *   with its label midway between its last two stations.
  */
 import { isOpen, type Line, type Station } from './data';
 
@@ -30,12 +33,16 @@ export interface Schematic {
   underground?: string;
   /** The stretch in service, from the first to the last open station, drawn solid. */
   open?: string;
+  /** An extension on the line (Line 4A): the joint where it begins, the point for its shield, and its label. */
+  extension?: { joint: [number, number]; shield: [number, number]; label: string };
   /** A spur: the index of the station it leaves from, its path, and its station points in order. */
   branch?: { from: number; path: string; points: [number, number][] };
 }
 
 interface AlignmentProps {
   bend_along_m?: number;
+  extension_from_m?: number;
+  extension_label?: string;
   underground_along_m?: [number, number];
 }
 
@@ -94,6 +101,15 @@ export function schematic(line: Line, { width = 1000, top = 26, drop = 44, pad =
       points: spur.map((c) => [xAt(c), spurY(xAt(c))]),
     };
   }
+  let extension: Schematic['extension'];
+  if (props.extension_from_m !== undefined && props.extension_label) {
+    const fromM = props.extension_from_m;
+    const past = along.filter((c) => c > fromM);
+    const [a, b] = past.length >= 2 ? past.slice(-2) : [fromM, along[along.length - 1]];
+    const jx = xAt(fromM);
+    const sx = xAt((a + b) / 2);
+    extension = { joint: [jx, yAt(jx)], shield: [sx, yAt(sx)], label: props.extension_label };
+  }
   const openAt = along.filter((_, i) => isOpen(line, stations[i]));
   const lowest = Math.max(top + (bendAt === undefined ? 0 : drop), ...(branch ? branch.points.map(([, y]) => y) : []));
   return {
@@ -105,5 +121,6 @@ export function schematic(line: Line, { width = 1000, top = 26, drop = 44, pad =
     underground: props.underground_along_m ? stretch(...props.underground_along_m) : undefined,
     open: openAt.length > 1 ? stretch(Math.min(...openAt), Math.max(...openAt)) : undefined,
     branch,
+    extension,
   };
 }

@@ -32,9 +32,12 @@
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
       "interchanges": {
-        "value": [],
+        "value": [
+          "Mumbai Monorail (Chembur-Wadala-Jacob Circle)"
+        ],
         "status": "verified",
-        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+        "source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2021-10/Metro%20Line%204.pdf",
+        "notes": "The 2016 project report puts the station on Mono Rail Depot Road, opposite Bhakti Park Monorail station, with one entrance in front of it. In MMRDA's alignment files (Mar 2025) the two station points are 155 m apart."
       },
       "context": [],
       "construction_status": {
@@ -117,7 +120,16 @@
       },
       "notes": null,
       "last_verified": "2026-10-19",
-      "dpr_chainage_m": 1861.61
+      "dpr_chainage_m": 1861.61,
+      "interchanges_planned": {
+        "value": [
+          "Metro Line 11 (Wadala-Gateway of India), proposed"
+        ],
+        "status": "reported",
+        "source_url": "https://themetrorailguy.com/mumbai-metro-green-line-information-route-map-fares-timings-tenders-status-updates/",
+        "notes": "The Metro Rail Guy (Sep 2025) lists Anik Bus Depot as Line 11's first station. No MMRDA page for Line 11 was found (the URL returns 404).",
+        "last_verified": "2026-10-19"
+      }
     },
     {
       "id": "siddharth-colony",
@@ -145,7 +157,7 @@
         ],
         "status": "reported",
         "source_url": "https://www.constructionworld.in/transport-infrastructure/metro-rail-and-railways-infrastructure/suman-nagar-amar-mahal-metro-stations-dropped-for-space-cost-reasons/48209",
-        "notes": "Construction World (Dec 2023): after Suman Nagar was dropped, Siddharth Colony is to be designed to connect with Line 2B's Eastern Express Highway station. MMRDA's Line 4 page names Line 2B as an interchange but not the station."
+        "notes": "Construction World (Dec 2023): after Suman Nagar was dropped, Siddharth Colony is to be designed to connect with Line 2B's Eastern Express Highway station. MMRDA's Line 4 page names Line 2B as an interchange but not the station. In MMRDA's alignment files (Mar 2025) Siddharth Colony and Line 2B's EEH station are 635 m apart."
       },
       "context": [],
       "construction_status": {
@@ -431,9 +443,12 @@
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
       "interchanges": {
-        "value": [],
+        "value": [
+          "Metro Line 6 (Swami Samarth Nagar-Vikhroli)"
+        ],
         "status": "verified",
-        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+        "notes": "MMRDA's Line 6 page names Gandhi Nagar of Line 4 as the interchange; its list calls Line 6's side Kanjur Marg (W). In MMRDA's alignment files (Mar 2025) the two station points are 161 m apart."
       },
       "context": [],
       "construction_status": {
@@ -1028,7 +1043,16 @@
       },
       "notes": "Dongari Pada on MMRDA's English page; Dongripada in its alignment file and its Marathi page (डोंगरीपाडा).",
       "last_verified": "2026-10-19",
-      "dpr_chainage_m": 29439.645
+      "dpr_chainage_m": 29439.645,
+      "interchanges_planned": {
+        "value": [
+          "Thane Integral Ring Metro (Maha-Metro)"
+        ],
+        "status": "reported",
+        "source_url": "https://thanemetrorail.com/route-map",
+        "notes": "The ring metro's official route map has a Dongripada station 186 m from Line 4's Dongari Pada (its map file, read 19 Oct 2026). Neither project calls the two an interchange. The ring line's Manpada is about 560 m from Line 4's Tikuji-Ni-Wadi, not at Line 4's Manpada.",
+        "last_verified": "2026-10-19"
+      }
     },
     {
       "id": "vijay-garden",
@@ -1177,12 +1201,9 @@
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
       "interchanges": {
-        "value": [
-          "Metro Line 10 (Gaimukh-Shivaji Chowk, Mira Road), planned"
-        ],
-        "status": "reported",
-        "source_url": "https://themetrorailguy.com/mumbai-metro-green-line-information-route-map-fares-timings-tenders-status-updates/",
-        "notes": "Line 10 is approved, not built. Its first station is listed as Gaimukh Reti Bunder."
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
       },
       "context": [
         {
@@ -1199,7 +1220,16 @@
       },
       "notes": "Line 4A's last station and, until the Mogharpada depot is ready, the line's pit line for stabling and maintenance (Free Press Journal, 22 Aug 2026). No Marathi name found in an MMRDA source. MMRDA's alignment file puts it about 360 m further along than the 2017 report's chainage, against under 100 m at every other station: the Line 4A route or the station moved after 2017 (no source says which).",
       "last_verified": "2026-10-19",
-      "dpr_chainage_m": 34090.12
+      "dpr_chainage_m": 34090.12,
+      "interchanges_planned": {
+        "value": [
+          "Metro Line 10 (Gaimukh-Shivaji Chowk, Mira Road), approved"
+        ],
+        "status": "reported",
+        "source_url": "https://themetrorailguy.com/mumbai-metro-green-line-information-route-map-fares-timings-tenders-status-updates/",
+        "notes": "Line 10 is approved, not built. Its first station is listed as Gaimukh Reti Bunder.",
+        "last_verified": "2026-10-19"
+      }
     }
   ],
   "dropped_stations": [

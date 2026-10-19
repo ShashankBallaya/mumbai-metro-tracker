@@ -278,7 +278,7 @@ function line4(line: Line): Answer[] {
     completion_cost_crore_inr: { value: number; status: string; source_url: string; history: { value: number }[] };
     funding: Graded;
     depot: { value: string; area_ha: number; status: string; source_url: string; contract: Graded; interim: Graded };
-    interchanges: { value: { station: string; connects_to: string }[]; lines: string[]; status: string; source_url: string };
+    interchanges: { value: { station: string; connects_to: string }[]; lines: string[]; planned: { station: string; connects_to: string; status: string; source_url: string }[]; status: string; source_url: string };
     rolling_stock: { trains: number; cars_per_train: number; status: string; source_url: string; trial_trains: Graded };
     technical: { status: string; source_url: string };
     line_color: Graded;
@@ -295,7 +295,6 @@ function line4(line: Line): Answer[] {
   const main = stations.filter((s) => (s as { section?: string }).section === '4');
   const ext = stations.filter((s) => (s as { section?: string }).section === '4A');
   const dropped = event('stations-dropped');
-  const line10 = x.related_projects[0];
   const rs = x.rolling_stock;
   return [
     {
@@ -358,11 +357,10 @@ function line4(line: Line): Answer[] {
     {
       id: 'interchanges',
       q: 'Where does Line 4 meet other lines?',
-      a: `${x.interchanges.value.map((i) => `At ${i.station}, with ${i.connects_to}`).join('. ')}. MMRDA also names connections with ${list(x.interchanges.lines.filter((l) => !l.startsWith('Metro Line 5')))}, but not the stations where they meet. Siddharth Colony is to connect with Line 2B's Eastern Express Highway station, as reported in December 2023. ${line10.name} is to continue the line from Gaimukh; it is approved, not built.`,
+      a: `${x.interchanges.value.map((i) => `At ${i.station}, with ${i.connects_to}`).join('. ')}. Planned or reported: ${x.interchanges.planned.map((i) => `at ${i.station}, ${i.connects_to}`).join('; ')}. MMRDA also names a connection with the Central Railway, but no source names the Line 4 station for it.`,
       grades: [
         { status: x.interchanges.status, source: x.interchanges.source_url },
-        { status: dropped.status, source: dropped.source_url },
-        { status: line10.status, source: line10.source_url },
+        ...x.interchanges.planned.map((i) => ({ status: i.status, source: i.source_url })),
       ],
     },
     {
