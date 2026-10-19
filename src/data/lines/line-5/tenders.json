@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "Tenders and contract packages for Line 5. Values in crore INR. 'tender_status' is floated, bids_opened, awarded, cancelled or unknown. Only packages whose source was read are listed; Wikipedia names more (CA-166 track, CA-239 power, CA-242 fare collection, CA-246 finishing), which wait for a source.",
-    "last_reviewed": "2026-10-09"
+    "last_reviewed": "2026-10-19"
   },
   "tenders": [
     {
@@ -55,6 +55,22 @@
         "https://themetrorailguy.com/2025/06/30/titagarh-wins-mumbai-metro-line-5s-132-coach-signaling-contract-ca-241/",
         "https://www.bajajbroking.in/share-market-news/titagarh-rail-systems-wins-rs-2481-crore-mumbai-metro-order"
       ]
+    },
+    {
+      "id": "signage-2026",
+      "package": "Not published",
+      "scope": "Signage graphics and station furniture (design, supply, installation, testing and commissioning) at the six elevated Phase 1 stations",
+      "floated": "2026-04",
+      "estimated_value_crore": null,
+      "awarded_value_crore": null,
+      "awarded_to": null,
+      "award_date": null,
+      "duration_months": null,
+      "tender_status": "floated",
+      "status": "reported",
+      "source_url": "https://x.com/MH04Thane/status/2044433883182317833",
+      "notes": "Better Thane (@MH04Thane) on X, 15 Apr 2026, with drawings from the tender: area maps, the network and fare-zone maps, exit signs, and station signs such as Balkum Naka's, numbered 501. Package number, value and bidders not found.",
+      "last_verified": "2026-10-19"
     }
   ]
 }

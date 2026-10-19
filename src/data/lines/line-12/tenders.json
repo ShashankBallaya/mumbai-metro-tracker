@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "Tenders and contract packages for Line 12. Values in crore INR. MMRDA's site lists only current notices, so most entries come from trade press (status 'reported'). 'tender_status' is floated, bids_opened, awarded, cancelled or unknown.",
-    "last_reviewed": "2026-09-28"
+    "last_reviewed": "2026-10-19"
   },
   "tenders": [
     {
@@ -105,6 +105,21 @@
       "also_see": ["https://urbanacres.in/mumbai-metro-line-12-tender-advances-network/"],
       "notes": "The package number CA-315 and an EMD of Rs 24.40 crore appeared only in a search snippet from a paywalled page; treat both as unverified. Bidders not known yet.",
       "last_verified": "2026-09-28"
+    },
+    {
+      "id": "ca-316",
+      "package": "CA-316",
+      "scope": "Design, supply, installation, testing and commissioning of standard gauge ballastless track from Kalyan to Katai Naka, and ballasted, ballastless and special track at the Nilje depot",
+      "floated": "2026-09",
+      "estimated_value_crore": null,
+      "awarded_value_crore": null,
+      "awarded_to": null,
+      "award_date": null,
+      "tender_status": "bids_opened",
+      "status": "reported",
+      "source_url": "https://x.com/bodkeitis/status/2112166374789284190",
+      "notes": "Swarup Bodke on X: bids invited (post of 16 Sep 2026, with the tender's key plan, which names package CA-316), and 5 bidders, not yet disclosed (19 Oct 2026). The key plan runs from Kalyan (ch. -980.5 m) to Katai Naka (ch. 9,960 m) and to the Nilje depot; see SOURCES.md, Line 12 lead 1. Not yet found on mahatenders.gov.in or MMRDA's site.",
+      "last_verified": "2026-10-19"
     }
   ]
 }
