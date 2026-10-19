@@ -18,11 +18,14 @@ const { stations, spurStations, spurFrom } = line;
 const start = stations[0].name;
 
 
+// A line with many stations (Line 4: 32) sets its names at 45 degrees, above and below in turn, like a
+// Vignelli diagram, so close stations do not collide; the strip gets the height those names need.
+const dense = stations.length > 24;
 // Same bent schematic as the front page, drawn at poster weight.
-const strip = schematic(line, { width: 1000, top: 30, drop: 70, pad: 10, bottom: 30 });
+const strip = schematic(line, dense ? { width: 1000, top: 95, drop: 70, pad: 10, bottom: 95 } : { width: 1000, top: 30, drop: 70, pad: 10, bottom: 30 });
 const px = (i: number) => (strip.points[i][0] / strip.width) * 100;
 const py = (i: number) => (strip.points[i][1] / strip.height) * 100;
-// Stations on the 45-degree bend get their label to the right, clear of the line.
+// Stations on the 45-degree bend get their label to the right, clear of the line; on a dense line, angled up and away from it.
 const onBend = (i: number) => strip.points[i][1] > strip.points[0][1] + 1 && strip.points[i][1] < strip.points[stations.length - 1][1] - 1;
 const cap = (t: string) => t.charAt(0).toUpperCase() + t.slice(1);
 /** Opening mode: the opening fact of the station's section, once it has opened. */
@@ -30,7 +33,7 @@ const openedAt = (s: Station) => openedOf(sectionOf(line, s));
 const km = (m: number) => (m / 1000).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 ---
 
-<section id="route" class="ride section" aria-labelledby="route-title" data-ride>
+<section id="route" class:list={['ride section', dense && 'ride--dense']} aria-labelledby="route-title" data-ride>
   <div class="page">
     <header class="section-head">
       <h2 id="route-title">Route</h2>
@@ -50,7 +53,7 @@ const km = (m: number) => (m / 1000).toLocaleString('en-IN', { minimumFractionDi
           {strip.underground && <path d={strip.underground} class="tunnel" vector-effect="non-scaling-stroke" />}
         </svg>
         {stations.map((s, i) => (
-          <span class:list={['ride__tick', onBend(i) ? 'ride__tick--side' : i % 2 ? 'ride__tick--below' : 'ride__tick--above']} style={`--x:${px(i)}%;--y:${py(i)}%`} data-ride-tick={i}>
+          <span class:list={['ride__tick', onBend(i) ? (dense ? 'ride__tick--above' : 'ride__tick--side') : i % 2 ? 'ride__tick--below' : 'ride__tick--above']} style={`--x:${px(i)}%;--y:${py(i)}%`} data-ride-tick={i}>
             <span class="ride__dot"></span>
             <span class="ride__tick-name">{s.name}</span>
           </span>
@@ -372,6 +375,28 @@ const km = (m: number) => (m / 1000).toLocaleString('en-IN', { minimumFractionDi
   }
   .ride__tick--below .ride__tick-name {
     top: 1.7rem;
+  }
+  /* Dense line: names at 45 degrees from the dot, rising above and falling below in turn. */
+  :global(.ride.is-riding.ride--dense) .ride__track {
+    height: 17rem;
+  }
+  .ride--dense .ride__tick--above .ride__tick-name,
+  .ride--dense .ride__tick--below .ride__tick-name {
+    left: calc(50% + 0.35rem);
+    max-width: none;
+    translate: none;
+    white-space: nowrap;
+    text-align: left;
+  }
+  .ride--dense .ride__tick--above .ride__tick-name {
+    bottom: 1.15rem;
+    transform-origin: 0 100%;
+    rotate: -45deg;
+  }
+  .ride--dense .ride__tick--below .ride__tick-name {
+    top: 1.15rem;
+    transform-origin: 0 0;
+    rotate: 45deg;
   }
   .ride__tick--side .ride__tick-name {
     left: 2.4rem;
