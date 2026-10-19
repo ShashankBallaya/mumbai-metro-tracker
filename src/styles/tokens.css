@@ -84,6 +84,9 @@
   /* Lines the site does not cover, for their LineMark only (lines.json other_lines). White on it: 5.6:1. */
   --line-4: #1d7a3a;
   --on-line-4: #ffffff;
+  /* Line 6, Pink Line (reported): its mark only; the site does not cover it. White on it is 5.3:1; it is 4.4:1 on morning paper and 3.5:1 on night paper. */
+  --line-6: #c2306e;
+  --on-line-6: #ffffff;
   /* Lines 5 and 12 on any page, whatever that page's accent (LineMark). */
   --line-orange: #f26b1d;
   --on-line-orange: #0c1422;
