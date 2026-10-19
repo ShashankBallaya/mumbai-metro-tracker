@@ -205,3 +205,82 @@ Line 5's Kalyan point (2025 file) is 14 m from Line 12's, and its APMC Kalyan po
 - A trial-run start date or CMRS inspection date.
 - A published route for the underground stretch at Bhiwandi. Not in OpenStreetMap, Wikipedia (a schematic only) or the news (checked 2026-10-09).
 - A position for Kongaon West.
+
+# Line 4 and Line 4A (Wadala-Thane-Kasarvadavali-Gaimukh)
+
+Research started 2026-10-19. Data in `src/data/lines/line-4/`. Figures follow MMRDA's Line 4 page (primary source 1). Line 4A is kept in the same files, as Line 5A is in Line 5's. Not shown on the site yet (see MULTI-LINE-PLAN.md, step 8). The status values above apply.
+
+## Primary sources
+
+1. **MMRDA, Metro Line 4 project page.** Wadala to Kasarvadavali, 32.32 km, fully elevated, 30 stations (listed), Green Line, base cost Rs 14,549 Cr including taxes, 2031 ridership 12.13 lakh (PHPDT 33,417), travel time cut by 50% to 75%, connections (Eastern Express Highway, Central Railway, Monorail, Lines 2B, 5 and 6), and a progress table as of 31 Aug 2026 (piers 95%, U-girders 94%, deck slab 92%, other items 93% to 98%). Page last updated 19 Oct 2026. No depot, trains, phases or dates. MMRDA has no Line 4A page (the URL returns 404).
+   https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview
+   The Marathi page gives the Marathi station names, in the same order; Mulund Fire Station is फायर स्टेशन there.
+   https://mmrda.maharashtra.gov.in/mr/projects/transport/metro-line-4/overview
+2. **MMRDA, Line 4 alignment file (KML), uploaded March 2025.** On the Metro Influence Zone for NOC page. One corridor polygon from Bhakti Park to Gaimukh, Line 4A included, and 34 station points: the 30 on MMRDA's list, Suman Nagar and Amar Mahal Junction (dropped), and Line 4A's "Gownipada" and Gaimukh.
+   https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc (file: https://mmrda.maharashtra.gov.in/sites/default/files/2025-03/line_4.kml)
+3. **Detailed project report (updated), Wadala-Ghatkopar-Mulund-Thane-Kasarvadavali, DMRC for MMRDA, May 2016.** 32.322 km, 32 elevated stations with chainages from Bhakti Park, 1435 mm gauge, 25 kV AC, design speed 90 km/h, operating 80 km/h, twin U-girders, side platforms, depot near Kasarvadavali with stabling near Ghatkopar (30 ha), Rs 11,115 Cr at March 2016 prices, Rs 14,502 Cr by completion.
+   https://mmrda.maharashtra.gov.in/sites/default/files/2021-10/Metro%20Line%204.pdf
+4. **Detailed project report, extension of Line 4 from Kasarvadavali to Gaimukh, DMRC for MMRDA, October 2017.** 2.668 km, 2 elevated stations (Gowniwada ch. 32,807 m, Gaimukh ch. 34,090 m), depot near Gaimukh (23.1 ha), Rs 786 Cr at June 2017 prices, Rs 940 Cr by completion; 13,43,979 daily trips in 2031 for Wadala to Gaimukh.
+   https://mmrda.maharashtra.gov.in/sites/default/files/2021-10/Metro%20Line%204A.pdf
+5. **MMRDA release, "KfW approves loan of EUR 545 Million for Metro Line 4 and 4 A", 6 Nov 2021.** A development loan of EUR 345 million (EUR 255 million for trains and integrated ticketing, EUR 90 million for multimodal integration) and a promotional loan of EUR 200 million.
+   https://www.mmrda.maharashtra.gov.in/sites/default/files/2021-12/news%20(20).pdf
+6. **MMRDA, "Reminiscence of MMRDA's Monumental Achievements in 2023" (Feb 2024).** Lines 4 and 4A are 35.2 km together, civil works 65% at the end of 2023; in October 2023 the State approved the transfer of 174.01 ha at Mogharpada for Lines 4, 4A, 10 and 11, of which 41.5 ha is for the depot.
+   https://mmrda.maharashtra.gov.in/sites/default/files/2024-02/reminiscence_of_mmrda_s_monumental_achievements_in_2023.pdf
+7. **MMRDA, environmental report for the Mogharpada depot approach, spur line and Kavesar casting yard (May 2019).** Car shed 27.50 ha at Mogharpada; casting yard 7.72 ha at Kavesar.
+   https://mmrda.maharashtra.gov.in/sites/default/files/2023-05/4.pdf
+8. **MMRDA, minutes of the public consultation on Line 4A, 5 Feb 2020.** Not used for a fact yet.
+   https://mmrda.maharashtra.gov.in/sites/default/files/2023-05/4a.pdf
+
+## Secondary sources
+
+| Outlet | Date | Used for | URL |
+|---|---|---|---|
+| The Metro Rail Guy | 7 Jun 2016 | MMRDA approved the project report on 3 Jun 2016 (not State approval) | https://themetrorailguy.com/2016/06/07/mmrda-approves-mumbais-32-32-km-wadala-kasaradavali-line/ |
+| Free Press Journal (PressReader) | 28 Sep 2016 | State Cabinet approval of Metro 4 and 2B, 27 Sep 2016 | https://www.pressreader.com/india/the-free-press-journal/20160928/281655369560710 |
+| The Metro Rail Guy | 13 Feb 2018 | CA-08 to CA-12: stretches, stations, lowest bids and estimates; awarded 3 Mar 2018 | https://themetrorailguy.com/2018/02/13/tata-reliance-lowest-bidders-for-mumbai-metros-line-4/ |
+| Indian Infrastructure | 13 May 2018 | Reliance-Astaldi's three packages, Rs 1,584 Cr; opening then expected 2022 | https://indianinfrastructure.com/2018/05/13/rinfra-astaldi-to-construct-mumbai-metro-line-4/ |
+| The Metro Rail Guy | Green Line page, updated 14 Sep 2025 | Line 4A civil contract CA-54 (J Kumar, Rs 342 Cr, Sep 2019), Line 4A approval (Dec 2018), the package list, Lines 10 and 11 | https://themetrorailguy.com/mumbai-metro-green-line-information-route-map-fares-timings-tenders-status-updates/ |
+| Construction World | 18 Dec 2023 | Suman Nagar and Amar Mahal Junction dropped; 30 stations; Siddharth Colony to connect with Line 2B | https://www.constructionworld.in/transport-infrastructure/metro-rail-and-railways-infrastructure/suman-nagar-amar-mahal-metro-stations-dropped-for-space-cost-reasons/48209 |
+| The Metro Rail Guy | 15 Feb 2025 | CA-234: L&T with Alstom lowest, 14 Feb 2025; 39 six-car trains; estimate Rs 4,297.49 Cr | https://themetrorailguy.com/2025/02/15/lt-alstom-win-mumbai-metro-line-4s-rolling-stock-signaling-contract-ca-234/ |
+| Metro Rail News | 17 Jun 2025 | Mogharpada depot layout | https://metrorailnews.in/174-hectares-of-land-acquired-for-mogarpada-depot/ |
+| Free Press Journal | 22 Sep 2025 | First trial run, Gaimukh to Vijay Garden (4.4 km); three opening stretches and targets; Rs 949 Cr for Line 4A; trains start with six cars, platforms for eight | https://www.freepressjournal.in/mumbai/thane-enters-metro-era-trial-run-of-line-4-and-4a-marks-historic-milestone-in-mumbais-transit-future |
+| Construction World (from Mid-day) | 26 Sep 2025 | Targets December 2025 and April 2026 (passed); trial trains borrowed from the Yellow Line | https://www.constructionworld.in/transport-infrastructure/metro-rail-and-railways-infrastructure/phase-1-of-thane--wadala-metro-line-4-to-open-by-december-2025/79274 |
+| L&T | 24 Dec 2025 | CA-298 power and traction, Bhakti Park to Cadbury Junction | https://www.lntecc.com/news-room/press-releases/l-t-wins-significant-order-for-its-transportation-infrastructure-business-dec-2025/ |
+| News On AIR | 15 Feb 2026 | Mulund parapet collapse, 14 Feb 2026: one dead, three hurt; penalties; suspension | https://www.newsonair.gov.in/metro-parapet-section-collapse-in-mulund-cm-eknath-shinde-orders-suspension-of-executive-engineer |
+| Free Press Journal | 26 Mar 2026 | MMRDA's inquiry findings on the Mulund collapse; consultants ended 18 Feb 2026; work cut back to safety work | https://www.freepressjournal.in/mumbai/mumbai-news-mmrda-blames-contractor-negligence-for-fatal-metro-line-4-slab-collapse-incident |
+| Free Press Journal | 22 Aug 2026 | CMRS inspected the Gaimukh pit line; 8 stations named for the first stretch; target around Diwali or end of 2026 | https://www.freepressjournal.in/mumbai/mumbai-infra-update-metro-4-pit-line-clears-cmrs-inspection-mmrda-awaits-safety-report-ahead-of-diwali-launch |
+| Swarajya | 30 Aug 2026 | Gaimukh pit line layout; six rakes for the first stretch | https://swarajyamag.com/news-brief/thanes-metro-4-gaimukh-cadbury-metro-stretch-inches-towards-launch-with-rolling-stock-safety-clearance |
+| Free Press Journal | 10 Sep 2026 | Trial runs resumed; RDSO certification 2 Jun 2026; no opening date | https://www.freepressjournal.in/mumbai/thane-metro-4-4a-trial-runs-resume-as-gaimukh-cadbury-stretch-moves-closer-to-launch |
+| Metro Rail News | 14 Oct 2026 | First Alstom train unveiled at Sri City | https://metrorailnews.in/alstom-rolls-out-first-driverless-metropolis-trainset-for-mumbai-metro-lines-4-and-4a/ |
+| Railway Gazette | 19 Oct 2026 | Same; L&T holds the integrated systems contract and the power and track packages | https://www.railwaygazette.com/india/2026/10/19/mumbai-metro-line-4-4a-train-rolled-out-in-record-time/ |
+
+## Derived data
+
+`scripts/build-alignment-line4.py` derives the centre line from the corridor polygon in primary source 2, as for Line 5: the two tips (south of Bhakti Park and past Gaimukh), then the line midway between the two long sides. The result is 35.38 km. All 34 station points lie within 19 m of it and fall in MMRDA's order, so the line is graded verified. It is split 450 m past Kasarvadavali, where the project reports end Line 4 and start Line 4A: Line 4 32.43 km (MMRDA: 32.32), Line 4A 2.95 km (2.88 reported; 2.668 in the 2017 report).
+
+Check: along_m sits 490 to 560 m ahead of the 2016 report's chainage at every Line 4 station (a constant offset: the polygon starts south of Bhakti Park's end of line). Gaimukh is 849 m ahead, so Line 4A's route or its last station has moved since 2017.
+
+Kapurbawdi: MMRDA's Line 4 point is 74 m from the OpenStreetMap point that Line 5 uses for the same station.
+
+## Items that need your review
+
+1. **Countdown.** Proposed: count down to 31 Dec 2026 for the first stretch, labelled as a reported target. MMRDA has announced no date; news reports say MMRDA aims for "around Diwali or by the end of 2026".
+2. **Line 4A on the Line 4 page.** Proposed, as for Line 5A. MMRDA has no Line 4A page; its 2023 review treats the two together.
+3. **Phases.** MMRDA names none. The data uses the three opening stretches reported in September 2025 (Gaimukh to Cadbury Junction, then to Gandhi Nagar, then to Wadala).
+4. **First stretch: 8 or 10 stations.** Manpada and Gowniwada are on the stretch but left out of the August 2026 report. Both are shown as built, graded conflicting.
+5. **The Mulund collapse (14 Feb 2026).** In project.json `incidents`. Decide whether the page shows it.
+
+## Leads to verify
+
+1. **Foundation stone, 24 Dec 2016**, by the Prime Minister with Line 2B (several news sites; none read).
+2. **Packages not yet read:** CA-161 and CA-168 (track), CA-194, CA-222, CA-243 and CA-257 (station finishing), CA-236 (power, IRCON-Jakson, Feb 2025) and CA-237 (fare collection). Railway Gazette says L&T now does track and power, so some of these may have changed hands.
+3. **CA-234 award date and value.** No MMRDA notice found.
+4. **Which station meets which line:** Line 2B (Siddharth Colony, reported), Line 6 (Vikhroli or Gandhi Nagar?), the Monorail (Bhakti Park?), the Central Railway (Thane, Mulund?).
+5. **Mogharpada depot progress and the CA-160 value** (Rs 905 Cr in one report).
+6. **Line 4A cost, Rs 949 Cr**, from an MMRDA document.
+
+## Not found
+
+- An MMRDA page or press release for Line 4A.
+- An opening date, CMRS approval, fares or timetable.
+- Marathi names for Gowniwada and Gaimukh.

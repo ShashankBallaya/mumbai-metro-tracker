@@ -96,7 +96,7 @@ Each step ships on its own and leaves the live site working.
 5. **Domain move.** Custom domain on Cloudflare Pages, `site` in `astro.config.mjs`, Search Console property for the new domain plus the Change of Address tool, 301 from `pages.dev`. Note: `_redirects` cannot match on host name, so the `pages.dev` to new-domain redirect needs Cloudflare Bulk Redirects (to check before this step).
 6. **Line 5 research.** First pass done 2026-10-09: `src/data/lines/line-5/` (project, stations, timeline, tenders, contractors, alignment), sources and open questions in `SOURCES.md` under "Line 5". Line 5 is in `lines.json`, but no page builds it until step 7. Same rules as Line 12: every fact sourced and graded.
 7. **Line 5 pages.** Next (owner, 2026-10-09). Line 5 gets the full Line 12 treatment, on the same components and page layout. What it needs is listed under "Line 5 page" below.
-8. **Line 4, then Line 2B.** Data and research only, if steps 2 to 4 hold.
+8. **Line 4, then Line 2B.** Data and research only, if steps 2 to 4 hold. Line 4 first pass done 2026-10-19 (owner: research first, then the page this week if it holds): `src/data/lines/line-4/` (project, stations, timeline, tenders, contractors, alignment), Line 4A in the same files; sources and open questions in `SOURCES.md` under "Line 4". Not in `lines.json` yet, so no page builds it.
 
 ## Line 5 page: what it needs to match Line 12
 
