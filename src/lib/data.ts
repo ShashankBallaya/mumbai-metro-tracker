@@ -421,6 +421,7 @@ export function outletName(url: string | null | undefined): string {
     'pressreader.com': 'PressReader',
     'indianinfrastructure.com': 'Indian Infrastructure',
     'psuwatch.com': 'PSU Watch (PTI)',
+    'alstom.com': 'Alstom',
     'rajendrabaklekar.in': 'Rajendra B. Aklekar',
   };
   if (url.includes('Metro%20Line%2012.pdf')) return 'MMRDA DPR (2019)';
