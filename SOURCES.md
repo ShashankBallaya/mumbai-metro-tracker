@@ -253,6 +253,9 @@ Research started 2026-10-19. Data in `src/data/lines/line-4/`. Figures follow MM
 | Free Press Journal | 10 Sep 2026 | Trial runs resumed; RDSO certification 2 Jun 2026; no opening date | https://www.freepressjournal.in/mumbai/thane-metro-4-4a-trial-runs-resume-as-gaimukh-cadbury-stretch-moves-closer-to-launch |
 | Metro Rail News | 14 Oct 2026 | First Alstom train unveiled at Sri City | https://metrorailnews.in/alstom-rolls-out-first-driverless-metropolis-trainset-for-mumbai-metro-lines-4-and-4a/ |
 | Railway Gazette | 19 Oct 2026 | Same; L&T holds the integrated systems contract and the power and track packages | https://www.railwaygazette.com/india/2026/10/19/mumbai-metro-line-4-4a-train-rolled-out-in-record-time/ |
+| PSU Watch (PTI interview) | 14 Oct 2026 | Champak Panda, Alstom India: first train ships by end of November, reaches Mumbai in the first or second week of December; RDSO and CMRS tests; signalling done; MMRDA to open with Line 2 and Line 7 trains; Alstom's passenger-service milestone August 2027 | https://psuwatch.com/newsupdates/alstom-to-deliver-first-metro-line-4-train-in-mumbai-by-december-official |
+| Rajendra B. Aklekar (blog) | 16 Oct 2026 | GoA4 driverless, Urbalis Forward CBTC; trains kept at Mandale (20) and Kasheli (19), control centre at Mandale, backup at Mogharpada, "no dedicated depot yet" (conflicts with Mogharpada; graded conflicting). Its nine photos carry no credit or licence and are not used. Supplied by the owner, 2026-10-19 | https://rajendrabaklekar.in/2026/10/16/here-are-the-metro-trains-for-mumbais-lbs-road/ |
+| Alstom India on X | Oct 2026 | Supplied by the owner, 2026-10-19; could not be read (X needs sign-in) | https://x.com/AlstomIndia/status/2110453455399825467 |
 
 ## Derived data
 
