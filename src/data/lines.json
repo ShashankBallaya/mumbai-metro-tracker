@@ -329,6 +329,15 @@
       "source_url": "https://themetrorailguy.com/?p=27331",
       "last_verified": "2026-10-19",
       "notes": "The Metro Rail Guy (updated 14 Sep 2025) calls Line 6 the Pink Line and says MMRDA revealed the line colours on 28 Feb 2020. MMRDA's Line 6 page names no colour (checked 19 Oct 2026). MMRDA publishes no colour value, so the site's pink is its own. Shown on the owner's request (2026-10-19)."
+    },
+    {
+      "number": "2B",
+      "name": "Yellow Line",
+      "colour": "line-2b",
+      "status": "verified",
+      "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+      "last_verified": "2026-10-19",
+      "notes": "MMRDA's Line 2B page gives its line colour as Yellow (checked 19 Oct 2026). MMRDA publishes no colour value, so the site's yellow is its own. Shown on the owner's request (2026-10-19)."
     }
   ]
 }
