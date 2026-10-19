@@ -89,7 +89,7 @@ const schema = [
     )}
 
     <p class="inner__block fact__note">
-      Station list and order <Grade status="reported" source={stationsMeta.order_source_url} />
+      Station list and order <Grade status={(stationsMeta as { order_status?: string }).order_status ?? 'reported'} source={stationsMeta.order_source_url} />
       <span aria-hidden="true">,</span> station count <Grade status="verified" source={stationsMeta.count_source_url} />
     </p>
   </main>

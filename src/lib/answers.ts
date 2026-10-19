@@ -389,7 +389,7 @@ function line4(line: Line): Answer[] {
     {
       id: 'depot',
       q: 'Where is the Line 4 depot?',
-      a: `At ${x.depot.value}, on ${x.depot.area_ha} hectares. SEW Infrastructure and Vishwa Samudra Engineering hold its contract (package CA-160). The depot was not ready for the first stretch, so a pit line at Gaimukh serves it for now: two island platforms and four tracks. The safety commissioner inspected the pit line in August 2026.`,
+      a: `At ${x.depot.value}, on ${x.depot.area_ha} hectares, shared with Lines 4A, 10 and 11. SEW Infrastructure and Vishwa Samudra Engineering hold its contract (package CA-160). The depot was not ready for the first stretch, so a pit line at Gaimukh serves it for now: two island platforms and four tracks. The safety commissioner inspected the pit line in August 2026.`,
       grades: [
         { status: x.depot.status, source: x.depot.source_url },
         { status: x.depot.contract.status, source: x.depot.contract.source_url },

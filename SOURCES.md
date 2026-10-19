@@ -256,9 +256,9 @@ Research started 2026-10-19. Data in `src/data/lines/line-4/`. Figures follow MM
 
 ## Derived data
 
-`scripts/build-alignment-line4.py` derives the centre line from the corridor polygon in primary source 2, as for Line 5: the two tips (south of Bhakti Park and past Gaimukh), then the line midway between the two long sides. The result is 35.38 km. All 34 station points lie within 19 m of it and fall in MMRDA's order, so the line is graded verified. It is split 450 m past Kasarvadavali, where the project reports end Line 4 and start Line 4A: Line 4 32.43 km (MMRDA: 32.32), Line 4A 2.95 km (2.88 reported; 2.668 in the 2017 report).
+`scripts/build-alignment-line4.py` derives the centre line from the corridor polygon in primary source 2, as for Line 5: the two tips (south of Bhakti Park and past Gaimukh), then the line midway between the two long sides. It then starts the line at Bhakti Park station, cutting the 492 m of polygon south of it (the end of line), so along_m counts from the first station. The result is 34.89 km. All 34 station points lie within 19 m of it and fall in MMRDA's order, so the line is graded verified. It is split 450 m past Kasarvadavali, where the project reports end Line 4 and start Line 4A: Line 4 31.94 km from Bhakti Park (MMRDA: 32.32 km, which may count the end of line), Line 4A 2.95 km (2.88 reported; 2.668 in the 2017 report).
 
-Check: along_m sits 490 to 560 m ahead of the 2016 report's chainage at every Line 4 station (a constant offset: the polygon starts south of Bhakti Park's end of line). Gaimukh is 849 m ahead, so Line 4A's route or its last station has moved since 2017.
+Check: along_m is within 100 m of the 2016 report's chainage at every Line 4 station (rebuilt 2026-10-19). Gaimukh is 357 m ahead, so Line 4A's route or its last station has moved since 2017.
 
 Kapurbawdi: MMRDA's Line 4 point is 74 m from the OpenStreetMap point that Line 5 uses for the same station.
 

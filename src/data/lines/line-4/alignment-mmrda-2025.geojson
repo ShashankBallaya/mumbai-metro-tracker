@@ -1,12 +1,12 @@
 {
  "type": "FeatureCollection",
  "properties": {
-  "note": "Derived from MMRDA's alignment file for Line 4 (https://mmrda.maharashtra.gov.in/sites/default/files/2025-03/line_4.kml), which gives the corridor from Bhakti Park to Gaimukh as one polygon; the centre line runs midway between its two sides, along the Eastern Express Highway, LBS Marg and Ghodbunder Road (verified). Line 4 ends 450 m past Kasarvadavali, where Line 4A starts (project reports, 2016 and 2017). Simplified to about 1 m by scripts/build-alignment-line4.py.",
+  "note": "Derived from MMRDA's alignment file for Line 4 (https://mmrda.maharashtra.gov.in/sites/default/files/2025-03/line_4.kml), which gives the corridor from Bhakti Park to Gaimukh as one polygon; the centre line runs midway between its two sides from Bhakti Park station, along the Eastern Express Highway, LBS Marg and Ghodbunder Road (verified). Line 4 ends 450 m past Kasarvadavali, where Line 4A starts (project reports, 2016 and 2017). Simplified to about 1 m by scripts/build-alignment-line4.py.",
   "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc",
   "status": "verified",
   "last_verified": "2026-10-19",
-  "length_m": 35381,
-  "line_4_m": 32428,
+  "length_m": 34889,
+  "line_4_m": 31936,
   "line_4a_m": 2952
  },
  "features": [
@@ -21,24 +21,8 @@
     "type": "LineString",
     "coordinates": [
      [
-      72.877714,
-      19.025942
-     ],
-     [
-      72.877478,
-      19.025982
-     ],
-     [
-      72.878041,
-      19.029008
-     ],
-     [
-      72.878032,
-      19.029046
-     ],
-     [
-      72.878088,
-      19.029258
+      72.878248,
+      19.030116
      ],
      [
       72.878371,
@@ -1710,7 +1694,7 @@
      ],
      [
       72.964544,
-      19.270943
+      19.270942
      ]
     ]
    }
@@ -1727,7 +1711,7 @@
     "coordinates": [
      [
       72.964544,
-      19.270943
+      19.270942
      ],
      [
       72.964439,

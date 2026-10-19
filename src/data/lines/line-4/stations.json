@@ -7,7 +7,8 @@
     "names_mr_status": "verified",
     "phase_source_url": "https://www.freepressjournal.in/mumbai/thane-enters-metro-era-trial-run-of-line-4-and-4a-marks-historic-milestone-in-mumbais-transit-future",
     "phase_status": "reported",
-    "last_reviewed": "2026-10-19"
+    "last_reviewed": "2026-10-19",
+    "order_status": "verified"
   },
   "stations": [
     {
@@ -25,8 +26,8 @@
       "location": {
         "lng": 72.878166,
         "lat": 19.03013,
-        "along_m": 492,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"BHAKTI PARK (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 9 m from that line.",
+        "along_m": 0,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"BHAKTI PARK (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 9 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -61,8 +62,8 @@
       "location": {
         "lng": 72.880027,
         "lat": 19.038452,
-        "along_m": 1459,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"WADALA TT(M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 5 m from that line.",
+        "along_m": 967,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"WADALA TT(M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 5 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -97,8 +98,8 @@
       "location": {
         "lng": 72.878392,
         "lat": 19.046734,
-        "along_m": 2400,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"ANIK BUS STOP (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 1 m from that line.",
+        "along_m": 1908,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"ANIK BUS STOP (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 1 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -133,8 +134,8 @@
       "location": {
         "lng": 72.891969,
         "lat": 19.060024,
-        "along_m": 4584,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"SIDDARTH NAGAR (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 3 m from that line.",
+        "along_m": 4092,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"SIDDARTH NAGAR (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 3 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -172,8 +173,8 @@
       "location": {
         "lng": 72.902207,
         "lat": 19.072299,
-        "along_m": 6395,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"GARODIA NAGAR (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 2 m from that line.",
+        "along_m": 5903,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"GARODIA NAGAR (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 1 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -208,8 +209,8 @@
       "location": {
         "lng": 72.913005,
         "lat": 19.082475,
-        "along_m": 8116,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"PANT NAGAR STATION (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 4 m from that line.",
+        "along_m": 7624,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"PANT NAGAR STATION (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 4 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -244,8 +245,8 @@
       "location": {
         "lng": 72.918267,
         "lat": 19.090212,
-        "along_m": 9199,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"LAXMI NAGAR (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 4 m from that line.",
+        "along_m": 8707,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"LAXMI NAGAR (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 4 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -280,8 +281,8 @@
       "location": {
         "lng": 72.916497,
         "lat": 19.09498,
-        "along_m": 9777,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"SHREYAS CINEMA (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 0 m from that line.",
+        "along_m": 9285,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"SHREYAS CINEMA (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 0 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -316,8 +317,8 @@
       "location": {
         "lng": 72.9205,
         "lat": 19.103118,
-        "along_m": 10876,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"GODREJ COLONY (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 2 m from that line.",
+        "along_m": 10384,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"GODREJ COLONY (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 2 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -352,8 +353,8 @@
       "location": {
         "lng": 72.924486,
         "lat": 19.108791,
-        "along_m": 11634,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"VIKHROLI (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 3 m from that line.",
+        "along_m": 11142,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"VIKHROLI (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 3 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -388,8 +389,8 @@
       "location": {
         "lng": 72.926066,
         "lat": 19.117787,
-        "along_m": 12672,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"SURYA NAGAR(M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 0 m from that line.",
+        "along_m": 12180,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"SURYA NAGAR(M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 0 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -424,8 +425,8 @@
       "location": {
         "lng": 72.925196,
         "lat": 19.126585,
-        "along_m": 13655,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"GANDHI NAGAR (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 9 m from that line.",
+        "along_m": 13163,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"GANDHI NAGAR (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 9 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -460,8 +461,8 @@
       "location": {
         "lng": 72.927663,
         "lat": 19.132962,
-        "along_m": 14421,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"NAVAL HOUSING (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 8 m from that line.",
+        "along_m": 13929,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"NAVAL HOUSING (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 8 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -496,8 +497,8 @@
       "location": {
         "lng": 72.930568,
         "lat": 19.138523,
-        "along_m": 15112,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"BHANDUP MAHAPALIKA (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 6 m from that line.",
+        "along_m": 14620,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"BHANDUP MAHAPALIKA (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 6 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -532,8 +533,8 @@
       "location": {
         "lng": 72.936305,
         "lat": 19.146483,
-        "along_m": 16190,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"BHANDUP (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 0 m from that line.",
+        "along_m": 15698,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"BHANDUP (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 0 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -568,8 +569,8 @@
       "location": {
         "lng": 72.937543,
         "lat": 19.153931,
-        "along_m": 17075,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"SHANGRILA (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 3 m from that line.",
+        "along_m": 16583,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"SHANGRILA (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 3 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -604,8 +605,8 @@
       "location": {
         "lng": 72.938443,
         "lat": 19.166433,
-        "along_m": 18478,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"SONAPUR (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 5 m from that line.",
+        "along_m": 17986,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"SONAPUR (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 5 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -640,8 +641,8 @@
       "location": {
         "lng": 72.942316,
         "lat": 19.175293,
-        "along_m": 19548,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"MULUND FIRE STATION (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 4 m from that line.",
+        "along_m": 19056,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"MULUND FIRE STATION (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 4 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -676,8 +677,8 @@
       "location": {
         "lng": 72.950506,
         "lat": 19.183333,
-        "along_m": 20870,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"MULUND NAKA(M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 7 m from that line.",
+        "along_m": 20378,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"MULUND NAKA(M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 7 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -712,8 +713,8 @@
       "location": {
         "lng": 72.961444,
         "lat": 19.186788,
-        "along_m": 22101,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"TEEN HAATH NAKA (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 18 m from that line.",
+        "along_m": 21608,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"TEEN HAATH NAKA (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 18 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -748,8 +749,8 @@
       "location": {
         "lng": 72.962788,
         "lat": 19.192639,
-        "along_m": 22833,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"RTO THANE (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 9 m from that line.",
+        "along_m": 22341,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"RTO THANE (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 9 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -784,8 +785,8 @@
       "location": {
         "lng": 72.965108,
         "lat": 19.201174,
-        "along_m": 23886,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"MAHAPALIKA MARG(M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 9 m from that line.",
+        "along_m": 23394,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"MAHAPALIKA MARG(M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 9 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -820,8 +821,8 @@
       "location": {
         "lng": 72.970259,
         "lat": 19.205955,
-        "along_m": 24645,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"CADBURY Jn (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 11 m from that line.",
+        "along_m": 24153,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"CADBURY Jn (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 11 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -856,8 +857,8 @@
       "location": {
         "lng": 72.975724,
         "lat": 19.211598,
-        "along_m": 25496,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"MAJIWADA (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 8 m from that line.",
+        "along_m": 25004,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"MAJIWADA (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 8 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -892,8 +893,8 @@
       "location": {
         "lng": 72.977414,
         "lat": 19.223477,
-        "along_m": 26888,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"KAPURBAWDI (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 8 m from that line.",
+        "along_m": 26396,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"KAPURBAWDI (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 8 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -936,8 +937,8 @@
       "location": {
         "lng": 72.976526,
         "lat": 19.231524,
-        "along_m": 27787,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"MANPADA (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 3 m from that line.",
+        "along_m": 27295,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"MANPADA (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 3 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -972,8 +973,8 @@
       "location": {
         "lng": 72.97555,
         "lat": 19.238207,
-        "along_m": 28538,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"TIKUJI WADI (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 2 m from that line.",
+        "along_m": 28046,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"TIKUJI WADI (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 2 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -1008,8 +1009,8 @@
       "location": {
         "lng": 72.973069,
         "lat": 19.25051,
-        "along_m": 29982,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"DONGARIPADA (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 19 m from that line.",
+        "along_m": 29490,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"DONGARIPADA (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 19 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -1044,8 +1045,8 @@
       "location": {
         "lng": 72.970157,
         "lat": 19.258354,
-        "along_m": 30906,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"VIJAY GARDEN(M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 2 m from that line.",
+        "along_m": 30414,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"VIJAY GARDEN(M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 2 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -1086,8 +1087,8 @@
       "location": {
         "lng": 72.966546,
         "lat": 19.267374,
-        "along_m": 31978,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"KASARVADAVLI (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 1 m from that line.",
+        "along_m": 31486,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"KASARVADAVLI (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 1 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -1128,8 +1129,8 @@
       "location": {
         "lng": 72.958032,
         "lat": 19.276691,
-        "along_m": 33367,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"GOWNIPADA (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 18 m from that line.",
+        "along_m": 32875,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"GOWNIPADA (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 18 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -1170,8 +1171,8 @@
       "location": {
         "lng": 72.946949,
         "lat": 19.284363,
-        "along_m": 34939,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"GAIMUKH (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 3 m from that line.",
+        "along_m": 34447,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"GAIMUKH (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 3 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -1196,7 +1197,7 @@
         "source_url": "https://www.freepressjournal.in/mumbai/mumbai-infra-update-metro-4-pit-line-clears-cmrs-inspection-mmrda-awaits-safety-report-ahead-of-diwali-launch",
         "notes": "Free Press Journal (22 Aug 2026) names this station among the eight of the first stretch to open."
       },
-      "notes": "Line 4A's last station and, until the Mogharpada depot is ready, the line's pit line for stabling and maintenance (Free Press Journal, 22 Aug 2026). No Marathi name found in an MMRDA source. MMRDA's alignment file puts it about 850 m further along than the 2017 report's chainage would, against about 550 m at every other station: the Line 4A route or the station moved after 2017 (no source says which).",
+      "notes": "Line 4A's last station and, until the Mogharpada depot is ready, the line's pit line for stabling and maintenance (Free Press Journal, 22 Aug 2026). No Marathi name found in an MMRDA source. MMRDA's alignment file puts it about 360 m further along than the 2017 report's chainage, against under 100 m at every other station: the Line 4A route or the station moved after 2017 (no source says which).",
       "last_verified": "2026-10-19",
       "dpr_chainage_m": 34090.12
     }
@@ -1214,8 +1215,8 @@
       "location": {
         "lng": 72.883303,
         "lat": 19.053511,
-        "along_m": 3419,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"SUMAN NAGAR(M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 5 m from that line.",
+        "along_m": 2927,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"SUMAN NAGAR(M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 5 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },
@@ -1252,8 +1253,8 @@
       "location": {
         "lng": 72.900219,
         "lat": 19.067976,
-        "along_m": 5870,
-        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"AMAR MAHAL JUNCTION(M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start south of Bhakti Park; the point is 2 m from that line.",
+        "along_m": 5378,
+        "method": "MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point \"AMAR MAHAL JUNCTION(M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Bhakti Park station; the point is 2 m from that line.",
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
       },

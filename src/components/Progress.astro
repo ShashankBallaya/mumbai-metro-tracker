@@ -16,6 +16,8 @@ type Incident = { date: string; value: string; notes?: string; status: string; s
 const incidents = (project as { incidents?: Incident[] }).incidents ?? [];
 const stateLabel = { done: 'Done', now: 'Now', started: 'Started', next: 'Not started' };
 // A finished table (Line 5, Phase 1) says it once: one full bar and the list, not nine identical bars.
+// MMRDA gives Line 12's figures to two decimals and Line 4's as whole numbers: show what the source gives.
+const decimals = progress.items.every((i) => Number.isInteger(i.percent_complete)) ? 0 : 2;
 const allDone = progress.items.length > 1 && progress.items.every((i) => i.percent_complete >= 100);
 ---
 
@@ -59,7 +61,7 @@ const allDone = progress.items.length > 1 && progress.items.every((i) => i.perce
       {progress.items.map((item) => (
         <li class="work">
           <span class="work__name">{item.activity}</span>
-          <span class="work__pct num"><span data-count={item.percent_complete} data-decimals="2">{item.percent_complete.toFixed(2)}</span><span class="work__unit">%</span></span>
+          <span class="work__pct num"><span data-count={item.percent_complete} data-decimals={decimals}>{item.percent_complete.toFixed(decimals)}</span><span class="work__unit">%</span></span>
           <span
             class="work__track"
             role="meter"

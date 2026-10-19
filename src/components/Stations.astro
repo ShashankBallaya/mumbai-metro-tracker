@@ -10,6 +10,8 @@ const { line } = Astro.props;
 const { stations, spurStations, droppedStations, stationsMeta } = line;
 const page = (s: Station) => stationHref(line.id, s.id);
 type SameSite = { line: LineId; station: string };
+/** Why a station left the plan (Line 4: Suman Nagar and Amar Mahal Junction, stations.json `dropped`). */
+const droppedWhy = (s: Station) => (s as { dropped?: { value: string; status: string; source_url: string } }).dropped;
 /** What the revised plan of 2026 says about a station (Line 5). */
 const plan = (s: Station) => (s as { revised_plan_2026?: { value: string; status: string; source_url: string } }).revised_plan_2026;
 /** A station of another line at the same place: its name, and a link when that line has pages. */
@@ -72,7 +74,7 @@ const sameSite = (s: Station) => {
 
   {droppedStations.length > 0 && (
     <>
-      <h3 class="directory__group">On the 2017 plan, dropped in the revised plan</h3>
+      <h3 class="directory__group">{(line.info.copy as { dropped_heading?: string }).dropped_heading ?? 'On the 2017 plan, dropped in the revised plan'}</h3>
       <ul class="directory directory--dropped">
         {droppedStations.map((s) => (
           <li class="entry">
@@ -86,13 +88,18 @@ const sameSite = (s: Station) => {
                 {plan(s)!.value} <Grade status={plan(s)!.status} source={plan(s)!.source_url} compact />
               </span>
             )}
+            {droppedWhy(s) && (
+              <span class="entry__change">
+                {droppedWhy(s)!.value} <Grade status={droppedWhy(s)!.status} source={droppedWhy(s)!.source_url} compact />
+              </span>
+            )}
           </li>
         ))}
       </ul>
     </>
   )}
   <p class="directory__source">
-    Station list and order <Grade status="reported" source={stationsMeta.order_source_url} />
+    Station list and order <Grade status={(stationsMeta as { order_status?: string }).order_status ?? 'reported'} source={stationsMeta.order_source_url} />
     <span aria-hidden="true">,</span> station count <Grade status="verified" source={stationsMeta.count_source_url} />
   </p>
 </section>
