@@ -5,7 +5,9 @@
 # polygon, from Bhakti Park to Gaimukh (Line 4A included), and a point for each of 34 stations,
 # including Suman Nagar and Amar Mahal Junction, which MMRDA has since dropped. This script:
 #   - derives the centre line as the midpoints between the polygon's two long sides (the two ends of
-#     the polygon are its tips south of Bhakti Park and past Gaimukh),
+#     the polygon are its tips south of Bhakti Park and past Gaimukh), then starts the line at Bhakti
+#     Park station, so distances count from the first station (the polygon runs on about 490 m south
+#     of it, over the end of line),
 #   - writes src/data/lines/line-4/alignment-mmrda-2025.geojson (simplified to ~1 m) in two parts,
 #     Line 4 to Kasarvadavali and Line 4A on to Gaimukh, split at the end of line past Kasarvadavali
 #     that the Line 4A project report gives (450 m past the station),
@@ -150,6 +152,15 @@ def cut(s0, s1):
     return [[round(c, 6) for c in to_ll(*q)] for q in [point(s0), *inner, point(s1)]]
 
 
+# ---------- Start the line at Bhakti Park station ----------
+first_off, first_at = along(*points['BHAKTI PARK (M) STATION'])
+centre = [to_xy(*c) for c in cut(first_at, length)]
+cum_c = [0.0]
+for a, b in zip(centre, centre[1:]):
+    cum_c.append(cum_c[-1] + math.dist(a, b))
+length = cum_c[-1]
+print(f'Line starts at Bhakti Park, {first_at:.0f} m from the polygon tip')
+
 # ---------- Stations from MMRDA's file ----------
 along_of = {}
 for kml_name, st in sorted(kml_names.items(), key=lambda kv: along(*points[kv[0]])[1]):
@@ -162,7 +173,7 @@ for kml_name, st in sorted(kml_names.items(), key=lambda kv: along(*points[kv[0]
         'lng': round(lng, 6),
         'lat': round(lat, 6),
         'along_m': round(at),
-        'method': f'MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point "{kml_name}". along_m is measured along a centre line derived from MMRDA\'s corridor polygon, from its start south of Bhakti Park; the point is {round(off)} m from that line.',
+        'method': f'MMRDA alignment file for Line 4 (KML on the Metro Influence Zone page, uploaded March 2025): point "{kml_name}". along_m is measured along a centre line derived from MMRDA\'s corridor polygon, from Bhakti Park station; the point is {round(off)} m from that line.',
         'status': 'verified',
         'source_url': PAGE_URL,
     }
@@ -181,7 +192,7 @@ feature = lambda props, coords: {'type': 'Feature', 'properties': props, 'geomet
 geo = {
     'type': 'FeatureCollection',
     'properties': {
-        'note': f'Derived from MMRDA\'s alignment file for Line 4 ({KML_URL}), which gives the corridor from Bhakti Park to Gaimukh as one polygon; the centre line runs midway between its two sides, along the Eastern Express Highway, LBS Marg and Ghodbunder Road (verified). Line 4 ends {END_OF_LINE_4_M} m past Kasarvadavali, where Line 4A starts (project reports, 2016 and 2017). Simplified to about 1 m by scripts/build-alignment-line4.py.',
+        'note': f'Derived from MMRDA\'s alignment file for Line 4 ({KML_URL}), which gives the corridor from Bhakti Park to Gaimukh as one polygon; the centre line runs midway between its two sides from Bhakti Park station, along the Eastern Express Highway, LBS Marg and Ghodbunder Road (verified). Line 4 ends {END_OF_LINE_4_M} m past Kasarvadavali, where Line 4A starts (project reports, 2016 and 2017). Simplified to about 1 m by scripts/build-alignment-line4.py.',
         'source_url': PAGE_URL,
         'status': 'verified',
         'last_verified': CHECKED,

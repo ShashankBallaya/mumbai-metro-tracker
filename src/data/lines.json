@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "description": "The lines this site covers, in hub order. Each line's facts live in src/data/lines/<id>/. project.json and stations.json are required; every other file is optional, and a section without its file does not show. 'alignment' names the GeoJSON file the map and schematic draw from. 'about' feeds the line's schema.org node on every page of that line. 'position_basis' names where station coordinates come from: 'by_source' matches part of a station's location source_url, else 'default'. 'copy' holds the line's own wording for shared pages; {total}, {km} and {name} are filled in. Tokens in copy: {stations}, {as_of}, {pct:<activity>}, {target}, {earlier}, {rest}, {alt}, {minutes} come from project.json. Keys ending in _html may contain inline markup. 'number' is the line's mark; 'colour' names its colour token in src/styles/tokens.css (with an on- token for text on it); a line page whose colour is not line-orange takes it as its accent (data-accent on <html>). 'other_lines' gives a colour to lines the site does not cover, for their mark only; a line in neither list gets a neutral outlined mark. Line 5 and Line 12 share orange, so every mention of a line shows its number with the colour (LineMark.astro). 'dpr_label' names the project report that stations.json dpr_name and dpr_chainage_m come from (default: the 2019 project report, Line 12's).",
+    "description": "The lines this site covers, in hub order. Each line's facts live in src/data/lines/<id>/. project.json and stations.json are required; every other file is optional, and a section without its file does not show. 'alignment' names the GeoJSON file the map and schematic draw from. 'about' feeds the line's schema.org node on every page of that line. 'position_basis' names where station coordinates come from: 'by_source' matches part of a station's location source_url, else 'default'. 'copy' holds the line's own wording for shared pages; {total}, {km} and {name} are filled in. Tokens in copy: {stations}, {as_of}, {pct:<activity>}, {target}, {earlier}, {rest}, {alt}, {minutes} come from project.json. Keys ending in _html may contain inline markup. 'number' is the line's mark; 'colour' names its colour token in src/styles/tokens.css (with an on- token for text on it); a line page whose colour is not line-orange takes it as its accent (data-accent on <html>). 'other_lines' gives a colour to lines the site does not cover, for their mark only; a line in neither list gets a neutral outlined mark. Line 5 and Line 12 share orange, so every mention of a line shows its number with the colour (LineMark.astro). 'dpr_label' names the project report that stations.json dpr_name and dpr_chainage_m come from (default: the 2019 project report, Line 12's). 'dropped_heading' names the group of dropped stations (default: Line 5's wording).",
     "last_reviewed": "2026-10-19"
   },
   "lines": [
@@ -253,9 +253,9 @@
           " of March 2025"
         ],
         "headline_html": "Watch Mumbai Metro Line&nbsp;4 reach Thane,<br> stretch by stretch.",
-        "front_standfirst": "The first stretch, Gaimukh to Cadbury Junction in Thane, is built and in trial runs; it waits for the safety commissioner's approval. The rest of the line to Wadala is still being built: on {as_of}, MMRDA put pier work at about {pct:Pier (viaduct and station, up to platform level)} per cent and the deck slab at about {pct:Deck slab} per cent. {stations} stations on Line 4, as MMRDA counts them, and two more on Line 4A.",
+        "front_standfirst": "The first stretch, Gaimukh to Cadbury Junction in Thane, is built and in trial runs. It waits for the safety commissioner's approval. The rest of the line to Wadala is still being built: on {as_of}, MMRDA put pier work at about {pct:Pier (viaduct and station, up to platform level)} per cent and the deck slab at about {pct:Deck slab} per cent. MMRDA counts {stations} stations on Line 4; Line 4A adds two.",
         "countdown_title": "Days to the reported target",
-        "target_html": "Target: <strong>{target}</strong> for the first stretch, Gaimukh to Cadbury Junction, as reported: MMRDA aims for “around Diwali or by the end of 2026”. MMRDA has announced no date. Earlier reported targets, December 2025 and April 2026, passed. For the rest of the line to Wadala, the last reported target is October 2027.",
+        "target_html": "Target: <strong>{target}</strong> for the first stretch, Gaimukh to Cadbury Junction, as reported. MMRDA has announced no date. Two earlier reported targets, December 2025 and April 2026, passed. Wadala: October 2027, as reported.",
         "lead_scene": null,
         "map_section": "The line on a street map. Choose a station to see where it sits, what surrounds it and what the street looks like today. The route and stations come from MMRDA's alignment file of March 2025.",
         "map_legend": "Route not yet open, MMRDA's alignment file",
@@ -314,7 +314,8 @@
         "status_mr": "वडाळा-ठाणे-कासारवडवली मेट्रो ४",
         "status_lead": "The questions people ask about Mumbai Metro Line 4, Wadala to Thane and Gaimukh.",
         "footer_disclaimer": "Mumbai Metro Tracker is an independent public-interest site. It is not affiliated with, endorsed by or connected to MMRDA or the Government of Maharashtra. Drawings are original illustrations, not official designs. Check official sources before making decisions.",
-        "dpr_label": "the 2016 project report"
+        "dpr_label": "the 2016 project report",
+        "dropped_heading": "In the 2016 plan, dropped in December 2023"
       }
     }
   ],

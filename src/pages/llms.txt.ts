@@ -76,7 +76,7 @@ ${all5.map((s) => `- [${s.name} metro station, Line 5](${url(`${b5}stations/${s.
 - State: ${p4.current_phase.value}
 - Progress (MMRDA, ${formatDate(p4.progress.as_of)}): ${p4.progress.items.map((i) => `${i.activity} ${i.percent_complete}%`).join('; ')}.
 - Cost: Rs ${inr(p4.completion_cost_crore_inr.value)} crore for Line 4, with taxes (MMRDA, verified).
-- Depot: ${p4.depot.value}.
+- Depot: ${p4.depot.value}, ${p4.depot.area_ha} ha, shared with Lines 4A, 10 and 11.
 - Trains: 39 six-car Alstom Metropolis trains through L&T's systems contract CA-234 (reported).
 
 ## Line 4: pages

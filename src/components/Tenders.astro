@@ -48,10 +48,10 @@ const cr = (v: number | null | undefined) => (v == null ? null : `₹${inr(v)} c
           <tr class:list={[`is-${t.tender_status}`]}>
             <th scope="row" data-label="Package">{t.package}</th>
             <td data-label="Scope">{t.scope}</td>
-            <td data-label="Floated">{formatDate(t.floated)}</td>
+            <td data-label="Floated">{t.floated ? formatDate(t.floated) : <span class="nil">Not found</span>}</td>
             <td data-label="Estimate" class="r">{cr(t.estimated_value_crore) ?? <span class="nil">Not published</span>}</td>
             <td data-label="Awarded" class="r">
-              {cr(t.awarded_value_crore) ?? <span class="nil">{t.award_date ? 'Not published' : 'None'}</span>}
+              {cr(t.awarded_value_crore) ?? <span class="nil">{t.award_date || t.tender_status === 'awarded' ? 'Not published' : 'None'}</span>}
               {t.award_date && <span class="sub">{formatDate(t.award_date)}</span>}
             </td>
             <td data-label="Awarded to">{who(t.awarded_to) ?? <span class="nil">None</span>}</td>

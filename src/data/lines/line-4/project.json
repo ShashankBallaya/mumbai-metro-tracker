@@ -49,14 +49,8 @@
     "with_4a_km": 35.2,
     "with_4a_source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2024-02/reminiscence_of_mmrda_s_monumental_achievements_in_2023.pdf",
     "context": "Line 4 alone. With Line 4A, MMRDA gives 35.2 km (its review of 2023).",
-    "history": [
-      {
-        "value": 32.322,
-        "context": "Project report (DMRC for MMRDA, May 2016), 32 stations",
-        "source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2021-10/Metro%20Line%204.pdf"
-      }
-    ],
-    "notes": "The line ends 450 m past Kasarvadavali station in the 2016 report; Line 4A starts from that point."
+    "notes": "The 2016 project report gives 32.322 km, the same length to the metre. The line ends 450 m past Kasarvadavali station in the 2016 report; Line 4A starts from that point.",
+    "history": []
   },
   "line_4a": {
     "value": "Kasarvadavali to Gaimukh, 2 stations: Gowniwada and Gaimukh",
@@ -172,12 +166,12 @@
     "notes": "MMRDA's release (6 Nov 2021): a development loan of EUR 345 million (EUR 255 million for rolling stock and integrated ticketing, EUR 90 million for multimodal integration) and a promotional loan of EUR 200 million, to the Indian Ministry of Finance. The Metro Rail Guy (Feb 2025) reports that the KfW loan pays for the design and build of the systems package CA-234, and MMRDA for its 17 years of maintenance. In 2016 the World Bank was reported as a likely lender; no World Bank loan was found."
   },
   "depot": {
-    "value": "Mogharpada, Thane (shared with Lines 4A, 10 and 11)",
+    "value": "Mogharpada, Thane",
     "area_ha": 41.5,
     "status": "verified",
     "source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2024-02/reminiscence_of_mmrda_s_monumental_achievements_in_2023.pdf",
     "last_verified": "2026-10-19",
-    "context": "In October 2023 the State approved the transfer of 174.01 ha at Mogharpada to MMRDA for Lines 4, 4A, 10 and 11, of which 41.5 ha is earmarked for the depot (MMRDA's review of 2023).",
+    "context": "Shared with Lines 4A, 10 and 11. In October 2023 the State approved the transfer of 174.01 ha at Mogharpada to MMRDA for Lines 4, 4A, 10 and 11, of which 41.5 ha is earmarked for the depot (MMRDA's review of 2023).",
     "contract": {
       "value": "CA-160, Mogharpada depot, to SEW Infrastructure and Vishwa Samudra Engineering (JV)",
       "status": "reported",

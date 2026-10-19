@@ -227,6 +227,8 @@ Warm newsprint and night navy, cut by one orange.
 
 **The One Signal Rule.** Orange is the only hue. It appears as the bar module, the route and big figures. Every other colour is paper, ink, rule or concrete.
 
+**The Line Colour Rule.** Each page still has one signal hue: the hue of its line. Lines 12 and 5 print orange; Line 4's pages, its hub card and its share card print green (Line 4 Green, #1d7a3a on morning paper, #3fae66 on night paper, with paper-white or navy text on it), because MMRDA names Line 4 the Green Line. `data-accent` on `<html>` (or on a hub card) swaps the three signal tokens; nothing else changes. A line mark (LineMark) always shows its own line's colour, so Lines 5 and 12 stay orange on a Line 4 page.
+
 **The Three Oranges Rule.** Pick the orange by job, not by taste: signal for fills that carry navy text, signal-graphic for shapes drawn on paper, signal-line for strokes and large figures on paper. Never set body-size text in any orange.
 
 **The Two Editions Rule.** Every colour is written as a token that both editions define. Components never hard-code a hex; the lead picture's isometric palette is the one exception, because it always sits on the orange field.
