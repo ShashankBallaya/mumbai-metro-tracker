@@ -82,7 +82,7 @@ ${all5.map((s) => `- [${s.name} metro station, Line 5](${url(`${b5}stations/${s.
 ## Line 4: pages
 
 - [Line 4](${url(b4)}): route, map, progress, tenders, trains, timeline and sources.
-- [All Line 4 stations](${url(`${b4}stations/`)}): the ${line4.stations.length} stations in order, Line 4A included.
+${hasStatusPage(line4) ? `- [Line 4 status, answered](${url(`${b4}status/`)}): opening target, first stretch, Line 4A, cost, depot, trains.\n` : ''}- [All Line 4 stations](${url(`${b4}stations/`)}): the ${line4.stations.length} stations in order, Line 4A included.
 ${line4.stations.map((s) => `- [${s.name} metro station, Line 4](${url(`${b4}stations/${s.id}/`)})`).join('\n')}
 
 ## Sources
