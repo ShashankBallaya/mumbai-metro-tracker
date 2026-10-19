@@ -5,7 +5,7 @@
  * viewport) adds the route and stations; choosing a station fills the panel, including street level.
  */
 import Grade from './Grade.astro';
-import { formatDate, positionBasis, streetViewUrl, type Line } from '../lib/data';
+import { dprLabel, formatDate, positionBasis, streetViewUrl, type Line } from '../lib/data';
 
 interface Props {
   line: Line;
@@ -35,7 +35,7 @@ const toData = (s: (typeof stations)[number], group: Group) => ({
   lng: s.location.lng,
   where: positionBasis(line, s),
   interchanges: s.interchanges.value,
-  context: s.context.map((c) => ({ text: cap(c.text.replace(/^DPR: /, 'In the 2019 project report: ')), status: c.status, source: c.source_url })),
+  context: s.context.map((c) => ({ text: cap(c.text.replace(/^DPR: /, `In ${dprLabel(line)}: `)), status: c.status, source: c.source_url })),
   status: s.construction_status.value,
   group,
   // A chosen Street View, when the station has one; the map script otherwise opens the nearest panorama.

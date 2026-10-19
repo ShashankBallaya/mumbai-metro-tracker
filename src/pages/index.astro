@@ -16,7 +16,7 @@ import '../styles/inner.css';
 const all = lines.map((l) => getLine(l.id));
 // Strips share one scale, so a longer line draws longer.
 const longest = Math.max(...all.map((l) => l.project.length_km.value));
-// Where two lines meet (stations.json `same_site_as`): Kalyan.
+// Where two lines meet (stations.json `same_site_as`): Kalyan (Lines 12 and 5), Kapurbawdi (Lines 4 and 5).
 const meets = all.flatMap((line) =>
   [...line.stations, ...line.spurStations].flatMap((s) => {
     const o = (s as { same_site_as?: { line: string; station: string; distance_m: number } }).same_site_as;
@@ -25,18 +25,19 @@ const meets = all.flatMap((line) =>
   }),
 );
 const kalyan = meets.find((m) => m.s.id === 'kalyan');
+const kapurbawdi = meets.find((m) => m.s.id === 'kapurbawdi');
 
-const title = `${SITE_NAME}: Mumbai Metro Lines 12 and 5, status, stations, maps`;
-const description = 'An unofficial, sourced tracker for the Mumbai Metro lines being built around Kalyan: Line 12 to Taloja and Line 5 to Thane. Route, stations, progress and opening targets, each fact with its source.';
+const title = `${SITE_NAME}: Mumbai Metro Lines ${all.map((l) => l.info.number).join(', ').replace(/, ([^,]+)$/, ' and $1')}, status, stations, maps`;
+const description = 'An unofficial, sourced tracker for the Mumbai Metro lines being built around Kalyan and Thane: Line 12 to Taloja, Line 5 to Thane and Line 4 from Thane to Wadala. Route, stations, progress and opening targets, each fact with its source.';
 ---
 
 <Base title={title} description={description}>
   <Masthead />
   <main id="main" class="page hub">
     <header class="hub__head">
-      <h1 class="hub__title">The metro lines<br /> reaching Kalyan</h1>
+      <h1 class="hub__title">The metro lines<br /> of Kalyan and Thane</h1>
       <p class="hub__standfirst">
-        An unofficial tracker for the Mumbai Metro lines MMRDA is building around Kalyan. Each line has its own page: route, map,
+        An unofficial tracker for the Mumbai Metro lines MMRDA is building around Kalyan and Thane. Each line has its own page: route, map,
         progress, tenders, trains and every station. Every fact carries a grade and a link to its source.
       </p>
     </header>
@@ -50,7 +51,7 @@ const description = 'An unofficial, sourced tracker for the Mumbai Metro lines b
         const share = (project.length_km.value / longest) * 100;
         return (
           <li class="hub__line">
-            <article aria-labelledby={`${line.id}-name`}>
+            <article aria-labelledby={`${line.id}-name`} data-accent={info.colour !== 'line-orange' ? info.colour : undefined}>
               <h2 id={`${line.id}-name`} class="hub__name">
                 <a href={base}><LineMark lineId={line.id} />{info.about.name}</a>
               </h2>
@@ -95,16 +96,27 @@ const description = 'An unofficial, sourced tracker for the Mumbai Metro lines b
       })}
     </ul>
 
-    {kalyan && (
+    {(kalyan || kapurbawdi) && (
       <section class="hub__meet" aria-labelledby="meet-title">
         <h2 id="meet-title">Where the lines meet</h2>
+        {kalyan && (
         <p>
-          Both lines end at Kalyan, by the railway junction.{' '}
+          Lines 12 and 5 both end at Kalyan, by the railway junction.{' '}
           <a href={`${lineBase(kalyan.line.id)}stations/${kalyan.s.id}/`}>{kalyan.line.info.label}'s {kalyan.s.name}</a> station is planned about{' '}
           {kalyan.distance} m from{' '}
           <a href={`${lineBase(kalyan.other.id)}stations/${kalyan.otherStation.id}/`}>{kalyan.other.info.label}'s {kalyan.otherStation.name}</a>, measured
           between the two published station points.
         </p>
+        )}
+        {kapurbawdi && (
+        <p>
+          Line 5 starts at Kapurbawdi in Thane, a station built as part of Line 4.{' '}
+          <a href={`${lineBase(kapurbawdi.line.id)}stations/${kapurbawdi.s.id}/`}>{kapurbawdi.line.info.label}'s {kapurbawdi.s.name}</a> point is{' '}
+          {kapurbawdi.distance} m from{' '}
+          <a href={`${lineBase(kapurbawdi.other.id)}stations/${kapurbawdi.otherStation.id}/`}>{kapurbawdi.other.info.label}'s</a>, measured between the two
+          published station points.
+        </p>
+        )}
       </section>
     )}
   </main>

@@ -1,7 +1,7 @@
 /*
  * Design tokens. Night edition (dark) is the default when the system asks for dark;
  * morning edition (light) otherwise. [data-theme] on <html> overrides the system.
- * One signal colour (Line 12 orange). Everything else is navy, newsprint and concrete.
+ * One signal colour per page: orange (Lines 12 and 5), or the line's own on its pages (Line 4 green, see the end). Everything else is navy, newsprint and concrete.
  */
 @import '@fontsource-variable/anek-latin/standard.css';
 @import '@fontsource/mukta/400.css';
@@ -84,6 +84,9 @@
   /* Lines the site does not cover, for their LineMark only (lines.json other_lines). White on it: 5.6:1. */
   --line-4: #1d7a3a;
   --on-line-4: #ffffff;
+  /* Lines 5 and 12 on any page, whatever that page's accent (LineMark). */
+  --line-orange: #f26b1d;
+  --on-line-orange: #0c1422;
   --concrete: #a69e91;
   --halftone: rgb(17 26 40 / 0.14);
   --focus: #c24a08;
@@ -155,4 +158,42 @@
   --halftone: rgb(236 229 216 / 0.09);
   --focus: #f5813c;
   color-scheme: dark;
+}
+
+/*
+ * A line page takes its line's colour as the accent (Base sets data-accent from lines.json `colour`),
+ * and so does a line's card on the hub: Line 4 is green where Lines 5 and 12 are orange. Same roles as --signal above.
+ */
+[data-accent='line-4'] {
+  --signal: #1d7a3a;
+  --signal-line: #1d7a3a;
+  --signal-graphic: #1d7a3a;
+  --on-signal: #ffffff;
+  --focus: #1d7a3a;
+  --selection-bg: #1d7a3a;
+  --selection-ink: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) [data-accent='line-4'],
+  :root[data-accent='line-4']:not([data-theme='light']) {
+    --signal: #3fae66;
+    --signal-line: #5cc883;
+    --signal-graphic: #3fae66;
+    --on-signal: #0c1422;
+    --focus: #5cc883;
+    --selection-bg: #3fae66;
+    --selection-ink: #0c1422;
+  }
+}
+
+:root[data-theme='dark'] [data-accent='line-4'],
+:root[data-accent='line-4'][data-theme='dark'] {
+  --signal: #3fae66;
+  --signal-line: #5cc883;
+  --signal-graphic: #3fae66;
+  --on-signal: #0c1422;
+  --focus: #5cc883;
+  --selection-bg: #3fae66;
+  --selection-ink: #0c1422;
 }

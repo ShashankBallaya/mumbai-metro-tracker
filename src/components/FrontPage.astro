@@ -124,7 +124,7 @@ const spurEnd = line.spurStations.at(-1)?.name;
     </span>
     <span class="front__strip-end front__strip-end--b">{last}</span>
     {branch && <span class="front__strip-end front__strip-end--spur">{spurEnd}</span>}
-    <span class="front__strip-meta num">{stations.length} stations<span aria-hidden="true"> / </span>{project.length_km.value} km<span class="visually-hidden">. Ride the line.</span></span>
+    <span class="front__strip-meta num">{stations.length} stations<span aria-hidden="true"> / </span>{(project.length_km as { with_4a_km?: number }).with_4a_km ?? project.length_km.value} km<span class="visually-hidden">. Ride the line.</span></span>
   </a>
 </section>
 

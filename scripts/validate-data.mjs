@@ -50,7 +50,7 @@ for (const entry of readdirSync(DIR, { recursive: true })) {
 }
 
 // Line folders under research: checked like the others, but not in lines.json, so no page builds them yet.
-const RESEARCH = ['line-4'];
+const RESEARCH = [];
 const listed = JSON.parse(readFileSync(join(DIR, 'lines.json'), 'utf8')).lines;
 const lines = [...listed, ...RESEARCH.map((id) => ({ id }))];
 const ids = new Set(lines.map((l) => l.id));
