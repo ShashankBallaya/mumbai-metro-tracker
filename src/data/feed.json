@@ -1,13 +1,22 @@
 {
   "_meta": {
     "description": "Written by scripts/fetch-feed.mjs. Do not edit by hand: add an item's URL to exclude_urls in feed-sources.json to hide it. Items are found automatically and are not checked by a person.",
-    "updated_at": "2026-10-15T17:11:33.436Z",
+    "updated_at": "2026-10-24T04:48:50.924Z",
     "updated_at_by_line": {
       "line-12": "2026-10-15T17:11:33.436Z",
-      "line-5": "2026-10-09T10:35:25.670Z"
+      "line-5": "2026-10-24T04:48:50.924Z"
     }
   },
   "news": [
+    {
+      "title": "Thane-Bhiwandi Metro: First Trainset Arrives For Line 5, Trials Expected Soon",
+      "outlet": "Re-Mumbai",
+      "date": "2026-10-24",
+      "url": "https://remumbai.in/2026/10/24/thane-bhiwandi-metro-first-trainset-arrives-for-line-5-trials-expected-soon/",
+      "lines": [
+        "line-5"
+      ]
+    },
     {
       "title": "Mumbai Metro Line 12 Safety Breach Leaves Pillion Rider in ICU",
       "outlet": "Urban Acres",
