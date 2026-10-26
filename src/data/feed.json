@@ -1,13 +1,22 @@
 {
   "_meta": {
     "description": "Written by scripts/fetch-feed.mjs. Do not edit by hand: add an item's URL to exclude_urls in feed-sources.json to hide it. Items are found automatically and are not checked by a person.",
-    "updated_at": "2026-10-24T04:48:50.924Z",
+    "updated_at": "2026-10-26T13:19:40.401Z",
     "updated_at_by_line": {
       "line-12": "2026-10-15T17:11:33.436Z",
-      "line-5": "2026-10-24T04:48:50.924Z"
+      "line-5": "2026-10-26T13:19:40.401Z"
     }
   },
   "news": [
+    {
+      "title": "Thane-Bhiwandi Metro Line 5 Targets 25-Minute Journeys As Trial Runs Near",
+      "outlet": "Re-Mumbai",
+      "date": "2026-10-26",
+      "url": "https://remumbai.in/2026/10/26/thane-bhiwandi-metro-line-5-targets-25-minute-journeys-as-trial-runs-near/",
+      "lines": [
+        "line-5"
+      ]
+    },
     {
       "title": "Thane-Bhiwandi Metro: First Trainset Arrives For Line 5, Trials Expected Soon",
       "outlet": "Re-Mumbai",
