@@ -423,6 +423,7 @@ export function outletName(url: string | null | undefined): string {
     'psuwatch.com': 'PSU Watch (PTI)',
     'alstom.com': 'Alstom',
     'rajendrabaklekar.in': 'Rajendra B. Aklekar',
+    'indianexpress.com': 'The Indian Express',
   };
   if (url.includes('Metro%20Line%2012.pdf')) return 'MMRDA DPR (2019)';
   if (url.includes('Metro%20Line%204.pdf')) return 'MMRDA DPR (2016)';

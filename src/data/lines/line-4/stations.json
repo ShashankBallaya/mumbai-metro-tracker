@@ -267,7 +267,13 @@
         "status": "verified",
         "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
       },
-      "context": [],
+      "context": [
+        {
+          "text": "The last station on Line 4 to get its land. MMRDA acquired the 16,762 sq m plot in Vikhroli East from Godrej & Boyce in April 2026, after six years of talks (begun 2019) and a 2021 notice withdrawn after a Bombay High Court stay. Every other station on the line is built.",
+          "source_url": "https://indianexpress.com/article/cities/mumbai/stuck-for-6-years-now-on-track-metro-line-4s-final-piece-falls-into-place-10634006/",
+          "status": "reported"
+        }
+      ],
       "construction_status": {
         "value": "Under construction",
         "status": "verified",
@@ -275,7 +281,7 @@
         "notes": "MMRDA publishes progress for the whole line only (pier work 95%, U-girders 94%, deck slab 92% as of 31 Aug 2026), not by station."
       },
       "notes": null,
-      "last_verified": "2026-10-19",
+      "last_verified": "2026-10-26",
       "dpr_chainage_m": 8646.73
     },
     {
