@@ -1,13 +1,32 @@
 {
   "_meta": {
     "description": "Written by scripts/fetch-feed.mjs. Do not edit by hand: add an item's URL to exclude_urls in feed-sources.json to hide it. Items are found automatically and are not checked by a person.",
-    "updated_at": "2026-10-26T13:19:40.401Z",
+    "updated_at": "2026-10-28T22:43:05.898Z",
     "updated_at_by_line": {
       "line-12": "2026-10-15T17:11:33.436Z",
-      "line-5": "2026-10-26T13:19:40.401Z"
+      "line-12a": "2026-10-28T22:43:05.898Z",
+      "line-5": "2026-10-28T22:43:05.898Z"
     }
   },
   "news": [
+    {
+      "title": "Maharashtra Clears Rs 13,856-Crore Metro Corridor To Link Kalyan-Dombivli With Navi Mumbai",
+      "outlet": "Re-Mumbai",
+      "date": "2026-10-28",
+      "url": "https://remumbai.in/2026/10/28/maharashtra-clears-rs-13856-crore-metro-corridor-to-link-kalyan-dombivli-with-navi-mumbai/",
+      "lines": [
+        "line-12a"
+      ]
+    },
+    {
+      "title": "Mumbai Metro Line 12A Gets 3.5 year deadline; CM Fadnavis Targets 2027 as ‘Year of Metro’",
+      "outlet": "Metro Rail News",
+      "date": "2026-10-28",
+      "url": "https://metrorailnews.in/mumbai-metro-line-12a-approved-3-5-year-deadline/",
+      "lines": [
+        "line-12a"
+      ]
+    },
     {
       "title": "Thane-Bhiwandi Metro Line 5 Targets 25-Minute Journeys As Trial Runs Near",
       "outlet": "Re-Mumbai",
@@ -117,6 +136,16 @@
       ]
     },
     {
+      "title": "MMRDA Plans Rs 9,950 Crore Borrowing For Metro Line 5A & 12A Projects In Mumbai Region",
+      "outlet": "Re-Mumbai",
+      "date": "2026-05-27",
+      "url": "https://remumbai.in/2026/05/27/mmrda-plans-rs-9950-crore-borrowing-for-metro-line-5a-12a-projects-in-mumbai-region/",
+      "lines": [
+        "line-12a",
+        "line-5"
+      ]
+    },
+    {
       "title": "Mumbai Metro Line 5 gets state approval: Project cost surges to Rs 18,131 crore",
       "outlet": "Metro Rail News",
       "date": "2026-04-27",
@@ -126,12 +155,40 @@
       ]
     },
     {
+      "title": "MMRDA Expands Metro Network Across Eastern Corridor",
+      "outlet": "Urban Acres",
+      "date": "2026-02-25",
+      "url": "https://urbanacres.in/mmrda-expands-metro-network-across-eastern-corridor/",
+      "lines": [
+        "line-12a"
+      ]
+    },
+    {
+      "title": "Mumbai Metro Line 12A Cleared: Rs 8,414 Crore Extension To Add 12 Stations Across 18.4 Km Corridor",
+      "outlet": "Re-Mumbai",
+      "date": "2026-02-24",
+      "url": "https://remumbai.in/2026/02/24/mumbai-metro-line-12a-cleared-rs-8414-crore-extension-to-add-12-stations-across-18-4-km-corridor/",
+      "lines": [
+        "line-12a"
+      ]
+    },
+    {
       "title": "MMRDA Announces Mumbai Metro Line 12 Extension at ₹8,415 Crore",
       "outlet": "Metro Rail News",
       "date": "2026-02-21",
       "url": "https://metrorailnews.in/mumbai-metro-line-12-extension/",
       "lines": [
-        "line-12"
+        "line-12",
+        "line-12a"
+      ]
+    },
+    {
+      "title": "Mumbai Metro Expansion: Proposed 18.4 Km Metro-12A To Connect Kalyan-Dombivli & Taloja",
+      "outlet": "Re-Mumbai",
+      "date": "2026-02-21",
+      "url": "https://remumbai.in/2026/02/21/mumbai-metro-expansion-proposed-18-4-km-metro-12a-to-connect-kalyan-dombivli-taloja/",
+      "lines": [
+        "line-12a"
       ]
     },
     {
