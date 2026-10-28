@@ -79,7 +79,7 @@ const riderDecimals = riders.split('.')[1]?.length ?? 0;
     </div>
 
     <div class="fact">
-      <dt>Daily riders by 2031</dt>
+      <dt>{(c as { riders_head?: string }).riders_head ?? 'Daily riders by 2031'}</dt>
       <dd class="fact__figure">
         <span class="fact__big num" data-count={riders} data-decimals={riderDecimals}>{riders}</span>
         <span class="fact__unit">lakh a day (projected)</span>
@@ -91,7 +91,7 @@ const riderDecimals = riders.split('.')[1]?.length ?? 0;
       <dt>Depot</dt>
       <dd class="fact__figure">
         <span class="fact__words">{p.depot.value}</span>
-        <span class="fact__unit num">{p.depot.area_ha} ha</span>
+        {p.depot.area_ha != null && <span class="fact__unit num">{p.depot.area_ha} ha</span>}
       </dd>
       <dd class="fact__history">
         {c.depot_history.map(([was, when]) => <span><s class="superseded">{was}</s> {when}</span>)}

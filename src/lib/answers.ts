@@ -109,6 +109,7 @@ function line12(line: Line): Answer[] {
       q: 'Is Line 12A the same as Line 12?',
       a: `No. ${line12a.name} is a separate project: ${line12a.summary} Its figures are not counted in Line 12's.`,
       grades: [{ status: line12a.status, source: line12a.source_url }],
+      more: { href: lineBase('line-12a'), label: 'Line 12A' },
     },
     {
       id: 'names',
@@ -423,7 +424,92 @@ function line4(line: Line): Answer[] {
   ];
 }
 
-const sets: Record<string, (line: Line) => Answer[]> = { 'line-12': line12, 'line-5': line5, 'line-4': line4 };
+/** Line 12A: approved, not started. MMRDA has published nothing, so every answer rests on news reports. */
+function line12a(line: Line): Answer[] {
+  const { project: p, stations, timeline } = line;
+  const base = lineBase(line.id);
+  type Graded = { value: string; status: string; source_url: string };
+  const x = p as unknown as {
+    completion_cost_crore_inr: { value: number; status: string; source_url: string; history: { value: number }[] };
+    funding: Graded;
+    depot: Graded;
+    interchanges: { value: { station: string; connects_to: string }[]; planned: { station: string; connects_to: string; status: string; source_url: string }[]; status: string; source_url: string };
+    route: Graded;
+    target_completion: Graded & { countdown_date: string };
+    related_projects: { name: string; summary: string; status: string; source_url: string }[];
+  };
+  const event = (id: string) => timeline.find((e) => e.id === id)!;
+  const approved = event('cabinet-committee');
+  const announced = event('announced');
+  const placed = stations.filter((s) => s.location.lat !== null);
+  const list = (names: string[]) => `${names.slice(0, -1).join(', ')} and ${names.at(-1)}`;
+  const cost = x.completion_cost_crore_inr;
+  const flyovers = x.related_projects[0];
+  return [
+    {
+      id: 'approved',
+      q: 'Is Metro Line 12A approved?',
+      a: `Yes. The state Cabinet Infrastructure Committee, chaired by the Chief Minister, cleared it on ${formatDate(approved.date)} at Rs ${inr(cost.value)} crore, as reported. The State had first announced it, with an administrative approval of Rs ${inr(cost.history[0].value)} crore, in ${formatDate(announced.date)}. MMRDA will build it. No tender has been issued yet.`,
+      grades: [
+        { status: approved.status, source: approved.source_url },
+        { status: announced.status, source: announced.source_url },
+      ],
+    },
+    {
+      id: 'opening',
+      q: 'When will Line 12A be ready?',
+      a: `The State set a deadline of three and a half years, as reported. No source says from which day it counts. Counted from the approval of ${formatDate(approved.date)}, it falls in ${formatDate(x.target_completion.value)}; the site counts down to ${formatDate(x.target_completion.countdown_date)}. Construction has not started.`,
+      grades: [{ status: x.target_completion.status, source: x.target_completion.source_url }],
+    },
+    {
+      id: 'route',
+      q: 'What is the route of Metro Line 12A?',
+      a: `${x.route.value}. It is ${p.length_km.value} km long with the link to the car shed, fully elevated, as reported. It runs on Kalyan-Shilphata Road from Manpada to Kalyan Phata, then by Dahisar Mori towards Taloja. MMRDA has published no alignment, so the map on this site is indicative.`,
+      grades: [
+        { status: x.route.status, source: x.route.source_url },
+        { status: p.length_km.status, source: p.length_km.source_url },
+      ],
+      more: { href: `${base}#map`, label: 'See the indicative route on the map' },
+    },
+    {
+      id: 'stations',
+      q: 'Which stations are on Line 12A?',
+      a: `${stations.length}, all elevated, in order from Manpada: ${stations.map((s) => s.name).join(', ')}, as reported. MMRDA has published no station list or positions. On this site's map, ${list(placed.map((s) => s.name))} sit at their named places; the others are not yet mapped.`,
+      grades: [{ status: p.stations_count.status, source: p.stations_count.source_url }],
+      more: { href: `${base}stations/`, label: 'All Line 12A stations' },
+    },
+    {
+      id: 'line-12',
+      q: 'Is Line 12A the same as Line 12?',
+      a: `No. Line 12 runs from Kalyan to Taloja and is being built. Line 12A is a separate, newer project: it starts at Manpada, a Line 12 station, runs along Kalyan-Shilphata Road to Kalyan Phata, and joins Line 12 again near Khutari village, before Amandoot (Taloja). The interchange with Line 12 is reported at Katai Naka. Its figures are not counted in Line 12's. Between Katai Naka and Kalyan Phata it is reported to share track and stations with the proposed Line 14.`,
+      grades: [
+        { status: x.route.status, source: x.route.source_url },
+        { status: x.interchanges.status, source: x.interchanges.source_url },
+      ],
+      more: { href: lineBase('line-12'), label: 'Line 12' },
+    },
+    {
+      id: 'cost',
+      q: 'How much will Line 12A cost?',
+      a: `Rs ${inr(cost.value)} crore, as cleared on ${formatDate(approved.date)}. The figure includes ${flyovers.summary.split(':')[0].toLowerCase()}. No source splits it between the metro and the roads. In February 2026 the administrative approval was Rs ${inr(cost.history[0].value)} crore. Funding: ${x.funding.value}, as reported.`,
+      grades: [
+        { status: cost.status, source: cost.source_url },
+        { status: x.funding.status, source: x.funding.source_url },
+      ],
+    },
+    {
+      id: 'interchanges',
+      q: 'Where does Line 12A connect to other lines?',
+      a: `${x.interchanges.value.map((i) => `${i.station}: ${i.connects_to}`).join('. ')}. Navi Mumbai Metro Line 1 meets Line 12 at Amandoot, past the point where Line 12A joins it. A spur to the Thane bullet train station is possible, as reported. All as reported; MMRDA has published no interchange list for Line 12A.`,
+      grades: [
+        { status: x.interchanges.status, source: x.interchanges.source_url },
+        ...x.interchanges.planned.map((i) => ({ status: i.status, source: i.source_url })),
+      ],
+    },
+  ];
+}
+
+const sets: Record<string, (line: Line) => Answer[]> = { 'line-12': line12, 'line-12a': line12a, 'line-5': line5, 'line-4': line4 };
 
 /**
  * Opening mode: once the line's first section has an announced or past opening date, that date answers

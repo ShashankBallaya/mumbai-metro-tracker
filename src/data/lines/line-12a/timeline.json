@@ -1,0 +1,61 @@
+{
+  "_meta": {
+    "description": "Key milestones of Line 12A, oldest first. 'date_precision' is day, month or year. 'kind' is planning, approval, tender, award, construction, related or future. Only events whose source was read are listed.",
+    "last_reviewed": "2026-10-28"
+  },
+  "events": [
+    {
+      "id": "announced",
+      "date": "2026-02",
+      "date_precision": "month",
+      "kind": "approval",
+      "title": "Line 12A announced with administrative approval",
+      "summary": "Rs 8,414.53 crore, 18.4 km, 12 elevated stations, Manpada to Khutari village. Announced by Deputy Chief Minister Eknath Shinde.",
+      "status": "reported",
+      "source_url": "https://www.freepressjournal.in/mumbai/metro-12a-extension-approved-at-8414-cr-to-boost-kalyan-connectivity",
+      "also_see": [
+        "https://metrorailnews.in/mumbai-metro-line-12-extension/",
+        "https://swarajyamag.com/news-brief/mumbais-metro-web-grows-wider-new-18km-corridor-to-link-kalyan-dombivli-with-navi-mumbai"
+      ],
+      "last_verified": "2026-10-28"
+    },
+    {
+      "id": "double-decker-approved",
+      "date": "2026-02",
+      "date_precision": "month",
+      "kind": "related",
+      "title": "Kalyan Phata to Rajnoli double-decker approved (related project)",
+      "summary": "19.40 km, road below and metro above, Rs 5,909.21 crore. Separate from Line 12A.",
+      "status": "reported",
+      "source_url": "https://www.freepressjournal.in/mumbai/metro-12a-extension-approved-at-8414-cr-to-boost-kalyan-connectivity",
+      "last_verified": "2026-10-28"
+    },
+    {
+      "id": "cabinet-committee",
+      "date": "2026-10-27",
+      "date_precision": "day",
+      "kind": "approval",
+      "title": "Cleared by the state Cabinet Infrastructure Committee",
+      "summary": "Rs 13,856.37 crore with 15.62 km of integrated road flyovers. Deadline three and a half years. MMRDA implements it, and government land in the corridor goes to MMRDA.",
+      "status": "reported",
+      "source_url": "https://www.financialexpress.com/business/infrastructure-mumbai-metro-line-12ars-13856-crore-project-to-connectkalyan-dombivli-navi-mumbai-andcut-travel-time-by-50-4371131/",
+      "also_see": [
+        "https://metrorailnews.in/mumbai-metro-line-12a-approved-3-5-year-deadline/",
+        "https://timesofindia.indiatimes.com/city/mumbai/mumbais-13856-crore-metro-line-12a-project-gets-cabinet-approval-with-an-18-4-km-elevated-corridor-connecting-manpada-katai-naka-to-taloja-via-kalyan-phata-heres-a-look-at-the-route-12-elevated-stations-integrated-road-flyovers-and-expected-connectivity-benefits/photostory/135260632.cms",
+        "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/"
+      ],
+      "last_verified": "2026-10-28"
+    },
+    {
+      "id": "deadline",
+      "date": "2030-04",
+      "date_precision": "month",
+      "kind": "future",
+      "title": "Reported deadline",
+      "summary": "Three and a half years, counted by the site from the approval of 27 Oct 2026. No source gives the start date.",
+      "status": "reported",
+      "source_url": "https://www.financialexpress.com/business/infrastructure-mumbai-metro-line-12ars-13856-crore-project-to-connectkalyan-dombivli-navi-mumbai-andcut-travel-time-by-50-4371131/",
+      "last_verified": "2026-10-28"
+    }
+  ]
+}

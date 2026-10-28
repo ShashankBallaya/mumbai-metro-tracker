@@ -9,7 +9,8 @@
  * - `branch_from_station`: a spur (the line's spurStations) leaves that station at 45 degrees and
  *   runs below the line, its stations at their distance along the spur.
  * - `underground_along_m`: [from, to] along the line, a stretch to draw dashed.
- * A station without a published position sits midway between its neighbours and is marked not placed.
+ * - `indicative`: the whole route is the site's own drawing (Line 12A), so all of it is dashed.
+ * A station without a published position sits between its neighbours and is marked not placed.
  * A line that loops back (Line 5 at Kalyan) is drawn unrolled: x stays distance along the line.
  * Opening mode: the stretch between the first and last open station is drawn solid (`open`).
  * - `extension_from_m` and `extension_label`: an extension built as its own project on the same line
@@ -44,17 +45,28 @@ interface AlignmentProps {
   extension_from_m?: number;
   extension_label?: string;
   underground_along_m?: [number, number];
+  /** The route is the site's indicative drawing, not a published alignment: drawn dashed. */
+  indicative?: boolean;
 }
 
-/** Distances along the line; a station without one gets the midpoint of its neighbours. */
+/**
+ * Distances along the line. Stations without one are spaced evenly between their placed neighbours
+ * (one alone sits at the midpoint). Past the last placed station (Line 12A's Khutari), they follow on
+ * at the line's mean spacing between placed stations.
+ */
 function distances(stations: Station[]): { along: number[]; placed: boolean[] } {
   const raw = stations.map((s) => (s.location.along_m as number | null) ?? null);
+  const known = raw.flatMap((c, i) => (c === null ? [] : [i]));
+  if (known.length < 2) throw new Error(`${stations[0]?.id ?? 'line'}: fewer than two stations have a position`);
+  const [first, last] = [known[0], known[known.length - 1]];
+  if (first !== 0) throw new Error(`${stations[0].id} has no position, and the line must start at a placed station`);
+  const step = ((raw[last] as number) - (raw[first] as number)) / (last - first);
   const along = raw.map((c, i) => {
     if (c !== null) return c;
-    const before = raw.slice(0, i).findLast((v) => v !== null) ?? null;
-    const after = raw.slice(i + 1).find((v) => v !== null) ?? null;
-    if (before === null || after === null) throw new Error(`${stations[i].id} has no position and no placed neighbour on both sides`);
-    return (before + after) / 2;
+    if (i > last) return (raw[last] as number) + step * (i - last);
+    const b = known.findLast((k) => k < i)!;
+    const a = known.find((k) => k > i)!;
+    return (raw[b] as number) + (((raw[a] as number) - (raw[b] as number)) * (i - b)) / (a - b);
   });
   return { along, placed: raw.map((c) => c !== null) };
 }
@@ -118,7 +130,8 @@ export function schematic(line: Line, { width = 1000, top = 26, drop = 44, pad =
     path,
     points,
     placed,
-    underground: props.underground_along_m ? stretch(...props.underground_along_m) : undefined,
+    // An indicative route (Line 12A, no published alignment) is dashed over its whole length.
+    underground: props.underground_along_m ? stretch(...props.underground_along_m) : props.indicative ? path : undefined,
     open: openAt.length > 1 ? stretch(Math.min(...openAt), Math.max(...openAt)) : undefined,
     branch,
     extension,

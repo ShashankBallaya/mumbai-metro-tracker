@@ -43,6 +43,8 @@ const allDone = progress.items.length > 1 && progress.items.every((i) => i.perce
     </Fragment>
   ))}
 
+  {/* A line not yet under construction (Line 12A) has no progress table: the stages say it all. */}
+  {progress.items.length > 0 && (
   <div class="works">
     <h3 class="works__title">Civil works complete, as of <time datetime={progress.as_of}>{formatDate(progress.as_of)}</time></h3>
     {allDone ? (
@@ -90,6 +92,7 @@ const allDone = progress.items.length > 1 && progress.items.every((i) => i.perce
     </div>
     )}
   </div>
+  )}
 
   {incidents.map((inc) => (
     <div class="incident">

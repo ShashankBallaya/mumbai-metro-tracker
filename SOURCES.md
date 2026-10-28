@@ -89,7 +89,7 @@ Since 2026-09-29 the route line (`src/data/alignment-mmrda-2025.geojson`) and ev
 6. **Station coordinates.** Resolved 2026-09-29: MMRDA's approved alignment (primary source 3) gives every station point.
 7. **Systems tender number.** "CA-315" and the EMD come from a search snippet of a paywalled page. Marked unverified.
 8. **General Consultant value.** Rs 265.10 crore covers Lines 10 and 12 together. There is no source for the Line 12 share.
-9. **Line 12A.** Separate 18.4 km project approved in Feb 2026. It is listed under `related_projects` and kept out of Line 12 totals. Should the site cover it? Update 2026-10-28: the state Cabinet Infrastructure Committee cleared it on 27 Oct 2026 at Rs 13,856.37 crore (with integrated flyovers; the Feb 2026 figure was Rs 8,414.53 crore), with a deadline of three and a half years. Reported only; no MMRDA document yet.
+9. **Line 12A.** Separate 18.4 km project approved in Feb 2026. It is listed under `related_projects` and kept out of Line 12 totals. Resolved 2026-10-28: Line 12A has its own page at /line-12a/ (see "Line 12A" below). Update 2026-10-28: the state Cabinet Infrastructure Committee cleared it on 27 Oct 2026 at Rs 13,856.37 crore (with integrated flyovers; the Feb 2026 figure was Rs 8,414.53 crore), with a deadline of three and a half years. Reported only; no MMRDA document yet.
 10. **Nearby landmarks.** Station context comes only from DPR text (roads, chowks, villages) and engineering reports. I did not add landmarks from maps, to avoid invented facts. Phase 3 can add them from OpenStreetMap with attribution.
 11. **Social posts.** `social.json` has no posts yet. There is one candidate for you to review.
 
@@ -295,3 +295,50 @@ Decided by the owner on 2026-10-19 (all as proposed):
 - An MMRDA page or press release for Line 4A.
 - An opening date, CMRS approval, fares or timetable.
 - Marathi names for Gowniwada and Gaimukh.
+
+# Line 12A (Manpada-Katai Naka to Taloja via Kalyan Phata)
+
+Research started 2026-10-28. Data in `src/data/lines/line-12a/`. Shown at /line-12a/ since 2026-10-28 (owner: "Now we would need Line 12 A tracker also"). Line 12A is a separate project from Line 12; its figures stay out of Line 12's. The status values above apply.
+
+## Primary sources
+
+None. MMRDA has published no Line 12A project page (the URL returns 404), report, alignment file or station list (checked 2026-10-28). Its Metro Influence Zone for NOC page lists route files for 11 lines, not 12A. Every fact is graded reported at best.
+
+## Secondary sources
+
+| Outlet | Date | Used for | URL |
+|---|---|---|---|
+| Swarajya | 20 Feb 2026 | Announcement: 18.4 km, Manpada to Khutari, a project report prepared, via Kalyan-Shilphata Road and NH 48, 10 to 12 stations, a possible spur to the Thane bullet train station, track shared with Line 14 | https://swarajyamag.com/news-brief/mumbais-metro-web-grows-wider-new-18km-corridor-to-link-kalyan-dombivli-with-navi-mumbai |
+| Free Press Journal | 20 Feb 2026 | Administrative approval Rs 8,414.53 cr; joins Line 12 near Khutari before Amandoot; about 10.5 km already under construction; Line 14 shares Katai Naka to Kalyan Phata; Nilje depot link; twin U-girders on single piers; Kalyan Phata to Rajnoli double-decker (19.40 km, Rs 5,909.21 cr) | https://www.freepressjournal.in/mumbai/metro-12a-extension-approved-at-8414-cr-to-boost-kalyan-connectivity |
+| Metro Rail News | 21 Feb 2026 | Same announcement | https://metrorailnews.in/mumbai-metro-line-12-extension/ |
+| Newsband | Feb 2026 | Same announcement, station names | https://www.newsband.in/article_detail/kalyantaloja-metro-12a-corridor-gets-state-approval |
+| Newsband | Oct 2026 | 12 station names, integrated elevated roads, funding (MMRDA, State interest-free subordinate loans, financial institutions) | https://www.newsband.in/article_detail/state-approves-metro-12a-and-integrated-double-decker-corridor |
+| Loksatta (Marathi) | 27 Oct 2026 | 12 station names in Marathi, 18.4 km including the car shed link | https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/ |
+| Financial Express (PTI) | 28 Oct 2026 | Cabinet Infrastructure Committee, 27 Oct 2026: Rs 13,856.37 cr, 3.5-year deadline, MMRDA implements, interchanges, 4.74 lakh riders, 40 to 50% shorter, land transfer | https://www.financialexpress.com/business/infrastructure-mumbai-metro-line-12ars-13856-crore-project-to-connectkalyan-dombivli-navi-mumbai-andcut-travel-time-by-50-4371131/ |
+| Metro Rail News | 28 Oct 2026 | Same approval; no start date for the deadline | https://metrorailnews.in/mumbai-metro-line-12a-approved-3-5-year-deadline/ |
+| Times of India | 28 Oct 2026 | Same approval; 15.62 km of flyovers (6.93 km four-lane, 8.69 km six-lane) | https://timesofindia.indiatimes.com/city/mumbai/mumbais-13856-crore-metro-line-12a-project-gets-cabinet-approval-with-an-18-4-km-elevated-corridor-connecting-manpada-katai-naka-to-taloja-via-kalyan-phata-heres-a-look-at-the-route-12-elevated-stations-integrated-road-flyovers-and-expected-connectivity-benefits/photostory/135260632.cms |
+
+Not used: Thane Real Estate News and Native Planet (22 and 21 Feb 2026) repeat the February reports.
+
+## Derived data
+
+The route and six station points are the site's own indicative drawing (owner's decision, 2026-10-28), built by `scripts/build-alignment-line12a.py`:
+
+- Manpada takes Line 12's Manpada point from MMRDA's approved alignment of 20 Mar 2025. No source says whether Line 12A uses the same station.
+- Katai Naka (Katai Gao Toll Plaza, node 1712272441), Desai Naka (node 10717689044), Padle Gaon (bus stop, node 10247438117), Kalyan Phata (node 344399096) and Rohinjan (bus stop, node 13703628282) take their OpenStreetMap point, moved onto the road with OSRM's nearest service.
+- The route is OSRM's road route through those six points: 13.66 km from Manpada to Rohinjan.
+- Growth Centre, Gotheghar Gaon, Dahisar Mori, Dahisar Gaon, Kiravali Gaon and Khutari Gaon have no point. OpenStreetMap, Nominatim and GeoNames do not name them, and Esri's imagery labels do not show them (checked 2026-10-28). The schematic spaces them evenly between placed neighbours; Khutari follows Rohinjan at the line's mean spacing.
+
+Every point is graded unverified. Replace them when MMRDA publishes an alignment file.
+
+## Items that need your review
+
+1. **Countdown.** The State set a deadline of three and a half years; no source gives its start. The site counts from the approval of 27 Oct 2026, to 27 Apr 2030, labelled as reported. Keep it, or hide the countdown until a date is announced?
+2. **Line 12 and 12A at Manpada and Katai Naka.** Line 12A starts at Manpada (a Line 12 station), but the interchange with Line 12 is reported at Katai Naka. MMRDA's Line 12 trackwork tender CA-316 also shows a Katai Naka station after Manpada (Line 12 leads, item 1). Whether Line 12 itself now runs through Katai Naka is not published.
+3. **The 10.5 km under construction.** Free Press Journal (Feb 2026) says about 10.5 km of the 18.4 km was already under construction. No source says which part.
+4. **Station positions.** Six stations have no position. Photos or local knowledge of where Gotheghar, Dahisar Mori, Dahisar Gaon, Kiravali and Khutari sit on the Mumbra-Panvel road would place them (still graded unverified until MMRDA publishes).
+
+## Not found
+
+- An MMRDA page, press release, project report or alignment file for Line 12A.
+- A tender, a depot plan beyond the Nilje link, a colour, or a start date for the deadline.

@@ -73,7 +73,7 @@ const streetConfig = {
     <div class="mapsec__map-wrap">
       <div class="mapsec__map" data-map aria-label={`Map of the Mumbai Metro ${line.info.label} route`} role="region"></div>
       <p class="mapsec__map-note">
-        <span class="mapsec__key" aria-hidden="true"></span> {line.info.copy.map_legend}
+        <span class:list={['mapsec__key', parts.has('indicative') && 'mapsec__key--tunnel']} aria-hidden="true"></span> {line.info.copy.map_legend}
         <Grade status={alignMeta.status} source={alignMeta.source_url} compact />
       </p>
       {parts.has('underground') && (

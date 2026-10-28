@@ -8,7 +8,7 @@ Status: decided 2026-10-08. Step 2 done.
 - `/` is a hub of all lines.
 - Line 5: cover the whole line. Phase 1 is built and gets the full Line 12 treatment (same orange line colour). Later phases get the lighter treatment until they are built.
 - Repo: renamed from `line12-tracker` to `mumbai-metro-tracker` (done 2026-10-08). The Cloudflare Pages project keeps the name `line12-tracker` until the domain move.
-- Line 12A: not decided yet.
+- Line 12A: its own line and page at `/line-12a/` (owner, 2026-10-28). MMRDA has published no alignment, so the route and six station points are an indicative drawing from OpenStreetMap, graded unverified and drawn dashed; the other six stations are not yet mapped. Same orange as Line 12, told apart by the 12A mark.
 
 Order from the owner's post of 7 Oct 2026: buy a domain, then Line 5, then Line 4 and Line 2B. Line 12 stays the first and fullest line.
 
@@ -186,5 +186,5 @@ Researched 2026-10-09. Grades as in SOURCES.md. "EIA" is MMRDA's Phase 1 environ
 
 ## Questions for the owner
 
-1. Line 12A: a line of its own in the registry, or still out of scope?
+1. ~~Line 12A: a line of its own in the registry, or still out of scope?~~ Answered 2026-10-28: its own line (see Decisions).
 2. ~~Line 5 and Line 12 share the orange colour.~~ Answered 2026-10-09 by item 6: the line number always shows with the colour (LineMark).

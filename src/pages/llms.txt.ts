@@ -19,9 +19,12 @@ export const GET: APIRoute = ({ site }) => {
   const line4 = getLine('line-4');
   const p4 = line4.project as typeof line4.project & { length_km: { with_4a_km: number }; target_completion: { scope: string } };
   const b4 = lineBase('line-4');
+  const line12a = getLine('line-12a');
+  const p12a = line12a.project as typeof line12a.project & { route: { value: string }; target_completion: { countdown_date: string } };
+  const b12a = lineBase('line-12a');
   const body = `# ${SITE_NAME}
 
-> An unofficial, sourced tracker for the Mumbai Metro lines MMRDA is building around Kalyan and Thane: Line 12 (Kalyan to Taloja), Line 5 (Thane to Kalyan) and Line 4 with Line 4A (Wadala to Thane and Gaimukh). Every fact carries a grade (verified, reported, unverified, sources conflict) and a source link. Facts last checked ${formatDate(siteReviewed)}. Not affiliated with MMRDA.
+> An unofficial, sourced tracker for the Mumbai Metro lines MMRDA is building or planning around Kalyan and Thane: Line 12 (Kalyan to Taloja), Line 12A (Manpada to Taloja via Kalyan Phata, approved), Line 5 (Thane to Kalyan) and Line 4 with Line 4A (Wadala to Thane and Gaimukh). Every fact carries a grade (verified, reported, unverified, sources conflict) and a source link. Facts last checked ${formatDate(siteReviewed)}. Not affiliated with MMRDA.
 
 - [${SITE_NAME}](${url('/')}): every line on one page.
 
@@ -39,7 +42,7 @@ export const GET: APIRoute = ({ site }) => {
 - Interchanges: ${p.interchanges.value.map((x) => `${x.station} (${x.connects_to})`).join('; ')}.
 - Depot: ${p.depot.value}, about ${p.depot.area_ha} ha.
 - Builder: MMRDA; civil contract CA-240 with Gawar Constructions (reported).
-- Line 12A is a separate project and is not part of Line 12's figures.
+- Line 12A is a separate project and is not part of Line 12's figures (see Line 12A below).
 
 ## Line 12: pages
 
@@ -47,6 +50,22 @@ export const GET: APIRoute = ({ site }) => {
 - [Line 12 status, answered](${url(`${b12}status/`)}): opening date, progress, route, cost, interchanges.
 - [All Line 12 stations](${url(`${b12}stations/`)}): the ${stations.length} stations in order.
 ${stations.map((s) => `- [${s.name} metro station, Line 12](${url(`${b12}stations/${s.id}/`)}): station ${s.order} of ${stations.length}.`).join('\n')}
+
+## Line 12A: key facts
+
+- Name: ${p12a.name.value}, also called ${p12a.name.also_known_as.join(', ')}. A separate project from Line 12.
+- Route: ${p12a.route.value} (reported). MMRDA has published no alignment; the site's map is indicative.
+- Length: ${p12a.length_km.value} km including the car shed link, fully elevated, ${p12a.stations_count.value} stations (reported).
+- Approval: cleared by the state Cabinet Infrastructure Committee on 27 Oct 2026 at Rs ${inr(p12a.completion_cost_crore_inr.value)} crore, including 15.62 km of integrated road flyovers; first announced in February 2026 at Rs 8,414.53 crore (reported).
+- Deadline: three and a half years (reported); the site counts from the approval, to ${formatDate(p12a.target_completion.countdown_date)}.
+- State: ${p12a.current_phase.value}
+- Interchanges: ${p12a.interchanges.value.map((x) => `${x.station} (${x.connects_to})`).join('; ')} (reported).
+
+## Line 12A: pages
+
+- [Line 12A](${url(b12a)}): route, indicative map, stages, timeline and sources.
+${hasStatusPage(line12a) ? `- [Line 12A status, answered](${url(`${b12a}status/`)}): approval, route, stations, cost, deadline.\n` : ''}- [All Line 12A stations](${url(`${b12a}stations/`)}): the ${line12a.stations.length} planned stations in order.
+${line12a.stations.map((s) => `- [${s.name} metro station, Line 12A](${url(`${b12a}stations/${s.id}/`)})`).join('\n')}
 
 ## Line 5: key facts
 

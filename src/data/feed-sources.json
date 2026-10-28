@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "Where the automatic news and video feed looks, and what it keeps. Edited by hand; read by scripts/fetch-feed.mjs every 6 hours (.github/workflows/feed.yml). Only outlets' own RSS feeds and the YouTube Data API are used: Google News RSS is for personal feed readers only, so it is not used. Each line has its own block under 'lines': the words searched for on each outlet ('search', put in place of {q} in an outlet's URL), the video queries, and the rules for keeping an item. An item is tagged with every line whose rules it meets.",
-    "last_reviewed": "2026-10-09"
+    "last_reviewed": "2026-10-28"
   },
   "news_feeds": [
     {
@@ -65,6 +65,43 @@
           "golavali",
           "sonarpada",
           "manpada"
+        ],
+        "require_corridor": false
+      }
+    },
+    "line-12a": {
+      "search": [
+        "12A"
+      ],
+      "video_queries": [
+        "Metro Line 12A Kalyan Shilphata",
+        "Metro 12A Taloja"
+      ],
+      "match": {
+        "comment": "An item is kept if its title matches a 'line' pattern, or its title names a 'corridor' place and its summary matches one. 'line[\\s-]*12[\\s-]*a\\b' is Line 12A only; Line 12's patterns do not match it.",
+        "strong": [
+          "line[\\s-]*12[\\s-]*a\\b",
+          "metro[\\s-]*12[\\s-]*a\\b",
+          "मेट्रो[\\s-]*(१२|12)[\\s-]*(अ|a)"
+        ],
+        "line": [
+          "line[\\s-]*12[\\s-]*a\\b",
+          "metro[\\s-]*12[\\s-]*a\\b",
+          "मेट्रो[\\s-]*(१२|12)[\\s-]*(अ|a)"
+        ],
+        "corridor": [
+          "kalyan",
+          "dombivli",
+          "shilphata",
+          "shil phata",
+          "kalyan phata",
+          "katai",
+          "manpada",
+          "dahisar mori",
+          "taloja",
+          "khutari",
+          "khutare",
+          "mmrda"
         ],
         "require_corridor": false
       }

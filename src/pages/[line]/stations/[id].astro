@@ -282,7 +282,7 @@ const schema: Record<string, unknown>[] = [
           ) : (
             <p>
               No date has been announced for this station on its own. For {label} as a whole, the reported target is{' '}
-              {formatDate(target.value)}; an earlier reported target was {formatDate(target.alternatives[0].value)}.
+              {formatDate(target.value)}{(target as { alternatives?: { value: string }[] }).alternatives?.[0] ? <>; an earlier reported target was {formatDate((target as { alternatives: { value: string }[] }).alternatives[0].value)}</> : null}.
             </p>
           )}
           {!opened && <p class="grades">{announced ? <Grade status={announced.status} source={announced.source_url} /> : <Grade status={opening.status} source={opening.source_url} />}</p>}

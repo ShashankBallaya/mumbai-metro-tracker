@@ -60,7 +60,8 @@ const pct = (x: number, y: number) => `left:${((x / W) * 100).toFixed(2)}%;top:$
 const pathOf = (coords: number[][]) => 'M' + coords.map(([lng, lat]) => place(lng, lat).join(',')).join('L');
 const path = pathOf(line);
 const spurPath = spurLine && pathOf(spurLine);
-const tunnelPath = tunnel && pathOf(tunnel);
+// An indicative route (Line 12A) is dashed over its whole length.
+const tunnelPath = tunnel ? pathOf(tunnel) : (alignment.properties as { indicative?: boolean }).indicative ? path : undefined;
 const dots = [...stations, ...spurStations]
   .filter((s) => s.location.lat !== null)
   .map((s) => ({ s, at: place(s.location.lng!, s.location.lat!), here: s.id === station.id, change: s.interchanges.value.length > 0 }));

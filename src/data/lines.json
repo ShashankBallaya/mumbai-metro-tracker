@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "The lines this site covers, in hub order. Each line's facts live in src/data/lines/<id>/. project.json and stations.json are required; every other file is optional, and a section without its file does not show. 'alignment' names the GeoJSON file the map and schematic draw from. 'about' feeds the line's schema.org node on every page of that line. 'position_basis' names where station coordinates come from: 'by_source' matches part of a station's location source_url, else 'default'. 'copy' holds the line's own wording for shared pages; {total}, {km} and {name} are filled in. Tokens in copy: {stations}, {as_of}, {pct:<activity>}, {target}, {earlier}, {rest}, {alt}, {minutes} come from project.json. Keys ending in _html may contain inline markup. 'number' is the line's mark; 'colour' names its colour token in src/styles/tokens.css (with an on- token for text on it); a line page whose colour is not line-orange takes it as its accent (data-accent on <html>). 'other_lines' gives a colour to lines the site does not cover, for their mark only; a line in neither list gets a neutral outlined mark. Line 5 and Line 12 share orange, so every mention of a line shows its number with the colour (LineMark.astro). 'dpr_label' names the project report that stations.json dpr_name and dpr_chainage_m come from (default: the 2019 project report, Line 12's). 'dropped_heading' names the group of dropped stations (default: Line 5's wording). 'extension_note' is said of every station on an extension of the line (stations.json `section`, Line 4A).",
-    "last_reviewed": "2026-10-19"
+    "last_reviewed": "2026-10-28"
   },
   "lines": [
     {
@@ -100,6 +100,97 @@
         "status_mr": "कल्याण-तळोजा मेट्रो १२",
         "status_lead": "The questions people ask about Mumbai Metro Line 12, Kalyan to Taloja.",
         "footer_disclaimer": "Mumbai Metro Tracker is an independent public-interest site. It is not affiliated with, endorsed by or connected to MMRDA or the Government of Maharashtra. Drawings are original illustrations, not official designs. Check official sources before making decisions."
+      }
+    },
+    {
+      "id": "line-12a",
+      "label": "Line 12A",
+      "number": "12A",
+      "colour": "line-orange",
+      "mark_mr": "मेट्रो १२ अ",
+      "route_short": "Manpada to Taloja via Kalyan Phata",
+      "alignment": "alignment-indicative.geojson",
+      "about": {
+        "name": "Mumbai Metro Line 12A",
+        "alternate_names": [
+          "Metro Line 12A",
+          "Metro 12A",
+          "Kalyan Phata-Taloja Metro"
+        ],
+        "description": "A planned elevated metro line from Manpada through Katai Naka and Kalyan Phata to Khutari village near Taloja, where it joins Line 12, to be built by MMRDA. Approved by the State in October 2026.",
+        "same_as": []
+      },
+      "position_basis": {
+        "default": "indicative: the named place in OpenStreetMap, on the road",
+        "by_source": {
+          "mmrda.maharashtra.gov.in": "indicative: Line 12's Manpada station point (MMRDA, 2025)"
+        }
+      },
+      "copy": {
+        "ends": [
+          "Manpada",
+          "Khutari"
+        ],
+        "runs": "which will run fully elevated from Manpada along Kalyan-Shilphata Road to Kalyan Phata, then towards Taloja to join Line 12 near Khutari",
+        "station_state": "Planned. Not started.",
+        "stations_section": "All twelve, in order from Manpada, as the news reports list them. MMRDA has published no station list or positions; six stations are not yet on the map. Select a station to ride to it, or open its own page.",
+        "stations_page": "All {total}, in order from Manpada to Khutari Gaon, as reported. Every station is elevated. The line is {km} km long. MMRDA has published no station positions, so the map is indicative.",
+        "stations_page_description": "The {total} planned stations of {name} in order, from Manpada through Katai Naka and Kalyan Phata to Khutari near Taloja, with interchanges and a page for each station.",
+        "route_section": "Twelve stations, Manpada to Khutari Gaon. Scroll to ride the line station by station. MMRDA has published no route: distances follow the roads between the places OpenStreetMap names, and the stations it does not name are spaced evenly.",
+        "route_legend": "A dashed outline marks an indicative route: MMRDA has published none. Construction has not started.",
+        "drawn_from": [
+          "OpenStreetMap",
+          " roads through the named places, an indicative route; MMRDA has published none"
+        ],
+        "headline_html": "Follow Mumbai Metro Line&nbsp;12A<br> from approval to opening.",
+        "front_standfirst": "The line will run fully elevated from Manpada along Kalyan-Shilphata Road to Kalyan Phata, then by Dahisar Mori to Khutari near Taloja, where it joins Line 12: {stations} stations, as reported. The State cleared it on 27 October 2026. Construction has not started.",
+        "countdown_title": "Days to the reported deadline",
+        "target_html": "Deadline: <strong>{target}</strong>, three and a half years from the approval of 27 October 2026, as the site counts it. The State set the deadline; no source gives its start date.",
+        "lead_scene": null,
+        "map_section": "The planned line on a street map. MMRDA has published no route for Line 12A, so this one is indicative: it follows the roads the reports name, through the places OpenStreetMap names. Six stations are not yet on the map.",
+        "map_legend": "Indicative route along the roads; MMRDA has published none",
+        "map_first_station": "kalyan-phata",
+        "numbers": {
+          "length_unit": "km, fully elevated, with the car shed link",
+          "stations_unit": "all elevated, as reported",
+          "cost_unit": ", with the integrated road flyovers",
+          "cost_note": "Cleared by the state Cabinet Infrastructure Committee, 27 Oct 2026. The figure includes 15.62 km of road flyovers; no source splits it.",
+          "funding_head": "MMRDA, State and lenders",
+          "funding_note": "MMRDA, interest-free subordinate loans from the State and loans from financial institutions, as reported. Government land along the corridor goes to MMRDA to raise money. No lender is named.",
+          "depot_history": [],
+          "travel_head": "40 to 50% shorter",
+          "travel_unit": "than by road (MMRDA, as reported)",
+          "riders_head": "Daily riders, estimated"
+        },
+        "primary_sources": [
+          {
+            "name": "Financial Express (PTI), 28 Oct 2026",
+            "note": "The approval of 27 Oct 2026: cost, deadline, agency, interchanges, riders.",
+            "url": "https://www.financialexpress.com/business/infrastructure-mumbai-metro-line-12ars-13856-crore-project-to-connectkalyan-dombivli-navi-mumbai-andcut-travel-time-by-50-4371131/"
+          },
+          {
+            "name": "Loksatta (Marathi), 27 Oct 2026",
+            "note": "The twelve station names and the integrated elevated roads.",
+            "url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/"
+          },
+          {
+            "name": "Free Press Journal, 20 Feb 2026",
+            "note": "The first approval, the route past Dahisar Mori, the join with Line 12, the design.",
+            "url": "https://www.freepressjournal.in/mumbai/metro-12a-extension-approved-at-8414-cr-to-boost-kalyan-connectivity"
+          },
+          {
+            "name": "OpenStreetMap",
+            "note": "The places and roads behind the indicative route and station points.",
+            "url": "https://www.openstreetmap.org/copyright"
+          }
+        ],
+        "page_description": "Unofficial, sourced tracker for Mumbai Metro Line 12A, Manpada to Taloja via Kalyan Phata: approval, cost, deadline, the 12 planned stations and an indicative map. Every figure links to its source.",
+        "status_title": "Mumbai Metro Line 12A Status: approval, route, deadline",
+        "status_description": "Is Metro Line 12A approved, where it runs, its stations, cost and deadline. Answers from news sources, checked {checked}.",
+        "status_h1": "Metro Line 12A status, answered",
+        "status_mr": "मानपाडा-कल्याण फाटा-तळोजा मेट्रो १२ अ",
+        "status_lead": "The questions people ask about Mumbai Metro Line 12A, Manpada to Taloja.",
+        "footer_disclaimer": "Mumbai Metro Tracker is an independent public-interest site. It is not affiliated with, endorsed by or connected to MMRDA or the Government of Maharashtra. The route and station positions on this page are indicative, not official. Check official sources before making decisions."
       }
     },
     {

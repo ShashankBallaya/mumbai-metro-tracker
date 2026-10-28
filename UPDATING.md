@@ -132,6 +132,14 @@ python scripts/build-alignment-line5.py
 
 It derives the centre line between the polygon's two sides, rewrites `src/data/lines/line-5/alignment-mmrda-2025.geojson`, and moves every station in `src/data/lines/line-5/stations.json` to MMRDA's point. It stops if a station point is more than 25 m from the derived line, or if MMRDA renamed a station in the file.
 
+For Line 12A, MMRDA has published no alignment file yet. The route and station points are indicative, from OpenStreetMap:
+
+```bash
+python scripts/build-alignment-line12a.py
+```
+
+It rewrites `src/data/lines/line-12a/alignment-indicative.geojson` and the positions of the stations it can place. To place another station, add its OpenStreetMap node to `PLACES` in the script. When MMRDA publishes a Line 12A file, replace this script with one that reads it, as for Lines 4 and 5.
+
 ## Station pages, status page and search files
 
 These are built from the data files. You never edit them by hand:

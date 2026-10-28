@@ -1,0 +1,400 @@
+{
+  "_meta": {
+    "description": "Line 12A's twelve stations in order from Manpada, as Loksatta (27 Oct 2026) and Newsband list them. MMRDA has published no station list, route or station points for Line 12A, so every name is graded reported. Positions are indicative: the station is put at its named place on the road the line follows (OpenStreetMap), and along_m is measured along the roads between those places (scripts/build-alignment-line12a.py). A station whose place no open map source names has no position yet. The real station points will come from MMRDA's alignment file when it publishes one.",
+    "order_source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/",
+    "order_status": "reported",
+    "count_source_url": "https://www.financialexpress.com/business/infrastructure-mumbai-metro-line-12ars-13856-crore-project-to-connectkalyan-dombivli-navi-mumbai-andcut-travel-time-by-50-4371131/",
+    "names_mr_source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/",
+    "names_mr_status": "reported",
+    "last_reviewed": "2026-10-28"
+  },
+  "stations": [
+    {
+      "id": "manpada",
+      "order": 1,
+      "name": "Manpada",
+      "name_mr": "मानपाडा",
+      "type": "Elevated",
+      "name_status": "reported",
+      "name_source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/",
+      "dpr_name": null,
+      "location": {
+        "lng": 73.091396,
+        "lat": 19.180542,
+        "along_m": 0,
+        "method": "Indicative. Line 12's Manpada station point in MMRDA's approved alignment of 20 Mar 2025. No source says whether Line 12A uses the same station.",
+        "status": "unverified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "reported",
+        "source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://www.financialexpress.com/business/infrastructure-mumbai-metro-line-12ars-13856-crore-project-to-connectkalyan-dombivli-navi-mumbai-andcut-travel-time-by-50-4371131/",
+        "notes": "Approved by the state Cabinet Infrastructure Committee on 27 Oct 2026. No contract has been awarded."
+      },
+      "notes": "Also a station of Line 12. No source says whether Line 12A uses the same station.",
+      "last_verified": "2026-10-28"
+    },
+    {
+      "id": "katai-naka",
+      "order": 2,
+      "name": "Katai Naka",
+      "name_mr": "कटाई नाका",
+      "type": "Elevated",
+      "name_status": "reported",
+      "name_source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/",
+      "dpr_name": null,
+      "location": {
+        "lng": 73.079303,
+        "lat": 19.168639,
+        "along_m": 2162,
+        "method": "Indicative. OpenStreetMap node 1712272441 (Katai Gao Toll Plaza), moved 26 m onto Kalyan - Shil Road. MMRDA has published no station points for Line 12A.",
+        "status": "unverified",
+        "source_url": "https://www.openstreetmap.org/node/1712272441"
+      },
+      "interchanges": {
+        "value": [
+          "Metro Line 12 (Kalyan-Taloja)",
+          "the link to the Thane bullet train station"
+        ],
+        "status": "reported",
+        "source_url": "https://www.financialexpress.com/business/infrastructure-mumbai-metro-line-12ars-13856-crore-project-to-connectkalyan-dombivli-navi-mumbai-andcut-travel-time-by-50-4371131/"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://www.financialexpress.com/business/infrastructure-mumbai-metro-line-12ars-13856-crore-project-to-connectkalyan-dombivli-navi-mumbai-andcut-travel-time-by-50-4371131/",
+        "notes": "Approved by the state Cabinet Infrastructure Committee on 27 Oct 2026. No contract has been awarded."
+      },
+      "notes": "Financial Express (PTI, 28 Oct 2026) puts the interchange with Line 12 and the bullet train link here. Between Katai Naka and Kalyan Phata, Line 12A is reported to share track and stations with the proposed Line 14 (Kanjurmarg-Badlapur). MMRDA's trackwork tender CA-316 for Line 12 also shows a Katai Naka station after Manpada (see SOURCES.md).",
+      "last_verified": "2026-10-28"
+    },
+    {
+      "id": "growth-centre",
+      "order": 3,
+      "name": "Growth Centre",
+      "name_mr": "ग्रोथ सेंटर",
+      "type": "Elevated",
+      "name_status": "reported",
+      "name_source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/",
+      "dpr_name": null,
+      "location": {
+        "lng": null,
+        "lat": null,
+        "along_m": null,
+        "method": "Not yet mapped. MMRDA has published no route or station points for Line 12A, and no open map source names this place.",
+        "status": "unverified",
+        "source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "reported",
+        "source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://www.financialexpress.com/business/infrastructure-mumbai-metro-line-12ars-13856-crore-project-to-connectkalyan-dombivli-navi-mumbai-andcut-travel-time-by-50-4371131/",
+        "notes": "Approved by the state Cabinet Infrastructure Committee on 27 Oct 2026. No contract has been awarded."
+      },
+      "notes": "Also reported as Kalyan Growth Centre and Growth Center.",
+      "last_verified": "2026-10-28"
+    },
+    {
+      "id": "desai-naka",
+      "order": 4,
+      "name": "Desai Naka",
+      "name_mr": "देसाई नाका",
+      "type": "Elevated",
+      "name_status": "reported",
+      "name_source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/",
+      "dpr_name": null,
+      "location": {
+        "lng": 73.068514,
+        "lat": 19.159863,
+        "along_m": 3999,
+        "method": "Indicative. OpenStreetMap node 10717689044 (Desai Naka (neighbourhood)), moved 7 m onto Kalyan - Shil Road. MMRDA has published no station points for Line 12A.",
+        "status": "unverified",
+        "source_url": "https://www.openstreetmap.org/node/10717689044"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "reported",
+        "source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://www.financialexpress.com/business/infrastructure-mumbai-metro-line-12ars-13856-crore-project-to-connectkalyan-dombivli-navi-mumbai-andcut-travel-time-by-50-4371131/",
+        "notes": "Approved by the state Cabinet Infrastructure Committee on 27 Oct 2026. No contract has been awarded."
+      },
+      "notes": null,
+      "last_verified": "2026-10-28"
+    },
+    {
+      "id": "padle-gaon",
+      "order": 5,
+      "name": "Padle Gaon",
+      "name_mr": "पडले गाव",
+      "type": "Elevated",
+      "name_status": "reported",
+      "name_source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/",
+      "dpr_name": null,
+      "location": {
+        "lng": 73.060244,
+        "lat": 19.153678,
+        "along_m": 5143,
+        "method": "Indicative. OpenStreetMap node 10247438117 (Padle Gaon bus stop), moved 14 m onto Kalyan - Shil Road. MMRDA has published no station points for Line 12A.",
+        "status": "unverified",
+        "source_url": "https://www.openstreetmap.org/node/10247438117"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "reported",
+        "source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://www.financialexpress.com/business/infrastructure-mumbai-metro-line-12ars-13856-crore-project-to-connectkalyan-dombivli-navi-mumbai-andcut-travel-time-by-50-4371131/",
+        "notes": "Approved by the state Cabinet Infrastructure Committee on 27 Oct 2026. No contract has been awarded."
+      },
+      "notes": "Also reported as Padle village, Padelagaon and Padegaon.",
+      "last_verified": "2026-10-28"
+    },
+    {
+      "id": "kalyan-phata",
+      "order": 6,
+      "name": "Kalyan Phata",
+      "name_mr": "कल्याण फाटा",
+      "type": "Elevated",
+      "name_status": "reported",
+      "name_source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/",
+      "dpr_name": null,
+      "location": {
+        "lng": 73.046798,
+        "lat": 19.14292,
+        "along_m": 7029,
+        "method": "Indicative. OpenStreetMap node 344399096 (Kalyan Phata), moved 11 m onto the nearest road. MMRDA has published no station points for Line 12A.",
+        "status": "unverified",
+        "source_url": "https://www.openstreetmap.org/node/344399096"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "reported",
+        "source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://www.financialexpress.com/business/infrastructure-mumbai-metro-line-12ars-13856-crore-project-to-connectkalyan-dombivli-navi-mumbai-andcut-travel-time-by-50-4371131/",
+        "notes": "Approved by the state Cabinet Infrastructure Committee on 27 Oct 2026. No contract has been awarded."
+      },
+      "notes": "Shilphata junction. Financial Express (PTI) reports an interchange with Line 14 between Katai Naka and Kalyan Phata.",
+      "last_verified": "2026-10-28"
+    },
+    {
+      "id": "gotheghar-gaon",
+      "order": 7,
+      "name": "Gotheghar Gaon",
+      "name_mr": "गोठेघर गाव",
+      "type": "Elevated",
+      "name_status": "reported",
+      "name_source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/",
+      "dpr_name": null,
+      "location": {
+        "lng": null,
+        "lat": null,
+        "along_m": null,
+        "method": "Not yet mapped. MMRDA has published no route or station points for Line 12A, and no open map source names this place.",
+        "status": "unverified",
+        "source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "reported",
+        "source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://www.financialexpress.com/business/infrastructure-mumbai-metro-line-12ars-13856-crore-project-to-connectkalyan-dombivli-navi-mumbai-andcut-travel-time-by-50-4371131/",
+        "notes": "Approved by the state Cabinet Infrastructure Committee on 27 Oct 2026. No contract has been awarded."
+      },
+      "notes": "Also reported as Gotheghar and Gothegar.",
+      "last_verified": "2026-10-28"
+    },
+    {
+      "id": "dahisar-mori",
+      "order": 8,
+      "name": "Dahisar Mori",
+      "name_mr": "दहिसर मोरी",
+      "type": "Elevated",
+      "name_status": "reported",
+      "name_source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/",
+      "dpr_name": null,
+      "location": {
+        "lng": null,
+        "lat": null,
+        "along_m": null,
+        "method": "Not yet mapped. MMRDA has published no route or station points for Line 12A, and no open map source names this place.",
+        "status": "unverified",
+        "source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "reported",
+        "source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://www.financialexpress.com/business/infrastructure-mumbai-metro-line-12ars-13856-crore-project-to-connectkalyan-dombivli-navi-mumbai-andcut-travel-time-by-50-4371131/",
+        "notes": "Approved by the state Cabinet Infrastructure Committee on 27 Oct 2026. No contract has been awarded."
+      },
+      "notes": "Not the Dahisar of Line 2A and Line 9 in Mumbai.",
+      "last_verified": "2026-10-28"
+    },
+    {
+      "id": "dahisar-gaon",
+      "order": 9,
+      "name": "Dahisar Gaon",
+      "name_mr": "दहिसर गाव",
+      "type": "Elevated",
+      "name_status": "reported",
+      "name_source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/",
+      "dpr_name": null,
+      "location": {
+        "lng": null,
+        "lat": null,
+        "along_m": null,
+        "method": "Not yet mapped. MMRDA has published no route or station points for Line 12A, and no open map source names this place.",
+        "status": "unverified",
+        "source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "reported",
+        "source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://www.financialexpress.com/business/infrastructure-mumbai-metro-line-12ars-13856-crore-project-to-connectkalyan-dombivli-navi-mumbai-andcut-travel-time-by-50-4371131/",
+        "notes": "Approved by the state Cabinet Infrastructure Committee on 27 Oct 2026. No contract has been awarded."
+      },
+      "notes": "Also reported as Dahisargaon and Dahisar village. Not the Dahisar of Line 2A and Line 9 in Mumbai.",
+      "last_verified": "2026-10-28"
+    },
+    {
+      "id": "kiravali-gaon",
+      "order": 10,
+      "name": "Kiravali Gaon",
+      "name_mr": "किरवली गाव",
+      "type": "Elevated",
+      "name_status": "reported",
+      "name_source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/",
+      "dpr_name": null,
+      "location": {
+        "lng": null,
+        "lat": null,
+        "along_m": null,
+        "method": "Not yet mapped. MMRDA has published no route or station points for Line 12A, and no open map source names this place.",
+        "status": "unverified",
+        "source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "reported",
+        "source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://www.financialexpress.com/business/infrastructure-mumbai-metro-line-12ars-13856-crore-project-to-connectkalyan-dombivli-navi-mumbai-andcut-travel-time-by-50-4371131/",
+        "notes": "Approved by the state Cabinet Infrastructure Committee on 27 Oct 2026. No contract has been awarded."
+      },
+      "notes": "Also reported as Kirawali Gaon and Kiravali village.",
+      "last_verified": "2026-10-28"
+    },
+    {
+      "id": "rohinjan",
+      "order": 11,
+      "name": "Rohinjan",
+      "name_mr": "रोहिंजण",
+      "type": "Elevated",
+      "name_status": "reported",
+      "name_source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/",
+      "dpr_name": null,
+      "location": {
+        "lng": 73.076309,
+        "lat": 19.092031,
+        "along_m": 13657,
+        "method": "Indicative. OpenStreetMap node 13703628282 (Rohinjan bus stop), moved 0 m onto the nearest road. MMRDA has published no station points for Line 12A.",
+        "status": "unverified",
+        "source_url": "https://www.openstreetmap.org/node/13703628282"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "reported",
+        "source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://www.financialexpress.com/business/infrastructure-mumbai-metro-line-12ars-13856-crore-project-to-connectkalyan-dombivli-navi-mumbai-andcut-travel-time-by-50-4371131/",
+        "notes": "Approved by the state Cabinet Infrastructure Committee on 27 Oct 2026. No contract has been awarded."
+      },
+      "notes": null,
+      "last_verified": "2026-10-28"
+    },
+    {
+      "id": "khutari-gaon",
+      "order": 12,
+      "name": "Khutari Gaon",
+      "name_mr": "खुटारी गाव",
+      "type": "Elevated",
+      "name_status": "reported",
+      "name_source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/",
+      "dpr_name": null,
+      "location": {
+        "lng": null,
+        "lat": null,
+        "along_m": null,
+        "method": "Not yet mapped. MMRDA has published no route or station points for Line 12A, and no open map source names this place.",
+        "status": "unverified",
+        "source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "reported",
+        "source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://www.financialexpress.com/business/infrastructure-mumbai-metro-line-12ars-13856-crore-project-to-connectkalyan-dombivli-navi-mumbai-andcut-travel-time-by-50-4371131/",
+        "notes": "Approved by the state Cabinet Infrastructure Committee on 27 Oct 2026. No contract has been awarded."
+      },
+      "notes": "Also reported as Khutare village. Line 12A is reported to join Line 12 near here, before Amandoot (Taloja).",
+      "last_verified": "2026-10-28"
+    }
+  ]
+}

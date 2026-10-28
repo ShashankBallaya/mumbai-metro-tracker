@@ -28,7 +28,7 @@ const kindLabel: Record<string, string> = {
   <div class="page">
     <header class="section-head">
       <h2 id="timeline-title">Timeline</h2>
-      <p>From the first report in 2017 to the reported opening target. Dates show only as much precision as the source gives.</p>
+      <p>From the first report in {timeline.find((e) => e.date)?.date?.slice(0, 4)} to the reported opening target. Dates show only as much precision as the source gives.</p>
     </header>
   </div>
   <div class="tl__viewport" data-timeline-viewport>
