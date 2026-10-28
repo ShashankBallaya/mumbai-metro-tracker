@@ -294,12 +294,29 @@
   },
   "related_projects": [
     {
-      "name": "Metro Line 12A (Kalyan Phata to Taloja via Dahisar Mori)",
-      "summary": "18.4 km elevated corridor with 12 stations, joining Line 12 near Khutari village. Administrative approval of Rs 8,414.53 crore reported in February 2026.",
+      "name": "Metro Line 12A (Manpada-Katai Naka to Taloja via Kalyan Phata)",
+      "summary": "18.4 km elevated corridor with 12 stations, joining Line 12 near Khutari village. The state Cabinet Infrastructure Committee cleared it on 27 October 2026 at Rs 13,856.37 crore, with 15.62 km of integrated road flyovers, and set a deadline of three and a half years. MMRDA builds it.",
       "status": "reported",
-      "source_url": "https://www.newsband.in/article_detail/kalyantaloja-metro-12a-corridor-gets-state-approval",
-      "last_verified": "2026-09-28",
-      "notes": "Separate project. Keep it out of Line 12 totals."
+      "source_url": "https://www.financialexpress.com/business/infrastructure-mumbai-metro-line-12ars-13856-crore-project-to-connectkalyan-dombivli-navi-mumbai-andcut-travel-time-by-50-4371131/",
+      "also_see": [
+        "https://metrorailnews.in/mumbai-metro-line-12a-approved-3-5-year-deadline/",
+        "https://timesofindia.indiatimes.com/city/mumbai/mumbais-13856-crore-metro-line-12a-project-gets-cabinet-approval-with-an-18-4-km-elevated-corridor-connecting-manpada-katai-naka-to-taloja-via-kalyan-phata-heres-a-look-at-the-route-12-elevated-stations-integrated-road-flyovers-and-expected-connectivity-benefits/photostory/135260632.cms",
+        "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/"
+      ],
+      "last_verified": "2026-10-28",
+      "stations": [
+        "Manpada", "Katai Naka", "Growth Centre", "Desai Naka", "Padle Gaon", "Kalyan Phata",
+        "Gothegar Gaon", "Dahisar Mori", "Dahisar Gaon", "Kiravali Gaon", "Rohinjan", "Khutari Gaon"
+      ],
+      "stations_source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/",
+      "history": [
+        {
+          "value": "Administrative approval of Rs 8,414.53 crore",
+          "context": "Reported February 2026",
+          "source_url": "https://www.newsband.in/article_detail/kalyantaloja-metro-12a-corridor-gets-state-approval"
+        }
+      ],
+      "notes": "Separate project. Keep it out of Line 12 totals. Interchanges reported: Line 12 and the bullet train link at Katai Naka, Line 14 between Katai Naka and Kalyan Phata, Navi Mumbai Metro Line 1 at Amandoot. Ridership estimate 4.74 lakh a day."
     }
   ]
 }

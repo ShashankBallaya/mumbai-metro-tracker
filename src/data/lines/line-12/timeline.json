@@ -223,6 +223,22 @@
       "last_verified": "2026-09-28"
     },
     {
+      "id": "line-12a-cabinet-committee",
+      "date": "2026-10-27",
+      "date_precision": "day",
+      "kind": "related",
+      "title": "Metro Line 12A cleared by state infrastructure committee (related project)",
+      "summary": "Rs 13,856.37 crore with 15.62 km of integrated road flyovers, 18.4 km, 12 elevated stations, Manpada-Katai Naka to Taloja via Kalyan Phata. Deadline three and a half years. Interchange with Line 12 at Katai Naka. Separate from Line 12.",
+      "status": "reported",
+      "source_url": "https://www.financialexpress.com/business/infrastructure-mumbai-metro-line-12ars-13856-crore-project-to-connectkalyan-dombivli-navi-mumbai-andcut-travel-time-by-50-4371131/",
+      "also_see": [
+        "https://metrorailnews.in/mumbai-metro-line-12a-approved-3-5-year-deadline/",
+        "https://timesofindia.indiatimes.com/city/mumbai/mumbais-13856-crore-metro-line-12a-project-gets-cabinet-approval-with-an-18-4-km-elevated-corridor-connecting-manpada-katai-naka-to-taloja-via-kalyan-phata-heres-a-look-at-the-route-12-elevated-stations-integrated-road-flyovers-and-expected-connectivity-benefits/photostory/135260632.cms",
+        "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/"
+      ],
+      "last_verified": "2026-10-28"
+    },
+    {
       "id": "opening",
       "date": "2028-05",
       "date_precision": "month",
