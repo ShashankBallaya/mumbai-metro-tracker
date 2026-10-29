@@ -49,6 +49,9 @@
   /* The line pages' display face: Anek Latin squeezed to 75%, weight 800, uppercase (DESIGN.md, The Squeeze Rule). */
   --wide: 75%;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Motion curves: a strong ease-out for anything that enters or answers a press, ease-in-out for on-screen moves. */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
   color: var(--hub-ink);
   font-family: var(--font-body);
 }
@@ -94,7 +97,7 @@ html[data-theme='dark']:has(.hubw) {
   color: var(--hub-ink-2);
   font: 500 0.95rem/1 var(--font-body);
   cursor: pointer;
-  transition: background-color 0.25s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease);
+  transition: transform 160ms var(--ease-out), background-color 200ms ease, color 200ms ease, border-color 200ms ease;
 }
 .hubbar__theme svg {
   width: 1.05rem;
@@ -175,7 +178,10 @@ html[data-theme='dark']:has(.hubw) {
   font-size: 0.95rem;
   text-decoration: none;
   color: var(--hub-ink-2);
-  transition: background-color 0.25s var(--ease), color 0.25s var(--ease);
+  transition: transform 160ms var(--ease-out), background-color 200ms ease, color 200ms ease;
+}
+.hubbar__nav a:active {
+  transform: scale(0.97);
 }
 .hubbar__nav .dot {
   width: 0.6rem;
@@ -185,7 +191,7 @@ html[data-theme='dark']:has(.hubw) {
 }
 @media (hover: hover) and (pointer: fine) {
   .hubbar__nav a:hover {
-    background: rgb(244 241 234 / 0.1);
+    background: color-mix(in oklab, var(--hub-ink) 9%, transparent);
     color: var(--hub-ink);
   }
 }
@@ -209,7 +215,7 @@ html[data-theme='dark']:has(.hubw) {
   font-size: 0.95rem;
   letter-spacing: 0.01em;
   text-decoration: none;
-  transition: transform 0.2s var(--ease), background-color 0.25s var(--ease), color 0.25s var(--ease);
+  transition: transform 160ms var(--ease-out), background-color 200ms ease, color 200ms ease, border-color 200ms ease;
 }
 .pill:active {
   transform: scale(0.97);
@@ -223,7 +229,7 @@ html[data-theme='dark']:has(.hubw) {
   color: var(--on-c);
 }
 .hubw .pill--ghost {
-  border: 1px solid rgb(244 241 234 / 0.4);
+  border: 1px solid color-mix(in oklab, var(--hub-ink) 40%, transparent);
   color: var(--hub-ink);
 }
 @media (hover: hover) and (pointer: fine) {
@@ -301,6 +307,10 @@ html[data-theme='dark']:has(.hubw) {
   background: color-mix(in oklab, var(--c) 22%, var(--hub-bg));
   text-decoration: none;
   isolation: isolate;
+  transition: transform 160ms var(--ease-out);
+}
+.cover__tile:active {
+  transform: scale(0.985);
 }
 .cover__tile img,
 .cover__plate {
@@ -309,7 +319,7 @@ html[data-theme='dark']:has(.hubw) {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.9s var(--ease);
+  transition: transform 350ms var(--ease-out);
 }
 .cover__plate {
   background: linear-gradient(160deg, color-mix(in oklab, var(--c) 45%, var(--hub-bg)), var(--hub-bg) 75%);
@@ -347,6 +357,7 @@ html[data-theme='dark']:has(.hubw) {
 @media (hover: hover) and (pointer: fine) {
   .cover__tile:hover img {
     transform: scale(1.04);
+    transition-duration: 700ms;
   }
 }
 @media (min-width: 64rem) {
@@ -374,6 +385,40 @@ html[data-theme='dark']:has(.hubw) {
   }
 }
 
+/* Cover intro: each frame fades up while its picture settles inside it (the chapters' language, small).
+   CSS, not script, so it starts with the first paint and stays smooth while the page loads.
+   The tile box never moves: the chapter masks measure it. */
+@media (prefers-reduced-motion: no-preference) {
+  .cover__tile {
+    animation: hub-fade 600ms var(--ease-out) both;
+  }
+  .cover__tile img {
+    animation: hub-settle 1100ms var(--ease-out) both;
+  }
+  .cover__tile--2,
+  .cover__tile--2 img { animation-delay: 60ms; }
+  .cover__tile--3,
+  .cover__tile--3 img { animation-delay: 120ms; }
+  .cover__tile--4,
+  .cover__tile--4 img { animation-delay: 180ms; }
+  .cover__mark > * {
+    animation: hub-rise 700ms var(--ease-out) both;
+  }
+  .cover__mark > :nth-child(1) { animation-delay: 100ms; }
+  .cover__mark > :nth-child(2) { animation-delay: 160ms; }
+  .cover__mark > :nth-child(3) { animation-delay: 220ms; }
+  .cover__mark > :nth-child(4) { animation-delay: 280ms; }
+}
+@keyframes hub-fade {
+  from { opacity: 0; }
+}
+@keyframes hub-settle {
+  from { scale: 1.12; }
+}
+@keyframes hub-rise {
+  from { opacity: 0; translate: 0 16px; }
+}
+
 /* ---------- 2. chapters ---------- */
 .chapter {
   position: relative;
@@ -387,6 +432,13 @@ html[data-theme='dark']:has(.hubw) {
   overflow: hidden;
   display: grid;
   align-items: end;
+}
+/* Leaving: the corners round once, as the stage starts to shrink away (a short repaint, not one per frame). */
+.chapter__stage {
+  transition: border-radius 300ms var(--ease-out);
+}
+.chapter.is-leaving .chapter__stage {
+  border-radius: 14px;
 }
 .chapter__art {
   position: absolute;
@@ -641,6 +693,13 @@ html[data-theme='dark']:has(.hubw) {
 .network__map.is-live .network__map-note {
   display: none;
 }
+.network__map .maplibregl-map {
+  opacity: 0;
+  transition: opacity 500ms var(--ease-out);
+}
+.network__map.is-live .maplibregl-map {
+  opacity: 1;
+}
 
 /* stroke samples: the map's line types */
 .stroke {
@@ -862,7 +921,7 @@ html[data-theme='dark']:has(.hubw) {
   color: var(--hub-ink);
 }
 .hubw footer.colophon a {
-  text-decoration-color: rgb(244 241 234 / 0.5);
+  text-decoration-color: color-mix(in oklab, var(--hub-ink) 50%, transparent);
   text-underline-offset: 0.2em;
 }
 

@@ -13,8 +13,11 @@ import Lenis from 'lenis';
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 let lenisRef: Lenis | null = null;
+// The hub (index.astro) runs its own scroll and motion (hub.ts). A second Lenis here would
+// fight it on every wheel tick, and a second link handler would override its landings.
+const ownMotion = document.querySelector('.hubw') !== null;
 
-if (!reduceMotion) {
+if (!reduceMotion && !ownMotion) {
   gsap.registerPlugin(ScrollTrigger, SplitText);
 
   // ---------- Smooth scroll ----------

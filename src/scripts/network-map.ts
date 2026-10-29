@@ -141,7 +141,8 @@ export async function mount(el: HTMLElement) {
   const restyle = () => map.setStyle(style(geometry, colourOf, labelPoints(geometry, lines)), { diff: true });
   new MutationObserver(restyle).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change', restyle);
-  el.classList.add('is-live');
+  // Reveal the map once its first frame is drawn, not as an empty box.
+  map.once('load', () => el.classList.add('is-live'));
 
   const byId = new Map(lines.map((l) => [l.id, l]));
   const popup = new maplibregl.Popup({ closeButton: false, offset: 10 });
