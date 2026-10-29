@@ -51,7 +51,7 @@ Every fact is sourced and graded (verified, reported, unverified, conflicting), 
 
 - `src/data/*.json` and `SOURCES.md` (Phase 1 research, reviewed 2026-09-28).
 - `src/data/alignment-dpr-2019.geojson`: approximate route from the DPR.
-- No photos, renders, testimonials or official logos. Do not fabricate them. The owner may add dated ground photos later.
+- Dated ground photos: the owner's own (from 2026-10-04) and others' used with permission (Arindam Mahapatra; drone stills by InfraUnfiltered), each credited with a link (photos.json). Since 2026-10-29 the hub's line chapters use them as their pictures (owner's decision). No renders presented as photos, no testimonials, no official logos. Do not fabricate any of them.
 - No confirmed trial-run or opening date, no rolling stock supplier, no per-station progress.
 
 ## Product Principles

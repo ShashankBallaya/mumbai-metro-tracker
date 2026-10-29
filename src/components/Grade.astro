@@ -16,13 +16,37 @@ interface Props {
   compact?: boolean;
   /** Hide the source link. */
   noSource?: boolean;
+  /** The mark itself is the link to the source (the outlet is named on hover and to screen readers),
+   *  for dense layouts that would otherwise repeat the outlet after every figure (the hub). */
+  markLink?: boolean;
 }
 
-const { status, source, compact = false, noSource = false } = Astro.props;
+const { status, source, compact = false, noSource = false, markLink = false } = Astro.props;
 const grade = (['verified', 'reported', 'unverified', 'conflicting'].includes(status) ? status : 'unverified') as Grade;
 const label = gradeLabel[grade];
 ---
 
+{markLink && source ? (
+  <a class:list={['grade', 'grade--link', `grade--${grade}`]} href={source} rel="noopener" target="_blank" title={`${label}. Source: ${outletName(source)}`}>
+    <svg class="grade__mark" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+      {grade === 'verified' && (
+        <>
+          <rect x="1" y="1" width="14" height="14" fill="currentColor" />
+          <path d="M4 8.4 6.9 11 12 5" fill="none" stroke="var(--paper)" stroke-width="2" stroke-linecap="square" />
+        </>
+      )}
+      {grade === 'reported' && <circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="2" />}
+      {grade === 'unverified' && <rect x="2" y="2" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="3 2.2" />}
+      {grade === 'conflicting' && (
+        <>
+          <rect x="1.5" y="1.5" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" />
+          <path d="M1.5 6.5 6.5 1.5M1.5 11.5 11.5 1.5M4.5 14.5 14.5 4.5M9.5 14.5 14.5 9.5M1.5 9.5 6.5 14.5M1.5 4.5 11.5 14.5M4.5 1.5 14.5 11.5M9.5 1.5 14.5 6.5" stroke="currentColor" stroke-width="1" />
+        </>
+      )}
+    </svg>
+    <span class="visually-hidden">{label}, source: {outletName(source)} (opens in a new tab)</span>
+  </a>
+) : (
 <span class:list={['grade', `grade--${grade}`, { 'grade--compact': compact }]} title={gradeHelp[grade]}>
   <svg class="grade__mark" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
     {grade === 'verified' && (
@@ -49,6 +73,7 @@ const label = gradeLabel[grade];
     </a>
   )}
 </span>
+)}
 
 <style>
   .grade {
@@ -77,6 +102,24 @@ const label = gradeLabel[grade];
     text-transform: uppercase;
     letter-spacing: 0.06em;
     font-size: 0.86em;
+  }
+  /* The mark as the link: a 44px hit area round a small mark, the mark lifting on hover. */
+  .grade--link {
+    position: relative;
+    text-decoration: none;
+  }
+  .grade--link::after {
+    content: '';
+    position: absolute;
+    inset: -14px;
+  }
+  .grade--link .grade__mark {
+    transition: transform 0.2s var(--ease-out, ease);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .grade--link:hover .grade__mark {
+      transform: translateY(-2px);
+    }
   }
   .grade__source {
     white-space: normal;

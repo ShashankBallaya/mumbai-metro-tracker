@@ -1,0 +1,279 @@
+{
+  "_meta": {
+    "description": "Every metro line in the Mumbai Metropolitan Region, for the hub's network map. One entry for each line, in number order, then the other agencies' lines. A line the site tracks in full names its folder in `tracked`; its figures then come from src/data/lines/<id>/project.json, and this file holds only its stage parts for the map. Every fact carries status, source_url and last_verified, with the same status values as project.json. `parts` splits a line by stage (an open phase and the rest under construction); each part may name its own source. `colour_name` is set only where a source names the line's colour. Never cite Wikipedia.",
+    "stage_values": {
+      "operational": "Carries passengers on all or part of the line.",
+      "under_construction": "Civil works awarded and started.",
+      "planned": "Approved by the state government (or the Centre); not yet under construction.",
+      "proposed": "In an agency's plan or under a project report; not approved.",
+      "future": "Announced or studied as an idea; no project report."
+    },
+    "status_values": {
+      "verified": "Confirmed by a primary source (the agency's website or document).",
+      "reported": "From a reputable secondary source (news or trade press). Not confirmed by a primary source.",
+      "unverified": "Single weak source, or could not be confirmed. Show with a warning in the UI.",
+      "conflicting": "Sources disagree. The value is the most recent credible figure; see 'alternatives'."
+    },
+    "last_reviewed": "2026-10-29",
+    "draft": "First draft, 2026-10-29. The owner reviews the grades and the stage definitions (HUB-PLAN.md) before the hub ships it."
+  },
+  "lines": [
+    {
+      "id": "line-1",
+      "number": "1",
+      "name": "Versova-Andheri-Ghatkopar",
+      "agency": { "value": "Mumbai Metro One Private Limited (MMOPL), a PPP company of MMRDA and Reliance", "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-1/overview", "last_verified": "2026-10-29" },
+      "ends": ["Versova", "Ghatkopar"],
+      "length_km": { "value": 11.4, "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-1/overview", "last_verified": "2026-10-29" },
+      "stations": { "value": 12, "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-1/overview", "last_verified": "2026-10-29" },
+      "parts": [
+        { "name": "Whole line", "stage": "operational", "opened": "2014-06-08", "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-1/overview", "last_verified": "2026-10-29" }
+      ]
+    },
+    {
+      "id": "line-2a",
+      "number": "2A",
+      "name": "Dahisar (East) to D N Nagar",
+      "colour_name": { "value": "Yellow", "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2A/overview", "last_verified": "2026-10-29" },
+      "agency": { "value": "MMRDA", "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2A/overview", "last_verified": "2026-10-29" },
+      "ends": ["Dahisar (East)", "Andheri (West)"],
+      "length_km": { "value": 18.6, "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2A/overview", "last_verified": "2026-10-29" },
+      "stations": { "value": 17, "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2A/overview", "last_verified": "2026-10-29" },
+      "parts": [
+        { "name": "Dahisar (East) to Dahanukarwadi", "stage": "operational", "opened": "2022-04-02", "stations": 9, "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2A/overview", "last_verified": "2026-10-29" },
+        { "name": "Valnai to Andheri (West)", "stage": "operational", "opened": "2023-01-19", "stations": 8, "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2A/overview", "last_verified": "2026-10-29" }
+      ]
+    },
+    {
+      "id": "line-2b",
+      "number": "2B",
+      "name": "D N Nagar to Mandale",
+      "colour_name": { "value": "Yellow", "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview", "last_verified": "2026-10-29" },
+      "agency": { "value": "MMRDA", "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview", "last_verified": "2026-10-29" },
+      "ends": ["ESIC Nagar", "Mandale"],
+      "length_km": { "value": 23.643, "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview", "last_verified": "2026-10-29" },
+      "stations": { "value": 20, "status": "conflicting", "alternatives": [{ "value": 19, "note": "MMRDA's feature table says 19 Nos. but lists 20 names; its introduction says 20 stations." }], "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview", "last_verified": "2026-10-29" },
+      "parts": [
+        { "name": "Phase I, Mandale to Diamond Garden", "stage": "operational", "opened": "2026-04-07", "length_km": 5.5, "stations": 5, "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview", "last_verified": "2026-10-29" },
+        { "name": "Phase IA, Diamond Garden to Chembur", "stage": "operational", "opened": "2026-08-13", "length_km": 0.29, "stations": 1, "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview", "last_verified": "2026-10-29" },
+        { "name": "Chembur to D N Nagar", "stage": "under_construction", "note": "Girder works 90% complete (MMRDA, 31 Aug 2026).", "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview", "last_verified": "2026-10-29" }
+      ]
+    },
+    {
+      "id": "line-3",
+      "number": "3",
+      "name": "Cuffe Parade to Aarey JVLR",
+      "colour_name": { "value": "Aqua", "status": "reported", "source_url": "https://www.outlooktraveller.com/News/mumbais-first-fully-underground-metro-line-is-now-openconnecting-south-to-north-in-record-time", "last_verified": "2026-10-29" },
+      "agency": { "value": "Mumbai Metro Rail Corporation (MMRCL)", "status": "reported", "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-line-3-becomes-fully-operational-promises-faster-sustainable-commute-across-city", "last_verified": "2026-10-29" },
+      "ends": ["Cuffe Parade", "Aarey JVLR"],
+      "underground": true,
+      "length_km": { "value": 33.5, "status": "reported", "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-line-3-becomes-fully-operational-promises-faster-sustainable-commute-across-city", "last_verified": "2026-10-29" },
+      "stations": { "value": 27, "status": "reported", "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-line-3-becomes-fully-operational-promises-faster-sustainable-commute-across-city", "last_verified": "2026-10-29" },
+      "parts": [
+        { "name": "Whole line", "stage": "operational", "opened": "2025-10-09", "note": "The last phase opened on 9 Oct 2025; earlier phases opened from 2024.", "status": "reported", "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-line-3-becomes-fully-operational-promises-faster-sustainable-commute-across-city", "last_verified": "2026-10-29" }
+      ]
+    },
+    {
+      "id": "line-4",
+      "number": "4",
+      "tracked": "line-4",
+      "parts": [
+        { "name": "Gaimukh to Cadbury Junction", "stage": "under_construction", "note": "Built and in trial runs; not open.", "from_tracked": "current_phase" },
+        { "name": "Cadbury Junction to Wadala", "stage": "under_construction", "from_tracked": "current_phase" }
+      ]
+    },
+    {
+      "id": "line-5",
+      "number": "5",
+      "tracked": "line-5",
+      "parts": [
+        { "name": "Phase 1, Kapurbawdi to Dhamankar Naka", "stage": "under_construction", "note": "Built; preparing for the safety inspection; not open.", "from_tracked": "current_phase" },
+        { "name": "Phase 2 and 3, Dhamankar Naka to Kalyan, and the Ulhasnagar spur", "stage": "planned", "from_tracked": "current_phase" }
+      ]
+    },
+    {
+      "id": "line-6",
+      "number": "6",
+      "name": "Swami Samarth Nagar to Vikhroli",
+      "colour_name": { "value": "Pink", "status": "reported", "source_url": "https://themetrorailguy.com/?p=27331", "last_verified": "2026-10-19" },
+      "agency": { "value": "MMRDA", "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview", "last_verified": "2026-10-29" },
+      "ends": ["Swami Samarth Nagar", "Vikhroli (EEH)"],
+      "length_km": { "value": 15.31, "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview", "last_verified": "2026-10-29" },
+      "stations": { "value": 13, "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview", "last_verified": "2026-10-29" },
+      "parts": [
+        { "name": "Whole line", "stage": "under_construction", "note": "Station works 87.35% complete (MMRDA, 31 Aug 2026).", "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview", "last_verified": "2026-10-29" }
+      ]
+    },
+    {
+      "id": "line-7",
+      "number": "7",
+      "name": "Andheri (East) to Dahisar (East)",
+      "colour_name": { "value": "Red", "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-7/overview", "last_verified": "2026-10-29" },
+      "agency": { "value": "MMRDA", "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-7/overview", "last_verified": "2026-10-29" },
+      "ends": ["Gundavali", "Ovaripada"],
+      "length_km": { "value": 16.5, "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-7/overview", "last_verified": "2026-10-29" },
+      "stations": { "value": 13, "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-7/overview", "last_verified": "2026-10-29" },
+      "parts": [
+        { "name": "Aarey to Ovaripada", "stage": "operational", "opened": "2022-04-02", "stations": 9, "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-7/overview", "last_verified": "2026-10-29" },
+        { "name": "Gundavali to Goregaon (East)", "stage": "operational", "opened": "2023-01-19", "stations": 4, "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-7/overview", "last_verified": "2026-10-29" }
+      ]
+    },
+    {
+      "id": "line-7a",
+      "number": "7A",
+      "name": "Andheri (East) to the airport (CSMIA)",
+      "agency": { "value": "MMRDA", "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview", "last_verified": "2026-10-29" },
+      "ends": ["Gundavali", "CSIA"],
+      "length_km": { "value": null, "status": "unverified", "note": "MMRDA gives one figure, 13.581 km, for Line 9 and Line 7A together, of which 2.195 km is underground (all on 7A).", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview", "last_verified": "2026-10-29" },
+      "stations": { "value": 2, "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview", "last_verified": "2026-10-29" },
+      "parts": [
+        { "name": "Whole line", "stage": "under_construction", "note": "Viaduct complete; underground station roof slab 64% (MMRDA, 31 Aug 2026).", "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview", "last_verified": "2026-10-29" }
+      ]
+    },
+    {
+      "id": "line-8",
+      "number": "8",
+      "name": "Mumbai airport (CSMIA) to Navi Mumbai airport (NMIA)",
+      "colour_name": { "value": "Gold", "status": "reported", "source_url": "https://www.freepressjournal.in/mumbai/maharashtra-govt-approves-metro-8-gold-line-to-directly-connect-mumbai-airport-with-nmia-details-inside", "last_verified": "2026-10-29" },
+      "agency": { "value": "CIDCO (nodal agency since Jan 2025, replacing MMRDA); to be built as a PPP", "status": "reported", "source_url": "https://www.freepressjournal.in/mumbai/maharashtra-govt-approves-metro-8-gold-line-to-directly-connect-mumbai-airport-with-nmia-details-inside", "last_verified": "2026-10-29" },
+      "ends": ["CSMIA", "NMIA"],
+      "length_km": { "value": 34.89, "status": "conflicting", "alternatives": [{ "value": 35, "source_url": "https://www.freepressjournal.in/mumbai/maharashtra-govt-approves-metro-8-gold-line-to-directly-connect-mumbai-airport-with-nmia-details-inside", "note": "Free Press Journal, 28 Jan 2025: 35 km (25.8 km elevated, 8.2 km underground)." }], "source_url": "https://oneindia.com/mumbai/23-000-crore-mumbai-metro-line-8-gold-line-project-to-connect-mumbai-and-navi-mumbai-airports-7891649.html", "last_verified": "2026-10-29" },
+      "stations": { "value": 20, "status": "reported", "source_url": "https://oneindia.com/mumbai/23-000-crore-mumbai-metro-line-8-gold-line-project-to-connect-mumbai-and-navi-mumbai-airports-7891649.html", "last_verified": "2026-10-29" },
+      "parts": [
+        { "name": "Whole line", "stage": "planned", "note": "State government resolution of 27 Jan 2025; CIDCO sent the project report to the state in Oct 2025. A Jan 2026 approval by the state's Cabinet Infrastructure Committee (Rs 22,862 crore) is reported but not checked. Union Cabinet approval pending.", "status": "reported", "source_url": "https://oneindia.com/mumbai/23-000-crore-mumbai-metro-line-8-gold-line-project-to-connect-mumbai-and-navi-mumbai-airports-7891649.html", "last_verified": "2026-10-29" }
+      ]
+    },
+    {
+      "id": "line-9",
+      "number": "9",
+      "name": "Dahisar (East) to Mira-Bhayandar",
+      "agency": { "value": "MMRDA", "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview", "last_verified": "2026-10-29" },
+      "ends": ["Dahisar (East)", "Subhash Chandra Bose Stadium"],
+      "length_km": { "value": 13.581, "status": "verified", "note": "MMRDA's figure covers Line 9 and Line 7A together.", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview", "last_verified": "2026-10-29" },
+      "stations": { "value": 8, "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview", "last_verified": "2026-10-29" },
+      "parts": [
+        { "name": "Phase I, Dahisar (East) to Kashigaon", "stage": "operational", "opened": "2026-04-07", "length_km": 4.7, "stations": 4, "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview", "last_verified": "2026-10-29" },
+        { "name": "Kashigaon to Subhash Chandra Bose Stadium", "stage": "under_construction", "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview", "last_verified": "2026-10-29" }
+      ]
+    },
+    {
+      "id": "line-10",
+      "number": "10",
+      "name": "Gaimukh to Shivaji Chowk (Mira Road)",
+      "agency": { "value": "MMRDA", "status": "reported", "source_url": "https://www.freepressjournal.in/mumbai/maharashtra-approves-8535-crore-mumbai-metro-line-10-project-with-ghodbunder-road-widening", "last_verified": "2026-10-29" },
+      "ends": ["Gaimukh", "Chhatrapati Shivaji Maharaj Chowk"],
+      "length_km": { "value": 9.676, "status": "reported", "source_url": "https://www.freepressjournal.in/mumbai/maharashtra-approves-8535-crore-mumbai-metro-line-10-project-with-ghodbunder-road-widening", "last_verified": "2026-10-29" },
+      "stations": { "value": 5, "status": "reported", "source_url": "https://www.freepressjournal.in/mumbai/maharashtra-approves-8535-crore-mumbai-metro-line-10-project-with-ghodbunder-road-widening", "last_verified": "2026-10-29" },
+      "parts": [
+        { "name": "Whole line", "stage": "planned", "note": "Revised state approval, Rs 8,535.49 crore with the Ghodbunder Road widening (Aug 2026). Forest, environment, CRZ and wildlife clearances still needed. No works contract found.", "status": "reported", "source_url": "https://www.freepressjournal.in/mumbai/maharashtra-approves-8535-crore-mumbai-metro-line-10-project-with-ghodbunder-road-widening", "last_verified": "2026-10-29" }
+      ]
+    },
+    {
+      "id": "line-11",
+      "number": "11",
+      "name": "Bandra Terminus and Wadala to Gateway of India",
+      "agency": { "value": "Mumbai Metro Rail Corporation (MMRCL)", "status": "reported", "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-line-11-proposal-sent-to-centre-23487-crore-underground-corridor-to-link-sion-gateway-of-india", "last_verified": "2026-10-29" },
+      "ends": ["Bandra Terminus", "Gateway of India"],
+      "underground": true,
+      "length_km": { "value": 17.4, "status": "conflicting", "alternatives": [{ "value": 24.4, "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-line-11-gets-major-expansion-69-km-dharavibandra-link-added-to-wadalagateway-corridor-adding-5-new-stations-check-project-cost-new-route", "note": "Free Press Journal, 8 Mar 2026: a 6.9 km extension from Wadala to Bandra Terminus via Dharavi, announced in the 2026-27 state budget, on top of 17.5 km." }], "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-line-11-proposal-sent-to-centre-23487-crore-underground-corridor-to-link-sion-gateway-of-india", "last_verified": "2026-10-29" },
+      "stations": { "value": 19, "status": "reported", "note": "14 on the approved Anik Depot to Gateway route, 19 with the Bandra Terminus extension.", "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-line-11-gets-major-expansion-69-km-dharavibandra-link-added-to-wadalagateway-corridor-adding-5-new-stations-check-project-cost-new-route", "last_verified": "2026-10-29" },
+      "parts": [
+        { "name": "Anik Depot (Wadala) to Gateway of India", "stage": "planned", "note": "State approval Sep 2025, Rs 23,487 crore; sent to the Centre for approval.", "status": "reported", "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-line-11-proposal-sent-to-centre-23487-crore-underground-corridor-to-link-sion-gateway-of-india", "last_verified": "2026-10-29" },
+        { "name": "Wadala to Bandra Terminus", "stage": "proposed", "note": "Announced Mar 2026; approval of the extended proposal still to be sought.", "status": "reported", "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-line-11-gets-major-expansion-69-km-dharavibandra-link-added-to-wadalagateway-corridor-adding-5-new-stations-check-project-cost-new-route", "last_verified": "2026-10-29" }
+      ]
+    },
+    {
+      "id": "line-12",
+      "number": "12",
+      "tracked": "line-12",
+      "parts": [
+        { "name": "Whole line", "stage": "under_construction", "from_tracked": "current_phase" }
+      ]
+    },
+    {
+      "id": "line-12a",
+      "number": "12A",
+      "tracked": "line-12a",
+      "parts": [
+        { "name": "Whole line", "stage": "planned", "from_tracked": "current_phase" }
+      ]
+    },
+    {
+      "id": "line-13",
+      "number": "13",
+      "name": "Mira-Bhayandar to Virar",
+      "agency": { "value": "MMRDA", "status": "unverified", "note": "The approval report does not name the agency; MMRDA sought the approval.", "source_url": "https://www.freepressjournal.in/mumbai/mmrda-seeks-state-nod-for-mumbai-metro-13-connecting-mira-bhayandar-virar-project-cost-jumps-88-to-17725-crore-know-how", "last_verified": "2026-10-29" },
+      "ends": ["Mira Road", "Virar"],
+      "length_km": { "value": 25.03, "status": "reported", "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-line-13-17725-crore-corridor-connecting-mira-bhayandar-with-vasai-virar-gets-maharashtra-govt-nod", "last_verified": "2026-10-29" },
+      "stations": { "value": 16, "status": "reported", "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-line-13-17725-crore-corridor-connecting-mira-bhayandar-with-vasai-virar-gets-maharashtra-govt-nod", "last_verified": "2026-10-29" },
+      "parts": [
+        { "name": "Whole line", "stage": "planned", "note": "Approved by the state's Cabinet Infrastructure Committee, Rs 17,724.99 crore (reported 19 Aug 2026); 3.25 km underground; target five years from approval.", "status": "reported", "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-line-13-17725-crore-corridor-connecting-mira-bhayandar-with-vasai-virar-gets-maharashtra-govt-nod", "last_verified": "2026-10-29" }
+      ]
+    },
+    {
+      "id": "line-14",
+      "number": "14",
+      "name": "Kanjurmarg to Badlapur",
+      "agency": { "value": "MMRDA", "status": "reported", "source_url": "https://www.mumbailive.com/en/infrastructure/mmrda-begins-process-for-revised-dpr-of-kanjurmarg-badlapur-metro-line-14-92776", "last_verified": "2026-10-29" },
+      "ends": ["Kanjurmarg", "Badlapur"],
+      "length_km": { "value": 43.69, "status": "conflicting", "alternatives": [{ "value": 38, "note": "Earlier reports, 2024 and 2025: 38 to 39 km." }], "source_url": "https://www.mumbailive.com/en/infrastructure/mmrda-begins-process-for-revised-dpr-of-kanjurmarg-badlapur-metro-line-14-92776", "last_verified": "2026-10-29" },
+      "stations": { "value": null, "status": "conflicting", "note": "Reports give 15 and 24 stations.", "source_url": "https://www.mumbailive.com/en/infrastructure/mmrda-begins-process-for-revised-dpr-of-kanjurmarg-badlapur-metro-line-14-92776", "last_verified": "2026-10-29" },
+      "parts": [
+        { "name": "Whole line", "stage": "proposed", "note": "MMRDA restarted the project report in 2026 after ending the earlier consultant's contract (Dec 2025); three bids received (May 2026). Not approved.", "status": "reported", "source_url": "https://www.mumbailive.com/en/infrastructure/mmrda-begins-process-for-revised-dpr-of-kanjurmarg-badlapur-metro-line-14-92776", "last_verified": "2026-10-29" }
+      ]
+    },
+    {
+      "id": "nmm-1",
+      "number": "NM1",
+      "system": "Navi Mumbai Metro",
+      "name": "Navi Mumbai Metro Line 1, Belapur to Pendhar",
+      "agency": { "value": "CIDCO; operated by MahaMetro", "status": "reported", "source_url": "https://ianslive.in/with-public-thumbs-up-navi-mumbai-metro-gets-off-to-crowded-start--20231117185105", "last_verified": "2026-10-29" },
+      "ends": ["CBD Belapur", "Pendhar"],
+      "length_km": { "value": 11.1, "status": "reported", "source_url": "https://ianslive.in/with-public-thumbs-up-navi-mumbai-metro-gets-off-to-crowded-start--20231117185105", "last_verified": "2026-10-29" },
+      "stations": { "value": 11, "status": "reported", "source_url": "https://ianslive.in/with-public-thumbs-up-navi-mumbai-metro-gets-off-to-crowded-start--20231117185105", "last_verified": "2026-10-29" },
+      "parts": [
+        { "name": "Whole line", "stage": "operational", "opened": "2023-11-17", "status": "reported", "source_url": "https://ianslive.in/with-public-thumbs-up-navi-mumbai-metro-gets-off-to-crowded-start--20231117185105", "last_verified": "2026-10-29" }
+      ]
+    },
+    {
+      "id": "nmm-2",
+      "number": "NM2",
+      "system": "Navi Mumbai Metro",
+      "name": "Navi Mumbai Metro Line 2, Pendhar to the airport (NMIA)",
+      "agency": { "value": "CIDCO", "status": "reported", "source_url": "https://www.freepressjournal.in/mumbai/navi-mumbai-with-4-metro-links-nmia-set-to-become-major-transit-hub", "last_verified": "2026-10-29" },
+      "ends": ["Pendhar", "NMIA (east)"],
+      "length_km": { "value": 16, "status": "unverified", "source_url": "https://www.freepressjournal.in/mumbai/navi-mumbai-with-4-metro-links-nmia-set-to-become-major-transit-hub", "last_verified": "2026-10-29" },
+      "stations": { "value": null, "status": "unverified", "source_url": "https://www.freepressjournal.in/mumbai/navi-mumbai-with-4-metro-links-nmia-set-to-become-major-transit-hub", "last_verified": "2026-10-29" },
+      "parts": [
+        { "name": "Whole line", "stage": "proposed", "note": "CIDCO merged its planned Lines 2, 3 and 4 into one line; project report in progress. Not checked on CIDCO's site.", "status": "unverified", "source_url": "https://www.freepressjournal.in/mumbai/navi-mumbai-with-4-metro-links-nmia-set-to-become-major-transit-hub", "last_verified": "2026-10-29" }
+      ]
+    },
+    {
+      "id": "thane-ring",
+      "number": "TR",
+      "system": "Thane Integral Ring Metro",
+      "name": "Thane Integral Ring Metro",
+      "agency": { "value": "Maharashtra Metro Rail Corporation (MahaMetro)", "status": "reported", "source_url": "https://www.freepressjournal.in/mumbai/thane-ring-metro-project-update-mahametro-floats-bids-for-8-stations-cost-revised-to-12200-crore", "last_verified": "2026-10-29" },
+      "ends": ["Thane (ring)", "Thane (ring)"],
+      "ring": true,
+      "length_km": { "value": 29, "status": "reported", "source_url": "https://www.freepressjournal.in/mumbai/thane-ring-metro-project-update-mahametro-floats-bids-for-8-stations-cost-revised-to-12200-crore", "last_verified": "2026-10-29" },
+      "stations": { "value": 22, "status": "reported", "source_url": "https://www.freepressjournal.in/mumbai/thane-ring-metro-project-update-mahametro-floats-bids-for-8-stations-cost-revised-to-12200-crore", "last_verified": "2026-10-29" },
+      "parts": [
+        { "name": "Whole line", "stage": "planned", "note": "Approved by the Union Cabinet in Aug 2024 (not checked here); cost revised to Rs 12,200.10 crore; station bids invited Feb 2026; a viaduct contract to a Kalpataru and HG Infra joint venture is reported but not checked. Moves to under construction once works start are sourced.", "status": "reported", "source_url": "https://www.freepressjournal.in/mumbai/thane-ring-metro-project-update-mahametro-floats-bids-for-8-stations-cost-revised-to-12200-crore", "last_verified": "2026-10-29" }
+      ]
+    },
+    {
+      "id": "virar-alibaug",
+      "number": "VA",
+      "system": "MSRDC",
+      "name": "Virar to Alibaug metro (studied)",
+      "agency": { "value": "Maharashtra State Road Development Corporation (MSRDC)", "status": "reported", "source_url": "https://www.nbmcw.com/news/metro-railways/msrdc-starts-work-on-136km-metro-line-from-virar-to-alibaug.html", "last_verified": "2026-10-29" },
+      "ends": ["Virar", "Alibaug"],
+      "length_km": { "value": 136, "status": "reported", "source_url": "https://www.nbmcw.com/news/metro-railways/msrdc-starts-work-on-136km-metro-line-from-virar-to-alibaug.html", "last_verified": "2026-10-29" },
+      "stations": { "value": null, "status": "unverified", "note": "About 40 stations reported.", "source_url": "https://www.nbmcw.com/news/metro-railways/msrdc-starts-work-on-136km-metro-line-from-virar-to-alibaug.html", "last_verified": "2026-10-29" },
+      "parts": [
+        { "name": "Whole line", "stage": "future", "note": "Feasibility study only; no route published. Not drawn on the map.", "status": "reported", "source_url": "https://www.nbmcw.com/news/metro-railways/msrdc-starts-work-on-136km-metro-line-from-virar-to-alibaug.html", "last_verified": "2026-10-29" }
+      ]
+    }
+  ]
+}

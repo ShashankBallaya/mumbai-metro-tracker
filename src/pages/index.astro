@@ -1,304 +1,381 @@
 ---
 /**
- * The hub: every line the site follows, in lines.json order, each with its state, figures and route strip.
- * Each line's own pages live under /<line>/ (src/pages/[line]/).
+ * The hub: the cover of Mumbai Metro Tracker (its own world; line pages keep the newspaper).
+ *   1. Cover: a collage of key art, one tile per tracked line, around the site's mark.
+ *   2. A full-screen chapter per tracked line: its key art, figures with grades, its route.
+ *   3. The network: every MMR metro line on a real map, by stage, with a full text list.
+ * Each chapter's picture is a ground or drone photo, the owner's own or shared with permission. Motion (src/scripts/hub.ts) adds the reveals; without it,
+ * or with reduced motion, every chapter is already a complete, still frame.
  */
 import Base from '../layouts/Base.astro';
-import Masthead from '../components/Masthead.astro';
 import Colophon from '../components/Colophon.astro';
 import Grade from '../components/Grade.astro';
-import LineMark from '../components/LineMark.astro';
-import { getLine, lines, lineBase, formatDate, SITE_NAME } from '../lib/data';
+import { getLine, lines, lineBase, formatDate, outletName, SITE_NAME, type LineId } from '../lib/data';
 import { schematic } from '../lib/route';
 import { hasStatusPage } from '../lib/answers';
-import '../styles/inner.css';
+import { network, byStage, STAGES, networkReviewed } from '../lib/network';
+import '../styles/hub.css';
 
-const all = lines.map((l) => getLine(l.id));
-// Strips share one scale, so a longer line draws longer.
-const longest = Math.max(...all.map((l) => l.project.length_km.value));
-// Where two lines meet (stations.json `same_site_as`): Kalyan (Lines 12 and 5), Kapurbawdi (Lines 4 and 5).
-const meets = all.flatMap((line) =>
-  [...line.stations, ...line.spurStations].flatMap((s) => {
-    const o = (s as { same_site_as?: { line: string; station: string; distance_m: number } }).same_site_as;
-    const other = o && all.find((l) => l.id === o.line);
-    return other ? [{ line, s, other, otherStation: other.stations.find((x) => x.id === o.station)!, distance: o.distance_m }] : [];
+/** Chapter order and each chapter's photo: the owner's own, or shared with permission (photos.json carries the same credits). */
+interface Photo {
+  src: string;
+  alt: string;
+  date: string;
+  credit: string;
+  href?: string;
+  /** What the caption says, beyond the credit: anything a reader could misread in the picture. */
+  note?: string;
+  /** Where the crop holds on a screen of another shape. */
+  focus: string;
+  width: number;
+  height: number;
+}
+/** A chapter's moving picture: a drone loop cut from InfraUnfiltered's video (scripts/encode-hub-footage.sh). */
+interface Footage {
+  name: string;
+  credit: string;
+  href: string;
+  date: string;
+  note: string;
+}
+const CHAPTERS: { id: LineId; photo: Photo; footage?: Footage; side: 'left' | 'right' }[] = [
+  {
+    id: 'line-12',
+    photo: {
+      src: '/photos/apmc-kalyan-2026-10-04-a.jpg',
+      alt: 'Line 12 station piers at APMC Kalyan at night, a new concrete cross arm on top and red tail lights on the road below',
+      date: '2026-10-04',
+      credit: 'Shashank Ballaya',
+      note: 'APMC Kalyan',
+      focus: '45% 60%',
+      width: 1200,
+      height: 1600,
+    },
+    footage: { name: 'apmc-kalyan', credit: 'InfraUnfiltered', href: 'https://www.youtube.com/watch?v=xpX7xRPnxf8&t=229s', date: '2026-10-10', note: 'Over the Line 12 piers at APMC Kalyan, drone video' },
+    side: 'left',
+  },
+  {
+    id: 'line-5',
+    photo: {
+      src: '/photos/kasheli-aerial-2026-10-13-b.jpg',
+      alt: "Drone view down Line 5's two tracks into Kasheli station under its orange roof, overhead wire masts on both sides",
+      date: '2026-10-13',
+      credit: 'InfraUnfiltered',
+      href: 'https://www.youtube.com/watch?v=l3cL7pU6rtI&t=481s',
+      note: 'Kasheli, drone still',
+      focus: '50% 40%',
+      width: 1600,
+      height: 900,
+    },
+    // No footage: the Kasheli section of the video carries the creator's picture-in-picture inset.
+    side: 'right',
+  },
+  {
+    id: 'line-4',
+    photo: {
+      src: '/photos/kapurbawdi-aerial-2026-10-13-b.jpg',
+      alt: "Drone view of Line 4's Kapurbawdi station and its green roof among trees and tall towers in Thane",
+      date: '2026-10-13',
+      credit: 'InfraUnfiltered',
+      href: 'https://www.youtube.com/watch?v=l3cL7pU6rtI&t=813s',
+      note: 'Kapurbawdi, drone still',
+      focus: '50% 45%',
+      width: 1600,
+      height: 900,
+    },
+    footage: { name: 'kapurbawdi', credit: 'InfraUnfiltered', href: 'https://www.youtube.com/watch?v=l3cL7pU6rtI&t=811s', date: '2026-10-13', note: 'Over Kapurbawdi station, drone video' },
+    side: 'left',
+  },
+  {
+    id: 'line-12a',
+    photo: {
+      src: '/photos/manpada-aerial-2026-10-10-a.jpg',
+      alt: "Drone view of the road at Manpada with Line 12's first piers in the foreground and open land around, where Line 12A is reported to begin",
+      date: '2026-10-10',
+      credit: 'InfraUnfiltered',
+      href: 'https://www.youtube.com/watch?v=xpX7xRPnxf8&t=582s',
+      note: "Manpada, where Line 12A is reported to begin. The piers are Line 12's; no Line 12A work has started",
+      focus: '50% 70%',
+      width: 1600,
+      height: 900,
+    },
+    footage: { name: 'manpada', credit: 'InfraUnfiltered', href: 'https://www.youtube.com/watch?v=xpX7xRPnxf8&t=580s', date: '2026-10-10', note: "Manpada, where Line 12A is reported to begin. The piers are Line 12's; no Line 12A work has started. Drone video" },
+    side: 'right',
+  },
+];
+
+const chapters = CHAPTERS.map((c) => {
+  const line = getLine(c.id);
+  const info = lines.find((l) => l.id === c.id)!;
+  const t = line.project.target_completion as typeof line.project.target_completion & { scope?: string };
+  return { ...c, line, info, target: t, strip: schematic(line), base: lineBase(c.id) };
+});
+const longest = Math.max(...chapters.map((c) => c.line.project.length_km.value));
+
+// The next opening targets among the tracked lines (all are targets, none is an announced date).
+const soonest = chapters.map((c) => c.target.value).sort()[0];
+const nextUp = chapters.filter((c) => c.target.value === soonest);
+
+// Where two tracked lines meet (stations.json `same_site_as`): Kalyan (Lines 12 and 5), Kapurbawdi (Lines 4 and 5).
+const tracked = chapters.map((c) => c.line);
+const meets = tracked.flatMap((line) =>
+  [...line.stations, ...line.spurStations].flatMap((st) => {
+    const o = (st as { same_site_as?: { line: string; station: string; distance_m: number } }).same_site_as;
+    const other = o && tracked.find((l) => l.id === o.line);
+    return other ? [{ line, st, other, otherStation: other.stations.find((x) => x.id === o.station)!, distance: o.distance_m }] : [];
   }),
 );
-const kalyan = meets.find((m) => m.s.id === 'kalyan');
-const kapurbawdi = meets.find((m) => m.s.id === 'kapurbawdi');
+const kalyan = meets.find((m) => m.st.id === 'kalyan');
+const kapurbawdi = meets.find((m) => m.st.id === 'kapurbawdi');
 
-const title = `${SITE_NAME}: Mumbai Metro Lines ${all.map((l) => l.info.number).join(', ').replace(/, ([^,]+)$/, ' and $1')}, status, stations, maps`;
-const description = 'An unofficial, sourced tracker for the Mumbai Metro lines being built around Kalyan and Thane: Line 12 to Taloja, Line 5 to Thane and Line 4 from Thane to Wadala. Route, stations, progress and opening targets, each fact with its source.';
+const DISCLAIMER =
+  `Mumbai Metro Tracker is an independent public-interest site. It is not affiliated with, endorsed by or connected to MMRDA, MMRCL, CIDCO, MahaMetro or the Government of Maharashtra. The photos are the maintainer's own or used with the photographer's permission, and each carries its credit. Check official sources before making decisions.`;
+
+const counts = byStage.filter((s) => s.lines.length > 0);
+const title = `${SITE_NAME}: every Mumbai Metro line, built, building and planned`;
+const description = `An unofficial, sourced tracker of the Mumbai Metro: all ${network.length} metro lines in the region on one map by stage, and Lines 12, 12A, 5 and 4 in full. Route, stations, progress and opening targets, each fact with its source.`;
+
+const mapData = JSON.stringify(
+  network.map((l) => ({ id: l.id, number: l.number, name: l.name, stage: l.stage, colour: l.colour ?? null, href: l.href ?? null })),
+);
+const sourcesOf = (l: (typeof network)[number]) => {
+  const urls = [l.length.source, l.stations.source, l.agency?.source, ...l.parts.map((p) => p.source)].filter((u): u is string => Boolean(u));
+  const seen = new Map<string, string>();
+  for (const u of urls) if (!seen.has(outletName(u))) seen.set(outletName(u), u);
+  return [...seen].map(([name, url]) => ({ name, url }));
+};
+const lineName = (l: (typeof network)[number]) => (l.system ? l.name : `Line ${l.number}, ${l.name}`);
+const km = (v: number | null) => (v === null ? null : `${Number.isInteger(v) ? v : v.toFixed(v < 10 ? 2 : 1).replace(/0+$/, '').replace(/\.$/, '')} km`);
 ---
 
 <Base title={title} description={description}>
-  <Masthead />
-  <main id="main" class="page hub">
-    <header class="hub__head">
-      <h1 class="hub__title">The metro lines<br /> of Kalyan and Thane</h1>
-      <p class="hub__standfirst">
-        An unofficial tracker for the Mumbai Metro lines MMRDA is building or planning around Kalyan and Thane. Each line has its own page: route, map,
-        progress, tenders, trains and every station. Every fact carries a grade and a link to its source.
-      </p>
+  <div class="hubw" data-hub>
+    <header class="hubbar">
+      <a class="hubbar__mark" href="/">Mumbai Metro <span>Tracker</span></a>
+      <nav class="hubbar__nav" aria-label="Lines">
+        <ul role="list">
+          {chapters.map((c) => (
+            <li><a href={c.base} style={`--c:var(--${c.info.colour})`}><span class="dot" aria-hidden="true"></span>{c.info.label}</a></li>
+          ))}
+          <li><a href="#network" class="hubbar__all">All lines</a></li>
+        </ul>
+      </nav>
+      <button class="hubbar__theme" type="button" data-theme-toggle aria-pressed="false">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="2" /><path d="M10 3a7 7 0 0 1 0 14Z" fill="currentColor" /></svg>
+        <span data-theme-label>Switch edition</span>
+      </button>
     </header>
 
-    <ul class="hub__lines" role="list">
-      {all.map((line) => {
-        const { project, stations, spurStations, info } = line;
-        const base = lineBase(line.id);
-        const t = project.target_completion as typeof project.target_completion & { scope?: string };
-        const strip = schematic(line);
-        const share = (project.length_km.value / longest) * 100;
+    <main id="main">
+      <!-- 1. Cover -->
+      <section class="cover" aria-labelledby="cover-title">
+        <div class="cover__grid">
+          {chapters.map((c, i) => (
+            <a class={`cover__tile cover__tile--${i + 1}`} href={`#${c.id}`} style={`--c:var(--${c.info.colour})`} data-tile={c.id}>
+              <img src={c.photo.src} alt="" width={c.photo.width} height={c.photo.height} style={`object-position:${c.photo.focus}`} loading={i < 2 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : 'auto'} decoding="async" />
+              <span class="cover__label">
+                <span class="cover__num">{c.info.number}</span>
+                <span class="cover__route">{c.info.route_short}</span>
+                <span class="hub-mr" lang="mr" aria-hidden="true">{c.info.mark_mr}</span>
+              </span>
+            </a>
+          ))}
+          <div class="cover__mark">
+            <h1 id="cover-title" class="cover__title">Mumbai Metro <span>Tracker</span><span class="hub-mr" lang="mr" aria-hidden="true">मुंबई मेट्रो</span></h1>
+            <p class="cover__lede">
+              Every metro line in the Mumbai region: where it runs, how far along it is and when it opens. Each fact with its source.
+            </p>
+            <p class="cover__next">
+              <span class="cover__next-v">{formatDate(soonest)}</span>
+              <span class="cover__next-who">
+                is the target for{' '}
+                {nextUp.map((c, i) => (
+                  <>
+                    {i > 0 && ' and '}
+                    <span class="nowrap">{c.info.label}{c.target.scope ? ` ${c.target.scope.split(',')[0].replace(' ', ' ')}` : ''}{' '}<Grade status={c.target.status} source={c.target.source_url} markLink /></span>
+                  </>
+                ))}
+                , the next lines to open. Targets, not announced dates.
+              </span>
+            </p>
+            <a class="pill pill--ink" href="#line-12">Scroll the lines</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. A chapter per tracked line -->
+      {chapters.map((c) => {
+        const p = c.line.project;
+        const len = p.length_km.value;
         return (
-          <li class="hub__line">
-            <article aria-labelledby={`${line.id}-name`} data-accent={info.colour !== 'line-orange' ? info.colour : undefined}>
-              <h2 id={`${line.id}-name`} class="hub__name">
-                <a href={base}><LineMark lineId={line.id} />{info.about.name}</a>
-              </h2>
-              <p class="hub__route">{info.route_short}</p>
-              <p class="hub__state">
-                {project.current_phase.value} <Grade status={project.current_phase.status} source={project.current_phase.source_url} />
-              </p>
-              <dl class="hub__figures">
-                <div>
-                  <dt>Length</dt>
-                  <dd class="num">{project.length_km.value} km</dd>
+          <section
+            id={c.id}
+            class="chapter"
+            data-side={c.side}
+            aria-labelledby={`${c.id}-title`}
+            style={`--c:var(--${c.info.colour});--on-c:var(--on-${c.info.colour});--len:${(len / longest).toFixed(3)}`}
+            data-chapter>
+            <div class="chapter__stage" data-stage>
+              <figure class="chapter__art" data-art>
+                {c.footage ? (
+                  <video
+                    class="chapter__layer"
+                    data-layer="mid"
+                    data-footage={c.footage.name}
+                    poster={`/hub/footage/${c.footage.name}-poster.jpg`}
+                    muted
+                    loop
+                    playsinline
+                    preload="none"
+                    aria-label={c.photo.alt}
+                    width="1600"
+                    height="900">
+                  </video>
+                ) : (
+                  <img class="chapter__layer" data-layer="mid" src={c.photo.src} alt={c.photo.alt} width={c.photo.width} height={c.photo.height} style={`object-position:${c.photo.focus}`} loading="lazy" decoding="async" />
+                )}
+                <figcaption class="chapter__credit">
+                  {c.footage ? (
+                    <>
+                      {c.footage.note}. Footage: <a href={c.footage.href} target="_blank" rel="noopener">{c.footage.credit}<span class="visually-hidden"> (opens in a new tab)</span></a>, {formatDate(c.footage.date)}
+                    </>
+                  ) : (
+                    <>
+                      {c.photo.note && <>{c.photo.note}. </>}
+                      Photo: {c.photo.href ? <a href={c.photo.href} target="_blank" rel="noopener">{c.photo.credit}<span class="visually-hidden"> (opens in a new tab)</span></a> : c.photo.credit}, {formatDate(c.photo.date)}
+                    </>
+                  )}
+                </figcaption>
+              </figure>
+              <div class="chapter__copy">
+                <h2 id={`${c.id}-title`} class="chapter__title" data-title>
+                  <span class="chapter__mast">
+                    <span class="chapter__num">{c.info.number}</span>
+                    <span class="hub-mr" lang="mr" aria-hidden="true">{c.info.mark_mr}</span>
+                  </span>
+                  <span class="chapter__name">{c.info.route_short}</span>
+                </h2>
+                <p class="chapter__phase" data-fact>
+                  {p.current_phase.value} <Grade status={p.current_phase.status} source={p.current_phase.source_url} markLink />
+                </p>
+                <p class="chapter__facts" data-fact>
+                  <span class="fact"><b>{km(len)!.replace(' km', '')}</b> km <Grade status={p.length_km.status} source={p.length_km.source_url} markLink /></span>
+                  <span class="fact"><b>{p.stations_count.value}</b> stations <Grade status={p.stations_count.status} source={p.stations_count.source_url} markLink /></span>
+                  <span class="fact">{c.target.scope ? `${c.target.scope.split(',')[0]} by` : 'Target'} <b>{formatDate(c.target.value)}</b> <Grade status={c.target.status} source={c.target.source_url} markLink /></span>
+                </p>
+                <div class="chapter__route" aria-hidden="true" data-fact>
+                  <span>{c.line.stations[0].name}</span>
+                  <svg viewBox={`0 0 ${c.strip.width} ${c.strip.height}`} preserveAspectRatio="none" focusable="false">
+                    <path d={c.strip.path} class="route-casing" vector-effect="non-scaling-stroke" pathLength="1" data-route />
+                    {c.strip.branch && <path d={c.strip.branch.path} class="route-casing" vector-effect="non-scaling-stroke" pathLength="1" data-route />}
+                  </svg>
+                  <span>{c.line.stations.at(-1)!.name}</span>
                 </div>
-                <div>
-                  <dt>Stations</dt>
-                  <dd class="num">{project.stations_count.value}</dd>
-                </div>
-                <div>
-                  <dt>{t.scope ? 'Phase 1 target' : 'Reported target'}</dt>
-                  <dd class="num">{formatDate(t.value)}</dd>
-                </div>
-              </dl>
-              <p class="hub__grade"><Grade status={t.status} source={t.source_url} /></p>
-              <a class="hub__strip" href={base} style={`--share:${share}%`} tabindex="-1" aria-hidden="true">
-                <span class="hub__strip-end">{stations[0].name}</span>
-                <svg viewBox={`0 0 ${strip.width} ${strip.height}`} preserveAspectRatio="none" focusable="false">
-                  <path d={strip.path} class="line-casing" vector-effect="non-scaling-stroke" />
-                  {strip.branch && <path d={strip.branch.path} class="line-casing" vector-effect="non-scaling-stroke" />}
-                  <path d={strip.path} class="line-core" vector-effect="non-scaling-stroke" />
-                  {strip.branch && <path d={strip.branch.path} class="line-core" vector-effect="non-scaling-stroke" />}
-                  {strip.underground && <path d={strip.underground} class="line-tunnel" vector-effect="non-scaling-stroke" />}
-                </svg>
-                <span class="hub__strip-end hub__strip-end--b">{stations.at(-1)!.name}{spurStations.length > 0 && <>, spur to {spurStations.at(-1)!.name}</>}</span>
-              </a>
-              <ul class="hub__links" role="list">
-                <li><a class="hub__open" href={base}>Open the {info.label} tracker</a></li>
-                <li><a href={`${base}stations/`}>All stations</a></li>
-                {hasStatusPage(line) && <li><a href={`${base}status/`}>Status, answered</a></li>}
-              </ul>
-            </article>
-          </li>
+                <ul class="chapter__links" role="list" data-fact>
+                  <li><a class="pill pill--line" href={c.base}>Open the {c.info.label} tracker</a></li>
+                  <li><a class="pill pill--ghost" href={`${c.base}stations/`}>All {p.stations_count.value} stations</a></li>
+                  {hasStatusPage(c.line) && <li><a class="pill pill--ghost" href={`${c.base}status/`}>Status, answered</a></li>}
+                </ul>
+              </div>
+            </div>
+          </section>
         );
       })}
-    </ul>
 
-    {(kalyan || kapurbawdi) && (
-      <section class="hub__meet" aria-labelledby="meet-title">
-        <h2 id="meet-title">Where the lines meet</h2>
-        {kalyan && (
-        <p>
-          Lines 12 and 5 both end at Kalyan, by the railway junction.{' '}
-          <a href={`${lineBase(kalyan.line.id)}stations/${kalyan.s.id}/`}>{kalyan.line.info.label}'s {kalyan.s.name}</a> station is planned about{' '}
-          {kalyan.distance} m from{' '}
-          <a href={`${lineBase(kalyan.other.id)}stations/${kalyan.otherStation.id}/`}>{kalyan.other.info.label}'s {kalyan.otherStation.name}</a>, measured
-          between the two published station points.
-        </p>
+      <!-- 3. The network -->
+      <section id="network" class="network" aria-labelledby="network-title">
+        <div class="network__head">
+          <h2 id="network-title" class="network__title">The whole network</h2>
+          <p class="network__lede">
+            {network.length} metro lines in the Mumbai Metropolitan Region, by how far each has got. Solid lines carry passengers; broken lines are being
+            built; dotted lines are approved or proposed. A line with no published route is listed but not drawn.
+          </p>
+          <ul class="network__counts" role="list">
+            {counts.map((s) => (
+              <li><span class={`stroke stroke--${s.id}`} aria-hidden="true"></span><span class="network__count">{s.lines.length}</span> {s.label.toLowerCase()}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="network__map" data-network-map data-lines={mapData}>
+          <p class="network__map-note">The map loads as you reach it. The list below has every line.</p>
+        </div>
+
+        <div class="network__list">
+          {byStage.filter((s) => s.lines.length).map((s) => (
+            <section class="stagegroup" aria-labelledby={`stage-${s.id}`}>
+              <h3 id={`stage-${s.id}`} class="stagegroup__title"><span class={`stroke stroke--${s.id}`} aria-hidden="true"></span>{s.label}</h3>
+              <ul class="netlist" role="list">
+                {s.lines.map((l) => (
+                  <li class="netline" style={l.colour ? `--c:var(--${l.colour});--on-c:var(--on-${l.colour})` : undefined}>
+                    <span class:list={['netline__mark', !l.colour && 'netline__mark--none']} aria-hidden="true">{l.number.replace(/^NM/, 'N')}</span>
+                    <div class="netline__body">
+                      <p class="netline__name">
+                        {l.href ? <a href={l.href}>{lineName(l)}</a> : lineName(l)}
+                      </p>
+                      <p class="netline__figs">
+                        {km(l.length.value) && <span>{km(l.length.value)} <Grade status={l.length.status} source={l.length.source} markLink /></span>}
+                        {l.stations.value !== null && <span>{l.stations.value} stations <Grade status={l.stations.status} source={l.stations.source} markLink /></span>}
+                      </p>
+                      {l.agency?.value && <p class="netline__agency">{l.agency.value}</p>}
+                      <ul class="netline__parts" role="list">
+                        {l.parts.map((part) => (
+                          <li>
+                            <span class={`stroke stroke--${part.stage}`} aria-hidden="true"></span>
+                            <span>
+                              {part.name}: {STAGES.find((x) => x.id === part.stage)!.short.toLowerCase()}
+                              {part.opened && `, open since ${formatDate(part.opened)}`}
+                              {part.note && <span class="netline__note">. {part.note.replace(/\.$/, '')}</span>}
+                              {' '}<Grade status={part.status} source={part.source} markLink />
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                      <p class="netline__sources">
+                        Sources:{' '}
+                        {sourcesOf(l).map((src, i) => (
+                          <>{i > 0 && ', '}<a href={src.url} target="_blank" rel="noopener">{src.name}<span class="visually-hidden"> (opens in a new tab)</span></a></>
+                        ))}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
+        </div>
+        {(kalyan || kapurbawdi) && (
+          <section class="meet" aria-labelledby="meet-title">
+            <h3 id="meet-title" class="stagegroup__title">Where the tracked lines meet</h3>
+            {kalyan && (
+              <p>
+                Lines 12 and 5 both end at Kalyan, by the railway junction.{' '}
+                <a href={`${lineBase(kalyan.line.id)}stations/${kalyan.st.id}/`}>{kalyan.line.info.label}'s {kalyan.st.name}</a> station is planned about {kalyan.distance} m
+                from <a href={`${lineBase(kalyan.other.id)}stations/${kalyan.otherStation.id}/`}>{kalyan.other.info.label}'s {kalyan.otherStation.name}</a>, measured between
+                the two published station points.
+              </p>
+            )}
+            {kapurbawdi && (
+              <p>
+                Line 5 starts at Kapurbawdi in Thane, a station built as part of Line 4.{' '}
+                <a href={`${lineBase(kapurbawdi.line.id)}stations/${kapurbawdi.st.id}/`}>{kapurbawdi.line.info.label}'s {kapurbawdi.st.name}</a> point is {kapurbawdi.distance} m from{' '}
+                <a href={`${lineBase(kapurbawdi.other.id)}stations/${kapurbawdi.otherStation.id}/`}>{kapurbawdi.other.info.label}'s</a>, measured between the two published
+                station points.
+              </p>
+            )}
+          </section>
         )}
-        {kapurbawdi && (
-        <p>
-          Line 5 starts at Kapurbawdi in Thane, a station built as part of Line 4.{' '}
-          <a href={`${lineBase(kapurbawdi.line.id)}stations/${kapurbawdi.s.id}/`}>{kapurbawdi.line.info.label}'s {kapurbawdi.s.name}</a> point is{' '}
-          {kapurbawdi.distance} m from{' '}
-          <a href={`${lineBase(kapurbawdi.other.id)}stations/${kapurbawdi.otherStation.id}/`}>{kapurbawdi.other.info.label}'s</a>, measured between the two
-          published station points.
+        <p class="network__foot">
+          Network last checked {formatDate(networkReviewed)}. Routes from MMRDA's alignment files, the Thane ring project's map and OpenStreetMap
+          (Line 3, Navi Mumbai Line 1). Stages are this site's reading of the sources; see the grade on each.
         </p>
-        )}
       </section>
-    )}
-  </main>
-  <Colophon />
+    </main>
+    <Colophon disclaimer={DISCLAIMER} />
+  </div>
 </Base>
 
-<style>
-  .hub {
-    padding-block: var(--s-7) var(--s-6);
-  }
-  .hub__head {
-    display: grid;
-    gap: var(--s-5);
-    padding-bottom: var(--s-7);
-  }
-  .hub__title {
-    font-size: var(--step-4);
-    text-transform: uppercase;
-    line-height: 0.88;
-  }
-  .hub__standfirst {
-    max-width: 52ch;
-    font-size: var(--step-1);
-    line-height: 1.45;
-    color: var(--ink-2);
-  }
-  .hub__lines {
-    display: grid;
-    gap: var(--s-7);
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  .hub__line article {
-    display: grid;
-    gap: var(--s-4);
-    padding-top: var(--s-5);
-    border-top: var(--rule-heavy) solid var(--rule-strong);
-  }
-  .hub__name {
-    font-size: var(--step-3);
-    text-transform: uppercase;
-    line-height: 0.95;
-  }
-  .hub__name a {
-    color: inherit;
-    text-decoration: none;
-  }
-  @media (hover: hover) and (pointer: fine) {
-    .hub__name a:hover {
-      text-decoration: underline;
-      text-decoration-thickness: 0.08em;
-      text-underline-offset: 0.12em;
-    }
-  }
-  .hub__route {
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-stretch: 87.5%;
-    font-size: var(--step-1);
-    color: var(--ink-2);
-  }
-  .hub__state {
-    max-width: var(--measure);
-    color: var(--ink-2);
-  }
-  .hub__figures {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--s-4) var(--s-7);
-    margin: 0;
-  }
-  .hub__figures dt {
-    font-size: var(--step--1);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--ink-3);
-  }
-  .hub__figures dd {
-    margin: 0;
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-stretch: 75%;
-    font-size: var(--step-2);
-    line-height: 1;
-    text-transform: uppercase;
-  }
-  .hub__grade {
-    font-size: var(--step--1);
-  }
-  /* The route strip, drawn to one scale for every line. */
-  .hub__strip {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto;
-    align-items: center;
-    gap: var(--s-3);
-    width: max(var(--share), 18rem);
-    max-width: 100%;
-    text-decoration: none;
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-stretch: 75%;
-    text-transform: uppercase;
-    color: var(--ink);
-  }
-  .hub__strip svg {
-    width: 100%;
-    height: 3rem;
-  }
-  .hub__strip .line-casing,
-  .hub__strip .line-core,
-  .hub__strip .line-tunnel {
-    fill: none;
-    stroke-linejoin: round;
-    stroke-linecap: round;
-  }
-  .hub__strip .line-casing {
-    stroke: var(--signal-graphic);
-    stroke-width: 12px;
-  }
-  .hub__strip .line-core {
-    stroke: var(--paper);
-    stroke-width: 4px;
-  }
-  .hub__strip .line-tunnel {
-    stroke: var(--paper);
-    stroke-width: 12px;
-    stroke-linecap: butt;
-    stroke-dasharray: 6px 5px;
-  }
-  @media (max-width: 47.99rem) {
-    .hub__strip {
-      grid-template-columns: minmax(0, 1fr);
-      width: 100%;
-    }
-    .hub__strip-end--b {
-      justify-self: end;
-    }
-  }
-  .hub__links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--s-2) var(--s-5);
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  .hub__links a {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-    font-weight: 500;
-  }
-  .hub__links .hub__open {
-    padding: var(--s-2) var(--s-5);
-    background: var(--signal);
-    color: var(--on-signal);
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-stretch: 75%;
-    font-size: var(--step-1);
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: scale 0.16s var(--ease-out);
-  }
-  .hub__open:active {
-    scale: 0.97;
-  }
-  .hub__meet {
-    display: grid;
-    gap: var(--s-3);
-    margin-top: var(--s-8);
-    padding-top: var(--s-5);
-    border-top: var(--rule-heavy) solid var(--rule-strong);
-  }
-  .hub__meet h2 {
-    font-size: var(--step-2);
-    text-transform: uppercase;
-  }
-  .hub__meet p {
-    max-width: var(--measure);
-    color: var(--ink-2);
-  }
-</style>
+<script>
+  import '../scripts/theme';
+  import '../scripts/hub';
+</script>

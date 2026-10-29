@@ -56,8 +56,8 @@
   unicode-range: U+0900-097F, U+200C-200D;
 }
 
-/* The masthead's Marathi mark only: Anek Devanagari at weight 700, cut to its 8 glyphs
-   (2.6 KB instead of 710 KB). */
+/* The Marathi line marks only (every line's mark_mr and the hub's "मुंबई मेट्रो"): Anek Devanagari
+   at weight 700, cut to their glyphs (about 5 KB instead of 710 KB). */
 @font-face {
   font-family: 'Anek Devanagari Mark';
   font-style: normal;
@@ -93,6 +93,14 @@
   /* Lines 5 and 12 on any page, whatever that page's accent (LineMark). */
   --line-orange: #f26b1d;
   --on-line-orange: #0c1422;
+  /* Hub network map only (src/lib/network.ts): Line 7 Red (MMRDA), Line 3 Aqua and Line 8 Gold (reported).
+     No source gives a colour value, so these are the site's own. White on red 5.0:1; navy on aqua 8.4:1, on gold 9.6:1. */
+  --net-red: #d42e2e;
+  --on-net-red: #ffffff;
+  --net-aqua: #36b7c9;
+  --on-net-aqua: #0c1422;
+  --net-gold: #d9a521;
+  --on-net-gold: #0c1422;
   --concrete: #a69e91;
   --halftone: rgb(17 26 40 / 0.14);
   --focus: #c24a08;

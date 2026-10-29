@@ -1,0 +1,20 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-font",
+        "value": "anek devanagari text",
+        "createdAt": "2026-10-29T09:29:14.055Z",
+        "reason": "DESIGN.md Typography names Anek Devanagari for the decorative Marathi mark; pre-existing face"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "anek devanagari mark",
+        "createdAt": "2026-10-29T09:29:14.612Z",
+        "reason": "DESIGN.md Typography names Anek Devanagari for the decorative Marathi mark; pre-existing subset face"
+      }
+    ]
+  }
+}

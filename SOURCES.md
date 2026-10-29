@@ -343,3 +343,47 @@ Every point is graded unverified. Replace them when MMRDA publishes an alignment
 
 - An MMRDA page, press release, project report or alignment file for Line 12A.
 - A tender, a depot plan beyond the Nilje link, a colour, or a start date for the deadline.
+
+# The network (hub map, all MMR lines)
+
+Research of 2026-10-29 for `src/data/network.json` (first draft). The four tracked lines take their facts from their own files; this section covers the other 17 entries.
+
+## Primary sources
+
+| Source | Checked | Used for |
+|---|---|---|
+| MMRDA line pages (`/en/projects/transport/metro-line-<n>/overview`) for Lines 1, 2A, 2B, 6, 7, 9 and 7A | 2026-10-29 (status as of 31 Aug 2026) | Length, stations, colour, opening dates of each phase, progress |
+| MMRDA has no page for Lines 7A (it shares Line 9's), 8, 10, 11, 13 or 14 (each URL returns 404) | 2026-10-29 | |
+
+## Secondary sources
+
+| Source | Date | Used for |
+|---|---|---|
+| Free Press Journal | 9 Oct 2025 | Line 3: 33.5 km, 27 stations, fully open 9 Oct 2025 |
+| Outlook Traveller | Oct 2025 | Line 3 called the Aqua Line |
+| Free Press Journal | 28 Jan 2025 | Line 8: state resolution 27 Jan 2025, CIDCO nodal, PPP, 35 km, Gold Line |
+| Oneindia | 17 Oct 2025 | Line 8: project report sent to the state, 34.89 km, 20 stations, Rs 23,000 crore |
+| Free Press Journal | 20 Aug 2026 | Line 10: revised approval Rs 8,535.49 crore, 9.676 km, 5 stations |
+| Free Press Journal | 26 Oct 2025 | Line 11: state approval Sep 2025, 17.4 km, sent to the Centre |
+| Free Press Journal | 8 Mar 2026 | Line 11: 6.9 km extension to Bandra Terminus, 19 stations |
+| Free Press Journal | 19 Aug 2026 | Line 13: approval, 25.03 km, 16 stations, Rs 17,724.99 crore |
+| Mumbai Live | 2026 | Line 14: project report restarted, 43.69 km |
+| IANS | 17 Nov 2023 | Navi Mumbai Metro Line 1 opening, 11.1 km, 11 stations |
+| Free Press Journal | 2025 | Navi Mumbai Metro Line 2 (merged 2, 3, 4), about 16 km |
+| Free Press Journal | 10 Feb 2026 | Thane ring: 29 km, 22 stations, Rs 12,200.10 crore, station bids |
+| NBM&CW | 2024 | Virar to Alibaug metro feasibility study (MSRDC), 136 km |
+
+## Items that need your review
+
+1. **Stage definitions** (HUB-PLAN.md). Line 4's first stretch and Line 5's Phase 1 are built but not open, so they stay "under construction" until passengers ride.
+2. **Thane ring.** Union Cabinet approval (Aug 2024) and the Kalpataru and HG Infra viaduct contract come from search results only. If works have started, it moves to "under construction".
+3. **Line 8.** A Jan 2026 approval by the state's Cabinet Infrastructure Committee at Rs 22,862 crore is reported (Lokmat Times), but the page refused the fetch.
+4. **Line 11.** Is it one line from Bandra Terminus to Gateway, or Line 4's extension plus a branch? Sources differ.
+5. **Line 2B stations.** MMRDA says both 19 and 20.
+6. **Future prospects.** Only Virar to Alibaug is in. Other ideas you know of (with a source) can join.
+
+## Not found
+
+- Line 1, 3, 9, 10, 11, 13 and 14 colours from a primary source.
+- A works contract or start for Lines 8, 10, 11, 13 and the Thane ring.
+- CIDCO's own page for Navi Mumbai Metro Line 2.

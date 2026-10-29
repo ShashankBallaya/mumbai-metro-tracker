@@ -26,3 +26,8 @@ Thumbs.db
 
 # owner photo originals (carry GPS): never commit
 ground/
+
+# Blender render inputs and outputs (textures are CC0 from Poly Haven, local only)
+hero/assets/
+hero/frames/
+hero/blender/__pycache__/

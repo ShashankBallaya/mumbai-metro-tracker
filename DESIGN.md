@@ -25,6 +25,29 @@ colors:
   night-signal-line: "#f5813c"
   night-signal-graphic: "#f26b1d"
   night-halftone: "rgb(236 229 216 / 0.09)"
+  # Line colours (src/styles/tokens.css): each line's LineMark on every page, and on the hub (/) the chapter accents and the network map.
+  line-orange: "#f26b1d"
+  on-line-orange: "#0c1422"
+  line-4: "#1d7a3a"
+  on-line-4: "#ffffff"
+  line-6: "#c2306e"
+  on-line-6: "#ffffff"
+  line-2b: "#f2c11d"
+  on-line-2b: "#0c1422"
+  net-red: "#d42e2e"
+  on-net-red: "#ffffff"
+  net-aqua: "#36b7c9"
+  on-net-aqua: "#0c1422"
+  net-gold: "#d9a521"
+  on-net-gold: "#0c1422"
+  # Hub surface (/) only, "Mumbai Key Art": scoped to .hubw in src/styles/hub.css. Line pages never use these.
+  hub-bg: "#0b0d12"
+  hub-bg-2: "#13161d"
+  hub-ink: "#f4f1ea"
+  hub-ink-2: "rgb(244 241 234 / 0.76)"
+  hub-ink-3: "rgb(244 241 234 / 0.6)"
+  hub-rule: "rgb(244 241 234 / 0.16)"
+  hub-focus: "#f5813c"
 typography:
   display:
     fontFamily: "'Anek Latin Variable', system-ui, sans-serif"
@@ -82,6 +105,87 @@ typography:
     letterSpacing: "-0.02em"
     fontFeature: "'tnum' 1, 'lnum' 1"
     fontVariation: "'wdth' 75"
+  # Hub surface (/) only. Same display face as the line pages, at the hub's own sizes.
+  hub-cover-title:
+    fontFamily: "'Anek Latin Variable', system-ui, sans-serif"
+    fontSize: "clamp(3.4rem, 1.8rem + 7vw, 7.5rem)"
+    fontWeight: 800
+    lineHeight: 0.84
+    letterSpacing: "-0.02em"
+    fontVariation: "'wdth' 75"
+  hub-plate:
+    fontFamily: "'Anek Latin Variable', system-ui, sans-serif"
+    fontSize: "clamp(5rem, 2.6rem + 11vw, 12rem)"
+    fontWeight: 800
+    lineHeight: 0.84
+    letterSpacing: "-0.02em"
+    fontFeature: "'tnum' 1, 'lnum' 1"
+    fontVariation: "'wdth' 75"
+  hub-network-title:
+    fontFamily: "'Anek Latin Variable', system-ui, sans-serif"
+    fontSize: "clamp(3rem, 1.7rem + 5.6vw, 6.6rem)"
+    fontWeight: 800
+    lineHeight: 0.86
+    letterSpacing: "-0.02em"
+    fontVariation: "'wdth' 75"
+  hub-chapter-name:
+    fontFamily: "'Anek Latin Variable', system-ui, sans-serif"
+    fontSize: "clamp(2.4rem, 1.5rem + 3.8vw, 5.2rem)"
+    fontWeight: 800
+    lineHeight: 0.88
+    letterSpacing: "-0.02em"
+    fontVariation: "'wdth' 75"
+  hub-next:
+    fontFamily: "'Anek Latin Variable', system-ui, sans-serif"
+    fontSize: "clamp(2.6rem, 1.8rem + 3.2vw, 4.6rem)"
+    fontWeight: 800
+    lineHeight: 0.9
+    letterSpacing: "-0.02em"
+    fontFeature: "'tnum' 1, 'lnum' 1"
+    fontVariation: "'wdth' 75"
+  hub-fact:
+    fontFamily: "'Anek Latin Variable', system-ui, sans-serif"
+    fontSize: "clamp(1.9rem, 1.4rem + 2vw, 3.1rem)"
+    fontWeight: 800
+    lineHeight: 1
+    fontFeature: "'tnum' 1, 'lnum' 1"
+    fontVariation: "'wdth' 75"
+  hub-stage-title:
+    fontFamily: "'Anek Latin Variable', system-ui, sans-serif"
+    fontSize: "clamp(1.3rem, 1.1rem + 0.9vw, 1.9rem)"
+    fontWeight: 800
+    lineHeight: 1
+    letterSpacing: "-0.01em"
+    fontVariation: "'wdth' 75"
+  hub-pill:
+    fontFamily: "'Anek Latin Variable', system-ui, sans-serif"
+    fontSize: "0.95rem"
+    fontWeight: 800
+    lineHeight: 1
+    letterSpacing: "0.01em"
+    fontVariation: "'wdth' 75"
+  hub-lede:
+    fontFamily: "'Mukta', system-ui, sans-serif"
+    fontSize: "clamp(1.08rem, 1rem + 0.35vw, 1.3rem)"
+    fontWeight: 400
+    lineHeight: 1.45
+  hub-fact-name:
+    fontFamily: "'Mukta', system-ui, sans-serif"
+    fontSize: "0.82rem"
+    fontWeight: 500
+    lineHeight: 1.2
+    letterSpacing: "0.06em"
+  hub-credit:
+    fontFamily: "'Mukta', system-ui, sans-serif"
+    fontSize: "0.8rem"
+    fontWeight: 400
+    lineHeight: 1.35
+  hub-mark-mr:
+    fontFamily: "'Anek Devanagari Mark', 'Anek Latin Variable', system-ui, sans-serif"
+    fontSize: "clamp(1.4rem, 1rem + 1.6vw, 2.4rem)"
+    fontWeight: 700
+    lineHeight: 1
+    letterSpacing: "0"
 rounded:
   none: "0px"
   focus: "2px"
@@ -90,6 +194,13 @@ rounded:
   capsule: "1rem"
   pill: "999px"
   dot: "50%"
+  # Hub surface (/) only.
+  hub-stroke: "3px"
+  hub-mark: "6px"
+  hub-chip: "8px"
+  hub-plate: "10px"
+  hub-tile: "14px"
+  hub-map: "16px"
 spacing:
   s-1: "0.25rem"
   s-2: "0.5rem"
@@ -179,9 +290,81 @@ components:
     textColor: "{colors.ink-2}"
     rounded: "{rounded.none}"
     padding: "1.5rem"
+  # Hub surface (/) only. A chapter's accent is its line's colour token; line-orange stands in for it here.
+  hub-pill-ink:
+    backgroundColor: "{colors.hub-ink}"
+    textColor: "{colors.hub-bg}"
+    typography: "{typography.hub-pill}"
+    rounded: "{rounded.pill}"
+    padding: "0 1.4rem"
+    height: "48px"
+  hub-pill-line:
+    backgroundColor: "{colors.line-orange}"
+    textColor: "{colors.on-line-orange}"
+    typography: "{typography.hub-pill}"
+    rounded: "{rounded.pill}"
+    padding: "0 1.4rem"
+    height: "48px"
+  hub-pill-ghost:
+    backgroundColor: "transparent"
+    textColor: "{colors.hub-ink}"
+    typography: "{typography.hub-pill}"
+    rounded: "{rounded.pill}"
+    padding: "0 1.4rem"
+    height: "48px"
+  hub-pill-ghost-hover:
+    backgroundColor: "{colors.hub-ink}"
+    textColor: "{colors.hub-bg}"
+  hub-nav-link:
+    backgroundColor: "transparent"
+    textColor: "{colors.hub-ink-2}"
+    rounded: "{rounded.pill}"
+    padding: "0 0.85rem"
+    height: "44px"
+  hub-nav-link-hover:
+    backgroundColor: "rgb(244 241 234 / 0.1)"
+    textColor: "{colors.hub-ink}"
+  hub-cover-tile:
+    backgroundColor: "{colors.hub-bg}"
+    rounded: "{rounded.hub-tile}"
+  hub-number-plate:
+    backgroundColor: "{colors.line-orange}"
+    textColor: "{colors.on-line-orange}"
+    typography: "{typography.hub-plate}"
+    rounded: "{rounded.hub-plate}"
+    padding: "0.08em 0.28em 0"
+  hub-tile-plate:
+    backgroundColor: "{colors.line-orange}"
+    textColor: "{colors.on-line-orange}"
+    rounded: "{rounded.hub-mark}"
+    padding: "0.12em 0.4em 0.02em"
+  hub-credit-chip:
+    backgroundColor: "rgb(11 13 18 / 0.62)"
+    textColor: "{colors.hub-ink-2}"
+    typography: "{typography.hub-credit}"
+    rounded: "{rounded.hub-chip}"
+    padding: "0.4rem 0.7rem"
+  hub-line-mark:
+    backgroundColor: "{colors.line-orange}"
+    textColor: "{colors.on-line-orange}"
+    typography: "{typography.hub-stage-title}"
+    rounded: "{rounded.hub-mark}"
+    width: "3.4rem"
+    height: "2.4rem"
+  hub-map-frame:
+    backgroundColor: "{colors.hub-bg-2}"
+    rounded: "{rounded.hub-map}"
+    height: "min(78svh, 46rem)"
+  hub-stroke-sample:
+    backgroundColor: "{colors.hub-ink}"
+    rounded: "{rounded.hub-stroke}"
+    width: "2.4rem"
+    height: "5px"
 ---
 
 # Design System: Line 12 Tracker
+
+Scope: the eight sections below govern every line page (the newspaper world). The hub at `/` has its own world, "Mumbai Key Art", recorded in the Hub Surface section at the end; where it differs, that section wins on the hub only.
 
 ## Overview
 
@@ -363,3 +546,203 @@ One easing, `cubic-bezier(0.16, 1, 0.3, 1)`, for every CSS transition (0.2s to 0
 - **Don't** set display type at normal width, in a light weight, or in sentence case.
 - **Don't** round the bar module or the rules. Radius belongs to dots, lines, controls and pills only.
 - **Don't** use a small uppercase tracked label above a heading as a kicker. Labels name data and sit beside or under it.
+
+## Hub Surface: Mumbai Key Art
+
+This section governs the hub at `/` only (src/pages/index.astro, src/styles/hub.css, src/scripts/hub.ts, src/scripts/network-map.ts). Line pages keep "The Late City Edition" above. Hub tokens carry the `hub-` prefix in the front matter; the line colours (`line-*`, `net-*`) are shared tokens that the hub uses as its accents.
+
+### Overview
+
+**Creative North Star: "Mumbai Key Art"**
+
+The hub is the cover of the whole tracker, told like a game's key art instead of a newspaper. Each tracked line is a place at a real hour of Mumbai light: a full-bleed, credited ground or drone photo that the reader scrolls into. The facts arrive inside the picture, each with its grade, and the network map of every line in the region closes the story.
+
+The ground is near-black, the ink is warm paper white in three strengths, and the only hue on a chapter is that line's own colour: Lines 12, 12A and 5 in Line Orange, Line 4 in Line 4 Green. The first screen is a collage of four photo tiles (14px corners) around the MUMBAI METRO TRACKER mark with its Marathi mark. Scrolling grows a line's own tile, from its place on the cover, through a mask into its full-screen chapter. Depth comes from the photo's slow scale inside the mask and from dark scrims, never from shadow, glow or glass.
+
+The type is the line pages' type: Anek Latin squeezed to 75%, weight 800, uppercase, for every display line, and plain Mukta for copy. Huge number plates in the line colour name each line. Controls are full pills. The hub prints in two editions like the line pages: night (near-black) and morning (the line pages' newsprint and navy), following the system setting, with the same edition toggle in the top bar. The chapters always print on the night tokens, because their copy sits on footage or a photo.
+
+**Key Characteristics:**
+- Near-black ground (hub-bg) and paper-white ink (hub-ink) in three strengths, set on `.hubw`, which redefines paper, ink and rule for the shared components.
+- One accent per chapter: the line's own colour token, as the number plate, route stroke, primary pill, tile tint and nav dot.
+- Full-bleed real photos, one per line, each with a dated, linked credit chip.
+- Anek Latin at 75%, weight 800, uppercase, with decorative Marathi marks in paper white.
+- Pills (999px) and rounded tiles (14px); no cards, no shadows, no glass.
+- Motion is the mask: a cover tile grows into its chapter as the reader scrolls. With motion off, every chapter is a complete still frame.
+- A dark MapLibre map where stage is a stroke pattern and each line carries one number label.
+
+### Colors
+
+Near-black and paper white, cut by each line's own colour.
+
+#### Primary (per chapter)
+- **Line Orange** (line-orange, on-line-orange): the accent of the Line 12, 12A and 5 chapters and their cover tiles. Navy text on it.
+- **Line 4 Green** (line-4, on-line-4): the accent of the Line 4 chapter and tile. White text on it. On the hub it stays the morning value; the hub has no night swap for line colours.
+- A chapter, tile, nav link or list row sets `--c` and `--on-c` from its line's token. Every accent use reads `--c`: the number plate, the route stroke, the "Open the tracker" pill, the nav dot, the list mark, the list link underline, and the tile and chapter plate tints (`color-mix` of `--c` into hub-bg at 18% to 45%).
+
+#### Network colours
+- **Line 6 Pink, Line 2B Yellow** (line-6, line-2b) and **Line 7 Red, Line 3 Aqua, Line 8 Gold** (net-red, net-aqua, net-gold): used on the map and in the list mark only where a source names the line's colour (src/lib/network.ts maps the named colour to the token). No source gives a value for red, aqua or gold, so those three are the site's own.
+- **Unnamed Line Grey** (#8d939c, in network-map.ts): every line whose colour no source names. In the list, such a line's mark is outlined (an inset 1.5px ring in hub-ink-3) instead of filled.
+
+#### Neutral
+- **Night Ground** (hub-bg): the page, the html background and scrollbar track, the map casing under every line, the text on the ink pill.
+- **Second Ground** (hub-bg-2): the map frame, map popups and controls, the colophon sheet.
+- **Paper White** (hub-ink): titles, figures, the ink pill, the ghost pill's hover fill, map station dots and line numbers, text selection.
+- **Soft White** (hub-ink-2, 76%): ledes, phase lines, nav links at rest, credits, route end names, Marathi marks on the cover.
+- **Quiet White** (hub-ink-3, 60%): fact names, the "Tracker" half of the mark, agency and notes in the list, the map note, the foot note.
+- **Hairline** (hub-rule, 16%): row dividers in the list, the stage-title underline, the "All lines" pill outline, the colophon top rule.
+- **Hub Focus Orange** (hub-focus): the focus ring, and the unverified and conflicting grade marks (the hub sets `--signal-line` and `--focus` to it). It is the night edition's Orange Ink.
+
+#### Named Rules
+
+**The Hub Line Colour Rule.** A chapter's accent is one hue: its line's colour, read through `--c`. Everything else is hub-bg, hub-ink and its strengths, plus Hub Focus Orange on focus rings and on unverified or conflicting grade marks (shipped as is; on the Line 4 chapter that is a second hue, an open question for the owner, not a pattern to copy). Never pick a hue by taste; take it from the line's token.
+
+**The Named Colour Rule.** A network line shows a colour only when a source names it. Otherwise it is drawn in Unnamed Line Grey and its mark is outlined. Colour never carries stage.
+
+**The Scrim Rule.** Text never sits on bare photo. Every chapter photo carries two near-black scrims (bottom: 94% to 60% at 38% to clear at 70%; left: 82% to 66% at 32% to 30% at 56% to clear at 78%); every cover tile carries one (85% at the foot to clear at 45%); the credit chip sits on hub-bg at 62%.
+
+### Typography
+
+**Display Font:** Anek Latin Variable at 75% width, weight 800, uppercase (then system-ui)
+**Body Font:** Mukta (with system-ui)
+**Marathi Marks:** Anek Devanagari Mark, weight 700, 100% width, no case change, no tracking
+
+**Character:** The same squeezed, heavy grotesk as the line pages, set larger and on black so it reads as key art; Mukta stays calm underneath.
+
+#### Hierarchy
+- **Number Plate** (hub-plate, clamp 5rem to 12rem, line-height 0.84, tabular): the line number on its colour plate in each chapter.
+- **Cover Title** (hub-cover-title, clamp 3.4rem to 7.5rem, line-height 0.84, balanced): MUMBAI METRO TRACKER, with "Tracker" in Quiet White.
+- **Network Title** (hub-network-title, clamp 3rem to 6.6rem, line-height 0.86): THE WHOLE NETWORK.
+- **Chapter Name** (hub-chapter-name, clamp 2.4rem to 5.2rem, line-height 0.88, balanced): the line's short route.
+- **Next Target** (hub-next, clamp 2.6rem to 4.6rem, line-height 0.9, tabular): the next opening target date on the cover.
+- **Fact** (hub-fact, clamp 1.9rem to 3.1rem, line-height 1, tabular): length, stations and target in a chapter, each followed by a compact grade mark at 0.9rem.
+- **Stage Title** (hub-stage-title, clamp 1.3rem to 1.9rem): each stage group head in the list, with its stroke sample, and the list marks (1.15rem).
+- **Pill and Wordmark** (hub-pill, 0.95rem; wordmark 1.35rem): every pill label and the top-bar wordmark.
+- **Lede** (hub-lede, max 40ch on the cover, 54ch for the chapter phase line, 62ch for the network lede): Mukta in Soft White, wrapped pretty.
+- **Fact Name** (hub-fact-name, uppercase, 0.06em tracking, Quiet White): the `dt` above each chapter figure. It names the figure under it; it is not a kicker over a heading.
+- **Credit** (hub-credit, 0.8rem, line-height 1.35): the photo credit chip.
+- **Marathi Mark** (hub-mark-mr): beside the chapter number in hub-ink (clamp 1.4rem to 2.4rem), in the cover tile label in Soft White (clamp 0.95rem to 1.2rem), and under the cover title at 0.34em in Soft White. Always `lang="mr"` and `aria-hidden`.
+
+#### Named Rules
+
+**The Shared Squeeze Rule.** Every display line on the hub is Anek Latin at 75%, weight 800, uppercase, line-height under 1, exactly as on the line pages. The hub changes the sizes, not the face.
+
+**The Decorative Marathi Rule.** Marathi marks are ornament beside the English, never the copy itself. They are hidden from screen readers and set in Anek Devanagari Mark (cut to its glyphs by scripts/subset-fonts.py; rerun it when a mark changes).
+
+### Layout
+
+The hub is three movements: the cover, a chapter per tracked line (12, 5, 4, 12A), and the network.
+
+- **Top bar:** absolute over the cover, the wordmark left and the line links right, padding 0.9rem by the gutter. Under 48rem only the "All lines" pill shows.
+- **Cover:** on phones, a two by two grid of 5:4 tiles (0.75rem gap), then the mark, lede, next target and the "Scroll the lines" pill below. At 64rem it fills the screen: three columns (1fr, 1.3fr, 1fr), the Line 12 and Line 5 tiles stacked left, the Line 4 and Line 12A tiles stacked right, the mark in the middle; height 100svh less 5.75rem, at least 36rem.
+- **Chapter:** a tall section (100svh + 90svh + the line's length over the longest line's length times 110svh) with a sticky full-screen stage, so a longer line takes longer to scroll. The copy sits bottom-left, max 52rem wide; the credit chip sits top-right under the bar (full-width at the top on phones).
+- **Network:** a head (max 60rem) with the title, lede and per-stage counts; the map (min(78svh, 46rem) tall); then the full text list by stage. Each row is a 3.4rem mark column and the body; each part line is a 2.4rem stroke column and its text. The list goes to two columns at 64rem. "Where the tracked lines meet" and the review note close it.
+- **Breakpoints:** 48rem (top bar links, credit chip, route end names) and 64rem (cover collage, two-column list).
+- Every tap target is at least 44px tall (nav links); pills are 48px.
+
+#### Named Rules
+
+**The Length Is Scroll Rule.** A chapter's scroll length follows its line's real length. Do not set it by hand.
+
+**The Text Fallback Rule.** The map is never the only record. Every line, stage and figure on the map is also in the text list under it, with its grade.
+
+### Elevation & Depth
+
+The hub is flat like the line pages: no drop shadows, no glow, no glass. Depth comes from the photo itself (its slow scale inside the mask), from the near-black scrims (see The Scrim Rule), and from the Second Ground under the map. The only box-shadow is the inset 1.5px ring on an unnamed line's list mark, a hairline. On the map, a hub-bg casing under every line and text halos (2px to 2.5px in the map ground) keep crossings and labels readable.
+
+#### Named Rules
+
+**The Depth by Picture Rule.** On the hub, depth belongs to the photo. A surface is the ground, the second ground or a picture; state never adds a shadow.
+
+### Shapes
+
+The hub is rounded where the line pages are square. Its radius ladder, from small to large:
+- hub-stroke (3px): the stage stroke samples.
+- hub-mark (6px): the cover tile's number plate and the list's line marks.
+- hub-chip (8px): the photo credit chip.
+- hub-plate (10px): the chapter's huge number plate and the map popups.
+- hub-tile (14px): the cover tiles, and the mask a chapter opens from.
+- hub-map (16px): the map frame.
+- pill (999px): every pill and nav link. dot (50%): the nav dots.
+
+The chapter route is a solid 6px stroke in the line colour with round caps and joins, drawn from the line's shared schematic (one 45-degree bend at its real turn, no stations). The focus ring is a 3px Hub Focus Orange outline, offset 3px, with a 4px radius.
+
+### Components
+
+#### Pills
+Round, heavy and quiet until touched.
+- **Shape:** full pill (999px), 48px tall, 0 by 1.4rem, hub-pill type.
+- **Ink:** Paper White fill, Night Ground text. "Scroll the lines" on the cover. Hover lifts it 1px.
+- **Line:** the line colour fill with its on-colour text. "Open the Line N tracker" in each chapter. Hover lifts it 1px.
+- **Ghost:** transparent with a 1px Paper White border at 40%. "All N stations" and "Status, answered". Hover fills it Paper White with Night Ground text.
+- **Active:** every pill scales to 0.97.
+
+#### Navigation (top bar)
+- The wordmark "Mumbai Metro Tracker" in display type at 1.35rem, "Tracker" in Quiet White.
+- Line links: pill-shaped, 44px tall, Mukta 500 at 0.95rem in Soft White, each with a 0.6rem dot in its line colour. Hover (fine pointers only) sets a 10% Paper White fill and Paper White text. "All lines" adds a Hairline outline and jumps to the network.
+
+#### Cover Tile (signature)
+A link to its chapter: the line's photo, cover-cropped at its own focus point, in a 14px-cornered frame tinted with the line colour (22% into hub-bg) while it loads. A foot scrim carries the label: the number on a 6px line-colour plate, the short route in Mukta 500, then the Marathi mark. Hover (fine pointers) scales the photo to 1.04 over 0.9s. Tile images have empty alt; the chapter photo carries the description.
+
+#### Chapter (signature)
+A sticky full-screen stage. The photo fills it (object-fit cover at its focus point) under two scrims. The copy, bottom-left: the number plate with the Marathi mark beside it, the chapter name, the phase line with a compact grade, the three facts (length, stations, target) each with a compact grade, the route stroke between its first and last station names, and the pills. The credit chip, top-right: what the picture shows where a reader could misread it, then "Photo:" the credit (linked when it is someone else's, opening in a new tab) and the date.
+
+#### Network Map (signature)
+MapLibre on OpenFreeMap tiles, loaded when the section is within 600px of the viewport. The basemap is dark: ground #0e1117, land #141820, water #0a1a26, major roads #262b35, rail as a dashed #3a3f4a line, and city, town and suburb names last, uppercase with 0.08em tracking in #8f949c, so place names are never cut. Lines sit on a hub-bg casing. Stage is the stroke: running is solid, being built is long dashes, approved is short dashes, proposed is dots. Station dots (Paper White, from zoom 11) and one bold 12px Paper White number per line, at the drawn point nearest the centre of that line. Zoom buttons only (no compass), cooperative gestures, compact attribution. Clicking a line opens a popup on hub-bg-2 (10px corners): the line name, its stage "here", and a link to its tracker when there is one. Before it loads, the frame says that the list below has every line.
+
+#### Stroke Sample
+A 2.4rem by 5px bar (3px corners) that repeats the map's stroke in the list and the counts: solid Paper White for running; 10px on, 5px off for under construction; 4px on, 5px off for approved; a 3px Soft White dotted bar for proposed; a 2px Quiet White sparse dot for "studied as an idea" (list only, never drawn on the map). It always sits beside the stage word.
+
+#### Network List Row
+A line mark (3.4rem by 2.4rem, 6px corners, the line colour or an outlined ring), then the line name (Mukta 700, linked to its tracker with a 2px underline in the line colour), the length and station count in tabular numerals with compact grades, the agency in Quiet White, and one line per part: stroke sample, part name, stage word, opening date and note, and its grade. A Hairline divides the rows.
+
+#### Colophon on the hub
+The shared Colophon, printed on the hub's ground: Second Ground sheet, a 1px Hairline on top (no orange bar), Paper White text, links underlined in Paper White at 50%. It takes the hub's own `disclaimer`, which names the photos and their permissions.
+
+#### Motion
+One CSS easing, `cubic-bezier(0.16, 1, 0.3, 1)`, for hover and state changes (0.2s to 0.25s; 0.9s for the tile photo zoom). Lenis (lerp 0.11) drives ScrollTrigger and carries in-page links (1.4s). On load, the cover tiles settle from scale 1.06 and zero opacity (1.2s, expo.out, 0.08s stagger) and the mark's parts rise 24px (1.1s, 0.08s stagger, 0.15s delay). In each chapter one scrubbed timeline (scrub 0.6) runs: the clip-path on the whole stage (picture and copy together, so nothing shows outside the frame) opens from the box of the reader's own cover tile, rounded 14px, to the full screen at 0 radius (power2.inOut), applied from the first render; the picture settles from scale 1.18 to rest; the title block (number plate, Marathi mark and name) rises 48px at 0.55; the phase, facts, route and pills rise 26px each in turn from 0.8, one explicit tween each (a staggered fromTo sets only its first target up front); the route draws itself at 0.95; then the frame holds. With `prefers-reduced-motion: reduce` neither GSAP nor Lenis starts and all transitions collapse to 0.01ms; every chapter is a complete still frame with its photo, facts, route and pills in place.
+
+### What carries over, and what does not
+
+**Still applies on the hub (from the newspaper world):**
+- The grade mark on every figure, with its source (Grade, compact on the hub), and the mark drawn by shape plus a word (The Grade Mark).
+- Tabular lining numerals for every figure and date (The Tabular Rule).
+- Status never by colour alone: on the hub, stage is a stroke pattern plus a word, on the map and in the list.
+- The Squeeze Rule for display type, Mukta for copy, balanced headings and pretty paragraphs.
+- Never body-size text in a line colour; colour is for plates, strokes, dots and fills under their on-colour text.
+- No em dashes in any copy.
+- Reduced motion is complete: nothing needed to understand the page depends on motion.
+- Tap targets of 44px or more; a 3px focus ring offset 3px.
+- No kickers: a small uppercase label names the data under it and never introduces a heading.
+- No drop shadows, floating cards or glass.
+
+**Does not apply on the hub:**
+- The Two Editions Rule's token flip for the chapters: a chapter always prints on the night tokens over its picture; the cover, network, map and colophon flip with the edition.
+- The One Signal Rule, The Line Colour Rule's single page hue and The Three Oranges Rule: each chapter takes its own line's colour, and the network shows every named line colour.
+- The bar module, the masthead band, the edition line, the Inside index and the section head (bar, name, standfirst): the hub has none of them.
+- The Edition Rule's heavy 4px ink rules: the hub divides with 1px Hairlines and space.
+- Square controls (4px): hub controls are full pills, and tiles, chips, plates and the map frame are rounded (6px to 16px).
+- The Halftone Rule and the drawn lead picture: the hub uses real, credited photos instead.
+- The hollow route casing with a paper core and station dots: the hub's route is a solid line-colour stroke without stations.
+- The colophon's orange top bar: on the hub it is a Hairline.
+
+### Do's and Don'ts (hub)
+
+#### Do:
+- **Do** set every hub colour from the `hub-` tokens and the line's own colour token through `--c` and `--on-c`.
+- **Do** give every chapter one real ground or drone picture, credited with its note, photographer (linked when it is someone else's) and date. A chapter may play a short drone loop (scripts/encode-hub-footage.sh: H.264, 1600 and 960 wide, forward then backward): it loads only near its chapter, plays only on screen, and keeps its poster with reduced motion or Data Saver. Never use a section that shows the creator's picture-in-picture inset.
+- **Do** set each chapter's figures as one display line (number, unit, grade mark), never as a label over a big number, and make each grade mark the link to its source (Grade `markLink`); list a network line's sources once, under the line.
+- **Do** alternate chapters between left and right copy on wide screens, so neighbours never share a composition.
+- **Do** put text on a photo only over the scrims.
+- **Do** open each chapter from its own cover tile's box, rounded 14px, to the full screen.
+- **Do** draw stage on the map and in the list as a stroke pattern beside its word, and show a line's colour only when a source names it.
+- **Do** keep a compact grade mark after every figure and phase line.
+- **Do** keep Marathi marks decorative: `lang="mr"`, `aria-hidden`, Anek Devanagari Mark.
+- **Do** keep every chapter a complete still frame with motion off.
+
+#### Don't:
+- **Don't** bring the newspaper's bar module, heavy ink rules, masthead band or halftone onto the hub.
+- **Don't** add a second hue to a chapter, or use a line colour for body text.
+- **Don't** use renders, illustrations or uncredited images as chapter pictures.
+- **Don't** add cards, drop shadows, glow or glass; depth belongs to the photo.
+- **Don't** make the map the only record; every line stays in the text list.
+- **Don't** label a map line more than once; one number per line.

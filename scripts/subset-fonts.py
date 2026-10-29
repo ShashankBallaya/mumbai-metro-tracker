@@ -15,7 +15,9 @@ from fontTools import subset
 from fontTools.ttLib import TTFont
 from fontTools.varLib import instancer
 
-MARK = 'मेट्रो १२'  # must match .masthead__mr in src/components/Masthead.astro
+# Every line's mark (lines.json mark_mr, shown by .masthead__mr and on the hub) plus the hub's own mark.
+with open('src/data/lines.json', encoding='utf-8') as f:
+    MARK = ' '.join(l['mark_mr'] for l in json.load(f)['lines']) + ' मुंबई मेट्रो'
 RUPEE = '₹'
 # Fixed Marathi phrases used in the pages (keep in step with the .astro files that print them).
 PHRASES = 'मेट्रो स्थानक कल्याण-तळोजा मेट्रो १२ सर्व स्थानके'
