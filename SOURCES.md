@@ -262,6 +262,7 @@ Research started 2026-10-19. Data in `src/data/lines/line-4/`. Figures follow MM
 | Alstom India on X | Oct 2026 | Supplied by the owner, 2026-10-19; could not be read (X needs sign-in) | https://x.com/AlstomIndia/status/2110453455399825467 |
 | Alstom (the maker), press release | 14 Oct 2026 | First of 39 Metropolis trains unveiled at Sri City, built in 14 months; designed in Bengaluru, propulsion from Coimbatore, bogies from Savli; 90 km/h safe speed, 80 km/h operating; cooling, wheelchair access, bicycle racks; green and blue identity; five years of maintenance to L&T. Its HD photo of car D4P001 is the Line 4 train picture, credited to Alstom (owner's request, 2026-10-19) | https://www.alstom.com/press-releases-news/2026/10/alstom-unveils-its-first-trainset-mumbai-metro-line-4-4a |
 | Rajendra B. Aklekar (@rajtoday) on X | 16 Oct 2026 | "First look" post with 4 photos of the first train; no credit or reuse terms, so not used | https://x.com/rajtoday/status/2111073265640968263 |
+| Saurabh Raut (@saurabh5620) on X | 29 Oct 2026 | Reply to the owner: Mandale for Line 4 trains; the Alstom trains are received at Mandale first, then at Kasheli, and move to Mogharpada when it is ready. Supports the Mandale and Kasheli report and adds the order. Lead, graded reported. Supplied by the owner, 2026-10-29 | https://x.com/saurabh5620/status/2115699483623497754 |
 
 ## Derived data
 

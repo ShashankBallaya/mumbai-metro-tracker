@@ -1,0 +1,18 @@
+{
+ "_meta": {
+  "description": "Hand-curated X (Twitter) posts, newest first. Each post is printed as a ruled row (date, author, text); X's script loads only when a reader asks for one full post with its photos. 'status' grades the post's claims, not the account: posts by enthusiasts are 'reported' at best. Dates come from the post ID.",
+  "last_reviewed": "2026-10-29"
+ },
+ "posts": [
+  {
+   "url": "https://x.com/saurabh5620/status/2115699483623497754",
+   "author": "Saurabh Raut",
+   "handle": "saurabh5620",
+   "date": "2026-10-29",
+   "text": "Line 4's trains go to the Mandale depot. The Alstom trains will be received at Mandale first, then at Kasheli, and will move to Mogharpada once it is ready.",
+   "status": "reported",
+   "source_url": "https://x.com/saurabh5620/status/2115699483623497754",
+   "last_verified": "2026-10-29"
+  }
+ ]
+}

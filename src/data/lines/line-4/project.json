@@ -170,7 +170,7 @@
     "area_ha": 41.5,
     "status": "conflicting",
     "source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2024-02/reminiscence_of_mmrda_s_monumental_achievements_in_2023.pdf",
-    "last_verified": "2026-10-19",
+    "last_verified": "2026-10-29",
     "context": "Shared with Lines 4A, 10 and 11. In October 2023 the State approved the transfer of 174.01 ha at Mogharpada to MMRDA for Lines 4, 4A, 10 and 11, of which 41.5 ha is earmarked for the depot (MMRDA's review of 2023).",
     "contract": {
       "value": "CA-160, Mogharpada depot, to SEW Infrastructure and Vishwa Samudra Engineering (JV)",
@@ -203,6 +203,11 @@
         "value": "Mandale depot (Line 2B) for the first 20 trains and Kasheli depot (Line 5) for the other 19; Mogharpada for a backup control centre only",
         "context": "Rajendra B. Aklekar, 16 Oct 2026: 'Line 4 has no dedicated depot yet'",
         "source_url": "https://rajendrabaklekar.in/2026/10/16/here-are-the-metro-trains-for-mumbais-lbs-road/"
+      },
+      {
+        "value": "Alstom trains received at Mandale depot first, then at Kasheli; they move to Mogharpada when it is ready",
+        "context": "Saurabh Raut on X, 29 Oct 2026, in reply to the site owner",
+        "source_url": "https://x.com/saurabh5620/status/2115699483623497754"
       }
     ],
     "history": [
@@ -217,7 +222,7 @@
         "source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2021-10/Metro%20Line%204A.pdf"
       }
     ],
-    "notes": "The depot was not finished when the first stretch was ready, so the Gaimukh pit line serves until it is (Free Press Journal, Aug 2026). A first depot tender (L4-C01) was cancelled in May 2021 (The Metro Rail Guy). A report of October 2026 (Rajendra B. Aklekar) says the trains will be kept at the Mandale and Kasheli depots instead; see alternatives. Graded conflicting."
+    "notes": "The depot was not finished when the first stretch was ready, so the Gaimukh pit line serves until it is (Free Press Journal, Aug 2026). A first depot tender (L4-C01) was cancelled in May 2021 (The Metro Rail Guy). A report of October 2026 (Rajendra B. Aklekar) says the trains will be kept at the Mandale and Kasheli depots instead; a post on X (29 Oct 2026) gives the order, Mandale first, then Kasheli, and says the trains move to Mogharpada when it is ready; see alternatives. Graded conflicting."
   },
   "interchanges": {
     "value": [
