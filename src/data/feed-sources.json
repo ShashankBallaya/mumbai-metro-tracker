@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "Where the automatic news and video feed looks, and what it keeps. Edited by hand; read by scripts/fetch-feed.mjs every 6 hours (.github/workflows/feed.yml). Only outlets' own RSS feeds and the YouTube Data API are used: Google News RSS is for personal feed readers only, so it is not used. Each line has its own block under 'lines': the words searched for on each outlet ('search', put in place of {q} in an outlet's URL), the video queries, and the rules for keeping an item. An item is tagged with every line whose rules it meets.",
-    "last_reviewed": "2026-10-28"
+    "last_reviewed": "2026-10-30"
   },
   "news_feeds": [
     {
@@ -139,6 +139,42 @@
           "durgadi",
           "ulhasnagar",
           "temghar",
+          "mmrda"
+        ],
+        "require_corridor": true
+      }
+    },
+    "line-2b": {
+      "search": [
+        "2B",
+        "mandale"
+      ],
+      "video_queries": [
+        "Metro Line 2B Mandale Chembur",
+        "Metro 2B Mumbai"
+      ],
+      "match": {
+        "comment": "'line[\\s-]*2[\\s-]*b\\b' and 'metro[\\s-]*2[\\s-]*b\\b' are Line 2B only: Line 2A items do not match, and no other Indian city has a Line 2B. A bare 'Yellow Line' is also Delhi's and Bengaluru's, so it needs a Line 2B place.",
+        "strong": [
+          "lines?[\\s-]*2[\\s-]*b\\b",
+          "metro[\\s-]*2[\\s-]*b\\b",
+          "मेट्रो[\\s-]*(२|2)[\\s-]*(ब|b)"
+        ],
+        "line": [
+          "yellow[\\s-]*line"
+        ],
+        "corridor": [
+          "mandale",
+          "mankhurd",
+          "chembur",
+          "diamond garden",
+          "kurla",
+          "bkc",
+          "bandra kurla",
+          "d n nagar",
+          "dn nagar",
+          "saraswat nagar",
+          "esic nagar",
           "mmrda"
         ],
         "require_corridor": true

@@ -228,5 +228,28 @@
       ]
     }
   ],
-  "videos": []
+  "videos": [
+    {
+      "id": "969MlryaIKg",
+      "title": "Mumbai Metro Line 2B Phase 3 Update | BKC, Kurla & Chembur Latest Progress 2026",
+      "channel": "InfraUnfiltered",
+      "date": "2026-07-21",
+      "url": "https://www.youtube.com/watch?v=969MlryaIKg",
+      "lines": [
+        "line-2b"
+      ],
+      "picked": true
+    },
+    {
+      "id": "xnm_m24L_JE",
+      "title": "Mumbai Metro Line 2B phase 2 update | ESIC Nagar to Saraswat Nagar Progress",
+      "channel": "InfraUnfiltered",
+      "date": "2026-07-07",
+      "url": "https://www.youtube.com/watch?v=xnm_m24L_JE",
+      "lines": [
+        "line-2b"
+      ],
+      "picked": true
+    }
+  ]
 }

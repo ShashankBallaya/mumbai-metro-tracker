@@ -59,6 +59,10 @@ function buildStyle(alignment: GeoJSON.FeatureCollection, stations: StationData[
   const ink = css('--ink');
   const ink3 = css('--ink-3');
   const signal = css('--signal-graphic');
+  const routeLine = css('--route-line') || signal;
+  // Line 2B on morning paper: a yellow route needs a navy edge to read (tokens.css).
+  const routeEdge = css('--route-edge');
+  const edged = Boolean(routeEdge) && routeEdge !== 'transparent';
   const dark = document.documentElement.dataset.theme === 'dark' || (!document.documentElement.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches);
   const water = dark ? '#16243d' : '#c9d3d2';
   const green = dark ? '#101c28' : '#dcdccb';
@@ -93,7 +97,8 @@ function buildStyle(alignment: GeoJSON.FeatureCollection, stations: StationData[
       // The route an earlier plan had, which the current plan replaces: thin and dashed, off until asked for.
       { id: 'route-old', type: 'line', source: 'route', filter: isPart('superseded'), layout: { visibility: showOld ? 'visible' : 'none' }, paint: { 'line-color': ink3, 'line-width': ['interpolate', ['linear'], ['zoom'], 10, 1.5, 16, 4], 'line-dasharray': [2, 1.5] } },
       // Line 12: hollow orange line = under construction (same grammar as the page).
-      { id: 'route-casing', type: 'line', source: 'route', filter: ['!', isPart('superseded', 'underground')], layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': signal, 'line-width': ['interpolate', ['linear'], ['zoom'], 10, 5, 16, 16] } },
+      { id: 'route-edge', type: 'line', source: 'route', filter: ['!', isPart('superseded', 'underground')], layout: { visibility: edged ? 'visible' : 'none', 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': edged ? routeEdge : paper, 'line-width': ['interpolate', ['linear'], ['zoom'], 10, 7, 16, 19] } },
+      { id: 'route-casing', type: 'line', source: 'route', filter: ['!', isPart('superseded', 'underground')], layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': routeLine, 'line-width': ['interpolate', ['linear'], ['zoom'], 10, 5, 16, 16] } },
       { id: 'route-core', type: 'line', source: 'route', filter: ['!', isPart('superseded', 'underground')], layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': paper, 'line-width': ['interpolate', ['linear'], ['zoom'], 10, 1.6, 16, 6] } },
       // Underground: gaps cut into the hollow line, so it reads as a dashed outline.
       { id: 'route-tunnel', type: 'line', source: 'route', filter: isPart('underground'), layout: { 'line-cap': 'butt', 'line-join': 'round' }, paint: { 'line-color': paper, 'line-width': ['interpolate', ['linear'], ['zoom'], 10, 5, 16, 16], 'line-dasharray': [0.7, 0.6] } },
@@ -101,7 +106,7 @@ function buildStyle(alignment: GeoJSON.FeatureCollection, stations: StationData[
       { id: 'route-indicative', type: 'line', source: 'route', filter: isPart('indicative'), layout: { 'line-cap': 'butt', 'line-join': 'round' }, paint: { 'line-color': paper, 'line-width': ['interpolate', ['linear'], ['zoom'], 10, 5, 16, 16], 'line-dasharray': [1.4, 0.9] } },
       { id: 'stations-old', type: 'circle', source: 'stations', filter: ['==', ['get', 'dropped'], 1], layout: { visibility: showOld ? 'visible' : 'none' }, paint: { 'circle-color': ['case', ['==', ['get', 'sel'], 1], ink3, paper], 'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, 4, 16, 8], 'circle-stroke-color': ink3, 'circle-stroke-width': 2 } },
       { id: 'station-old-label', type: 'symbol', source: 'stations', filter: ['==', ['get', 'dropped'], 1], layout: { visibility: showOld ? 'visible' : 'none', 'text-field': ['get', 'name'], 'text-font': font, 'text-size': 11, 'text-offset': [0.9, 0], 'text-anchor': 'left', 'text-optional': true }, paint: { 'text-color': ink3, 'text-halo-color': paper, 'text-halo-width': 2 } },
-      { id: 'stations', type: 'circle', source: 'stations', filter: ['==', ['get', 'dropped'], 0], paint: { 'circle-color': ['case', ['==', ['get', 'sel'], 1], signal, ink], 'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, ['case', ['==', ['get', 'sel'], 1], 7, 4.5], 16, ['case', ['==', ['get', 'sel'], 1], 14, 9]], 'circle-stroke-color': paper, 'circle-stroke-width': 2.5 } },
+      { id: 'stations', type: 'circle', source: 'stations', filter: ['==', ['get', 'dropped'], 0], paint: { 'circle-color': ['case', ['==', ['get', 'sel'], 1], routeLine, ink], 'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, ['case', ['==', ['get', 'sel'], 1], 7, 4.5], 16, ['case', ['==', ['get', 'sel'], 1], 14, 9]], 'circle-stroke-color': edged ? ['case', ['==', ['get', 'sel'], 1], routeEdge, paper] : paper, 'circle-stroke-width': 2.5 } },
       { id: 'station-label', type: 'symbol', source: 'stations', filter: ['==', ['get', 'dropped'], 0], layout: { 'text-field': ['get', 'name'], 'text-font': ['Noto Sans Bold'], 'text-size': ['case', ['==', ['get', 'sel'], 1], 15, 12], 'text-offset': [0.9, 0], 'text-anchor': 'left', 'text-optional': true }, paint: { 'text-color': ink, 'text-halo-color': paper, 'text-halo-width': 2 } },
     ],
   };

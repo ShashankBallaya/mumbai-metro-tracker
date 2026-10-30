@@ -1,9 +1,319 @@
 {
   "_meta": {
-    "description": "The lines this site covers, in hub order. Each line's facts live in src/data/lines/<id>/. project.json and stations.json are required; every other file is optional, and a section without its file does not show. 'alignment' names the GeoJSON file the map and schematic draw from. 'about' feeds the line's schema.org node on every page of that line. 'position_basis' names where station coordinates come from: 'by_source' matches part of a station's location source_url, else 'default'. 'copy' holds the line's own wording for shared pages; {total}, {km} and {name} are filled in. Tokens in copy: {stations}, {as_of}, {pct:<activity>}, {target}, {earlier}, {rest}, {alt}, {minutes} come from project.json. Keys ending in _html may contain inline markup. 'number' is the line's mark; 'colour' names its colour token in src/styles/tokens.css (with an on- token for text on it); a line page whose colour is not line-orange takes it as its accent (data-accent on <html>). 'other_lines' gives a colour to lines the site does not cover, for their mark only; a line in neither list gets a neutral outlined mark. Line 5 and Line 12 share orange, so every mention of a line shows its number with the colour (LineMark.astro). 'dpr_label' names the project report that stations.json dpr_name and dpr_chainage_m come from (default: the 2019 project report, Line 12's). 'dropped_heading' names the group of dropped stations (default: Line 5's wording). 'extension_note' is said of every station on an extension of the line (stations.json `section`, Line 4A).",
-    "last_reviewed": "2026-10-28"
+    "description": "The lines this site covers, in hub order: ascending by line number (owner, 2026-10-30). Each line's facts live in src/data/lines/<id>/. project.json and stations.json are required; every other file is optional, and a section without its file does not show. 'alignment' names the GeoJSON file the map and schematic draw from. 'about' feeds the line's schema.org node on every page of that line. 'position_basis' names where station coordinates come from: 'by_source' matches part of a station's location source_url, else 'default'. 'copy' holds the line's own wording for shared pages; {total}, {km} and {name} are filled in. Tokens in copy: {stations}, {as_of}, {pct:<activity>}, {target}, {earlier}, {rest}, {alt}, {minutes} come from project.json. Keys ending in _html may contain inline markup. 'number' is the line's mark; 'colour' names its colour token in src/styles/tokens.css (with an on- token for text on it); a line page whose colour is not line-orange takes it as its accent (data-accent on <html>). 'other_lines' gives a colour to lines the site does not cover, for their mark only; a line in neither list gets a neutral outlined mark. Line 5 and Line 12 share orange, so every mention of a line shows its number with the colour (LineMark.astro). 'dpr_label' names the project report that stations.json dpr_name and dpr_chainage_m come from (default: the 2019 project report, Line 12's). 'dropped_heading' names the group of dropped stations (default: Line 5's wording). 'extension_note' is said of every station on an extension of the line (stations.json `section`, Line 4A).",
+    "last_reviewed": "2026-10-30"
   },
   "lines": [
+    {
+      "id": "line-2b",
+      "label": "Line 2B",
+      "number": "2B",
+      "colour": "line-2b",
+      "mark_mr": "मेट्रो २ब",
+      "route_short": "D N Nagar to Mandale",
+      "alignment": "alignment-mmrda-2025.geojson",
+      "about": {
+        "name": "Mumbai Metro Line 2B",
+        "alternate_names": [
+          "Metro Line 2B",
+          "Metro 2B",
+          "Yellow Line",
+          "D N Nagar-Mandale Metro"
+        ],
+        "description": "An elevated metro line from D N Nagar in Andheri through Bandra, Bandra Kurla Complex, Kurla and Chembur to Mandale, built by MMRDA. Mandale to Chembur is open; the rest is under construction.",
+        "same_as": [
+          "https://en.wikipedia.org/wiki/Yellow_Line_(Mumbai_Metro)",
+          "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview"
+        ]
+      },
+      "position_basis": {
+        "default": "MMRDA's alignment file, Mar 2025",
+        "by_source": {}
+      },
+      "copy": {
+        "ends": [
+          "D N Nagar",
+          "Mandale"
+        ],
+        "runs": "which runs fully elevated from D N Nagar in Andheri through Bandra, BKC, Kurla and Chembur to Mandale",
+        "station_state": null,
+        "stations_section": "All {total}, in order from ESIC Nagar, the first station from D N Nagar, to Mandale, then the one an earlier plan had. Names follow MMRDA. Select a station to ride to it, or open its own page.",
+        "stations_page": "All {total}, in order from ESIC Nagar to Mandale. Every station is elevated. The line is {km} km long from D N Nagar, where it leaves Line 2A. Mandale to Chembur is open.",
+        "stations_page_description": "The {total} stations of {name} in order, from ESIC Nagar in Andheri through Bandra, BKC, Kurla and Chembur to Mandale, with interchanges, which are open and a page for each station.",
+        "route_section": "Twenty stations, ESIC Nagar to Mandale. Scroll to ride the line station by station. Distances follow MMRDA's alignment file of March 2025, from ESIC Nagar.",
+        "route_legend": "A solid line marks track open to riders, Mandale to Chembur; a hollow line marks track under construction.",
+        "drawn_from": [
+          "MMRDA's alignment file",
+          " of March 2025"
+        ],
+        "headline_html": "Follow Mumbai Metro Line&nbsp;2B<br> from Mandale to D&nbsp;N&nbsp;Nagar.",
+        "front_standfirst": "Six stations are open, from Mandale through Mankhurd to Chembur. The other fourteen, from Chembur through Kurla, BKC and Bandra to D N Nagar, are being built: on {as_of}, MMRDA put pier work at about {pct:Pier works} per cent and girder work at about {pct:U and I girder works} per cent. {stations} stations in all.",
+        "countdown_title": "Days to the reported target",
+        "target_html": "Target: <strong>{target}</strong> for the next stretch, Diamond Garden to Saraswat Nagar, as reported. No month; the site counts to the end of the year. MMRDA has announced no date.",
+        "lead_scene": null,
+        "map_section": "The line on a street map. Choose a station to see where it sits, what surrounds it and what the street looks like today. The route and stations come from MMRDA's alignment file of March 2025.",
+        "map_legend": "Route, MMRDA's alignment file; open from Mandale to Chembur",
+        "map_first_station": "chembur",
+        "numbers": {
+          "length_unit": "km, fully elevated, from D N Nagar",
+          "stations_unit": "all elevated; MMRDA also says 19",
+          "cost_unit": ", with taxes, escalation and interest",
+          "cost_note": "MMRDA's Line 2B page, the figure of the project report approved in 2016. No revised cost was found.",
+          "funding_head": "MMRDA and ADB, as planned",
+          "funding_note": "In 2016 MMRDA planned to fund the civil works itself and the rest with the Asian Development Bank (Indian Infrastructure). No loan agreement for Line 2B was read.",
+          "depot_history": [],
+          "travel_head": "50 to 75% shorter",
+          "travel_unit": "than by road today, depending on traffic (MMRDA)"
+        },
+        "primary_sources": [
+          {
+            "name": "MMRDA, Metro Line 2B project page",
+            "note": "Length, stations, colour, cost, riders, depot, connections, opening dates of Phases I and IA, monthly progress.",
+            "url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview"
+          },
+          {
+            "name": "Alignment file of Line 2B (MMRDA, March 2025)",
+            "note": "The route line and every station position on the map.",
+            "url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+          },
+          {
+            "name": "MMRDA, Metro Line 2B page in Marathi",
+            "note": "The station names in Marathi.",
+            "url": "https://mmrda.maharashtra.gov.in/mr/projects/transport/metro-line-2b/overview"
+          },
+          {
+            "name": "Free Press Journal, 7 Apr 2026",
+            "note": "Phase I at the opening: train times, frequency, fares.",
+            "url": "https://www.freepressjournal.in/mumbai/mumbai-metro-line-2b-launched-travel-from-mankhurd-to-chembur-in-just-20-check-ticket-fare-here"
+          }
+        ],
+        "page_description": "Unofficial, sourced tracker for Mumbai Metro Line 2B (Yellow Line), D N Nagar to Mandale: what is open, train times and fares, progress on the rest, all 20 stations, map and contracts. Every figure links to its source.",
+        "status_title": "Mumbai Metro Line 2B Status: open stations, progress, route",
+        "status_description": "Which part of Metro Line 2B (D N Nagar to Mandale) is open, train times and fares, when the rest opens, stations, cost and depot. Answers from MMRDA and news sources, checked {checked}.",
+        "status_h1": "Metro Line 2B status, answered",
+        "status_mr": "डी. एन. नगर-मंडाळे मेट्रो २ब",
+        "status_lead": "The questions people ask about Mumbai Metro Line 2B, D N Nagar to Mandale.",
+        "footer_disclaimer": "Mumbai Metro Tracker is an independent public-interest site. It is not affiliated with, endorsed by or connected to MMRDA, Maha Mumbai Metro or the Government of Maharashtra. Drawings are original illustrations, not official designs. Check official sources before making decisions.",
+        "dropped_heading": "In an earlier plan, not on MMRDA's list now"
+      }
+    },
+    {
+      "id": "line-4",
+      "label": "Line 4",
+      "number": "4",
+      "colour": "line-4",
+      "mark_mr": "मेट्रो ४",
+      "route_short": "Wadala to Thane and Gaimukh",
+      "alignment": "alignment-mmrda-2025.geojson",
+      "about": {
+        "name": "Mumbai Metro Line 4",
+        "alternate_names": [
+          "Metro Line 4",
+          "Metro 4",
+          "Green Line",
+          "Wadala-Thane-Kasarvadavali Metro",
+          "Metro Line 4A"
+        ],
+        "description": "An elevated metro line from Wadala through Ghatkopar, Mulund and Thane to Kasarvadavali, with the Line 4A extension to Gaimukh, built by MMRDA. The first stretch, Gaimukh to Cadbury Junction, is built and in trial runs.",
+        "same_as": [
+          "https://en.wikipedia.org/wiki/Green_Line_(Mumbai_Metro)",
+          "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+        ]
+      },
+      "position_basis": {
+        "default": "MMRDA's alignment file, Mar 2025",
+        "by_source": {}
+      },
+      "copy": {
+        "ends": [
+          "Wadala",
+          "Gaimukh"
+        ],
+        "runs": "which will run fully elevated from Wadala through Ghatkopar, Mulund and Thane to Kasarvadavali, and on to Gaimukh as Line 4A",
+        "station_state": null,
+        "stations_section": "All {total}, in order from Bhakti Park in Wadala: the 30 of Line 4 to Kasarvadavali, then the two of Line 4A to Gaimukh, then the two the 2016 plan had. Names follow MMRDA. Select a station to ride to it, or open its own page.",
+        "stations_page": "All {total}, in order from Bhakti Park in Wadala to Kasarvadavali, then Line 4A to Gaimukh. Every station is elevated. Line 4 is {km} km long; Line 4A adds about 2.9 km.",
+        "stations_page_description": "The stations of {name} in order, from Wadala through Ghatkopar, Vikhroli, Bhandup, Mulund and Thane to Kasarvadavali, and Line 4A to Gaimukh, with interchanges and a page for each station.",
+        "route_section": "Thirty-two stations, Bhakti Park in Wadala to Gaimukh in Thane, Line 4A included. Scroll to ride the line station by station. Distances follow MMRDA's alignment file of March 2025.",
+        "route_legend": "A hollow line marks track that is not yet open. No part of Line 4 has opened; the first stretch, Gaimukh to Cadbury Junction, is in trial runs.",
+        "drawn_from": [
+          "MMRDA's alignment file",
+          " of March 2025"
+        ],
+        "headline_html": "Watch Mumbai Metro Line&nbsp;4 reach Thane,<br> stretch by stretch.",
+        "front_standfirst": "The first stretch, Gaimukh to Cadbury Junction in Thane, is built and in trial runs. It waits for the safety commissioner's approval. The rest of the line to Wadala is still being built: on {as_of}, MMRDA put pier work at about {pct:Pier (viaduct and station, up to platform level)} per cent and the deck slab at about {pct:Deck slab} per cent. MMRDA counts {stations} stations on Line 4; Line 4A adds two.",
+        "countdown_title": "Days to the reported target",
+        "target_html": "Target: <strong>{target}</strong> for the first stretch, Gaimukh to Cadbury Junction, as reported. MMRDA has announced no date. Two earlier reported targets, December 2025 and April 2026, passed. Wadala: October 2027, as reported.",
+        "lead_scene": null,
+        "map_section": "The line on a street map. Choose a station to see where it sits, what surrounds it and what the street looks like today. The route and stations come from MMRDA's alignment file of March 2025.",
+        "map_legend": "Route not yet open, MMRDA's alignment file",
+        "map_first_station": "kapurbawdi",
+        "numbers": {
+          "length_unit": "km, fully elevated; Line 4A adds about 2.9 km",
+          "stations_unit": "all elevated, plus 2 on Line 4A",
+          "cost_unit": ", Line 4, with taxes",
+          "cost_note": "MMRDA's Line 4 page. Line 4A adds ₹949 crore (reported). The 2016 project report gave ₹14,502 crore by completion.",
+          "funding_head": "Loans for the systems",
+          "funding_note": "In November 2021 Germany's KfW approved two loans, EUR 545 million in all, for the trains, ticketing and links around the stations of Lines 4 and 4A. MMRDA funds the rest.",
+          "depot_history": [
+            [
+              "Kasarvadavali, with stabling near Ghatkopar",
+              "2016 project report"
+            ],
+            [
+              "Near Gaimukh, 23.1 ha",
+              "2017 project report for Line 4A"
+            ]
+          ],
+          "travel_head": "50 to 75% shorter",
+          "travel_unit": "than by road today, depending on traffic (MMRDA)"
+        },
+        "primary_sources": [
+          {
+            "name": "MMRDA, Metro Line 4 project page",
+            "note": "Length, stations, colour, cost, riders, connections, monthly progress.",
+            "url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
+          },
+          {
+            "name": "Detailed project report, Wadala to Kasarvadavali (DMRC for MMRDA, May 2016)",
+            "note": "Design basis, station chainages, depot, cost.",
+            "url": "https://mmrda.maharashtra.gov.in/sites/default/files/2021-10/Metro%20Line%204.pdf"
+          },
+          {
+            "name": "Detailed project report, Line 4A to Gaimukh (DMRC for MMRDA, October 2017)",
+            "note": "Line 4A's length, stations and cost.",
+            "url": "https://mmrda.maharashtra.gov.in/sites/default/files/2021-10/Metro%20Line%204A.pdf"
+          },
+          {
+            "name": "Alignment file of Line 4 (MMRDA, March 2025)",
+            "note": "The route line and every station position on the map.",
+            "url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+          },
+          {
+            "name": "KfW loan for Lines 4 and 4A (MMRDA, November 2021)",
+            "note": "The EUR 545 million loans and what they pay for.",
+            "url": "https://www.mmrda.maharashtra.gov.in/sites/default/files/2021-12/news%20(20).pdf"
+          }
+        ],
+        "page_description": "Unofficial, sourced tracker for Mumbai Metro Line 4 (Green Line), Wadala to Thane, and Line 4A to Gaimukh: opening target of the first stretch, progress, all 32 stations, map, tenders and trains. Every figure links to its source.",
+        "status_title": "Mumbai Metro Line 4 Status: opening date, progress, route",
+        "status_description": "When will Metro Line 4 (Wadala to Thane and Gaimukh) open, which stretch opens first, cost and trains. Answers from MMRDA and news sources, checked {checked}.",
+        "status_h1": "Metro Line 4 status, answered",
+        "status_mr": "वडाळा-ठाणे-कासारवडवली मेट्रो ४",
+        "status_lead": "The questions people ask about Mumbai Metro Line 4, Wadala to Thane and Gaimukh.",
+        "footer_disclaimer": "Mumbai Metro Tracker is an independent public-interest site. It is not affiliated with, endorsed by or connected to MMRDA or the Government of Maharashtra. Drawings are original illustrations, not official designs; the one exception, the train photo, is credited to its maker. Check official sources before making decisions.",
+        "dpr_label": "the 2016 project report",
+        "dropped_heading": "In the 2016 plan, dropped in December 2023",
+        "extension_note": "On Line 4A, the extension from Kasarvadavali to Gaimukh."
+      }
+    },
+    {
+      "id": "line-5",
+      "label": "Line 5",
+      "number": "5",
+      "colour": "line-orange",
+      "mark_mr": "मेट्रो ५",
+      "route_short": "Thane to Kalyan",
+      "alignment": "alignment-mmrda-2025.geojson",
+      "about": {
+        "name": "Mumbai Metro Line 5",
+        "alternate_names": [
+          "Metro Line 5",
+          "Metro 5",
+          "Thane-Bhiwandi-Kalyan Metro"
+        ],
+        "description": "A metro line from Thane through Bhiwandi and Durgadi to Kalyan in the Mumbai Metropolitan Region, built by MMRDA in three phases. Phase 1, Kapurbawdi to Dhamankar Naka, is built and awaiting trial runs.",
+        "same_as": [
+          "https://en.wikipedia.org/wiki/Orange_Line_(Mumbai_Metro)",
+          "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-5/overview"
+        ]
+      },
+      "position_basis": {
+        "default": "MMRDA's alignment file, Mar 2025",
+        "by_source": {
+          "openstreetmap.org": "OpenStreetMap, checked on satellite imagery",
+          "livingatlas.arcgis.com/wayback": "the built station on satellite imagery, Oct 2025",
+          "x.com/Maha7Arindam": "tentative key plan, MMRDA tender, Mar 2026"
+        }
+      },
+      "copy": {
+        "changes_section": "MMRDA's Line 5 page still shows the plan of 2017. The revised plan of 2026 takes the line past Durgadi in a loop to Kalyan, adds a spur to Ulhasnagar and puts Bhiwandi station underground. Here is what changed, figure by figure and station by station.",
+        "ends": [
+          "Thane",
+          "Kalyan"
+        ],
+        "runs": "which will run from Thane through Bhiwandi to Kalyan, with a spur to Ulhasnagar",
+        "station_state": null,
+        "stations_section": "All {total} on the line, in order from Kapurbawdi, then the three on the Line 5A spur and the three the 2017 plan had. Names follow MMRDA. Select a station to ride to it, or open its own page.",
+        "stations_page": "All {total} on the line, in order from Kapurbawdi in Thane to Kalyan, then the Line 5A spur from Bhoirwadi to Ulhasnagar. Bhiwandi is underground; every other station is elevated. The line is {km} km long with the spur.",
+        "stations_page_description": "The stations of {name} in order, from Kapurbawdi in Thane through Bhiwandi and Durgadi to Kalyan, and the Line 5A spur to Ulhasnagar, with interchanges and a page for each station.",
+        "route_section": "Eighteen stations, Kapurbawdi to Kalyan, and the Line 5A spur to Ulhasnagar. Scroll to ride the line station by station. Distances follow MMRDA's alignment file of March 2025 to the Ulhas river bridge, and the tentative key plan of March 2026 past it.",
+        "route_legend": "A hollow line marks track that is not yet open, and a dashed outline the underground stretch. No part of Line 5 has opened.",
+        "drawn_from": [
+          "MMRDA's alignment file",
+          " of March 2025 and the tentative key plan of March 2026"
+        ],
+        "headline_html": "Watch Mumbai Metro Line&nbsp;5 reach Kalyan,<br> phase by phase.",
+        "front_standfirst": "Phase 1, from Kapurbawdi in Thane to Dhamankar Naka in Bhiwandi, is built: on {as_of}, MMRDA's progress table showed every civil activity complete. Phases 2 and 3 take the line on to Kalyan, with a spur to Ulhasnagar: {stations} stations in all, as MMRDA counts them.",
+        "countdown_title": "Days to the Phase 1 target",
+        "target_html": "Target: <strong>{target}</strong> for Phase 1, Kapurbawdi to Dhamankar Naka, from MMRDA's press release of May 2026. No exact date. The rest of the line: {rest}, as reported.",
+        "lead_scene": "kasheli",
+        "lead_caption": "The Kasheli creek bridge, between Balkum Naka and Kasheli: 550 m long, in spans of 42.23 m, about 15 m above the water, as reported. Illustration, not to scale; not an official design.",
+        "map_section": "The line on a street map. Choose a station to see where it sits, what surrounds it and what the street looks like today. The route to the Ulhas river bridge comes from MMRDA's alignment file of March 2025; Phase 3 and the spur come from the tentative key plan of March 2026.",
+        "map_legend": "Route not yet open: MMRDA's alignment file, then the tentative key plan",
+        "map_first_station": "kapurbawdi",
+        "numbers": {
+          "length_unit": "km with the spur; Bhiwandi underground",
+          "stations_unit": "as MMRDA counts them, without Kapurbawdi",
+          "cost_unit": ", Phases 1, 2 and 5A",
+          "cost_note": "Phase 1 ₹6,741 crore, Phase 2 ₹7,326 crore, Phase 5A (Phase 3 and the spur) ₹4,063 crore, MMRDA, May 2026.",
+          "funding_head": "Loans for the systems",
+          "funding_note": "In April 2020 AIIB approved a loan concept of USD 236 million for the trains, signalling and power, with the OPEC Fund planned to lend too; MMRDA funds the rest. The final loan amounts are not published.",
+          "depot_history": [
+            [
+              "Kon (MIDC) or APMC Kalyan",
+              "earlier options, both on Phase 2"
+            ]
+          ],
+          "travel_head": "40 to 50% shorter",
+          "travel_unit": "than by road (MMRDA, 2026). Its Line 5 page still says 50 to 75%."
+        },
+        "primary_sources": [
+          {
+            "name": "MMRDA, Metro Line 5 project page",
+            "note": "Cost, riders, depot, interchanges, monthly progress (it still describes the 2017 plan).",
+            "url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-5/overview"
+          },
+          {
+            "name": "MMRDA press release on the expanded corridor (28 May 2026)",
+            "note": "Length, stations and cost of each phase, the Line 5A spur, the Phase 1 target.",
+            "url": "https://mmrda.maharashtra.gov.in/sites/default/files/2026-05/extended_metro_line_5_to_strengthen_connectivity_across_thane_bhiwandi_kalyan_and_ulhasnagar.pdf"
+          },
+          {
+            "name": "Alignment file of Line 5 (MMRDA, March 2025)",
+            "note": "The route and station positions from Kapurbawdi to the Ulhas river bridge.",
+            "url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+          },
+          {
+            "name": "Phase 1 environmental report (MMRDA for AIIB, September 2023)",
+            "note": "Station design, the Kasheli depot, funding of Phase 1.",
+            "url": "https://mmrda.maharashtra.gov.in/sites/default/files/2023-12/mmrda-aiib-mml5-final-draft-eia-11-sep-2023.pdf"
+          },
+          {
+            "name": "Tentative key plan for Phase 3 and the spur (MMRDA tender, March 2026)",
+            "note": "The route past the Ulhas river bridge. Posted by Arindam Mahapatra; the tender was cancelled in August 2026.",
+            "url": "https://x.com/Maha7Arindam/status/2029366179580772677"
+          }
+        ],
+        "page_description": "Unofficial, sourced tracker for Mumbai Metro Line 5, the Thane-Bhiwandi-Kalyan metro: Phase 1 opening target, progress by phase, every station, the Line 5A spur to Ulhasnagar, map and tenders. Every figure links to its source.",
+        "status_title": "Mumbai Metro Line 5 Status: opening date, progress, route",
+        "status_description": "When will Metro Line 5 (Thane to Kalyan) open, which stations open first, what happens past Bhiwandi, where the Line 5A spur goes, cost and trains. Answers from MMRDA and news sources, checked {checked}.",
+        "status_h1": "Metro Line 5 status, answered",
+        "status_mr": "ठाणे-भिवंडी-कल्याण मेट्रो ५",
+        "status_lead": "The questions people ask about Mumbai Metro Line 5, Thane to Kalyan.",
+        "footer_disclaimer": "Mumbai Metro Tracker is an independent public-interest site. It is not affiliated with, endorsed by or connected to MMRDA or the Government of Maharashtra. Drawings are original illustrations, not official designs; the one exception, the train render, is credited to its maker. Check official sources before making decisions."
+      }
+    },
     {
       "id": "line-12",
       "label": "Line 12",
@@ -192,223 +502,6 @@
         "status_lead": "The questions people ask about Mumbai Metro Line 12A, Manpada to Taloja.",
         "footer_disclaimer": "Mumbai Metro Tracker is an independent public-interest site. It is not affiliated with, endorsed by or connected to MMRDA or the Government of Maharashtra. The route and station positions on this page are indicative, not official. Check official sources before making decisions."
       }
-    },
-    {
-      "id": "line-5",
-      "label": "Line 5",
-      "number": "5",
-      "colour": "line-orange",
-      "mark_mr": "मेट्रो ५",
-      "route_short": "Thane to Kalyan",
-      "alignment": "alignment-mmrda-2025.geojson",
-      "about": {
-        "name": "Mumbai Metro Line 5",
-        "alternate_names": [
-          "Metro Line 5",
-          "Metro 5",
-          "Thane-Bhiwandi-Kalyan Metro"
-        ],
-        "description": "A metro line from Thane through Bhiwandi and Durgadi to Kalyan in the Mumbai Metropolitan Region, built by MMRDA in three phases. Phase 1, Kapurbawdi to Dhamankar Naka, is built and awaiting trial runs.",
-        "same_as": [
-          "https://en.wikipedia.org/wiki/Orange_Line_(Mumbai_Metro)",
-          "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-5/overview"
-        ]
-      },
-      "position_basis": {
-        "default": "MMRDA's alignment file, Mar 2025",
-        "by_source": {
-          "openstreetmap.org": "OpenStreetMap, checked on satellite imagery",
-          "livingatlas.arcgis.com/wayback": "the built station on satellite imagery, Oct 2025",
-          "x.com/Maha7Arindam": "tentative key plan, MMRDA tender, Mar 2026"
-        }
-      },
-      "copy": {
-        "changes_section": "MMRDA's Line 5 page still shows the plan of 2017. The revised plan of 2026 takes the line past Durgadi in a loop to Kalyan, adds a spur to Ulhasnagar and puts Bhiwandi station underground. Here is what changed, figure by figure and station by station.",
-        "ends": [
-          "Thane",
-          "Kalyan"
-        ],
-        "runs": "which will run from Thane through Bhiwandi to Kalyan, with a spur to Ulhasnagar",
-        "station_state": null,
-        "stations_section": "All {total} on the line, in order from Kapurbawdi, then the three on the Line 5A spur and the three the 2017 plan had. Names follow MMRDA. Select a station to ride to it, or open its own page.",
-        "stations_page": "All {total} on the line, in order from Kapurbawdi in Thane to Kalyan, then the Line 5A spur from Bhoirwadi to Ulhasnagar. Bhiwandi is underground; every other station is elevated. The line is {km} km long with the spur.",
-        "stations_page_description": "The stations of {name} in order, from Kapurbawdi in Thane through Bhiwandi and Durgadi to Kalyan, and the Line 5A spur to Ulhasnagar, with interchanges and a page for each station.",
-        "route_section": "Eighteen stations, Kapurbawdi to Kalyan, and the Line 5A spur to Ulhasnagar. Scroll to ride the line station by station. Distances follow MMRDA's alignment file of March 2025 to the Ulhas river bridge, and the tentative key plan of March 2026 past it.",
-        "route_legend": "A hollow line marks track that is not yet open, and a dashed outline the underground stretch. No part of Line 5 has opened.",
-        "drawn_from": [
-          "MMRDA's alignment file",
-          " of March 2025 and the tentative key plan of March 2026"
-        ],
-        "headline_html": "Watch Mumbai Metro Line&nbsp;5 reach Kalyan,<br> phase by phase.",
-        "front_standfirst": "Phase 1, from Kapurbawdi in Thane to Dhamankar Naka in Bhiwandi, is built: on {as_of}, MMRDA's progress table showed every civil activity complete. Phases 2 and 3 take the line on to Kalyan, with a spur to Ulhasnagar: {stations} stations in all, as MMRDA counts them.",
-        "countdown_title": "Days to the Phase 1 target",
-        "target_html": "Target: <strong>{target}</strong> for Phase 1, Kapurbawdi to Dhamankar Naka, from MMRDA's press release of May 2026. No exact date. The rest of the line: {rest}, as reported.",
-        "lead_scene": "kasheli",
-        "lead_caption": "The Kasheli creek bridge, between Balkum Naka and Kasheli: 550 m long, in spans of 42.23 m, about 15 m above the water, as reported. Illustration, not to scale; not an official design.",
-        "map_section": "The line on a street map. Choose a station to see where it sits, what surrounds it and what the street looks like today. The route to the Ulhas river bridge comes from MMRDA's alignment file of March 2025; Phase 3 and the spur come from the tentative key plan of March 2026.",
-        "map_legend": "Route not yet open: MMRDA's alignment file, then the tentative key plan",
-        "map_first_station": "kapurbawdi",
-        "numbers": {
-          "length_unit": "km with the spur; Bhiwandi underground",
-          "stations_unit": "as MMRDA counts them, without Kapurbawdi",
-          "cost_unit": ", Phases 1, 2 and 5A",
-          "cost_note": "Phase 1 ₹6,741 crore, Phase 2 ₹7,326 crore, Phase 5A (Phase 3 and the spur) ₹4,063 crore, MMRDA, May 2026.",
-          "funding_head": "Loans for the systems",
-          "funding_note": "In April 2020 AIIB approved a loan concept of USD 236 million for the trains, signalling and power, with the OPEC Fund planned to lend too; MMRDA funds the rest. The final loan amounts are not published.",
-          "depot_history": [
-            [
-              "Kon (MIDC) or APMC Kalyan",
-              "earlier options, both on Phase 2"
-            ]
-          ],
-          "travel_head": "40 to 50% shorter",
-          "travel_unit": "than by road (MMRDA, 2026). Its Line 5 page still says 50 to 75%."
-        },
-        "primary_sources": [
-          {
-            "name": "MMRDA, Metro Line 5 project page",
-            "note": "Cost, riders, depot, interchanges, monthly progress (it still describes the 2017 plan).",
-            "url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-5/overview"
-          },
-          {
-            "name": "MMRDA press release on the expanded corridor (28 May 2026)",
-            "note": "Length, stations and cost of each phase, the Line 5A spur, the Phase 1 target.",
-            "url": "https://mmrda.maharashtra.gov.in/sites/default/files/2026-05/extended_metro_line_5_to_strengthen_connectivity_across_thane_bhiwandi_kalyan_and_ulhasnagar.pdf"
-          },
-          {
-            "name": "Alignment file of Line 5 (MMRDA, March 2025)",
-            "note": "The route and station positions from Kapurbawdi to the Ulhas river bridge.",
-            "url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
-          },
-          {
-            "name": "Phase 1 environmental report (MMRDA for AIIB, September 2023)",
-            "note": "Station design, the Kasheli depot, funding of Phase 1.",
-            "url": "https://mmrda.maharashtra.gov.in/sites/default/files/2023-12/mmrda-aiib-mml5-final-draft-eia-11-sep-2023.pdf"
-          },
-          {
-            "name": "Tentative key plan for Phase 3 and the spur (MMRDA tender, March 2026)",
-            "note": "The route past the Ulhas river bridge. Posted by Arindam Mahapatra; the tender was cancelled in August 2026.",
-            "url": "https://x.com/Maha7Arindam/status/2029366179580772677"
-          }
-        ],
-        "page_description": "Unofficial, sourced tracker for Mumbai Metro Line 5, the Thane-Bhiwandi-Kalyan metro: Phase 1 opening target, progress by phase, every station, the Line 5A spur to Ulhasnagar, map and tenders. Every figure links to its source.",
-        "status_title": "Mumbai Metro Line 5 Status: opening date, progress, route",
-        "status_description": "When will Metro Line 5 (Thane to Kalyan) open, which stations open first, what happens past Bhiwandi, where the Line 5A spur goes, cost and trains. Answers from MMRDA and news sources, checked {checked}.",
-        "status_h1": "Metro Line 5 status, answered",
-        "status_mr": "ठाणे-भिवंडी-कल्याण मेट्रो ५",
-        "status_lead": "The questions people ask about Mumbai Metro Line 5, Thane to Kalyan.",
-        "footer_disclaimer": "Mumbai Metro Tracker is an independent public-interest site. It is not affiliated with, endorsed by or connected to MMRDA or the Government of Maharashtra. Drawings are original illustrations, not official designs; the one exception, the train render, is credited to its maker. Check official sources before making decisions."
-      }
-    },
-    {
-      "id": "line-4",
-      "label": "Line 4",
-      "number": "4",
-      "colour": "line-4",
-      "mark_mr": "मेट्रो ४",
-      "route_short": "Wadala to Thane and Gaimukh",
-      "alignment": "alignment-mmrda-2025.geojson",
-      "about": {
-        "name": "Mumbai Metro Line 4",
-        "alternate_names": [
-          "Metro Line 4",
-          "Metro 4",
-          "Green Line",
-          "Wadala-Thane-Kasarvadavali Metro",
-          "Metro Line 4A"
-        ],
-        "description": "An elevated metro line from Wadala through Ghatkopar, Mulund and Thane to Kasarvadavali, with the Line 4A extension to Gaimukh, built by MMRDA. The first stretch, Gaimukh to Cadbury Junction, is built and in trial runs.",
-        "same_as": [
-          "https://en.wikipedia.org/wiki/Green_Line_(Mumbai_Metro)",
-          "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
-        ]
-      },
-      "position_basis": {
-        "default": "MMRDA's alignment file, Mar 2025",
-        "by_source": {}
-      },
-      "copy": {
-        "ends": [
-          "Wadala",
-          "Gaimukh"
-        ],
-        "runs": "which will run fully elevated from Wadala through Ghatkopar, Mulund and Thane to Kasarvadavali, and on to Gaimukh as Line 4A",
-        "station_state": null,
-        "stations_section": "All {total}, in order from Bhakti Park in Wadala: the 30 of Line 4 to Kasarvadavali, then the two of Line 4A to Gaimukh, then the two the 2016 plan had. Names follow MMRDA. Select a station to ride to it, or open its own page.",
-        "stations_page": "All {total}, in order from Bhakti Park in Wadala to Kasarvadavali, then Line 4A to Gaimukh. Every station is elevated. Line 4 is {km} km long; Line 4A adds about 2.9 km.",
-        "stations_page_description": "The stations of {name} in order, from Wadala through Ghatkopar, Vikhroli, Bhandup, Mulund and Thane to Kasarvadavali, and Line 4A to Gaimukh, with interchanges and a page for each station.",
-        "route_section": "Thirty-two stations, Bhakti Park in Wadala to Gaimukh in Thane, Line 4A included. Scroll to ride the line station by station. Distances follow MMRDA's alignment file of March 2025.",
-        "route_legend": "A hollow line marks track that is not yet open. No part of Line 4 has opened; the first stretch, Gaimukh to Cadbury Junction, is in trial runs.",
-        "drawn_from": [
-          "MMRDA's alignment file",
-          " of March 2025"
-        ],
-        "headline_html": "Watch Mumbai Metro Line&nbsp;4 reach Thane,<br> stretch by stretch.",
-        "front_standfirst": "The first stretch, Gaimukh to Cadbury Junction in Thane, is built and in trial runs. It waits for the safety commissioner's approval. The rest of the line to Wadala is still being built: on {as_of}, MMRDA put pier work at about {pct:Pier (viaduct and station, up to platform level)} per cent and the deck slab at about {pct:Deck slab} per cent. MMRDA counts {stations} stations on Line 4; Line 4A adds two.",
-        "countdown_title": "Days to the reported target",
-        "target_html": "Target: <strong>{target}</strong> for the first stretch, Gaimukh to Cadbury Junction, as reported. MMRDA has announced no date. Two earlier reported targets, December 2025 and April 2026, passed. Wadala: October 2027, as reported.",
-        "lead_scene": null,
-        "map_section": "The line on a street map. Choose a station to see where it sits, what surrounds it and what the street looks like today. The route and stations come from MMRDA's alignment file of March 2025.",
-        "map_legend": "Route not yet open, MMRDA's alignment file",
-        "map_first_station": "kapurbawdi",
-        "numbers": {
-          "length_unit": "km, fully elevated; Line 4A adds about 2.9 km",
-          "stations_unit": "all elevated, plus 2 on Line 4A",
-          "cost_unit": ", Line 4, with taxes",
-          "cost_note": "MMRDA's Line 4 page. Line 4A adds ₹949 crore (reported). The 2016 project report gave ₹14,502 crore by completion.",
-          "funding_head": "Loans for the systems",
-          "funding_note": "In November 2021 Germany's KfW approved two loans, EUR 545 million in all, for the trains, ticketing and links around the stations of Lines 4 and 4A. MMRDA funds the rest.",
-          "depot_history": [
-            [
-              "Kasarvadavali, with stabling near Ghatkopar",
-              "2016 project report"
-            ],
-            [
-              "Near Gaimukh, 23.1 ha",
-              "2017 project report for Line 4A"
-            ]
-          ],
-          "travel_head": "50 to 75% shorter",
-          "travel_unit": "than by road today, depending on traffic (MMRDA)"
-        },
-        "primary_sources": [
-          {
-            "name": "MMRDA, Metro Line 4 project page",
-            "note": "Length, stations, colour, cost, riders, connections, monthly progress.",
-            "url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview"
-          },
-          {
-            "name": "Detailed project report, Wadala to Kasarvadavali (DMRC for MMRDA, May 2016)",
-            "note": "Design basis, station chainages, depot, cost.",
-            "url": "https://mmrda.maharashtra.gov.in/sites/default/files/2021-10/Metro%20Line%204.pdf"
-          },
-          {
-            "name": "Detailed project report, Line 4A to Gaimukh (DMRC for MMRDA, October 2017)",
-            "note": "Line 4A's length, stations and cost.",
-            "url": "https://mmrda.maharashtra.gov.in/sites/default/files/2021-10/Metro%20Line%204A.pdf"
-          },
-          {
-            "name": "Alignment file of Line 4 (MMRDA, March 2025)",
-            "note": "The route line and every station position on the map.",
-            "url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
-          },
-          {
-            "name": "KfW loan for Lines 4 and 4A (MMRDA, November 2021)",
-            "note": "The EUR 545 million loans and what they pay for.",
-            "url": "https://www.mmrda.maharashtra.gov.in/sites/default/files/2021-12/news%20(20).pdf"
-          }
-        ],
-        "page_description": "Unofficial, sourced tracker for Mumbai Metro Line 4 (Green Line), Wadala to Thane, and Line 4A to Gaimukh: opening target of the first stretch, progress, all 32 stations, map, tenders and trains. Every figure links to its source.",
-        "status_title": "Mumbai Metro Line 4 Status: opening date, progress, route",
-        "status_description": "When will Metro Line 4 (Wadala to Thane and Gaimukh) open, which stretch opens first, cost and trains. Answers from MMRDA and news sources, checked {checked}.",
-        "status_h1": "Metro Line 4 status, answered",
-        "status_mr": "वडाळा-ठाणे-कासारवडवली मेट्रो ४",
-        "status_lead": "The questions people ask about Mumbai Metro Line 4, Wadala to Thane and Gaimukh.",
-        "footer_disclaimer": "Mumbai Metro Tracker is an independent public-interest site. It is not affiliated with, endorsed by or connected to MMRDA or the Government of Maharashtra. Drawings are original illustrations, not official designs; the one exception, the train photo, is credited to its maker. Check official sources before making decisions.",
-        "dpr_label": "the 2016 project report",
-        "dropped_heading": "In the 2016 plan, dropped in December 2023",
-        "extension_note": "On Line 4A, the extension from Kasarvadavali to Gaimukh."
-      }
     }
   ],
   "other_lines": [
@@ -420,15 +513,6 @@
       "source_url": "https://themetrorailguy.com/?p=27331",
       "last_verified": "2026-10-19",
       "notes": "The Metro Rail Guy (updated 14 Sep 2025) calls Line 6 the Pink Line and says MMRDA revealed the line colours on 28 Feb 2020. MMRDA's Line 6 page names no colour (checked 19 Oct 2026). MMRDA publishes no colour value, so the site's pink is its own. Shown on the owner's request (2026-10-19)."
-    },
-    {
-      "number": "2B",
-      "name": "Yellow Line",
-      "colour": "line-2b",
-      "status": "verified",
-      "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
-      "last_verified": "2026-10-19",
-      "notes": "MMRDA's Line 2B page gives its line colour as Yellow (checked 19 Oct 2026). MMRDA publishes no colour value, so the site's yellow is its own. Shown on the owner's request (2026-10-19)."
     }
   ]
 }

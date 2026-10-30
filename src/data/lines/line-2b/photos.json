@@ -1,0 +1,20 @@
+{
+  "_meta": {
+    "description": "Dated ground photos, by the owner or by people who gave permission to use them. 'stations' holds photos for each station page, keyed by the station id in stations.json. Put the image files in public/photos/ (location data removed) and add entries below. See UPDATING.md.",
+    "last_reviewed": "2026-10-30"
+  },
+  "pairs": [],
+  "stations": {
+    "income-tax-office": [
+      {
+        "src": "/photos/shunya-bridge-2026-05-24-a.jpg",
+        "alt": "The zero-shaped steel pylon of the Shunya cable-stayed bridge in Bandra Kurla Complex, with MMRDA written across its top, against a blue sky with cranes and buildings under construction behind",
+        "caption": "The pylon of the Shunya bridge, which takes the line over the Vakola nallah between Income Tax Office and ILFS",
+        "date": "2026-05-24",
+        "credit": "Shashank Ballaya",
+        "width": 1200,
+        "height": 1600
+      }
+    ]
+  }
+}

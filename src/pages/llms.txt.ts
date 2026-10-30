@@ -22,11 +22,69 @@ export const GET: APIRoute = ({ site }) => {
   const line12a = getLine('line-12a');
   const p12a = line12a.project as typeof line12a.project & { route: { value: string }; target_completion: { countdown_date: string } };
   const b12a = lineBase('line-12a');
+  const line2b = getLine('line-2b');
+  const p2b = line2b.project as typeof line2b.project & { route: { value: string }; line_color: { value: string }; target_completion: { scope: string } };
+  const b2b = lineBase('line-2b');
+  const open2b = line2b.stages.filter((sec) => sec.service?.opening);
   const body = `# ${SITE_NAME}
 
-> An unofficial, sourced tracker for the Mumbai Metro lines MMRDA is building or planning around Kalyan and Thane: Line 12 (Kalyan to Taloja), Line 12A (Manpada to Taloja via Kalyan Phata, approved), Line 5 (Thane to Kalyan) and Line 4 with Line 4A (Wadala to Thane and Gaimukh). Every fact carries a grade (verified, reported, unverified, sources conflict) and a source link. Facts last checked ${formatDate(siteReviewed)}. Not affiliated with MMRDA.
+> An unofficial, sourced tracker for the Mumbai Metro lines MMRDA is building, running or planning: Line 2B (D N Nagar to Mandale, open from Mandale to Chembur), Line 4 with Line 4A (Wadala to Thane and Gaimukh), Line 5 (Thane to Kalyan), Line 12 (Kalyan to Taloja) and Line 12A (Manpada to Taloja via Kalyan Phata, approved). Every fact carries a grade (verified, reported, unverified, sources conflict) and a source link. Facts last checked ${formatDate(siteReviewed)}. Not affiliated with MMRDA.
 
 - [${SITE_NAME}](${url('/')}): every line on one page.
+
+## Line 2B: key facts
+
+- Name: ${p2b.name.value} (${p2b.line_color.value} Line), also called ${p2b.name.also_known_as.join(', ')}.
+- Route: ${p2b.route.value} (MMRDA, verified).
+- Length: ${p2b.length_km.value} km, fully elevated, ${line2b.stations.length} stations (MMRDA; its page also says 19, sources conflict).
+- Open: ${open2b.map((sec) => `${sec.label}, since ${formatDate(sec.service!.opening!.date)}`).join('; ')} (MMRDA, verified). Six stations, Mandale to Chembur.
+- Next: ${p2b.target_completion.scope}, ${formatDate(p2b.target_completion.value)} (reported; MMRDA has announced no date).
+- Progress (MMRDA, ${formatDate(p2b.progress.as_of)}): ${p2b.progress.items.map((i) => `${i.activity} ${i.percent_complete}%`).join('; ')}.
+- Cost: Rs ${inr(p2b.completion_cost_crore_inr.value)} crore (MMRDA, verified).
+- Depot: ${p2b.depot.value}, ${p2b.depot.area_ha} ha (MMRDA, verified).
+
+## Line 2B: pages
+
+- [Line 2B](${url(b2b)}): what is open, train times and fares, route, map, progress, tenders, timeline and sources.
+${hasStatusPage(line2b) ? `- [Line 2B status, answered](${url(`${b2b}status/`)}): open stations, the rest of the line, cost, builders, depot.\n` : ''}- [All Line 2B stations](${url(`${b2b}stations/`)}): the ${line2b.stations.length} stations in order.
+${line2b.stations.map((s) => `- [${s.name} metro station, Line 2B](${url(`${b2b}stations/${s.id}/`)})`).join('\n')}
+
+## Line 4: key facts
+
+- Name: ${p4.name.value} (${p4.line_color.value}), also called ${p4.name.also_known_as.join(', ')}.
+- Route: ${p4.route.value}.
+- Length: ${p4.length_km.value} km, fully elevated, ${p4.stations_count.value} stations (MMRDA, verified). With Line 4A to Gaimukh: ${p4.length_km.with_4a_km} km and ${line4.stations.length} stations.
+- Opening target: ${p4.target_completion.scope}, ${formatDate(p4.target_completion.value)} (reported; MMRDA has announced no date).
+- State: ${p4.current_phase.value}
+- Progress (MMRDA, ${formatDate(p4.progress.as_of)}): ${p4.progress.items.map((i) => `${i.activity} ${i.percent_complete}%`).join('; ')}.
+- Cost: Rs ${inr(p4.completion_cost_crore_inr.value)} crore for Line 4, with taxes (MMRDA, verified).
+- Depot: ${p4.depot.value}, ${p4.depot.area_ha} ha, shared with Lines 4A, 10 and 11.
+- Trains: 39 six-car Alstom Metropolis trains through L&T's systems contract CA-234 (reported).
+
+## Line 4: pages
+
+- [Line 4](${url(b4)}): route, map, progress, tenders, trains, timeline and sources.
+${hasStatusPage(line4) ? `- [Line 4 status, answered](${url(`${b4}status/`)}): opening target, first stretch, Line 4A, cost, depot, trains.\n` : ''}- [All Line 4 stations](${url(`${b4}stations/`)}): the ${line4.stations.length} stations in order, Line 4A included.
+${line4.stations.map((s) => `- [${s.name} metro station, Line 4](${url(`${b4}stations/${s.id}/`)})`).join('\n')}
+
+## Line 5: key facts
+
+- Name: ${p5.name.value}, also called ${p5.name.also_known_as.join(', ')}.
+- Route: ${p5.route.value}.
+- Length: ${p5.length_km.value} km including the spur. ${p5.length_km.structure}. ${p5.stations_count.value} stations (MMRDA press release, May 2026, verified).
+- Phases: ${p5.phases.map((x) => `Phase ${x.phase}, ${x.value}, ${x.length_km} km`).join('; ')}.
+- Opening target: ${t5.scope}, ${formatDate(t5.value)} (MMRDA, verified).${t5.rest_of_line ? ` The rest of the line: ${t5.rest_of_line.value} (reported).` : ''}
+- State: ${p5.current_phase.value}
+- Cost: Rs ${inr(p5.completion_cost_crore_inr.value)} crore for the whole corridor (MMRDA, verified).
+- Interchanges: ${p5.interchanges.value.map((x) => `${x.station} (${x.connects_to})`).join('; ')}.
+- Depot: ${p5.depot.value}, about ${p5.depot.area_ha} ha.
+- Trains: ${line5.rollingstock!.procurement.manufacturer}, package CA-241 (reported).
+
+## Line 5: pages
+
+- [Line 5](${url(b5)}): route, map, progress, tenders, trains, timeline and sources.
+${hasStatusPage(line5) ? `- [Line 5 status, answered](${url(`${b5}status/`)}): opening date, phases, route, cost, interchanges.\n` : ''}- [All Line 5 stations](${url(`${b5}stations/`)}): the ${line5.stations.length} stations in order, and the ${line5.spurStations.length} on the spur.
+${all5.map((s) => `- [${s.name} metro station, Line 5](${url(`${b5}stations/${s.id}/`)})`).join('\n')}
 
 ## Line 12: key facts
 
@@ -67,48 +125,12 @@ ${stations.map((s) => `- [${s.name} metro station, Line 12](${url(`${b12}station
 ${hasStatusPage(line12a) ? `- [Line 12A status, answered](${url(`${b12a}status/`)}): approval, route, stations, cost, deadline.\n` : ''}- [All Line 12A stations](${url(`${b12a}stations/`)}): the ${line12a.stations.length} planned stations in order.
 ${line12a.stations.map((s) => `- [${s.name} metro station, Line 12A](${url(`${b12a}stations/${s.id}/`)})`).join('\n')}
 
-## Line 5: key facts
-
-- Name: ${p5.name.value}, also called ${p5.name.also_known_as.join(', ')}.
-- Route: ${p5.route.value}.
-- Length: ${p5.length_km.value} km including the spur. ${p5.length_km.structure}. ${p5.stations_count.value} stations (MMRDA press release, May 2026, verified).
-- Phases: ${p5.phases.map((x) => `Phase ${x.phase}, ${x.value}, ${x.length_km} km`).join('; ')}.
-- Opening target: ${t5.scope}, ${formatDate(t5.value)} (MMRDA, verified).${t5.rest_of_line ? ` The rest of the line: ${t5.rest_of_line.value} (reported).` : ''}
-- State: ${p5.current_phase.value}
-- Cost: Rs ${inr(p5.completion_cost_crore_inr.value)} crore for the whole corridor (MMRDA, verified).
-- Interchanges: ${p5.interchanges.value.map((x) => `${x.station} (${x.connects_to})`).join('; ')}.
-- Depot: ${p5.depot.value}, about ${p5.depot.area_ha} ha.
-- Trains: ${line5.rollingstock!.procurement.manufacturer}, package CA-241 (reported).
-
-## Line 5: pages
-
-- [Line 5](${url(b5)}): route, map, progress, tenders, trains, timeline and sources.
-${hasStatusPage(line5) ? `- [Line 5 status, answered](${url(`${b5}status/`)}): opening date, phases, route, cost, interchanges.\n` : ''}- [All Line 5 stations](${url(`${b5}stations/`)}): the ${line5.stations.length} stations in order, and the ${line5.spurStations.length} on the spur.
-${all5.map((s) => `- [${s.name} metro station, Line 5](${url(`${b5}stations/${s.id}/`)})`).join('\n')}
-
-## Line 4: key facts
-
-- Name: ${p4.name.value} (${p4.line_color.value}), also called ${p4.name.also_known_as.join(', ')}.
-- Route: ${p4.route.value}.
-- Length: ${p4.length_km.value} km, fully elevated, ${p4.stations_count.value} stations (MMRDA, verified). With Line 4A to Gaimukh: ${p4.length_km.with_4a_km} km and ${line4.stations.length} stations.
-- Opening target: ${p4.target_completion.scope}, ${formatDate(p4.target_completion.value)} (reported; MMRDA has announced no date).
-- State: ${p4.current_phase.value}
-- Progress (MMRDA, ${formatDate(p4.progress.as_of)}): ${p4.progress.items.map((i) => `${i.activity} ${i.percent_complete}%`).join('; ')}.
-- Cost: Rs ${inr(p4.completion_cost_crore_inr.value)} crore for Line 4, with taxes (MMRDA, verified).
-- Depot: ${p4.depot.value}, ${p4.depot.area_ha} ha, shared with Lines 4A, 10 and 11.
-- Trains: 39 six-car Alstom Metropolis trains through L&T's systems contract CA-234 (reported).
-
-## Line 4: pages
-
-- [Line 4](${url(b4)}): route, map, progress, tenders, trains, timeline and sources.
-${hasStatusPage(line4) ? `- [Line 4 status, answered](${url(`${b4}status/`)}): opening target, first stretch, Line 4A, cost, depot, trains.\n` : ''}- [All Line 4 stations](${url(`${b4}stations/`)}): the ${line4.stations.length} stations in order, Line 4A included.
-${line4.stations.map((s) => `- [${s.name} metro station, Line 4](${url(`${b4}stations/${s.id}/`)})`).join('\n')}
-
 ## Sources
 
-- [MMRDA Metro Line 12 project page](https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-12/overview)
-- [MMRDA Metro Line 5 project page](https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-5/overview)
+- [MMRDA Metro Line 2B project page](https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview)
 - [MMRDA Metro Line 4 project page](https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview)
+- [MMRDA Metro Line 5 project page](https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-5/overview)
+- [MMRDA Metro Line 12 project page](https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-12/overview)
 - [MMRDA press release on the extended Line 5, May 2026](https://mmrda.maharashtra.gov.in/sites/default/files/2026-05/extended_metro_line_5_to_strengthen_connectivity_across_thane_bhiwandi_kalyan_and_ulhasnagar.pdf)
 - [Line 12 Detailed Project Report, April 2019](https://mmrda.maharashtra.gov.in/sites/default/files/2021-10/Metro%20Line%2012.pdf)
 - [Full source list](https://github.com/ShashankBallaya/mumbai-metro-tracker/blob/main/SOURCES.md)

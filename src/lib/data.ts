@@ -280,6 +280,15 @@ export const sectionSubject = (line: Line, sec: StageSection) => {
   return name.includes(',') ? `${name},` : name;
 };
 
+/**
+ * How often trains run, after "every": "9.5 minutes all day" when one interval is given for the whole day
+ * (off_peak_min equal to peak_min), else "4 minutes at peak, 8 off-peak", or "4 minutes at peak".
+ */
+export function frequencyText(f: NonNullable<Service['frequency']>): string {
+  if (f.off_peak_min === f.peak_min) return `${f.peak_min} minutes all day`;
+  return `${f.peak_min} minutes at peak${f.off_peak_min ? `, ${f.off_peak_min} off-peak` : ''}`;
+}
+
 /** "06:00" -> "6:00 am", "22:30" -> "10:30 pm". */
 export function clock(hhmm: string): string {
   const [h, m] = hhmm.split(':').map(Number);

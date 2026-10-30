@@ -171,7 +171,9 @@ const streetConfig = {
     height: 0.8rem;
     border-radius: 1rem;
     background: var(--paper);
-    border: 0.25rem solid var(--signal-graphic);
+    border: 0.25rem solid var(--route-line);
+    /* The route's edge, where it has one (Line 2B on morning paper). */
+    box-shadow: 0 0 0 1px var(--route-edge), inset 0 0 0 1px var(--route-edge);
   }
   .mapsec__key--tunnel {
     border-style: dashed;

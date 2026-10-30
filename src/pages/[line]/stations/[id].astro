@@ -10,7 +10,7 @@ import Grade from '../../../components/Grade.astro';
 import LocatorMap from '../../../components/LocatorMap.astro';
 import LineMark from '../../../components/LineMark.astro';
 import PhotoCredit from '../../../components/PhotoCredit.astro';
-import { getLine, dprLabel, lines, lineNodeId, lineBase, SITE_NAME, stationHref, positionBasis, streetViewUrl, plannedInterchanges, formatDate, sectionOf, openedOf, announcedOf, sectionName, clock, inr, videoTime, type LineId, type Station, type StationPhoto } from '../../../lib/data';
+import { getLine, dprLabel, lines, lineNodeId, lineBase, SITE_NAME, stationHref, positionBasis, streetViewUrl, plannedInterchanges, formatDate, sectionOf, openedOf, announcedOf, sectionName, clock, frequencyText, inr, videoTime, type LineId, type Station, type StationPhoto } from '../../../lib/data';
 import { hasStatusPage } from '../../../lib/answers';
 import '../../../styles/inner.css';
 
@@ -269,7 +269,7 @@ const schema: Record<string, unknown>[] = [
             <>
               <p>Open since {formatDate(opened.date)}, with the rest of {sectionName(line, own!)}. <Grade status={opened.status} source={opened.source_url} compact /></p>
               {service?.hours && <p>Trains run from {clock(service.hours.first)} to {clock(service.hours.last)}. <Grade status={service.hours.status} source={service.hours.source_url} compact /></p>}
-              {service?.frequency && <p>A train every {service.frequency.peak_min} minutes at peak{service.frequency.off_peak_min && <>, every {service.frequency.off_peak_min} off-peak</>}. <Grade status={service.frequency.status} source={service.frequency.source_url} compact /></p>}
+              {service?.frequency && <p>A train every {frequencyText(service.frequency)}. <Grade status={service.frequency.status} source={service.frequency.source_url} compact /></p>}
               {service?.fares && <p>A single fare costs {service.fares.min_inr === service.fares.max_inr ? `₹${inr(service.fares.min_inr)}` : `₹${inr(service.fares.min_inr)} to ₹${inr(service.fares.max_inr)}`}. <Grade status={service.fares.status} source={service.fares.source_url} compact /></p>}
             </>
           ) : announced ? (

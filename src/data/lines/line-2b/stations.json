@@ -1,0 +1,812 @@
+{
+  "_meta": {
+    "description": "Line 2B's stations in order from ESIC Nagar (the first station from D N Nagar) to Mandale, as MMRDA's Line 2B page lists them. 'phase' is the order of opening: 1 Phase I, Mandale to Diamond Garden (open 7 Apr 2026); 2 Phase IA, Chembur (open 13 Aug 2026); 3 the rest, Chembur to D N Nagar, under construction (MMRDA names Phases I and IA; the rest has no MMRDA name). 'kml_name' is the station's point in MMRDA's alignment file. Positions and along_m come from scripts/build-alignment-line2b.py. 'dropped_stations' were in an earlier plan and are not on MMRDA's list now. Names follow MMRDA's list; the full names shown at the open stations are in 'context'.",
+    "order_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+    "order_status": "verified",
+    "count_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+    "names_mr_source_url": "https://mmrda.maharashtra.gov.in/mr/projects/transport/metro-line-2b/overview",
+    "names_mr_status": "verified",
+    "phase_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+    "phase_status": "verified",
+    "last_reviewed": "2026-10-30"
+  },
+  "stations": [
+    {
+      "id": "esic-nagar",
+      "order": 1,
+      "name": "ESIC Nagar",
+      "name_mr": "एसिक नगर",
+      "phase": 3,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+      "dpr_name": null,
+      "kml_name": "ESIC NAGAR (M) STATION",
+      "location": {
+        "lng": 72.831793,
+        "lat": 19.116032,
+        "along_m": 0,
+        "method": "MMRDA alignment file for Line 2B (KML on the Metro Influence Zone page, uploaded March 2025): point \"ESIC NAGAR (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from ESIC Nagar station; the point is 3 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview"
+      },
+      "context": [
+        {
+          "text": "The first station from D N Nagar, where Line 2B leaves Line 2A (Dahisar to D N Nagar).",
+          "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+          "status": "verified"
+        }
+      ],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+        "notes": "MMRDA publishes progress for the whole line only (piers 99%, U and I girders 90% as of 31 Aug 2026), not by station. Civil package L2B-C101 (J Kumar Infraprojects), ESIC Nagar to ILFS."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "prem-nagar",
+      "order": 2,
+      "name": "Prem Nagar",
+      "name_mr": "प्रेम नगर",
+      "phase": 3,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+      "dpr_name": null,
+      "kml_name": "PREM NAGAR (M) STATION",
+      "location": {
+        "lng": 72.837051,
+        "lat": 19.109229,
+        "along_m": 1144,
+        "method": "MMRDA alignment file for Line 2B (KML on the Metro Influence Zone page, uploaded March 2025): point \"PREM NAGAR (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from ESIC Nagar station; the point is 1 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+        "notes": "MMRDA publishes progress for the whole line only (piers 99%, U and I girders 90% as of 31 Aug 2026), not by station. Civil package L2B-C101 (J Kumar Infraprojects), ESIC Nagar to ILFS."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "indira-nagar",
+      "order": 3,
+      "name": "Indira Nagar",
+      "name_mr": "इंदिरा नगर",
+      "phase": 3,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+      "dpr_name": null,
+      "kml_name": "INDIRA NAGAR (M) STATION",
+      "location": {
+        "lng": 72.836932,
+        "lat": 19.104432,
+        "along_m": 1685,
+        "method": "MMRDA alignment file for Line 2B (KML on the Metro Influence Zone page, uploaded March 2025): point \"INDIRA NAGAR (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from ESIC Nagar station; the point is 7 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+        "notes": "MMRDA publishes progress for the whole line only (piers 99%, U and I girders 90% as of 31 Aug 2026), not by station. Civil package L2B-C101 (J Kumar Infraprojects), ESIC Nagar to ILFS."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "nanavati-hospital",
+      "order": 4,
+      "name": "Nanavati Hospital",
+      "name_mr": "नानावटी हॉस्पिटल",
+      "phase": 3,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+      "dpr_name": null,
+      "kml_name": "NANAWATI HOSPITAL (M) STATION",
+      "location": {
+        "lng": 72.839622,
+        "lat": 19.09562,
+        "along_m": 2814,
+        "method": "MMRDA alignment file for Line 2B (KML on the Metro Influence Zone page, uploaded March 2025): point \"NANAWATI HOSPITAL (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from ESIC Nagar station; the point is 6 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+        "notes": "MMRDA publishes progress for the whole line only (piers 99%, U and I girders 90% as of 31 Aug 2026), not by station. Civil package L2B-C101 (J Kumar Infraprojects), ESIC Nagar to ILFS."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "khira-nagar",
+      "order": 5,
+      "name": "Khira Nagar",
+      "name_mr": "खीरा नगर",
+      "phase": 3,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+      "dpr_name": null,
+      "kml_name": "KHIRA NAGAR(M) STATION",
+      "location": {
+        "lng": 72.838006,
+        "lat": 19.081745,
+        "along_m": 4387,
+        "method": "MMRDA alignment file for Line 2B (KML on the Metro Influence Zone page, uploaded March 2025): point \"KHIRA NAGAR(M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from ESIC Nagar station; the point is 8 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+        "notes": "MMRDA publishes progress for the whole line only (piers 99%, U and I girders 90% as of 31 Aug 2026), not by station. Civil package L2B-C101 (J Kumar Infraprojects), ESIC Nagar to ILFS."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "saraswat-nagar",
+      "order": 6,
+      "name": "Saraswat Nagar",
+      "name_mr": "सारस्वत नगर",
+      "phase": 3,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+      "dpr_name": null,
+      "kml_name": "SARASWAT NAGAR(M) STATION",
+      "location": {
+        "lng": 72.837532,
+        "lat": 19.07287,
+        "along_m": 5380,
+        "method": "MMRDA alignment file for Line 2B (KML on the Metro Influence Zone page, uploaded March 2025): point \"SARASWAT NAGAR(M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from ESIC Nagar station; the point is 4 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+        "notes": "MMRDA publishes progress for the whole line only (piers 99%, U and I girders 90% as of 31 Aug 2026), not by station. Civil package L2B-C101 (J Kumar Infraprojects), ESIC Nagar to ILFS."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "national-college",
+      "order": 7,
+      "name": "National College",
+      "name_mr": "नॅशनल कॉलेज",
+      "phase": 3,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+      "dpr_name": null,
+      "kml_name": "NATIONAL COLLEGE (M) STATION",
+      "location": {
+        "lng": 72.83735,
+        "lat": 19.063474,
+        "along_m": 6433,
+        "method": "MMRDA alignment file for Line 2B (KML on the Metro Influence Zone page, uploaded March 2025): point \"NATIONAL COLLEGE (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from ESIC Nagar station; the point is 6 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+        "notes": "MMRDA publishes progress for the whole line only (piers 99%, U and I girders 90% as of 31 Aug 2026), not by station. Civil package L2B-C101 (J Kumar Infraprojects), ESIC Nagar to ILFS."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "bandra-metro",
+      "order": 8,
+      "name": "Bandra Metro",
+      "name_mr": "बांद्रा मेट्रो",
+      "phase": 3,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+      "dpr_name": null,
+      "kml_name": "BANDRA(M) STATION",
+      "location": {
+        "lng": 72.837933,
+        "lat": 19.053681,
+        "along_m": 7564,
+        "method": "MMRDA alignment file for Line 2B (KML on the Metro Influence Zone page, uploaded March 2025): point \"BANDRA(M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from ESIC Nagar station; the point is 3 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [
+          "Western Railway suburban, Bandra"
+        ],
+        "status": "reported",
+        "source_url": "https://www.oneindia.com/mumbai/mumbai-metro-line-2b-trials-begin-full-stations-list-and-key-interchange-points-inside-4126121.html",
+        "notes": "Oneindia (17 Apr 2025). MMRDA names the Western Railway among the line's connections, without a station."
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+        "notes": "MMRDA publishes progress for the whole line only (piers 99%, U and I girders 90% as of 31 Aug 2026), not by station. Civil package L2B-C101 (J Kumar Infraprojects), ESIC Nagar to ILFS."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "income-tax-office",
+      "order": 9,
+      "name": "Income Tax Office",
+      "name_mr": "इनकमटॅक्स ऑफिस",
+      "phase": 3,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+      "dpr_name": null,
+      "kml_name": "ITO (M) STATION",
+      "location": {
+        "lng": 72.852769,
+        "lat": 19.057512,
+        "along_m": 9676,
+        "method": "MMRDA alignment file for Line 2B (KML on the Metro Influence Zone page, uploaded March 2025): point \"ITO (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from ESIC Nagar station; the point is 7 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [
+          "Metro Line 3 (Aqua Line)"
+        ],
+        "status": "reported",
+        "source_url": "https://www.oneindia.com/mumbai/mumbai-metro-line-2b-trials-begin-full-stations-list-and-key-interchange-points-inside-4126121.html",
+        "notes": "Oneindia (17 Apr 2025) names ITO Junction as the interchange with Line 3. No source gives the Line 3 station or the walk."
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+        "notes": "MMRDA publishes progress for the whole line only (piers 99%, U and I girders 90% as of 31 Aug 2026), not by station. Civil package L2B-C101 (J Kumar Infraprojects), ESIC Nagar to ILFS."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "ilfs",
+      "order": 10,
+      "name": "ILFS",
+      "name_mr": "आय एल एफ एस",
+      "phase": 3,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+      "dpr_name": null,
+      "kml_name": "ILFS (M) STATION",
+      "location": {
+        "lng": 72.863,
+        "lat": 19.065643,
+        "along_m": 11164,
+        "method": "MMRDA alignment file for Line 2B (KML on the Metro Influence Zone page, uploaded March 2025): point \"ILFS (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from ESIC Nagar station; the point is 9 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+        "notes": "MMRDA publishes progress for the whole line only (piers 99%, U and I girders 90% as of 31 Aug 2026), not by station. Civil package L2B-C101 (J Kumar Infraprojects), ESIC Nagar to ILFS."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "mtnl-metro",
+      "order": 11,
+      "name": "MTNL Metro",
+      "name_mr": "एम टी एन एल मेट्रो",
+      "phase": 3,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+      "dpr_name": null,
+      "kml_name": "MTNL (M) STATION",
+      "location": {
+        "lng": 72.86903,
+        "lat": 19.069506,
+        "along_m": 11935,
+        "method": "MMRDA alignment file for Line 2B (KML on the Metro Influence Zone page, uploaded March 2025): point \"MTNL (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from ESIC Nagar station; the point is 1 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+        "notes": "MMRDA publishes progress for the whole line only (piers 99%, U and I girders 90% as of 31 Aug 2026), not by station. Civil package L2B-C102 (NCC), MTNL Metro to Chembur."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "sg-barve-marg",
+      "order": 12,
+      "name": "SG Barve Marg",
+      "name_mr": "एस जि बर्वे मार्ग",
+      "phase": 3,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+      "dpr_name": null,
+      "kml_name": "S.G BARVE MARG (M) STATION",
+      "location": {
+        "lng": 72.880715,
+        "lat": 19.073968,
+        "along_m": 13686,
+        "method": "MMRDA alignment file for Line 2B (KML on the Metro Influence Zone page, uploaded March 2025): point \"S.G BARVE MARG (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from ESIC Nagar station; the point is 3 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+        "notes": "MMRDA publishes progress for the whole line only (piers 99%, U and I girders 90% as of 31 Aug 2026), not by station. Civil package L2B-C102 (NCC), MTNL Metro to Chembur."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "kurla-east",
+      "order": 13,
+      "name": "Kurla (E)",
+      "name_mr": "कुर्ला (पूर्व)",
+      "phase": 3,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+      "dpr_name": null,
+      "kml_name": "KURLA EAST (M) STATION",
+      "location": {
+        "lng": 72.885061,
+        "lat": 19.063187,
+        "along_m": 15344,
+        "method": "MMRDA alignment file for Line 2B (KML on the Metro Influence Zone page, uploaded March 2025): point \"KURLA EAST (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from ESIC Nagar station; the point is 9 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [
+          "Central Railway suburban, Kurla"
+        ],
+        "status": "reported",
+        "source_url": "https://www.oneindia.com/mumbai/mumbai-metro-line-2b-trials-begin-full-stations-list-and-key-interchange-points-inside-4126121.html",
+        "notes": "Oneindia (17 Apr 2025) also names Line 4 here; Construction World (Dec 2023) puts the Line 4 link at Siddharth Colony, by EEH station. MMRDA names the Central Railway among the line's connections, without a station."
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+        "notes": "MMRDA publishes progress for the whole line only (piers 99%, U and I girders 90% as of 31 Aug 2026), not by station. Civil package L2B-C102 (NCC), MTNL Metro to Chembur."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "eeh",
+      "order": 14,
+      "name": "EEH",
+      "name_mr": "इ. इ. एच.",
+      "phase": 3,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+      "dpr_name": null,
+      "kml_name": "EEH (M) STATION",
+      "location": {
+        "lng": 72.888111,
+        "lat": 19.055635,
+        "along_m": 16369,
+        "method": "MMRDA alignment file for Line 2B (KML on the Metro Influence Zone page, uploaded March 2025): point \"EEH (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from ESIC Nagar station; the point is 7 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "reported",
+        "source_url": "https://www.constructionworld.in/transport-infrastructure/metro-rail-and-railways-infrastructure/suman-nagar-amar-mahal-metro-stations-dropped-for-space-cost-reasons/48209",
+        "notes": "Line 4's Siddharth Colony is reported to connect with Line 2B (Construction World, Dec 2023); in MMRDA's alignment files the two station points are 635 m apart.",
+        "planned": [
+          {
+            "line": "Metro Line 4 (Wadala-Kasarvadavali)",
+            "station": "Siddharth Colony",
+            "status": "reported",
+            "source_url": "https://www.constructionworld.in/transport-infrastructure/metro-rail-and-railways-infrastructure/suman-nagar-amar-mahal-metro-stations-dropped-for-space-cost-reasons/48209"
+          }
+        ]
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+        "notes": "MMRDA publishes progress for the whole line only (piers 99%, U and I girders 90% as of 31 Aug 2026), not by station. Civil package L2B-C102 (NCC), MTNL Metro to Chembur."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "chembur",
+      "order": 15,
+      "name": "Chembur",
+      "name_mr": "चेंबूर",
+      "phase": 2,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+      "dpr_name": null,
+      "kml_name": "CHEMBUR (M) STATION",
+      "location": {
+        "lng": 72.892644,
+        "lat": 19.053934,
+        "along_m": 16928,
+        "method": "MMRDA alignment file for Line 2B (KML on the Metro Influence Zone page, uploaded March 2025): point \"CHEMBUR (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from ESIC Nagar station; the point is 17 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [
+          "Central Railway Harbour line, Chembur (about 200 m)",
+          "Mumbai Monorail, V N Purav Marg (about 100 m)"
+        ],
+        "status": "reported",
+        "source_url": "https://www.businesstoday.in/india/story/mumbai-metro-2b-chembur-station-opens-how-it-connects-metro-rail-monorail-549058-2026-08-13",
+        "notes": "Distances as Business Today reported them at the opening, 13 Aug 2026. MMRDA names the Monorail among the line's connections."
+      },
+      "context": [
+        {
+          "text": "Opened on its own on 13 Aug 2026, 0.29 km past Diamond Garden (MMRDA, Phase IA).",
+          "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+          "status": "verified"
+        }
+      ],
+      "construction_status": {
+        "value": "Open since 13 Aug 2026 (Phase IA, Diamond Garden to Chembur)",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview"
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "diamond-garden",
+      "order": 16,
+      "name": "Diamond Garden",
+      "name_mr": "डायमंड गार्डन",
+      "phase": 1,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+      "dpr_name": null,
+      "kml_name": "DIAMOND GARDEN (M) STATION",
+      "location": {
+        "lng": 72.901486,
+        "lat": 19.051858,
+        "along_m": 17903,
+        "method": "MMRDA alignment file for Line 2B (KML on the Metro Influence Zone page, uploaded March 2025): point \"DIAMOND GARDEN (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from ESIC Nagar station; the point is 0 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview"
+      },
+      "context": [
+        {
+          "text": "Full name at the station: Deshbhakt N. G. Acharya Udyan - Diamond Garden.",
+          "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+          "status": "verified"
+        }
+      ],
+      "construction_status": {
+        "value": "Open since 7 Apr 2026 (Phase I, Mandale to Diamond Garden)",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+        "notes": "MMRDA: operational from 7 Apr 2026. The line was inaugurated that day and opened to riders on 8 Apr (Free Press Journal)."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "shivaji-chowk",
+      "order": 17,
+      "name": "Shivaji Chowk",
+      "name_mr": "शिवाजी चौक",
+      "phase": 1,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+      "dpr_name": null,
+      "kml_name": "SHIVAJI CHOWK (M) STATION",
+      "location": {
+        "lng": 72.906864,
+        "lat": 19.047945,
+        "along_m": 18637,
+        "method": "MMRDA alignment file for Line 2B (KML on the Metro Influence Zone page, uploaded March 2025): point \"SHIVAJI CHOWK (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from ESIC Nagar station; the point is 1 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview"
+      },
+      "context": [
+        {
+          "text": "Full name at the station: Chhatrapati Shivaji Maharaj Chowk.",
+          "source_url": "https://www.fsitaliane.it/en/media/press-releases/2026/4/17/fs-engineering-launches-phase-one-of-mumbai-metro-line-2b-in-ind.html",
+          "status": "reported"
+        }
+      ],
+      "construction_status": {
+        "value": "Open since 7 Apr 2026 (Phase I, Mandale to Diamond Garden)",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+        "notes": "MMRDA: operational from 7 Apr 2026. The line was inaugurated that day and opened to riders on 8 Apr (Free Press Journal)."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "bsnl-metro",
+      "order": 18,
+      "name": "BSNL Metro",
+      "name_mr": "बी एस एन एल मेट्रो",
+      "phase": 1,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+      "dpr_name": null,
+      "kml_name": "BSNL (M) STATION",
+      "location": {
+        "lng": 72.917276,
+        "lat": 19.04482,
+        "along_m": 19835,
+        "method": "MMRDA alignment file for Line 2B (KML on the Metro Influence Zone page, uploaded March 2025): point \"BSNL (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from ESIC Nagar station; the point is 7 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview"
+      },
+      "context": [
+        {
+          "text": "Full name at the station: Deonar.",
+          "source_url": "https://www.fsitaliane.it/en/media/press-releases/2026/4/17/fs-engineering-launches-phase-one-of-mumbai-metro-line-2b-in-ind.html",
+          "status": "reported"
+        }
+      ],
+      "construction_status": {
+        "value": "Open since 7 Apr 2026 (Phase I, Mandale to Diamond Garden)",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+        "notes": "MMRDA: operational from 7 Apr 2026. The line was inaugurated that day and opened to riders on 8 Apr (Free Press Journal)."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "mankhurd",
+      "order": 19,
+      "name": "Mankhurd",
+      "name_mr": "मानखुर्द",
+      "phase": 1,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+      "dpr_name": null,
+      "kml_name": "MANKHURD (M) STATION",
+      "location": {
+        "lng": 72.93059,
+        "lat": 19.047354,
+        "along_m": 21383,
+        "method": "MMRDA alignment file for Line 2B (KML on the Metro Influence Zone page, uploaded March 2025): point \"MANKHURD (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from ESIC Nagar station; the point is 22 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [
+          "Central Railway Harbour line, Mankhurd"
+        ],
+        "status": "reported",
+        "source_url": "https://www.oneindia.com/mumbai/mumbai-metro-line-2b-trials-begin-full-stations-list-and-key-interchange-points-inside-4126121.html",
+        "notes": "Oneindia (17 Apr 2025)."
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Open since 7 Apr 2026 (Phase I, Mandale to Diamond Garden)",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+        "notes": "MMRDA: operational from 7 Apr 2026. The line was inaugurated that day and opened to riders on 8 Apr (Free Press Journal)."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "mandale",
+      "order": 20,
+      "name": "Mandale Metro",
+      "name_mr": "मंडाळे मेट्रो",
+      "phase": 1,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+      "dpr_name": null,
+      "kml_name": "MANDALE (M) STATION",
+      "location": {
+        "lng": 72.938795,
+        "lat": 19.04909,
+        "along_m": 22403,
+        "method": "MMRDA alignment file for Line 2B (KML on the Metro Influence Zone page, uploaded March 2025): point \"MANDALE (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from ESIC Nagar station; the point is 13 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview"
+      },
+      "context": [
+        {
+          "text": "Full name at the station: Maharashtranagar - Mandale.",
+          "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+          "status": "verified"
+        }
+      ],
+      "construction_status": {
+        "value": "Open since 7 Apr 2026 (Phase I, Mandale to Diamond Garden)",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+        "notes": "MMRDA: operational from 7 Apr 2026. The line was inaugurated that day and opened to riders on 8 Apr (Free Press Journal)."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    }
+  ],
+  "dropped_stations": [
+    {
+      "id": "kurla-terminus",
+      "order": null,
+      "name": "Kurla Terminus",
+      "name_mr": null,
+      "phase": 3,
+      "type": "Elevated",
+      "name_status": "reported",
+      "name_source_url": "https://themetrorailguy.com/2018/02/18/rcc-mbz-neeraj-guan-lowest-bidders-for-mumbai-metros-line-2b/",
+      "dpr_name": null,
+      "kml_name": "KURLA TERMINAL (M) STATION",
+      "location": {
+        "lng": 72.886578,
+        "lat": 19.069392,
+        "along_m": 14515,
+        "method": "MMRDA alignment file for Line 2B (KML on the Metro Influence Zone page, uploaded March 2025): point \"KURLA TERMINAL (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from ESIC Nagar station; the point is 10 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Dropped",
+        "status": "reported",
+        "source_url": "https://themetrorailguy.com/2023/04/24/ncc-awarded-mumbai-metro-line-2bs-contract-for-pending-work/",
+        "notes": "Listed in civil package CA-06 in 2018 (The Metro Rail Guy); not in the balance-works package of 2020 to 2023, which has five stations from MTNL Metro to Chembur, nor on MMRDA's station list now. MMRDA's alignment file of March 2025 still marks a point for it, between SG Barve Marg and Kurla (E)."
+      },
+      "notes": "A property site (Housing.com) says it was dropped because it sat under the approach funnel of an airport; no MMRDA document on it was found.",
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    }
+  ]
+}

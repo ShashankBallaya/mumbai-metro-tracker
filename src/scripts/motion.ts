@@ -129,12 +129,19 @@ if (!reduceMotion && !ownMotion) {
     const target = id ? document.getElementById(id) : null;
     if (!target) return;
     event.preventDefault();
+    // A link pressed from the keyboard (detail 0) jumps at once: no motion on keyboard actions.
+    const instant = event.detail === 0;
 
     const stationIndex = target.dataset.rideStation;
     if (rideTrigger && stationIndex !== undefined) {
       const count = document.querySelectorAll('[data-ride-station]').length;
       const y = rideTrigger.start + (Number(stationIndex) / (count - 1)) * (rideTrigger.end - rideTrigger.start);
-      lenis.scrollTo(y + 1);
+      lenis.scrollTo(y + 1, { immediate: instant });
+    } else if (instant) {
+      lenis.scrollTo(target, { offset: -8, immediate: true });
+      requestAnimationFrame(() => {
+        if (Math.abs(target.getBoundingClientRect().top - 8) > 2) lenis.scrollTo(target, { offset: -8, immediate: true });
+      });
     } else {
       // Sections passed on the way lay out as they come near (content-visibility) and
       // pins can resize, so the target may move during the scroll. Check on arrival and

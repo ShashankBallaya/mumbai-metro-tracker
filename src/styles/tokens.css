@@ -87,7 +87,7 @@
   /* Line 6, Pink Line (reported): its mark only; the site does not cover it. White on it is 5.3:1; it is 4.4:1 on morning paper and 3.5:1 on night paper. */
   --line-6: #c2306e;
   --on-line-6: #ffffff;
-  /* Line 2B, Yellow Line (MMRDA): its mark only. Navy on it is 10.9:1. */
+  /* Line 2B, Yellow Line (MMRDA): its mark, and its pages' accent (see the end). Navy on it is 10.9:1. */
   --line-2b: #f2c11d;
   --on-line-2b: #0c1422;
   /* Lines 5 and 12 on any page, whatever that page's accent (LineMark). */
@@ -210,4 +210,70 @@
   --focus: #5cc883;
   --selection-bg: #3fae66;
   --selection-ink: #0c1422;
+}
+
+/*
+ * Route lines (the strip, the ride, the locator, the street map) take --route-line, with an optional
+ * edge (--route-edge, and --route-filter for SVG). Every line but 2B draws its route in --signal-graphic, no edge.
+ */
+:root,
+[data-accent] {
+  --route-line: var(--signal-graphic);
+  --route-edge: transparent;
+  --route-filter: none;
+  /* Accent-coloured text (the ride's distance figures, the warning grade marks). */
+  --signal-text: var(--signal-line);
+}
+
+/*
+ * Line 2B, yellow everywhere (owner, 2026-10-30): every accent line, bar, mark and underline is
+ * yellow, on morning paper too. Yellow is 1.4:1 on morning paper, so what must be read is not yellow
+ * there: accent text (--signal-text) and the focus ring are navy (15:1), the route carries a thin navy
+ * edge, and links get a thicker underline (global.css). Bands stay yellow with navy text (10.9:1).
+ * On night paper the yellow reads on its own (10.3:1), so the edge goes and the text is yellow.
+ */
+[data-accent='line-2b'] {
+  --signal: #f2c11d;
+  --signal-line: #f2c11d;
+  --signal-graphic: #f2c11d;
+  --signal-text: #111a28;
+  --on-signal: #0c1422;
+  --focus: #111a28;
+  --selection-bg: #f2c11d;
+  --selection-ink: #0c1422;
+  --route-line: #f2c11d;
+  --route-edge: #111a28;
+  --route-filter: drop-shadow(0 0 0.6px #111a28) drop-shadow(0 0 0.6px #111a28);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) [data-accent='line-2b'],
+  :root[data-accent='line-2b']:not([data-theme='light']) {
+    --signal: #f2c11d;
+    --signal-line: #f7d154;
+    --signal-graphic: #f2c11d;
+    --on-signal: #0c1422;
+    --focus: #f7d154;
+    --selection-bg: #f2c11d;
+    --selection-ink: #0c1422;
+    --route-line: #f2c11d;
+    --route-edge: transparent;
+    --route-filter: none;
+    --signal-text: #f7d154;
+  }
+}
+
+:root[data-theme='dark'] [data-accent='line-2b'],
+:root[data-accent='line-2b'][data-theme='dark'] {
+  --signal: #f2c11d;
+  --signal-line: #f7d154;
+  --signal-graphic: #f2c11d;
+  --on-signal: #0c1422;
+  --focus: #f7d154;
+  --selection-bg: #f2c11d;
+  --selection-ink: #0c1422;
+  --route-line: #f2c11d;
+  --route-edge: transparent;
+  --route-filter: none;
+  --signal-text: #f7d154;
 }

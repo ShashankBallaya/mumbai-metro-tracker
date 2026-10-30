@@ -410,7 +410,7 @@ Warm newsprint and night navy, cut by one orange.
 
 **The One Signal Rule.** Orange is the only hue. It appears as the bar module, the route and big figures. Every other colour is paper, ink, rule or concrete.
 
-**The Line Colour Rule.** Each page still has one signal hue: the hue of its line. Lines 12 and 5 print orange; Line 4's pages, its hub card and its share card print green (Line 4 Green, #1d7a3a on morning paper, #3fae66 on night paper, with paper-white or navy text on it), because MMRDA names Line 4 the Green Line. `data-accent` on `<html>` (or on a hub card) swaps the three signal tokens; nothing else changes. A line mark (LineMark) always shows its own line's colour, so Lines 5 and 12 stay orange on a Line 4 page.
+**The Line Colour Rule.** Each page still has one signal hue: the hue of its line. Lines 12 and 5 print orange; Line 4's pages, its hub card and its share card print green (Line 4 Green, #1d7a3a on morning paper, #3fae66 on night paper, with paper-white or navy text on it), because MMRDA names Line 4 the Green Line. Line 2B's pages print yellow (Line 2B Yellow, #f2c11d), because MMRDA names it the Yellow Line: every accent line, bar, mark and underline is yellow on both papers. Yellow is 1.4:1 on morning paper, so there accent text (`--signal-text`, the ride's distance figures and the warning grade marks) and the focus ring turn navy, route lines (`--route-line`) carry a thin navy edge (`--route-edge`, `--route-filter`), and links take a 2px underline. `data-accent` on `<html>` (or on a hub card) swaps the signal tokens; nothing else changes. A line mark (LineMark) always shows its own line's colour, so Lines 5 and 12 stay orange on a Line 4 page.
 
 **The Three Oranges Rule.** Pick the orange by job, not by taste: signal for fills that carry navy text, signal-graphic for shapes drawn on paper, signal-line for strokes and large figures on paper. Never set body-size text in any orange.
 
@@ -557,7 +557,7 @@ This section governs the hub at `/` only (src/pages/index.astro, src/styles/hub.
 
 The hub is the cover of the whole tracker, told like a game's key art instead of a newspaper. Each tracked line is a place at a real hour of Mumbai light: a full-bleed, credited ground or drone photo that the reader scrolls into. The facts arrive inside the picture, each with its grade, and the network map of every line in the region closes the story.
 
-The ground is near-black, the ink is warm paper white in three strengths, and the only hue on a chapter is that line's own colour: Lines 12, 12A and 5 in Line Orange, Line 4 in Line 4 Green. The first screen is a collage of four photo tiles (14px corners) around the MUMBAI METRO TRACKER mark with its Marathi mark. Scrolling grows a line's own tile, from its place on the cover, through a mask into its full-screen chapter. Depth comes from the photo's slow scale inside the mask and from dark scrims, never from shadow, glow or glass.
+The ground is near-black, the ink is warm paper white in three strengths, and the only hue on a chapter is that line's own colour: Lines 12, 12A and 5 in Line Orange, Line 4 in Line 4 Green, Line 2B in Line 2B Yellow. The first screen is a collage of five photo tiles (14px corners) around the MUMBAI METRO TRACKER mark with its Marathi mark. Scrolling grows a line's own tile, from its place on the cover, through a mask into its full-screen chapter. Depth comes from the photo's slow scale inside the mask and from dark scrims, never from shadow, glow or glass.
 
 The type is the line pages' type: Anek Latin squeezed to 75%, weight 800, uppercase, for every display line, and plain Mukta for copy. Huge number plates in the line colour name each line. Controls are full pills. The hub prints in two editions like the line pages: night (near-black) and morning (the line pages' newsprint and navy), following the system setting, with the same edition toggle in the top bar. The chapters always print on the night tokens, because their copy sits on footage or a photo.
 
@@ -576,6 +576,7 @@ Near-black and paper white, cut by each line's own colour.
 
 #### Primary (per chapter)
 - **Line Orange** (line-orange, on-line-orange): the accent of the Line 12, 12A and 5 chapters and their cover tiles. Navy text on it.
+- **Line 2B Yellow** (line-2b, on-line-2b): the accent of the Line 2B chapter and tile. Navy text on it.
 - **Line 4 Green** (line-4, on-line-4): the accent of the Line 4 chapter and tile. White text on it. On the hub it stays the morning value; the hub has no night swap for line colours.
 - A chapter, tile, nav link or list row sets `--c` and `--on-c` from its line's token. Every accent use reads `--c`: the number plate, the route stroke, the "Open the tracker" pill, the nav dot, the list mark, the list link underline, and the tile and chapter plate tints (`color-mix` of `--c` into hub-bg at 18% to 45%).
 
@@ -633,7 +634,7 @@ Near-black and paper white, cut by each line's own colour.
 The hub is three movements: the cover, a chapter per tracked line (12, 5, 4, 12A), and the network.
 
 - **Top bar:** absolute over the cover, the wordmark left and the line links right, padding 0.9rem by the gutter. Under 48rem only the "All lines" pill shows.
-- **Cover:** on phones, a two by two grid of 5:4 tiles (0.75rem gap), then the mark, lede, next target and the "Scroll the lines" pill below. At 64rem it fills the screen: three columns (1fr, 1.3fr, 1fr), the Line 12 and Line 5 tiles stacked left, the Line 4 and Line 12A tiles stacked right, the mark in the middle; height 100svh less 5.75rem, at least 36rem.
+- **Cover:** tiles and chapters run in line order, ascending (owner, 2026-10-30): 2B, 4, 5, 12, 12A. On phones, a two by two grid of 5:4 tiles with the fifth across both columns (0.75rem gap), then the mark, lede, next target and the "Scroll the lines" pill below. At 64rem it fills the screen: three columns (1fr, 1.3fr, 1fr) on six equal rows, the Line 2B, 4 and 5 tiles stacked left, the Line 12 and 12A tiles stacked right, the mark in the middle at full height; height 100svh less 5.75rem, at least 36rem.
 - **Chapter:** a tall section (100svh + 90svh + the line's length over the longest line's length times 110svh) with a sticky full-screen stage, so a longer line takes longer to scroll. The copy sits bottom-left, max 52rem wide; the credit chip sits top-right under the bar (full-width at the top on phones).
 - **Network:** a head (max 60rem) with the title, lede and per-stage counts; the map (min(78svh, 46rem) tall); then the full text list by stage. Each row is a 3.4rem mark column and the body; each part line is a 2.4rem stroke column and its text. The list goes to two columns at 64rem. "Where the tracked lines meet" and the review note close it.
 - **Breakpoints:** 48rem (top bar links, credit chip, route end names) and 64rem (cover collage, two-column list).

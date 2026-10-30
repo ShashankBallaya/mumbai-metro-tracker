@@ -1,0 +1,453 @@
+{
+  "_meta": {
+    "description": "Headline facts about Mumbai Metro Line 2B (D N Nagar-Bandra-Kurla-Chembur-Mandale). Each fact carries its own source and status. MMRDA's Line 2B page (checked 30 Oct 2026, page last updated 27 Oct 2026, progress as of 31 Aug 2026) is the primary source. Line 2B is the first line on this site with stretches open to riders: Phase I, Mandale to Diamond Garden, since 7 Apr 2026, and Phase IA, Diamond Garden to Chembur, since 13 Aug 2026 (MMRDA). The rest, Chembur to D N Nagar, is under construction and has no MMRDA phase name.",
+    "status_values": {
+      "verified": "Confirmed by a primary source (MMRDA website or an MMRDA-published document).",
+      "reported": "From a reputable secondary source (news or trade press). Not confirmed by a primary source.",
+      "unverified": "Single weak source, or could not be confirmed. Show with a warning in the UI.",
+      "conflicting": "Sources disagree. The value is the most recent credible figure; see 'alternatives'."
+    },
+    "last_reviewed": "2026-10-30"
+  },
+  "name": {
+    "value": "Mumbai Metro Line 2B",
+    "also_known_as": [
+      "Metro 2B",
+      "Yellow Line",
+      "D N Nagar-Mandale Metro"
+    ],
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+    "last_verified": "2026-10-30"
+  },
+  "implementing_agency": {
+    "value": "Mumbai Metropolitan Region Development Authority (MMRDA)",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+    "last_verified": "2026-10-30"
+  },
+  "line_color": {
+    "value": "Yellow",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+    "last_verified": "2026-10-30",
+    "notes": "MMRDA's Line 2B page gives the line colour as Yellow, as for Line 2A, which Line 2B continues from D N Nagar. MMRDA publishes no colour value, so the site's yellow is its own."
+  },
+  "route": {
+    "value": "D N Nagar to Mandale, via Bandra, Bandra Kurla Complex, Kurla and Chembur",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+    "last_verified": "2026-10-30",
+    "notes": "From D N Nagar in Andheri, where it leaves Line 2A, the line runs south along S V Road to Bandra, turns east through Bandra Kurla Complex to Kurla, crosses the Central Railway and the Eastern Express Highway to Chembur, and runs on to Mandale near Mankhurd (MMRDA's alignment file, March 2025). MMRDA: it 'shall provide connectivity between the Eastern & Western Suburban Mumbai'."
+  },
+  "length_km": {
+    "value": 23.643,
+    "structure": "Fully elevated",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+    "last_verified": "2026-10-30",
+    "context": "From D N Nagar to Mandale. ESIC Nagar, the first station, is about 1.3 km from D N Nagar on MMRDA's alignment file.",
+    "notes": "The centre line the site derives from MMRDA's file is 24.18 km from the corridor's tip at D N Nagar to its tip past Mandale. Indian Infrastructure (2025) gives 24.6 km, counting a 1 km extension to Cheetah Camp (see related_projects).",
+    "history": [
+      {
+        "value": 23.5,
+        "context": "At the foundation stone, Dec 2016 (The Metro Rail Guy)",
+        "source_url": "https://themetrorailguy.com/2016/12/24/pm-unveils-foundation-stone-for-mumbai-metros-line-2b-line-4/"
+      }
+    ]
+  },
+  "stations_count": {
+    "value": 20,
+    "structure": "All elevated",
+    "status": "conflicting",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+    "last_verified": "2026-10-30",
+    "context": "MMRDA's introduction says 20 stations and its list names 20, ESIC Nagar to Mandale Metro.",
+    "alternatives": [
+      {
+        "value": 19,
+        "context": "MMRDA's feature table on the same page: '19 Nos. (All Elevated)', above its list of 20 names",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview"
+      }
+    ],
+    "history": [
+      {
+        "value": 22,
+        "context": "When MMRDA approved the draft plan, May 2016 (Indian Infrastructure)",
+        "source_url": "https://indianinfrastructure.com/2016/05/14/draft-plan-for-the-dn-nagar-mankhurd-corridor-of-mumbai-metro-approved/"
+      },
+      {
+        "value": 21,
+        "context": "Points in MMRDA's alignment file (March 2025): the 20 listed and Kurla Terminus, which the list no longer has",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      }
+    ],
+    "notes": "The site counts 20, the stations MMRDA names."
+  },
+  "completion_cost_crore_inr": {
+    "value": 10986,
+    "label": "Project completion cost, including state taxes, 7.5% a year escalation and interest during construction",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+    "last_verified": "2026-10-30",
+    "context": "The figure of the project report approved by the State Cabinet in September 2016 (The Metro Rail Guy, Dec 2016); MMRDA's page still gives it.",
+    "history": [
+      {
+        "value": 10970,
+        "context": "Total cost when MMRDA approved the draft plan, May 2016: Rs 109.7 billion (Indian Infrastructure)",
+        "source_url": "https://indianinfrastructure.com/2016/05/14/draft-plan-for-the-dn-nagar-mankhurd-corridor-of-mumbai-metro-approved/"
+      }
+    ],
+    "notes": "No revised cost was found. The balance-works contracts of 2020 to 2023 were let at 19% to 26% above MMRDA's estimates (The Metro Rail Guy)."
+  },
+  "funding": {
+    "value": "MMRDA for the civil works; the Asian Development Bank for the rest, as planned in 2016",
+    "status": "reported",
+    "source_url": "https://indianinfrastructure.com/2016/05/14/draft-plan-for-the-dn-nagar-mankhurd-corridor-of-mumbai-metro-approved/",
+    "last_verified": "2026-10-30",
+    "notes": "Indian Infrastructure (May 2016): MMRDA to provide Rs 37.7 billion for the civil construction, the Asian Development Bank the rest. No loan agreement for Line 2B was read."
+  },
+  "depot": {
+    "value": "Mandale",
+    "area_ha": 31.4,
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+    "last_verified": "2026-10-30",
+    "context": "MMRDA's progress table shows the depot works 100% complete (31 Aug 2026). Built for up to 72 trains of eight cars (The Metro Rail Guy).",
+    "contract": {
+      "value": "L2B-C103, balance civil works of the Mandale depot, to Ahluwalia Contracts, Rs 530.32 crore",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2020/10/06/ahluwalia-wins-mumbai-metro-line-2b-mandale-depots-pending-work/",
+      "notes": "The first depot contract (CA-14, 2017) went to RCC Infra Ventures and MBZ (JV) and was ended in January 2020 for poor progress.",
+      "last_verified": "2026-10-30"
+    },
+    "history": [],
+    "notes": "Line 4 is reported to keep its first Alstom trains at Mandale until its own depot is ready (Line 4 project.json, depot alternatives)."
+  },
+  "interchanges": {
+    "value": [
+      {
+        "station": "Chembur",
+        "connects_to": "Mumbai Monorail at V N Purav Marg, and the Harbour line at Chembur"
+      }
+    ],
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+    "last_verified": "2026-10-30",
+    "lines": [
+      "Western Express Highway",
+      "Eastern Express Highway",
+      "Western Railway",
+      "Central Railway",
+      "Mumbai Monorail",
+      "Metro Line 1 (Ghatkopar-Versova)",
+      "Metro Line 2A (Dahisar-D N Nagar)",
+      "Metro Line 3 (Colaba-SEEPZ)",
+      "Metro Line 4 (Wadala-Kasarvadavali)"
+    ],
+    "notes": "MMRDA's Line 2B page names the line's connections but not the stations where they meet. Reported stations: Lines 1 and 2A at D N Nagar, the suburban railway at Bandra, Kurla (E) and Mankhurd, Line 3 at Income Tax Office, the Monorail at Chembur (Oneindia, Apr 2025; Business Today, Aug 2026). Line 4 is reported at Kurla (E) (Oneindia) and at Siddharth Colony by EEH (Construction World, Dec 2023), 635 m from EEH in MMRDA's files.",
+    "planned": [
+      {
+        "station": "EEH",
+        "connects_to": "Metro Line 4 (Wadala-Kasarvadavali), at Siddharth Colony",
+        "status": "reported",
+        "source_url": "https://www.constructionworld.in/transport-infrastructure/metro-rail-and-railways-infrastructure/suman-nagar-amar-mahal-metro-stations-dropped-for-space-cost-reasons/48209",
+        "last_verified": "2026-10-30"
+      },
+      {
+        "station": "Income Tax Office",
+        "connects_to": "Metro Line 3 (Aqua Line)",
+        "status": "reported",
+        "source_url": "https://www.oneindia.com/mumbai/mumbai-metro-line-2b-trials-begin-full-stations-list-and-key-interchange-points-inside-4126121.html",
+        "last_verified": "2026-10-30"
+      }
+    ]
+  },
+  "daily_ridership_2031": {
+    "value": 1050000,
+    "display": "10.5 lakh",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+    "last_verified": "2026-10-30",
+    "notes": "Peak-hour peak-direction traffic 38,509 (MMRDA's page). The open stretch carried far fewer: Free Press Journal (25 Apr 2026, citing Loksatta) reports about 300 riders a day between Mandale and Diamond Garden, before Chembur opened."
+  },
+  "travel_time_benefit": {
+    "value": "Reduces current travel time by 50% to 75%, depending on road conditions",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+    "last_verified": "2026-10-30"
+  },
+  "current_phase": {
+    "value": "Mandale to Chembur open (six stations). Chembur to D N Nagar under construction: piers 99%, U and I girders 90% (MMRDA, 31 Aug 2026).",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+    "last_verified": "2026-10-30"
+  },
+  "stages": {
+    "notes": "Each section of the line from planning to opening. 'sections' has one entry per part of the line that opens on its own. state: done, now (the current stage), started, next (not started). A note may contain {progress_as_of} or {event:<timeline id>}, which the page fills with that date. 'phases' lists the station phases (stations.json 'phase') a section covers. 'service' is opening mode: how the section runs once it opens; each part is null until a source gives it.",
+    "sections": [
+      {
+        "label": "Phase I, Mandale to Diamond Garden",
+        "phases": [
+          1
+        ],
+        "stages": [
+          {
+            "name": "Planning",
+            "state": "done",
+            "note": "Line 2B approved by the State Cabinet, {event:state-approval} (reported)"
+          },
+          {
+            "name": "Tenders and design",
+            "state": "done",
+            "note": "Civil contract CA-07 to NCC, {event:ca07-ncc} (reported)"
+          },
+          {
+            "name": "Civil construction",
+            "state": "done",
+            "note": "Mandale depot complete (MMRDA)"
+          },
+          {
+            "name": "Systems and trains",
+            "state": "done",
+            "note": "Trial runs from {event:trial-runs} (reported)"
+          },
+          {
+            "name": "Testing and safety approval",
+            "state": "done",
+            "note": "Safety commissioner's final inspection from {event:cmrs-inspection} (reported)"
+          },
+          {
+            "name": "Opening",
+            "state": "done",
+            "note": "Open since {event:phase-1-open}"
+          }
+        ],
+        "service": {
+          "opening": {
+            "date": "2026-04-07",
+            "status": "verified",
+            "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+            "last_verified": "2026-10-30",
+            "notes": "MMRDA: operational from 7 Apr 2026. Inaugurated that day by the Chief Minister; open to riders from 8 Apr (Free Press Journal)."
+          },
+          "hours": {
+            "first": "06:00",
+            "last": "22:30",
+            "status": "reported",
+            "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-network-to-expand-today-with-lines-9-2b-inauguration-know-routes-timings-of-red-yellow-line",
+            "last_verified": "2026-10-30",
+            "notes": "At the opening, 7 Apr 2026: 'from 6 am to 10:30 pm'. A route guide gives 10 pm for the last train. Check Maha Mumbai Metro for today's timetable."
+          },
+          "frequency": {
+            "peak_min": 9.5,
+            "off_peak_min": 9.5,
+            "status": "reported",
+            "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-line-2b-launched-travel-from-mankhurd-to-chembur-in-just-20-check-ticket-fare-here",
+            "last_verified": "2026-10-30",
+            "notes": "About nine and a half minutes all day, 209 trips a day, at the opening (Free Press Journal, 7 Apr 2026). The report gives one interval for the whole day, no peak and off-peak split."
+          },
+          "fares": {
+            "min_inr": 10,
+            "max_inr": 20,
+            "status": "reported",
+            "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-line-2b-launched-travel-from-mankhurd-to-chembur-in-just-20-check-ticket-fare-here",
+            "last_verified": "2026-10-30",
+            "notes": "At the opening: Rs 10 from Mandale to Deonar (BSNL Metro), Rs 20 for the whole stretch to Diamond Garden (Free Press Journal, 7 Apr 2026)."
+          }
+        }
+      },
+      {
+        "label": "Phase IA, Diamond Garden to Chembur",
+        "phases": [
+          2
+        ],
+        "stages": [
+          {
+            "name": "Planning",
+            "state": "done",
+            "note": "Line 2B approved by the State Cabinet, {event:state-approval} (reported)"
+          },
+          {
+            "name": "Tenders and design",
+            "state": "done",
+            "note": "Balance works L2B-C102 to NCC, {event:c102-ncc} (reported)"
+          },
+          {
+            "name": "Civil construction",
+            "state": "done",
+            "note": "Chembur station 100% complete by April 2026 (reported)"
+          },
+          {
+            "name": "Systems and trains",
+            "state": "done",
+            "note": "Runs with the Phase I trains"
+          },
+          {
+            "name": "Testing and safety approval",
+            "state": "done",
+            "note": "Passed before the opening"
+          },
+          {
+            "name": "Opening",
+            "state": "done",
+            "note": "Open since {event:phase-1a-open}"
+          }
+        ],
+        "service": {
+          "opening": {
+            "date": "2026-08-13",
+            "status": "verified",
+            "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+            "last_verified": "2026-10-30",
+            "notes": "MMRDA: Phase IA, 0.29 km with one station, operational from 13 Aug 2026. Services began at 5 pm that day (Free Press Journal)."
+          },
+          "hours": null,
+          "frequency": null,
+          "fares": null
+        }
+      },
+      {
+        "label": "Chembur to D N Nagar",
+        "phases": [
+          3
+        ],
+        "stages": [
+          {
+            "name": "Planning",
+            "state": "done",
+            "note": "Line 2B approved by the State Cabinet, {event:state-approval} (reported)"
+          },
+          {
+            "name": "Tenders and design",
+            "state": "done",
+            "note": "Balance works to J Kumar, {event:c101-jkumar}, and to NCC, {event:c102-ncc} (reported)"
+          },
+          {
+            "name": "Civil construction",
+            "state": "now",
+            "note": "Piers 99%, U and I girders 90%, {progress_as_of}"
+          },
+          {
+            "name": "Systems and trains",
+            "state": "next",
+            "note": "No source found"
+          },
+          {
+            "name": "Testing and safety approval",
+            "state": "next",
+            "note": "No date announced"
+          },
+          {
+            "name": "Opening",
+            "state": "next",
+            "note": "Reported target: 2027 for Diamond Garden to Saraswat Nagar"
+          }
+        ],
+        "service": {
+          "opening": null,
+          "hours": null,
+          "frequency": null,
+          "fares": null
+        }
+      }
+    ]
+  },
+  "progress": {
+    "summary": "MMRDA publishes one progress table for Line 2B, updated monthly. It covers the whole line, open stretch included, and does not split it by station or phase.",
+    "as_of": "2026-08-31",
+    "items": [
+      {
+        "activity": "Pile cap",
+        "percent_complete": 100
+      },
+      {
+        "activity": "Pier works",
+        "percent_complete": 99
+      },
+      {
+        "activity": "Pier cap and portal beam",
+        "percent_complete": 99
+      },
+      {
+        "activity": "U and I girder works",
+        "percent_complete": 90
+      },
+      {
+        "activity": "Mandale depot works",
+        "percent_complete": 100
+      }
+    ],
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+    "last_verified": "2026-10-30"
+  },
+  "target_completion": {
+    "value": "2027",
+    "countdown_date": "2027-12-31",
+    "precision": "year",
+    "scope": "Diamond Garden to Saraswat Nagar",
+    "status": "reported",
+    "source_url": "https://www.freepressjournal.in/mumbai/chembur-metro-station-in-mumbai-set-for-early-launch-as-line-2b-witnesses-low-ridership-report",
+    "last_verified": "2026-10-30",
+    "history": [
+      {
+        "value": "Summer 2026 for D N Nagar to Saraswat Nagar; no deadline for Bandra, BKC and Kurla",
+        "context": "Swarajya, citing Hindustan Times, Oct 2025; passed",
+        "source_url": "https://swarajyamag.com/news-brief/mumbai-metro-yellow-line-2b-set-for-december-debut-with-second-phase-launching-summer-2026"
+      },
+      {
+        "value": "October 2022 for the whole line",
+        "context": "The original completion date (Swarajya, Oct 2025)",
+        "source_url": "https://swarajyamag.com/news-brief/mumbai-metro-yellow-line-2b-set-for-december-debut-with-second-phase-launching-summer-2026"
+      },
+      {
+        "value": "End of 2019",
+        "context": "When MMRDA approved the draft plan, May 2016 (Indian Infrastructure)",
+        "source_url": "https://indianinfrastructure.com/2016/05/14/draft-plan-for-the-dn-nagar-mankhurd-corridor-of-mumbai-metro-approved/"
+      }
+    ],
+    "notes": "MMRDA has announced no date for the rest of the line. Free Press Journal (25 Apr 2026) gives 2027 as the scheduled completion of the stretch from Diamond Garden to Saraswat Nagar; no month. Sources differ on how the rest opens: one stretch from Chembur west, or Saraswat Nagar to D N Nagar first. Owner to confirm.",
+    "rest_of_line": {
+      "value": "2027 to Saraswat Nagar",
+      "context": "Reported in April 2026; no month",
+      "status": "reported",
+      "source_url": "https://www.freepressjournal.in/mumbai/chembur-metro-station-in-mumbai-set-for-early-launch-as-line-2b-witnesses-low-ridership-report",
+      "last_verified": "2026-10-30"
+    },
+    "countdown": true,
+    "countdown_label": "Rest of the line, reported target: 2027"
+  },
+  "technical": {
+    "structure": "Fully elevated",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+    "last_verified": "2026-10-30",
+    "notes": "No design values (gauge, traction, speed) were read from a Line 2B document; the project report is not on MMRDA's Line 2B page."
+  },
+  "rolling_stock": {
+    "supplier": "BEML",
+    "cars_per_train": 6,
+    "status": "reported",
+    "source_url": "https://swarajyamag.com/news-brief/mumbai-metro-yellow-line-2b-set-for-december-debut-with-second-phase-launching-summer-2026",
+    "last_verified": "2026-10-30",
+    "notes": "Swarajya (Oct 2025): six-car BEML trains made in India, with regenerative braking, CCTV, charging points and space for bicycles. No source gives the number of trains on Line 2B or the order they came from."
+  },
+  "incidents": [],
+  "related_projects": [
+    {
+      "name": "Extension from Mandale to Cheetah Camp",
+      "summary": "About 1 km more past Mandale with one more station, at Rs 205 crore, ordered by MMRDA in 2023. No start of work was found.",
+      "status": "reported",
+      "source_url": "https://www.constructionworld.in/transport-infrastructure/aviation-and-airport-infra/mumbai-metro--line-2b-extends-to-cheetah-camp/44659",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "name": "Metro Line 2A (Dahisar to D N Nagar)",
+      "summary": "The Yellow Line's first part, open from Dahisar (East) since 2 Apr 2022 and to Andheri (West) since 19 Jan 2023. Line 2B continues it from D N Nagar.",
+      "status": "verified",
+      "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2A/overview",
+      "last_verified": "2026-10-30"
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "_meta": {
+    "description": "Firms appointed on Line 2B. 'tender_ids' link to tenders.json.",
+    "last_reviewed": "2026-10-30"
+  },
+  "contractors": [
+    {
+      "id": "j-kumar",
+      "name": "J Kumar Infraprojects",
+      "role": "Civil contractor, ESIC Nagar to ILFS (10 stations), from 2021",
+      "tender_ids": [
+        "l2b-c101"
+      ],
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2021/05/28/j-kumar-awarded-mumbai-metro-line-2bs-contract-for-pending-work/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "ncc",
+      "name": "NCC",
+      "role": "Civil contractor, Diamond Garden to Mandale (from 2019) and MTNL Metro to Chembur (from 2023)",
+      "tender_ids": [
+        "ca-07",
+        "l2b-c102"
+      ],
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2023/04/24/ncc-awarded-mumbai-metro-line-2bs-contract-for-pending-work/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "ahluwalia",
+      "name": "Ahluwalia Contracts",
+      "role": "Mandale depot, from 2020",
+      "tender_ids": [
+        "l2b-c103"
+      ],
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2020/10/06/ahluwalia-wins-mumbai-metro-line-2b-mandale-depots-pending-work/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "colossus",
+      "name": "Colossus Infra Projects",
+      "role": "Electrical and mechanical works, Phase I stations",
+      "tender_ids": [
+        "ca-249"
+      ],
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2024/07/31/colossus-awarded-mumbai-metro-line-2bs-em-contract-ca-249/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "fs-ayesa-ceg",
+      "name": "FS Engineering (Italferr), Ayesa and CEG (JV)",
+      "role": "Project management consultant",
+      "tender_ids": [],
+      "status": "reported",
+      "source_url": "https://www.fsitaliane.it/en/media/press-releases/2026/4/17/fs-engineering-launches-phase-one-of-mumbai-metro-line-2b-in-ind.html",
+      "last_verified": "2026-10-30",
+      "notes": "FS Engineering's release (17 Apr 2026) names itself project management consultant for Lines 2B and 7, with Ayesa and CEG."
+    },
+    {
+      "id": "simplex",
+      "name": "Simplex Infrastructures",
+      "role": "Civil contractor, western section (CA-04B), 2017 to January 2020; contract ended for poor progress",
+      "tender_ids": [
+        "ca-04b"
+      ],
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2021/05/28/j-kumar-awarded-mumbai-metro-line-2bs-contract-for-pending-work/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "rcc-mbz",
+      "name": "RCC Infra Ventures and MBZ (JV)",
+      "role": "Civil contractor, MTNL Metro to Chembur (CA-06) and the Mandale depot (CA-14), 2017 to January 2020; contracts ended for poor progress",
+      "tender_ids": [
+        "ca-06",
+        "ca-14"
+      ],
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2020/11/24/j-kumar-ncc-win-mumbai-metro-line-2bs-pending-work/",
+      "last_verified": "2026-10-30"
+    }
+  ],
+  "excluded_claims": []
+}

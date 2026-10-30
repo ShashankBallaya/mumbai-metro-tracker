@@ -254,6 +254,7 @@ html[data-theme='dark']:has(.hubw) {
   grid-template-areas:
     't1 t2'
     't3 t4'
+    't5 t5'
     'mark mark';
 }
 .cover__mark {
@@ -298,6 +299,8 @@ html[data-theme='dark']:has(.hubw) {
 .cover__tile--2 { grid-area: t2; }
 .cover__tile--3 { grid-area: t3; }
 .cover__tile--4 { grid-area: t4; }
+/* The fifth tile (Line 12A) spans both columns on a phone. */
+.cover__tile--5 { grid-area: t5; }
 .cover__tile {
   position: relative;
   display: block;
@@ -369,10 +372,15 @@ html[data-theme='dark']:has(.hubw) {
   }
   .cover__grid {
     grid-template-columns: 1fr 1.3fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    /* Five tiles round the mark, in line order: three down the left (2B, 4, 5), two down the right (12, 12A). */
+    grid-template-rows: repeat(6, 1fr);
     grid-template-areas:
-      't1 mark t3'
-      't2 mark t4';
+      't1 mark t4'
+      't1 mark t4'
+      't2 mark t4'
+      't2 mark t5'
+      't3 mark t5'
+      't3 mark t5';
     height: calc(100svh - 5.75rem);
     min-height: 36rem;
   }
@@ -401,6 +409,8 @@ html[data-theme='dark']:has(.hubw) {
   .cover__tile--3 img { animation-delay: 120ms; }
   .cover__tile--4,
   .cover__tile--4 img { animation-delay: 180ms; }
+  .cover__tile--5,
+  .cover__tile--5 img { animation-delay: 240ms; }
   .cover__mark > * {
     animation: hub-rise 700ms var(--ease-out) both;
   }

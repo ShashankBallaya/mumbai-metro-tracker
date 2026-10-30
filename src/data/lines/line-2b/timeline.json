@@ -1,0 +1,217 @@
+{
+  "_meta": {
+    "description": "Key milestones of Line 2B, oldest first. 'date_precision' is day, month or year. 'kind' is planning, approval, tender, award, construction, related or future. Only events whose source was read are listed.",
+    "last_reviewed": "2026-10-30"
+  },
+  "events": [
+    {
+      "id": "mmrda-draft-plan",
+      "date": "2016-05",
+      "date_precision": "month",
+      "kind": "planning",
+      "title": "MMRDA approves the draft plan: 23.6 km, 22 stations",
+      "summary": "MMRDA approves the draft plan for the D N Nagar-Mankhurd corridor, at about Rs 10,970 crore, with ADB funding planned and completion by the end of 2019.",
+      "status": "reported",
+      "source_url": "https://indianinfrastructure.com/2016/05/14/draft-plan-for-the-dn-nagar-mankhurd-corridor-of-mumbai-metro-approved/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "state-approval",
+      "date": "2016-09-27",
+      "date_precision": "day",
+      "kind": "approval",
+      "title": "State Cabinet approves Line 2B",
+      "summary": "The Maharashtra Cabinet approves Metro 2B together with Metro 4. The project report puts Line 2B at Rs 10,986 crore.",
+      "status": "reported",
+      "source_url": "https://www.pressreader.com/india/the-free-press-journal/20160928/281655369560710",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "foundation-stone",
+      "date": "2016-12-24",
+      "date_precision": "day",
+      "kind": "construction",
+      "title": "Foundation stone",
+      "summary": "Prime Minister Narendra Modi and Chief Minister Devendra Fadnavis lay the foundation stones of Lines 2B and 4 in Mumbai.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2016/12/24/pm-unveils-foundation-stone-for-mumbai-metros-line-2b-line-4/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "ca04b-award",
+      "date": "2017-12-20",
+      "date_precision": "day",
+      "kind": "award",
+      "title": "Western section to Simplex Infrastructures",
+      "summary": "Civil package CA-04B, about 12.7 km from D N Nagar towards BKC, goes to Simplex Infrastructures.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2018/02/18/rcc-mbz-neeraj-guan-lowest-bidders-for-mumbai-metros-line-2b/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "civil-award",
+      "date": "2018-03-03",
+      "date_precision": "day",
+      "kind": "award",
+      "title": "Eastern section contracts awarded",
+      "summary": "CA-06 (MTNL Metro to Chembur) to RCC Infra Ventures and MBZ (JV), Rs 521.21 crore, and CA-07 (Diamond Garden to Mandale) to Neeraj-Guan (JV), Rs 393.01 crore, the lowest bids.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2018/02/18/rcc-mbz-neeraj-guan-lowest-bidders-for-mumbai-metros-line-2b/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "ca07-ncc",
+      "date": "2019-04",
+      "date_precision": "month",
+      "kind": "award",
+      "title": "CA-07, Diamond Garden to Mandale, to NCC",
+      "summary": "After several rounds of re-bidding, NCC takes the civil package for the five stations from Diamond Garden to Mandale.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2020/01/27/ncc-launches-1st-set-of-u-girders-for-mumbai-metro-line-2b/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "contracts-ended",
+      "date": "2020-01",
+      "date_precision": "month",
+      "kind": "construction",
+      "title": "Three contracts ended for poor progress",
+      "summary": "MMRDA ends the contracts of Simplex Infrastructures (CA-04B) and of RCC Infra Ventures and MBZ (CA-06 and the Mandale depot, CA-14) for poor progress, and tenders the balance works again.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2020/11/24/j-kumar-ncc-win-mumbai-metro-line-2bs-pending-work/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "first-u-girders",
+      "date": "2020-01",
+      "date_precision": "month",
+      "kind": "construction",
+      "title": "First U-girders",
+      "summary": "NCC places the first two U-girders, 25 m long, near Deonar depot east of Shivaji Chowk station.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2020/01/27/ncc-launches-1st-set-of-u-girders-for-mumbai-metro-line-2b/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "depot-award",
+      "date": "2020-11",
+      "date_precision": "month",
+      "kind": "award",
+      "title": "Mandale depot to Ahluwalia Contracts",
+      "summary": "The balance civil works of the Mandale depot (L2B-C103) go to Ahluwalia Contracts for Rs 530.32 crore after negotiation.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2020/10/06/ahluwalia-wins-mumbai-metro-line-2b-mandale-depots-pending-work/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "c101-jkumar",
+      "date": "2021-05-28",
+      "date_precision": "day",
+      "kind": "award",
+      "title": "D N Nagar to ILFS to J Kumar Infraprojects",
+      "summary": "J Kumar Infraprojects receives the balance works of the western section (L2B-C101): 12.824 km and 10 stations, ESIC Nagar to ILFS, for Rs 1,307.88 crore over 30 months.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2021/05/28/j-kumar-awarded-mumbai-metro-line-2bs-contract-for-pending-work/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "c102-ncc",
+      "date": "2023-04-06",
+      "date_precision": "day",
+      "kind": "award",
+      "title": "MTNL Metro to Chembur to NCC",
+      "summary": "NCC receives the balance works of CA-06 (L2B-C102): 5.868 km and five stations, MTNL Metro to Chembur, over 36 months. Its bid was Rs 791.15 crore.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2023/04/24/ncc-awarded-mumbai-metro-line-2bs-contract-for-pending-work/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "cheetah-camp",
+      "date": "2023-09",
+      "date_precision": "month",
+      "kind": "related",
+      "title": "Extension to Cheetah Camp ordered",
+      "summary": "MMRDA orders the line extended about 1 km past Mandale to Cheetah Camp, with one more station, at Rs 205 crore.",
+      "status": "reported",
+      "source_url": "https://www.constructionworld.in/transport-infrastructure/aviation-and-airport-infra/mumbai-metro--line-2b-extends-to-cheetah-camp/44659",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "ca249-award",
+      "date": "2024-07",
+      "date_precision": "month",
+      "kind": "award",
+      "title": "Electrical and mechanical works for Phase I",
+      "summary": "Colossus Infra Projects wins the electrical and mechanical works of the five stations from Diamond Garden to Mandale (CA-249), Rs 33.95 crore.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2024/07/31/colossus-awarded-mumbai-metro-line-2bs-em-contract-ca-249/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "trial-runs",
+      "date": "2025-04-16",
+      "date_precision": "day",
+      "kind": "construction",
+      "title": "Trial runs begin, Mandale to Diamond Garden",
+      "summary": "MMRDA starts trial runs on the 5.5 km stretch from Diamond Garden to Mandale.",
+      "status": "reported",
+      "source_url": "https://indianinfrastructure.com/2025/04/17/trial-runs-commence-on-diamond-garden-mandale-stretch-under-mumbai-metro-line-2b/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "cmrs-inspection",
+      "date": "2025-09",
+      "date_precision": "month",
+      "kind": "construction",
+      "title": "Safety commissioner's final inspection begins",
+      "summary": "The Commissioner of Metro Rail Safety begins the final inspection of the 5.39 km Mandale-Diamond Garden stretch.",
+      "status": "reported",
+      "source_url": "https://indianinfrastructure.com/2025/09/11/commissioner-of-metro-rail-safety-commences-final-inspection-for-mumbai-metro-phase-1-line-2b/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "phase-1-open",
+      "date": "2026-04-07",
+      "date_precision": "day",
+      "kind": "construction",
+      "title": "Phase I opens, Mandale to Diamond Garden",
+      "summary": "Five stations and 5.5 km open: Mandale, Mankhurd, BSNL Metro, Shivaji Chowk and Diamond Garden. Inaugurated on 7 Apr, open to riders from 8 Apr.",
+      "status": "verified",
+      "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "rail-crossings",
+      "date": "2026-07",
+      "date_precision": "month",
+      "kind": "construction",
+      "title": "Three girders over the Central Railway",
+      "summary": "MMRDA launches three composite steel girders across the Central Railway between Kurla and Vidyavihar within two weeks, over running suburban lines, in short railway blocks.",
+      "status": "verified",
+      "source_url": "https://x.com/MMRDAOfficial/status/2077643162039030203",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "phase-1a-open",
+      "date": "2026-08-13",
+      "date_precision": "day",
+      "kind": "construction",
+      "title": "Phase IA opens: Chembur",
+      "summary": "Chembur station opens, 0.29 km past Diamond Garden, close to the Harbour line and the Monorail.",
+      "status": "verified",
+      "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "saraswat-nagar-target",
+      "date": "2027",
+      "date_precision": "year",
+      "kind": "future",
+      "title": "Reported target: Diamond Garden to Saraswat Nagar",
+      "summary": "Free Press Journal (Apr 2026) gives 2027 as the scheduled completion of the next stretch. MMRDA has announced no date.",
+      "status": "reported",
+      "source_url": "https://www.freepressjournal.in/mumbai/chembur-metro-station-in-mumbai-set-for-early-launch-as-line-2b-witnesses-low-ridership-report",
+      "last_verified": "2026-10-30"
+    }
+  ]
+}

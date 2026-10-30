@@ -344,6 +344,64 @@ Every point is graded unverified. Replace them when MMRDA publishes an alignment
 - An MMRDA page, press release, project report or alignment file for Line 12A.
 - A tender, a depot plan beyond the Nilje link, a colour, or a start date for the deadline.
 
+# Line 2B (D N Nagar-Bandra-Kurla-Chembur-Mandale)
+
+Research of 2026-10-30 for `src/data/lines/line-2b/`. Line 2B is the first line on the site with stretches open to riders, so it uses opening mode (`stages.sections[].service`).
+
+## Primary sources
+
+| Source | Checked | Used for |
+|---|---|---|
+| MMRDA, Metro Line 2B page (`/en/projects/transport/metro-line-2b/overview`), last updated 27 Oct 2026 | 2026-10-30 (progress as of 31 Aug 2026) | Length 23.643 km, 20 stations listed (its table says 19), Yellow, Rs 10,986 crore, 10.5 lakh riders in 2031 (PHPDT 38,509), Mandale depot 31.4 ha, connections, Phase I open 7 Apr 2026 (5.5 km, 5 stations), Phase IA open 13 Aug 2026 (0.29 km, 1 station), progress table |
+| MMRDA, Metro Line 2B page in Marathi | 2026-10-30 | Marathi station names |
+| MMRDA alignment file `line_2b.kml` (Metro Influence Zone NOC page, March 2025) | 2026-10-30 | Route line and 21 station points (the 20 listed and Kurla Terminus) |
+
+MMRDA's site fails a certificate check in some tools; Python's standard library fetches it with normal verification.
+
+## Secondary sources
+
+| Source | Date | Used for |
+|---|---|---|
+| Indian Infrastructure | 14 May 2016 | MMRDA approves the draft plan: 23.6 km, 22 stations, Rs 109.7 billion, ADB funding, end-2019 target |
+| Free Press Journal (PressReader) | 28 Sep 2016 | State Cabinet approval with Line 4, 27 Sep 2016 |
+| The Metro Rail Guy | 24 Dec 2016 | Foundation stone by the Prime Minister |
+| The Metro Rail Guy | 18 Feb 2018 | CA-04B (Simplex, 20 Dec 2017), CA-06 (RCC-MBZ) and CA-07 (Neeraj-Guan) bids and awards; Kurla Terminus in CA-06 |
+| The Metro Rail Guy | 27 Jan 2020 | CA-07 to NCC in April 2019; first U-girders |
+| The Metro Rail Guy | Oct and Nov 2020 | Mandale depot balance works (L2B-C103) to Ahluwalia, Rs 530.32 crore; 72 eight-car trains |
+| The Metro Rail Guy | 24 Nov 2020, 28 May 2021 | Terminations of January 2020; L2B-C101 to J Kumar, Rs 1,307.88 crore |
+| The Metro Rail Guy | 24 Apr 2023 | L2B-C102 to NCC, letter of award 6 Apr 2023 (maybe 2022) |
+| Construction World | 21 Sep 2023 | Extension to Cheetah Camp, about 1 km, Rs 205 crore |
+| The Metro Rail Guy | 31 Jul 2024 | CA-249 E&M works to Colossus; CA-250 and CA-251 to Johnson Lifts |
+| Indian Infrastructure | 17 Apr 2025 | Trial runs from 16 Apr 2025 |
+| Oneindia | 17 Apr 2025 | Interchange stations |
+| Indian Infrastructure | 11 Sep 2025 | Safety commissioner's final inspection begins |
+| Swarajya (Hindustan Times) | 15 Oct 2025 | BEML six-car trains; earlier targets; October 2022 original date |
+| Free Press Journal | 7 Apr 2026 | Opening: timings, frequency, 209 trips, fares Rs 10 to Rs 20 |
+| FS Engineering press release | 17 Apr 2026 | Project management consultant (with Ayesa and CEG); full station names on Phase I |
+| Free Press Journal | 25 Apr 2026 | About 300 riders a day; next stretch Diamond Garden to Saraswat Nagar due 2027 |
+| Business Today, Free Press Journal | 13 Aug 2026 | Chembur opens at 5 pm; 200 m to Chembur station, 100 m to the Monorail |
+
+## Derived data
+
+- `scripts/build-alignment-line2b.py` derives the centre line from MMRDA's corridor polygon. The halfway-round pairing of the Line 4 script drifts here (the two sides differ by about 3 km), so the tips are set at the northernmost and easternmost points and each point on one side pairs with the nearest point on the other. All 21 station points are within 23 m of the line and in MMRDA's order. Distances count from ESIC Nagar; the line from D N Nagar to ESIC Nagar (1.35 km) is not drawn.
+- The hub's network map (`build-network-geometry.py`) still draws Line 2B through the station points; it could use this line instead.
+
+## Items that need your review
+
+1. **Countdown.** The site counts to 31 Dec 2027 for "Diamond Garden to Saraswat Nagar, 2027" (Free Press Journal, Apr 2026), labelled a reported target with no month.
+2. **Hub chapter.** Done 2026-10-30: the owner's own photo of the Shunya bridge pylon (24 May 2026) is Line 2B's cover tile and chapter art.
+3. **Trains.** No Trains section: the only source is Swarajya (BEML, six cars). The number of trains and the order they came from are not found.
+4. **Riders.** "About 300 a day" (Free Press Journal, citing Loksatta, Apr 2026) seems very low; shown as reported, in the riders answer only.
+5. **Kurla Terminus.** Graded reported as dropped; the reason (an airport approach funnel) is from a property site only.
+6. **National College.** InfraUnfiltered's video of 21 Jul 2026 (969MlryaIKg) lists "National College Metro Station Cancellation" in its description. MMRDA's list (checked 30 Oct 2026) still has the station. Not changed; find a news or MMRDA source.
+7. **Phase names.** InfraUnfiltered's videos and an X post (@Hrishix_, Oct 2026) call D N Nagar (ESIC Nagar) to Saraswat Nagar "phase 2" and Saraswat Nagar to Chembur "phase 3". MMRDA names only Phases I and IA, so the site keeps one section, Chembur to D N Nagar. Free Press Journal (Apr 2026) instead names Diamond Garden to Saraswat Nagar as the next stretch.
+
+## Not found
+
+- MMRDA's project report for Line 2B, and design values (gauge, traction, speed).
+- A revised cost, a loan agreement, the train order, the track (CA-273), power and signalling contracts.
+- An MMRDA date for the rest of the line.
+
 # The network (hub map, all MMR lines)
 
 Research of 2026-10-29 for `src/data/network.json` (first draft). The four tracked lines take their facts from their own files; this section covers the other 17 entries.
@@ -379,7 +437,7 @@ Research of 2026-10-29 for `src/data/network.json` (first draft). The four track
 2. **Thane ring.** Union Cabinet approval (Aug 2024) and the Kalpataru and HG Infra viaduct contract come from search results only. If works have started, it moves to "under construction".
 3. **Line 8.** A Jan 2026 approval by the state's Cabinet Infrastructure Committee at Rs 22,862 crore is reported (Lokmat Times), but the page refused the fetch.
 4. **Line 11.** Is it one line from Bandra Terminus to Gateway, or Line 4's extension plus a branch? Sources differ.
-5. **Line 2B stations.** MMRDA says both 19 and 20.
+5. **Line 2B stations.** MMRDA says both 19 and 20. Line 2B now has its own page; see Line 2B above.
 6. **Future prospects.** Only Virar to Alibaug is in. Other ideas you know of (with a source) can join.
 
 ## Not found

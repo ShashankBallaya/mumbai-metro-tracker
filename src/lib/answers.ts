@@ -3,7 +3,7 @@
  * each answer with its grades. The same answers feed the page's FAQPage structured data.
  * A line without a set here has no status page (hasStatusPage).
  */
-import { formatDate, inr, lineBase, openedOf, announcedOf, sectionName, sectionSubject, clock, type Line } from './data';
+import { formatDate, inr, lineBase, openedOf, announcedOf, sectionName, sectionSubject, clock, frequencyText, type Line } from './data';
 
 export interface Answer {
   id: string;
@@ -509,7 +509,145 @@ function line12a(line: Line): Answer[] {
   ];
 }
 
-const sets: Record<string, (line: Line) => Answer[]> = { 'line-12': line12, 'line-12a': line12a, 'line-5': line5, 'line-4': line4 };
+/** Line 2B: Mandale to Chembur open, the rest under construction. The 'opening' answer is replaced by opening mode (withService). */
+function line2b(line: Line): Answer[] {
+  const { project: p, stations, timeline, tenders, droppedStations } = line;
+  const base = lineBase(line.id);
+  type Graded = { value: string; status: string; source_url: string };
+  const x = p as unknown as {
+    target_completion: Graded & { scope: string; rest_of_line: Graded };
+    completion_cost_crore_inr: { value: number; status: string; source_url: string; history: { value: number }[] };
+    funding: Graded;
+    depot: { value: string; area_ha: number; status: string; source_url: string; contract: Graded };
+    interchanges: { lines: string[]; planned: { station: string; connects_to: string; status: string; source_url: string }[]; status: string; source_url: string };
+    stations_count: { value: number; status: string; source_url: string; alternatives: { value: number }[] };
+    rolling_stock: { supplier: string; cars_per_train: number; status: string; source_url: string };
+    line_color: Graded;
+    related_projects: { name: string; summary: string; status: string; source_url: string }[];
+  };
+  const prog = p.progress;
+  const event = (id: string) => timeline.find((e) => e.id === id)!;
+  const tender = (id: string) => tenders.find((e) => e.id === id)!;
+  const list = (names: string[]) => `${names.slice(0, -1).join(', ')} and ${names.at(-1)}`;
+  const [ph1, ph1a] = line.stages;
+  const open1 = ph1.service!.opening!;
+  const open1a = ph1a.service!.opening!;
+  const openStations = stations.filter((s) => s.phase === 1 || s.phase === 2).reverse();
+  const pct = (activity: string) => prog.items.find((i) => i.activity === activity)!.percent_complete;
+  const cheetah = x.related_projects[0];
+  return [
+    {
+      id: 'opening',
+      q: 'When will Mumbai Metro Line 2B open?',
+      a: 'Replaced by opening mode.',
+      grades: [],
+    },
+    {
+      id: 'open-stations',
+      q: 'Which Line 2B stations are open?',
+      a: `${openStations.length} of ${stations.length}: ${list(openStations.map((s) => s.name))}. MMRDA opened Phase I, Mandale to Diamond Garden (5.5 km, five stations), on ${formatDate(open1.date)}, and Phase IA, on to Chembur (0.29 km, one station), on ${formatDate(open1a.date)}. At Chembur the line meets the Harbour line, about 200 m away, and the Monorail at V N Purav Marg, about 100 m away, as reported.`,
+      grades: [
+        { status: open1.status, source: open1.source_url },
+        { status: event('phase-1a-open').status, source: event('phase-1a-open').source_url },
+      ],
+      more: { href: `${base}stations/`, label: 'A page for every station' },
+    },
+    {
+      id: 'rest',
+      q: 'When will the rest of Line 2B open?',
+      a: `MMRDA has announced no date. A report of April 2026 gives ${x.target_completion.value} as the scheduled completion of the next stretch, ${x.target_completion.scope}; no month. The site counts down to the end of ${x.target_completion.value}. Earlier targets have passed: the end of 2019 when the plan was approved, October 2022 for the whole line, and summer 2026 for D N Nagar to Saraswat Nagar.`,
+      grades: [
+        { status: x.target_completion.status, source: x.target_completion.source_url },
+        { status: event('mmrda-draft-plan').status, source: event('mmrda-draft-plan').source_url },
+      ],
+    },
+    {
+      id: 'progress',
+      q: 'How much of Line 2B is built?',
+      a: `MMRDA's progress table for ${formatDate(prog.as_of)} covers the whole line: ${prog.items.map((i) => `${/^Pi/.test(i.activity) ? i.activity.toLowerCase() : i.activity} ${i.percent_complete}%`).join(', ')}. The girders are the main work left, at ${pct('U and I girder works')}%. MMRDA publishes no figure by station or by stretch.`,
+      grades: [{ status: prog.status, source: prog.source_url }],
+    },
+    {
+      id: 'route',
+      q: 'What is the route of Metro Line 2B?',
+      a: `${p.route.value}. It is ${p.length_km.value} km long and fully elevated. From D N Nagar in Andheri, where it leaves Line 2A, it runs south along S V Road to Bandra, east through Bandra Kurla Complex to Kurla, then over the Central Railway and the Eastern Express Highway to Chembur and Mandale.`,
+      grades: [{ status: p.route.status, source: p.route.source_url }],
+      more: { href: `${base}#map`, label: 'See the route on the map' },
+    },
+    {
+      id: 'stations',
+      q: 'Which stations are on Line 2B?',
+      a: `${stations.length}, all elevated, in order from ESIC Nagar: ${stations.map((s) => s.name).join(', ')}. MMRDA's own page says 20 in one place and ${x.stations_count.alternatives[0].value} in another; it names 20. ${droppedStations.length ? `An earlier plan also had ${list(droppedStations.map((s) => s.name))}, between SG Barve Marg and Kurla (E); it is not on MMRDA's list now.` : ''}`,
+      grades: [
+        { status: x.stations_count.status, source: x.stations_count.source_url },
+        ...droppedStations.map((s) => ({ status: s.construction_status.status, source: s.construction_status.source_url })),
+      ],
+      more: { href: `${base}stations/`, label: 'A page for every station' },
+    },
+    {
+      id: 'interchanges',
+      q: 'Where does Line 2B meet other lines?',
+      a: `MMRDA names its connections: ${list(x.interchanges.lines)}. The stations, as reported: Lines 1 and 2A at D N Nagar, the suburban railway at Bandra, Kurla (E), Chembur and Mankhurd, Line 3 at Income Tax Office, the Monorail at Chembur, and Line 4 at Siddharth Colony, by EEH station.`,
+      grades: [
+        { status: x.interchanges.status, source: x.interchanges.source_url },
+        ...x.interchanges.planned.map((i) => ({ status: i.status, source: i.source_url })),
+      ],
+    },
+    {
+      id: 'cost',
+      q: 'How much does Metro Line 2B cost?',
+      a: `MMRDA gives a completion cost of Rs ${inr(x.completion_cost_crore_inr.value)} crore, including state taxes, escalation and interest during construction: the project report's figure of 2016. No revised cost was found. In 2016 MMRDA planned to fund the civil works itself and the rest with the Asian Development Bank, as reported. The extension to Cheetah Camp adds Rs 205 crore, as reported.`,
+      grades: [
+        { status: x.completion_cost_crore_inr.status, source: x.completion_cost_crore_inr.source_url },
+        { status: x.funding.status, source: x.funding.source_url },
+        { status: cheetah.status, source: cheetah.source_url },
+      ],
+    },
+    {
+      id: 'builder',
+      q: 'Who is building Line 2B?',
+      a: `MMRDA. Three of the first civil contracts were ended in ${formatDate(event('contracts-ended').date)} for poor progress, and the work was tendered again. Today: NCC from Diamond Garden to Mandale (package CA-07, ${formatDate(tender('ca-07').award_date)}) and from MTNL Metro to Chembur (L2B-C102, ${formatDate(tender('l2b-c102').award_date)}); J Kumar Infraprojects from ESIC Nagar to ILFS (L2B-C101, Rs ${inr(tender('l2b-c101').awarded_value_crore!)} crore, ${formatDate(tender('l2b-c101').award_date)}); Ahluwalia Contracts for the Mandale depot (L2B-C103).`,
+      grades: [
+        { status: p.implementing_agency.status, source: p.implementing_agency.source_url },
+        { status: event('contracts-ended').status, source: event('contracts-ended').source_url },
+        { status: tender('l2b-c101').status, source: tender('l2b-c101').source_url },
+        { status: tender('l2b-c102').status, source: tender('l2b-c102').source_url },
+      ],
+    },
+    {
+      id: 'depot',
+      q: 'Where is the Line 2B depot?',
+      a: `At ${x.depot.value}, on ${x.depot.area_ha} hectares (MMRDA). MMRDA shows the depot works complete. Ahluwalia Contracts built the balance works for Rs 530.32 crore; the depot is reported to take up to 72 trains of eight cars. Line 4's first trains are also reported to be kept here until Line 4's own depot is ready.`,
+      grades: [
+        { status: x.depot.status, source: x.depot.source_url },
+        { status: x.depot.contract.status, source: x.depot.contract.source_url },
+      ],
+    },
+    {
+      id: 'trains',
+      q: 'Which trains run on Line 2B?',
+      a: `${x.rolling_stock.cars_per_train}-car trains made in India by ${x.rolling_stock.supplier}, as reported, with regenerative braking, CCTV, charging points and space for bicycles. No source gives how many trains run on Line 2B.`,
+      grades: [{ status: x.rolling_stock.status, source: x.rolling_stock.source_url }],
+    },
+    {
+      id: 'riders',
+      q: 'How many people will use Line 2B?',
+      a: `About ${p.daily_ridership_2031.display} riders a day by 2031, as MMRDA projects, with up to 38,509 an hour in the busiest direction. The open stretch started small: about 300 a day between Mandale and Diamond Garden in April 2026, before Chembur opened, as reported. MMRDA says the line cuts travel time by 50% to 75%, depending on road conditions.`,
+      grades: [
+        { status: p.daily_ridership_2031.status, source: p.daily_ridership_2031.source_url },
+        { status: x.target_completion.status, source: x.target_completion.source_url },
+      ],
+    },
+    {
+      id: 'names',
+      q: 'What else is Metro Line 2B called?',
+      a: `${p.name.value} is also called ${p.name.also_known_as[0]}, the ${p.name.also_known_as[1]} or the ${p.name.also_known_as[2]}. MMRDA gives its colour as ${x.line_color.value}, the same as Line 2A, which it continues from D N Nagar.`,
+      grades: [{ status: p.name.status, source: p.name.source_url }],
+    },
+  ];
+}
+
+const sets: Record<string, (line: Line) => Answer[]> = { 'line-12': line12, 'line-12a': line12a, 'line-5': line5, 'line-4': line4, 'line-2b': line2b };
 
 /**
  * Opening mode: once the line's first section has an announced or past opening date, that date answers
@@ -532,7 +670,7 @@ function withService(line: Line, answers: Answer[]): Answer[] {
   const { hours, frequency, fares } = sec.service!;
   const facts = [
     hours && `Trains run from ${clock(hours.first)} to ${clock(hours.last)}.`,
-    frequency && `A train comes every ${frequency.peak_min} minutes at peak${frequency.off_peak_min ? ` and every ${frequency.off_peak_min} minutes off-peak` : ''}.`,
+    frequency && `A train comes every ${frequencyText(frequency)}.`,
     fares && (fares.min_inr === fares.max_inr ? `A single fare costs Rs ${inr(fares.min_inr)}.` : `A single fare costs Rs ${inr(fares.min_inr)} to Rs ${inr(fares.max_inr)}.`),
   ].filter(Boolean);
   const riding: Answer | undefined = facts.length

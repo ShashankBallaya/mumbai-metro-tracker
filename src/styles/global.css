@@ -58,6 +58,10 @@ a {
   text-decoration-color: var(--signal-line);
   transition: text-decoration-thickness 0.2s var(--ease-out), color 0.2s var(--ease-out);
 }
+/* Line 2B's underlines are yellow, faint on morning paper: drawn thicker so a link still shows as one. */
+[data-accent='line-2b'] a {
+  text-decoration-thickness: 2px;
+}
 
 @media (hover: hover) and (pointer: fine) {
   a:hover {
@@ -286,7 +290,8 @@ body::after {
   animation: preloader-draw 0.95s var(--ease-out) forwards;
 }
 .preloader__casing {
-  stroke: var(--signal-graphic);
+  stroke: var(--route-line);
+  filter: var(--route-filter);
   stroke-width: 22;
 }
 .preloader__core {
@@ -385,13 +390,14 @@ body::after {
   text-decoration-thickness: 2px;
 }
 
+/* Reduced motion: nothing moves, but colour and opacity still change softly, so a state change reads. */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity !important;
     scroll-behavior: auto !important;
   }
 }

@@ -2,7 +2,7 @@
 import Grade from './Grade.astro';
 import LeadPicture from './LeadPicture.astro';
 import LeadPictureKasheli from './LeadPictureKasheli.astro';
-import { formatDate, lineBase, openedOf, announcedOf, sectionSubject, clock, type Line } from '../lib/data';
+import { formatDate, lineBase, openedOf, announcedOf, sectionSubject, clock, frequencyText, type Line } from '../lib/data';
 import { schematic } from '../lib/route';
 import { hasStatusPage } from '../lib/answers';
 
@@ -68,7 +68,7 @@ const spurEnd = line.spurStations.at(-1)?.name;
         <p class="front__target">
           {sectionSubject(line, firstSection)} opened on <strong>{formatDate(opened.date)}</strong>.
           {service?.hours && <> Trains run from {clock(service.hours.first)} to {clock(service.hours.last)}.</>}
-          {service?.frequency && <> Every {service.frequency.peak_min} minutes at peak{service.frequency.off_peak_min && <>, {service.frequency.off_peak_min} off-peak</>}.</>}
+          {service?.frequency && <> Every {frequencyText(service.frequency)}.</>}
           {t.rest_of_line && <> The rest of the line has a reported target of <span class="nowrap">{t.rest_of_line.value}</span>.</>}
         </p>
         <p><Grade status={opened.status} source={opened.source_url} /></p>
@@ -282,7 +282,8 @@ const spurEnd = line.spurStations.at(-1)?.name;
     stroke-linecap: round;
   }
   .front__strip-line .line-casing {
-    stroke: var(--signal-graphic);
+    stroke: var(--route-line);
+    filter: var(--route-filter);
     stroke-width: 14px;
   }
   .front__strip-line .line-core {
@@ -291,8 +292,9 @@ const spurEnd = line.spurStations.at(-1)?.name;
   }
   /* In service: the hollow line filled in. */
   .front__strip-line .line-open {
+    filter: var(--route-filter);
     fill: none;
-    stroke: var(--signal-graphic);
+    stroke: var(--route-line);
     stroke-width: 14px;
     stroke-linecap: round;
   }

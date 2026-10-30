@@ -331,7 +331,8 @@ const km = (m: number) => (m / 1000).toLocaleString('en-IN', { minimumFractionDi
     stroke-linecap: round;
   }
   .ride__line .casing {
-    stroke: var(--signal-graphic);
+    stroke: var(--route-line);
+    filter: var(--route-filter);
     stroke-width: 22px;
   }
   .ride__line .core {
@@ -340,7 +341,8 @@ const km = (m: number) => (m / 1000).toLocaleString('en-IN', { minimumFractionDi
   }
   /* In service: the hollow line filled in. */
   .ride__line .open {
-    stroke: var(--signal-graphic);
+    stroke: var(--route-line);
+    filter: var(--route-filter);
     stroke-width: 22px;
   }
   /* Underground: the hollow line drawn as a dashed outline. */
@@ -507,7 +509,7 @@ const km = (m: number) => (m / 1000).toLocaleString('en-IN', { minimumFractionDi
     font-stretch: 75%;
     font-size: var(--step-3);
     line-height: 0.85;
-    color: var(--signal-line);
+    color: var(--signal-text);
   }
   .ride__km span {
     font-family: var(--font-body);

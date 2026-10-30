@@ -61,8 +61,8 @@ const stateOf = (sec: StageSection) => {
               <dt>A train every</dt>
               {sv.frequency ? (
                 <>
-                  <dd class="fact__value num">{sv.frequency.peak_min} min<span class="fact__unit"> at peak</span></dd>
-                  {sv.frequency.off_peak_min && <dd class="fact__note">{sv.frequency.off_peak_min} minutes off-peak.</dd>}
+                  <dd class="fact__value num">{sv.frequency.peak_min} min<span class="fact__unit">{sv.frequency.off_peak_min === sv.frequency.peak_min ? ' all day' : ' at peak'}</span></dd>
+                  {sv.frequency.off_peak_min && sv.frequency.off_peak_min !== sv.frequency.peak_min && <dd class="fact__note">{sv.frequency.off_peak_min} minutes off-peak.</dd>}
                   {sv.frequency.notes && <dd class="fact__note">{sv.frequency.notes}</dd>}
                   <dd><Grade status={sv.frequency.status} source={sv.frequency.source_url} /></dd>
                 </>
@@ -120,16 +120,18 @@ const stateOf = (sec: StageSection) => {
     flex: none;
     width: 2.5rem;
     height: 0.875rem;
-    border: 0.3125rem solid var(--signal-graphic);
+    border: 0.3125rem solid var(--route-line);
     border-radius: 999px;
     background: var(--paper);
+    box-shadow: 0 0 0 1px var(--route-edge), inset 0 0 0 1px var(--route-edge);
   }
   .service__state--open {
     color: var(--ink);
     font-weight: 700;
   }
   .service__state--open .service__mark {
-    background: var(--signal-graphic);
+    background: var(--route-line);
+    box-shadow: 0 0 0 1px var(--route-edge);
   }
   .service__facts {
     display: grid;

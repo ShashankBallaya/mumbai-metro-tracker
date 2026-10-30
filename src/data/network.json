@@ -47,6 +47,7 @@
     {
       "id": "line-2b",
       "number": "2B",
+      "tracked": "line-2b",
       "name": "D N Nagar to Mandale",
       "colour_name": { "value": "Yellow", "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview", "last_verified": "2026-10-29" },
       "agency": { "value": "MMRDA", "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview", "last_verified": "2026-10-29" },

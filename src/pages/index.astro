@@ -40,35 +40,18 @@ interface Footage {
 }
 const CHAPTERS: { id: LineId; photo: Photo; footage?: Footage; side: 'left' | 'right' }[] = [
   {
-    id: 'line-12',
+    id: 'line-2b',
     photo: {
-      src: '/photos/apmc-kalyan-2026-10-04-a.jpg',
-      alt: 'Line 12 station piers at APMC Kalyan at night, a new concrete cross arm on top and red tail lights on the road below',
-      date: '2026-10-04',
+      src: '/photos/shunya-bridge-2026-05-24-a.jpg',
+      alt: 'The zero-shaped steel pylon of the Shunya cable-stayed bridge in Bandra Kurla Complex, with MMRDA written across its top, against a blue sky with cranes behind',
+      date: '2026-05-24',
       credit: 'Shashank Ballaya',
-      note: 'APMC Kalyan',
-      focus: '45% 60%',
+      note: 'The Shunya bridge pylon, BKC',
+      focus: '50% 35%',
       width: 1200,
       height: 1600,
     },
-    footage: { name: 'apmc-kalyan', credit: 'InfraUnfiltered', href: 'https://www.youtube.com/watch?v=xpX7xRPnxf8&t=229s', date: '2026-10-10', note: 'Over the Line 12 piers at APMC Kalyan, drone video' },
     side: 'left',
-  },
-  {
-    id: 'line-5',
-    photo: {
-      src: '/photos/kasheli-aerial-2026-10-13-b.jpg',
-      alt: "Drone view down Line 5's two tracks into Kasheli station under its orange roof, overhead wire masts on both sides",
-      date: '2026-10-13',
-      credit: 'InfraUnfiltered',
-      href: 'https://www.youtube.com/watch?v=l3cL7pU6rtI&t=481s',
-      note: 'Kasheli, drone still',
-      focus: '50% 40%',
-      width: 1600,
-      height: 900,
-    },
-    // No footage: the Kasheli section of the video carries the creator's picture-in-picture inset.
-    side: 'right',
   },
   {
     id: 'line-4',
@@ -84,7 +67,38 @@ const CHAPTERS: { id: LineId; photo: Photo; footage?: Footage; side: 'left' | 'r
       height: 900,
     },
     footage: { name: 'kapurbawdi', credit: 'InfraUnfiltered', href: 'https://www.youtube.com/watch?v=l3cL7pU6rtI&t=811s', date: '2026-10-13', note: 'Over Kapurbawdi station, drone video' },
+    side: 'right',
+  },
+  {
+    id: 'line-5',
+    photo: {
+      src: '/photos/kasheli-aerial-2026-10-13-b.jpg',
+      alt: "Drone view down Line 5's two tracks into Kasheli station under its orange roof, overhead wire masts on both sides",
+      date: '2026-10-13',
+      credit: 'InfraUnfiltered',
+      href: 'https://www.youtube.com/watch?v=l3cL7pU6rtI&t=481s',
+      note: 'Kasheli, drone still',
+      focus: '50% 40%',
+      width: 1600,
+      height: 900,
+    },
+    // No footage: the Kasheli section of the video carries the creator's picture-in-picture inset.
     side: 'left',
+  },
+  {
+    id: 'line-12',
+    photo: {
+      src: '/photos/apmc-kalyan-2026-10-04-a.jpg',
+      alt: 'Line 12 station piers at APMC Kalyan at night, a new concrete cross arm on top and red tail lights on the road below',
+      date: '2026-10-04',
+      credit: 'Shashank Ballaya',
+      note: 'APMC Kalyan',
+      focus: '45% 60%',
+      width: 1200,
+      height: 1600,
+    },
+    footage: { name: 'apmc-kalyan', credit: 'InfraUnfiltered', href: 'https://www.youtube.com/watch?v=xpX7xRPnxf8&t=229s', date: '2026-10-10', note: 'Over the Line 12 piers at APMC Kalyan, drone video' },
+    side: 'right',
   },
   {
     id: 'line-12a',
@@ -100,7 +114,7 @@ const CHAPTERS: { id: LineId; photo: Photo; footage?: Footage; side: 'left' | 'r
       height: 900,
     },
     footage: { name: 'manpada', credit: 'InfraUnfiltered', href: 'https://www.youtube.com/watch?v=xpX7xRPnxf8&t=580s', date: '2026-10-10', note: "Manpada, where Line 12A is reported to begin. The piers are Line 12's; no Line 12A work has started. Drone video" },
-    side: 'right',
+    side: 'left',
   },
 ];
 
@@ -133,7 +147,7 @@ const DISCLAIMER =
 
 const counts = byStage.filter((s) => s.lines.length > 0);
 const title = `${SITE_NAME}: every Mumbai Metro line, built, building and planned`;
-const description = `An unofficial, sourced tracker of the Mumbai Metro: all ${network.length} metro lines in the region on one map by stage, and Lines 12, 12A, 5 and 4 in full. Route, stations, progress and opening targets, each fact with its source.`;
+const description = `An unofficial, sourced tracker of the Mumbai Metro: all ${network.length} metro lines in the region on one map by stage, and Lines 2B, 4, 5, 12 and 12A in full. Route, stations, progress and opening targets, each fact with its source.`;
 
 const mapData = JSON.stringify(
   network.map((l) => ({ id: l.id, number: l.number, name: l.name, stage: l.stage, colour: l.colour ?? null, href: l.href ?? null })),
@@ -198,7 +212,7 @@ const km = (v: number | null) => (v === null ? null : `${Number.isInteger(v) ? v
                 , the next lines to open. Targets, not announced dates.
               </span>
             </p>
-            <a class="pill pill--ink" href="#line-12">Scroll the lines</a>
+            <a class="pill pill--ink" href={`#${chapters[0].id}`}>Scroll the lines</a>
           </div>
         </div>
       </section>
