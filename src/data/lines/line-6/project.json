@@ -1,0 +1,316 @@
+{
+  "_meta": {
+    "description": "Headline facts about Mumbai Metro Line 6 (Swami Samarth Nagar to Vikhroli (EEH)). Each fact carries its own source and status. MMRDA's Line 6 page (checked 30 Oct 2026, page last updated 30 Oct 2026, progress as of 31 Aug 2026) is the primary source. No stretch is open. MMRDA names no phases: the line is shown as one section.",
+    "status_values": {
+      "verified": "Confirmed by a primary source (MMRDA website or an MMRDA-published document).",
+      "reported": "From a reputable secondary source (news or trade press). Not confirmed by a primary source.",
+      "unverified": "Single weak source, or could not be confirmed. Show with a warning in the UI.",
+      "conflicting": "Sources disagree. The value is the most recent credible figure; see 'alternatives'."
+    },
+    "last_reviewed": "2026-10-30"
+  },
+  "name": {
+    "value": "Mumbai Metro Line 6",
+    "also_known_as": [
+      "Metro 6",
+      "Pink Line",
+      "Swami Samarth Nagar-Vikhroli Metro"
+    ],
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+    "last_verified": "2026-10-30"
+  },
+  "implementing_agency": {
+    "value": "Mumbai Metropolitan Region Development Authority (MMRDA)",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+    "last_verified": "2026-10-30"
+  },
+  "line_color": {
+    "value": "Pink",
+    "notes": "MMRDA's Line 6 page names no colour (checked 30 Oct 2026). The Metro Rail Guy calls Line 6 the Pink Line and says MMRDA revealed the line colours on 28 Feb 2020. MMRDA publishes no colour value, so the site's pink is its own.",
+    "status": "reported",
+    "source_url": "https://themetrorailguy.com/?p=27331",
+    "last_verified": "2026-10-30"
+  },
+  "route": {
+    "value": "Swami Samarth Nagar to Vikhroli (EEH), via Jogeshwari, the Western Express Highway and Powai",
+    "notes": "From Swami Samarth Nagar near Lokhandwala in Andheri (W), the line runs east past Jogeshwari and across the Western Express Highway, then mostly along the median of the Jogeshwari-Vikhroli Link Road past SEEPZ and Powai to Kanjurmarg and the Eastern Express Highway at Vikhroli (MMRDA's page and its alignment file, March 2025). MMRDA: it 'connects Western Express & Eastern Express Highways'.",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+    "last_verified": "2026-10-30"
+  },
+  "length_km": {
+    "value": 15.31,
+    "structure": "Fully elevated",
+    "context": "From Swami Samarth Nagar to Vikhroli (EEH).",
+    "notes": "The Metro Rail Guy gives 15.18 km. The centre line the site derives from MMRDA's alignment file is 14.60 km from Swami Samarth Nagar to the corridor's eastern tip past Vikhroli (EEH), and 15.44 km from tip to tip.",
+    "history": [
+      {
+        "value": 15.18,
+        "context": "The Metro Rail Guy, line page and package reports (2020 to 2025)",
+        "source_url": "https://themetrorailguy.com/mumbai-metro-pink-line-information-route-map-fares-timings-tenders-status-updates/"
+      }
+    ],
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+    "last_verified": "2026-10-30"
+  },
+  "stations_count": {
+    "value": 13,
+    "structure": "All elevated",
+    "context": "MMRDA's page: '13 Nos. (All elevated)', and its list names 13, Swami Samarth Nagar to Vikhroli (EEH). Its alignment file has a point for each.",
+    "history": [],
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+    "last_verified": "2026-10-30"
+  },
+  "completion_cost_crore_inr": {
+    "value": 6716,
+    "label": "Project completion cost",
+    "context": "MMRDA's Line 6 page.",
+    "history": [
+      {
+        "value": 6672,
+        "context": "Estimated cost on The Metro Rail Guy line page (updated Sep 2025)",
+        "source_url": "https://themetrorailguy.com/mumbai-metro-pink-line-information-route-map-fares-timings-tenders-status-updates/"
+      }
+    ],
+    "notes": "Free Press Journal (Jan 2026, citing Hindustan Times) rounds it to Rs 6,700 crore. MMRDA does not say what the figure includes.",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+    "last_verified": "2026-10-30"
+  },
+  "funding": {
+    "value": "MMRDA, with a New Development Bank loan for the trains and systems",
+    "notes": "The Metro Rail Guy: a USD 241 million New Development Bank loan, approved in 2020, pays for the design and build of the trains and systems package CA-232; MMRDA pays for its maintenance. No loan agreement was read.",
+    "status": "reported",
+    "source_url": "https://themetrorailguy.com/2025/03/29/titagarh-wins-mumbai-metro-line-6s-108-coach-signaling-contract-ca-232/",
+    "last_verified": "2026-10-30"
+  },
+  "depot": {
+    "value": "Kanjurmarg",
+    "area_ha": 15.02,
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+    "last_verified": "2026-10-30",
+    "context": "MMRDA's page lists the depot at Kanjurmarg, 15.02 ha. Work has not started: the land is disputed (reported).",
+    "contract": {
+      "value": "CA-209, depot and staff quarters at Kanjurmarg, to Sam India Builtwell, Rs 547.45 crore",
+      "notes": "Letter of acceptance reported on 12 Mar 2024; 7.64% above MMRDA's estimate of Rs 508.57 crore. Planned with 18 stabling lines, 3 inspection bays, 4 workshop bays and an 811 m test track (The Metro Rail Guy).",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/?p=56596",
+      "last_verified": "2026-10-30"
+    },
+    "land": {
+      "value": "Not handed over. The district collector transferred about 15 ha to MMRDA on 19 Apr 2023; the Centre's salt department challenged it, and the High Court ordered status quo on 24 Oct 2024. The state has sent a proposal to the Centre (DPIIT).",
+      "notes": "Lokshahi, 4 Aug 2026. Free Press Journal (1 Sep 2026): the salt pan land request is still pending with the Union government.",
+      "status": "reported",
+      "source_url": "https://english.lokshahi.com/maharashtra/mumbai-metro-6-car-shed-dispute-continues-as-mmrda-plans-corridor-launch-before-land-issue-resolution-12228435",
+      "last_verified": "2026-10-30"
+    },
+    "interim": {
+      "value": "An elevated pit line at the Vikhroli end, for routine inspection and maintenance, so that services can start before the depot is built",
+      "notes": "Free Press Journal (21 Jan 2026, citing Hindustan Times): an elevated eight-lane corridor with pit lines beside the Eastern Express Highway, already under construction; trains due for periodic overhaul would go to MMRDA's Mandale depot. Lokshahi (Aug 2026): a stabling line, washing plant, inspection pit and workshop on the Kanjurmarg viaduct, on the Pune Metro model.",
+      "status": "reported",
+      "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-line-6-may-begin-services-without-full-depot-as-mmrda-plans-temporary-maintenance-facility-at-vikhroli",
+      "last_verified": "2026-10-30"
+    },
+    "history": []
+  },
+  "interchanges": {
+    "value": [
+      {
+        "station": "Adarsh Nagar",
+        "connects_to": "Metro Line 2A, at Infinity Mall"
+      },
+      {
+        "station": "Jogeshwari (W)",
+        "connects_to": "Western Railway at Jogeshwari"
+      },
+      {
+        "station": "JVLR",
+        "connects_to": "Metro Line 7 at JVLR"
+      },
+      {
+        "station": "Kanjur Marg (W)",
+        "connects_to": "Metro Line 4 at Gandhi Nagar, and the Central Railway at Kanjurmarg"
+      }
+    ],
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+    "last_verified": "2026-10-30",
+    "lines": [
+      "Western Express Highway",
+      "Eastern Express Highway",
+      "Western Railway",
+      "Central Railway",
+      "Metro Line 2A (Dahisar-D N Nagar)",
+      "Metro Line 3 (Colaba-SEEPZ)",
+      "Metro Line 4 (Wadala-Kasarvadavali)",
+      "Metro Line 7 (Dahisar (E)-Andheri (E))"
+    ],
+    "notes": "MMRDA's page lists five connections: Line 2A at Infinity Mall (its introduction says Adarsh Nagar), Line 7 at JVLR, Line 3 'at Arey Colony Area' (its introduction says the Aarey Depot station), Line 4 at Kanjurmarg West (its introduction says Gandhi Nagar), and the suburban railway at Jogeshwari and Kanjurmarg. It does not name the Line 6 station for Line 3.",
+    "planned": []
+  },
+  "daily_ridership_2031": {
+    "value": 769000,
+    "display": "7.69 lakh",
+    "notes": "Peak-hour peak-direction traffic 29,658 (MMRDA's page).",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+    "last_verified": "2026-10-30"
+  },
+  "travel_time_benefit": {
+    "value": "Saves 30 to 45 minutes between Andheri and the Eastern Express Highway",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+    "last_verified": "2026-10-30"
+  },
+  "road_flyover": {
+    "value": "Of the 4.75 km from Swami Samarth Nagar to Mahakali, 2.58 km carries a road flyover with the metro on the same single pier in the road median, built with the BMC (MCGM)",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+    "last_verified": "2026-10-30"
+  },
+  "current_phase": {
+    "value": "Under construction: piers 97.88%, U girders 93.40% erected, station works 87.35% (MMRDA, 31 Aug 2026). No stretch is open.",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+    "last_verified": "2026-10-30"
+  },
+  "stages": {
+    "notes": "Each section of the line from planning to opening. 'sections' has one entry per part of the line that opens on its own. state: done, now (the current stage), started, next (not started). A note may contain {progress_as_of} or {event:<timeline id>}, which the page fills with that date. 'service' is opening mode: how the section runs once it opens; each part is null until a source gives it. MMRDA names no phases for Line 6, so the line is one section.",
+    "sections": [
+      {
+        "stages": [
+          {
+            "name": "Planning",
+            "state": "done",
+            "note": "Line 6 approved by the State Cabinet, {event:state-approval} (reported)"
+          },
+          {
+            "name": "Tenders and design",
+            "state": "done",
+            "note": "Civil packages to J Kumar and MBZ-EIIL, from {event:bc-03-award} (reported)"
+          },
+          {
+            "name": "Civil construction",
+            "state": "now",
+            "note": "Piers 97.88%, U girders 93.40%, stations 87.35%, {progress_as_of}"
+          },
+          {
+            "name": "Systems and trains",
+            "state": "started",
+            "note": "Trains and signalling to NCC with Titagarh, {event:ca-232-ncc} (reported)"
+          },
+          {
+            "name": "Testing and safety approval",
+            "state": "next",
+            "note": "No date announced"
+          },
+          {
+            "name": "Opening",
+            "state": "next",
+            "note": "Reported target: 2027; the depot land is not handed over"
+          }
+        ],
+        "service": {
+          "opening": null,
+          "hours": null,
+          "frequency": null,
+          "fares": null
+        }
+      }
+    ]
+  },
+  "progress": {
+    "summary": "MMRDA publishes one progress table for Line 6, updated monthly. It covers the whole line, not each station.",
+    "as_of": "2026-08-31",
+    "items": [
+      {
+        "activity": "Pile cap works",
+        "percent_complete": 98.54
+      },
+      {
+        "activity": "Pier works",
+        "percent_complete": 97.88
+      },
+      {
+        "activity": "Viaduct pier cap works",
+        "percent_complete": 97.87
+      },
+      {
+        "activity": "Flyover pier cap",
+        "percent_complete": 94.69
+      },
+      {
+        "activity": "U girder works",
+        "percent_complete": 93.4
+      },
+      {
+        "activity": "Station works",
+        "percent_complete": 87.35
+      }
+    ],
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+    "last_verified": "2026-10-30",
+    "notes": "MMRDA's table says 'Erection completed' for the pier caps and the U girders, 'completed' for the rest."
+  },
+  "target_completion": {
+    "value": "2027",
+    "countdown_date": "2027-12-31",
+    "precision": "year",
+    "scope": "The whole line",
+    "status": "reported",
+    "source_url": "https://english.lokshahi.com/maharashtra/mumbai-metro-6-car-shed-dispute-continues-as-mmrda-plans-corridor-launch-before-land-issue-resolution-12228435",
+    "last_verified": "2026-10-30",
+    "history": [
+      {
+        "value": "Second half of 2026, without the Kanjurmarg depot",
+        "context": "Free Press Journal, citing Hindustan Times, 21 Jan 2026; passed without an opening",
+        "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-6-progress-update-mmrda-to-open-pink-line-without-kanjurmarg-depot-will-use-elevated-pit-lines-instead"
+      },
+      {
+        "value": "First section at the end of 2026",
+        "context": "The Metro Rail Guy line page, updated Sep 2025",
+        "source_url": "https://themetrorailguy.com/mumbai-metro-pink-line-information-route-map-fares-timings-tenders-status-updates/"
+      },
+      {
+        "value": "Commercial operation not before mid-2027",
+        "context": "The Metro Rail Guy's own reading of the train contract's 104-week schedule, 2025",
+        "source_url": "https://themetrorailguy.com/2025/03/29/titagarh-wins-mumbai-metro-line-6s-108-coach-signaling-contract-ca-232/"
+      }
+    ],
+    "notes": "MMRDA has announced no date. Lokshahi (4 Aug 2026): 'MMRDA aims to operationalize Metro-6 by 2027'. No month; the site counts to the end of 2027. The first train is due 52 weeks after the train contract was signed (mid-2025), so mid-2026 at the earliest; no report of its arrival was found.",
+    "countdown": true,
+    "countdown_label": "Reported target: 2027"
+  },
+  "technical": {
+    "structure": "Fully elevated",
+    "value": "Standard gauge (1,435 mm), 25 kV AC overhead, CBTC signalling; top speed 80 km/h, average 34 km/h",
+    "notes": "The Metro Rail Guy line page. MMRDA's page gives the structure (fully elevated, verified) and the car size only.",
+    "status": "reported",
+    "source_url": "https://themetrorailguy.com/mumbai-metro-pink-line-information-route-map-fares-timings-tenders-status-updates/",
+    "last_verified": "2026-10-30"
+  },
+  "rolling_stock": {
+    "supplier": "Titagarh Rail Systems",
+    "cars_per_train": 6,
+    "notes": "18 six-car trains (108 cars) under package CA-232, held by NCC with Titagarh as the train maker. See the Trains section.",
+    "status": "reported",
+    "source_url": "https://themetrorailguy.com/2025/03/29/titagarh-wins-mumbai-metro-line-6s-108-coach-signaling-contract-ca-232/",
+    "last_verified": "2026-10-30"
+  },
+  "incidents": [],
+  "related_projects": [
+    {
+      "name": "Road flyover with BMC, Swami Samarth Nagar to Mahakali",
+      "summary": "2.58 km of road flyover on the same single piers as the metro, in the road median, of the 4.75 km from Swami Samarth Nagar to Mahakali (MMRDA).",
+      "status": "verified",
+      "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+      "last_verified": "2026-10-30"
+    }
+  ]
+}

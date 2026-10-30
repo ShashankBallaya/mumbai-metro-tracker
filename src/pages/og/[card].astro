@@ -32,10 +32,11 @@ const all = lines.map((l) => getLine(l.id));
       .casing { stroke: var(--signal-graphic); stroke-width: 20px; fill: none; stroke-linejoin: round; stroke-linecap: round; }
       .core { stroke: var(--paper); stroke-width: 8px; fill: none; stroke-linejoin: round; stroke-linecap: round; }
       .dot { fill: var(--ink); stroke: var(--paper); stroke-width: 4px; }
-      .lines { list-style: none; margin: 0 56px 36px; padding: 0; display: grid; gap: 10px; }
-      .lines li { display: flex; align-items: baseline; gap: 20px; font-size: 30px; color: var(--ink); }
+      /* Six lines since Line 6 (2026-10-30): rows sized so all fit under the title. */
+      .lines { list-style: none; margin: 0 56px 28px; padding: 0; display: grid; gap: 6px; }
+      .lines li { display: flex; align-items: baseline; gap: 20px; font-size: 27px; color: var(--ink); }
       .lines b { font-family: var(--font-display); font-weight: 800; font-stretch: 75%; min-width: 84px; padding: 4px 10px 0; text-align: center; background: var(--signal); color: var(--on-signal); }
-      .lines span { color: var(--ink-2); font-size: 26px; }
+      .lines span { color: var(--ink-2); font-size: 23px; }
     </style>
   </head>
   <body>

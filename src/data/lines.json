@@ -315,6 +315,99 @@
       }
     },
     {
+      "id": "line-6",
+      "label": "Line 6",
+      "number": "6",
+      "colour": "line-6",
+      "mark_mr": "मेट्रो ६",
+      "route_short": "Swami Samarth Nagar to Vikhroli",
+      "alignment": "alignment-mmrda-2025.geojson",
+      "about": {
+        "name": "Mumbai Metro Line 6",
+        "alternate_names": [
+          "Metro Line 6",
+          "Metro 6",
+          "Pink Line",
+          "Swami Samarth Nagar-Vikhroli Metro"
+        ],
+        "description": "An elevated metro line from Swami Samarth Nagar near Lokhandwala in Andheri, past Jogeshwari, SEEPZ and Powai along the Jogeshwari-Vikhroli Link Road, to Vikhroli on the Eastern Express Highway, built by MMRDA. Under construction; no stretch is open.",
+        "same_as": [
+          "https://en.wikipedia.org/wiki/Pink_Line_(Mumbai_Metro)",
+          "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview"
+        ]
+      },
+      "position_basis": {
+        "default": "MMRDA's alignment file, Mar 2025",
+        "by_source": {}
+      },
+      "copy": {
+        "ends": [
+          "Swami Samarth Nagar",
+          "Vikhroli (EEH)"
+        ],
+        "runs": "which runs fully elevated from Swami Samarth Nagar in Andheri along the Jogeshwari-Vikhroli Link Road past SEEPZ and Powai to Vikhroli",
+        "station_state": null,
+        "stations_section": "All {total}, in order from Swami Samarth Nagar to Vikhroli (EEH). Names follow MMRDA. Select a station to ride to it, or open its own page.",
+        "stations_page": "All {total}, in order from Swami Samarth Nagar to Vikhroli (EEH). Every station is elevated. The line is {km} km long and links the Western and Eastern Express Highways. No station is open yet.",
+        "stations_page_description": "The {total} stations of {name} in order, from Swami Samarth Nagar in Andheri through Jogeshwari, SEEPZ and Powai to Vikhroli, with interchanges and a page for each station.",
+        "route_section": "Thirteen stations, Swami Samarth Nagar to Vikhroli (EEH). Scroll to ride the line station by station. Distances follow MMRDA's alignment file of March 2025, from Swami Samarth Nagar.",
+        "route_legend": "A hollow line marks track under construction. No stretch is open.",
+        "drawn_from": [
+          "MMRDA's alignment file",
+          " of March 2025"
+        ],
+        "headline_html": "Follow Mumbai Metro Line&nbsp;6<br> from Swami Samarth Nagar to Vikhroli.",
+        "front_standfirst": "The Pink Line is being built along the Jogeshwari-Vikhroli Link Road, from Andheri to the Eastern Express Highway. On {as_of}, MMRDA put pier work at about {pct:Pier works} per cent, girders at {pct:U girder works} and stations at {pct:Station works}. Its depot at Kanjurmarg waits for land. {stations} stations in all.",
+        "countdown_title": "Days to the reported target",
+        "target_html": "Target: <strong>{target}</strong> for the line, as reported. No month; the site counts to the end of the year. MMRDA has announced no date.",
+        "lead_scene": null,
+        "map_section": "The line on a street map. Choose a station to see where it sits, what surrounds it and what the street looks like today. The route and stations come from MMRDA's alignment file of March 2025.",
+        "map_legend": "Route, MMRDA's alignment file; under construction",
+        "map_first_station": "powai-lake",
+        "numbers": {
+          "length_unit": "km, fully elevated",
+          "stations_unit": "all elevated",
+          "cost_unit": ", completion cost",
+          "cost_note": "MMRDA's Line 6 page. MMRDA does not say what the figure includes.",
+          "funding_head": "MMRDA and NDB",
+          "funding_note": "A New Development Bank loan of USD 241 million pays for the trains and systems; MMRDA pays the rest (The Metro Rail Guy). No loan agreement was read.",
+          "depot_history": [],
+          "travel_head": "30 to 45 minutes",
+          "travel_unit": "saved between Andheri and the Eastern Express Highway (MMRDA)"
+        },
+        "primary_sources": [
+          {
+            "name": "MMRDA, Metro Line 6 project page",
+            "note": "Length, stations, cost, riders, depot, connections, road flyover, car size, monthly progress.",
+            "url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview"
+          },
+          {
+            "name": "Alignment file of Line 6 (MMRDA, March 2025)",
+            "note": "The route line and every station position on the map.",
+            "url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+          },
+          {
+            "name": "MMRDA, Metro Line 6 page in Marathi",
+            "note": "The station names in Marathi.",
+            "url": "https://mmrda.maharashtra.gov.in/mr/projects/transport/metro-line-6/overview"
+          },
+          {
+            "name": "MMRDA tender notices for Line 6",
+            "note": "The cancelled train tender CA-130, the systems tenders CA-232 and CA-233, and the 2026 footbridge tender.",
+            "url": "https://mmrda.maharashtra.gov.in/en/tenders/tender-notices/archive?title=Line+6"
+          }
+        ],
+        "page_description": "Unofficial, sourced tracker for Mumbai Metro Line 6 (Pink Line), Swami Samarth Nagar to Vikhroli: progress, the Kanjurmarg depot dispute, all 13 stations, map, trains and contracts. Every figure links to its source.",
+        "status_title": "Mumbai Metro Line 6 Status: progress, depot, opening target",
+        "status_description": "How far Metro Line 6 (Swami Samarth Nagar to Vikhroli) has got, when it may open, the Kanjurmarg depot, stations, cost, builders and trains. Answers from MMRDA and news sources, checked {checked}.",
+        "status_h1": "Metro Line 6 status, answered",
+        "status_mr": "स्वामी समर्थ नगर-विक्रोळी मेट्रो ६",
+        "status_lead": "The questions people ask about Mumbai Metro Line 6, Swami Samarth Nagar to Vikhroli.",
+        "footer_disclaimer": "Mumbai Metro Tracker is an independent public-interest site. It is not affiliated with, endorsed by or connected to MMRDA, Maha Mumbai Metro or the Government of Maharashtra. Drawings are original illustrations, not official designs. Check official sources before making decisions.",
+        "dropped_heading": "In an earlier plan, not on MMRDA's list now"
+      }
+    },
+    {
       "id": "line-12",
       "label": "Line 12",
       "number": "12",
@@ -504,15 +597,5 @@
       }
     }
   ],
-  "other_lines": [
-    {
-      "number": "6",
-      "name": "Pink Line",
-      "colour": "line-6",
-      "status": "reported",
-      "source_url": "https://themetrorailguy.com/?p=27331",
-      "last_verified": "2026-10-19",
-      "notes": "The Metro Rail Guy (updated 14 Sep 2025) calls Line 6 the Pink Line and says MMRDA revealed the line colours on 28 Feb 2020. MMRDA's Line 6 page names no colour (checked 19 Oct 2026). MMRDA publishes no colour value, so the site's pink is its own. Shown on the owner's request (2026-10-19)."
-    }
-  ]
+  "other_lines": []
 }

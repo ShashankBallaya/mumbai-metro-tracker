@@ -1,0 +1,109 @@
+{
+  "_meta": {
+    "description": "Firms appointed on Line 6. 'tender_ids' link to tenders.json.",
+    "last_reviewed": "2026-10-30"
+  },
+  "contractors": [
+    {
+      "id": "j-kumar",
+      "name": "J Kumar Infraprojects",
+      "role": "Civil contractor, Swami Samarth Nagar to Shyam Nagar (with CRTG) and IIT Powai to Vikhroli",
+      "tender_ids": [
+        "bc-03",
+        "bc-01r1"
+      ],
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2020/10/03/j-kumar-launches-1st-u-girder-for-mumbai-metro-line-6s-package-1/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "mbz-eiil",
+      "name": "MBZ-EIIL JV",
+      "role": "Civil contractor, Mahakali Caves to Powai Lake",
+      "tender_ids": [
+        "bc-02r"
+      ],
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2021/03/17/1st-u-girder-launched-for-mumbai-metro-line-6s-package-2/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "ncc",
+      "name": "NCC",
+      "role": "Trains, signalling, telecom, platform screen doors and depot machinery (CA-232)",
+      "tender_ids": [
+        "ca-232"
+      ],
+      "status": "reported",
+      "source_url": "https://www.nbmcw.com/news/ncc-secures-rs2-269-cr-order-from-mmrda-for-mumbai-metro-line-6-package.html",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "titagarh",
+      "name": "Titagarh Rail Systems",
+      "role": "Builds the 18 trains, for NCC",
+      "tender_ids": [
+        "ca-232"
+      ],
+      "status": "reported",
+      "source_url": "https://www.theweek.in/wire-updates/business/2025/08/04/ccm4-biz-titagarh.html",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "ircon",
+      "name": "IRCON International",
+      "role": "Power supply, traction, E&M, lifts and escalators (CA-233)",
+      "tender_ids": [
+        "ca-233"
+      ],
+      "status": "reported",
+      "source_url": "https://www.nbmcw.com/news/ircon-secures-rs642-crore-contract-for-mumbai-metro-line-6-package-ca-233.html",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "sam-india",
+      "name": "Sam India Builtwell",
+      "role": "Kanjurmarg depot (CA-209), waiting for the land",
+      "tender_ids": [
+        "ca-209"
+      ],
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/?p=56596",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "landmark-neev",
+      "name": "Landmark-Neev JV",
+      "role": "Station finishing, Swami Samarth Nagar to Shyam Nagar",
+      "tender_ids": [
+        "ca-266"
+      ],
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2025/02/04/mumbai-metro-line-6s-station-finishing-contracts-awarded-for-13-stations/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "na-construction",
+      "name": "N A Construction",
+      "role": "Station finishing, Mahakali Caves to Powai Lake",
+      "tender_ids": [
+        "ca-265"
+      ],
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2025/02/04/mumbai-metro-line-6s-station-finishing-contracts-awarded-for-13-stations/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "ss-ss",
+      "name": "SS SS Constructions",
+      "role": "Station finishing, IIT Powai to Vikhroli",
+      "tender_ids": [
+        "ca-264"
+      ],
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2025/02/04/mumbai-metro-line-6s-station-finishing-contracts-awarded-for-13-stations/",
+      "last_verified": "2026-10-30"
+    }
+  ],
+  "excluded_claims": []
+}

@@ -84,7 +84,7 @@
   /* Lines the site does not cover, for their LineMark only (lines.json other_lines). White on it: 5.6:1. */
   --line-4: #1d7a3a;
   --on-line-4: #ffffff;
-  /* Line 6, Pink Line (reported): its mark only; the site does not cover it. White on it is 5.3:1; it is 4.4:1 on morning paper and 3.5:1 on night paper. */
+  /* Line 6, Pink Line (reported): its mark, and its pages' accent (see below). White on it is 5.3:1; it is 4.4:1 on morning paper and 3.5:1 on night paper. */
   --line-6: #c2306e;
   --on-line-6: #ffffff;
   /* Line 2B, Yellow Line (MMRDA): its mark, and its pages' accent (see the end). Navy on it is 10.9:1. */
@@ -209,6 +209,45 @@
   --on-signal: #0c1422;
   --focus: #5cc883;
   --selection-bg: #3fae66;
+  --selection-ink: #0c1422;
+}
+
+/*
+ * Line 6, pink. On morning paper the bands are #c2306e with white text (5.3:1) and accent text is a
+ * darker pink, #b02a63 (5.2:1). On night paper the bands are #e0589a with navy text (5.3:1) and accent
+ * text is #f07fb3 (7.4:1).
+ */
+[data-accent='line-6'] {
+  --signal: #c2306e;
+  --signal-line: #b02a63;
+  --signal-graphic: #c2306e;
+  --on-signal: #ffffff;
+  --focus: #b02a63;
+  --selection-bg: #c2306e;
+  --selection-ink: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) [data-accent='line-6'],
+  :root[data-accent='line-6']:not([data-theme='light']) {
+    --signal: #e0589a;
+    --signal-line: #f07fb3;
+    --signal-graphic: #e0589a;
+    --on-signal: #0c1422;
+    --focus: #f07fb3;
+    --selection-bg: #e0589a;
+    --selection-ink: #0c1422;
+  }
+}
+
+:root[data-theme='dark'] [data-accent='line-6'],
+:root[data-accent='line-6'][data-theme='dark'] {
+  --signal: #e0589a;
+  --signal-line: #f07fb3;
+  --signal-graphic: #e0589a;
+  --on-signal: #0c1422;
+  --focus: #f07fb3;
+  --selection-bg: #e0589a;
   --selection-ink: #0c1422;
 }
 

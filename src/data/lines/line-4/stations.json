@@ -456,6 +456,11 @@
         "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
         "notes": "MMRDA's Line 6 page names Gandhi Nagar of Line 4 as the interchange; its list calls Line 6's side Kanjur Marg (W). In MMRDA's alignment files (Mar 2025) the two station points are 161 m apart."
       },
+      "same_site_as": {
+        "line": "line-6",
+        "station": "kanjur-marg-west",
+        "distance_m": 161
+      },
       "context": [],
       "construction_status": {
         "value": "Under construction",

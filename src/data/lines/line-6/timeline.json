@@ -1,0 +1,195 @@
+{
+  "_meta": {
+    "description": "Key milestones of Line 6, oldest first. 'date_precision' is day, month or year. 'kind' is planning, approval, tender, award, construction, related or future. Only events whose source was read are listed.",
+    "last_reviewed": "2026-10-30"
+  },
+  "events": [
+    {
+      "id": "dpr",
+      "date": "2016-12",
+      "date_precision": "month",
+      "kind": "planning",
+      "title": "DMRC prepares the project report",
+      "summary": "Delhi Metro Rail Corporation prepares the detailed project report for MMRDA.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/mumbai-metro-pink-line-information-route-map-fares-timings-tenders-status-updates/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "state-approval",
+      "date": "2017-10-24",
+      "date_precision": "day",
+      "kind": "approval",
+      "title": "State Cabinet approves Line 6",
+      "summary": "The Maharashtra government approves Metro Line 6, Swami Samarth Nagar to Vikhroli.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/mumbai-metro-pink-line-information-route-map-fares-timings-tenders-status-updates/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "bc-03-award",
+      "date": "2018-08",
+      "date_precision": "month",
+      "kind": "award",
+      "title": "First civil package, Swami Samarth Nagar to Shyam Nagar",
+      "summary": "Package BC-03, 6.079 km of viaduct with five stations, goes to J Kumar Infraprojects.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/mumbai-metro-pink-line-information-route-map-fares-timings-tenders-status-updates/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "bc-02r-award",
+      "date": "2018-09",
+      "date_precision": "month",
+      "kind": "award",
+      "title": "Civil package, Mahakali Caves to Powai Lake",
+      "summary": "Package BC-02R, five stations, to MBZ-EIIL JV for Rs 372.22 crore, to be done in 30 months.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2021/03/17/1st-u-girder-launched-for-mumbai-metro-line-6s-package-2/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "bc-01r1-award",
+      "date": "2019-02-13",
+      "date_precision": "day",
+      "kind": "award",
+      "title": "Civil package, IIT Powai to Vikhroli",
+      "summary": "Package BC-01R1, 4.771 km of viaduct with three stations and the ramp to the depot, to J Kumar Infraprojects for Rs 444.98 crore.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2020/10/03/j-kumar-launches-1st-u-girder-for-mumbai-metro-line-6s-package-1/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "first-u-girder",
+      "date": "2020-05",
+      "date_precision": "month",
+      "kind": "construction",
+      "title": "First U girder on the line",
+      "summary": "J Kumar erects the first U girder on package BC-03.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2021/03/17/1st-u-girder-launched-for-mumbai-metro-line-6s-package-2/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "depot-land-transfer",
+      "date": "2023-04-19",
+      "date_precision": "day",
+      "kind": "related",
+      "title": "Collector hands the Kanjurmarg depot land to MMRDA",
+      "summary": "The Mumbai suburban collector transfers about 15 ha to MMRDA; the Centre's salt department challenges the decision in court.",
+      "status": "reported",
+      "source_url": "https://english.lokshahi.com/maharashtra/mumbai-metro-6-car-shed-dispute-continues-as-mmrda-plans-corridor-launch-before-land-issue-resolution-12228435",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "ca-130-cancelled",
+      "date": "2023-10-18",
+      "date_precision": "day",
+      "kind": "tender",
+      "title": "First train tender cancelled",
+      "summary": "MMRDA cancels tender CA-130 for 108 standard gauge cars for Line 6. The trains are re-tendered with the signalling in one package, CA-232.",
+      "status": "verified",
+      "source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2023-10/1%20%281%29.pdf",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "ca-209-loa",
+      "date": "2024-03-12",
+      "date_precision": "day",
+      "kind": "award",
+      "title": "Kanjurmarg depot contract to Sam India",
+      "summary": "MMRDA issues a letter of acceptance for package CA-209, the depot and staff quarters, for Rs 547.45 crore. Work waits for the land.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/?p=56596",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "depot-status-quo",
+      "date": "2024-10-24",
+      "date_precision": "day",
+      "kind": "related",
+      "title": "High Court orders status quo on the depot land",
+      "summary": "The Bombay High Court orders that the status quo be kept on the Kanjurmarg land.",
+      "status": "reported",
+      "source_url": "https://english.lokshahi.com/maharashtra/mumbai-metro-6-car-shed-dispute-continues-as-mmrda-plans-corridor-launch-before-land-issue-resolution-12228435",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "station-finishing",
+      "date": "2025-02-01",
+      "date_precision": "day",
+      "kind": "award",
+      "title": "Station finishing for all 13 stations begins",
+      "summary": "Three packages, CA-264, CA-265 and CA-266, for Rs 367.02 crore in all, with notice to proceed on 1 Feb 2025 and 24 months each.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2025/02/04/mumbai-metro-line-6s-station-finishing-contracts-awarded-for-13-stations/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "ca-232-ncc",
+      "date": "2025-07",
+      "date_precision": "month",
+      "kind": "award",
+      "title": "Trains and signalling to NCC",
+      "summary": "NCC receives the letter of acceptance for package CA-232: trains, CBTC signalling, telecom, platform screen doors and depot machinery, about Rs 2,269 crore without GST.",
+      "status": "reported",
+      "source_url": "https://www.nbmcw.com/news/ncc-secures-rs2-269-cr-order-from-mmrda-for-mumbai-metro-line-6-package.html",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "ca-233-ircon",
+      "date": "2025-07-18",
+      "date_precision": "day",
+      "kind": "award",
+      "title": "Power and E&M to IRCON",
+      "summary": "IRCON receives the letter of acceptance for package CA-233: power supply, traction, E&M, lifts and escalators, Rs 642.44 crore.",
+      "status": "reported",
+      "source_url": "https://www.nbmcw.com/news/ircon-secures-rs642-crore-contract-for-mumbai-metro-line-6-package-ca-233.html",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "titagarh-loa",
+      "date": "2025-08-04",
+      "date_precision": "day",
+      "kind": "award",
+      "title": "NCC orders the trains from Titagarh",
+      "summary": "Titagarh Rail Systems announces a Rs 1,598.55 crore order from NCC for 18 six-car trains, 108 coaches (PTI).",
+      "status": "reported",
+      "source_url": "https://www.theweek.in/wire-updates/business/2025/08/04/ccm4-biz-titagarh.html",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "pit-line-plan",
+      "date": "2026-01",
+      "date_precision": "month",
+      "kind": "construction",
+      "title": "MMRDA plans to open without the depot",
+      "summary": "An elevated corridor with pit lines beside the Eastern Express Highway is under construction, so trains can be serviced before the Kanjurmarg depot is built.",
+      "status": "reported",
+      "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-6-progress-update-mmrda-to-open-pink-line-without-kanjurmarg-depot-will-use-elevated-pit-lines-instead",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "fob-tender",
+      "date": "2026-10-17",
+      "date_precision": "day",
+      "kind": "tender",
+      "title": "Footbridge tender for Vikhroli and Jogeshwari stations",
+      "summary": "MMRDA floats a tender for foot over bridges at the Vikhroli and Jogeshwari Line 6 stations; bids close on 12 Nov 2026.",
+      "status": "verified",
+      "source_url": "https://mahatenders.gov.in/nicgep/app?page=FrontEndTendersByOrganisation&service=page",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "target-2027",
+      "date": "2027",
+      "date_precision": "year",
+      "kind": "future",
+      "title": "Reported target: the line opens",
+      "summary": "Lokshahi (Aug 2026): MMRDA aims to run Metro 6 by 2027. MMRDA has announced no date.",
+      "status": "reported",
+      "source_url": "https://english.lokshahi.com/maharashtra/mumbai-metro-6-car-shed-dispute-continues-as-mmrda-plans-corridor-launch-before-land-issue-resolution-12228435",
+      "last_verified": "2026-10-30"
+    }
+  ]
+}

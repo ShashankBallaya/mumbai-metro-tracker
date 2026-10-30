@@ -1,0 +1,82 @@
+{
+  "_meta": {
+    "description": "Rolling stock for Line 6. The trains are ordered: NCC holds package CA-232 (trains, signalling, telecom, platform screen doors, depot machinery), with Titagarh Rail Systems for the trains. 'specs' are MMRDA's published car figures and the train count from the contract, shown as rows. No image is sourced.",
+    "last_reviewed": "2026-10-30"
+  },
+  "procurement": {
+    "manufacturer": "Titagarh Rail Systems",
+    "contractor": "NCC",
+    "value": "Integrated systems contract to NCC (about Rs 2,269 crore, letter of acceptance in July 2025); NCC's order to Titagarh for the trains, Rs 1,598.55 crore, announced on 4 Aug 2025",
+    "package": "CA-232",
+    "date": null,
+    "value_crore": 2269.66,
+    "estimate_crore": 2064.63,
+    "trains": 18,
+    "cars_per_train": 6,
+    "coaches": 108,
+    "phases": "the whole line",
+    "scope": "Trains, CBTC signalling and train control, telecom, platform screen doors and depot machinery for Kanjurmarg",
+    "maintenance": {
+      "value": "MMRDA's corrigendum of 30 Sep 2024 names 5 years of comprehensive maintenance after a 2-year defect liability period; its February 2024 notice said 15 years after 2",
+      "status": "conflicting",
+      "source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2024-10/corrigendum_09.pdf",
+      "last_verified": "2026-10-30"
+    },
+    "status": "reported",
+    "source_url": "https://themetrorailguy.com/2025/03/29/titagarh-wins-mumbai-metro-line-6s-108-coach-signaling-contract-ca-232/",
+    "also_see": [
+      "https://www.nbmcw.com/news/ncc-secures-rs2-269-cr-order-from-mmrda-for-mumbai-metro-line-6-package.html",
+      "https://www.theweek.in/wire-updates/business/2025/08/04/ccm4-biz-titagarh.html"
+    ],
+    "last_verified": "2026-10-30",
+    "schedule": "Prototype train within 52 weeks of signing, the other 17 trains tested and ready within 104 weeks (The Metro Rail Guy).",
+    "notes": "The first train tender, CA-130 for 108 cars, was cancelled by MMRDA on 18 Oct 2023. The Metro Rail Guy names Titagarh the lowest bidder in March 2025 and the award to NCC in June 2025."
+  },
+  "specs": {
+    "rows": [
+      [
+        "Cars per train",
+        "6"
+      ],
+      [
+        "Trains",
+        "18"
+      ],
+      [
+        "Car width",
+        "3.20 m"
+      ],
+      [
+        "Car height",
+        "3.90 m"
+      ],
+      [
+        "Length",
+        "21.84 m"
+      ]
+    ],
+    "notes": "MMRDA's Line 6 page lists width, height and length under rolling stock; it does not say whether the length is one car. Trains and cars per train come from the contract (reported).",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+    "last_verified": "2026-10-30"
+  },
+  "traction": {
+    "supplier": "ABB India",
+    "value": "Traction and train control for the 18 trains",
+    "notes": "ABB's order from Titagarh (January 2026) covers 40 six-car trains: 22 for Line 5 and 18 for Line 6.",
+    "status": "reported",
+    "source_url": "https://machinist.in/2026/01/abb-india-wins-traction-and-control-systems-order-for-metro-trainsets-from-titagarh-rail-systems/",
+    "last_verified": "2026-10-30"
+  },
+  "image": {
+    "src": null,
+    "alt": "",
+    "caption": "",
+    "credit": null,
+    "link_url": "https://www.titagarh.in/project/mumbai-metro",
+    "status": "unverified",
+    "source_url": null,
+    "last_verified": "2026-10-30",
+    "notes": "Titagarh's render of its Mumbai Metro train (car D6A001) may show Line 6; it is on the Line 5 page, graded unverified. Owner to decide whether to show it here too."
+  }
+}

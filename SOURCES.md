@@ -423,6 +423,60 @@ MMRDA's site fails a certificate check in some tools; Python's standard library 
 - A revised cost, a loan agreement, the train order, the track (CA-273), power and signalling contracts.
 - An MMRDA date for the rest of the line.
 
+# Line 6 (Swami Samarth Nagar-Jogeshwari-Powai-Vikhroli)
+
+Research of 2026-10-30 for `src/data/lines/line-6/`, including the tender search done for Line 5 (MMRDA tender archive, MMRDA's active list on mahatenders.gov.in, trade press). No stretch is open; the line is one section, as MMRDA names no phases.
+
+## Primary sources
+
+| Source | Checked | Used for |
+|---|---|---|
+| MMRDA, Metro Line 6 page (`/en/projects/transport/metro-line-6/overview`), last updated 30 Oct 2026 | 2026-10-30 (progress as of 31 Aug 2026) | 15.31 km, 13 stations, fully elevated, Rs 6,716 crore, 7.69 lakh riders in 2031 (PHPDT 29,658), Kanjurmarg depot 15.02 ha, interchanges, 2.58 km road flyover with BMC, 30 to 45 minutes saved, car size, progress table |
+| MMRDA, Metro Line 6 page in Marathi | 2026-10-30 | Marathi station names (12 of 13) |
+| MMRDA alignment file `line-6.kml` (Metro Influence Zone NOC page, March 2025) | 2026-10-30 | Route line and the 13 station points |
+| MMRDA tender archive (`/en/tenders/tender-notices/archive?title=Line+6`) | 2026-10-30 | CA-130 train tender (notice 13 Jun 2023, cancelled 18 Oct 2023), signalling tender (notice 28 Apr 2023), CA-232 and CA-233 notices and corrigenda (2024), CA-232 maintenance 15 years (corrigendum 1, Feb 2024) then 5 years (corrigendum 9, 30 Sep 2024) |
+| mahatenders.gov.in, MMRDA's active tenders | 2026-10-30 | Foot over bridges at Vikhroli and Jogeshwari Line 6 stations, tender 2026_MMRDA_1345405_1, published 17 Oct 2026, closes 12 Nov 2026 |
+
+## Secondary sources
+
+| Source | Date | Used for |
+|---|---|---|
+| The Metro Rail Guy, Pink Line page | updated 14 Sep 2025 | Pink Line name, DMRC report Dec 2016, state approval 24 Oct 2017, package list, Rs 6,672 crore, 15.18 km, gauge, power, speeds, end-2026 target |
+| The Metro Rail Guy | 3 Oct 2020 | BC-01R1 (J Kumar, Rs 444.98 crore, 13 Feb 2019, 4.771 km, 3 stations); BC-03 (J Kumar-CRTG, 6.079 km) |
+| The Metro Rail Guy | 17 Mar 2021 | BC-02R (MBZ-EIIL, Rs 372.22 crore, Sep 2018, 30 months); first U girders 2020 |
+| The Metro Rail Guy | 5 Feb 2024 (update 12 Mar 2024) | CA-209 depot to Sam India, Rs 547.45 crore; Ahluwalia Rs 608.28 crore; estimate Rs 508.57 crore |
+| The Metro Rail Guy | 4 Feb 2025 | Station finishing CA-264, CA-265, CA-266, notice to proceed 1 Feb 2025, 24 months |
+| The Metro Rail Guy | 29 Mar 2025 (updates Jun, Aug 2025) | CA-232: Titagarh lowest, award to NCC Rs 2,269.66 crore, estimate Rs 2,064.63 crore, NDB loan USD 241 million, 18 six-car trains, 52 and 104 week schedule |
+| NBM&CW | 14 Jul 2025 | NCC receives the CA-232 letter of acceptance, about Rs 2,269 crore |
+| NBM&CW | Jul 2025 | CA-233 to IRCON, Rs 642.44 crore, letter of acceptance 18 Jul 2025 |
+| The Week (PTI) | 4 Aug 2025 | NCC's Rs 1,598.55 crore train order to Titagarh, 108 coaches |
+| Machinist | Jan 2026 | ABB traction for the 18 Line 6 trains |
+| Free Press Journal (Hindustan Times) | 21 Jan 2026 | Open in the second half of 2026 without the Kanjurmarg depot; elevated pit lines beside the EEH; overhauls at Mandale |
+| Lokshahi | 4 Aug 2026 | Target 2027; about 88% complete; depot land history (collector 19 Apr 2023, status quo 24 Oct 2024, proposal to DPIIT) |
+| Free Press Journal | 1 Sep 2026 | Elevated pit line at the Vikhroli end; salt pan land still pending with the Union government |
+
+## Derived data
+
+- `scripts/build-alignment-line6.py` derives the centre line from MMRDA's corridor polygon, as for Line 2B, with the tips at the westernmost and easternmost points. All 13 station points are in MMRDA's order and within 27 m of the line (IIT Powai 27 m, Vikhroli (EEH) 26 m, the rest 21 m or less), so the stop is 30 m, not 25. Distances count from Swami Samarth Nagar; the 833 m west of it is not drawn.
+- Kanjur Marg (W) and Line 4's Gandhi Nagar are linked as one site (`same_site_as`, 161 m apart in MMRDA's files).
+
+## Items that need your review
+
+1. **Countdown.** The site counts to 31 Dec 2027 for "by 2027" (Lokshahi, Aug 2026), labelled a reported target with no month. The earlier target, second half of 2026, has passed.
+2. **Hub chapter.** Not added: the hub's cover and chapters need key art, and no Line 6 photo exists. Line 6 shows on the hub's network map, linked to its page. A ground or drone photo (owner's own, or with permission) would add the chapter.
+3. **Train image.** Titagarh's render (car D6A001) is on the Line 5 page, graded unverified, and may show Line 6. Not shown on Line 6; the Trains section shows the generic drawing with a link to Titagarh's page.
+4. **CA-232 maintenance.** MMRDA's own notices say 15 years (Feb 2024) and then 5 years (Sep 2024) after the 2-year defect period; The Metro Rail Guy says 15. Graded conflicting.
+5. **CA-233 value.** Rs 642.44 crore (NBM, Metro Rail News) against Rs 668.15 crore (The Metro Rail Guy). Graded conflicting.
+6. **Mahakali Caves in Marathi.** MMRDA's Marathi page gives "महाकाली काव", which looks cut short; name_mr is null until a source gives the full name.
+7. **Line colour.** Pink is from The Metro Rail Guy (reported); MMRDA's page names no colour.
+
+## Not found
+
+- MMRDA's project report for Line 6 and its design values.
+- The BC-03 contract value; the track packages (CT-38, MT-08, MT-09R, MT-13) and AFC (CA-238) were seen only in a list, not read.
+- Any report that the first Line 6 train has been built or delivered.
+- An MMRDA date for the opening.
+
 # The network (hub map, all MMR lines)
 
 Research of 2026-10-29 for `src/data/network.json` (first draft). The four tracked lines take their facts from their own files; this section covers the other 17 entries.

@@ -179,6 +179,45 @@
         ],
         "require_corridor": true
       }
+    },
+    "line-6": {
+      "search": [
+        "Metro 6",
+        "Kanjurmarg"
+      ],
+      "video_queries": [
+        "Metro Line 6 Swami Samarth Nagar Vikhroli",
+        "Mumbai Metro 6 Pink Line JVLR"
+      ],
+      "match": {
+        "comment": "Delhi, Pune and Jaipur also have a Pink Line, and other cities a Line 6, so a bare 'Line 6', 'Metro 6' or 'Pink Line' needs a Line 6 place in the title or summary. 'line[\\s-]*6\b' does not match Line 60.",
+        "strong": [
+          "mumbai[\\s-]*metro[\\s-]*(line[\\s-]*)?6\b",
+          "swami[\\s-]*samarth[\\s-]*nagar[\\s-]*(to|-)?[\\s-]*vikhroli",
+          "मेट्रो[\\s-]*(६|6)\b"
+        ],
+        "line": [
+          "lines?[\\s-]*6\b",
+          "metro[\\s-]*6\b",
+          "pink[\\s-]*line"
+        ],
+        "corridor": [
+          "swami samarth",
+          "lokhandwala",
+          "jogeshwari",
+          "jvlr",
+          "jogeshwari-vikhroli",
+          "seepz",
+          "mahakali",
+          "saki vihar",
+          "powai",
+          "kanjurmarg",
+          "kanjur marg",
+          "vikhroli",
+          "mmrda"
+        ],
+        "require_corridor": true
+      }
     }
   },
   "exclude_urls": [],

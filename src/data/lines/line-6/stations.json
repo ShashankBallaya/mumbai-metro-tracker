@@ -1,0 +1,498 @@
+{
+  "_meta": {
+    "description": "Line 6's stations in order from Swami Samarth Nagar to Vikhroli (EEH), as MMRDA's Line 6 page lists them. MMRDA names no phases, so stations carry none. 'kml_name' is the station's point in MMRDA's alignment file. Positions and along_m come from scripts/build-alignment-line6.py. Names follow MMRDA's list; 'Maha kali Caves' is written Mahakali Caves, as in its introduction and alignment file. name_mr follows MMRDA's Marathi page; Mahakali Caves is null because that page gives 'महाकाली काव', which looks cut short.",
+    "order_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+    "order_status": "verified",
+    "count_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+    "names_mr_source_url": "https://mmrda.maharashtra.gov.in/mr/projects/transport/metro-line-6/overview",
+    "names_mr_status": "verified",
+    "last_reviewed": "2026-10-30"
+  },
+  "stations": [
+    {
+      "id": "swami-samarth-nagar",
+      "order": 1,
+      "name": "Swami Samarth Nagar",
+      "name_mr": "स्वामी समर्थ नगर",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+      "dpr_name": null,
+      "kml_name": "SWAMI SAMARTH NAGAR (M) STATION",
+      "location": {
+        "lng": 72.826946,
+        "lat": 19.14076,
+        "along_m": 0,
+        "method": "MMRDA alignment file for Line 6 (KML on the Metro Influence Zone page, uploaded March 2025): point \"SWAMI SAMARTH NAGAR (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Swami Samarth Nagar station; the point is 13 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview"
+      },
+      "context": [
+        {
+          "text": "The western end of the line, near Lokhandwala in Andheri (W).",
+          "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+          "status": "verified"
+        }
+      ],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+        "notes": "MMRDA publishes progress for the whole line only (station works 87.35% as of 31 Aug 2026), not by station. Civil package BC-03 (J Kumar Infraprojects, with CRTG), Swami Samarth Nagar to Shyam Nagar; station finishing CA-266 (Landmark-Neev JV) (The Metro Rail Guy)."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "adarsh-nagar",
+      "order": 2,
+      "name": "Adarsh Nagar",
+      "name_mr": "आदर्श नगर",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+      "dpr_name": null,
+      "kml_name": "ADARSH NAGAR (M) STATION",
+      "location": {
+        "lng": 72.83333,
+        "lat": 19.141675,
+        "along_m": 726,
+        "method": "MMRDA alignment file for Line 6 (KML on the Metro Influence Zone page, uploaded March 2025): point \"ADARSH NAGAR (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Swami Samarth Nagar station; the point is 20 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [
+          "Metro Line 2A (Dahisar-D N Nagar)"
+        ],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+        "notes": "MMRDA lists 'Metro Line 2A at Infinity Mall'; its introduction names Adarsh Nagar of Line 2A."
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+        "notes": "MMRDA publishes progress for the whole line only (station works 87.35% as of 31 Aug 2026), not by station. Civil package BC-03 (J Kumar Infraprojects, with CRTG), Swami Samarth Nagar to Shyam Nagar; station finishing CA-266 (Landmark-Neev JV) (The Metro Rail Guy)."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "jogeshwari-west",
+      "order": 3,
+      "name": "Jogeshwari (W)",
+      "name_mr": "जोगेश्वरी (प)",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+      "dpr_name": null,
+      "kml_name": "JOGESHWARI (M) STATION",
+      "location": {
+        "lng": 72.842151,
+        "lat": 19.14009,
+        "along_m": 1696,
+        "method": "MMRDA alignment file for Line 6 (KML on the Metro Influence Zone page, uploaded March 2025): point \"JOGESHWARI (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Swami Samarth Nagar station; the point is 3 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [
+          "Western Railway suburban, Jogeshwari"
+        ],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+        "notes": "MMRDA: suburban railway (Western) at Jogeshwari."
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+        "notes": "MMRDA publishes progress for the whole line only (station works 87.35% as of 31 Aug 2026), not by station. Civil package BC-03 (J Kumar Infraprojects, with CRTG), Swami Samarth Nagar to Shyam Nagar; station finishing CA-266 (Landmark-Neev JV) (The Metro Rail Guy)."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "jvlr",
+      "order": 4,
+      "name": "JVLR",
+      "name_mr": "जेव्हीएलआर",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+      "dpr_name": null,
+      "kml_name": "JVLR (M)STATION",
+      "location": {
+        "lng": 72.853782,
+        "lat": 19.140262,
+        "along_m": 2964,
+        "method": "MMRDA alignment file for Line 6 (KML on the Metro Influence Zone page, uploaded March 2025): point \"JVLR (M)STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Swami Samarth Nagar station; the point is 19 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [
+          "Metro Line 7 (Dahisar (E)-Andheri (E))"
+        ],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+        "notes": "MMRDA: Metro Line 7 at JVLR."
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+        "notes": "MMRDA publishes progress for the whole line only (station works 87.35% as of 31 Aug 2026), not by station. Civil package BC-03 (J Kumar Infraprojects, with CRTG), Swami Samarth Nagar to Shyam Nagar; station finishing CA-266 (Landmark-Neev JV) (The Metro Rail Guy)."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "shyam-nagar",
+      "order": 5,
+      "name": "Shyam Nagar",
+      "name_mr": "श्याम नगर",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+      "dpr_name": null,
+      "kml_name": "SHYAM NAGAR(M) STATION",
+      "location": {
+        "lng": 72.86179,
+        "lat": 19.139118,
+        "along_m": 3880,
+        "method": "MMRDA alignment file for Line 6 (KML on the Metro Influence Zone page, uploaded March 2025): point \"SHYAM NAGAR(M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Swami Samarth Nagar station; the point is 13 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+        "notes": "MMRDA publishes progress for the whole line only (station works 87.35% as of 31 Aug 2026), not by station. Civil package BC-03 (J Kumar Infraprojects, with CRTG), Swami Samarth Nagar to Shyam Nagar; station finishing CA-266 (Landmark-Neev JV) (The Metro Rail Guy)."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "mahakali-caves",
+      "order": 6,
+      "name": "Mahakali Caves",
+      "name_mr": null,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+      "dpr_name": null,
+      "kml_name": "MAHAKALI CAVES (M) STATION",
+      "location": {
+        "lng": 72.873836,
+        "lat": 19.135789,
+        "along_m": 5367,
+        "method": "MMRDA alignment file for Line 6 (KML on the Metro Influence Zone page, uploaded March 2025): point \"MAHAKALI CAVES (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Swami Samarth Nagar station; the point is 4 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview"
+      },
+      "context": [
+        {
+          "text": "MMRDA's English list spells it 'Maha kali Caves'; its introduction, its alignment file and the finishing contract say Mahakali.",
+          "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+          "status": "verified"
+        }
+      ],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+        "notes": "MMRDA publishes progress for the whole line only (station works 87.35% as of 31 Aug 2026), not by station. Civil package BC-02R (MBZ-EIIL JV), Mahakali Caves to Powai Lake; station finishing CA-265 (N A Construction) (The Metro Rail Guy)."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "seepz-village",
+      "order": 7,
+      "name": "SEEPZ Village",
+      "name_mr": "सिप्झ व्हिलेज",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+      "dpr_name": null,
+      "kml_name": "SEEPZ VILLAGE (M) STATION",
+      "location": {
+        "lng": 72.881389,
+        "lat": 19.129237,
+        "along_m": 6605,
+        "method": "MMRDA alignment file for Line 6 (KML on the Metro Influence Zone page, uploaded March 2025): point \"SEEPZ VILLAGE (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Swami Samarth Nagar station; the point is 21 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+        "notes": "MMRDA publishes progress for the whole line only (station works 87.35% as of 31 Aug 2026), not by station. Civil package BC-02R (MBZ-EIIL JV), Mahakali Caves to Powai Lake; station finishing CA-265 (N A Construction) (The Metro Rail Guy)."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "saki-vihar-road",
+      "order": 8,
+      "name": "Saki Vihar Road",
+      "name_mr": "साकी विहार रोड",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+      "dpr_name": null,
+      "kml_name": "SAKI VIHAR ROAD(M) STATION",
+      "location": {
+        "lng": 72.890552,
+        "lat": 19.126091,
+        "along_m": 7695,
+        "method": "MMRDA alignment file for Line 6 (KML on the Metro Influence Zone page, uploaded March 2025): point \"SAKI VIHAR ROAD(M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Swami Samarth Nagar station; the point is 13 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+        "notes": "MMRDA publishes progress for the whole line only (station works 87.35% as of 31 Aug 2026), not by station. Civil package BC-02R (MBZ-EIIL JV), Mahakali Caves to Powai Lake; station finishing CA-265 (N A Construction) (The Metro Rail Guy)."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "rambaug",
+      "order": 9,
+      "name": "Rambaug",
+      "name_mr": "रामबाग",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+      "dpr_name": null,
+      "kml_name": "RAMBAUG (M) STATION",
+      "location": {
+        "lng": 72.898813,
+        "lat": 19.122193,
+        "along_m": 8735,
+        "method": "MMRDA alignment file for Line 6 (KML on the Metro Influence Zone page, uploaded March 2025): point \"RAMBAUG (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Swami Samarth Nagar station; the point is 3 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+        "notes": "MMRDA publishes progress for the whole line only (station works 87.35% as of 31 Aug 2026), not by station. Civil package BC-02R (MBZ-EIIL JV), Mahakali Caves to Powai Lake; station finishing CA-265 (N A Construction) (The Metro Rail Guy)."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "powai-lake",
+      "order": 10,
+      "name": "Powai Lake",
+      "name_mr": "पवई लेक",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+      "dpr_name": null,
+      "kml_name": "POWAI LAKE (M) STATION",
+      "location": {
+        "lng": 72.90577,
+        "lat": 19.119816,
+        "along_m": 9608,
+        "method": "MMRDA alignment file for Line 6 (KML on the Metro Influence Zone page, uploaded March 2025): point \"POWAI LAKE (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Swami Samarth Nagar station; the point is 18 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+        "notes": "MMRDA publishes progress for the whole line only (station works 87.35% as of 31 Aug 2026), not by station. Civil package BC-02R (MBZ-EIIL JV), Mahakali Caves to Powai Lake; station finishing CA-265 (N A Construction) (The Metro Rail Guy)."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "iit-powai",
+      "order": 11,
+      "name": "IIT Powai",
+      "name_mr": "आयआयटी, पवई",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+      "dpr_name": null,
+      "kml_name": "IIT POWAI (M) STATION",
+      "location": {
+        "lng": 72.913275,
+        "lat": 19.123848,
+        "along_m": 10653,
+        "method": "MMRDA alignment file for Line 6 (KML on the Metro Influence Zone page, uploaded March 2025): point \"IIT POWAI (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Swami Samarth Nagar station; the point is 27 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+        "notes": "MMRDA publishes progress for the whole line only (station works 87.35% as of 31 Aug 2026), not by station. Civil package BC-01R1 (J Kumar Infraprojects), IIT Powai to Vikhroli; station finishing CA-264 (SS SS Constructions) (The Metro Rail Guy)."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "kanjur-marg-west",
+      "order": 12,
+      "name": "Kanjur Marg (W)",
+      "name_mr": "कांजुरमार्ग (प)",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+      "dpr_name": null,
+      "kml_name": "KANJURMARG (M) STATION",
+      "location": {
+        "lng": 72.924384,
+        "lat": 19.125356,
+        "along_m": 12219,
+        "method": "MMRDA alignment file for Line 6 (KML on the Metro Influence Zone page, uploaded March 2025): point \"KANJURMARG (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Swami Samarth Nagar station; the point is 13 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [
+          "Metro Line 4 (Wadala-Kasarvadavali)",
+          "Central Railway suburban, Kanjurmarg"
+        ],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+        "notes": "MMRDA: Line 4 at Kanjurmarg West, which its introduction calls Gandhi Nagar of Line 4, and the Central Railway at Kanjurmarg."
+      },
+      "same_site_as": {
+        "line": "line-4",
+        "station": "gandhi-nagar",
+        "distance_m": 161
+      },
+      "context": [
+        {
+          "text": "MMRDA's Line 6 page lists the Line 4 interchange both as Gandhi Nagar and as Kanjurmarg West.",
+          "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+          "status": "verified"
+        }
+      ],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+        "notes": "MMRDA publishes progress for the whole line only (station works 87.35% as of 31 Aug 2026), not by station. Civil package BC-01R1 (J Kumar Infraprojects), IIT Powai to Vikhroli; station finishing CA-264 (SS SS Constructions) (The Metro Rail Guy)."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "vikhroli-eeh",
+      "order": 13,
+      "name": "Vikhroli (EEH)",
+      "name_mr": "विक्रोळी (ई.ई.एच)",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+      "dpr_name": null,
+      "kml_name": "VIKHROLI(EEH) (M) STATION",
+      "location": {
+        "lng": 72.934999,
+        "lat": 19.12459,
+        "along_m": 13344,
+        "method": "MMRDA alignment file for Line 6 (KML on the Metro Influence Zone page, uploaded March 2025): point \"VIKHROLI(EEH) (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Swami Samarth Nagar station; the point is 25 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview"
+      },
+      "context": [
+        {
+          "text": "The eastern end of the line, at the Eastern Express Highway. MMRDA plans an elevated pit line at this end, so trains can be serviced before the Kanjurmarg depot is built (reported).",
+          "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-line-6-may-begin-services-without-full-depot-as-mmrda-plans-temporary-maintenance-facility-at-vikhroli",
+          "status": "reported"
+        }
+      ],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview",
+        "notes": "MMRDA publishes progress for the whole line only (station works 87.35% as of 31 Aug 2026), not by station. Civil package BC-01R1 (J Kumar Infraprojects), IIT Powai to Vikhroli; station finishing CA-264 (SS SS Constructions) (The Metro Rail Guy)."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    }
+  ],
+  "dropped_stations": []
+}

@@ -647,7 +647,130 @@ function line2b(line: Line): Answer[] {
   ];
 }
 
-const sets: Record<string, (line: Line) => Answer[]> = { 'line-12': line12, 'line-12a': line12a, 'line-5': line5, 'line-4': line4, 'line-2b': line2b };
+/** Line 6: under construction, no stretch open; the depot land is disputed. */
+function line6(line: Line): Answer[] {
+  const { project: p, stations, timeline, tenders } = line;
+  const base = lineBase(line.id);
+  type Graded = { value: string; status: string; source_url: string };
+  const x = p as unknown as {
+    target_completion: Graded & { history: { value: string }[] };
+    completion_cost_crore_inr: { value: number; status: string; source_url: string; history: { value: number }[] };
+    funding: Graded;
+    depot: { value: string; area_ha: number; status: string; source_url: string; contract: Graded; land: Graded; interim: Graded };
+    interchanges: { value: { station: string; connects_to: string }[]; status: string; source_url: string };
+    line_color: Graded;
+    road_flyover: Graded;
+    travel_time_benefit: Graded;
+  };
+  const prog = p.progress;
+  const event = (id: string) => timeline.find((e) => e.id === id)!;
+  const tender = (id: string) => tenders.find((e) => e.id === id)!;
+  const pct = (activity: string) => prog.items.find((i) => i.activity === activity)!.percent_complete;
+  const trains = line.rollingstock as unknown as { procurement: { trains: number; cars_per_train: number; manufacturer: string; contractor: string; status: string; source_url: string } } | undefined;
+  return [
+    {
+      id: 'opening',
+      q: 'When will Mumbai Metro Line 6 open?',
+      a: `MMRDA has announced no date. The latest report, of August 2026, says MMRDA aims to run the line by ${x.target_completion.value}; no month, so the site counts down to the end of ${x.target_completion.value}. An earlier target, the second half of 2026, has passed. The Kanjurmarg depot is not built, so MMRDA plans to open with an elevated pit line at the Vikhroli end instead, as reported.`,
+      grades: [
+        { status: x.target_completion.status, source: x.target_completion.source_url },
+        { status: x.depot.interim.status, source: x.depot.interim.source_url },
+      ],
+    },
+    {
+      id: 'progress',
+      q: 'How much of Line 6 is built?',
+      a: `MMRDA's progress table for ${formatDate(prog.as_of)} covers the whole line: ${prog.items.map((i) => `${/^U /.test(i.activity) ? i.activity : i.activity.toLowerCase()} ${i.percent_complete}%`).join(', ')}. The stations are the main civil work left, at ${pct('Station works')}%. MMRDA publishes no figure by station.`,
+      grades: [{ status: prog.status, source: prog.source_url }],
+    },
+    {
+      id: 'depot',
+      q: 'What is the Kanjurmarg depot problem?',
+      a: `MMRDA plans the depot at ${x.depot.value}, on ${x.depot.area_ha} hectares. The district collector handed about 15 ha to MMRDA in April 2023, but the Centre's salt department challenged it, and in October 2024 the High Court ordered status quo. The state has sent a proposal to the Centre; the land is still not handed over, as reported in August and September 2026. The depot contract went to Sam India Builtwell for Rs 547.45 crore in March 2024 and waits for the land.`,
+      grades: [
+        { status: x.depot.status, source: x.depot.source_url },
+        { status: x.depot.land.status, source: x.depot.land.source_url },
+        { status: x.depot.contract.status, source: x.depot.contract.source_url },
+      ],
+    },
+    {
+      id: 'route',
+      q: 'What is the route of Metro Line 6?',
+      a: `${p.route.value}. It is ${p.length_km.value} km long and fully elevated, and links the Western and Eastern Express Highways. Most of it runs on the median of the Jogeshwari-Vikhroli Link Road. ${x.road_flyover.value}.`,
+      grades: [
+        { status: p.route.status, source: p.route.source_url },
+        { status: x.road_flyover.status, source: x.road_flyover.source_url },
+      ],
+      more: { href: `${base}#map`, label: 'See the route on the map' },
+    },
+    {
+      id: 'stations',
+      q: 'Which stations are on Line 6?',
+      a: `${stations.length}, all elevated, in order: ${stations.map((s) => s.name).join(', ')}.`,
+      grades: [{ status: p.stations_count.status, source: p.stations_count.source_url }],
+      more: { href: `${base}stations/`, label: 'A page for every station' },
+    },
+    {
+      id: 'interchanges',
+      q: 'Where does Line 6 meet other lines?',
+      a: `${x.interchanges.value.map((i) => `${i.station}: ${i.connects_to}`).join('. ')}. MMRDA also names Line 3 'at Arey Colony Area', without the Line 6 station.`,
+      grades: [{ status: x.interchanges.status, source: x.interchanges.source_url }],
+    },
+    {
+      id: 'cost',
+      q: 'How much does Metro Line 6 cost?',
+      a: `MMRDA gives a completion cost of Rs ${inr(x.completion_cost_crore_inr.value)} crore. Trade press gives Rs ${inr(x.completion_cost_crore_inr.history[0].value)} crore. A New Development Bank loan pays for the trains and systems, as reported.`,
+      grades: [
+        { status: x.completion_cost_crore_inr.status, source: x.completion_cost_crore_inr.source_url },
+        { status: x.funding.status, source: x.funding.source_url },
+      ],
+    },
+    {
+      id: 'builder',
+      q: 'Who is building Line 6?',
+      a: `MMRDA. The viaduct and stations: J Kumar Infraprojects from Swami Samarth Nagar to Shyam Nagar (BC-03, ${formatDate(tender('bc-03').award_date!)}) and from IIT Powai to Vikhroli (BC-01R1, Rs ${inr(tender('bc-01r1').awarded_value_crore!)} crore); MBZ-EIIL JV from Mahakali Caves to Powai Lake (BC-02R, Rs ${inr(tender('bc-02r').awarded_value_crore!)} crore). Station finishing: three packages from February 2025. Power and E&M: IRCON (CA-233). Trains and signalling: NCC with Titagarh (CA-232). All as reported.`,
+      grades: [
+        { status: p.implementing_agency.status, source: p.implementing_agency.source_url },
+        { status: tender('bc-01r1').status, source: tender('bc-01r1').source_url },
+        { status: tender('bc-02r').status, source: tender('bc-02r').source_url },
+        { status: tender('ca-233').status, source: tender('ca-233').source_url },
+      ],
+    },
+    ...(trains
+      ? [
+          {
+            id: 'trains',
+            q: 'Which trains will run on Line 6?',
+            a: `${trains.procurement.trains} trains of ${trains.procurement.cars_per_train} cars, built by ${trains.procurement.manufacturer} for ${trains.procurement.contractor}, which holds the systems contract, as reported. A first train tender, for 108 cars, was cancelled by MMRDA on ${formatDate(event('ca-130-cancelled').date)}. No report of a train reaching Mumbai was found.`,
+            grades: [
+              { status: trains.procurement.status, source: trains.procurement.source_url },
+              { status: event('ca-130-cancelled').status, source: event('ca-130-cancelled').source_url },
+            ],
+          },
+        ]
+      : []),
+    {
+      id: 'riders',
+      q: 'How many people will use Line 6?',
+      a: `About ${p.daily_ridership_2031.display} riders a day by 2031, as MMRDA projects, with up to 29,658 an hour in the busiest direction. MMRDA says the line saves 30 to 45 minutes between Andheri and the Eastern Express Highway.`,
+      grades: [
+        { status: p.daily_ridership_2031.status, source: p.daily_ridership_2031.source_url },
+        { status: x.travel_time_benefit.status, source: x.travel_time_benefit.source_url },
+      ],
+    },
+    {
+      id: 'names',
+      q: 'What else is Metro Line 6 called?',
+      a: `${p.name.value} is also called ${p.name.also_known_as[0]} or the ${p.name.also_known_as[1]}. MMRDA's page names no colour; trade press calls it the Pink Line, as reported.`,
+      grades: [
+        { status: p.name.status, source: p.name.source_url },
+        { status: x.line_color.status, source: x.line_color.source_url },
+      ],
+    },
+  ];
+}
+
+const sets: Record<string, (line: Line) => Answer[]> = { 'line-12': line12, 'line-12a': line12a, 'line-5': line5, 'line-4': line4, 'line-2b': line2b, 'line-6': line6 };
 
 /**
  * Opening mode: once the line's first section has an announced or past opening date, that date answers

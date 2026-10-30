@@ -95,14 +95,9 @@
     {
       "id": "line-6",
       "number": "6",
-      "name": "Swami Samarth Nagar to Vikhroli",
-      "colour_name": { "value": "Pink", "status": "reported", "source_url": "https://themetrorailguy.com/?p=27331", "last_verified": "2026-10-19" },
-      "agency": { "value": "MMRDA", "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview", "last_verified": "2026-10-29" },
-      "ends": ["Swami Samarth Nagar", "Vikhroli (EEH)"],
-      "length_km": { "value": 15.31, "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview", "last_verified": "2026-10-29" },
-      "stations": { "value": 13, "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview", "last_verified": "2026-10-29" },
+      "tracked": "line-6",
       "parts": [
-        { "name": "Whole line", "stage": "under_construction", "note": "Station works 87.35% complete (MMRDA, 31 Aug 2026).", "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview", "last_verified": "2026-10-29" }
+        { "name": "Whole line", "stage": "under_construction", "note": "Station works 87.35% complete (MMRDA, 31 Aug 2026); not open.", "from_tracked": "current_phase" }
       ]
     },
     {
