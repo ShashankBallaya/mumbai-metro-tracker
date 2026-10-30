@@ -1,0 +1,72 @@
+{
+  "_meta": {
+    "description": "Tenders and contract packages for Line 7A. Values in crore INR. 'tender_status' is floated, bids_opened, awarded, cancelled or unknown. Only packages whose source was read are listed; the telecom (Efkon), radio and fare collection (LTTS) contracts for Lines 9 and 7A, and the signalling, wait for a source read in full.",
+    "last_reviewed": "2026-10-30"
+  },
+  "tenders": [
+    {
+      "id": "ca-48",
+      "package": "CA-48",
+      "scope": "Viaduct, ramp, bored tunnels and both stations of 7A",
+      "floated": null,
+      "estimated_value_crore": null,
+      "awarded_value_crore": 1998,
+      "awarded_to": "j-kumar",
+      "award_date": "2019-09",
+      "duration_months": null,
+      "tender_status": "awarded",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2025/07/15/j-kumars-mumbai-metro-tbm-dhruv-records-final-breakthrough-for-line-7a/",
+      "last_verified": "2026-10-30",
+      "notes": null
+    },
+    {
+      "id": "sewer-diversion",
+      "package": "MMRDA notice 12/02/2021-9255",
+      "scope": "Diversion of the 1,800 mm sewer line crossing the 7A alignment near the airport",
+      "floated": "2021-12-02",
+      "estimated_value_crore": null,
+      "awarded_value_crore": null,
+      "awarded_to": null,
+      "award_date": null,
+      "duration_months": null,
+      "tender_status": "unknown",
+      "status": "verified",
+      "source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2021-12/notice_diversion.pdf",
+      "last_verified": "2026-10-30",
+      "notes": "MMRDA tender notice, 2 Dec 2021 (closing 5 Jan 2022). No award was found."
+    },
+    {
+      "id": "crz-consultant",
+      "package": "MMRDA notice 09/28/2022-1888",
+      "scope": "Consultant to obtain the coastal zone (CRZ) clearance and update the environmental report of Lines 9 and 7A",
+      "floated": "2022-09-28",
+      "estimated_value_crore": null,
+      "awarded_value_crore": null,
+      "awarded_to": null,
+      "award_date": null,
+      "duration_months": null,
+      "tender_status": "unknown",
+      "status": "verified",
+      "source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2022-09/notice%20%284%29.pdf",
+      "last_verified": "2026-10-30",
+      "notes": "MMRDA notice, 28 Sep 2022 (closing 5 Oct 2022). No award was found."
+    },
+    {
+      "id": "ca-176",
+      "package": "CA-176",
+      "scope": "Power: 33 kV and 25 kV cabling, overhead wire with switching station, auxiliary power, SCADA, for Lines 9 and 7A",
+      "floated": null,
+      "estimated_value_crore": 108.01,
+      "awarded_value_crore": null,
+      "awarded_to": "leena-umesh",
+      "award_date": "2025-06",
+      "duration_months": 30,
+      "tender_status": "awarded",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2024/07/24/leena-wins-mumbai-metro-line-7a-9s-electrification-contract-ca-176/",
+      "last_verified": "2026-10-30",
+      "notes": "Lowest bid Rs 122.09 crore (13.03% above the estimate), against Siemens at Rs 185.35 crore; award reported in a June 2025 update, value not given. Metro Rail Today reports about Rs 118.2 crore at the letter of acceptance. Shared with Line 9."
+    }
+  ]
+}

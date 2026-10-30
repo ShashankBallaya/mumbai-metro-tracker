@@ -87,6 +87,9 @@
   /* Line 6, Pink Line (reported): its mark, and its pages' accent (see below). White on it is 5.3:1; it is 4.4:1 on morning paper and 3.5:1 on night paper. */
   --line-6: #c2306e;
   --on-line-6: #ffffff;
+  /* Line 7A, Line 7's Red (MMRDA calls 7A Line 7's extension): its mark, and its pages' accent (see below). White on it is 5.9:1. */
+  --line-7a: #c0272b;
+  --on-line-7a: #ffffff;
   /* Line 2B, Yellow Line (MMRDA): its mark, and its pages' accent (see the end). Navy on it is 10.9:1. */
   --line-2b: #f2c11d;
   --on-line-2b: #0c1422;
@@ -95,6 +98,9 @@
   --on-line-orange: #0c1422;
   /* Hub network map only (src/lib/network.ts): Line 7 Red (MMRDA), Line 3 Aqua and Line 8 Gold (reported).
      No source gives a colour value, so these are the site's own. White on red 5.0:1; navy on aqua 8.4:1, on gold 9.6:1. */
+  /* Line 1 Blue (reported: the operator's colour; no official colour was announced). White on it 4.8:1, 3.8:1 on night paper. */
+  --net-blue: #2f6fd6;
+  --on-net-blue: #ffffff;
   --net-red: #d42e2e;
   --on-net-red: #ffffff;
   --net-aqua: #36b7c9;
@@ -249,6 +255,46 @@
   --focus: #f07fb3;
   --selection-bg: #e0589a;
   --selection-ink: #0c1422;
+}
+
+/*
+ * Line 7A, red. On morning paper the bands are #c0272b with white text (5.9:1) and accent text is
+ * #b82326 (5.3:1). On night paper the red stays saturated (a light red reads as coral there): bands
+ * #d61f26 with white text (5.1:1), route lines and bars #e5332f (4.3:1 on night paper), strokes, large
+ * figures and focus #ff4a3d (5.5:1).
+ */
+[data-accent='line-7a'] {
+  --signal: #c0272b;
+  --signal-line: #b82326;
+  --signal-graphic: #c0272b;
+  --on-signal: #ffffff;
+  --focus: #b82326;
+  --selection-bg: #c0272b;
+  --selection-ink: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) [data-accent='line-7a'],
+  :root[data-accent='line-7a']:not([data-theme='light']) {
+    --signal: #d61f26;
+    --signal-line: #ff4a3d;
+    --signal-graphic: #e5332f;
+    --on-signal: #ffffff;
+    --focus: #ff4a3d;
+    --selection-bg: #d61f26;
+    --selection-ink: #ffffff;
+  }
+}
+
+:root[data-theme='dark'] [data-accent='line-7a'],
+:root[data-accent='line-7a'][data-theme='dark'] {
+  --signal: #d61f26;
+  --signal-line: #ff4a3d;
+  --signal-graphic: #e5332f;
+  --on-signal: #ffffff;
+  --focus: #ff4a3d;
+  --selection-bg: #d61f26;
+  --selection-ink: #ffffff;
 }
 
 /*

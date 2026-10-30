@@ -38,6 +38,8 @@ export interface Schematic {
   extension?: { joint: [number, number]; shield: [number, number]; label: string };
   /** A spur: the index of the station it leaves from, its path, and its station points in order. */
   branch?: { from: number; path: string; points: [number, number][] };
+  /** The 45-degree bend, in viewBox units: where it starts (x), its run and drop, and the top row's y. The ride's train follows it. */
+  bend?: { x: number; drop: number; top: number };
 }
 
 interface AlignmentProps {
@@ -96,8 +98,9 @@ export function schematic(line: Line, { width = 1000, top = 26, drop = 44, pad =
 
   /** The line's path between two distances, with the bend corners in between. */
   const stretch = (ca: number, cb: number) => {
-    const xa = xAt(ca);
-    const xb = xAt(cb);
+    // Clamped to the drawn line: a stretch can run past the last station (7A's tunnel ends beyond its airport station).
+    const xa = xAt(Math.max(ca, c0));
+    const xb = Math.min(xAt(cb), xEnd);
     const corners = bendAt === undefined ? [] : [bendAt, bendAt + drop].filter((x) => x > xa && x < xb);
     return [xa, ...corners, xb].map((x, k) => `${k ? 'L' : 'M'}${x.toFixed(1)} ${yAt(x).toFixed(1)}`).join(' ');
   };
@@ -135,5 +138,6 @@ export function schematic(line: Line, { width = 1000, top = 26, drop = 44, pad =
     open: openAt.length > 1 ? stretch(Math.min(...openAt), Math.max(...openAt)) : undefined,
     branch,
     extension,
+    bend: bendAt === undefined ? undefined : { x: bendAt, drop, top },
   };
 }

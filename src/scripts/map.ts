@@ -231,11 +231,17 @@ export async function mount(section: HTMLElement) {
       const style = buildStyle(alignment, stations, selected, showOld);
       src.setData((style.sources.stations as { data: GeoJSON.FeatureCollection }).data);
     }
-    if (fly) map.flyTo({ center: [s.lng!, s.lat] as LngLatLike, zoom: 15.5, duration: reduced ? 0 : 1400, essential: true });
+    // A choice made from the keyboard (arrow keys in the station list) jumps: no motion on keyboard actions.
+    if (fly) map.flyTo({ center: [s.lng!, s.lat] as LngLatLike, zoom: 15.5, duration: reduced || byKeyboard ? 0 : 900, essential: true });
     showStreet(s);
   }
 
+  // Whether the station list was last worked from the keyboard (arrow keys change it one station at a time).
+  let byKeyboard = false;
+  select.addEventListener('keydown', () => (byKeyboard = true));
+  select.addEventListener('pointerdown', () => (byKeyboard = false));
   select.addEventListener('change', () => select_(select.value));
+  map.on('click', 'stations', () => (byKeyboard = false));
   map.on('click', 'stations', (e: MapLayerMouseEvent) => {
     const id = e.features?.[0]?.properties?.id as string | undefined;
     if (id) select_(id);

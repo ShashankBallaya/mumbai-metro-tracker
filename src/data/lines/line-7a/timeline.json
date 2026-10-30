@@ -1,0 +1,129 @@
+{
+  "_meta": {
+    "description": "Key milestones of Line 7A, oldest first. 'date_precision' is day, month or year. 'kind' is planning, approval, tender, award, construction, related or future. Only events whose source was read are listed.",
+    "last_reviewed": "2026-10-30"
+  },
+  "events": [
+    {
+      "id": "state-approval",
+      "date": "2018-09-11",
+      "date_precision": "day",
+      "kind": "approval",
+      "title": "State Cabinet approves 7A with Line 9",
+      "summary": "The Maharashtra Cabinet approves Andheri to the airport (7A) and Dahisar to Mira-Bhayandar (Line 9), Rs 6,607 crore for both; 7A at 3.17 km, 0.98 km elevated and 2.19 km underground.",
+      "status": "reported",
+      "source_url": "https://ummid.com/news/2018/September/11.09.2018/dahisar-mira-bhayander-and-andheri-csim-airport-metro-projects-get-cabinet-nod.html",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "ca-48",
+      "date": "2019-09",
+      "date_precision": "month",
+      "kind": "award",
+      "title": "Civil contract CA-48 to J Kumar",
+      "summary": "Viaduct, ramp, tunnels and both stations of 7A, Rs 1,998 crore.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2025/07/15/j-kumars-mumbai-metro-tbm-dhruv-records-final-breakthrough-for-line-7a/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "sewer-diversion",
+      "date": "2021-12-02",
+      "date_precision": "day",
+      "kind": "tender",
+      "title": "Sewer diversion tender near the airport",
+      "summary": "MMRDA invites bids to divert an 1,800 mm sewer line that crosses the 7A alignment near the airport.",
+      "status": "verified",
+      "source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2021-12/notice_diversion.pdf",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "crz-notice",
+      "date": "2022-09-28",
+      "date_precision": "day",
+      "kind": "tender",
+      "title": "Consultant for coastal zone clearance",
+      "summary": "MMRDA invites bids to obtain the coastal zone (CRZ) clearance and update the environmental report of Lines 9 and 7A.",
+      "status": "verified",
+      "source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2022-09/notice%20%284%29.pdf",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "tbm-dhruv-start",
+      "date": "2023-11",
+      "date_precision": "month",
+      "kind": "construction",
+      "title": "Tunnel boring starts at the airport",
+      "summary": "TBM Dhruv starts its up-line tunnel from the Terminal 2 shaft towards Airport Colony.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2025/07/15/j-kumars-mumbai-metro-tbm-dhruv-records-final-breakthrough-for-line-7a/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "tbm-disha-through",
+      "date": "2025-04",
+      "date_precision": "month",
+      "kind": "construction",
+      "title": "First tunnel breakthrough at Airport Colony",
+      "summary": "TBM Disha completes the down-line tunnel, about 1.65 km, from the airport to Airport Colony.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2025/04/18/j-kumars-mumbai-metro-tbm-disha-records-breakthrough-for-line-7a/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "ca-176",
+      "date": "2025-06",
+      "date_precision": "month",
+      "kind": "award",
+      "title": "Power and overhead wire contract CA-176",
+      "summary": "MMRDA awards CA-176 (33 kV and 25 kV cabling, overhead wire, auxiliary power, SCADA) for Lines 9 and 7A to the Leena Powertech-Umesh Brothers JV, the lowest bidder at Rs 122.09 crore.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2024/07/24/leena-wins-mumbai-metro-line-7a-9s-electrification-contract-ca-176/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "tbm-dhruv-through",
+      "date": "2025-07-14",
+      "date_precision": "day",
+      "kind": "construction",
+      "title": "Second tunnel breakthrough: bored tunnels complete",
+      "summary": "TBM Dhruv reaches Airport Colony. Both bored tunnels are done; cross-passages remain.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2025/07/15/j-kumars-mumbai-metro-tbm-dhruv-records-final-breakthrough-for-line-7a/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "height-issue",
+      "date": "2026-08-27",
+      "date_precision": "day",
+      "kind": "related",
+      "title": "Airport height limit holds up the works",
+      "summary": "Part of the elevated stretch near Airport Colony is reported above the height the airport allows for the overhead wire; up to about Rs 250 crore of work may have to be rebuilt.",
+      "status": "reported",
+      "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-7a-viaduct-at-risk-of-reconstruction-as-mmrda-consultant-missed-ohe-height-requirements",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "aai-pending",
+      "date": "2026-10-08",
+      "date_precision": "day",
+      "kind": "related",
+      "title": "Airports Authority assessment still pending",
+      "summary": "The Airports Authority of India is making its final technical assessment of the permissible height; MMRDA will review after the report.",
+      "status": "reported",
+      "source_url": "https://www.constructionworld.in/transport-infrastructure/metro-rail-and-railways-infrastructure/mumbai-metro-line-7a-faces-airport-height-clearance-hurdle/98277",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "target-2027",
+      "date": "2027",
+      "date_precision": "year",
+      "kind": "future",
+      "title": "Earliest reported opening",
+      "summary": "The Metro Rail Guy (Jul 2025) expects operations no sooner than the third quarter of 2027. MMRDA has announced no date.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2025/07/15/j-kumars-mumbai-metro-tbm-dhruv-records-final-breakthrough-for-line-7a/",
+      "last_verified": "2026-10-30"
+    }
+  ]
+}

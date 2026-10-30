@@ -1,0 +1,102 @@
+{
+  "_meta": {
+    "description": "Line 7A's stations in order from Airport Colony to CSIA, as MMRDA's Line 9 and 7A page lists them. 'kml_name' is the station's point in MMRDA's alignment file. Positions and along_m come from scripts/build-alignment-line7a.py. Names follow MMRDA's English list; name_mr its Marathi page.",
+    "order_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+    "order_status": "verified",
+    "count_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+    "names_mr_source_url": "https://mmrda.maharashtra.gov.in/mr/projects/transport/metro-line-9/overview",
+    "names_mr_status": "verified",
+    "last_reviewed": "2026-10-30"
+  },
+  "stations": [
+    {
+      "id": "airport-colony",
+      "order": 1,
+      "name": "Airport Colony",
+      "name_mr": "विमानतळ कॉलनी",
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+      "dpr_name": null,
+      "kml_name": "AIRPORT COLONY",
+      "location": {
+        "lng": 72.85397,
+        "lat": 19.106123,
+        "along_m": 0,
+        "method": "MMRDA alignment file for Line 7A (KMZ on the Metro Influence Zone page, uploaded March 2025): point \"AIRPORT COLONY\". along_m is measured along the centre line between the file's two tracks, from Airport Colony station; the point is 6 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview"
+      },
+      "context": [
+        {
+          "text": "On the Western Express Highway in Vile Parle (E), the first station after Gundavali, where 7A leaves Line 7.",
+          "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc",
+          "status": "verified"
+        },
+        {
+          "text": "The height the airport allows here is below the design for the overhead wire; part of the stretch may have to be rebuilt (reported, Aug 2026).",
+          "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-7a-viaduct-at-risk-of-reconstruction-as-mmrda-consultant-missed-ohe-height-requirements",
+          "status": "reported"
+        }
+      ],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+        "notes": "MMRDA, 31 Aug 2026: elevated station items 100% except T and L girder erection (74%). Civil package CA-48 (J Kumar Infraprojects)."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "csia",
+      "order": 2,
+      "name": "CSIA",
+      "name_mr": "छत्रपती शिवाजी महाराज आंतरराष्ट्रीय विमानतळ",
+      "type": "Underground",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+      "dpr_name": null,
+      "kml_name": "CSIA (International) Station",
+      "location": {
+        "lng": 72.87418,
+        "lat": 19.101479,
+        "along_m": 2456,
+        "method": "MMRDA alignment file for Line 7A (KMZ on the Metro Influence Zone page, uploaded March 2025): point \"CSIA (International) Station\". along_m is measured along the centre line between the file's two tracks, from Airport Colony station; the point is 29 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [
+          "Metro Line 3 (Colaba-SEEPZ)"
+        ],
+        "status": "reported",
+        "source_url": "https://themetrorailguy.com/2025/07/15/j-kumars-mumbai-metro-tbm-dhruv-records-final-breakthrough-for-line-7a/",
+        "notes": "The Metro Rail Guy (Jul 2025): the Terminal 2 station is where 7A meets Line 3 (Aqua Line), at Line 3's CSMIA T2 station. MMRDA does not name it."
+      },
+      "context": [
+        {
+          "text": "Underground at the airport's Terminal 2 (Chhatrapati Shivaji Maharaj International Airport). MMRDA's alignment file calls it 'CSIA (International) Station'.",
+          "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc",
+          "status": "verified"
+        }
+      ],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+        "notes": "MMRDA, 31 Aug 2026: excavation 98%, base slab 83%, concourse slab 65%, roof slab 64%. Civil package CA-48 (J Kumar Infraprojects)."
+      },
+      "notes": null,
+      "last_verified": "2026-10-30",
+      "dpr_chainage_m": null
+    }
+  ],
+  "dropped_stations": []
+}

@@ -218,6 +218,40 @@
         ],
         "require_corridor": true
       }
+    },
+    "line-7a": {
+      "search": [
+        "7A",
+        "Airport Colony"
+      ],
+      "video_queries": [
+        "Metro Line 7A Andheri Airport",
+        "Mumbai Metro 7A CSMIA tunnel"
+      ],
+      "match": {
+        "comment": "'7A' alone is rare outside Mumbai, but a bare 'Line 7A' still needs a 7A place, as other cities number lines too. 'line[\\s-]*7[\\s-]*a\\b' does not match Line 7 items.",
+        "strong": [
+          "mumbai[\\s-]*metro[\\s-]*(line[\\s-]*)?7[\\s-]*a\\b",
+          "metro[\\s-]*7[\\s-]*a\\b",
+          "मेट्रो[\\s-]*(७|7)[\\s-]*(अ|a)"
+        ],
+        "line": [
+          "lines?[\\s-]*7[\\s-]*a\\b"
+        ],
+        "corridor": [
+          "airport colony",
+          "csmia",
+          "csia",
+          "terminal 2",
+          "t2",
+          "andheri",
+          "gundavali",
+          "vile parle",
+          "sahar",
+          "mmrda"
+        ],
+        "require_corridor": true
+      }
     }
   },
   "exclude_urls": [],

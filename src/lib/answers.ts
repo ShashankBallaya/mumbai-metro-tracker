@@ -764,7 +764,103 @@ function line6(line: Line): Answer[] {
   ];
 }
 
-const sets: Record<string, (line: Line) => Answer[]> = { 'line-12': line12, 'line-12a': line12a, 'line-5': line5, 'line-4': line4, 'line-2b': line2b, 'line-6': line6 };
+/** Line 7A: Line 7's extension to the airport, under construction; an airport height limit holds up part of it. */
+function line7a(line: Line): Answer[] {
+  const { project: p, stations, tenders } = line;
+  const base = lineBase(line.id);
+  type Graded = { value: string; status: string; source_url: string };
+  const x = p as unknown as {
+    target_completion: Graded;
+    completion_cost_crore_inr: { value: number; status: string; source_url: string };
+    length_km: { value: number; status: string; source_url: string; alternatives: { value: number; source_url: string }[]; underground_km: { value: number; status: string; source_url: string } };
+    interchanges: { value: { station: string; connects_to: string }[]; status: string; source_url: string };
+    incidents: { status: string; source_url: string; also_see?: string[] }[];
+    line_color: Graded;
+  };
+  const prog = p.progress;
+  const pct = (activity: string) => prog.items.find((i) => i.activity === activity)!.percent_complete;
+  const tender = (id: string) => tenders.find((e) => e.id === id)!;
+  const height = x.incidents[0];
+  return [
+    {
+      id: 'opening',
+      q: 'When will Mumbai Metro Line 7A open?',
+      a: `MMRDA has announced no date. A trade press estimate of July 2025 puts the opening no sooner than the third quarter of ${x.target_completion.value}; the site counts down to the end of ${x.target_completion.value}. An earlier report's December 2026 will not be met: the short mined tunnels had not started by August 2026, and an airport height limit holds up part of the work.`,
+      grades: [
+        { status: x.target_completion.status, source: x.target_completion.source_url },
+        { status: prog.status, source: prog.source_url },
+      ],
+    },
+    {
+      id: 'height',
+      q: 'What is the Line 7A airport height problem?',
+      a: `Near Airport Colony, the elevated stretch and the ramp are lower than the overhead wire needs: the airport's permits of 2024 set heights up to about 2.4 m below the design. Work in that area stopped, and up to about Rs 250 crore of work may have to be rebuilt. MMRDA blamed its general consultant for not flagging the limit. On 8 Oct 2026 the Airports Authority of India was still making its final assessment. All as reported.`,
+      grades: [{ status: height.status, source: height.source_url }, ...(height.also_see ?? []).slice(0, 1).map((u) => ({ status: 'reported', source: u }))],
+    },
+    {
+      id: 'progress',
+      q: 'How much of Line 7A is built?',
+      a: `MMRDA's table for ${formatDate(prog.as_of)}: the viaduct is complete and both bored tunnels are done. Left: the airport station (roof slab ${pct('Airport station, roof slab')}%), the cut and cover box (base slab ${pct('Cut and cover, base slab')}%), the elevated ramp (${pct('Elevated ramp')}%) and the two short mined tunnels (${pct('Mined tunnels (NATM)')}%).`,
+      grades: [{ status: prog.status, source: prog.source_url }],
+    },
+    {
+      id: 'route',
+      q: 'What is the route of Metro Line 7A?',
+      a: `${p.route.value}. Sources give its length as ${x.length_km.value} km or ${x.length_km.alternatives[0].value} km; MMRDA gives ${x.length_km.underground_km.value} km of it as underground. It continues Line 7 from Gundavali south along the Western Express Highway to Airport Colony, then goes under the airport to Terminal 2.`,
+      grades: [
+        { status: p.route.status, source: p.route.source_url },
+        { status: x.length_km.status, source: x.length_km.source_url },
+      ],
+      more: { href: `${base}#map`, label: 'See the route on the map' },
+    },
+    {
+      id: 'stations',
+      q: 'Which stations are on Line 7A?',
+      a: `${stations.length}: ${stations.map((s) => `${s.name} (${s.type.toLowerCase()})`).join(' and ')}, at the airport's Terminal 2.`,
+      grades: [{ status: p.stations_count.status, source: p.stations_count.source_url }],
+      more: { href: `${base}stations/`, label: 'A page for every station' },
+    },
+    {
+      id: 'interchanges',
+      q: 'Where does Line 7A meet other lines?',
+      a: `It continues Line 7 from Gundavali, so Line 7's trains are to run through to the airport. ${x.interchanges.value.map((i) => `${i.station}: ${i.connects_to}`).join('. ')}, as reported.`,
+      grades: [{ status: x.interchanges.status, source: x.interchanges.source_url }],
+    },
+    {
+      id: 'cost',
+      q: 'How much does Metro Line 7A cost?',
+      a: `MMRDA gives one cost for Lines 9 and 7A together: Rs ${inr(x.completion_cost_crore_inr.value)} crore, including state taxes and escalation. For 7A alone, a report of August 2026 gives Rs 812 crore; the civil contract alone is reported at Rs ${inr(tender('ca-48').awarded_value_crore!)} crore. No MMRDA figure for 7A alone was found.`,
+      grades: [
+        { status: x.completion_cost_crore_inr.status, source: x.completion_cost_crore_inr.source_url },
+        { status: tender('ca-48').status, source: tender('ca-48').source_url },
+      ],
+    },
+    {
+      id: 'builder',
+      q: 'Who is building Line 7A?',
+      a: `MMRDA. J Kumar Infraprojects holds the civil contract (CA-48, ${formatDate(tender('ca-48').award_date!)}): viaduct, ramp, tunnels and both stations. Its two tunnel boring machines, Disha and Dhruv, finished in April and July 2025. Power and overhead wire for Lines 9 and 7A: the Leena Powertech-Umesh Brothers JV (CA-176). All as reported.`,
+      grades: [
+        { status: p.implementing_agency.status, source: p.implementing_agency.source_url },
+        { status: tender('ca-48').status, source: tender('ca-48').source_url },
+        { status: tender('ca-176').status, source: tender('ca-176').source_url },
+      ],
+    },
+    {
+      id: 'riders',
+      q: 'How many people will use Line 7A?',
+      a: `MMRDA gives one figure for Lines 9 and 7A together: about ${p.daily_ridership_2031.display} riders a day by 2031. No figure for 7A alone.`,
+      grades: [{ status: p.daily_ridership_2031.status, source: p.daily_ridership_2031.source_url }],
+    },
+    {
+      id: 'names',
+      q: 'What else is Metro Line 7A called?',
+      a: `${p.name.value} is also called ${p.name.also_known_as.join(', ')}. MMRDA calls it the extension of Line 7, whose colour is ${x.line_color.value}.`,
+      grades: [{ status: x.line_color.status, source: x.line_color.source_url }],
+    },
+  ];
+}
+
+const sets: Record<string, (line: Line) => Answer[]> = { 'line-12': line12, 'line-12a': line12a, 'line-5': line5, 'line-4': line4, 'line-2b': line2b, 'line-6': line6, 'line-7a': line7a };
 
 /**
  * Opening mode: once the line's first section has an announced or past opening date, that date answers

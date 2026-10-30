@@ -81,7 +81,7 @@ const km = (m: number) => (m / 1000).toLocaleString('en-IN', { minimumFractionDi
             <span class="ride__shield" style={`--x:${(strip.extension.shield[0] / strip.width) * 100}%;--y:${(strip.extension.shield[1] / strip.height) * 100}%`}>{strip.extension.label}</span>
           </>
         )}
-        <span class="ride__train" data-ride-train></span>
+        <span class="ride__train" data-ride-train data-bend={strip.bend ? JSON.stringify({ x: (strip.bend.x / strip.width) * 100, run: (strip.bend.drop / strip.width) * 100, top: (strip.bend.top / strip.height) * 100, drop: (strip.bend.drop / strip.height) * 100 }) : undefined}></span>
       </div>
 
       <ol class="ride__stations">
@@ -145,6 +145,7 @@ const km = (m: number) => (m / 1000).toLocaleString('en-IN', { minimumFractionDi
       <p class="ride__legend">
         {strip.open && <span class="ride__legend-line ride__legend-line--open" aria-hidden="true"></span>}
         <span class="ride__legend-line" aria-hidden="true"></span>
+        {strip.underground && <span class="ride__legend-line ride__legend-line--tunnel" aria-hidden="true"></span>}
         <span>{lineCopy(line, 'route_legend')}{strip.open && !/solid/i.test(lineCopy(line, 'route_legend')) && ' A solid line marks track in service.'}</span>
       </p>
     </div>
@@ -578,6 +579,10 @@ const km = (m: number) => (m / 1000).toLocaleString('en-IN', { minimumFractionDi
   }
   .ride__legend-line--open {
     background: var(--signal-graphic);
+  }
+  /* The underground stretch, as the ride draws it: hollow rails broken into dashes. */
+  .ride__legend-line--tunnel {
+    border-style: dashed;
   }
   .ride__status--open {
     font-weight: 700;

@@ -408,6 +408,100 @@
       }
     },
     {
+      "id": "line-7a",
+      "label": "Line 7A",
+      "number": "7A",
+      "colour": "line-7a",
+      "mark_mr": "मेट्रो ७अ",
+      "route_short": "Andheri (E) to the airport",
+      "alignment": "alignment-mmrda-2025.geojson",
+      "about": {
+        "name": "Mumbai Metro Line 7A",
+        "alternate_names": [
+          "Metro Line 7A",
+          "Metro 7A",
+          "Line 7 extension",
+          "Andheri-Airport Metro"
+        ],
+        "description": "A metro line from Gundavali in Andheri (E), where it extends Line 7, along the Western Express Highway to Airport Colony and underground to the airport's Terminal 2, built by MMRDA. Under construction; no stretch is open.",
+        "same_as": [
+          "https://en.wikipedia.org/wiki/Red_Line_(Mumbai_Metro)",
+          "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview"
+        ]
+      },
+      "position_basis": {
+        "default": "MMRDA's alignment file, Mar 2025",
+        "by_source": {}
+      },
+      "copy": {
+        "ends": [
+          "Airport Colony",
+          "CSIA"
+        ],
+        "runs": "which extends Line 7 from Gundavali in Andheri (E) to Airport Colony and then underground to the airport's Terminal 2",
+        "station_state": null,
+        "stations_section": "Both, in order from Airport Colony to the airport. Names follow MMRDA. Select a station to ride to it, or open its own page.",
+        "stations_page": "Both, in order from Airport Colony, elevated, to CSIA, underground at the airport's Terminal 2. The line runs {km} km from Gundavali, where it leaves Line 7. No station is open yet.",
+        "stations_page_description": "The {total} stations of {name}, Airport Colony and the underground airport station at Terminal 2, with interchanges and a page for each station.",
+        "route_section": "Two stations, Airport Colony to the airport. Scroll to ride the line. Distances follow MMRDA's alignment file of March 2025, from Airport Colony; the 0.46 km from Gundavali, where 7A leaves Line 7, is not drawn.",
+        "route_legend": "A hollow line marks track under construction; a dashed line marks the underground stretch. No stretch is open.",
+        "drawn_from": [
+          "MMRDA's alignment file",
+          " of March 2025"
+        ],
+        "headline_html": "Follow Mumbai Metro Line&nbsp;7A<br> from Andheri to the airport.",
+        "front_standfirst": "Line 7A carries Line 7 on from Andheri (E) to the airport: one elevated station at Airport Colony, then a tunnel to Terminal 2. Both tunnels are bored; on {as_of}, MMRDA put the airport station's roof slab at {pct:Airport station, roof slab} per cent. An airport height limit near Airport Colony holds up part of the work. {stations} stations in all.",
+        "countdown_title": "Days to the earliest reported date",
+        "target_html": "Earliest reported: <strong>{target}</strong>, not before the third quarter, by a trade press estimate. No month; the site counts to the end of the year. MMRDA has announced no date.",
+        "lead_scene": null,
+        "map_section": "The line on a street map. Choose a station to see where it sits, what surrounds it and what the street looks like today. The route and stations come from MMRDA's alignment file of March 2025.",
+        "map_legend": "Route, MMRDA's alignment file; under construction",
+        "map_underground_legend": "Underground stretch, MMRDA's 2.195 km measured back from the end of the tracks",
+        "map_first_station": "airport-colony",
+        "numbers": {
+          "length_unit": "km from Gundavali; sources differ",
+          "stations_unit": "one elevated, one underground",
+          "cost_unit": ", for Lines 9 and 7A together",
+          "cost_note": "MMRDA's Line 9 and 7A page gives one cost for both lines, including state taxes and escalation. No figure for 7A alone was read from MMRDA.",
+          "funding_head": "Not published",
+          "funding_note": "No loan or funding split for 7A was read.",
+          "depot_history": [],
+          "travel_head": "50 to 75% shorter",
+          "travel_unit": "than by road today, for Lines 9 and 7A (MMRDA)"
+        },
+        "primary_sources": [
+          {
+            "name": "MMRDA, Metro Line 9 and 7A project page",
+            "note": "Stations, underground length, cost and riders for both lines, and the monthly progress table for 7A.",
+            "url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview"
+          },
+          {
+            "name": "Alignment file of Line 7A (MMRDA, March 2025)",
+            "note": "The two tracks, from which the route line is drawn, and both station points.",
+            "url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+          },
+          {
+            "name": "MMRDA, Metro Line 9 and 7A page in Marathi",
+            "note": "The station names in Marathi.",
+            "url": "https://mmrda.maharashtra.gov.in/mr/projects/transport/metro-line-9/overview"
+          },
+          {
+            "name": "MMRDA tender notices for 7A",
+            "note": "The sewer diversion near the airport (2021) and the coastal zone clearance consultant (2022).",
+            "url": "https://mmrda.maharashtra.gov.in/en/tenders/tender-notices/archive?title=7A"
+          }
+        ],
+        "page_description": "Unofficial, sourced tracker for Mumbai Metro Line 7A, Andheri (E) to the airport: tunnels, the airport height-limit problem, both stations, map and contracts. Every figure links to its source.",
+        "status_title": "Mumbai Metro Line 7A Status: airport metro progress, opening",
+        "status_description": "How far Metro Line 7A (Andheri to the airport) has got, when it may open, the airport height issue, stations, cost and builders. Answers from MMRDA and news sources, checked {checked}.",
+        "status_h1": "Metro Line 7A status, answered",
+        "status_mr": "अंधेरी-विमानतळ मेट्रो ७अ",
+        "status_lead": "The questions people ask about Mumbai Metro Line 7A, Andheri (E) to the airport.",
+        "footer_disclaimer": "Mumbai Metro Tracker is an independent public-interest site. It is not affiliated with, endorsed by or connected to MMRDA, Maha Mumbai Metro or the Government of Maharashtra. Drawings are original illustrations, not official designs. Check official sources before making decisions.",
+        "dropped_heading": "In an earlier plan, not on MMRDA's list now"
+      }
+    },
+    {
       "id": "line-12",
       "label": "Line 12",
       "number": "12",
@@ -598,6 +692,15 @@
     }
   ],
   "other_lines": [
+    {
+      "number": "1",
+      "name": "Blue Line",
+      "colour": "net-blue",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2020/02/29/mumbai-metros-official-line-colours-unveiled/",
+      "last_verified": "2026-10-30",
+      "notes": "The Metro Rail Guy (Feb 2020): no official colour was announced for Line 1; blue is its operator's colour. Added on the owner's request (2026-10-30)."
+    },
     {
       "number": "2A",
       "name": "Yellow Line",

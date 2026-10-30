@@ -172,6 +172,10 @@ function setUpRide(): ScrollTrigger | null {
   const ticks = [...section.querySelectorAll<HTMLElement>('[data-ride-tick]')];
   const xs = stations.map((s) => parseFloat(getComputedStyle(s).getPropertyValue('--x')));
   const ys = stations.map((s) => parseFloat(getComputedStyle(s).getPropertyValue('--y')));
+  // The line's height at x (both in % of the track), so the train rides the 45-degree bend instead of
+  // cutting the corner between two stations on either side of it (Line 7A).
+  const bend = train.dataset.bend ? (JSON.parse(train.dataset.bend) as { x: number; run: number; top: number; drop: number }) : null;
+  const onLine = (x: number) => (bend ? bend.top + Math.max(0, Math.min((x - bend.x) / bend.run, 1)) * bend.drop : null);
   section.classList.add('is-riding');
   train.style.left = `${xs[0]}%`;
   train.style.top = `${ys[0]}%`;
@@ -201,8 +205,9 @@ function setUpRide(): ScrollTrigger | null {
       const a = Math.floor(f);
       const b = Math.min(a + 1, stations.length - 1);
       const t = f - a;
-      train.style.left = `${xs[a] + (xs[b] - xs[a]) * t}%`;
-      train.style.top = `${ys[a] + (ys[b] - ys[a]) * t}%`;
+      const x = xs[a] + (xs[b] - xs[a]) * t;
+      train.style.left = `${x}%`;
+      train.style.top = `${onLine(x) ?? ys[a] + (ys[b] - ys[a]) * t}%`;
       setCurrent(Math.round(f));
     },
   });

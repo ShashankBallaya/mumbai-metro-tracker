@@ -29,9 +29,12 @@ export const GET: APIRoute = ({ site }) => {
   const line6 = getLine('line-6');
   const p6 = line6.project as typeof line6.project & { route: { value: string }; line_color: { value: string }; depot: { land: { value: string } } };
   const b6 = lineBase('line-6');
+  const line7a = getLine('line-7a');
+  const p7a = line7a.project as typeof line7a.project & { route: { value: string }; length_km: { alternatives: { value: number }[]; underground_km: { value: number } } };
+  const b7a = lineBase('line-7a');
   const body = `# ${SITE_NAME}
 
-> An unofficial, sourced tracker for the Mumbai Metro lines MMRDA is building, running or planning: Line 2B (D N Nagar to Mandale, open from Mandale to Chembur), Line 4 with Line 4A (Wadala to Thane and Gaimukh), Line 5 (Thane to Kalyan), Line 6 (Swami Samarth Nagar to Vikhroli), Line 12 (Kalyan to Taloja) and Line 12A (Manpada to Taloja via Kalyan Phata, approved). Every fact carries a grade (verified, reported, unverified, sources conflict) and a source link. Facts last checked ${formatDate(siteReviewed)}. Not affiliated with MMRDA.
+> An unofficial, sourced tracker for the Mumbai Metro lines MMRDA is building, running or planning: Line 2B (D N Nagar to Mandale, open from Mandale to Chembur), Line 4 with Line 4A (Wadala to Thane and Gaimukh), Line 5 (Thane to Kalyan), Line 6 (Swami Samarth Nagar to Vikhroli), Line 7A (Andheri to the airport), Line 12 (Kalyan to Taloja) and Line 12A (Manpada to Taloja via Kalyan Phata, approved). Every fact carries a grade (verified, reported, unverified, sources conflict) and a source link. Facts last checked ${formatDate(siteReviewed)}. Not affiliated with MMRDA.
 
 - [${SITE_NAME}](${url('/')}): every line on one page.
 
@@ -106,6 +109,22 @@ ${all5.map((s) => `- [${s.name} metro station, Line 5](${url(`${b5}stations/${s.
 ${hasStatusPage(line6) ? `- [Line 6 status, answered](${url(`${b6}status/`)}): progress, opening target, depot, cost, builders, trains.\n` : ''}- [All Line 6 stations](${url(`${b6}stations/`)}): the ${line6.stations.length} stations in order.
 ${line6.stations.map((s) => `- [${s.name} metro station, Line 6](${url(`${b6}stations/${s.id}/`)})`).join('\n')}
 
+
+## Line 7A: key facts
+
+- Name: ${p7a.name.value}, also called ${p7a.name.also_known_as.join(', ')}. MMRDA calls it the extension of Line 7.
+- Route: ${p7a.route.value} (MMRDA, verified).
+- Length: ${p7a.length_km.value} km or ${p7a.length_km.alternatives[0].value} km (sources differ); ${p7a.length_km.underground_km.value} km underground (MMRDA). ${line7a.stations.length} stations: ${line7a.stations.map((s) => `${s.name} (${s.type.toLowerCase()})`).join(', ')} (MMRDA, verified).
+- State: ${p7a.current_phase.value}
+- Opening: no MMRDA date; earliest reported ${p7a.target_completion.value} (trade press estimate).
+- Cost: Rs ${inr(p7a.completion_cost_crore_inr.value)} crore for Lines 9 and 7A together (MMRDA, verified).
+
+## Line 7A: pages
+
+- [Line 7A](${url(b7a)}): route, map, progress, the airport height issue, tenders, timeline and sources.
+${hasStatusPage(line7a) ? `- [Line 7A status, answered](${url(`${b7a}status/`)}): opening, height issue, progress, cost, builders.\n` : ''}- [All Line 7A stations](${url(`${b7a}stations/`)}): the ${line7a.stations.length} stations in order.
+${line7a.stations.map((s) => `- [${s.name} metro station, Line 7A](${url(`${b7a}stations/${s.id}/`)})`).join('\n')}
+
 ## Line 12: key facts
 
 - Name: ${p.name.value}, also called ${p.name.also_known_as.join(', ')}.
@@ -151,6 +170,7 @@ ${line12a.stations.map((s) => `- [${s.name} metro station, Line 12A](${url(`${b1
 - [MMRDA Metro Line 4 project page](https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-4/overview)
 - [MMRDA Metro Line 5 project page](https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-5/overview)
 - [MMRDA Metro Line 6 project page](https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-6/overview)
+- [MMRDA Metro Line 9 and 7A project page](https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview)
 - [MMRDA Metro Line 12 project page](https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-12/overview)
 - [MMRDA press release on the extended Line 5, May 2026](https://mmrda.maharashtra.gov.in/sites/default/files/2026-05/extended_metro_line_5_to_strengthen_connectivity_across_thane_bhiwandi_kalyan_and_ulhasnagar.pdf)
 - [Line 12 Detailed Project Report, April 2019](https://mmrda.maharashtra.gov.in/sites/default/files/2021-10/Metro%20Line%2012.pdf)

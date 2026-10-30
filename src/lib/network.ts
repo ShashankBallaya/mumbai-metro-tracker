@@ -61,6 +61,7 @@ const TOKEN_BY_COLOUR: Record<string, string> = {
   Green: 'line-4',
   Pink: 'line-6',
   Red: 'net-red',
+  Blue: 'net-blue',
   Aqua: 'net-aqua',
   Gold: 'net-gold',
   Orange: 'line-orange',

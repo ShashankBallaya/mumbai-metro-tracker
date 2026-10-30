@@ -22,6 +22,7 @@
       "id": "line-1",
       "number": "1",
       "name": "Versova-Andheri-Ghatkopar",
+      "colour_name": { "value": "Blue", "status": "reported", "source_url": "https://themetrorailguy.com/2020/02/29/mumbai-metros-official-line-colours-unveiled/", "last_verified": "2026-10-30", "note": "The Metro Rail Guy (29 Feb 2020): Line 1 never had an official colour announced; it is shown in blue, the colour its operator, Mumbai Metro One, uses in its stations and trains. MMRDA's Line 1 page names no colour (checked 30 Oct 2026). Added on the owner's request (2026-10-30)." },
       "agency": { "value": "Mumbai Metro One Private Limited (MMOPL), a PPP company of MMRDA and Reliance", "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-1/overview", "last_verified": "2026-10-29" },
       "ends": ["Versova", "Ghatkopar"],
       "length_km": { "value": 11.4, "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-1/overview", "last_verified": "2026-10-29" },
@@ -117,13 +118,9 @@
     {
       "id": "line-7a",
       "number": "7A",
-      "name": "Andheri (East) to the airport (CSMIA)",
-      "agency": { "value": "MMRDA", "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview", "last_verified": "2026-10-29" },
-      "ends": ["Gundavali", "CSIA"],
-      "length_km": { "value": null, "status": "unverified", "note": "MMRDA gives one figure, 13.581 km, for Line 9 and Line 7A together, of which 2.195 km is underground (all on 7A).", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview", "last_verified": "2026-10-29" },
-      "stations": { "value": 2, "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview", "last_verified": "2026-10-29" },
+      "tracked": "line-7a",
       "parts": [
-        { "name": "Whole line", "stage": "under_construction", "note": "Viaduct complete; underground station roof slab 64% (MMRDA, 31 Aug 2026).", "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview", "last_verified": "2026-10-29" }
+        { "name": "Whole line", "stage": "under_construction", "note": "Tunnels bored; airport station roof slab 64% (MMRDA, 31 Aug 2026); not open.", "from_tracked": "current_phase" }
       ]
     },
     {

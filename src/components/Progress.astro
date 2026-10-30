@@ -11,8 +11,8 @@ const { project, stages } = line;
 const progress = project.progress;
 /** A figure for the whole line from a news report, when there is one. */
 const overall = (progress as { overall_reported?: typeof project.progress.overall_reported }).overall_reported;
-/** Accidents on the works (Line 4: the Mulund collapse, 14 Feb 2026), from project.json `incidents`. */
-type Incident = { date: string; value: string; notes?: string; status: string; source_url: string; also_see?: string[] };
+/** Accidents and setbacks on the works (Line 4: the Mulund collapse, 14 Feb 2026; Line 7A: the airport height limit), from project.json `incidents`. `heading` names a setback that is not an accident. */
+type Incident = { date: string; heading?: string; value: string; notes?: string; status: string; source_url: string; also_see?: string[] };
 const incidents = (project as { incidents?: Incident[] }).incidents ?? [];
 const stateLabel = { done: 'Done', now: 'Now', started: 'Started', next: 'Not started' };
 // A finished table (Line 5, Phase 1) says it once: one full bar and the list, not nine identical bars.
@@ -96,12 +96,16 @@ const allDone = progress.items.length > 1 && progress.items.every((i) => i.perce
 
   {incidents.map((inc) => (
     <div class="incident">
-      <h3 class="works__title">Accident on the works, <time datetime={inc.date}>{formatDate(inc.date)}</time></h3>
+      <h3 class="works__title">{inc.heading ?? 'Accident on the works'}, <time datetime={inc.date}>{formatDate(inc.date)}</time></h3>
       <p class="incident__what">{inc.value}</p>
       {inc.notes && <p class="incident__notes">{inc.notes}</p>}
       <p>
         <Grade status={inc.status} source={inc.source_url} />
-        {inc.also_see?.map((url) => <Fragment>{' '}<a class="incident__also" href={url} rel="noopener">Also: {outletName(url)}</a></Fragment>)}
+        {inc.also_see?.length ? (
+          <span class="incident__also">
+            Also: {inc.also_see.map((url, i) => <Fragment>{i > 0 && ', '}<a href={url} rel="noopener">{outletName(url)}</a></Fragment>)}
+          </span>
+        ) : null}
       </p>
     </div>
   ))}
@@ -121,8 +125,13 @@ const allDone = progress.items.length > 1 && progress.items.every((i) => i.perce
   .incident__notes {
     color: var(--ink-2);
   }
+  /* The other reports, one list after the grade: "Also: Re-Mumbai, Construction World". */
   .incident__also {
+    margin-left: var(--s-3);
+    padding-left: var(--s-3);
+    border-left: 1px solid var(--rule);
     font-size: var(--step--1);
+    color: var(--ink-3);
   }
   .phases {
     display: grid;

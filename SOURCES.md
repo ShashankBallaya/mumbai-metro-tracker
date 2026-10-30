@@ -477,6 +477,54 @@ Research of 2026-10-30 for `src/data/lines/line-6/`, including the tender search
 - Any report that the first Line 6 train has been built or delivered.
 - An MMRDA date for the opening.
 
+# Line 7A (Andheri (E)-Gundavali to the airport, CSIA)
+
+Research of 2026-10-30 for `src/data/lines/line-7a/`, with the tender search. 7A is Line 7's extension; MMRDA covers it on one page with Line 9. No stretch is open; one section.
+
+## Primary sources
+
+| Source | Checked | Used for |
+|---|---|---|
+| MMRDA, "Metro Line - 9 & 7A" page (`/en/projects/transport/metro-line-9/overview`) | 2026-10-30 (progress as of 31 Aug 2026) | 2 stations (Airport Colony elevated, CSIA underground), 2.195 km underground, Rs 6,607 crore and 11.12 lakh riders for both lines, car size, the progress table headed "Metro Line 7A" |
+| MMRDA, the same page in Marathi | 2026-10-30 | Marathi station names |
+| MMRDA alignment file `line_7a_1_3.kmz` (Metro Influence Zone NOC page, March 2025) | 2026-10-30 | A CAD drawing: the two tracks ("Horiz Linear" layer, 3.52 km from Gundavali) and both station points |
+| MMRDA tender archive (`?title=7A`) | 2026-10-30 | Sewer diversion notice (2 Dec 2021), CRZ clearance consultant notice for Lines 9 and 7A (28 Sep 2022) |
+| MMRDA, Line 7 page | 2026-10-29 | Line 7's colour, Red |
+
+## Secondary sources
+
+| Source | Date | Used for |
+|---|---|---|
+| Ummid | 11 Sep 2018 | Cabinet approval with Line 9; 3.17 km, 0.98 km elevated and 2.19 km underground |
+| The Metro Rail Guy | 29 Feb 2020 | Colour list: Red for Lines 7, 7A and 9; Blue for Line 1 (no official colour announced; the operator's colour) |
+| The Metro Rail Guy | 18 Apr 2025, 15 Jul 2025 | TBMs Disha and Dhruv, about 1.65 km each; CA-48 to J Kumar, Rs 1,998 crore, Sep 2019; Line 3 at Terminal 2; opening "no sooner than Q3 2027" |
+| Oneindia | 18 Apr 2025 | 3.4 km; December 2026 target (passed) |
+| The Metro Rail Guy | 24 Jul 2024 (update Jun 2025) | CA-176 power package for Lines 9 and 7A: estimate Rs 108.01 crore, Leena-Umesh JV lowest at Rs 122.09 crore, awarded |
+| Free Press Journal | 27 Aug 2026 | Airport height limit: ramp needs 2.4 m more, others 0.025 to 2.244 m; more than Rs 260 crore at risk; consultant SYSTRA-CEG-SMCIPL |
+| Re-Mumbai | 27 Aug 2026 | 3.42 km; 7A costs Rs 812 crore; AAI permits 2 Jan 2024 and March 2024; work stopped in the affected areas |
+| Construction World | 8 Oct 2026 | AAI final assessment pending; ramp 95% by Feb 2026 |
+
+## Derived data
+
+- `scripts/build-alignment-line7a.py` takes the midpoint of the file's two tracks as the centre line. Airport Colony is 6 m from it and CSIA 29 m. Distances count from Airport Colony; the 455 m from Gundavali is not drawn. The underground stretch is MMRDA's 2.195 km measured back from the end of the tracks (from 0.87 km after Airport Colony); where the ramp goes below ground is not published exactly. The bend sits where the line turns east off the Western Express Highway (0.42 km).
+- The hub map still draws 7A from all the file's line pieces; it could use this line instead.
+
+## Items that need your review
+
+1. **Countdown.** No MMRDA date and no reported target: the site counts to 31 Dec 2027 from The Metro Rail Guy's "no sooner than Q3 2027" (Jul 2025), labelled "earliest reported".
+2. **Length.** 3.42 km (Re-Mumbai), about 3.4 km (Construction World, Oneindia) or 3.17 km (2018 approval, The Metro Rail Guy). Graded conflicting.
+3. **Cost.** MMRDA gives Rs 6,607 crore for Lines 9 and 7A together; Re-Mumbai gives Rs 812 crore for 7A, below the reported Rs 1,998 crore civil contract. Shown as MMRDA's joint figure.
+4. **Colour.** Red, Line 7's (MMRDA's Line 7 page; The Metro Rail Guy's 2020 list names 7A Red too).
+5. **Trains.** No Trains section: no source names 7A's trains (it is to run with Line 7's).
+6. **Hub chapter.** Not added: needs key art (a photo of Airport Colony or the airport works).
+7. **Line 1 Blue (owner's request, 2026-10-30).** Shown on the hub map and on Line 1 marks, graded reported: The Metro Rail Guy says no official colour was announced; blue is the operator's colour. MMRDA's Line 1 page names none. An official Mumbai Metro One or MMRDA source would make it verified.
+
+## Not found
+
+- An MMRDA length, cost or rider figure for 7A alone.
+- The telecom (Efkon), radio and fare collection (LTTS) contracts for Lines 9 and 7A, read in full; any signalling award.
+- The Airports Authority's decision on the height limit.
+
 # The network (hub map, all MMR lines)
 
 Research of 2026-10-29 for `src/data/network.json` (first draft). The four tracked lines take their facts from their own files; this section covers the other 17 entries.

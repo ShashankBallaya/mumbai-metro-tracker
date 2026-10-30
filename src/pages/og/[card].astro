@@ -31,12 +31,14 @@ const all = lines.map((l) => getLine(l.id));
       svg { display: block; margin: 0 56px 36px; width: 1088px; height: 110px; }
       .casing { stroke: var(--signal-graphic); stroke-width: 20px; fill: none; stroke-linejoin: round; stroke-linecap: round; }
       .core { stroke: var(--paper); stroke-width: 8px; fill: none; stroke-linejoin: round; stroke-linecap: round; }
+      /* The underground stretch: the casing broken by paper, as on the line pages. */
+      .tunnel { stroke: var(--paper); stroke-width: 22px; fill: none; stroke-dasharray: 12px 9px; }
       .dot { fill: var(--ink); stroke: var(--paper); stroke-width: 4px; }
-      /* Six lines since Line 6 (2026-10-30): rows sized so all fit under the title. */
-      .lines { list-style: none; margin: 0 56px 28px; padding: 0; display: grid; gap: 6px; }
-      .lines li { display: flex; align-items: baseline; gap: 20px; font-size: 27px; color: var(--ink); }
-      .lines b { font-family: var(--font-display); font-weight: 800; font-stretch: 75%; min-width: 84px; padding: 4px 10px 0; text-align: center; background: var(--signal); color: var(--on-signal); }
-      .lines span { color: var(--ink-2); font-size: 23px; }
+      /* Two columns of short rows (label and route), so the list fits as lines are added (seven since Line 7A). */
+      .lines { list-style: none; margin: 0 56px 36px; padding: 0; display: grid; grid-template-columns: 1fr 1fr; grid-auto-flow: column; grid-template-rows: repeat(var(--rows), auto); gap: 12px 40px; }
+      .lines li { display: flex; align-items: baseline; gap: 16px; font-size: 26px; color: var(--ink); min-width: 0; }
+      .lines b { font-family: var(--font-display); font-weight: 800; font-stretch: 75%; min-width: 72px; padding: 4px 10px 0; text-align: center; background: var(--signal); color: var(--on-signal); }
+      .lines span { color: var(--ink-2); font-size: 22px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     </style>
   </head>
   <body>
@@ -53,6 +55,7 @@ const all = lines.map((l) => getLine(l.id));
           <path d={strip.path} class="core" vector-effect="non-scaling-stroke" />
           {strip.branch && <path d={strip.branch.path} class="core" vector-effect="non-scaling-stroke" />}
           {strip.open && <path d={strip.open} class="casing" vector-effect="non-scaling-stroke" />}
+          {strip.underground && <path d={strip.underground} class="tunnel" vector-effect="non-scaling-stroke" />}
           {strip.points.map(([x, y]) => <circle cx={x} cy={y} r="7" class="dot" vector-effect="non-scaling-stroke" />)}
         </svg>
       </div>
@@ -63,9 +66,9 @@ const all = lines.map((l) => getLine(l.id));
           <h1>{SITE_NAME}</h1>
           <p>Every fact with its grade and source. Facts checked {formatDate(siteReviewed)}.</p>
         </div>
-        <ul class="lines">
+        <ul class="lines" style={`--rows:${Math.ceil(all.length / 2)}`}>
           {all.map((l) => (
-            <li data-accent={l.info.colour !== 'line-orange' ? l.info.colour : undefined}><b>{l.info.number}</b>{l.info.about.name} <span>{l.info.route_short}, {l.project.length_km.value} km</span></li>
+            <li data-accent={l.info.colour !== 'line-orange' ? l.info.colour : undefined}><b>{l.info.number}</b>{l.info.label} <span>{l.info.route_short}</span></li>
           ))}
         </ul>
       </div>

@@ -1,0 +1,40 @@
+{
+  "_meta": {
+    "description": "Firms appointed on Line 7A. 'tender_ids' link to tenders.json.",
+    "last_reviewed": "2026-10-30"
+  },
+  "contractors": [
+    {
+      "id": "j-kumar",
+      "name": "J Kumar Infraprojects",
+      "role": "Civil contractor: viaduct, ramp, tunnels and both stations",
+      "tender_ids": [
+        "ca-48"
+      ],
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2025/07/15/j-kumars-mumbai-metro-tbm-dhruv-records-final-breakthrough-for-line-7a/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "leena-umesh",
+      "name": "Leena Powertech-Umesh Brothers JV",
+      "role": "Power and overhead wire for Lines 9 and 7A (CA-176)",
+      "tender_ids": [
+        "ca-176"
+      ],
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2024/07/24/leena-wins-mumbai-metro-line-7a-9s-electrification-contract-ca-176/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "systra-ceg",
+      "name": "SYSTRA-CEG-SMCIPL",
+      "role": "General consultant",
+      "tender_ids": [],
+      "status": "reported",
+      "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-7a-viaduct-at-risk-of-reconstruction-as-mmrda-consultant-missed-ohe-height-requirements",
+      "last_verified": "2026-10-30"
+    }
+  ],
+  "excluded_claims": []
+}

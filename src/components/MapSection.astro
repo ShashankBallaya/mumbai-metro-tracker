@@ -78,7 +78,7 @@ const streetConfig = {
       </p>
       {parts.has('underground') && (
         <p class="mapsec__map-note">
-          <span class="mapsec__key mapsec__key--tunnel" aria-hidden="true"></span> Underground stretch, route below ground not published
+          <span class="mapsec__key mapsec__key--tunnel" aria-hidden="true"></span> {(line.info.copy as { map_underground_legend?: string }).map_underground_legend ?? 'Underground stretch, route below ground not published'}
         </p>
       )}
       {parts.has('superseded') && (

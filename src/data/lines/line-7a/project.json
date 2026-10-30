@@ -1,0 +1,306 @@
+{
+  "_meta": {
+    "description": "Headline facts about Mumbai Metro Line 7A (Andheri (E) to the airport, CSIA), the extension of Line 7. MMRDA has no page of its own for 7A: its 'Metro Line - 9 & 7A' page (checked 30 Oct 2026, progress as of 31 Aug 2026) covers both lines, with one length and one cost for the two together, and a progress table for 7A alone. That page is the primary source. No stretch is open; the line is one section.",
+    "status_values": {
+      "verified": "Confirmed by a primary source (MMRDA website or an MMRDA-published document).",
+      "reported": "From a reputable secondary source (news or trade press). Not confirmed by a primary source.",
+      "unverified": "Single weak source, or could not be confirmed. Show with a warning in the UI.",
+      "conflicting": "Sources disagree. The value is the most recent credible figure; see 'alternatives'."
+    },
+    "last_reviewed": "2026-10-30"
+  },
+  "name": {
+    "value": "Mumbai Metro Line 7A",
+    "also_known_as": [
+      "Metro 7A",
+      "Line 7 extension",
+      "Andheri-Airport Metro"
+    ],
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+    "last_verified": "2026-10-30"
+  },
+  "implementing_agency": {
+    "value": "Mumbai Metropolitan Region Development Authority (MMRDA)",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+    "last_verified": "2026-10-30"
+  },
+  "line_color": {
+    "value": "Red",
+    "notes": "MMRDA calls 7A the extension of Line 7, and its Line 7 page gives Line 7's colour as Red. No source names a colour for 7A itself; the site shows it in Line 7's red. MMRDA publishes no colour value, so the site's red is its own. The Metro Rail Guy's list of the line colours (29 Feb 2020) gives Red for Lines 7, 7A and 9.",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-7/overview",
+    "last_verified": "2026-10-30",
+    "also_see": [
+      "https://themetrorailguy.com/2020/02/29/mumbai-metros-official-line-colours-unveiled/"
+    ]
+  },
+  "route": {
+    "value": "Andheri (E) to the airport (CSIA), extending Line 7 from Gundavali",
+    "notes": "From Gundavali, Line 7's end at Andheri (E), the line runs south along the Western Express Highway to Airport Colony, then goes underground and east beneath the airport to its station at Terminal 2 (MMRDA's alignment file, March 2025). MMRDA: 'Andheri (E) to CSIA extension'.",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+    "last_verified": "2026-10-30"
+  },
+  "length_km": {
+    "value": 3.42,
+    "structure": "Elevated, then underground",
+    "status": "conflicting",
+    "source_url": "https://remumbai.in/2026/08/27/mmrda-faces-potential-rs-250-crore-setback-over-metro-7a-air-funnel-violation/",
+    "last_verified": "2026-10-30",
+    "context": "From Gundavali to the airport station.",
+    "alternatives": [
+      {
+        "value": 3.17,
+        "context": "At the Cabinet's approval, Sep 2018: 0.98 km elevated and 2.19 km underground (Ummid)",
+        "source_url": "https://ummid.com/news/2018/September/11.09.2018/dahisar-mira-bhayander-and-andheri-csim-airport-metro-projects-get-cabinet-nod.html"
+      }
+    ],
+    "underground_km": {
+      "value": 2.195,
+      "notes": "MMRDA gives 2.195 km underground for Lines 9 and 7A together; Line 9 is all elevated, so the underground length is all on 7A.",
+      "status": "verified",
+      "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+      "last_verified": "2026-10-30"
+    },
+    "notes": "MMRDA gives one length, 13.581 km, for Lines 9 and 7A together. Re-Mumbai (Aug 2026) gives 3.42 km, Construction World (Oct 2026) and Oneindia about 3.4 km, The Metro Rail Guy 3.17 km. The two tracks in MMRDA's alignment file run 3.52 km from Gundavali to the end of the tunnel past the airport station.",
+    "history": [
+      {
+        "value": 3.17,
+        "context": "At the Cabinet's approval, Sep 2018 (Ummid)",
+        "source_url": "https://ummid.com/news/2018/September/11.09.2018/dahisar-mira-bhayander-and-andheri-csim-airport-metro-projects-get-cabinet-nod.html"
+      }
+    ]
+  },
+  "stations_count": {
+    "value": 2,
+    "structure": "One elevated, one underground",
+    "context": "MMRDA: 'Andheri (E) to CSIA extension: 1. Airport Colony (elevated) and 2. CSIA (underground)'.",
+    "history": [],
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+    "last_verified": "2026-10-30"
+  },
+  "completion_cost_crore_inr": {
+    "value": 6607,
+    "label": "Project base cost of Lines 9 and 7A together, including state taxes and 7.5% a year escalation",
+    "context": "MMRDA's page gives one cost for both lines.",
+    "history": [],
+    "notes": "Re-Mumbai (Aug 2026) puts the 7A project at Rs 812 crore; the civil contract CA-48 alone is reported at Rs 1,998 crore (The Metro Rail Guy). No figure for 7A alone was read from MMRDA.",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+    "last_verified": "2026-10-30"
+  },
+  "funding": {
+    "value": "Not published for 7A alone",
+    "notes": "The 2018 approval reports give Rs 6,607 crore for Lines 9 and 7A together. No loan or funding split for 7A was read.",
+    "status": "reported",
+    "source_url": "https://ummid.com/news/2018/September/11.09.2018/dahisar-mira-bhayander-and-andheri-csim-airport-metro-projects-get-cabinet-nod.html",
+    "last_verified": "2026-10-30"
+  },
+  "depot": {
+    "value": "None of its own",
+    "context": "7A extends Line 7, whose trains it is to share. No depot is named for 7A.",
+    "notes": "No source names a depot for 7A. The Metro Rail Guy describes 7A as part of the Red Line (Line 7).",
+    "history": [],
+    "status": "reported",
+    "source_url": "https://themetrorailguy.com/2025/07/15/j-kumars-mumbai-metro-tbm-dhruv-records-final-breakthrough-for-line-7a/",
+    "last_verified": "2026-10-30"
+  },
+  "interchanges": {
+    "value": [
+      {
+        "station": "CSIA",
+        "connects_to": "Metro Line 3 (Aqua Line) at CSMIA T2"
+      }
+    ],
+    "status": "reported",
+    "source_url": "https://themetrorailguy.com/2025/07/15/j-kumars-mumbai-metro-tbm-dhruv-records-final-breakthrough-for-line-7a/",
+    "last_verified": "2026-10-30",
+    "lines": [
+      "Western Express Highway",
+      "Western Railway",
+      "Metro Line 2A (Dahisar-D N Nagar)",
+      "Metro Line 7 (Dahisar (E)-Andheri (E))"
+    ],
+    "notes": "MMRDA's page names the connections of Lines 9 and 7A together: the Western Express Highway, the Western Railway, Line 2A and Line 7. 7A continues Line 7 from Gundavali. The Metro Rail Guy (Jul 2025): the Terminal 2 station is where 7A meets Line 3.",
+    "planned": []
+  },
+  "daily_ridership_2031": {
+    "value": 1112000,
+    "display": "11.12 lakh",
+    "notes": "MMRDA's figure is for Lines 9 and 7A together (PHPDT 30,389 in 2031; 8.47 lakh a day in 2021). No figure for 7A alone.",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+    "last_verified": "2026-10-30"
+  },
+  "travel_time_benefit": {
+    "value": "Reduces current travel time by 50% to 75%, depending on road conditions (Lines 9 and 7A)",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+    "last_verified": "2026-10-30"
+  },
+  "current_phase": {
+    "value": "Under construction: viaduct and tunnels bored, airport station roof slab 64%, the short mined tunnels (NATM) not started (MMRDA, 31 Aug 2026). Work near Airport Colony is held up by an airport height limit (reported).",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+    "last_verified": "2026-10-30"
+  },
+  "stages": {
+    "notes": "Each section of the line from planning to opening. state: done, now (the current stage), started, next (not started). A note may contain {progress_as_of} or {event:<timeline id>}. 'service' is opening mode, null until a source gives it. 7A is one section.",
+    "sections": [
+      {
+        "stages": [
+          {
+            "name": "Planning",
+            "state": "done",
+            "note": "Approved by the State Cabinet with Line 9, {event:state-approval} (reported)"
+          },
+          {
+            "name": "Tenders and design",
+            "state": "done",
+            "note": "Civil package CA-48 to J Kumar, {event:ca-48} (reported)"
+          },
+          {
+            "name": "Civil construction",
+            "state": "now",
+            "note": "Both tunnels bored; airport station roof slab 64%, {progress_as_of}"
+          },
+          {
+            "name": "Systems and trains",
+            "state": "started",
+            "note": "Power and overhead wire package CA-176 awarded, {event:ca-176} (reported)"
+          },
+          {
+            "name": "Testing and safety approval",
+            "state": "next",
+            "note": "Waits on the airport height decision"
+          },
+          {
+            "name": "Opening",
+            "state": "next",
+            "note": "Reported: not before the third quarter of 2027"
+          }
+        ],
+        "service": {
+          "opening": null,
+          "hours": null,
+          "frequency": null,
+          "fares": null
+        }
+      }
+    ]
+  },
+  "progress": {
+    "summary": "MMRDA publishes a detailed progress table for 7A, by part of the line (viaduct, elevated station, ramps, cut and cover, tunnels, airport station). The site shows one or two key items from each part.",
+    "as_of": "2026-08-31",
+    "items": [
+      {
+        "activity": "Viaduct (girders, deck, parapets)",
+        "percent_complete": 100
+      },
+      {
+        "activity": "Airport Colony station, T and L girder erection",
+        "percent_complete": 74
+      },
+      {
+        "activity": "Elevated ramp",
+        "percent_complete": 95
+      },
+      {
+        "activity": "Underground ramp, base slab",
+        "percent_complete": 84
+      },
+      {
+        "activity": "Cut and cover, excavation",
+        "percent_complete": 77
+      },
+      {
+        "activity": "Cut and cover, base slab",
+        "percent_complete": 6
+      },
+      {
+        "activity": "Bored tunnels, both lines",
+        "percent_complete": 100
+      },
+      {
+        "activity": "Mined tunnels (NATM)",
+        "percent_complete": 0
+      },
+      {
+        "activity": "Airport station, roof slab",
+        "percent_complete": 64
+      }
+    ],
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+    "last_verified": "2026-10-30",
+    "notes": "MMRDA's table, 'Updates as on 31st August 2026', headed 'Metro Line 7A'. Every viaduct item is 100%. Both mined tunnels, NATM-1 and NATM-2, are at 0%."
+  },
+  "target_completion": {
+    "value": "2027",
+    "countdown_date": "2027-12-31",
+    "precision": "year",
+    "scope": "The whole line",
+    "status": "reported",
+    "source_url": "https://themetrorailguy.com/2025/07/15/j-kumars-mumbai-metro-tbm-dhruv-records-final-breakthrough-for-line-7a/",
+    "last_verified": "2026-10-30",
+    "history": [
+      {
+        "value": "December 2026",
+        "context": "Oneindia, Apr 2025; not met: the height issue and the mined tunnels remain",
+        "source_url": "https://www.oneindia.com/mumbai/mumbai-metro-line-7a-tunnel-update-two-new-stations-one-big-airport-link-coming-soon-4127161.html"
+      }
+    ],
+    "notes": "MMRDA has announced no date. The Metro Rail Guy (Jul 2025) expects operations 'no sooner than Q3 2027'. Since August 2026 the airport height limit near Airport Colony has held up part of the work; the Airports Authority of India's assessment was still pending on 8 Oct 2026 (Construction World). No month; the site counts to the end of 2027.",
+    "countdown": true,
+    "countdown_label": "Earliest reported: 2027"
+  },
+  "technical": {
+    "structure": "Elevated from Gundavali to Airport Colony, then underground (2.195 km)",
+    "notes": "Bored by two tunnel boring machines, Disha and Dhruv, about 1.65 km each, between the airport (Terminal 2) and Airport Colony (The Metro Rail Guy). MMRDA lists two short mined tunnels (NATM) as well, both at 0%.",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+    "last_verified": "2026-10-30"
+  },
+  "rolling_stock": {
+    "supplier": null,
+    "cars_per_train": null,
+    "notes": "7A is to run as an extension of Line 7. No source read names the trains for 7A.",
+    "status": "reported",
+    "source_url": "https://themetrorailguy.com/2025/07/15/j-kumars-mumbai-metro-tbm-dhruv-records-final-breakthrough-for-line-7a/",
+    "last_verified": "2026-10-30"
+  },
+  "incidents": [
+    {
+      "date": "2026-08-27",
+      "heading": "Airport height limit",
+      "value": "Part of the elevated stretch near Airport Colony is above the height the airport allows for the overhead wire; up to about Rs 250 crore of work may have to be rebuilt.",
+      "status": "reported",
+      "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-7a-viaduct-at-risk-of-reconstruction-as-mmrda-consultant-missed-ohe-height-requirements",
+      "last_verified": "2026-10-30",
+      "also_see": [
+        "https://remumbai.in/2026/08/27/mmrda-faces-potential-rs-250-crore-setback-over-metro-7a-air-funnel-violation/",
+        "https://www.constructionworld.in/transport-infrastructure/metro-rail-and-railways-infrastructure/mumbai-metro-line-7a-faces-airport-height-clearance-hurdle/98277"
+      ],
+      "notes": "Free Press Journal (27 Aug 2026): the Airport Colony ramp needs 2.4 m more for the overhead wire masts, other places 0.025 m to 2.244 m; more than Rs 260 crore of civil works at risk; MMRDA's Director (Metro Project) said the requirement was not flagged at the design stage by the general consultant, SYSTRA-CEG-SMCIPL. Re-Mumbai: the Airports Authority of India's permits of 2 Jan 2024 (station and ramp) and March 2024 (viaduct) set heights below the design; work stopped in the affected areas. Construction World (8 Oct 2026): the Airports Authority's final technical assessment is pending."
+    }
+  ],
+  "related_projects": [
+    {
+      "name": "Metro Line 9 (Dahisar (E) to Mira-Bhayandar)",
+      "summary": "Built with 7A as one MMRDA project, with one length (13.581 km) and one cost (Rs 6,607 crore) for both. Phase I, Dahisar (E) to Kashigaon, is open.",
+      "status": "verified",
+      "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "name": "Metro Line 7 (Dahisar (E) to Andheri (E))",
+      "summary": "Open since 2022 and 2023. 7A extends it from Gundavali to the airport.",
+      "status": "verified",
+      "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-7/overview",
+      "last_verified": "2026-10-30"
+    }
+  ]
+}
