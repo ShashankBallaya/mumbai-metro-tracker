@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "Firms appointed on Line 5. 'tender_ids' link to tenders.json.",
-    "last_reviewed": "2026-10-09"
+    "last_reviewed": "2026-10-30"
   },
   "contractors": [
     {
@@ -27,9 +27,45 @@
       "name": "Titagarh Rail Systems",
       "role": "Trains, signalling, telecom and platform screen doors",
       "tender_ids": ["ca-241"],
+      "status": "verified",
+      "source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2025-11/contract_award_notice_of_ca-241.pdf",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "paras",
+      "name": "Paras Railtech",
+      "role": "Ballastless track, Phase 1 and the depot line",
+      "tender_ids": ["ca-166"],
       "status": "reported",
-      "source_url": "https://www.freepressjournal.in/business/titagarh-rail-systems-secures-2481-crore-contract-from-mmrda-to-manufacture-132-coaches-associated-systems-for-mumbai-metro-line-5",
-      "last_verified": "2026-10-09"
+      "source_url": "https://themetrorailguy.com/2023/05/27/paras-wins-mumbai-metro-line-5as-track-work-contract-ca-166/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "nacpl-mansi-ucc",
+      "name": "NACPL-Mansi-UCC JV",
+      "role": "Architectural finishing at the Phase 1 stations",
+      "tender_ids": ["ca-246"],
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/mumbai-metro-orange-line-information-route-map-fares-timings-tenders-status-updates/",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "kr-construction",
+      "name": "K R Construction",
+      "role": "Multi-modal integration works at the Phase 1 stations",
+      "tender_ids": ["mmi-works-ph1"],
+      "status": "verified",
+      "source_url": "https://mahatenders.gov.in/nicgep/app?page=ResultOfTenders&service=page",
+      "last_verified": "2026-10-30"
+    },
+    {
+      "id": "dhruv",
+      "name": "Dhruv Consultancy Services",
+      "role": "Consultant for the multi-modal integration works",
+      "tender_ids": ["mmi-pmc-ph1"],
+      "status": "verified",
+      "source_url": "https://mahatenders.gov.in/nicgep/app?page=ResultOfTenders&service=page",
+      "last_verified": "2026-10-30"
     }
   ],
   "excluded_claims": []
