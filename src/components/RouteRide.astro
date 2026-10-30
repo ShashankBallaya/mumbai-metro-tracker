@@ -27,6 +27,15 @@ const px = (i: number) => (strip.points[i][0] / strip.width) * 100;
 const py = (i: number) => (strip.points[i][1] / strip.height) * 100;
 // Stations on the 45-degree bend get their label to the right, clear of the line; on a dense line, angled up and away from it.
 const onBend = (i: number) => strip.points[i][1] > strip.points[0][1] + 1 && strip.points[i][1] < strip.points[stations.length - 1][1] - 1;
+// Names alternate above and below the line, set out from the bend: the last station before it names
+// itself above (the diagonal leaves it downwards), the first after it below (the diagonal arrives from above),
+// so no name sits on the diagonal (Line 6's Mahakali Caves and SEEPZ Village).
+const topY = strip.points[0][1];
+const bottomY = strip.points[stations.length - 1][1];
+const lastTop = strip.points.findLastIndex((p) => Math.abs(p[1] - topY) <= 1);
+const firstBottom = strip.points.findIndex((p) => Math.abs(p[1] - bottomY) <= 1);
+const side = (i: number) =>
+  i <= lastTop ? ((lastTop - i) % 2 ? 'ride__tick--below' : 'ride__tick--above') : (i - firstBottom) % 2 ? 'ride__tick--above' : 'ride__tick--below';
 const cap = (t: string) => t.charAt(0).toUpperCase() + t.slice(1);
 /** Opening mode: the opening fact of the station's section, once it has opened. */
 const openedAt = (s: Station) => openedOf(sectionOf(line, s));
@@ -53,7 +62,7 @@ const km = (m: number) => (m / 1000).toLocaleString('en-IN', { minimumFractionDi
           {strip.underground && <path d={strip.underground} class="tunnel" vector-effect="non-scaling-stroke" />}
         </svg>
         {stations.map((s, i) => (
-          <span class:list={['ride__tick', onBend(i) ? (dense ? 'ride__tick--above' : 'ride__tick--side') : i % 2 ? 'ride__tick--below' : 'ride__tick--above']} style={`--x:${px(i)}%;--y:${py(i)}%`} data-ride-tick={i}>
+          <span class:list={['ride__tick', onBend(i) ? (dense ? 'ride__tick--above' : 'ride__tick--side') : side(i)]} style={`--x:${px(i)}%;--y:${py(i)}%`} data-ride-tick={i}>
             <span class="ride__dot"></span>
             <span class="ride__tick-name">{s.name}</span>
           </span>
@@ -132,16 +141,12 @@ const km = (m: number) => (m / 1000).toLocaleString('en-IN', { minimumFractionDi
         ))}
       </ol>
 
+      {/* One legend: with track in service, a solid sample before the hollow one, in one grid cell (two used to overlap). */}
       <p class="ride__legend">
+        {strip.open && <span class="ride__legend-line ride__legend-line--open" aria-hidden="true"></span>}
         <span class="ride__legend-line" aria-hidden="true"></span>
-        {lineCopy(line, 'route_legend')}
+        <span>{lineCopy(line, 'route_legend')}{strip.open && !/solid/i.test(lineCopy(line, 'route_legend')) && ' A solid line marks track in service.'}</span>
       </p>
-      {strip.open && (
-        <p class="ride__legend">
-          <span class="ride__legend-line ride__legend-line--open" aria-hidden="true"></span>
-          A solid line marks track in service.
-        </p>
-      )}
     </div>
   </div>
 
@@ -564,6 +569,7 @@ const km = (m: number) => (m / 1000).toLocaleString('en-IN', { minimumFractionDi
     text-transform: uppercase;
   }
   .ride__legend-line {
+    flex: none;
     width: 3rem;
     height: 0.8rem;
     border-radius: 1rem;

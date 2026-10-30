@@ -597,5 +597,42 @@
       }
     }
   ],
-  "other_lines": []
+  "other_lines": [
+    {
+      "number": "2A",
+      "name": "Yellow Line",
+      "colour": "line-2b",
+      "status": "verified",
+      "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2A/overview",
+      "last_verified": "2026-10-30",
+      "notes": "MMRDA's Line 2A page gives the colour as Yellow, as for Line 2B, so the mark uses Line 2B's yellow (the site's own value; MMRDA publishes none). Added on the owner's request (2026-10-30)."
+    },
+    {
+      "number": "3",
+      "name": "Aqua Line",
+      "colour": "net-aqua",
+      "status": "reported",
+      "source_url": "https://www.outlooktraveller.com/News/mumbais-first-fully-underground-metro-line-is-now-openconnecting-south-to-north-in-record-time",
+      "last_verified": "2026-10-30",
+      "notes": "Reported name (Outlook Traveller, Oct 2025). The hub map's aqua; no source gives a value. Added on the owner's request (2026-10-30)."
+    },
+    {
+      "number": "7",
+      "name": "Red Line",
+      "colour": "net-red",
+      "status": "verified",
+      "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-7/overview",
+      "last_verified": "2026-10-30",
+      "notes": "MMRDA's Line 7 page gives the colour as Red. The hub map's red; MMRDA publishes no value. Added on the owner's request (2026-10-30)."
+    },
+    {
+      "number": "8",
+      "name": "Gold Line",
+      "colour": "net-gold",
+      "status": "reported",
+      "source_url": "https://www.freepressjournal.in/mumbai/maharashtra-govt-approves-metro-8-gold-line-to-directly-connect-mumbai-airport-with-nmia-details-inside",
+      "last_verified": "2026-10-30",
+      "notes": "Reported name (Free Press Journal, Jan 2025). The hub map's gold; no source gives a value. Added on the owner's request (2026-10-30)."
+    }
+  ]
 }

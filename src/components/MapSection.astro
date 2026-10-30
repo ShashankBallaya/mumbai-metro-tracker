@@ -94,7 +94,7 @@ const streetConfig = {
         <span>Station</span>
         <select data-map-select>
           {stations.map((s) => (
-            <option value={s.id} disabled={s.location.lat === null}>
+            <option value={s.id} disabled={s.location.lat === null} selected={s.id === first.id}>
               {String(s.order).padStart(2, '0')} {s.name}{s.location.lat === null ? ' (not yet mapped)' : ''}
             </option>
           ))}

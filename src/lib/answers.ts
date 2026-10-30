@@ -697,10 +697,7 @@ function line6(line: Line): Answer[] {
       id: 'route',
       q: 'What is the route of Metro Line 6?',
       a: `${p.route.value}. It is ${p.length_km.value} km long and fully elevated, and links the Western and Eastern Express Highways. Most of it runs on the median of the Jogeshwari-Vikhroli Link Road. ${x.road_flyover.value}.`,
-      grades: [
-        { status: p.route.status, source: p.route.source_url },
-        { status: x.road_flyover.status, source: x.road_flyover.source_url },
-      ],
+      grades: [{ status: p.route.status, source: p.route.source_url }],
       more: { href: `${base}#map`, label: 'See the route on the map' },
     },
     {
@@ -753,10 +750,7 @@ function line6(line: Line): Answer[] {
       id: 'riders',
       q: 'How many people will use Line 6?',
       a: `About ${p.daily_ridership_2031.display} riders a day by 2031, as MMRDA projects, with up to 29,658 an hour in the busiest direction. MMRDA says the line saves 30 to 45 minutes between Andheri and the Eastern Express Highway.`,
-      grades: [
-        { status: p.daily_ridership_2031.status, source: p.daily_ridership_2031.source_url },
-        { status: x.travel_time_benefit.status, source: x.travel_time_benefit.source_url },
-      ],
+      grades: [{ status: p.daily_ridership_2031.status, source: p.daily_ridership_2031.source_url }],
     },
     {
       id: 'names',
