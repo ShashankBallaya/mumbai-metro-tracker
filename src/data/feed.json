@@ -1,13 +1,14 @@
 {
   "_meta": {
     "description": "Written by scripts/fetch-feed.mjs. Do not edit by hand: add an item's URL to exclude_urls in feed-sources.json to hide it. Items are found automatically and are not checked by a person.",
-    "updated_at": "2026-10-30T13:15:49.174Z",
+    "updated_at": "2026-10-30T22:30:48.988Z",
     "updated_at_by_line": {
       "line-12": "2026-10-15T17:11:33.436Z",
       "line-12a": "2026-10-29T06:02:07.530Z",
       "line-5": "2026-10-30T13:15:49.174Z",
-      "line-2b": "2026-10-30T13:15:49.174Z",
-      "line-6": "2026-10-29T06:02:07.530Z"
+      "line-2b": "2026-10-30T22:30:48.988Z",
+      "line-6": "2026-10-29T06:02:07.530Z",
+      "line-7a": "2026-10-30T22:30:48.988Z"
     }
   },
   "news": [
@@ -57,12 +58,30 @@
       ]
     },
     {
+      "title": "Mumbai Metro Line 7A Height Dispute Nears Breakthrough After Airport Survey",
+      "outlet": "Re-Mumbai",
+      "date": "2026-10-20",
+      "url": "https://remumbai.in/2026/10/20/mumbai-metro-line-7a-height-dispute-nears-breakthrough-after-airport-survey/",
+      "lines": [
+        "line-7a"
+      ]
+    },
+    {
       "title": "Mumbai Metro Line 2A (Yellow Line)",
       "outlet": "Metro Rail News",
       "date": "2026-10-19",
       "url": "https://metrorailnews.in/projects/mumbai-metro-line-2a/",
       "lines": [
         "line-2b"
+      ]
+    },
+    {
+      "title": "Mumbai Metro Line 7A",
+      "outlet": "Metro Rail News",
+      "date": "2026-10-17",
+      "url": "https://metrorailnews.in/projects/mumbai-metro-line-7a/",
+      "lines": [
+        "line-7a"
       ]
     },
     {
@@ -81,6 +100,33 @@
       "url": "https://urbanacres.in/mumbai-metro-line-12-safety-breach-leaves-pillion-rider-in-icu/",
       "lines": [
         "line-12"
+      ]
+    },
+    {
+      "title": "Mumbai Metro 7A Fix Near, Rs 250-Cr Viaduct Reconstruction Risk Eases",
+      "outlet": "Re-Mumbai",
+      "date": "2026-10-14",
+      "url": "https://remumbai.in/2026/10/14/mumbai-metro-7a-fix-near-rs-250-cr-viaduct-reconstruction-risk-eases/",
+      "lines": [
+        "line-7a"
+      ]
+    },
+    {
+      "title": "Metro 7A’s Airport Link Hits Technical Roadblock Near Vile Parle",
+      "outlet": "Re-Mumbai",
+      "date": "2026-10-09",
+      "url": "https://remumbai.in/2026/10/09/metro-7as-airport-link-hits-technical-roadblock-near-vile-parle/",
+      "lines": [
+        "line-7a"
+      ]
+    },
+    {
+      "title": "Mumbai Metro 7A Faces Fresh Setback Over Airport Height Clearance",
+      "outlet": "Re-Mumbai",
+      "date": "2026-10-02",
+      "url": "https://remumbai.in/2026/10/02/mumbai-metro-7a-faces-fresh-setback-over-airport-height-clearance/",
+      "lines": [
+        "line-7a"
       ]
     },
     {
@@ -147,10 +193,55 @@
       ]
     },
     {
+      "title": "Mumbai Metro 7A Hit By Design Lapse, Nearly 1 Km Viaduct May Need Rebuilding",
+      "outlet": "Re-Mumbai",
+      "date": "2026-09-01",
+      "url": "https://remumbai.in/2026/09/01/mumbai-metro-7a-hit-by-design-lapse-nearly-1-km-viaduct-may-need-rebuilding/",
+      "lines": [
+        "line-7a"
+      ]
+    },
+    {
+      "title": "Mumbai Metro 7A Faces ₹250 Crore Risk Over Airport Height Clearance Issue",
+      "outlet": "Metro Rail News",
+      "date": "2026-08-29",
+      "url": "https://metrorailnews.in/mumbai-metro-7a-height-clearance-issue-250-crore/",
+      "lines": [
+        "line-7a"
+      ]
+    },
+    {
+      "title": "Mumbai Metro 7A Viaduct May Face Reconstruction Over OHE Height Requirement",
+      "outlet": "Re-Mumbai",
+      "date": "2026-08-28",
+      "url": "https://remumbai.in/2026/08/28/mumbai-metro-7a-viaduct-may-face-reconstruction-over-ohe-height-requirement/",
+      "lines": [
+        "line-7a"
+      ]
+    },
+    {
+      "title": "MMRDA Faces Potential Rs 250-Crore Setback Over Metro 7A Air Funnel Violation",
+      "outlet": "Re-Mumbai",
+      "date": "2026-08-27",
+      "url": "https://remumbai.in/2026/08/27/mmrda-faces-potential-rs-250-crore-setback-over-metro-7a-air-funnel-violation/",
+      "lines": [
+        "line-7a"
+      ]
+    },
+    {
       "title": "Mumbai Metro 2B Strengthens Chembur Connectivity",
       "outlet": "Urban Acres",
       "date": "2026-08-26",
       "url": "https://urbanacres.in/mumbai-metro-2b-strengthens-chembur-connectivity/",
+      "lines": [
+        "line-2b"
+      ]
+    },
+    {
+      "title": "CM Devendra Fadnavis inaugurates Chembur Metro Station on Metro Line-2B, Strengthening Mumbai’s Multimodal Connectivity",
+      "outlet": "Rail Analysis India",
+      "date": "2026-08-14",
+      "url": "https://railanalysis.in/metro/cm-devendra-fadnavis-inaugurates-chembur-metro-station-on-metro-line-2b-strengthening-mumbais-multimodal-connectivity/",
       "lines": [
         "line-2b"
       ]
@@ -247,6 +338,15 @@
       ]
     },
     {
+      "title": "MMRDA achieves milestone on Mumbai Metro Line 2B with steel span launch across Harbour Line",
+      "outlet": "Rail Analysis India",
+      "date": "2026-04-29",
+      "url": "https://railanalysis.in/metro/mmrda-achieves-milestone-on-mumbai-metro-line-2b-with-steel-span-launch-across-harbour-line/",
+      "lines": [
+        "line-2b"
+      ]
+    },
+    {
       "title": "Mumbai Metro Line 5 gets state approval: Project cost surges to Rs 18,131 crore",
       "outlet": "Metro Rail News",
       "date": "2026-04-27",
@@ -260,6 +360,33 @@
       "outlet": "Metro Rail News",
       "date": "2026-04-10",
       "url": "https://metrorailnews.in/aurotoshi-supplied-psg-for-mumbai-metro-line-2b/",
+      "lines": [
+        "line-2b"
+      ]
+    },
+    {
+      "title": "Aurotoshi sets new standard with Platform Screen Gates commissioning on Mumbai Metro Line 2B",
+      "outlet": "Rail Analysis India",
+      "date": "2026-04-10",
+      "url": "https://railanalysis.in/news/aurotoshi-sets-new-standard-with-platform-screen-gates-commissioning-on-mumbai-metro-line-2b/",
+      "lines": [
+        "line-2b"
+      ]
+    },
+    {
+      "title": "MMRDA floats Rs 31.3 Cr tender for signage work 14 Mumbai Metro stations",
+      "outlet": "Metro Rail News",
+      "date": "2026-04-10",
+      "url": "https://metrorailnews.in/mumbai-metro-signage-tender/",
+      "lines": [
+        "line-7a"
+      ]
+    },
+    {
+      "title": "Mumbai Metro expands its network with the inauguration of Lines 2B & 9, enhancing urban connectivity",
+      "outlet": "Rail Analysis India",
+      "date": "2026-04-09",
+      "url": "https://railanalysis.in/metro/mumbai-metro-expands-its-network-with-the-inauguration-of-lines-2b-9-enhancing-urban-connectivity/",
       "lines": [
         "line-2b"
       ]
@@ -311,10 +438,28 @@
       ]
     },
     {
+      "title": "Mumbai Metro Line-2B achieves key milestone with completion of the iconic Shunya Bridge",
+      "outlet": "Rail Analysis India",
+      "date": "2026-01-21",
+      "url": "https://railanalysis.in/metro/mumbai-metro-line-2b-achieves-key-milestone-with-completion-of-the-iconic-shunya-bridge/",
+      "lines": [
+        "line-2b"
+      ]
+    },
+    {
       "title": "Landmark Corporation Receives LoA for Architectural Finishing Works Contract of Mumbai Metro Line 2B",
       "outlet": "Metro Rail News",
       "date": "2025-12-17",
       "url": "https://metrorailnews.in/architectural-finishing-contract-of-mumbai-metro-2/",
+      "lines": [
+        "line-2b"
+      ]
+    },
+    {
+      "title": "MMRDA awards Rs. 201.49 crore contract for architectural finishing works of Mumbai Metro Line-2B stations",
+      "outlet": "Rail Analysis India",
+      "date": "2025-12-16",
+      "url": "https://railanalysis.in/awarded-tenders/mmrda-awards-rs-201-49-crore-contract-for-architectural-finishing-works-of-mumbai-metro-line-2b-stations/",
       "lines": [
         "line-2b"
       ]
