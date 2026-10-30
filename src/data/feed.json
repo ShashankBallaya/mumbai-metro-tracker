@@ -1,11 +1,13 @@
 {
   "_meta": {
     "description": "Written by scripts/fetch-feed.mjs. Do not edit by hand: add an item's URL to exclude_urls in feed-sources.json to hide it. Items are found automatically and are not checked by a person.",
-    "updated_at": "2026-10-29T06:02:07.530Z",
+    "updated_at": "2026-10-30T13:15:49.174Z",
     "updated_at_by_line": {
       "line-12": "2026-10-15T17:11:33.436Z",
       "line-12a": "2026-10-29T06:02:07.530Z",
-      "line-5": "2026-10-28T22:43:05.898Z"
+      "line-5": "2026-10-30T13:15:49.174Z",
+      "line-2b": "2026-10-30T13:15:49.174Z",
+      "line-6": "2026-10-29T06:02:07.530Z"
     }
   },
   "news": [
@@ -55,12 +57,39 @@
       ]
     },
     {
+      "title": "Mumbai Metro Line 2A (Yellow Line)",
+      "outlet": "Metro Rail News",
+      "date": "2026-10-19",
+      "url": "https://metrorailnews.in/projects/mumbai-metro-line-2a/",
+      "lines": [
+        "line-2b"
+      ]
+    },
+    {
+      "title": "Mumbai Metro Line 2B",
+      "outlet": "Metro Rail News",
+      "date": "2026-10-16",
+      "url": "https://metrorailnews.in/projects/mumbai-metro-line-2b/",
+      "lines": [
+        "line-2b"
+      ]
+    },
+    {
       "title": "Mumbai Metro Line 12 Safety Breach Leaves Pillion Rider in ICU",
       "outlet": "Urban Acres",
       "date": "2026-10-15",
       "url": "https://urbanacres.in/mumbai-metro-line-12-safety-breach-leaves-pillion-rider-in-icu/",
       "lines": [
         "line-12"
+      ]
+    },
+    {
+      "title": "Mankhurd Metro 2B Scam Probe Ordered, 19 Slums Put on Hold",
+      "outlet": "Urban Acres",
+      "date": "2026-10-01",
+      "url": "https://urbanacres.in/mankhurd-metro-2b-scam-probe-ordered-19-slums-put-on-hold/",
+      "lines": [
+        "line-2b"
       ]
     },
     {
@@ -82,6 +111,24 @@
       ]
     },
     {
+      "title": "Mumbai Metro 2B’s Shunya Bridge Hits Key Construction Milestone",
+      "outlet": "Re-Mumbai",
+      "date": "2026-09-22",
+      "url": "https://remumbai.in/2026/09/22/mumbai-metro-2bs-shunya-bridge-hits-key-construction-milestone/",
+      "lines": [
+        "line-2b"
+      ]
+    },
+    {
+      "title": "Mumbai Metro 2B: Shunya Iconic Bridge Enters Key Construction Phase",
+      "outlet": "Re-Mumbai",
+      "date": "2026-09-18",
+      "url": "https://remumbai.in/2026/09/18/mumbai-metro-2b-shunya-iconic-bridge-enters-key-construction-phase/",
+      "lines": [
+        "line-2b"
+      ]
+    },
+    {
       "title": "Metro 5 Moves Beyond Bhiwandi As Centre Clears Kalyan-Ulhasnagar Extension",
       "outlet": "Re-Mumbai",
       "date": "2026-09-03",
@@ -100,6 +147,33 @@
       ]
     },
     {
+      "title": "Mumbai Metro 2B Strengthens Chembur Connectivity",
+      "outlet": "Urban Acres",
+      "date": "2026-08-26",
+      "url": "https://urbanacres.in/mumbai-metro-2b-strengthens-chembur-connectivity/",
+      "lines": [
+        "line-2b"
+      ]
+    },
+    {
+      "title": "Mumbai Metro: CM Devendra Fadnavis to inaugurate Chembur Metro Station on Line 2B",
+      "outlet": "Metro Rail News",
+      "date": "2026-08-13",
+      "url": "https://metrorailnews.in/mumbai-metro-cm-devendra-fadnavis-to-inaugurate-chembur-metro-station-on-line-2b/",
+      "lines": [
+        "line-2b"
+      ]
+    },
+    {
+      "title": "MMRDA grants signage contract to CBM Industrie for Mumbai Metro Line 2B",
+      "outlet": "Metro Rail News",
+      "date": "2026-08-12",
+      "url": "https://metrorailnews.in/mmrda-grants-signage-contract-for-mumbai-metro/",
+      "lines": [
+        "line-2b"
+      ]
+    },
+    {
       "title": "Panvel Civic Body Approves Water, Infrastructure Projects; Rejects LED Streetlight, Metro Line 12 Funding Proposals",
       "outlet": "Re-Mumbai",
       "date": "2026-07-28",
@@ -109,12 +183,30 @@
       ]
     },
     {
+      "title": "Metro Line 2B Reaches Key Milestone As MMRDA Begins Steel Superstructure Work On Bandra Cable-Stayed Bridge",
+      "outlet": "Re-Mumbai",
+      "date": "2026-07-24",
+      "url": "https://remumbai.in/2026/07/24/metro-line-2b-reaches-key-milestone-as-mmrda-begins-steel-superstructure-work-on-bandra-cable-stayed-bridge/",
+      "lines": [
+        "line-2b"
+      ]
+    },
+    {
       "title": "Kasheli Depot for Mumbai Metro Line 5 Achieves 23% Physical Progress",
       "outlet": "Metro Rail News",
       "date": "2026-07-22",
       "url": "https://metrorailnews.in/kasheli-depot-for-mumbai-metro-progresses-ahead/",
       "lines": [
         "line-5"
+      ]
+    },
+    {
+      "title": "MMRDA Installs Three Metro Girders Over Central Railway Tracks To Accelerate Metro Line 2B Work",
+      "outlet": "Re-Mumbai",
+      "date": "2026-07-17",
+      "url": "https://remumbai.in/2026/07/17/mmrda-installs-three-metro-girders-over-central-railway-tracks-to-accelerate-metro-line-2b-work/",
+      "lines": [
+        "line-2b"
       ]
     },
     {
@@ -164,6 +256,15 @@
       ]
     },
     {
+      "title": "Aurotoshi Achieves Historic Milestone with the Successful Commissioning of Platform Screen Gates for Mumbai Metro Line 2B Phase 1",
+      "outlet": "Metro Rail News",
+      "date": "2026-04-10",
+      "url": "https://metrorailnews.in/aurotoshi-supplied-psg-for-mumbai-metro-line-2b/",
+      "lines": [
+        "line-2b"
+      ]
+    },
+    {
       "title": "MMRDA Expands Metro Network Across Eastern Corridor",
       "outlet": "Urban Acres",
       "date": "2026-02-25",
@@ -210,12 +311,48 @@
       ]
     },
     {
+      "title": "Landmark Corporation Receives LoA for Architectural Finishing Works Contract of Mumbai Metro Line 2B",
+      "outlet": "Metro Rail News",
+      "date": "2025-12-17",
+      "url": "https://metrorailnews.in/architectural-finishing-contract-of-mumbai-metro-2/",
+      "lines": [
+        "line-2b"
+      ]
+    },
+    {
       "title": "MMRDA’s Mumbai Metro Line-12 marks major milestone with 100th U-Girder launch near Dombivli",
       "outlet": "Rail Analysis India",
       "date": "2025-12-15",
       "url": "https://railanalysis.in/metro/mmrdas-mumbai-metro-line-12-marks-major-milestone-with-100th-u-girder-launch-near-dombivli/",
       "lines": [
         "line-12"
+      ]
+    },
+    {
+      "title": "Mumbai Metro: Landmark Corporation Becomes L1 for Architectural Finishing Works Contract of Line 2B",
+      "outlet": "Metro Rail News",
+      "date": "2025-12-15",
+      "url": "https://metrorailnews.in/station-finishing-contract-of-mumbai-metro/",
+      "lines": [
+        "line-2b"
+      ]
+    },
+    {
+      "title": "Dev- N.ROSE (JV) Bags Architectural Finishing Works Contract of Mumbai Metro Line 2B",
+      "outlet": "Metro Rail News",
+      "date": "2025-12-13",
+      "url": "https://metrorailnews.in/dev-engineers-bags-contract-of-mumbai-metro/",
+      "lines": [
+        "line-2b"
+      ]
+    },
+    {
+      "title": "Titagarh Rail Bags ₹2,481Cr Contract for Mumbai Metro Line 5",
+      "outlet": "Metro Rail News",
+      "date": "2025-11-01",
+      "url": "https://metrorailnews.in/titagarh-rail-bags-%e2%82%b92481-crore-contract/",
+      "lines": [
+        "line-5"
       ]
     },
     {
