@@ -243,6 +243,18 @@ html[data-theme='dark']:has(.hubw) {
   }
 }
 
+/* A chapter picture with a tall cut for phones: the wrapper adds no box, so the image keeps its layer layout. */
+.chapter__picture {
+  display: contents;
+}
+/* The tall cut is drawn for the phone frame: centred, top-aligned. Important beats the wide picture's
+   inline focus point, which is set for the wide cut. */
+@media (max-width: 47.99rem) {
+  .chapter__picture--tall img {
+    object-position: 50% 0% !important;
+  }
+}
+
 /* ---------- 1. cover ---------- */
 .cover {
   padding: 4rem var(--gutter) 1.5rem;
@@ -254,7 +266,8 @@ html[data-theme='dark']:has(.hubw) {
   grid-template-areas:
     't1 t2'
     't3 t4'
-    't5 t5'
+    't5 t6'
+    't7 t7'
     'mark mark';
 }
 .cover__mark {
@@ -299,8 +312,10 @@ html[data-theme='dark']:has(.hubw) {
 .cover__tile--2 { grid-area: t2; }
 .cover__tile--3 { grid-area: t3; }
 .cover__tile--4 { grid-area: t4; }
-/* The fifth tile (Line 12A) spans both columns on a phone. */
 .cover__tile--5 { grid-area: t5; }
+.cover__tile--6 { grid-area: t6; }
+/* The seventh tile (Line 12A) spans both columns on a phone. */
+.cover__tile--7 { grid-area: t7; }
 .cover__tile {
   position: relative;
   display: block;
@@ -372,15 +387,21 @@ html[data-theme='dark']:has(.hubw) {
   }
   .cover__grid {
     grid-template-columns: 1fr 1.3fr 1fr;
-    /* Five tiles round the mark, in line order: three down the left (2B, 4, 5), two down the right (12, 12A). */
-    grid-template-rows: repeat(6, 1fr);
+    /* Seven tiles round the mark, in line order: four down the left (2B, 4, 5, 6), three down the right (7A, 12, 12A). */
+    grid-template-rows: repeat(12, 1fr);
     grid-template-areas:
-      't1 mark t4'
-      't1 mark t4'
-      't2 mark t4'
+      't1 mark t5'
+      't1 mark t5'
+      't1 mark t5'
       't2 mark t5'
-      't3 mark t5'
-      't3 mark t5';
+      't2 mark t6'
+      't2 mark t6'
+      't3 mark t6'
+      't3 mark t6'
+      't3 mark t7'
+      't4 mark t7'
+      't4 mark t7'
+      't4 mark t7';
     height: calc(100svh - 5.75rem);
     min-height: 36rem;
   }
@@ -411,6 +432,10 @@ html[data-theme='dark']:has(.hubw) {
   .cover__tile--4 img { animation-delay: 180ms; }
   .cover__tile--5,
   .cover__tile--5 img { animation-delay: 240ms; }
+  .cover__tile--6,
+  .cover__tile--6 img { animation-delay: 300ms; }
+  .cover__tile--7,
+  .cover__tile--7 img { animation-delay: 360ms; }
   .cover__mark > * {
     animation: hub-rise 700ms var(--ease-out) both;
   }

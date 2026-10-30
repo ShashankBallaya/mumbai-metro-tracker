@@ -557,7 +557,7 @@ This section governs the hub at `/` only (src/pages/index.astro, src/styles/hub.
 
 The hub is the cover of the whole tracker, told like a game's key art instead of a newspaper. Each tracked line is a place at a real hour of Mumbai light: a full-bleed, credited ground or drone photo that the reader scrolls into. The facts arrive inside the picture, each with its grade, and the network map of every line in the region closes the story.
 
-The ground is near-black, the ink is warm paper white in three strengths, and the only hue on a chapter is that line's own colour: Lines 12, 12A and 5 in Line Orange, Line 4 in Line 4 Green, Line 2B in Line 2B Yellow. The first screen is a collage of five photo tiles (14px corners) around the MUMBAI METRO TRACKER mark with its Marathi mark. Scrolling grows a line's own tile, from its place on the cover, through a mask into its full-screen chapter. Depth comes from the photo's slow scale inside the mask and from dark scrims, never from shadow, glow or glass.
+The ground is near-black, the ink is warm paper white in three strengths, and the only hue on a chapter is that line's own colour: Lines 12, 12A and 5 in Line Orange, Line 4 in Line 4 Green, Line 2B in Line 2B Yellow. The first screen is a collage of seven tiles (14px corners), photos and, for a line with no photo yet, a map of its route, around the MUMBAI METRO TRACKER mark with its Marathi mark. Scrolling grows a line's own tile, from its place on the cover, through a mask into its full-screen chapter. Depth comes from the photo's slow scale inside the mask and from dark scrims, never from shadow, glow or glass.
 
 The type is the line pages' type: Anek Latin squeezed to 75%, weight 800, uppercase, for every display line, and plain Mukta for copy. Huge number plates in the line colour name each line. Controls are full pills. The hub prints in two editions like the line pages: night (near-black) and morning (the line pages' newsprint and navy), following the system setting, with the same edition toggle in the top bar. The chapters always print on the night tokens, because their copy sits on footage or a photo.
 
@@ -578,6 +578,7 @@ Near-black and paper white, cut by each line's own colour.
 - **Line Orange** (line-orange, on-line-orange): the accent of the Line 12, 12A and 5 chapters and their cover tiles. Navy text on it.
 - **Line 2B Yellow** (line-2b, on-line-2b): the accent of the Line 2B chapter and tile. Navy text on it.
 - **Line 4 Green** (line-4, on-line-4): the accent of the Line 4 chapter and tile. White text on it. On the hub it stays the morning value; the hub has no night swap for line colours.
+- **Line 6 Pink** (line-6, on-line-6) and **Line 7A Red** (line-7a, on-line-7a): the accents of the Line 6 and 7A chapters and tiles. White text on them; morning values, like Line 4.
 - A chapter, tile, nav link or list row sets `--c` and `--on-c` from its line's token. Every accent use reads `--c`: the number plate, the route stroke, the "Open the tracker" pill, the nav dot, the list mark, the list link underline, and the tile and chapter plate tints (`color-mix` of `--c` into hub-bg at 18% to 45%).
 
 #### Network colours
@@ -631,10 +632,10 @@ Near-black and paper white, cut by each line's own colour.
 
 ### Layout
 
-The hub is three movements: the cover, a chapter per tracked line (12, 5, 4, 12A), and the network.
+The hub is three movements: the cover, a chapter per tracked line (2B, 4, 5, 6, 7A, 12, 12A), and the network.
 
 - **Top bar:** absolute over the cover, the wordmark left and the line links right, padding 0.9rem by the gutter. Under 48rem only the "All lines" pill shows.
-- **Cover:** tiles and chapters run in line order, ascending (owner, 2026-10-30): 2B, 4, 5, 12, 12A. On phones, a two by two grid of 5:4 tiles with the fifth across both columns (0.75rem gap), then the mark, lede, next target and the "Scroll the lines" pill below. At 64rem it fills the screen: three columns (1fr, 1.3fr, 1fr) on six equal rows, the Line 2B, 4 and 5 tiles stacked left, the Line 12 and 12A tiles stacked right, the mark in the middle at full height; height 100svh less 5.75rem, at least 36rem.
+- **Cover:** tiles and chapters run in line order, ascending (owner, 2026-10-30): 2B, 4, 5, 6, 7A, 12, 12A. On phones, a two-column grid of 5:4 tiles with the seventh across both columns (0.75rem gap), then the mark, lede, next target and the "Scroll the lines" pill below. At 64rem it fills the screen: three columns (1fr, 1.3fr, 1fr) on twelve equal rows, the Line 2B, 4, 5 and 6 tiles stacked left (three rows each), the Line 7A, 12 and 12A tiles stacked right (four rows each), the mark in the middle at full height; height 100svh less 5.75rem, at least 36rem.
 - **Chapter:** a tall section (100svh + 90svh + the line's length over the longest line's length times 110svh) with a sticky full-screen stage, so a longer line takes longer to scroll. The copy sits bottom-left, max 52rem wide; the credit chip sits top-right under the bar (full-width at the top on phones).
 - **Network:** a head (max 60rem) with the title, lede and per-stage counts; the map (min(78svh, 46rem) tall); then the full text list by stage. Each row is a 3.4rem mark column and the body; each part line is a 2.4rem stroke column and its text. The list goes to two columns at 64rem. "Where the tracked lines meet" and the review note close it.
 - **Breakpoints:** 48rem (top bar links, credit chip, route end names) and 64rem (cover collage, two-column list).
@@ -730,7 +731,7 @@ Two curves: `--ease-out` `cubic-bezier(0.23, 1, 0.32, 1)` for presses and anythi
 
 #### Do:
 - **Do** set every hub colour from the `hub-` tokens and the line's own colour token through `--c` and `--on-c`.
-- **Do** give every chapter one real ground or drone picture, credited with its note, photographer (linked when it is someone else's) and date. A chapter may play a short drone loop (scripts/encode-hub-footage.sh: H.264, 1600 and 960 wide, forward then backward): it loads only near its chapter, plays only on screen, and keeps its poster with reduced motion or Data Saver. Never use a section that shows the creator's picture-in-picture inset.
+- **Do** give every chapter one real ground or drone picture, credited with its note, photographer (linked when it is someone else's) and date. Until a line has one, its chapter shows a map of its corridor instead (owner, 2026-10-30; Lines 6 and 7A): real cartography from scripts/draw-hub-map-art.mjs, OpenStreetMap data on the network map's night palette, the route from the line's alignment file in its colour, stations as Paper White dots, a tunnel dashed, runways drawn so an airport reads. The route sits high and on the side away from the copy; a tall cut (900 by 1600, route in the top third, centred) serves phones. The chip says there is no photo yet and credits "Map: OpenStreetMap contributors, OpenFreeMap". A chapter may play a short drone loop (scripts/encode-hub-footage.sh: H.264, 1600 and 960 wide, forward then backward): it loads only near its chapter, plays only on screen, and keeps its poster with reduced motion or Data Saver. Never use a section that shows the creator's picture-in-picture inset.
 - **Do** set each chapter's figures as one display line (number, unit, grade mark), never as a label over a big number, and make each grade mark the link to its source (Grade `markLink`); list a network line's sources once, under the line.
 - **Do** alternate chapters between left and right copy on wide screens, so neighbours never share a composition.
 - **Do** put text on a photo only over the scrims.

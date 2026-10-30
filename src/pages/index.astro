@@ -27,6 +27,10 @@ interface Photo {
   note?: string;
   /** Where the crop holds on a screen of another shape. */
   focus: string;
+  /** A map of the line's corridor, for a line with no photo yet (Lines 6 and 7A): credited as "Map", not "Photo". */
+  kind?: 'map';
+  /** A tall cut for phones (900 by 1600), where a wide picture is cropped by height (scripts/draw-hub-map-art.mjs). */
+  tall?: string;
   width: number;
   height: number;
 }
@@ -86,6 +90,40 @@ const CHAPTERS: { id: LineId; photo: Photo; footage?: Footage; side: 'left' | 'r
     side: 'left',
   },
   {
+    id: 'line-6',
+    photo: {
+      src: '/hub/maps/line-6.jpg',
+      tall: '/hub/maps/line-6-tall.jpg',
+      alt: "Map of Line 6 in its pink, from Swami Samarth Nagar near Lokhandwala east past Jogeshwari, SEEPZ and Powai Lake to Vikhroli, with its 13 stations as white dots",
+      date: '2026-10-30',
+      credit: 'OpenStreetMap contributors, OpenFreeMap',
+      href: 'https://www.openstreetmap.org/copyright',
+      note: "No photo of Line 6 yet: its route from MMRDA's alignment file on a street map",
+      focus: '37% 39%',
+      width: 1600,
+      height: 1000,
+      kind: 'map',
+    },
+    side: 'right',
+  },
+  {
+    id: 'line-7a',
+    photo: {
+      src: '/hub/maps/line-7a.jpg',
+      tall: '/hub/maps/line-7a-tall.jpg',
+      alt: "Map of Line 7A in red, from Airport Colony on the Western Express Highway into a tunnel, drawn dashed, to its station by the airport's Terminal 2, with the runways below",
+      date: '2026-10-30',
+      credit: 'OpenStreetMap contributors, OpenFreeMap',
+      href: 'https://www.openstreetmap.org/copyright',
+      note: "No photo of Line 7A yet: its route from MMRDA's alignment file on a street map, the tunnel dashed",
+      focus: '63% 39%',
+      width: 1600,
+      height: 1000,
+      kind: 'map',
+    },
+    side: 'left',
+  },
+  {
     id: 'line-12',
     photo: {
       src: '/photos/apmc-kalyan-2026-10-04-a.jpg',
@@ -130,7 +168,7 @@ const longest = Math.max(...chapters.map((c) => c.line.project.length_km.value))
 const soonest = chapters.map((c) => c.target.value).sort()[0];
 const nextUp = chapters.filter((c) => c.target.value === soonest);
 
-// Where two tracked lines meet (stations.json `same_site_as`): Kalyan (Lines 12 and 5), Kapurbawdi (Lines 4 and 5).
+// Where two tracked lines meet (stations.json `same_site_as`): Kalyan (Lines 12 and 5), Kapurbawdi (Lines 4 and 5), Kanjur Marg (Lines 6 and 4).
 const tracked = chapters.map((c) => c.line);
 const meets = tracked.flatMap((line) =>
   [...line.stations, ...line.spurStations].flatMap((st) => {
@@ -141,9 +179,10 @@ const meets = tracked.flatMap((line) =>
 );
 const kalyan = meets.find((m) => m.st.id === 'kalyan');
 const kapurbawdi = meets.find((m) => m.st.id === 'kapurbawdi');
+const kanjur = meets.find((m) => m.st.id === 'kanjur-marg-west');
 
 const DISCLAIMER =
-  `Mumbai Metro Tracker is an independent public-interest site. It is not affiliated with, endorsed by or connected to MMRDA, MMRCL, CIDCO, MahaMetro or the Government of Maharashtra. The photos are the maintainer's own or used with the photographer's permission, and each carries its credit. Check official sources before making decisions.`;
+  `Mumbai Metro Tracker is an independent public-interest site. It is not affiliated with, endorsed by or connected to MMRDA, MMRCL, CIDCO, MahaMetro or the Government of Maharashtra. The photos are the maintainer's own or used with the photographer's permission, and each carries its credit. Lines without a photo yet show a map of their route (OpenStreetMap data). Check official sources before making decisions.`;
 
 const counts = byStage.filter((s) => s.lines.length > 0);
 const title = `${SITE_NAME}: every Mumbai Metro line, built, building and planned`;
@@ -246,7 +285,10 @@ const km = (v: number | null) => (v === null ? null : `${Number.isInteger(v) ? v
                     height="900">
                   </video>
                 ) : (
-                  <img class="chapter__layer" data-layer="mid" src={c.photo.src} alt={c.photo.alt} width={c.photo.width} height={c.photo.height} style={`object-position:${c.photo.focus}`} loading="lazy" decoding="async" />
+                  <picture class:list={['chapter__picture', c.photo.tall && 'chapter__picture--tall']}>
+                    {c.photo.tall && <source media="(max-width: 47.99rem)" srcset={c.photo.tall} width="900" height="1600" />}
+                    <img class="chapter__layer" data-layer="mid" src={c.photo.src} alt={c.photo.alt} width={c.photo.width} height={c.photo.height} style={`object-position:${c.photo.focus}`} loading="lazy" decoding="async" />
+                  </picture>
                 )}
                 <figcaption class="chapter__credit">
                   {c.footage ? (
@@ -256,7 +298,7 @@ const km = (v: number | null) => (v === null ? null : `${Number.isInteger(v) ? v
                   ) : (
                     <>
                       {c.photo.note && <>{c.photo.note}. </>}
-                      Photo: {c.photo.href ? <a href={c.photo.href} target="_blank" rel="noopener">{c.photo.credit}<span class="visually-hidden"> (opens in a new tab)</span></a> : c.photo.credit}, {formatDate(c.photo.date)}
+                      {c.photo.kind === 'map' ? 'Map' : 'Photo'}: {c.photo.href ? <a href={c.photo.href} target="_blank" rel="noopener">{c.photo.credit}<span class="visually-hidden"> (opens in a new tab)</span></a> : c.photo.credit}, {formatDate(c.photo.date)}
                     </>
                   )}
                 </figcaption>
@@ -358,7 +400,7 @@ const km = (v: number | null) => (v === null ? null : `${Number.isInteger(v) ? v
             </section>
           ))}
         </div>
-        {(kalyan || kapurbawdi) && (
+        {(kalyan || kapurbawdi || kanjur) && (
           <section class="meet" aria-labelledby="meet-title">
             <h3 id="meet-title" class="stagegroup__title">Where the tracked lines meet</h3>
             {kalyan && (
@@ -375,6 +417,14 @@ const km = (v: number | null) => (v === null ? null : `${Number.isInteger(v) ? v
                 <a href={`${lineBase(kapurbawdi.line.id)}stations/${kapurbawdi.st.id}/`}>{kapurbawdi.line.info.label}'s {kapurbawdi.st.name}</a> point is {kapurbawdi.distance} m from{' '}
                 <a href={`${lineBase(kapurbawdi.other.id)}stations/${kapurbawdi.otherStation.id}/`}>{kapurbawdi.other.info.label}'s</a>, measured between the two published
                 station points.
+              </p>
+            )}
+            {kanjur && (
+              <p>
+                Line 6 crosses Line 4 at Kanjurmarg, on LBS Marg.{' '}
+                <a href={`${lineBase(kanjur.line.id)}stations/${kanjur.st.id}/`}>{kanjur.line.info.label}'s {kanjur.st.name}</a> point is {kanjur.distance} m from{' '}
+                <a href={`${lineBase(kanjur.other.id)}stations/${kanjur.otherStation.id}/`}>{kanjur.other.info.label}'s {kanjur.otherStation.name}</a>, measured between the two
+                published station points.
               </p>
             )}
           </section>
