@@ -36,6 +36,11 @@ const lastTop = strip.points.findLastIndex((p) => Math.abs(p[1] - topY) <= 1);
 const firstBottom = strip.points.findIndex((p) => Math.abs(p[1] - bottomY) <= 1);
 const side = (i: number) =>
   i <= lastTop ? ((lastTop - i) % 2 ? 'ride__tick--below' : 'ride__tick--above') : (i - firstBottom) % 2 ? 'ride__tick--above' : 'ride__tick--below';
+// The extension's shield sits between two stations. It takes the side the name of the station
+// before it does not use, so that name (angled away from its dot on a dense line) never runs under
+// it (Line 4A: Gowniwada's name falls below the line, so the 4A shield goes above).
+const beforeShield = strip.extension ? strip.points.findLastIndex((p) => p[0] < strip.extension!.shield[0]) : -1;
+const shieldAbove = beforeShield >= 0 && !onBend(beforeShield) && side(beforeShield) === 'ride__tick--below';
 const cap = (t: string) => t.charAt(0).toUpperCase() + t.slice(1);
 /** Opening mode: the opening fact of the station's section, once it has opened. */
 const openedAt = (s: Station) => openedOf(sectionOf(line, s));
@@ -75,10 +80,10 @@ const km = (m: number) => (m / 1000).toLocaleString('en-IN', { minimumFractionDi
           </span>
         ))}
         {strip.extension && (
-          // Where the extension (Line 4A) begins: a joint across the line, and its shield just under it.
+          // Where the extension (Line 4A) begins: a joint across the line, and its shield beside it.
           <>
             <span class="ride__joint" style={`--x:${(strip.extension.joint[0] / strip.width) * 100}%;--y:${(strip.extension.joint[1] / strip.height) * 100}%`}></span>
-            <span class="ride__shield" style={`--x:${(strip.extension.shield[0] / strip.width) * 100}%;--y:${(strip.extension.shield[1] / strip.height) * 100}%`}>{strip.extension.label}</span>
+            <span class:list={['ride__shield', shieldAbove && 'ride__shield--above']} style={`--x:${(strip.extension.shield[0] / strip.width) * 100}%;--y:${(strip.extension.shield[1] / strip.height) * 100}%`}>{strip.extension.label}</span>
           </>
         )}
         <span class="ride__train" data-ride-train data-bend={strip.bend ? JSON.stringify({ x: (strip.bend.x / strip.width) * 100, run: (strip.bend.drop / strip.width) * 100, top: (strip.bend.top / strip.height) * 100, drop: (strip.bend.drop / strip.height) * 100 }) : undefined}></span>
@@ -423,7 +428,11 @@ const km = (m: number) => (m / 1000).toLocaleString('en-IN', { minimumFractionDi
     translate: -50% -50%;
     background: var(--ink);
   }
-  /* Under the line, clear of the train when it stops at the last station, and of the angled names. */
+  /* Beside the line (under it by default), clear of the train when it stops at the last station,
+     and on the side away from the angled name of the station before it. */
+  .ride__shield.ride__shield--above {
+    top: calc(var(--y) - 1.6rem);
+  }
   .ride__shield {
     position: absolute;
     left: var(--x);
