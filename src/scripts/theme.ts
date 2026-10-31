@@ -26,9 +26,11 @@ button?.addEventListener('click', (event) => {
     root.dataset.theme = next;
   };
   // The new edition wipes in as a circle from the switch (View Transitions, where supported).
+  // A press from the keyboard (detail 0) switches at once: no motion on keyboard actions.
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fromKeyboard = event.detail === 0;
   const doc = document as Document & { startViewTransition?: (cb: () => void) => unknown };
-  if (doc.startViewTransition && !reduced) {
+  if (doc.startViewTransition && !reduced && !fromKeyboard) {
     const r = button.getBoundingClientRect();
     root.style.setProperty('--vt-x', `${event.clientX || r.left + r.width / 2}px`);
     root.style.setProperty('--vt-y', `${event.clientY || r.top + r.height / 2}px`);

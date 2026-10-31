@@ -494,7 +494,9 @@ const km = (m: number) => (m / 1000).toLocaleString('en-IN', { minimumFractionDi
     opacity: 0;
     pointer-events: none;
     translate: 0 1rem;
-    transition: opacity 0.15s var(--ease-out), translate 0.15s var(--ease-out);
+    /* A light blur bridges the cross-fade, so two station names never read as two at once. */
+    filter: blur(3px);
+    transition: opacity 0.15s var(--ease-out), translate 0.15s var(--ease-out), filter 0.15s var(--ease-out);
   }
   :global(.ride.is-riding) .ride__station::before {
     display: none;
@@ -503,7 +505,8 @@ const km = (m: number) => (m / 1000).toLocaleString('en-IN', { minimumFractionDi
     opacity: 1;
     pointer-events: auto;
     translate: 0 0;
-    transition: opacity 0.3s var(--ease-out) 0.06s, translate 0.3s var(--ease-out) 0.06s;
+    filter: none;
+    transition: opacity 0.3s var(--ease-out) 0.06s, translate 0.3s var(--ease-out) 0.06s, filter 0.3s var(--ease-out) 0.06s;
   }
   :global(.ride.is-riding) .ride__name {
     font-size: var(--step-4);

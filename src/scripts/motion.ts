@@ -35,7 +35,8 @@ if (!reduceMotion && !ownMotion) {
         mask: 'lines',
         autoSplit: true,
         onSplit: (self) =>
-          gsap.from(self.lines, { yPercent: 105, duration: 1.1, ease: 'expo.out', stagger: 0.12, delay: 0.1 }),
+          // Quick enough that the headline is readable in under a second; the lines still cascade.
+          gsap.from(self.lines, { yPercent: 105, duration: 0.9, ease: 'expo.out', stagger: 0.07, delay: 0.05 }),
       });
     });
   });

@@ -308,6 +308,10 @@ const feedUpdated = (feed._meta.updated_at_by_line?.[line.id] ?? feed._meta.upda
     background: none;
     border: 0;
     cursor: pointer;
+    transition: scale 0.16s var(--ease-out);
+  }
+  .post__more:active {
+    scale: 0.97;
   }
   .post__more span {
     text-decoration: underline;
