@@ -1,6 +1,6 @@
 ---
 import Grade from './Grade.astro';
-import { aboutLine, feed, formatDate, outletName, type Line } from '../lib/data';
+import { aboutLine, feed, formatDate, keepTogether, outletName, type Line } from '../lib/data';
 
 interface Props {
   line: Line;
@@ -44,7 +44,7 @@ const feedUpdated = (feed._meta.updated_at_by_line?.[line.id] ?? feed._meta.upda
         {latest.map((e) => (
           <li class="report">
             <p class="report__date num"><time datetime={e.date}>{formatDate(e.date)}</time></p>
-            <a class="report__title" href={e.source_url} target="_blank" rel="noopener">{e.title}<span class="visually-hidden"> (opens in a new tab)</span></a>
+            <a class="report__title" href={e.source_url} target="_blank" rel="noopener">{keepTogether(e.title)}<span class="visually-hidden"> (opens in a new tab)</span></a>
             <p class="report__meta">{outletName(e.source_url)} <Grade status={e.status} compact noSource /></p>
           </li>
         ))}
@@ -106,7 +106,7 @@ const feedUpdated = (feed._meta.updated_at_by_line?.[line.id] ?? feed._meta.upda
           {news.map((n) => (
             <li class="report">
               <p class="report__date num"><time datetime={n.date}>{formatDate(n.date)}</time></p>
-              <a class="report__title" href={n.url} target="_blank" rel="noopener">{n.title}<span class="visually-hidden"> (opens in a new tab)</span></a>
+              <a class="report__title" href={n.url} target="_blank" rel="noopener">{keepTogether(n.title)}<span class="visually-hidden"> (opens in a new tab)</span></a>
               <p class="report__meta">{n.outlet}</p>
             </li>
           ))}

@@ -146,7 +146,8 @@ export async function mount(section: HTMLElement) {
   let selected = linked ?? section.dataset.mapFirst ?? stations.find((s) => s.lat !== null)!.id;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Open on the whole route (the line and any spur), with room east of it for station names.
+  // Open on the whole route (the line and any spur), with room east of it for station names
+  // and room at the foot, so the attribution never covers the last station's name.
   const bounds = new maplibregl.LngLatBounds();
   for (const f of alignment.features) {
     if (f.geometry.type !== 'LineString' || ['superseded', 'underground'].includes(f.properties?.part)) continue;
@@ -156,7 +157,10 @@ export async function mount(section: HTMLElement) {
     container,
     style: buildStyle(alignment, stations, selected),
     bounds,
-    fitBoundsOptions: { padding: { top: 30, bottom: 30, left: 30, right: 70 } },
+    // A phone-width map has the attribution on two lines and less room for long names.
+    fitBoundsOptions: {
+      padding: container.clientWidth < 520 ? { top: 30, bottom: 90, left: 24, right: 110 } : { top: 30, bottom: 60, left: 30, right: 70 },
+    },
     attributionControl: { compact: true },
     cooperativeGestures: true,
     maxZoom: 18,

@@ -4,7 +4,7 @@
  * .is-scrubbing, pins the section and slides the strip sideways as the reader scrolls.
  */
 import Grade from './Grade.astro';
-import { formatDate, type Line } from '../lib/data';
+import { formatDate, keepTogether, type Line } from '../lib/data';
 
 interface Props {
   line: Line;
@@ -37,7 +37,7 @@ const kindLabel: Record<string, string> = {
         <li class:list={['tl__event', `tl__event--${e.kind}`]}>
           <span class="tl__rail" aria-hidden="true"></span>
           <p class="tl__date num">{e.date ? <time datetime={e.date}>{formatDate(e.date)}</time> : 'Date not announced'}</p>
-          <h3 class="tl__title">{e.title}</h3>
+          <h3 class="tl__title">{keepTogether(e.title)}</h3>
           <p class="tl__summary">{e.summary}</p>
           <p class="tl__meta"><span class="tl__kind">{kindLabel[e.kind] ?? e.kind}</span><Grade status={e.status} source={e.source_url} /></p>
         </li>

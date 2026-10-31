@@ -451,7 +451,7 @@ The front page is one column on phones. At 64rem it becomes a two-column front: 
 
 Inside pages are ruled lists, not grids of cards. The numbers list goes to two columns at 48rem. Updates go to 1.5fr and 1fr at 56rem. Sources go to three columns at 64rem. The station directory uses newspaper columns (16rem minimum). The rolling-stock spec goes to two text columns at 64rem. Tenders are a full table on wide screens; under 48rem each row becomes a labelled block, one field per line, with the label column at 6rem.
 
-At 64rem and up, two sections pin. The route ride pins for 0.55 viewport heights per station and moves the train along the line. The timeline pins and slides its strip sideways. Under 64rem, and with reduced motion, both are plain vertical lists.
+At 64rem and up, two sections pin. The route ride pins for 0.55 viewport heights per station, at most 10 viewport heights for the whole ride (a dense line such as Line 4 rides faster), and moves the train along the line. The timeline pins and slides its strip sideways. Under 64rem, and with reduced motion, both are plain vertical lists.
 
 Every tap target is at least 44px tall; the two buttons are 48px.
 

@@ -131,6 +131,9 @@ const noAward = (t: { tender_status: string }) => (pending(t) ? 'Not yet' : t.te
     min-width: 16rem;
     color: var(--ink-2);
   }
+  .tenders td:nth-child(3) {
+    white-space: nowrap;
+  }
   .tenders td:nth-child(6) {
     min-width: 10rem;
   }

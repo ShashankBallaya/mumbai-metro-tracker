@@ -461,6 +461,17 @@ function fillStages(id: string, sections: StageSection[], progressAsOf: string, 
 }
 
 /** Formats "2024-03-27" / "2024-03" / "2019" by its precision. Never invents a day. */
+/**
+ * Joins words that must not break across lines with a no-break space: "Line 4", "Phase 2",
+ * "Rs 949", and a number with its unit ("2.9 km", "32 stations"). Balanced headings would
+ * otherwise split "Line" from "4" or leave a unit alone on the last line.
+ */
+export function keepTogether(text: string): string {
+  return text
+    .replace(/\b(Lines?|Phase|Package|Rs|No\.)\s+(?=[\dA-Z])/g, '$1 ')
+    .replace(/(\d[\d,.]*)\s+(km|m|ha|crore|Cr|cr|lakh|stations?|cars?|trains?|days|months|years|per cent)\b/g, '$1 $2');
+}
+
 export function formatDate(value: string | null | undefined): string {
   if (!value) return 'Date not announced';
   const [y, m, d] = value.split('-');

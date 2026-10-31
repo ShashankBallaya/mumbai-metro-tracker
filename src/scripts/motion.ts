@@ -192,10 +192,13 @@ function setUpRide(): ScrollTrigger | null {
   };
   setCurrent(0);
 
+  // 0.55 screens of scroll per station, but never more than 10 screens for the whole ride,
+  // so a dense line (Line 4, 32 stations) does not hold the reader for 17 screens.
+  const perStation = Math.min(0.55, 10 / Math.max(stations.length - 1, 1));
   const trigger = ScrollTrigger.create({
     trigger: stage,
     start: 'top top',
-    end: () => `+=${window.innerHeight * 0.55 * (stations.length - 1)}`,
+    end: () => `+=${window.innerHeight * perStation * (stations.length - 1)}`,
     pin: true,
     refreshPriority: 3,
     scrub: true,

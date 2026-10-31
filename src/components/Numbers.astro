@@ -1,7 +1,7 @@
 ---
 import Grade from './Grade.astro';
 import LineMark from './LineMark.astro';
-import { inr, type Line } from '../lib/data';
+import { inr, keepTogether, type Line } from '../lib/data';
 
 interface Props {
   line: Line;
@@ -34,7 +34,7 @@ const riderDecimals = riders.split('.')[1]?.length ?? 0;
       <dt>Length</dt>
       <dd class="fact__figure">
         <span class="fact__big num" data-count={p.length_km.value} data-decimals="2">{p.length_km.value}</span>
-        <span class="fact__unit">{c.length_unit}</span>
+        <span class="fact__unit">{keepTogether(c.length_unit)}</span>
       </dd>
       <dd class="fact__history">
         {hist(p.length_km.history).map((h) => <span><s class="superseded num">{h.value} km</s> {h.context.split('(')[0].trim()}</span>)}
@@ -46,7 +46,7 @@ const riderDecimals = riders.split('.')[1]?.length ?? 0;
       <dt>Stations</dt>
       <dd class="fact__figure">
         <span class="fact__big num" data-count={p.stations_count.value}>{p.stations_count.value}</span>
-        <span class="fact__unit">{c.stations_unit}</span>
+        <span class="fact__unit">{keepTogether(c.stations_unit)}</span>
       </dd>
       <dd class="fact__history">
         {hist(p.stations_count.history).map((h) => <span><s class="superseded num">{h.value}</s> {h.context}</span>)}
@@ -118,7 +118,7 @@ const riderDecimals = riders.split('.')[1]?.length ?? 0;
       <dt>Travel time</dt>
       <dd class="fact__figure">
         <span class="fact__words">{c.travel_head.replace('{minutes}', String((p.travel_time_benefit as { minutes_saved?: number }).minutes_saved))}</span>
-        <span class="fact__unit">{c.travel_unit}</span>
+        <span class="fact__unit">{keepTogether(c.travel_unit)}</span>
       </dd>
       <dd class="fact__grade"><Grade status={p.travel_time_benefit.status} source={p.travel_time_benefit.source_url} /></dd>
     </div>

@@ -66,11 +66,9 @@ const inside = [
   </div>
   <div class="page masthead__edition">
     <p>
-      Edition of <time datetime={edition}>{formatDate(edition)}</time>
-      <span class="sep" aria-hidden="true"></span>
-      Facts checked <time datetime={lastReviewed}>{formatDate(lastReviewed)}</time>
-      <span class="sep" aria-hidden="true"></span>
-      Not affiliated with MMRDA
+      <span class="masthead__item">Edition of <time datetime={edition}>{formatDate(edition)}</time></span>
+      <span class="masthead__item"><span class="sep" aria-hidden="true"></span>Facts checked <time datetime={lastReviewed}>{formatDate(lastReviewed)}</time></span>
+      <span class="masthead__item"><span class="sep" aria-hidden="true"></span>Not affiliated with MMRDA</span>
     </p>
     <button class="theme-toggle" type="button" data-theme-toggle data-magnetic aria-pressed="false">
       <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="2" /><path d="M10 3a7 7 0 0 1 0 14Z" fill="currentColor" /></svg>
@@ -146,7 +144,16 @@ const inside = [
     align-items: center;
     gap: var(--s-2) var(--s-3);
   }
+  /* Each label stays with its date, and each square leads its item, so on a narrow
+     screen a line can start with a square but never ends with one. */
+  .masthead__item {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--s-3);
+    white-space: nowrap;
+  }
   .sep {
+    flex: none;
     width: var(--bar);
     height: var(--bar);
     background: var(--signal-graphic);
