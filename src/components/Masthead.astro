@@ -66,7 +66,13 @@ const inside = [
   </div>
   <div class="page masthead__edition">
     <p>
-      <span class="masthead__item">Edition of <time datetime={edition}>{formatDate(edition)}</time></span>
+      {line && (
+        <a class="masthead__hub" href="/">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 12H5M12 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" /></svg>
+          All lines
+        </a>
+      )}
+      <span class="masthead__item">{line && <span class="sep" aria-hidden="true"></span>}Edition of <time datetime={edition}>{formatDate(edition)}</time></span>
       <span class="masthead__item"><span class="sep" aria-hidden="true"></span>Facts checked <time datetime={lastReviewed}>{formatDate(lastReviewed)}</time></span>
       <span class="masthead__item"><span class="sep" aria-hidden="true"></span>Not affiliated with MMRDA</span>
     </p>
@@ -152,6 +158,27 @@ const inside = [
     gap: var(--s-3);
     white-space: nowrap;
   }
+  /* Back to the hub: the first item of the edition line, in ink so it reads as the way out. */
+  .masthead__hub {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--s-2);
+    min-height: 44px;
+    margin-block: -12px;
+    color: var(--ink);
+    font-weight: 600;
+    white-space: nowrap;
+    transition: scale 0.16s var(--ease-out);
+  }
+  .masthead__hub svg {
+    flex: none;
+    width: 1.15em;
+    height: 1.15em;
+    transition: translate 0.2s var(--ease-out);
+  }
+  .masthead__hub:active {
+    scale: 0.97;
+  }
   .sep {
     flex: none;
     width: var(--bar);
@@ -181,6 +208,9 @@ const inside = [
     .theme-toggle:hover {
       border-color: var(--ink);
       background: var(--paper-2);
+    }
+    .masthead__hub:hover svg {
+      translate: -3px 0;
     }
   }
   .theme-toggle svg {

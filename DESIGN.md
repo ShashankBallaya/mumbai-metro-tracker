@@ -500,7 +500,7 @@ The system has no cards. Two container types exist.
 
 ### Navigation
 - **Masthead band:** full-width Line 12 Orange, "LINE 12" in display type with the Marathi mark beside it, the tagline in subhead type on the right.
-- **Edition line:** label type in Faded Ink, uppercase, 0.06em tracking, with 0.5rem orange squares as separators, and the edition toggle on the right. A 1px rule under it.
+- **Edition line:** label type in Faded Ink, uppercase, 0.06em tracking, with 0.5rem orange squares as separators, and the edition toggle on the right. A 1px rule under it. On every line page it opens with "All lines", the way back to the hub (`/`): Pressroom Navy, weight 600, a left arrow drawn like the "Ride the line" arrow, 44px tall; the arrow moves 3px left on hover (fine pointers) and the link presses to 0.97. Each item keeps its label and date together, and each square leads its item, so a wrapped line never ends in a square.
 - **Inside index:** the word "Inside" in subhead display type, then a horizontal list of section links (Mukta 500, Faded Ink, 44px tall). Hover or focus sets the text to ink and draws a 3px orange underline from the left. On phones it scrolls sideways with no scrollbar.
 - **Links:** inherit the text colour, with a 1px Orange Ink underline offset 0.2em. Hover thickens it to 3px.
 
