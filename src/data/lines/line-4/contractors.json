@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "Firms appointed on Lines 4 and 4A. 'tender_ids' link to tenders.json.",
-    "last_reviewed": "2026-10-19"
+    "last_reviewed": "2026-10-31"
   },
   "contractors": [
     {
@@ -39,16 +39,16 @@
       "tender_ids": ["ca-160"],
       "status": "reported",
       "source_url": "https://themetrorailguy.com/2023/04/07/sew-vse-jv-wins-mumbai-metro-line-4-mogharpada-depots-work/",
-      "last_verified": "2026-10-19"
+      "last_verified": "2026-10-31"
     },
     {
       "id": "lt",
       "name": "Larsen & Toubro",
-      "role": "Integrated systems (trains, signalling, telecom, platform screen doors, depot machinery), track, and power supply from Wadala to Cadbury Junction",
-      "tender_ids": ["ca-234", "ca-298"],
+      "role": "Integrated systems (trains, signalling, telecom, platform screen doors, depot machinery), track from Bhakti Park to Mulund Fire Station, and power supply from Wadala to Cadbury Junction",
+      "tender_ids": ["ca-234", "ca-168", "ca-298"],
       "status": "reported",
       "source_url": "https://www.railwaygazette.com/india/2026/10/19/mumbai-metro-line-4-4a-train-rolled-out-in-record-time/",
-      "last_verified": "2026-10-19"
+      "last_verified": "2026-10-31"
     },
     {
       "id": "alstom",
@@ -60,6 +60,52 @@
       "last_verified": "2026-10-19"
     },
     {
+      "id": "apurvakriti",
+      "name": "Apurvakriti Infrastructure",
+      "role": "Track, Mulund Fire Station to Gaimukh",
+      "tender_ids": ["ca-161"],
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2023/06/10/apurvakriti-wins-mumbai-metro-line-4s-track-work-contract-ca-161/",
+      "last_verified": "2026-10-31"
+    },
+    {
+      "id": "aurionpro",
+      "name": "Aurionpro Solutions",
+      "role": "Automatic fare collection",
+      "tender_ids": ["ca-237"],
+      "status": "reported",
+      "source_url": "https://metrorailnews.in/?p=75308",
+      "last_verified": "2026-10-31"
+    },
+    {
+      "id": "na-construction",
+      "name": "NA Construction",
+      "role": "Multi-modal integration at 16 stations",
+      "tender_ids": ["mmi-l4"],
+      "status": "reported",
+      "source_url": "https://metrorailnews.in/?p=75071",
+      "last_verified": "2026-10-31"
+    },
+    {
+      "id": "univastu",
+      "name": "Univastu India",
+      "role": "E&M systems, as L&T's subcontractor on CA-298",
+      "tender_ids": ["ca-298"],
+      "status": "reported",
+      "source_url": "https://metrorailtoday.com/news/univastu-india-bags-39176-crore-em-contract-for-mumbai-metro-line-4-4a",
+      "last_verified": "2026-10-31",
+      "notes": "Rs 391.76 crore, per Metro Rail Today."
+    },
+    {
+      "id": "systra",
+      "name": "SYSTRA MVA Consulting (India)",
+      "role": "Detailed design consultant, Line 4",
+      "tender_ids": [],
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/mumbai-metro-green-line-information-route-map-fares-timings-tenders-status-updates/",
+      "last_verified": "2026-10-31"
+    },
+    {
       "id": "gc-db-lb-hill",
       "name": "DB Engineering & Consulting, Louis Berger and Hill International (JV)",
       "role": "General consultant, Lines 4 and 4A, from 2017 until MMRDA ended its services on 18 Feb 2026",
@@ -67,15 +113,21 @@
       "status": "reported",
       "source_url": "https://themetrorailguy.com/2017/08/09/db-hill-louis-berger-jv-wins-mumbai-metro-line-4s-gc-contract/",
       "last_verified": "2026-10-19",
-      "also_see": [
-        "https://www.freepressjournal.in/mumbai/mumbai-news-mmrda-blames-contractor-negligence-for-fatal-metro-line-4-slab-collapse-incident"
-      ]
+      "also_see": ["https://www.freepressjournal.in/mumbai/mumbai-news-mmrda-blames-contractor-negligence-for-fatal-metro-line-4-slab-collapse-incident"]
     }
   ],
   "excluded_claims": [
     {
-      "claim": "Ballastless track contracts CA-161 (Apurvakriti) and CA-168 (L&T), station finishing CA-194 (Eagle Infra) and CA-222 (Godrej & Boyce), power CA-236 (IRCON-Jakson), fare collection CA-237 (Aurionpro)",
-      "reason": "Listed by The Metro Rail Guy's Green Line page as lowest bidders or awards; the individual reports were not read yet. Railway Gazette (Oct 2026) says L&T executes the track and power packages, which may mean some of these changed hands."
+      "claim": "Station finishing CA-302 (tender 2026_MMRDA_1297164_1, 27 Apr 2026: finishing at 5 stations and steel roofs at 3) and CA-310 (tender 2026_MMRDA_1298434_1, about Rs 115.9 crore, with Sonapur, bids due 2 Jun 2026)",
+      "reason": "Seen only in search excerpts of tender aggregator pages (tenders.infralens.in, publicservicesmap.in) that could not be opened; the station names and results are not known."
+    },
+    {
+      "claim": "Train housekeeping for 62 trains of Lines 4 and 4A and other lines (2026_MMRDA_1295762_1) and skilled staff for station maintenance on Lines 4 and 4A (2026_MMRDA_1298749_1), both 2026",
+      "reason": "Seen only in aggregator listings that could not be opened."
+    },
+    {
+      "claim": "Finishing at 7 stations went to Eagle Infra (CA-194) and Godrej & Boyce (CA-222)",
+      "reason": "Both were lowest bidders in February 2024 at about 25% over MMRDA's estimate; no award, cancellation or new tender for them was found. CA-290 and the 2026 tenders may cover some of the same stations."
     }
   ]
 }
