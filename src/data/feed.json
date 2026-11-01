@@ -1,11 +1,11 @@
 {
   "_meta": {
     "description": "Written by scripts/fetch-feed.mjs. Do not edit by hand: add an item's URL to exclude_urls in feed-sources.json to hide it. Items are found automatically and are not checked by a person.",
-    "updated_at": "2026-10-30T22:30:48.988Z",
+    "updated_at": "2026-11-01T06:27:27.395Z",
     "updated_at_by_line": {
       "line-12": "2026-10-15T17:11:33.436Z",
       "line-12a": "2026-10-29T06:02:07.530Z",
-      "line-5": "2026-10-30T13:15:49.174Z",
+      "line-5": "2026-11-01T06:27:27.395Z",
       "line-2b": "2026-10-30T22:30:48.988Z",
       "line-6": "2026-10-29T06:02:07.530Z",
       "line-7a": "2026-10-30T22:30:48.988Z"
@@ -489,24 +489,6 @@
       "url": "https://metrorailnews.in/dev-engineers-bags-contract-of-mumbai-metro/",
       "lines": [
         "line-2b"
-      ]
-    },
-    {
-      "title": "Titagarh Rail Bags ₹2,481Cr Contract for Mumbai Metro Line 5",
-      "outlet": "Metro Rail News",
-      "date": "2025-11-01",
-      "url": "https://metrorailnews.in/titagarh-rail-bags-%e2%82%b92481-crore-contract/",
-      "lines": [
-        "line-5"
-      ]
-    },
-    {
-      "title": "Titagarh secures Rs. 2,481 crore order for manufacturing 132 metro coaches of Mumbai Metro Line-5",
-      "outlet": "Rail Analysis India",
-      "date": "2025-11-01",
-      "url": "https://railanalysis.in/metro/titagarh-secures-rs-2481-crore-order-for-manufacturing-132-metro-coaches-of-mumbai-metro-line-5/",
-      "lines": [
-        "line-5"
       ]
     }
   ],
