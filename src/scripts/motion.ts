@@ -13,11 +13,8 @@ import Lenis from 'lenis';
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 let lenisRef: Lenis | null = null;
-// The hub (index.astro) runs its own scroll and motion (hub.ts). A second Lenis here would
-// fight it on every wheel tick, and a second link handler would override its landings.
-const ownMotion = document.querySelector('.hubw') !== null;
 
-if (!reduceMotion && !ownMotion) {
+if (!reduceMotion) {
   gsap.registerPlugin(ScrollTrigger, SplitText);
 
   // ---------- Smooth scroll ----------
@@ -124,6 +121,8 @@ if (!reduceMotion && !ownMotion) {
 
   // ---------- In-page links go through Lenis (and into the ride when it is pinned) ----------
   document.addEventListener('click', (event) => {
+    // A link a page script already handled (the hub's fact box index) is not a jump.
+    if (event.defaultPrevented) return;
     const link = (event.target as Element).closest<HTMLAnchorElement>('a[href^="#"]');
     if (!link) return;
     const id = link.getAttribute('href')!.slice(1);

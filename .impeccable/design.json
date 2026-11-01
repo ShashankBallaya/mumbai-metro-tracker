@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-29T10:11:30+00:00",
+  "generatedAt": "2026-11-01T17:23:57+00:00",
   "title": "Design System: Line 12 Tracker",
   "extensions": {
     "colorMeta": {
@@ -367,7 +367,7 @@
           "#ffd5ac"
         ],
         "cssVar": "--line-orange",
-        "note": "Lines 12, 12A and 5: their LineMark everywhere, and their chapter accent on the hub."
+        "note": "Lines 12, 12A and 5: their LineMark everywhere; on the hub their bundle strokes, map strokes and line marks."
       },
       "on-line-orange": {
         "role": "neutral",
@@ -400,7 +400,7 @@
           "#c8ffd1"
         ],
         "cssVar": "--line-4",
-        "note": "Line 4: its LineMark, and its chapter accent on the hub (no night swap on the hub)."
+        "note": "Line 4: its LineMark everywhere; on the hub its bundle stroke, map stroke and line mark (morning value; the hub sets no data-accent)."
       },
       "on-line-4": {
         "role": "neutral",
@@ -433,7 +433,7 @@
           "#ffcceb"
         ],
         "cssVar": "--line-6",
-        "note": "Mark and hub network map only."
+        "note": "Line 6: its LineMark everywhere; on the hub its bundle stroke, map stroke and line mark."
       },
       "on-line-6": {
         "role": "neutral",
@@ -451,6 +451,39 @@
         ],
         "cssVar": "--on-line-6"
       },
+      "line-7a": {
+        "role": "secondary",
+        "displayName": "Line 7A Red",
+        "canonical": "oklch(52.7% 0.188 25.5)",
+        "tonalRamp": [
+          "#310103",
+          "#5c0309",
+          "#8a0111",
+          "#b61a23",
+          "#da4341",
+          "#fe655e",
+          "#fea198",
+          "#fed2cd"
+        ],
+        "cssVar": "--line-7a",
+        "note": "Line 7A: its LineMark everywhere; on the hub its bundle stroke, map stroke and line mark (morning value; the hub sets no data-accent)."
+      },
+      "on-line-7a": {
+        "role": "neutral",
+        "displayName": "White on Line 7A Red",
+        "canonical": "oklch(100.0% 0.000 89.9)",
+        "tonalRamp": [
+          "#161616",
+          "#2e2e2e",
+          "#484848",
+          "#636363",
+          "#808080",
+          "#9e9e9e",
+          "#bebebe",
+          "#dedede"
+        ],
+        "cssVar": "--on-line-7a"
+      },
       "line-2b": {
         "role": "secondary",
         "displayName": "Line 2B Yellow",
@@ -466,7 +499,7 @@
           "#ffec9b"
         ],
         "cssVar": "--line-2b",
-        "note": "Mark and hub network map only."
+        "note": "Lines 2A and 2B (Yellow): LineMark; on the hub their bundle strokes, map strokes and line marks."
       },
       "on-line-2b": {
         "role": "neutral",
@@ -484,6 +517,39 @@
         ],
         "cssVar": "--on-line-2b"
       },
+      "net-blue": {
+        "role": "secondary",
+        "displayName": "Line 1 Blue",
+        "canonical": "oklch(55.7% 0.172 259.7)",
+        "tonalRamp": [
+          "#001339",
+          "#002968",
+          "#044199",
+          "#1d5dc3",
+          "#3c7ce5",
+          "#629dfd",
+          "#99bffd",
+          "#ccdffe"
+        ],
+        "cssVar": "--net-blue",
+        "note": "Hub only: bundle stroke, map stroke and line mark of Line 1 (reported name Blue). The site's own value."
+      },
+      "on-net-blue": {
+        "role": "neutral",
+        "displayName": "White on Line 1 Blue",
+        "canonical": "oklch(100.0% 0.000 89.9)",
+        "tonalRamp": [
+          "#161616",
+          "#2e2e2e",
+          "#484848",
+          "#636363",
+          "#808080",
+          "#9e9e9e",
+          "#bebebe",
+          "#dedede"
+        ],
+        "cssVar": "--on-net-blue"
+      },
       "net-red": {
         "role": "secondary",
         "displayName": "Line 7 Red",
@@ -499,7 +565,7 @@
           "#ffccc0"
         ],
         "cssVar": "--net-red",
-        "note": "Hub network map and list mark only. The site's own value; no source gives one. White on it 5.0:1."
+        "note": "Hub only: bundle stroke, map stroke and line mark of Line 7. The site's own value; no source gives one. White on it 5.0:1."
       },
       "on-net-red": {
         "role": "neutral",
@@ -532,7 +598,7 @@
           "#b6fcff"
         ],
         "cssVar": "--net-aqua",
-        "note": "Hub network map and list mark only. The site's own value. Navy on it 8.4:1."
+        "note": "Hub only: bundle stroke, map stroke and line mark of Line 3. The site's own value. Navy on it 8.4:1."
       },
       "on-net-aqua": {
         "role": "neutral",
@@ -565,7 +631,7 @@
           "#ffeaa5"
         ],
         "cssVar": "--net-gold",
-        "note": "Hub network map and list mark only. The site's own value. Navy on it 9.6:1."
+        "note": "Hub only: bundle stroke, map stroke and line mark of Line 8. The site's own value. Navy on it 9.6:1."
       },
       "on-net-gold": {
         "role": "neutral",
@@ -582,125 +648,6 @@
           "#e7effc"
         ],
         "cssVar": "--on-net-gold"
-      },
-      "hub-bg": {
-        "role": "neutral",
-        "displayName": "Night Ground",
-        "canonical": "oklch(15.9% 0.011 268.0)",
-        "tonalRamp": [
-          "#0a0b0e",
-          "#222428",
-          "#3d4045",
-          "#5b5d64",
-          "#7d8087",
-          "#a2a4ab",
-          "#c8cad0",
-          "#eceef3"
-        ],
-        "cssVar": "--hub-bg",
-        "note": "Hub only (.hubw)."
-      },
-      "hub-bg-2": {
-        "role": "neutral",
-        "displayName": "Second Ground",
-        "canonical": "oklch(20.0% 0.015 266.8)",
-        "tonalRamp": [
-          "#090b0f",
-          "#222429",
-          "#3d4047",
-          "#5a5e66",
-          "#7c8089",
-          "#a1a5ad",
-          "#c7cad2",
-          "#ebeef5"
-        ],
-        "cssVar": "--hub-bg-2",
-        "note": "Hub only: map frame, popups, colophon."
-      },
-      "hub-ink": {
-        "role": "neutral",
-        "displayName": "Paper White",
-        "canonical": "oklch(95.9% 0.010 87.5)",
-        "tonalRamp": [
-          "#0c0b08",
-          "#252420",
-          "#42403b",
-          "#605d58",
-          "#82807a",
-          "#a7a49f",
-          "#cccac5",
-          "#f0eeea"
-        ],
-        "cssVar": "--hub-ink",
-        "note": "Hub only."
-      },
-      "hub-ink-2": {
-        "role": "neutral",
-        "displayName": "Soft White",
-        "canonical": "rgb(244 241 234 / 0.76)",
-        "tonalRamp": [
-          "#0c0b08",
-          "#252420",
-          "#42403b",
-          "#605d58",
-          "#82807a",
-          "#a7a49f",
-          "#cccac5",
-          "#f0eeea"
-        ],
-        "cssVar": "--hub-ink-2",
-        "note": "Hub only. Paper White at 76% on Night Ground."
-      },
-      "hub-ink-3": {
-        "role": "neutral",
-        "displayName": "Quiet White",
-        "canonical": "rgb(244 241 234 / 0.6)",
-        "tonalRamp": [
-          "#0c0b08",
-          "#252420",
-          "#42403b",
-          "#605d58",
-          "#82807a",
-          "#a7a49f",
-          "#cccac5",
-          "#f0eeea"
-        ],
-        "cssVar": "--hub-ink-3",
-        "note": "Hub only. Paper White at 60% on Night Ground."
-      },
-      "hub-rule": {
-        "role": "neutral",
-        "displayName": "Hairline",
-        "canonical": "rgb(244 241 234 / 0.16)",
-        "tonalRamp": [
-          "#0c0b08",
-          "#252420",
-          "#42403b",
-          "#605d58",
-          "#82807a",
-          "#a7a49f",
-          "#cccac5",
-          "#f0eeea"
-        ],
-        "cssVar": "--hub-rule",
-        "note": "Hub only. Paper White at 16%."
-      },
-      "hub-focus": {
-        "role": "primary",
-        "displayName": "Hub Focus Orange",
-        "canonical": "oklch(72.2% 0.163 48.4)",
-        "tonalRamp": [
-          "#280000",
-          "#4d0000",
-          "#741d00",
-          "#9e3900",
-          "#c85d12",
-          "#e98851",
-          "#ffb283",
-          "#ffdab1"
-        ],
-        "cssVar": "--focus",
-        "note": "Hub only: .hubw sets --focus and --signal-line to it (focus ring, unverified and conflicting grade marks)."
       }
     },
     "typographyMeta": {
@@ -749,53 +696,9 @@
         "purpose": "Table heads, grade words, phase states, edition line, pills. Names data; never a kicker above a heading.",
         "cssVar": "--step--1"
       },
-      "hub-cover-title": {
-        "displayName": "Hub Cover Title",
-        "purpose": "Hub only. MUMBAI METRO TRACKER on the cover."
-      },
-      "hub-plate": {
-        "displayName": "Hub Number Plate",
-        "purpose": "Hub only. The line number on its colour plate in each chapter. Tabular."
-      },
-      "hub-network-title": {
-        "displayName": "Hub Network Title",
-        "purpose": "Hub only. THE WHOLE NETWORK."
-      },
-      "hub-chapter-name": {
-        "displayName": "Hub Chapter Name",
-        "purpose": "Hub only. The line's short route in its chapter."
-      },
-      "hub-next": {
-        "displayName": "Hub Next Target",
-        "purpose": "Hub only. The next opening target date on the cover. Tabular."
-      },
-      "hub-fact": {
-        "displayName": "Hub Fact",
-        "purpose": "Hub only. Length, stations and target in a chapter, each with a compact grade. Tabular."
-      },
-      "hub-stage-title": {
-        "displayName": "Hub Stage Title",
-        "purpose": "Hub only. Stage group heads in the network list, and the list line marks."
-      },
-      "hub-pill": {
-        "displayName": "Hub Pill",
-        "purpose": "Hub only. Every pill label."
-      },
-      "hub-lede": {
-        "displayName": "Hub Lede",
-        "purpose": "Hub only. Cover, chapter phase and network ledes, in Soft White."
-      },
-      "hub-fact-name": {
-        "displayName": "Hub Fact Name",
-        "purpose": "Hub only. The dt above each chapter figure; names data, never a kicker."
-      },
-      "hub-credit": {
-        "displayName": "Hub Credit",
-        "purpose": "Hub only. The photo credit chip."
-      },
-      "hub-mark-mr": {
-        "displayName": "Hub Marathi Mark",
-        "purpose": "Hub only. Decorative Marathi marks, lang mr, aria-hidden."
+      "hub-box-figure": {
+        "displayName": "Hub Box Figure",
+        "purpose": "Hub only. The figures of a record printed in the fact box: Anek 75%, 800, 1.3rem, tabular. The register keeps Mukta bold."
       }
     },
     "shadows": [
@@ -811,8 +714,8 @@
       },
       {
         "name": "hub-unnamed-ring",
-        "value": "inset 0 0 0 1.5px var(--hub-ink-3)",
-        "purpose": "Hub only. Outlines the list mark of a line whose colour no source names. A hairline, not elevation."
+        "value": "inset 0 0 0 1.5px var(--ink-3)",
+        "purpose": "Hub only. Outlines the line mark of a line whose colour no source names. A hairline, not elevation."
       }
     ],
     "motion": [
@@ -872,54 +775,39 @@
         "purpose": "Every section is complete in its base state."
       },
       {
-        "name": "hub-smooth-scroll",
-        "value": "Lenis lerp 0.11 on the GSAP ticker; in-page links scrollTo 1.4s",
-        "purpose": "Hub only. Smooth scroll and anchor travel."
-      },
-      {
-        "name": "hub-cover-in",
-        "value": "tiles from scale 1.06, opacity 0, 1.2s expo.out, stagger 0.08s; mark parts from y 24px, 1.1s expo.out, stagger 0.08s, delay 0.15s",
-        "purpose": "Hub only. The cover settles on load."
-      },
-      {
-        "name": "hub-mask-open",
-        "value": "clip-path inset(<own cover tile box> round 14px) to inset(0 round 0px), power2.inOut, in a chapter timeline with scrub 0.6 from top top to bottom bottom",
-        "purpose": "Hub only. The memorable moment: a cover tile grows into its chapter."
-      },
-      {
-        "name": "hub-photo-settle",
-        "value": "scale 1.22 and yPercent 3 to scale 1 and yPercent 0, over 2.4 timeline units, ease none",
-        "purpose": "Hub only. Depth by the photo's slow scale inside the mask."
-      },
-      {
-        "name": "hub-title-land",
-        "value": "number plate and Marathi mark from yPercent 60 at 0.7; name from yPercent 40 at 0.8; 0.5 units, expo.out",
-        "purpose": "Hub only. The line's number and name land."
-      },
-      {
-        "name": "hub-facts-in",
-        "value": "phase, facts and pills from y 26px, opacity 0, 0.4 units, stagger 0.12, expo.out, at 1.05",
-        "purpose": "Hub only. Facts rise in with their grades."
-      },
-      {
-        "name": "hub-route-draw",
-        "value": "stroke-dashoffset 1 to 0 on pathLength 1, 0.8 units at 1.3; then a 0.5 hold",
-        "purpose": "Hub only. The route draws itself across the picture."
-      },
-      {
-        "name": "hub-hover",
-        "value": "0.2s to 0.25s cubic-bezier(0.16, 1, 0.3, 1); tile photo scale 1.04 over 0.9s; pill active scale 0.97; pill hover translateY -1px",
-        "purpose": "Hub only. Hover and press, fine pointers only for hover."
-      },
-      {
         "name": "hub-map-load",
-        "value": "IntersectionObserver rootMargin 600px, dynamic import of network-map",
-        "purpose": "Hub only. The map loads as the reader nears it."
+        "value": "requestIdleCallback (timeout 2500ms), or on first pointerdown with Data Saver; dynamic import of network-map",
+        "purpose": "Hub only. The street map loads after the first paint; the static drawing answers until then."
+      },
+      {
+        "name": "hub-map-fade",
+        "value": "street map opacity 0 to 1 over 0.5s, drawing out over 0.4s, var(--ease-out), once the first frame is drawn",
+        "purpose": "Hub only. The street map takes over from the drawing."
+      },
+      {
+        "name": "hub-map-frame",
+        "value": "fitBounds, maxZoom 14.5, pitch 55, bearing along the route (folded within 90 degrees), 1100ms; All lines returns to pitch 0, bearing 0",
+        "purpose": "Hub only. A picked line is framed and tilted down its route."
+      },
+      {
+        "name": "hub-dim",
+        "value": "0.25s var(--ease-out); others in the drawing 0.18, street map strokes 0.16, numbers 0.25; picked stroke 6px (drawing) or 1.7x (street map), stroke width 0.2s",
+        "purpose": "Hub only. Picking a line dims the others."
+      },
+      {
+        "name": "hub-record-print",
+        "value": "@starting-style opacity 0, translate 0 8px; 0.22s var(--ease-out)",
+        "purpose": "Hub only. A record prints into the fact box."
+      },
+      {
+        "name": "hub-press",
+        "value": "index row scale 0.985, buttons 0.97, 0.16s var(--ease-out); back arrow translate -3px on hover (fine pointers), 0.2s",
+        "purpose": "Hub only. Press and hover feedback."
       },
       {
         "name": "hub-reduced-motion",
-        "value": "prefers-reduced-motion: reduce starts no GSAP and no Lenis; CSS durations 0.01ms (global.css)",
-        "purpose": "Hub only. Every chapter is a complete still frame."
+        "value": "prefers-reduced-motion: reduce; fitBounds duration 0, phone scroll to the box instant, CSS durations 0.01ms",
+        "purpose": "Hub only. The page is complete without motion."
       }
     ],
     "breakpoints": [
@@ -944,14 +832,14 @@
         "purpose": "Two-column front page, three-column sources, two-column spec, pinned ride and timeline."
       },
       {
-        "name": "hub-phone",
-        "value": "max-width 47.99rem",
-        "purpose": "Hub only. Top bar shows only All lines; credit chip goes full-width at the top; route end names hide."
+        "name": "hub-inside",
+        "value": "max-width 30rem",
+        "purpose": "Hub only. The masthead's Inside list wraps beside its label instead of scrolling."
       },
       {
         "name": "hub-lg",
         "value": "64rem",
-        "purpose": "Hub only. Full-screen three-column cover collage; two-column network list."
+        "purpose": "Hub only. Two-column front (map and fact box). Below it: one column, map first, legend under the map; the bundle keeps its bend, left run and stops at --k 0.5 and --tg 1rem, with 14px capsules and 2px rings."
       }
     ],
     "rules": [
@@ -974,75 +862,68 @@
       "value": "radial-gradient(var(--halftone) 1px, transparent 1.3px) at 6px 6px",
       "purpose": "Printed-picture areas only."
     },
-    "hubFocus": {
-      "value": "outline 3px solid var(--focus); outline-offset 3px; border-radius 4px",
-      "purpose": "Hub only. Hub Focus Orange ring."
-    },
-    "hubScrims": [
-      {
-        "name": "chapter-bottom",
-        "value": "linear-gradient(to top, rgb(11 13 18 / 0.94) 0%, rgb(11 13 18 / 0.6) 38%, transparent 70%)"
-      },
-      {
-        "name": "chapter-left",
-        "value": "linear-gradient(to right, rgb(11 13 18 / 0.82) 0%, rgb(11 13 18 / 0.66) 32%, rgb(11 13 18 / 0.3) 56%, transparent 78%)"
-      },
-      {
-        "name": "tile-foot",
-        "value": "linear-gradient(to top, rgb(11 13 18 / 0.85), transparent), inset 45% 0 0"
-      },
-      {
-        "name": "credit-chip",
-        "value": "rgb(11 13 18 / 0.62)"
-      },
-      {
-        "name": "map-attribution",
-        "value": "rgb(11 13 18 / 0.85)"
-      }
-    ],
     "hubMap": {
-      "source": "src/scripts/network-map.ts (MapLibre GL on OpenFreeMap vector tiles)",
+      "source": "src/scripts/network-map.ts (MapLibre GL on OpenFreeMap vector tiles) over the static drawing from networkDrawing (src/lib/network.ts)",
       "palette": {
-        "ground": "#0e1117",
-        "land": "#141820",
-        "water": "#0a1a26",
-        "road": "#262b35",
-        "rail": "#3a3f4a (dashed 3 2)",
-        "placeLabel": "#8f949c",
-        "unnamedLine": "#8d939c",
-        "stationsAndNumbers": "#f4f1ea"
+        "morning": {
+          "ground": "#e5ddcf",
+          "land": "#ded5c5",
+          "water": "#c3cfd0",
+          "road": "#d0c6b4",
+          "rail": "#a69e91 (dashed 3 2)",
+          "placeLabel": "#5f584f",
+          "stationsAndNumbers": "#111a28",
+          "building": "#cbc1b0"
+        },
+        "night": {
+          "ground": "#121d31",
+          "land": "#16223a",
+          "water": "#0b1424",
+          "road": "#24314c",
+          "rail": "#3a4766 (dashed 3 2)",
+          "placeLabel": "#978f82",
+          "stationsAndNumbers": "#ece5d8",
+          "building": "#253554"
+        },
+        "unnamedLine": "var(--concrete)"
       },
       "stages": [
         {
           "stage": "operational",
           "word": "Running",
-          "stroke": "solid, round caps, width 3 to 7 (zoom 9 to 14)"
+          "drawing": "solid 3.5px, round caps",
+          "street": "solid, width 3 to 7 (zoom 9 to 14)"
         },
         {
           "stage": "under_construction",
           "word": "Under construction",
-          "stroke": "dasharray 2.2 1.1, width 3 to 7"
+          "drawing": "dasharray 9 5, butt",
+          "street": "dasharray 2.2 1.1, width 3 to 7"
         },
         {
           "stage": "planned",
-          "word": "Approved, not started",
-          "stroke": "dasharray 0.9 1.3, width 2.4 to 5.5"
+          "word": "Approved",
+          "drawing": "dasharray 3.5 4, butt",
+          "street": "dasharray 0.9 1.3, width 2.4 to 5.5"
         },
         {
           "stage": "proposed",
           "word": "Proposed",
-          "stroke": "dasharray 0.1 2 with round caps (dots), width 2 to 4"
+          "drawing": "dasharray 0.1 5.5, round (dots)",
+          "street": "dasharray 0.1 2, round (dots), width 2 to 4"
         },
         {
           "stage": "future",
           "word": "Studied as an idea",
-          "stroke": "not drawn on the map; list sample only"
+          "drawing": "not drawn",
+          "street": "not drawn; register sample only"
         }
       ],
-      "casing": "hub-bg line under every line, width 5 to 11",
-      "labels": "one Noto Sans Bold 12px number per line at the drawn vertex nearest its centre, Paper White, 2.5px halo, always shown; place names uppercase, 0.08em tracking, last layer",
-      "controls": "zoom only (no compass), cooperative gestures, compact attribution, max zoom 16",
-      "popup": "hub-bg-2, 10px radius, line name, stage \"here\", tracker link"
+      "buildings": "fill-extrusion from zoom 13, OpenMapTiles render_height, opacity 0.9",
+      "casing": "ground-coloured line under every line, width 5 to 11",
+      "labels": "one number per line at its drawn vertex nearest its centre: drawing Anek 75% 800 21px with a 5px paper-2 halo; street map Noto Sans Bold 13px with a 2.5px ground halo",
+      "controls": "zoom only (no compass), on paper with a 1px rule outline, cooperative gestures, max zoom 16; attribution on paper (ink-3 text, ink-2 links) in both editions via .front__map .maplibregl-ctrl.maplibregl-ctrl-attrib, raised to beat MapLibre's own white rule",
+      "legend": "stroke key only, no counts, in a 2.75rem paper-2 strip under a 1px rule at the map's foot; under the map on phones"
     },
     "surfaces": {
       "hub": {
@@ -1052,42 +933,31 @@
           "src/styles/hub.css",
           "src/scripts/hub.ts",
           "src/scripts/network-map.ts",
-          "src/lib/network.ts"
+          "src/lib/network.ts",
+          "src/components/Masthead.astro"
         ],
         "brief": ".impeccable/surfaces/src-pages-index-astro.md",
-        "scope": "Hub at / only. Line pages keep The Late City Edition.",
-        "northStar": "Mumbai Key Art",
-        "overview": "**Creative North Star: \"Mumbai Key Art\"**\n\nThe hub is the cover of the whole tracker, told like a game's key art instead of a newspaper. Each tracked line is a place at a real hour of Mumbai light: a full-bleed, credited ground or drone photo that the reader scrolls into. The facts arrive inside the picture, each with its grade, and the network map of every line in the region closes the story.\n\nThe ground is near-black, the ink is warm paper white in three strengths, and the only hue on a chapter is that line's own colour: Lines 12, 12A and 5 in Line Orange, Line 4 in Line 4 Green. The first screen is a collage of four photo tiles (14px corners) around the MUMBAI METRO TRACKER mark with its Marathi mark. Scrolling grows a line's own tile, from its place on the cover, through a mask into its full-screen chapter. Depth comes from the photo's slow scale inside the mask and from dark scrims, never from shadow, glow or glass.\n\nThe type is the line pages' type: Anek Latin squeezed to 75%, weight 800, uppercase, for every display line, and plain Mukta for copy. Huge number plates in the line colour name each line. Controls are full pills. The hub is always dark; it has no morning edition and no edition toggle.",
+        "scope": "Hub at / only. Prints in The Late City Edition since 2026-10-31; these entries record only where it differs or adds. Mumbai Key Art is retired (owner, 2026-10-31).",
+        "northStar": "The Front Page",
+        "overview": "**Creative North Star: \"The Front Page\"**\n\nThe network map is the front page, and every line has a printed record. The reader sees every metro line in the region on the real map, by stage, picks a line, and reads its record in a ruled fact box beside the map, each figure with its grade and source. Below: the register of every line by work stage, the latest updates, where the lines meet, the colophon. The hub adds the bundle: one stroke per primary line colour, across the top and down the left, carrying each section at a stop.",
         "keyCharacteristics": [
-          "Near-black ground (hub-bg) and paper-white ink (hub-ink) in three strengths, set on `.hubw`, which redefines paper, ink and rule for the shared components.",
-          "One accent per chapter: the line's own colour token, as the number plate, route stroke, primary pill, tile tint and nav dot.",
-          "Full-bleed real photos, one per line, each with a dated, linked credit chip.",
-          "Anek Latin at 75%, weight 800, uppercase, with decorative Marathi marks in paper white.",
-          "Pills (999px) and rounded tiles (14px); no cards, no shadows, no glass.",
-          "Motion is the mask: a cover tile grows into its chapter as the reader scrolls. With motion off, every chapter is a complete still frame.",
-          "A dark MapLibre map where stage is a stroke pattern and each line carries one number label."
+          "Newsprint and navy editions, Anek 75% 800 heads, Mukta copy, 4px ink rules and 1px column rules; no cards, no shadows.",
+          "Ink masthead band (navy on morning paper, cream on night), edition line, Inside index of four sections; under 30rem the Inside list wraps.",
+          "The bundle: one 4px stroke per primary line with a sourced colour, network.json order, each colour once (branches share their primary's stroke; 8 strokes today, Lines 1 to 8), 6px pitch; --tw, --bend and --stops computed in index.astro as desktop px times --k; bend, left run and paper capsule stops on every screen (--k 0.5 and --tg 1rem under 64rem).",
+          "The front: map minmax(0, 1fr) and fact box minmax(22rem, 30rem), height max(30rem, 100svh - 22rem), ending at the fold at 1440 by 900.",
+          "Map: static drawing painted at once, MapLibre fading over it; the legend is a stroke key in its own 2.75rem strip under a 1px rule.",
+          "Fact box: index of lines being built and upcoming; a pick dims the others, frames the line (55 degree tilt, buildings from zoom 13) and prints its record with a 4px ink rule and figures in the display face.",
+          "Line colours only as line marks, map strokes and the bundle; stage is a stroke pattern beside its word."
         ],
         "stillApplies": [
-          "The grade mark on every figure, with its source (Grade, compact on the hub), and the mark drawn by shape plus a word (The Grade Mark).",
-          "Tabular lining numerals for every figure and date (The Tabular Rule).",
-          "Status never by colour alone: on the hub, stage is a stroke pattern plus a word, on the map and in the list.",
-          "The Squeeze Rule for display type, Mukta for copy, balanced headings and pretty paragraphs.",
-          "Never body-size text in a line colour; colour is for plates, strokes, dots and fills under their on-colour text.",
-          "No em dashes in any copy.",
-          "Reduced motion is complete: nothing needed to understand the page depends on motion.",
-          "Tap targets of 44px or more; a 3px focus ring offset 3px.",
-          "No kickers: a small uppercase label names the data under it and never introduces a heading.",
-          "No drop shadows, floating cards or glass."
+          "Every rule of The Late City Edition, in both editions, including the orange bar module on section heads."
         ],
-        "doesNotApply": [
-          "The Two Editions Rule and the edition toggle: the hub is always dark, on its own hub tokens.",
-          "The One Signal Rule, The Line Colour Rule's single page hue and The Three Oranges Rule: each chapter takes its own line's colour, and the network shows every named line colour.",
-          "The bar module, the masthead band, the edition line, the Inside index and the section head (bar, name, standfirst): the hub has none of them.",
-          "The Edition Rule's heavy 4px ink rules: the hub divides with 1px Hairlines and space.",
-          "Square controls (4px): hub controls are full pills, and tiles, chips, plates and the map frame are rounded (6px to 16px).",
-          "The Halftone Rule and the drawn lead picture: the hub uses real, credited photos instead.",
-          "The hollow route casing with a paper core and station dots: the hub's route is a solid line-colour stroke without stations.",
-          "The colophon's orange top bar: on the hub it is a Hairline."
+        "differs": [
+          "The masthead band is ink, not orange, and names the site; the edition line has no back link.",
+          "Many line colours on one page, only as marks, strokes and the bundle.",
+          "Sections indent past the bundle and their 4px rule starts after it.",
+          "No lead picture, no halftone, no photos: the map is the front page's picture.",
+          "The direction brief's masthead stripe of line colours was built as the bundle instead."
         ]
       }
     }
@@ -1174,60 +1044,36 @@
       "css": ".ds-panel { padding: 1.5rem; background: var(--paper-2, #e5ddcf); border-top: 4px solid var(--signal, #f26b1d); } .ds-panel h3 { margin: 0 0 1rem; font-family: 'Anek Latin Variable', system-ui, sans-serif; font-weight: 800; font-stretch: 75%; font-size: 2rem; line-height: 1; text-transform: uppercase; } .ds-panel ul { display: grid; gap: 0.75rem; margin: 0; padding: 0; list-style: none; max-width: 68ch; font-family: 'Mukta', system-ui, sans-serif; color: var(--ink-2, #4a453e); }"
     },
     {
-      "name": "Hub Pills",
-      "kind": "button",
-      "refersTo": "hub-pill-ink",
-      "description": "Hub only. Ink, line and ghost pills: 48px, full round, squeezed display type.",
-      "html": "<div class=\"ds-hub-row\"><a class=\"ds-hub-pill ds-hub-pill--ink\" href=\"#\">Scroll the lines</a><a class=\"ds-hub-pill ds-hub-pill--line\" href=\"#\">Open the Line 12 tracker</a><a class=\"ds-hub-pill ds-hub-pill--ghost\" href=\"#\">All 17 stations</a></div>",
-      "css": ".ds-hub-row { display: flex; flex-wrap: wrap; gap: 0.6rem; padding: 1.5rem; background: #0b0d12; } .ds-hub-pill { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 1.4rem; border-radius: 999px; font-size: 0.95rem; letter-spacing: 0.01em; text-decoration: none; font-family: 'Anek Latin Variable', system-ui, sans-serif; font-weight: 800; font-stretch: 75%; text-transform: uppercase; transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s cubic-bezier(0.16, 1, 0.3, 1); } .ds-hub-pill:active { transform: scale(0.97); } .ds-hub-pill:focus-visible { outline: 3px solid #f5813c; outline-offset: 3px; border-radius: 4px; } .ds-hub-pill--ink { background: #f4f1ea; color: #0b0d12; } .ds-hub-pill--line { background: var(--line-orange, #f26b1d); color: var(--on-line-orange, #0c1422); } .ds-hub-pill--ghost { border: 1px solid rgb(244 241 234 / 0.4); color: #f4f1ea; } .ds-hub-pill--ink:hover, .ds-hub-pill--line:hover { transform: translateY(-1px); } .ds-hub-pill--ghost:hover { background: #f4f1ea; color: #0b0d12; }"
-    },
-    {
-      "name": "Hub Top Bar",
-      "kind": "nav",
-      "refersTo": "hub-nav-link",
-      "description": "Hub only. Wordmark and pill-shaped line links with a dot in each line colour.",
-      "html": "<header class=\"ds-hubbar\"><a class=\"ds-hubbar__mark\" href=\"#\">Mumbai Metro <span>Tracker</span></a><nav><a href=\"#\"><i style=\"background:#f26b1d\"></i>Line 12</a><a href=\"#\"><i style=\"background:#f26b1d\"></i>Line 5</a><a href=\"#\"><i style=\"background:#1d7a3a\"></i>Line 4</a><a href=\"#\" class=\"ds-hubbar__all\">All lines</a></nav></header>",
-      "css": ".ds-hubbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.9rem 1.5rem; background: #0b0d12; color: #f4f1ea; } .ds-hubbar__mark { font-family: 'Anek Latin Variable', system-ui, sans-serif; font-weight: 800; font-stretch: 75%; text-transform: uppercase; font-size: 1.35rem; letter-spacing: -0.01em; line-height: 1; color: #f4f1ea; text-decoration: none; } .ds-hubbar__mark span { color: rgb(244 241 234 / 0.6); } .ds-hubbar nav { display: flex; gap: 0.25rem; } .ds-hubbar nav a { display: inline-flex; align-items: center; gap: 0.45rem; min-height: 44px; padding: 0 0.85rem; border-radius: 999px; font-family: 'Mukta', system-ui, sans-serif; font-weight: 500; font-size: 0.95rem; color: rgb(244 241 234 / 0.76); text-decoration: none; transition: background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s cubic-bezier(0.16, 1, 0.3, 1); } .ds-hubbar nav a:hover { background: rgb(244 241 234 / 0.1); color: #f4f1ea; } .ds-hubbar nav a:focus-visible { outline: 3px solid #f5813c; outline-offset: 3px; border-radius: 4px; } .ds-hubbar nav i { width: 0.6rem; height: 0.6rem; border-radius: 50%; } .ds-hubbar__all { border: 1px solid rgb(244 241 234 / 0.16); }"
-    },
-    {
-      "name": "Hub Cover Tile",
-      "kind": "card",
-      "refersTo": "hub-cover-tile",
-      "description": "Hub only. A photo tile (14px corners) linking to its chapter, with a foot scrim, number plate, route and Marathi mark. Plate gradient stands in for the photo.",
-      "html": "<div class=\"ds-hub-wrap\"><a class=\"ds-hub-tile\" href=\"#\"><span class=\"ds-hub-tile__img\"></span><span class=\"ds-hub-tile__label\"><span class=\"ds-hub-tile__num\">12</span><span class=\"ds-hub-tile__route\">Kalyan to Taloja</span><span class=\"ds-hub-tile__mr\" lang=\"mr\" aria-hidden=\"true\">मेट्रो १२</span></span></a></div>",
-      "css": ".ds-hub-wrap { padding: 1.5rem; background: #0b0d12; } .ds-hub-tile { position: relative; display: block; width: 18rem; aspect-ratio: 5 / 4; overflow: hidden; border-radius: 14px; background: color-mix(in oklab, #f26b1d 22%, #0b0d12); color: #f4f1ea; text-decoration: none; isolation: isolate; } .ds-hub-tile:focus-visible { outline: 3px solid #f5813c; outline-offset: 3px; border-radius: 4px; } .ds-hub-tile__img { position: absolute; inset: 0; background: linear-gradient(160deg, color-mix(in oklab, #f26b1d 45%, #0b0d12), #0b0d12 75%); transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); } .ds-hub-tile:hover .ds-hub-tile__img { transform: scale(1.04); } .ds-hub-tile::after { content: ''; position: absolute; inset: 45% 0 0; background: linear-gradient(to top, rgb(11 13 18 / 0.85), transparent); z-index: 1; } .ds-hub-tile__label { position: absolute; left: 0.85rem; right: 0.85rem; bottom: 0.85rem; z-index: 2; display: grid; gap: 0.35rem; justify-items: start; } .ds-hub-tile__num { font-family: 'Anek Latin Variable', system-ui, sans-serif; font-weight: 800; font-stretch: 75%; text-transform: uppercase; padding: 0.12em 0.4em 0.02em; border-radius: 6px; background: #f26b1d; color: #0c1422; font-size: 1.5rem; line-height: 1; font-variant-numeric: tabular-nums lining-nums; } .ds-hub-tile__route { font-family: 'Mukta', system-ui, sans-serif; font-weight: 500; font-size: 1rem; line-height: 1.2; } .ds-hub-tile__mr { font-family: 'Anek Devanagari Mark', system-ui, sans-serif; font-weight: 700; font-size: 1.05rem; line-height: 1; color: rgb(244 241 234 / 0.76); }"
-    },
-    {
-      "name": "Hub Chapter Mast",
+      "name": "Hub Bundle",
       "kind": "custom",
-      "refersTo": "hub-number-plate",
-      "description": "Hub only. The chapter title: huge number plate in the line colour, Marathi mark beside it, then the route name, over the scrim.",
-      "html": "<div class=\"ds-hub-ch\"><h2 class=\"ds-hub-ch__title\"><span class=\"ds-hub-ch__mast\"><span class=\"ds-hub-ch__num\">5</span><span class=\"ds-hub-ch__mr\" lang=\"mr\" aria-hidden=\"true\">मेट्रो ५</span></span><span class=\"ds-hub-ch__name\">Thane to Kalyan</span></h2></div>",
-      "css": ".ds-hub-ch { padding: 2rem 1.5rem; background: linear-gradient(to top, rgb(11 13 18 / 0.94) 0%, rgb(11 13 18 / 0.6) 38%, transparent 70%), color-mix(in oklab, #f26b1d 18%, #0b0d12); color: #f4f1ea; } .ds-hub-ch__title { display: grid; gap: 0.4rem; justify-items: start; margin: 0; } .ds-hub-ch__mast { display: flex; align-items: flex-end; gap: 0.8rem; } .ds-hub-ch__num { font-family: 'Anek Latin Variable', system-ui, sans-serif; font-weight: 800; font-stretch: 75%; text-transform: uppercase; padding: 0.08em 0.28em 0; border-radius: 10px; background: var(--line-orange, #f26b1d); color: var(--on-line-orange, #0c1422); font-size: 7rem; line-height: 0.84; letter-spacing: -0.02em; font-variant-numeric: tabular-nums lining-nums; } .ds-hub-ch__mr { font-family: 'Anek Devanagari Mark', system-ui, sans-serif; font-weight: 700; font-size: 1.8rem; line-height: 1; } .ds-hub-ch__name { font-family: 'Anek Latin Variable', system-ui, sans-serif; font-weight: 800; font-stretch: 75%; text-transform: uppercase; font-size: 3.4rem; line-height: 0.88; letter-spacing: -0.02em; }"
-    },
-    {
-      "name": "Hub Credit Chip",
-      "kind": "chip",
-      "refersTo": "hub-credit-chip",
-      "description": "Hub only. Every chapter photo carries one: note, photographer (linked when external) and date.",
-      "html": "<div class=\"ds-hub-wrap2\"><p class=\"ds-hub-credit\">Kasheli, drone still. Photo: <a href=\"#\">InfraUnfiltered</a>, 13 October 2026</p></div>",
-      "css": ".ds-hub-wrap2 { padding: 1.5rem; background: #3a3f4a; } .ds-hub-credit { display: inline-block; max-width: 34ch; margin: 0; padding: 0.4rem 0.7rem; border-radius: 8px; background: rgb(11 13 18 / 0.62); font-family: 'Mukta', system-ui, sans-serif; font-size: 0.8rem; line-height: 1.35; color: rgb(244 241 234 / 0.76); } .ds-hub-credit a { color: inherit; text-underline-offset: 0.18em; } .ds-hub-credit a:hover { color: #f4f1ea; } .ds-hub-credit a:focus-visible { outline: 3px solid #f5813c; outline-offset: 3px; border-radius: 4px; }"
+      "refersTo": "hub-stop-capsule",
+      "description": "Hub only. One 4px stroke per primary line colour on a 6px pitch (scaled by --k), top run, bend and left run, with a paper capsule stop and an ink connector to a section head.",
+      "html": "<div class=\"ds-bundle\"><span class=\"ds-bundle__h\"></span><span class=\"ds-bundle__v\"></span><span class=\"ds-stop\"></span><b class=\"ds-head\">EVERY LINE</b></div>",
+      "css": ".ds-bundle { position: relative; height: 160px; background: #efe9de; --tw: 22px; --stops: #2f6fd6 0 4px, transparent 4px 6px, #f2c11d 6px 10px, transparent 10px 12px, #1d7a3a 12px 16px, transparent 16px 18px, #f26b1d 18px 22px; } .ds-bundle__h { position: absolute; top: 0; left: 0; right: 0; height: var(--tw); background: linear-gradient(180deg, var(--stops)); } .ds-bundle__v { position: absolute; top: 0; bottom: 0; left: 0; width: var(--tw); background: linear-gradient(90deg, var(--stops)); } .ds-stop { position: absolute; top: 80px; left: 11px; width: 44px; height: 2px; background: #111a28; } .ds-stop::before { content: ''; position: absolute; left: 0; top: 50%; width: 34px; height: 18px; translate: -50% -50%; border: 3px solid #111a28; border-radius: 999px; background: #efe9de; } .ds-head { position: absolute; top: 68px; left: 64px; font-family: 'Anek Latin Variable', system-ui, sans-serif; font-weight: 800; font-stretch: 75%; font-size: 1.6rem; color: #111a28; }"
     },
     {
       "name": "Hub Stage Strokes",
       "kind": "custom",
       "refersTo": "hub-stroke-sample",
-      "description": "Hub only. Stage as a stroke pattern, always beside its word; repeats the map in the list and counts.",
-      "html": "<ul class=\"ds-hub-strokes\"><li><span class=\"ds-s\"></span>running</li><li><span class=\"ds-s ds-s--b\"></span>under construction</li><li><span class=\"ds-s ds-s--a\"></span>approved, not started</li><li><span class=\"ds-s ds-s--p\"></span>proposed</li></ul>",
-      "css": ".ds-hub-strokes { display: flex; flex-wrap: wrap; gap: 0.5rem 1.75rem; margin: 0; padding: 1.5rem; list-style: none; background: #0b0d12; color: rgb(244 241 234 / 0.76); font-family: 'Mukta', system-ui, sans-serif; } .ds-hub-strokes li { display: inline-flex; align-items: center; gap: 0.55rem; } .ds-hub-strokes b { font-family: 'Anek Latin Variable', system-ui, sans-serif; font-weight: 800; font-stretch: 75%; text-transform: uppercase; color: #f4f1ea; font-size: 1.4rem; line-height: 1; font-variant-numeric: tabular-nums lining-nums; } .ds-s { display: inline-block; width: 2.4rem; height: 5px; border-radius: 3px; background: #f4f1ea; } .ds-s--b { background: repeating-linear-gradient(90deg, #f4f1ea 0 10px, transparent 10px 15px); } .ds-s--a { background: repeating-linear-gradient(90deg, #f4f1ea 0 4px, transparent 4px 9px); } .ds-s--p { height: 3px; background: repeating-linear-gradient(90deg, rgb(244 241 234 / 0.76) 0 2px, transparent 2px 7px); }"
+      "description": "Hub only. The legend: stage as an ink stroke pattern beside its word, in a paper-2 strip under a 1px rule. No counts.",
+      "html": "<ul class=\"ds-key\"><li><span class=\"ds-s\"></span>Running</li><li><span class=\"ds-s ds-s--b\"></span>Under construction</li><li><span class=\"ds-s ds-s--a\"></span>Approved</li><li><span class=\"ds-s ds-s--p\"></span>Proposed</li></ul>",
+      "css": ".ds-key { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1.5rem; min-height: 2.75rem; margin: 0; padding: 0.5rem 0.75rem; list-style: none; background: #e5ddcf; border-top: 1px solid #bdb3a2; color: #4a453e; font-family: 'Mukta', system-ui, sans-serif; font-size: 0.9rem; } .ds-key li { display: flex; align-items: center; gap: 0.5rem; } .ds-s { display: inline-block; width: 2.2rem; height: 4px; background: #111a28; } .ds-s--b { background: repeating-linear-gradient(90deg, #111a28 0 10px, transparent 10px 15px); } .ds-s--a { background: repeating-linear-gradient(90deg, #111a28 0 4px, transparent 4px 9px); } .ds-s--p { background: radial-gradient(circle, #111a28 1.7px, transparent 2px) 0 50% / 7px 4px repeat-x; }"
     },
     {
-      "name": "Hub Network Row",
+      "name": "Hub Fact Box Index",
       "kind": "card",
-      "refersTo": "hub-line-mark",
-      "description": "Hub only. One line in the full text list: mark, linked name, figures with grades, a stroke per part. Hairline divided, not a card.",
-      "html": "<ul class=\"ds-hub-net\"><li><span class=\"ds-hub-net__mark\" style=\"background:#d42e2e;color:#fff\">7</span><div><p class=\"ds-hub-net__name\"><a href=\"#\" style=\"text-decoration-color:#d42e2e\">Line 7, Andheri (East) to Dahisar (East)</a></p><p class=\"ds-hub-net__figs\"><span>16.5 km</span><span>13 stations</span></p><p class=\"ds-hub-net__agency\">MMRDA</p></div></li><li><span class=\"ds-hub-net__mark ds-hub-net__mark--none\">10</span><div><p class=\"ds-hub-net__name\">Line 10, Gaimukh to Shivaji Chowk (Mira Road)</p><p class=\"ds-hub-net__figs\"><span>9.68 km</span><span>5 stations</span></p></div></li></ul>",
-      "css": ".ds-hub-net { margin: 0; padding: 0 1.5rem; list-style: none; background: #0b0d12; color: #f4f1ea; font-family: 'Mukta', system-ui, sans-serif; } .ds-hub-net li { display: grid; grid-template-columns: 3.4rem minmax(0, 1fr); gap: 1rem; padding: 1.1rem 0; border-bottom: 1px solid rgb(244 241 234 / 0.16); } .ds-hub-net p { margin: 0; } .ds-hub-net__mark { font-family: 'Anek Latin Variable', system-ui, sans-serif; font-weight: 800; font-stretch: 75%; text-transform: uppercase; align-self: start; display: grid; place-items: center; height: 2.4rem; border-radius: 6px; font-size: 1.15rem; line-height: 1; } .ds-hub-net__mark--none { background: transparent; color: #f4f1ea; box-shadow: inset 0 0 0 1.5px rgb(244 241 234 / 0.6); } .ds-hub-net__name { font-weight: 700; font-size: 1.1rem; line-height: 1.3; } .ds-hub-net__name a { color: inherit; text-decoration-thickness: 2px; text-underline-offset: 0.2em; } .ds-hub-net__name a:hover { text-decoration-thickness: 3px; } .ds-hub-net__name a:focus-visible { outline: 3px solid #f5813c; outline-offset: 3px; border-radius: 4px; } .ds-hub-net__figs { display: flex; gap: 0.2rem 1.1rem; margin-top: 0.25rem; font-variant-numeric: tabular-nums lining-nums; color: rgb(244 241 234 / 0.76); } .ds-hub-net__agency { margin-top: 0.15rem; color: rgb(244 241 234 / 0.6); }"
+      "refersTo": "hub-index-row",
+      "description": "Hub only. The fact box opening on its index: 4px ink rules top and left, a stage group title with its stroke, rows of line mark, name and route, and target.",
+      "html": "<aside class=\"ds-box\"><h2>Being built and upcoming</h2><h3><span class=\"ds-s\"></span>Under construction</h3><a class=\"ds-pick\" href=\"#\"><span class=\"ds-lmark\">4</span><span><b>Line 4</b><small>Wadala to Gaimukh</small></span><span class=\"ds-when\">Dec 2026</span></a><a class=\"ds-pick\" href=\"#\"><span class=\"ds-lmark ds-lmark--none\">9</span><span><b>Line 9</b><small>Dahisar to Kashigaon, partly open</small></span><span class=\"ds-when\">Building</span></a></aside>",
+      "css": ".ds-box { padding: 1.5rem 0 2rem 2rem; border-top: 4px solid #111a28; border-left: 4px solid #111a28; background: #efe9de; color: #111a28; font-family: 'Mukta', system-ui, sans-serif; } .ds-box h2, .ds-box h3 { margin: 0; font-family: 'Anek Latin Variable', system-ui, sans-serif; font-weight: 800; font-stretch: 75%; text-transform: uppercase; line-height: 1; } .ds-box h2 { font-size: 2rem; margin-bottom: 1.5rem; } .ds-box h3 { display: flex; align-items: center; gap: 0.75rem; font-size: 1.4rem; padding-bottom: 0.5rem; border-bottom: 1px solid #111a28; } .ds-s { display: inline-block; width: 2.2rem; height: 4px; background: repeating-linear-gradient(90deg, #111a28 0 10px, transparent 10px 15px); } .ds-pick { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 0.75rem; min-height: 44px; padding: 0.5rem 0.5rem 0.5rem 0; border-bottom: 1px solid #bdb3a2; color: inherit; text-decoration: none; } .ds-pick:hover { background: #e5ddcf; } .ds-pick b { line-height: 1.3; } .ds-pick small { display: block; color: #4a453e; } .ds-when { font-size: 0.9rem; color: #4a453e; white-space: nowrap; } .ds-lmark { display: inline-grid; place-items: center; min-width: 2.5em; height: 1.65em; padding: 0.12em 0.4em 0; border-radius: 3px; background: #1d7a3a; color: #fff; font-family: 'Anek Latin Variable', system-ui, sans-serif; font-weight: 800; font-stretch: 75%; line-height: 1; } .ds-lmark--none { background: transparent; color: #111a28; box-shadow: inset 0 0 0 1.5px #5f584f; }"
+    },
+    {
+      "name": "Hub Record",
+      "kind": "card",
+      "refersTo": "hub-box-figure",
+      "description": "Hub only. A line's record as printed in the fact box: a 4px ink rule above the facts, figures in the display face; the open button in ink, filled with the line colour on hover.",
+      "html": "<article class=\"ds-rec\"><h4><span class=\"ds-lmark\">4</span> LINE 4</h4><dl><div><dt>Length</dt><dd><b>32.32 km</b></dd></div><div><dt>Stations</dt><dd><b>32</b></dd></div><div><dt>Tenders</dt><dd><b>27</b></dd></div></dl><a class=\"ds-open\" href=\"#\">Open tracker</a></article>",
+      "css": ".ds-rec { padding: 1.5rem; background: #efe9de; color: #111a28; font-family: 'Mukta', system-ui, sans-serif; } .ds-rec h4 { display: flex; align-items: center; gap: 0.75rem; margin: 0 0 1rem; font-family: 'Anek Latin Variable', system-ui, sans-serif; font-weight: 800; font-stretch: 75%; font-size: 2rem; line-height: 1; } .ds-lmark { display: inline-grid; place-items: center; min-width: 2.5em; height: 1.65em; padding: 0.12em 0.4em 0; border-radius: 3px; background: #1d7a3a; color: #fff; font-size: 1.3rem; } .ds-rec dl { margin: 0; border-top: 4px solid #111a28; } .ds-rec dl > div { display: grid; grid-template-columns: 6rem minmax(0, 1fr); gap: 0.75rem; padding-block: 0.5rem; border-bottom: 1px solid #bdb3a2; } .ds-rec dt { font-size: 0.78rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: #5f584f; padding-top: 0.2em; } .ds-rec dd { margin: 0; } .ds-rec b { font-family: 'Anek Latin Variable', system-ui, sans-serif; font-stretch: 75%; font-weight: 800; font-size: 1.3rem; line-height: 1; font-variant-numeric: tabular-nums lining-nums; } .ds-open { display: inline-flex; align-items: center; min-height: 44px; margin-top: 1rem; padding: 0 1rem; border-radius: 4px; background: #111a28; color: #efe9de; font-weight: 700; text-decoration: none; transition: background-color 0.2s ease, color 0.2s ease; } .ds-open:hover { background: #1d7a3a; color: #fff; }"
     }
   ],
   "narrative": {
@@ -1294,27 +1140,9 @@
         "section": "elevation"
       },
       {
-        "name": "The Hub Line Colour Rule",
-        "body": "A chapter's accent is one hue: its line's colour, read through `--c`. Everything else is hub-bg, hub-ink and its strengths, plus Hub Focus Orange on focus rings and on unverified or conflicting grade marks (shipped as is; on the Line 4 chapter that is a second hue, an open question for the owner, not a pattern to copy). Never pick a hue by taste; take it from the line's token.",
-        "section": "colors",
-        "surface": "hub"
-      },
-      {
         "name": "The Named Colour Rule",
-        "body": "A network line shows a colour only when a source names it. Otherwise it is drawn in Unnamed Line Grey and its mark is outlined. Colour never carries stage.",
+        "body": "Hub. A line shows a colour only when a source names it. Otherwise it gets no bundle stroke, a Concrete map stroke and an outlined line mark. Colour never carries stage.",
         "section": "colors",
-        "surface": "hub"
-      },
-      {
-        "name": "The Scrim Rule",
-        "body": "Text never sits on bare photo. Every chapter photo carries two near-black scrims (bottom: 94% to 60% at 38% to clear at 70%; left: 82% to 66% at 32% to 30% at 56% to clear at 78%); every cover tile carries one (85% at the foot to clear at 45%); the credit chip sits on hub-bg at 62%.",
-        "section": "colors",
-        "surface": "hub"
-      },
-      {
-        "name": "The Shared Squeeze Rule",
-        "body": "Every display line on the hub is Anek Latin at 75%, weight 800, uppercase, line-height under 1, exactly as on the line pages. The hub changes the sizes, not the face.",
-        "section": "typography",
         "surface": "hub"
       },
       {
@@ -1324,22 +1152,20 @@
         "surface": "hub"
       },
       {
-        "name": "The Length Is Scroll Rule",
-        "body": "A chapter's scroll length follows its line's real length. Do not set it by hand.",
-        "section": "layout",
-        "surface": "hub"
-      },
-      {
         "name": "The Text Fallback Rule",
-        "body": "The map is never the only record. Every line, stage and figure on the map is also in the text list under it, with its grade.",
+        "body": "Hub. The map is never the only record. Every line, stage and figure on it is also in the fact box index and the register, with its grade. Without JavaScript each index entry links to its record.",
         "section": "layout",
         "surface": "hub"
       },
       {
-        "name": "The Depth by Picture Rule",
-        "body": "On the hub, depth belongs to the photo. A surface is the ground, the second ground or a picture; state never adds a shadow.",
-        "section": "elevation",
-        "surface": "hub"
+        "name": "The Bundle Order Rule",
+        "body": "Hub. One stroke per primary line, in network.json order (line-number order). A branch (2A and 2B, 7A, 12A) shares its primary line's stroke, and each colour appears once (Line 12 repeats Line 5's orange, so it adds none). Today 8 strokes, Lines 1 to 8: blue, yellow, aqua, green, orange, pink, red, gold. Never reorder by hue or pick a colour by taste.",
+        "section": "colors"
+      },
+      {
+        "name": "The Fold Rule",
+        "body": "Hub. The front ends at the fold on a desktop screen: height max(30rem, 100svh - 22rem), from the screen, never from its content.",
+        "section": "layout"
       }
     ],
     "dos": [
@@ -1351,14 +1177,10 @@
       "**Do** keep superseded figures on the page, struck through in Orange Ink.",
       "**Do** write colours as tokens that both editions define, so the night and morning editions stay in step.",
       "**Do** keep every section fully readable with motion off.",
-      "**Do** set every hub colour from the `hub-` tokens and the line's own colour token through `--c` and `--on-c`.",
-      "**Do** give every chapter one real ground or drone photo, credited with its note, photographer (linked when it is someone else's) and date.",
-      "**Do** put text on a photo only over the scrims.",
-      "**Do** open each chapter from its own cover tile's box, rounded 14px, to the full screen.",
-      "**Do** draw stage on the map and in the list as a stroke pattern beside its word, and show a line's colour only when a source names it.",
-      "**Do** keep a compact grade mark after every figure and phase line.",
+      "**Do** draw stage on the hub's map, legend, index and register as a stroke pattern beside its word, and show a line's colour only when a source names it.",
+      "**Do** keep a grade mark after every figure in the hub's fact box and register.",
       "**Do** keep Marathi marks decorative: `lang=\"mr\"`, `aria-hidden`, Anek Devanagari Mark.",
-      "**Do** keep every chapter a complete still frame with motion off."
+      "**Do** compute the hub's bundle from network.json (width, bend, stops, as desktop px times --k): one 4px stroke per primary line colour on a 6px pitch, branches sharing their primary's stroke, each colour once."
     ],
     "donts": [
       "**Don't** add drop shadows, floating cards or glass panels. The paper is flat.",
@@ -1368,12 +1190,10 @@
       "**Don't** set display type at normal width, in a light weight, or in sentence case.",
       "**Don't** round the bar module or the rules. Radius belongs to dots, lines, controls and pills only.",
       "**Don't** use a small uppercase tracked label above a heading as a kicker. Labels name data and sit beside or under it.",
-      "**Don't** bring the newspaper's bar module, heavy ink rules, masthead band or halftone onto the hub.",
-      "**Don't** add a second hue to a chapter, or use a line colour for body text.",
-      "**Don't** use renders, illustrations or uncredited images as chapter pictures.",
-      "**Don't** add cards, drop shadows, glow or glass; depth belongs to the photo.",
-      "**Don't** make the map the only record; every line stays in the text list.",
-      "**Don't** label a map line more than once; one number per line."
+      "**Don't** add cards, drop shadows, glow or glass on the hub; the street map's tilt and buildings are its only depth.",
+      "**Don't** make the hub's map the only record; every line stays in the fact box index and the register.",
+      "**Don't** label a hub map line more than once, or add counts to the legend.",
+      "**Don't** bring back the hub's retired Mumbai Key Art devices: near-black ground, photo chapters, cover tiles, pills, scrims, rounded tiles."
     ]
   }
 }

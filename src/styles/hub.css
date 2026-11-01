@@ -1,965 +1,687 @@
-/* The hub's own world (surface brief: "Mumbai Key Art"). Line pages keep the newspaper.
-   Near-black ground, warm paper-white ink, each line's colour as the only accent.
-   Shared components (Grade, LineMark) read --paper/--ink, so the hub redefines them for its ground. */
+/*
+ * The hub (src/pages/index.astro): the front page of the paper. Same tokens, type and rules as the
+ * line pages (DESIGN.md). Line colours appear only as line marks, map strokes and the masthead stripe.
+ */
 
-/* Morning edition (light): the line pages' newsprint and navy ink. */
-.hubw {
-  --hub-bg: #efe9de;
-  --hub-bg-2: #e5ddcf;
-  --hub-ink: #111a28;
-  --hub-ink-2: rgb(17 26 40 / 0.78);
-  --hub-ink-3: rgb(17 26 40 / 0.64);
-  --hub-rule: rgb(17 26 40 / 0.16);
-  --hub-focus: #c24a08;
-}
-/* Night edition (dark): the hub's near-black. */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) .hubw {
-    --hub-bg: #0b0d12;
-    --hub-bg-2: #13161d;
-    --hub-ink: #f4f1ea;
-    --hub-ink-2: rgb(244 241 234 / 0.76);
-    --hub-ink-3: rgb(244 241 234 / 0.6);
-    --hub-rule: rgb(244 241 234 / 0.16);
-    --hub-focus: #f5813c;
-  }
-}
-:root[data-theme='dark'] .hubw,
-.hubw .chapter,
-.hubw .cover__tile {
-  --hub-bg: #0b0d12;
-  --hub-bg-2: #13161d;
-  --hub-ink: #f4f1ea;
-  --hub-ink-2: rgb(244 241 234 / 0.76);
-  --hub-ink-3: rgb(244 241 234 / 0.6);
-  --hub-rule: rgb(244 241 234 / 0.16);
-  --hub-focus: #f5813c;
-}
-.hubw,
-.hubw .chapter,
-.hubw .cover__tile {
-  --paper: var(--hub-bg);
-  --paper-2: var(--hub-bg-2);
-  --ink: var(--hub-ink);
-  --ink-2: var(--hub-ink-2);
-  --ink-3: var(--hub-ink-3);
-  --rule: var(--hub-rule);
-  --signal-line: var(--hub-focus);
-  --focus: var(--hub-focus);
-  /* The line pages' display face: Anek Latin squeezed to 75%, weight 800, uppercase (DESIGN.md, The Squeeze Rule). */
-  --wide: 75%;
-  --ease: cubic-bezier(0.16, 1, 0.3, 1);
-  /* Motion curves: a strong ease-out for anything that enters or answers a press, ease-in-out for on-screen moves. */
-  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
-  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
-  color: var(--hub-ink);
-  font-family: var(--font-body);
-}
-.hubw {
-  background: var(--hub-bg);
-}
-.hubw ::selection {
-  background: var(--hub-ink);
-  color: var(--hub-bg);
-}
-.hubw :focus-visible {
-  outline: 3px solid var(--focus);
-  outline-offset: 3px;
-  border-radius: 4px;
-}
-.hubw a {
-  color: inherit;
-}
-html:has(.hubw) {
-  background: #efe9de;
-  scrollbar-color: rgb(17 26 40 / 0.35) #efe9de;
-}
-@media (prefers-color-scheme: dark) {
-  html:not([data-theme='light']):has(.hubw) {
-    background: #0b0d12;
-    scrollbar-color: rgb(244 241 234 / 0.35) #0b0d12;
-  }
-}
-html[data-theme='dark']:has(.hubw) {
-  background: #0b0d12;
-  scrollbar-color: rgb(244 241 234 / 0.35) #0b0d12;
-}
-/* The edition switch wipes in from the toggle (theme.ts), as on the line pages. */
-.hubbar__theme {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  min-height: 44px;
-  padding: 0 0.95rem;
-  border: 1px solid var(--hub-rule);
-  border-radius: 999px;
-  background: transparent;
-  color: var(--hub-ink-2);
-  font: 500 0.95rem/1 var(--font-body);
-  cursor: pointer;
-  transition: transform 160ms var(--ease-out), background-color 200ms ease, color 200ms ease, border-color 200ms ease;
-}
-.hubbar__theme svg {
-  width: 1.05rem;
-  height: 1.05rem;
-}
-@media (hover: hover) and (pointer: fine) {
-  .hubbar__theme:hover {
-    border-color: var(--hub-ink-3);
-    color: var(--hub-ink);
-  }
-}
-.hubbar__theme:active {
-  transform: scale(0.97);
-}
-@media (max-width: 47.99rem) {
-  .hubbar__theme [data-theme-label] {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    white-space: nowrap;
-  }
-  .hubbar__theme {
-    width: 44px;
-    padding: 0;
-    justify-content: center;
-  }
-}
-
-/* ---------- display type: the line pages' Anek, squeezed and heavy ---------- */
-.hubw :is(.hubbar__mark, .cover__title, .cover__num, .cover__next-v, .chapter__num, .chapter__name, .network__title, .stagegroup__title, .netline__mark, .network__count, .pill) {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-stretch: var(--wide);
-  text-transform: uppercase;
-  font-variant-numeric: tabular-nums lining-nums;
-}
-
-/* ---------- top bar ---------- */
-.hubbar {
-  position: absolute;
-  inset: 0 0 auto;
-  z-index: 5;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.9rem var(--gutter);
-}
-.hubbar__mark {
-  font-size: 1.35rem;
-  letter-spacing: -0.01em;
-  text-decoration: none;
-  line-height: 1;
-}
-.hubbar__mark span {
-  color: var(--hub-ink-3);
-}
-.hubbar__nav {
-  margin-left: auto;
-}
-.hubbar__nav ul {
-  display: flex;
-  gap: 0.25rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.hubbar__nav a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  min-height: 44px;
-  padding: 0 0.85rem;
-  border-radius: 999px;
-  font-weight: 500;
-  font-size: 0.95rem;
-  text-decoration: none;
-  color: var(--hub-ink-2);
-  transition: transform 160ms var(--ease-out), background-color 200ms ease, color 200ms ease;
-}
-.hubbar__nav a:active {
-  transform: scale(0.97);
-}
-.hubbar__nav .dot {
-  width: 0.6rem;
-  height: 0.6rem;
-  border-radius: 50%;
-  background: var(--c);
-}
-@media (hover: hover) and (pointer: fine) {
-  .hubbar__nav a:hover {
-    background: color-mix(in oklab, var(--hub-ink) 9%, transparent);
-    color: var(--hub-ink);
-  }
-}
-.hubbar__all {
-  border: 1px solid var(--hub-rule);
-}
-@media (max-width: 47.99rem) {
-  .hubbar__nav li:not(:last-child) {
-    display: none;
-  }
-}
-
-/* ---------- pills ---------- */
-.pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 48px;
-  padding: 0 1.4rem;
-  border-radius: 999px;
-  font-size: 0.95rem;
-  letter-spacing: 0.01em;
-  text-decoration: none;
-  transition: transform 160ms var(--ease-out), background-color 200ms ease, color 200ms ease, border-color 200ms ease;
-}
-.pill:active {
-  transform: scale(0.97);
-}
-.hubw .pill--ink {
-  background: var(--hub-ink);
-  color: var(--hub-bg);
-}
-.hubw .pill--line {
-  background: var(--c);
-  color: var(--on-c);
-}
-.hubw .pill--ghost {
-  border: 1px solid color-mix(in oklab, var(--hub-ink) 40%, transparent);
-  color: var(--hub-ink);
-}
-@media (hover: hover) and (pointer: fine) {
-  .hubw .pill--ghost:hover {
-    background: var(--hub-ink);
-    color: var(--hub-bg);
-  }
-  .hubw .pill--ink:hover,
-  .hubw .pill--line:hover {
-    transform: translateY(-1px);
-  }
-}
-
-/* A chapter picture with a tall cut for phones: the wrapper adds no box, so the image keeps its layer layout. */
-.chapter__picture {
-  display: contents;
-}
-/* The tall cut is drawn for the phone frame: centred, top-aligned. Important beats the wide picture's
-   inline focus point, which is set for the wide cut. */
-@media (max-width: 47.99rem) {
-  .chapter__picture--tall img {
-    object-position: 50% 0% !important;
-  }
-}
-
-/* ---------- 1. cover ---------- */
-.cover {
-  padding: 4rem var(--gutter) 1.5rem;
-}
-.cover__grid {
-  display: grid;
-  gap: 0.75rem;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas:
-    't1 t2'
-    't3 t4'
-    't5 t6'
-    't7 t7'
-    'mark mark';
-}
-.cover__mark {
-  grid-area: mark;
-  display: grid;
-  align-content: center;
-  justify-items: start;
-  gap: 1.25rem;
-  padding: 1.75rem 0 1.5rem;
-}
-.cover__title {
-  font-size: clamp(3.4rem, 1.8rem + 7vw, 7.5rem);
-  line-height: 0.84;
-  letter-spacing: -0.02em;
-  text-wrap: balance;
-}
-.cover__title span {
-  display: block;
-  color: var(--hub-ink-3);
-}
-.cover__lede {
-  max-width: 40ch;
-  font-size: clamp(1.08rem, 1rem + 0.35vw, 1.3rem);
-  line-height: 1.45;
-  color: var(--hub-ink-2);
-  text-wrap: pretty;
-}
-.cover__next {
-  display: grid;
-  gap: 0.2rem;
-}
-.cover__next-v {
-  font-size: clamp(2.6rem, 1.8rem + 3.2vw, 4.6rem);
-  line-height: 0.9;
-  letter-spacing: -0.02em;
-}
-.cover__next-who {
-  font-size: 0.95rem;
-  color: var(--hub-ink-2);
-}
-.cover__tile--1 { grid-area: t1; }
-.cover__tile--2 { grid-area: t2; }
-.cover__tile--3 { grid-area: t3; }
-.cover__tile--4 { grid-area: t4; }
-.cover__tile--5 { grid-area: t5; }
-.cover__tile--6 { grid-area: t6; }
-/* The seventh tile (Line 12A) spans both columns on a phone. */
-.cover__tile--7 { grid-area: t7; }
-.cover__tile {
+/* ---------- The bundle: the hub's spine ----------
+ * Each primary line with a sourced colour, in line-number order, as parallel strokes (4px on a 6px pitch), run across the top of the
+ * page, bend down its left side, and carry each section at a stop: a paper capsule across the bundle
+ * with an ink connector to the section's head. Phones get the same at half weight. */
+.hubmain {
+  /* --tw, --bend and --stops come from index.astro (one 4px stroke per primary line colour on a 6px pitch),
+     each multiplied by --k: full size on wide screens, thinner on phones so the content keeps its room. */
+  --k: 1;
+  --tw: 46px;
+  --tg: 2.75rem;
+  --bend: 62px;
   position: relative;
-  display: block;
-  aspect-ratio: 5 / 4;
-  overflow: hidden;
-  border-radius: 14px;
-  background: color-mix(in oklab, var(--c) 22%, var(--hub-bg));
-  text-decoration: none;
-  isolation: isolate;
-  transition: transform 160ms var(--ease-out);
+  padding-top: calc(var(--tw) + var(--s-5));
 }
-.cover__tile:active {
-  transform: scale(0.985);
-}
-.cover__tile img,
-.cover__plate {
+.bundle {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 350ms var(--ease-out);
-}
-.cover__plate {
-  background: linear-gradient(160deg, color-mix(in oklab, var(--c) 45%, var(--hub-bg)), var(--hub-bg) 75%);
-}
-.cover__tile::after {
-  content: '';
-  position: absolute;
-  inset: 45% 0 0;
-  background: linear-gradient(to top, rgb(11 13 18 / 0.85), transparent);
-  z-index: 1;
-}
-.cover__label {
-  position: absolute;
-  left: 0.85rem;
-  right: 0.85rem;
-  bottom: 0.85rem;
-  z-index: 2;
-  display: grid;
-  gap: 0.35rem;
-  justify-items: start;
-}
-.cover__num {
-  padding: 0.12em 0.4em 0.02em;
-  border-radius: 6px;
-  background: var(--c);
-  color: var(--on-c, #0c1422);
-  font-size: clamp(1.1rem, 0.9rem + 1vw, 1.7rem);
-  line-height: 1;
-}
-.cover__route {
-  font-weight: 500;
-  font-size: clamp(0.9rem, 0.85rem + 0.25vw, 1.05rem);
-  line-height: 1.2;
-}
-@media (hover: hover) and (pointer: fine) {
-  .cover__tile:hover img {
-    transform: scale(1.04);
-    transition-duration: 700ms;
-  }
-}
-@media (min-width: 64rem) {
-  .cover {
-    min-height: 100svh;
-    display: grid;
-    align-items: stretch;
-    padding-top: 4.25rem;
-  }
-  .cover__grid {
-    grid-template-columns: 1fr 1.3fr 1fr;
-    /* Seven tiles round the mark, in line order: four down the left (2B, 4, 5, 6), three down the right (7A, 12, 12A). */
-    grid-template-rows: repeat(12, 1fr);
-    grid-template-areas:
-      't1 mark t5'
-      't1 mark t5'
-      't1 mark t5'
-      't2 mark t5'
-      't2 mark t6'
-      't2 mark t6'
-      't3 mark t6'
-      't3 mark t6'
-      't3 mark t7'
-      't4 mark t7'
-      't4 mark t7'
-      't4 mark t7';
-    height: calc(100svh - 5.75rem);
-    min-height: 36rem;
-  }
-  .cover__tile {
-    aspect-ratio: auto;
-  }
-  .cover__mark {
-    padding: 0 clamp(1rem, 2.5vw, 3rem);
-    align-content: center;
-  }
-}
-
-/* Cover intro: each frame fades up while its picture settles inside it (the chapters' language, small).
-   CSS, not script, so it starts with the first paint and stays smooth while the page loads.
-   The tile box never moves: the chapter masks measure it. */
-@media (prefers-reduced-motion: no-preference) {
-  .cover__tile {
-    animation: hub-fade 600ms var(--ease-out) both;
-  }
-  .cover__tile img {
-    animation: hub-settle 1100ms var(--ease-out) both;
-  }
-  .cover__tile--2,
-  .cover__tile--2 img { animation-delay: 60ms; }
-  .cover__tile--3,
-  .cover__tile--3 img { animation-delay: 120ms; }
-  .cover__tile--4,
-  .cover__tile--4 img { animation-delay: 180ms; }
-  .cover__tile--5,
-  .cover__tile--5 img { animation-delay: 240ms; }
-  .cover__tile--6,
-  .cover__tile--6 img { animation-delay: 300ms; }
-  .cover__tile--7,
-  .cover__tile--7 img { animation-delay: 360ms; }
-  .cover__mark > * {
-    animation: hub-rise 700ms var(--ease-out) both;
-  }
-  .cover__mark > :nth-child(1) { animation-delay: 100ms; }
-  .cover__mark > :nth-child(2) { animation-delay: 160ms; }
-  .cover__mark > :nth-child(3) { animation-delay: 220ms; }
-  .cover__mark > :nth-child(4) { animation-delay: 280ms; }
-}
-@keyframes hub-fade {
-  from { opacity: 0; }
-}
-@keyframes hub-settle {
-  from { scale: 1.12; }
-}
-@keyframes hub-rise {
-  from { opacity: 0; translate: 0 16px; }
-}
-
-/* ---------- 2. chapters ---------- */
-.chapter {
-  position: relative;
-  /* The scroll a chapter takes follows the line's real length (raise from the dance score). */
-  height: calc(100svh + 90svh + var(--len) * 110svh);
-}
-.chapter__stage {
-  position: sticky;
-  top: 0;
-  height: 100svh;
-  overflow: hidden;
-  display: grid;
-  align-items: end;
-}
-/* Leaving: the corners round once, as the stage starts to shrink away (a short repaint, not one per frame). */
-.chapter__stage {
-  transition: border-radius 300ms var(--ease-out);
-}
-.chapter.is-leaving .chapter__stage {
-  border-radius: 14px;
-}
-.chapter__art {
-  position: absolute;
-  inset: 0;
-  margin: 0;
-  background: color-mix(in oklab, var(--c) 18%, var(--hub-bg));
-}
-.chapter__layer,
-.chapter__plate {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.chapter__plate {
-  display: block;
-  background: linear-gradient(180deg, color-mix(in oklab, var(--c) 40%, var(--hub-bg)), var(--hub-bg));
-}
-.chapter__art::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(to top, rgb(11 13 18 / 0.94) 0%, rgb(11 13 18 / 0.6) 38%, transparent 70%),
-    linear-gradient(to right, rgb(11 13 18 / 0.82) 0%, rgb(11 13 18 / 0.66) 32%, rgb(11 13 18 / 0.3) 56%, transparent 78%);
+  inset: 0 0 var(--s-8);
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
   pointer-events: none;
 }
-.chapter__credit {
-  position: absolute;
-  right: var(--gutter);
-  top: 4.4rem;
-  z-index: 2;
-  max-width: 34ch;
-  padding: 0.4rem 0.7rem;
-  border-radius: 8px;
-  background: rgb(11 13 18 / 0.62);
-  font-size: 0.8rem;
-  line-height: 1.35;
-  text-align: right;
-  color: var(--hub-ink-2);
-}
-.chapter__credit a {
-  text-underline-offset: 0.18em;
-}
-/* Alternate chapters set their copy on the right, so no two neighbours share a composition. */
-@media (min-width: 64rem) {
-  .chapter[data-side='right'] .chapter__stage {
-    justify-items: end;
-  }
-  .chapter[data-side='right'] .chapter__copy {
-    justify-items: end;
-    text-align: right;
-  }
-  .chapter[data-side='right'] .chapter__title,
-  .chapter[data-side='right'] .chapter__route {
-    justify-items: end;
-  }
-  .chapter[data-side='right'] .chapter__mast,
-  .chapter[data-side='right'] .chapter__facts,
-  .chapter[data-side='right'] .chapter__links {
-    justify-content: flex-end;
-  }
-  .chapter[data-side='right'] .chapter__art::after {
-    background:
-      linear-gradient(to top, rgb(11 13 18 / 0.94) 0%, rgb(11 13 18 / 0.6) 38%, transparent 70%),
-      linear-gradient(to left, rgb(11 13 18 / 0.82) 0%, rgb(11 13 18 / 0.66) 32%, rgb(11 13 18 / 0.3) 56%, transparent 78%);
-  }
-  .chapter[data-side='right'] .chapter__credit {
-    left: var(--gutter);
-    right: auto;
-    text-align: left;
-  }
-}
-.chapter__copy {
+.bundle__in {
   position: relative;
-  z-index: 2;
-  display: grid;
-  gap: 1.1rem;
-  max-width: 52rem;
-  padding: 0 var(--gutter) clamp(1.5rem, 4vh, 3.5rem);
+  height: 100%;
 }
-.chapter__title {
-  display: grid;
-  gap: 0.4rem;
-  justify-items: start;
+.bundle__h,
+.bundle__v {
+  position: absolute;
 }
-.chapter__num {
-  padding: 0.08em 0.28em 0;
-  border-radius: 10px;
-  background: var(--c);
-  color: var(--on-c);
-  font-size: clamp(5rem, 2.6rem + 11vw, 12rem);
-  line-height: 0.84;
-  letter-spacing: -0.02em;
+.bundle__h {
+  top: 0;
+  left: var(--bend);
+  right: 0;
+  height: var(--tw);
+  background: linear-gradient(180deg, var(--stops));
 }
-.chapter__name {
-  font-size: clamp(2.4rem, 1.5rem + 3.8vw, 5.2rem);
-  line-height: 0.88;
-  letter-spacing: -0.02em;
-  text-wrap: balance;
-}
-.chapter__phase {
-  max-width: 54ch;
-  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.2rem);
-  line-height: 1.45;
-  color: var(--hub-ink-2);
-  text-wrap: pretty;
-}
-.chapter__facts {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.2rem 1.6rem;
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-stretch: var(--wide);
-  font-size: clamp(1.15rem, 1rem + 0.6vw, 1.5rem);
-  line-height: 1.1;
-  text-transform: uppercase;
-  letter-spacing: 0.01em;
-  color: var(--hub-ink-2);
-}
-.chapter__facts .fact {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.4rem;
-  white-space: nowrap;
-}
-.chapter__facts .grade {
-  margin-left: 0.15rem;
-}
-.chapter__facts b {
-  font-size: clamp(2.2rem, 1.5rem + 2.6vw, 3.6rem);
-  line-height: 0.9;
-  letter-spacing: -0.015em;
-  color: var(--hub-ink);
-  font-variant-numeric: tabular-nums lining-nums;
-}
-.chapter__facts .grade {
-  font-size: 0.85rem;
-  align-self: center;
-}
-.chapter__route {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 0.75rem;
-  max-width: 40rem;
-  font-weight: 500;
-  font-size: 0.9rem;
-  color: var(--hub-ink-2);
-}
-.chapter__route svg {
-  width: 100%;
-  height: 2.2rem;
-  padding-inline: 3px;
-  box-sizing: border-box;
+.bundle__bend {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--bend);
+  height: var(--bend);
   overflow: visible;
 }
-.chapter__route .route-casing {
+.bundle__bend path {
   fill: none;
-  stroke: var(--c);
-  stroke-width: 6px;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  stroke-width: 4px;
 }
-.chapter__links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.bundle__v {
+  top: var(--bend);
+  bottom: 0;
+  left: 0;
+  width: var(--tw);
+  background: linear-gradient(90deg, var(--stops));
 }
-@media (max-width: 47.99rem) {
-  .chapter__credit {
-    top: 0.75rem;
-    left: var(--gutter);
-    right: var(--gutter);
-    max-width: none;
-    text-align: left;
-  }
-  .chapter__copy {
-    padding-bottom: 1.25rem;
-  }
-  .chapter__route span {
-    display: none;
-  }
-  .chapter__route {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ---------- 3. network ---------- */
-.network {
-  position: relative;
-  z-index: 1;
-  padding: clamp(4rem, 10vh, 7rem) var(--gutter) 4rem;
-  background: var(--hub-bg);
-}
-.network__head {
-  display: grid;
-  gap: 1.25rem;
-  max-width: 60rem;
-  margin-bottom: 2rem;
-}
-.network__title {
-  font-size: clamp(3rem, 1.7rem + 5.6vw, 6.6rem);
-  line-height: 0.86;
-  letter-spacing: -0.02em;
-}
-.network__lede {
-  max-width: 62ch;
-  font-size: clamp(1.05rem, 1rem + 0.3vw, 1.25rem);
-  line-height: 1.5;
-  color: var(--hub-ink-2);
-}
-.network__counts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.75rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  color: var(--hub-ink-2);
-}
-.network__counts li {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-}
-.network__count {
-  color: var(--hub-ink);
-  font-size: 1.4rem;
-  line-height: 1;
-}
-.network__map {
-  position: relative;
-  height: min(78svh, 46rem);
-  margin-bottom: 3rem;
-  overflow: hidden;
-  border-radius: 16px;
-  background: var(--hub-bg-2);
-}
-.network__map-note {
+/* The end of the line: a joint across the bundle, as on the route. */
+.bundle__v::after {
+  content: '';
   position: absolute;
-  inset: auto 1rem 1rem;
-  color: var(--hub-ink-3);
-  font-size: 0.9rem;
+  left: -6px;
+  right: -6px;
+  bottom: 0;
+  height: 5px;
+  background: var(--ink);
 }
-.network__map.is-live .network__map-note {
-  display: none;
+.hubmain > .page {
+  padding-left: calc(var(--gutter) + var(--tw) + var(--tg));
 }
-.network__map .maplibregl-map {
-  opacity: 0;
-  transition: opacity 500ms var(--ease-out);
-}
-.network__map.is-live .maplibregl-map {
-  opacity: 1;
+/* A section's heavy rule starts after the bundle instead of cutting across it. */
+.hubmain > .section {
+  border-top: 0;
+  background: linear-gradient(var(--rule-strong), var(--rule-strong)) no-repeat right var(--gutter) top / calc(100% - 2 * var(--gutter) - var(--tw) - var(--tg) / 2) var(--rule-heavy);
 }
 
-/* stroke samples: the map's line types */
+.hubmain .section-head {
+  position: relative;
+}
+.stop {
+  position: absolute;
+  top: 3px;
+  left: calc(-1 * (var(--tg) + var(--tw) / 2));
+  width: calc(var(--tg) + var(--tw) / 2 - var(--s-3));
+  height: 2px;
+  background: var(--ink);
+}
+.stop::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: calc(var(--tw) + 12px);
+  height: 18px;
+  translate: -50% -50%;
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  background: var(--paper);
+}
+.front {
+  position: relative;
+}
+.stop--front {
+  top: 1px;
+  left: calc(var(--gutter) + var(--tw) / 2);
+  width: calc(var(--tg) + var(--tw) / 2);
+}
+/* Phones and tablets: the same bend, left run and stops, at half weight and with a tighter gap. */
+@media (max-width: 63.99rem) {
+  .hubmain {
+    --k: 0.5;
+    --tg: 1rem;
+  }
+  .stop::before {
+    width: calc(var(--tw) + 8px);
+    height: 14px;
+    border-width: 2px;
+  }
+}
+
+/* ---------- Stage strokes: the key shared by the map, the index and the register ---------- */
 .stroke {
   display: inline-block;
   flex: none;
-  width: 2.4rem;
-  height: 5px;
-  border-radius: 3px;
-  background: var(--hub-ink);
+  width: 2.2rem;
+  height: 4px;
+  background: var(--ink);
 }
 .stroke--under_construction {
-  background: repeating-linear-gradient(90deg, var(--hub-ink) 0 10px, transparent 10px 15px);
+  background: repeating-linear-gradient(90deg, var(--ink) 0 10px, transparent 10px 15px);
 }
 .stroke--planned {
-  background: repeating-linear-gradient(90deg, var(--hub-ink) 0 4px, transparent 4px 9px);
+  background: repeating-linear-gradient(90deg, var(--ink) 0 4px, transparent 4px 9px);
 }
 .stroke--proposed {
-  height: 3px;
-  background: repeating-linear-gradient(90deg, var(--hub-ink-2) 0 2px, transparent 2px 7px);
+  background: radial-gradient(circle, var(--ink) 1.7px, transparent 2px) 0 50% / 7px 4px repeat-x;
 }
 .stroke--future {
-  height: 2px;
-  background: repeating-linear-gradient(90deg, var(--hub-ink-3) 0 2px, transparent 2px 9px);
+  background: radial-gradient(circle, var(--ink-3) 1.3px, transparent 1.6px) 0 50% / 11px 4px repeat-x;
 }
 
-.network__list {
-  display: grid;
-  gap: 3rem;
+/* ---------- Line mark: the line's number on its colour (outlined when no source names one) ---------- */
+.lmark {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  min-width: 2.5em;
+  height: 1.65em;
+  padding: 0.12em 0.4em 0;
+  border-radius: 3px;
+  background: var(--c, transparent);
+  color: var(--on-c, var(--ink));
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-stretch: 75%;
+  font-size: 1rem;
+  line-height: 1;
+  font-variant-numeric: lining-nums tabular-nums;
 }
-.stagegroup__title {
+.lmark--none {
+  box-shadow: inset 0 0 0 1.5px var(--ink-3);
+}
+.lmark--big {
+  font-size: var(--step-1);
+}
+
+/* ---------- 1. The front: map and fact box ---------- */
+.front {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(22rem, 30rem);
+  height: max(30rem, calc(100svh - 22rem));
+  margin-block: var(--s-5) var(--s-8);
+}
+.front__map {
+  --key-h: 2.75rem; /* the legend's strip at the map's foot */
+  position: relative;
+  overflow: hidden;
+  background: var(--paper-2);
+  border-top: var(--rule-heavy) solid var(--rule-strong);
+}
+.front__drawing {
+  position: absolute;
+  inset: var(--s-5) var(--s-6) calc(var(--key-h) + 3.5rem);
+  width: calc(100% - 2 * var(--s-6));
+  height: calc(100% - var(--s-5) - var(--key-h) - 3.5rem);
+  transition: opacity 0.4s var(--ease-out);
+}
+/* The street map fades in over the drawing once its first frame is drawn; the drawing then steps back. */
+.front__map > .front__live {
+  position: absolute;
+  inset: 0 0 var(--key-h);
+  opacity: 0;
+  transition: opacity 0.5s var(--ease-out);
+}
+.front__map.is-live > .front__live {
+  opacity: 1;
+}
+.front__map.is-live .front__drawing {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.nl {
+  cursor: pointer;
+  transition: opacity 0.25s var(--ease-out);
+}
+.nl__path {
+  fill: none;
+  stroke: var(--c, var(--concrete));
+  stroke-width: 3.5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke-width 0.2s var(--ease-out);
+}
+.nl__path--under_construction {
+  stroke-linecap: butt;
+  stroke-dasharray: 9 5;
+}
+.nl__path--planned {
+  stroke-linecap: butt;
+  stroke-dasharray: 3.5 4;
+}
+.nl__path--proposed {
+  stroke-dasharray: 0.1 5.5;
+}
+.nl__num {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-stretch: 75%;
+  font-size: 21px;
+  fill: var(--ink);
+  stroke: var(--paper-2);
+  stroke-width: 5px;
+  paint-order: stroke;
+  text-anchor: middle;
+  dominant-baseline: central;
+  pointer-events: none;
+  transition: opacity 0.25s var(--ease-out);
+}
+.front__drawing.has-pick .nl:not(.is-on),
+.front__drawing.has-pick .nl__num:not(.is-on) {
+  opacity: 0.18;
+}
+.nl.is-on .nl__path {
+  stroke-width: 6px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .nl:hover .nl__path {
+    stroke-width: 6px;
+  }
+}
+
+/* The key: one row in its own strip at the map's foot, under the map and its attribution. */
+.front__legend {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  height: var(--key-h);
+  align-items: center;
+  border-top: var(--rule-w) solid var(--rule);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-5);
+  margin: 0;
+  padding: var(--s-2) var(--s-3);
+  list-style: none;
+  background: var(--paper-2);
+  font-size: var(--step--1);
+  color: var(--ink-2);
+}
+.front__legend li {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  padding-bottom: 0.8rem;
-  margin-bottom: 0.5rem;
-  border-bottom: 1px solid var(--hub-rule);
-  font-size: clamp(1.3rem, 1.1rem + 0.9vw, 1.9rem);
-  letter-spacing: -0.01em;
+  gap: var(--s-2);
 }
-.netlist {
-  display: grid;
+
+/* The street map in the paper's two editions (colours set in network-map.ts); its controls on paper. */
+.front__map .maplibregl-ctrl-group {
+  background: var(--paper);
+  border-radius: 4px;
+  box-shadow: none;
+  outline: var(--rule-w) solid var(--rule);
+}
+.front__map .maplibregl-ctrl-group button + button {
+  border-top-color: var(--rule);
+}
+/* MapLibre draws its icons in black: light them on night paper. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .front__map .maplibregl-ctrl-icon,
+  :root:not([data-theme='light']) .front__map .maplibregl-ctrl-attrib-button {
+    filter: invert(1);
+  }
+}
+:root[data-theme='dark'] .front__map .maplibregl-ctrl-icon,
+:root[data-theme='dark'] .front__map .maplibregl-ctrl-attrib-button {
+  filter: invert(1);
+}
+/* Raised to beat MapLibre's own white `.maplibregl-ctrl.maplibregl-ctrl-attrib`, so night paper keeps its contrast. */
+.front__map .maplibregl-ctrl.maplibregl-ctrl-attrib {
+  background: var(--paper);
+  color: var(--ink-3);
+}
+.front__map .maplibregl-ctrl-attrib a {
+  color: var(--ink-2);
+}
+
+/* The fact box */
+.box {
+  position: relative;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--s-5) 0 var(--s-6) var(--s-6);
+  border-top: var(--rule-heavy) solid var(--rule-strong);
+  border-left: var(--rule-heavy) solid var(--rule-strong);
+  scrollbar-width: thin;
+}
+.box__title {
+  font-size: var(--step-2);
+  text-transform: uppercase;
+}
+.box__lede {
+  margin-block: var(--s-3) var(--s-5);
+  color: var(--ink-2);
+  font-size: var(--step--1);
+  max-width: 44ch;
+}
+.box__group + .box__group {
+  margin-top: var(--s-5);
+}
+.box__group-title,
+.stage__title {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  font-size: var(--step-1);
+  text-transform: uppercase;
+  padding-bottom: var(--s-2);
+  border-bottom: var(--rule-w) solid var(--rule-strong);
+}
+.pick-list {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-@media (min-width: 64rem) {
-  .netlist {
-    grid-template-columns: 1fr 1fr;
-    column-gap: 3rem;
-  }
-}
-.netline {
+.pick {
   display: grid;
-  grid-template-columns: 3.4rem minmax(0, 1fr);
-  gap: 1rem;
-  padding: 1.1rem 0;
-  border-bottom: 1px solid var(--hub-rule);
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--s-3);
+  min-height: 44px;
+  padding: var(--s-2) var(--s-2) var(--s-2) 0;
+  border-bottom: var(--rule-w) solid var(--rule);
+  color: var(--ink);
+  text-decoration: none;
+  transition: background-color 0.2s ease, scale 0.16s var(--ease-out);
 }
-.netline__mark {
-  align-self: start;
-  display: grid;
-  place-items: center;
-  height: 2.4rem;
-  border-radius: 6px;
-  background: var(--c);
-  color: var(--on-c);
-  font-size: 1.15rem;
-  line-height: 1;
+.pick:active {
+  scale: 0.985;
 }
-.netline__mark--none {
-  background: transparent;
-  color: var(--hub-ink);
-  box-shadow: inset 0 0 0 1.5px var(--hub-ink-3);
-}
-.netline__name {
+.pick__name {
   font-weight: 700;
-  font-size: 1.1rem;
   line-height: 1.3;
 }
-.netline__name a {
-  text-decoration-color: var(--c, var(--hub-ink-3));
-  text-decoration-thickness: 2px;
-  text-underline-offset: 0.2em;
+.pick__route {
+  display: block;
+  font-weight: 400;
+  font-size: var(--step--1);
+  color: var(--ink-2);
 }
-.netline__figs {
+.pick__open {
+  color: var(--ink-3);
+}
+.pick__when {
+  font-size: var(--step--1);
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums lining-nums;
+  white-space: nowrap;
+}
+@media (hover: hover) and (pointer: fine) {
+  .pick:hover {
+    background: var(--paper-2);
+  }
+}
+.box__more {
+  margin-top: var(--s-5);
+  font-size: var(--step--1);
+  color: var(--ink-2);
+}
+.box__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: 44px;
+  margin-bottom: var(--s-3);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  font-size: var(--step--1);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: scale 0.16s var(--ease-out);
+}
+.box__back svg {
+  width: 1.15em;
+  height: 1.15em;
+  transition: translate 0.2s var(--ease-out);
+}
+.box__back:active {
+  scale: 0.97;
+}
+@media (hover: hover) and (pointer: fine) {
+  .box__back:hover svg {
+    translate: -3px 0;
+  }
+}
+.box__slot:focus {
+  outline: none;
+}
+/* A record prints into the box: a short rise and fade, faster out than in. */
+.box__record .record__facts {
+  border-top: var(--rule-heavy) solid var(--rule-strong);
+}
+.box__record .record__facts b {
+  font-family: var(--font-display);
+  font-stretch: 75%;
+  font-weight: 800;
+  font-size: 1.3rem;
+  line-height: 1;
+}
+.box__record .record {
+  border-top: 0;
+  padding-top: 0;
+  transition: opacity 0.22s var(--ease-out), translate 0.22s var(--ease-out);
+}
+@starting-style {
+  .box__record .record {
+    opacity: 0;
+    translate: 0 8px;
+  }
+}
+
+/* ---------- 2. The register ---------- */
+.stage + .stage {
+  margin-top: var(--s-7);
+}
+.stage__title {
+  margin-bottom: var(--s-2);
+}
+.stage__title .num {
+  color: var(--ink-3);
+}
+.records {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 25rem), 1fr));
+  gap: 0 var(--s-6);
+}
+.record {
+  padding-block: var(--s-5) var(--s-6);
+  border-top: var(--rule-heavy) solid var(--rule-strong);
+  scroll-margin-top: var(--s-4);
+}
+.stage__title + .records .record {
+  border-top-width: var(--rule-w);
+}
+.record__head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: var(--s-1) var(--s-3);
+  margin-bottom: var(--s-4);
+}
+.record__name {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.2rem 1.1rem;
-  margin-top: 0.25rem;
-  font-variant-numeric: tabular-nums lining-nums;
-  color: var(--hub-ink-2);
-}
-.netline__agency {
-  margin-top: 0.15rem;
-  color: var(--hub-ink-3);
-}
-.netline__parts {
-  display: grid;
-  gap: 0.35rem;
-  margin: 0.6rem 0 0;
-  padding: 0;
-  list-style: none;
-  font-size: 0.92rem;
-  line-height: 1.4;
-  color: var(--hub-ink-2);
-}
-.netline__parts li {
-  display: grid;
-  grid-template-columns: 2.4rem minmax(0, 1fr);
-  column-gap: 0.65rem;
   align-items: baseline;
+  gap: 0 var(--s-3);
+  font-size: var(--step-2);
+  text-transform: uppercase;
+  line-height: 1;
 }
-.netline__parts .stroke {
-  align-self: center;
-}
-.netline__note {
-  color: var(--hub-ink-3);
-}
-.netline__sources {
-  margin-top: 0.55rem;
-  font-size: 0.85rem;
-  color: var(--hub-ink-3);
-}
-.netline__sources a {
-  color: var(--hub-ink-2);
-  text-underline-offset: 0.18em;
-}
-.netline__parts .grade {
-  vertical-align: -0.1em;
-}
-.network__foot {
-  max-width: 70ch;
-  margin-top: 2.5rem;
-  font-size: 0.9rem;
-  color: var(--hub-ink-3);
-}
-
-/* MapLibre popups and controls in the hub's world */
-.hubw .maplibregl-popup-content {
-  background: var(--hub-bg-2);
-  color: var(--hub-ink);
-  border-radius: 10px;
-  padding: 0.75rem 0.9rem;
-  font-family: var(--font-body);
-}
-.hubw .maplibregl-popup-tip {
-  border-top-color: var(--hub-bg-2) !important;
-  border-bottom-color: var(--hub-bg-2) !important;
-}
-.hubw .maplibregl-ctrl-group {
-  background: #13161d;
-  box-shadow: none;
-}
-.hubw .maplibregl-ctrl-group button span {
-  filter: invert(1);
-}
-.hubw .maplibregl-ctrl-attrib,
-.hubw .maplibregl-ctrl-attrib.maplibregl-compact {
-  background: rgb(11 13 18 / 0.85);
-  color: rgb(244 241 234 / 0.8);
-}
-.hubw .maplibregl-ctrl-attrib a {
-  color: #f4f1ea;
-}
-.hubw .maplibregl-ctrl-attrib-button {
-  filter: invert(1);
-  background-color: transparent;
-}
-
-.meet {
-  display: grid;
-  gap: 0.75rem;
-  max-width: 70ch;
-  margin-top: 3rem;
-  color: var(--hub-ink-2);
-}
-.meet a {
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.2em;
-}
-
-/* Marathi marks: decorative, beside the English (as the masthead's "मेट्रो १२"); copy stays English. */
-.hub-mr {
+.record__mr {
   font-family: 'Anek Devanagari Mark', var(--font-display);
   font-weight: 700;
   font-stretch: 100%;
+  font-size: 0.62em;
   text-transform: none;
-  letter-spacing: 0;
-  line-height: 1;
 }
-.cover__title .hub-mr {
-  display: block;
-  margin-top: 0.35em;
-  font-size: 0.34em;
-  color: var(--hub-ink-2);
+.record__route {
+  grid-column: 1 / -1;
+  font-family: var(--font-display);
+  font-stretch: 87.5%;
+  font-weight: 700;
+  font-size: var(--step-0);
+  text-transform: uppercase;
+  color: var(--ink-2);
 }
-.chapter__title .hub-mr {
-  font-size: clamp(1.4rem, 1rem + 1.6vw, 2.4rem);
-  color: var(--hub-ink);
+.record__facts {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.45;
 }
-.cover__label .hub-mr {
-  font-size: clamp(0.95rem, 0.85rem + 0.4vw, 1.2rem);
-  color: var(--hub-ink-2);
+.record__facts > div {
+  display: grid;
+  grid-template-columns: 6rem minmax(0, 1fr);
+  gap: var(--s-3);
+  padding-block: var(--s-2);
+  border-bottom: var(--rule-w) solid var(--rule);
 }
-.chapter__title {
-  grid-template-columns: auto;
+.record__facts dt {
+  padding-top: 0.2em;
+  font-size: 0.78rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-3);
 }
-.chapter__mast {
+.record__facts dd {
+  margin: 0;
+}
+.record__facts b {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.record__note {
+  color: var(--ink-2);
+}
+.record__parts {
+  display: grid;
+  gap: var(--s-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.record__parts li {
+  display: grid;
+  grid-template-columns: 2.2rem minmax(0, 1fr);
+  gap: var(--s-3);
+  align-items: baseline;
+}
+.record__parts .stroke {
+  translate: 0 -0.2em;
+}
+.record__links {
   display: flex;
-  align-items: flex-end;
-  gap: 0.8rem;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2) var(--s-4);
+  margin-top: var(--s-4);
+  font-size: var(--step--1);
+}
+.record__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+.record__open {
+  padding: 0 var(--s-4);
+  border-radius: 4px;
+  background: var(--ink);
+  color: var(--paper);
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease, scale 0.16s var(--ease-out);
+}
+.record__open:active {
+  scale: 0.97;
+}
+@media (hover: hover) and (pointer: fine) {
+  .record__open:hover {
+    background: var(--c, var(--signal));
+    color: var(--on-c, var(--on-signal));
+  }
+}
+.lines__foot {
+  margin-top: var(--s-7);
+  max-width: var(--measure);
+  font-size: var(--step--1);
+  color: var(--ink-3);
 }
 
-/* The shared footer, printed on the hub's ground (no navy band, no orange rule). */
-.hubw footer.colophon {
-  margin-top: 0;
-  background: var(--hub-bg-2);
-  border-top: 1px solid var(--hub-rule);
-  color: var(--hub-ink);
+/* ---------- 3. Latest updates ---------- */
+.updates {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: var(--rule-heavy) solid var(--rule-strong);
+  max-width: 62rem;
 }
-.hubw footer.colophon a {
-  text-decoration-color: color-mix(in oklab, var(--hub-ink) 50%, transparent);
-  text-underline-offset: 0.2em;
+.update {
+  display: grid;
+  grid-template-columns: 8.5rem auto minmax(0, 1fr);
+  align-items: start;
+  gap: var(--s-4);
+  padding-block: var(--s-3);
+  border-bottom: var(--rule-w) solid var(--rule);
+}
+.update__date {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-stretch: 75%;
+  font-size: var(--step-1);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.update__body {
+  display: grid;
+  gap: var(--s-1);
+}
+.update__title {
+  font-weight: 700;
+}
+.update__meta {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2);
+  font-size: var(--step--1);
+  color: var(--ink-3);
 }
 
-.hubw .nowrap {
-  white-space: nowrap;
+/* ---------- 4. Where the lines meet ---------- */
+.meet {
+  display: grid;
+  gap: var(--s-5) var(--s-6);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  border-top: var(--rule-heavy) solid var(--rule-strong);
+  padding-top: var(--s-4);
+}
+
+/* ---------- Phones and tablets: the map first, the box under it ---------- */
+@media (max-width: 63.99rem) {
+  .front {
+    grid-template-columns: minmax(0, 1fr);
+    height: auto;
+  }
+  .front__map {
+    height: min(62svh, 34rem);
+  }
+  .front__drawing {
+    inset: var(--s-3) var(--s-3) var(--s-6);
+    width: calc(100% - 2 * var(--s-3));
+    height: calc(100% - var(--s-3) - var(--s-6));
+  }
+  /* On a phone the legend leaves the map and sits under it as one line of keys. */
+  .front__map {
+    overflow: visible;
+    margin-bottom: 4.5rem;
+  }
+  .front__map {
+    --key-h: 0rem;
+  }
+  .front__live {
+    overflow: hidden;
+  }
+  .front__legend {
+    height: auto;
+    border-top: 0;
+    top: auto;
+    bottom: -4rem;
+    left: 0;
+    right: 0;
+    max-width: none;
+    padding: var(--s-2) 0;
+    background: none;
+    gap: var(--s-1) var(--s-4);
+  }
+  .box {
+    overflow: visible;
+    padding: var(--s-5) 0 0;
+    border-left: 0;
+  }
+  .update {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+  .update__date {
+    grid-column: 1 / -1;
+  }
 }

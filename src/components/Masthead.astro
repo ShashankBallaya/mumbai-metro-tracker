@@ -2,12 +2,14 @@
 import { formatDate, lineBase, hasService, lastReviewed as siteReviewed, type Line } from '../lib/data';
 
 interface Props {
-  /** The line this page is about. Off a line page, dates are site-wide. */
+  /** The line this page is about. Off a line page (the hub), dates are site-wide and the band is the site's own. */
   line?: Line;
   /** Off the front page, the index links go back to its sections. */
   home?: boolean;
+  /** The hub's own "Inside" index: [section id, label]. */
+  sections?: [string, string][];
 }
-const { line, home = true } = Astro.props;
+const { line, home = true, sections } = Astro.props;
 const lastReviewed = line?.lastReviewed ?? siteReviewed;
 const base = line ? lineBase(line.id) : '/';
 const to = (id: string) => (home ? `#${id}` : `${base}#${id}`);
@@ -46,22 +48,24 @@ const inside = [
   };
   return shows[id] ?? true;
 });
+if (!line && sections) inside.push(...sections);
 ---
 
 <header class="masthead">
-  <div class="masthead__band">
+  <div class:list={['masthead__band', !line && 'masthead__band--site']}>
     <div class="page masthead__inner">
-      <a class="masthead__title" href={base}>
-        {line ? (
-          <>
-            <span class="masthead__name">{line.info.label}</span>
-            <span class="masthead__mr" lang="mr" aria-hidden="true">{line.info.mark_mr}</span>
-          </>
-        ) : (
-          <span class="masthead__name">Mumbai Metro</span>
-        )}
-      </a>
-      <p class="masthead__tag">{line ? `Mumbai Metro, ${line.info.route_short}. The unofficial tracker.` : 'The unofficial tracker.'}</p>
+      {line ? (
+        <a class="masthead__title" href={base}>
+          <span class="masthead__name">{line.info.label}</span>
+          <span class="masthead__mr" lang="mr" aria-hidden="true">{line.info.mark_mr}</span>
+        </a>
+      ) : (
+        <h1 class="masthead__title">
+          <span class="masthead__name">Mumbai Metro Tracker</span>
+          <span class="masthead__mr" lang="mr" aria-hidden="true">मुंबई मेट्रो</span>
+        </h1>
+      )}
+      <p class="masthead__tag">{line ? `Mumbai Metro, ${line.info.route_short}. The unofficial tracker.` : 'Every metro line in the Mumbai region. The unofficial tracker.'}</p>
     </div>
   </div>
   <div class="page masthead__edition">
@@ -81,7 +85,7 @@ const inside = [
       <span data-theme-label>Switch edition</span>
     </button>
   </div>
-  {inside.length > 0 && <nav class="page masthead__inside" aria-label="Inside this edition">
+  {inside.length > 0 && <nav class:list={['page masthead__inside', { 'masthead__inside--hub': !line }]} aria-label="Inside this edition">
     <span class="masthead__inside-label">Inside</span>
     <ul>
       {inside.map(([id, label]) => <li><a href={to(id)}>{label}</a></li>)}
@@ -93,6 +97,14 @@ const inside = [
   .masthead__band {
     background: var(--signal);
     color: var(--on-signal);
+  }
+  /* The hub's band: ink, so it flips with the edition (navy on morning paper, cream on night). */
+  .masthead__band--site {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .masthead__band--site .masthead__name {
+    font-size: clamp(2.4rem, 1.2rem + 4vw, 4.6rem);
   }
   .masthead__inner {
     display: flex;
@@ -224,6 +236,21 @@ const inside = [
     padding-block: var(--s-2);
     overflow-x: auto;
     scrollbar-width: none;
+  }
+  /* The hub lists only four sections: on a phone they wrap instead of scrolling out of sight. */
+  @media (max-width: 30rem) {
+    .masthead__inside--hub {
+      overflow-x: visible;
+      align-items: flex-start;
+    }
+    .masthead__inside--hub .masthead__inside-label {
+      line-height: 44px; /* level with the first row of links (44px targets) */
+    }
+    .masthead__inside--hub ul {
+      flex: 1;
+      min-width: 0;
+      flex-wrap: wrap;
+    }
   }
   .masthead__inside-label {
     font-family: var(--font-display);

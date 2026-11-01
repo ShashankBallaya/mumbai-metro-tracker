@@ -1,6 +1,12 @@
 ---
-/** The back of the paper on every page: disclaimer, dates, source code, maintainer, and on a station page the photo credits. */
-import { formatDate, lastReviewed as siteReviewed, REPO_URL, photoContributorsFor, type Line } from '../lib/data';
+/**
+ * The back page on every page: the paper's name and disclaimer, the lines it tracks, the drawing of an
+ * elevated line with the road below as light trails, then the dateline (dates, source code, maintainer).
+ * On a station page the photo credits come first.
+ */
+import { formatDate, lastReviewed as siteReviewed, REPO_URL, CORRECTION_URL, SITE_NAME, lines, lineBase, photoContributorsFor, type Line } from '../lib/data';
+import LineMark from './LineMark.astro';
+import BackPageScene from './BackPageScene.astro';
 
 interface Props {
   /** The line this page is about. Off a line page, dates are site-wide. */
@@ -22,7 +28,7 @@ const DISCLAIMER = 'Mumbai Metro Tracker is an independent public-interest site.
 const disclaimer = pageDisclaimer ?? line?.info.copy.footer_disclaimer ?? DISCLAIMER;
 ---
 
-<footer class="colophon">
+<footer class="colophon" data-back-page>
   <div class="page colophon__inner">
     {credits.length > 0 && (
       <section class="thanks" aria-labelledby="thanks-head">
@@ -40,15 +46,41 @@ const disclaimer = pageDisclaimer ?? line?.info.copy.footer_disclaimer ?? DISCLA
         </ul>
       </section>
     )}
-    <p class="colophon__disclaimer">
-      <strong>Unofficial.</strong> {disclaimer}
-    </p>
+    <div class="back">
+      <div class="back__name">
+        <p class="back__wordmark"><a href="/">{SITE_NAME}</a> <span lang="mr" aria-hidden="true">मुंबई मेट्रो</span></p>
+        <p class="colophon__disclaimer">
+          <strong>Unofficial.</strong> {disclaimer}
+        </p>
+      </div>
+      <nav class="back__col" aria-labelledby="back-lines">
+        <h2 id="back-lines" class="back__head">The lines</h2>
+        <ul role="list">
+          {lines.map((l) => (
+            <li><a href={lineBase(l.id)}><LineMark lineId={l.id} /><span>{l.label}<small>{l.route_short}</small></span></a></li>
+          ))}
+        </ul>
+      </nav>
+      <nav class="back__col" aria-labelledby="back-paper">
+        <h2 id="back-paper" class="back__head">The paper</h2>
+        <ul role="list">
+          <li><a href="/#map">The network map</a></li>
+          <li><a href="/#lines">Every line in the region</a></li>
+          <li><a href="/#updates">Latest updates</a></li>
+          <li><a href={CORRECTION_URL} rel="noopener" target="_blank">Send a correction<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+          <li><a href={REPO_URL} rel="noopener" target="_blank">Source code<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <BackPageScene />
+  <div class="page colophon__foot">
     <p class="colophon__meta">
       Data last reviewed <time datetime={lastReviewed}>{formatDate(lastReviewed)}</time>
       <span aria-hidden="true">/</span>
       Page built <time datetime={builtAt}>{formatDate(builtAt)}</time>
       <span aria-hidden="true">/</span>
-      <a href={REPO_URL} rel="noopener" target="_blank">Source code</a>
+      Drawing: an original illustration, not an official design
     </p>
     <p class="colophon__credit">
       Maintained by{' '}
@@ -65,8 +97,114 @@ const disclaimer = pageDisclaimer ?? line?.info.copy.footer_disclaimer ?? DISCLA
   }
   .colophon__inner {
     display: grid;
+    gap: var(--s-6);
+    padding-block: var(--s-7) 0;
+  }
+  /* The back page's head: the paper's name and disclaimer, then two columns of links. */
+  .back {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 0.8fr);
+    gap: var(--s-6) var(--s-7);
+    align-items: start;
+  }
+  .back__name {
+    display: grid;
     gap: var(--s-4);
-    padding-block: var(--s-7);
+  }
+  .back__wordmark {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-stretch: 75%;
+    font-size: var(--step-4);
+    line-height: 0.9;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+  .back__wordmark a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .back__wordmark span {
+    font-family: 'Anek Devanagari Mark', var(--font-display);
+    font-weight: 700;
+    font-size: 0.6em;
+    font-stretch: 100%;
+    color: var(--ink-2);
+    white-space: nowrap;
+  }
+  .back__head {
+    padding-bottom: var(--s-2);
+    margin-bottom: var(--s-3);
+    border-bottom: var(--rule-heavy) solid var(--rule-strong);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-stretch: 75%;
+    font-size: var(--step-1);
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .back__col ul {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .back__col li + li {
+    border-top: var(--rule-w) solid var(--rule);
+  }
+  .back__col a {
+    display: flex;
+    align-items: center;
+    gap: var(--s-3);
+    min-height: 44px;
+    padding-block: var(--s-1);
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .back__col a > span {
+    display: grid;
+    line-height: 1.2;
+  }
+  .back__col small {
+    font-size: var(--step--1);
+    font-weight: 400;
+    color: var(--ink-2);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .back__col a:hover > span,
+    .back__col a:hover {
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 0.2em;
+    }
+    .back__col a:hover small {
+      text-decoration: none;
+    }
+  }
+  @media (max-width: 63.99rem) {
+    .back {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+    .back__name {
+      grid-column: 1 / -1;
+    }
+  }
+  @media (max-width: 36rem) {
+    .back {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  /* The dateline under the drawing. */
+  .colophon__foot {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--s-3) var(--s-6);
+    padding-block: var(--s-4) var(--s-6);
+    border-top: var(--rule-heavy) solid var(--rule-strong);
   }
   /* Photo credits: the section-head bar, then the name in display type. */
   .thanks {

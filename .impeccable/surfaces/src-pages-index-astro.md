@@ -2,28 +2,28 @@
 version: 1
 slug: "src-pages-index-astro"
 primary_target: "src/pages/index.astro"
-related_targets: []
+related_targets: ["src/styles/hub.css","src/scripts/hub.ts","src/scripts/network-map.ts"]
 ---
 
 # Surface brief: the hub (src/pages/index.astro)
 
-Scope: the hub at `/`, the cover of Mumbai Metro Tracker. Line pages keep the newspaper world (DESIGN.md); this surface has its own world. Mode: Read (the visitor understands the network), told the way the Rockstar GTA VI site tells a game (owner's inspiration, 2026-10-29).
-Audience: corridor residents first (which line, where, when), transit enthusiasts second (every line in the region, stage, source).
-Content: src/data/network.json (21 lines, graded), src/data/network-geometry.geojson, each tracked line's project.json. Every figure carries its grade and source.
-Constraints: PRODUCT.md (sourced facts only, no em dashes, English only, reduced-motion path, Lighthouse 90+ and accessibility 100, phone on mobile data). Owner: cover collage, a chapter per tracked line, a real-geography map of every MMR line by stage; closer to GTA VI, more Mumbai, modern not retro; the line pages' fonts (Anek Latin 75%) with decorative Marathi marks; pictures are real ground and drone photos (owner's own, or used with permission), each credited (owner, 2026-10-29, after Blender proofs read as low-poly).
-Memorable moment: a key-art tile on the cover grows through a mask into its line's full-screen chapter.
-Unresolved: owner review of network.json grades and stage definitions (HUB-PLAN.md); higher-resolution frames of the drone stills; full Marathi copy (asked, not answered).
+Scope: the hub at `/`, the front page of Mumbai Metro Tracker. Since 2026-10-31 it prints in the line pages' newspaper world (DESIGN.md, "The Late City Edition"); the 2026-10-29 "Mumbai Key Art" world is retired (owner: too dark and murky, too long to scroll, photos too weak, not ours). Mode: Read (the visitor understands the network and finds a line).
+Audience: residents asking which line, where and when; enthusiasts asking who builds it, what it costs, which tenders, what changed lately.
+Purpose (owner, 2026-10-31): details of under-construction and upcoming lines: where they run, tenders, authority, funding and the latest updates.
+Content: src/data/network.json and network-geometry.geojson (every MMR line, graded); each tracked line's project.json, tenders.json, timeline.json. Every figure keeps its grade and source.
+Keep (owner): the network map, line colours, Marathi marks. Photos leave the hub.
+Constraints: PRODUCT.md (sourced facts, no em dashes, English only, reduced motion, Lighthouse 90+ and accessibility 100, phone on mobile data).
 
 ## Direction contract
 
-THESIS: Each line is a place at a real hour of Mumbai light, shown as full-screen key art you scroll into; the facts arrive inside the picture and the network map closes the story. It refuses the transit-site default (a dark map hero, a line list with colour chips, status pills, cards).
+THESIS: The network map is the front page, and every line has a printed record. Choose a line on the map or in the index and a ruled fact box beside the map prints it: stage, opening target, authority, size, cost and funding, tenders, latest update. It refuses the key-art cover and the photo chapters, and the dark map-and-chips transit hero.
 
-OWN-WORLD: Near-black ground (#0b0d12) and warm paper white, with each line's own colour as the only accent. Full-bleed real photos, one per line, each with a dated, linked credit chip. The line pages' display type (Anek Latin squeezed to 75%, weight 800, uppercase) with decorative Marathi marks in paper white; plain Mukta body. Huge line-colour number plates. Pill buttons and rounded tiles (14px). No cards, no glow, no glass; depth from the photo's slow scale inside the mask.
+OWN-WORLD: The line pages' newspaper: newsprint and navy editions, Anek Latin squeezed to 75% at 800 for heads, Mukta for copy, 4px ink rules and 1px column rules, no cards, no shadows. The masthead band is ink (navy on morning paper, cream on night). Under it runs the bundle: one stroke per primary line colour in line-number order (owner, 2026-11-01), across the top and down the left side at every width, with each section hanging off it at a stop. Line colours appear only as line marks, map strokes and the bundle.
 
-STORY: The reader sees the four lines around Kalyan and Thane as places, learns for each what it is, how far along, when it opens and how sure that is, then sees all 21 MMR lines on the real map by stage, and opens a line's tracker.
+STORY: The reader sees every metro line in the region on the real map, by stage; picks the line they care about; reads its record with sources; opens its tracker. Below, the full register of every line (being built and upcoming first), the latest updates across the tracked lines, and where the lines meet.
 
-FIRST VIEWPORT: Full screen. A collage of four photo tiles (12 APMC Kalyan at night, 5 Kasheli station, 4 Kapurbawdi station, 12A Manpada) around a central MUMBAI METRO TRACKER mark with मुंबई मेट्रो; on phones the four tiles come first, above the mark. Under the mark, the next opening target with its grades. A small top bar with the wordmark, the four lines and an All lines pill. Scrolling grows each line's own tile, from its place on the cover, through a mask into its chapter: the photo settles, the line number and name land huge, the facts slide in with grades, the route draws itself across the picture, a pill opens the line's tracker. Each chapter's scroll length follows the line's real length (raise from the dance score). After the chapters, the MapLibre map of every line, stage as stroke pattern, with a full text list by stage.
+FIRST VIEWPORT: Masthead (wordmark MUMBAI METRO TRACKER, मुंबई मेट्रो, tagline), edition line, Inside index, the bundle. Then a two-column front: the map on the left (about two thirds, full height of the screen below the masthead), a static drawing of the real geometry painted at once and MapLibre fading in over it; the fact box on the right (about 30rem) under a 4px ink rule, opening on the index of lines being built and upcoming. On phones the map comes first at about 60% of the screen and the box follows. Signature interaction: choosing a line dims the others on the map, frames it, and prints its record in the box; "All lines" returns to the index.
 
-FORM: User-pinned direction "Mumbai Key Art" (round 3, after two re-rolls), position 1 of the presented hand; seed key de0ef7ad (re-roll 2).
+FORM: "The map and its fact box", position 6 of 7 on the ordered list, dealt lead. seed:a4f98c2ac9e2a1c6
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance

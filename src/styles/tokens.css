@@ -95,6 +95,14 @@
   --on-line-2b: #0c1422;
   /* Lines 5 and 12 on any page, whatever that page's accent (LineMark). */
   --line-orange: #f26b1d;
+  /* The back page's drawing of a rake, in the livery of the new lines' trains (blue body, white band,
+     yellow lining). Day values; the night edition dims them in BackPageScene.astro. */
+  --rake-blue: #213f9a;
+  --rake-white: #f4f1ea;
+  --rake-yellow: #f2c11d;
+  --rake-roof: #9c978e;
+  --rake-glass: #121a2b;
+  --rake-ink: #0c1422;
   --on-line-orange: #0c1422;
   /* Hub network map only (src/lib/network.ts): Line 7 Red (MMRDA), Line 3 Aqua and Line 8 Gold (reported).
      No source gives a colour value, so these are the site's own. White on red 5.0:1; navy on aqua 8.4:1, on gold 9.6:1. */

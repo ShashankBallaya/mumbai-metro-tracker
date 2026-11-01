@@ -1,179 +1,98 @@
 ---
 /**
- * The hub: the cover of Mumbai Metro Tracker (its own world; line pages keep the newspaper).
- *   1. Cover: a collage of key art, one tile per tracked line, around the site's mark.
- *   2. A full-screen chapter per tracked line: its key art, figures with grades, its route.
- *   3. The network: every MMR metro line on a real map, by stage, with a full text list.
- * Each chapter's picture is a ground or drone photo, the owner's own or shared with permission. Motion (src/scripts/hub.ts) adds the reveals; without it,
- * or with reduced motion, every chapter is already a complete, still frame.
+ * The hub: the front page of Mumbai Metro Tracker, printed in the line pages' newspaper world.
+ *   1. The front: every MMR metro line on the real map, by stage, beside a fact box. The box opens on
+ *      the index of lines being built and upcoming; choosing a line (on the map or in the index) prints
+ *      its record there: stage, opening target, authority, size, cost and funding, tenders, latest update.
+ *   2. The register: every line's record, grouped by stage (the box prints these same records).
+ *   3. The latest updates across the tracked lines, and where the tracked lines meet.
+ * Without JavaScript the map is a drawing of the real geometry and each index entry jumps to its record.
  */
 import Base from '../layouts/Base.astro';
+import Masthead from '../components/Masthead.astro';
 import Colophon from '../components/Colophon.astro';
 import Grade from '../components/Grade.astro';
-import { getLine, lines, lineBase, formatDate, outletName, SITE_NAME, type LineId } from '../lib/data';
-import { schematic } from '../lib/route';
+import { getLine, lineBase, formatDate, outletName, inr, SITE_NAME, type LineId } from '../lib/data';
 import { hasStatusPage } from '../lib/answers';
-import { network, byStage, STAGES, networkReviewed } from '../lib/network';
+import { network, STAGES, networkReviewed, networkDrawing, bundleColours, type NetworkLine, type Stage } from '../lib/network';
+import geometryRaw from '../data/network-geometry.geojson?raw';
 import '../styles/hub.css';
 
-/** Chapter order and each chapter's photo: the owner's own, or shared with permission (photos.json carries the same credits). */
-interface Photo {
-  src: string;
-  alt: string;
-  date: string;
-  credit: string;
-  href?: string;
-  /** What the caption says, beyond the credit: anything a reader could misread in the picture. */
-  note?: string;
-  /** Where the crop holds on a screen of another shape. */
-  focus: string;
-  /** A map of the line's corridor, for a line with no photo yet (Lines 6 and 7A): credited as "Map", not "Photo". */
-  kind?: 'map';
-  /** A tall cut for phones (900 by 1600), where a wide picture is cropped by height (scripts/draw-hub-map-art.mjs). */
-  tall?: string;
-  width: number;
-  height: number;
+const drawing = networkDrawing(JSON.parse(geometryRaw));
+const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' });
+
+// Figures as the source gives them (32.32 km stays 32.32), at most two decimals.
+const km = (v: number | null) => (v === null ? null : `${v.toLocaleString('en-IN', { maximumFractionDigits: 2 })} km`);
+const rank = (s: Stage) => STAGES.findIndex((x) => x.id === s);
+/** Where a line's work stands: the most advanced stage among its parts not yet running. A line with one
+ *  stretch open and another being built (2B, 9) is filed with the work still going on, as partly open. */
+const workStage = (l: NetworkLine): Stage => {
+  const unfinished = l.parts.filter((p) => p.stage !== 'operational').map((p) => p.stage);
+  return unfinished.length ? unfinished.sort((a, b) => rank(a) - rank(b))[0] : 'operational';
+};
+const partlyOpen = (l: NetworkLine) => workStage(l) !== 'operational' && l.parts.some((p) => p.stage === 'operational');
+/** "Phase 1, Gaimukh to Cadbury Junction" reads "Phase 1"; "The whole line" reads "the whole line". */
+const scopeOf = (scope?: string) => (scope ? scope.split(',')[0].replace(/^The /, 'the ') : null);
+const titleOf = (l: NetworkLine) => (l.system ? l.name : `Line ${l.number}`);
+const routeOf = (l: NetworkLine) => (l.system ? (l.system === l.name ? null : l.system) : l.name);
+const mark = (l: NetworkLine) => l.number.replace(/^NM/, 'N');
+const stageLabel = (s: Stage) => STAGES.find((x) => x.id === s)!.label;
+const stageShort = (s: Stage) => STAGES.find((x) => x.id === s)!.short;
+const colourStyle = (l: NetworkLine) => (l.colour ? `--c:var(--${l.colour});--on-c:var(--on-${l.colour})` : undefined);
+
+/** A tracked line's record, from its own files. */
+function record(l: NetworkLine) {
+  if (!l.trackedId) return null;
+  const line = getLine(l.trackedId as LineId);
+  const p = line.project as unknown as Record<string, { value: unknown; status: string; source_url: string; scope?: string; label?: string } | undefined>;
+  const target = p.target_completion as { value: string; status: string; source_url: string; scope?: string };
+  const awarded = line.tenders
+    .filter((t) => t.tender_status === 'awarded' && t.award_date)
+    .sort((a, b) => (b.award_date! < a.award_date! ? -1 : 1));
+  const latestAward = awarded[0];
+  const firm = latestAward?.awarded_to ? line.contractors.find((c) => c.id === latestAward.awarded_to)?.name ?? null : null;
+  const past = line.timeline
+    .filter((e): e is typeof e & { date: string } => Boolean(e.date) && e.date! <= today && e.kind !== 'related')
+    .sort((a, b) => (a.date < b.date ? 1 : -1));
+  return {
+    line,
+    info: line.info,
+    phase: p.current_phase!,
+    target,
+    cost: p.completion_cost_crore_inr?.value != null ? p.completion_cost_crore_inr : null,
+    funding: p.funding?.value ? p.funding : null,
+    tenders: line.tenders.length,
+    latestAward: latestAward ? { pkg: latestAward.package, firm, value: latestAward.awarded_value_crore, date: latestAward.award_date!, status: latestAward.status, source: latestAward.source_url } : null,
+    latest: past[0] ?? null,
+    base: lineBase(l.trackedId as LineId),
+    status: hasStatusPage(line),
+  };
 }
-/** A chapter's moving picture: a drone loop cut from InfraUnfiltered's video (scripts/encode-hub-footage.sh). */
-interface Footage {
-  name: string;
-  credit: string;
-  href: string;
-  date: string;
-  note: string;
-}
-const CHAPTERS: { id: LineId; photo: Photo; footage?: Footage; side: 'left' | 'right' }[] = [
-  {
-    id: 'line-2b',
-    photo: {
-      src: '/photos/shunya-bridge-2026-05-24-a.jpg',
-      alt: 'The zero-shaped steel pylon of the Shunya cable-stayed bridge in Bandra Kurla Complex, with MMRDA written across its top, against a blue sky with cranes behind',
-      date: '2026-05-24',
-      credit: 'Shashank Ballaya',
-      note: 'The Shunya bridge pylon, BKC',
-      focus: '50% 35%',
-      width: 1200,
-      height: 1600,
-    },
-    side: 'left',
-  },
-  {
-    id: 'line-4',
-    photo: {
-      src: '/photos/kapurbawdi-aerial-2026-10-13-b.jpg',
-      alt: "Drone view of Line 4's Kapurbawdi station and its green roof among trees and tall towers in Thane",
-      date: '2026-10-13',
-      credit: 'InfraUnfiltered',
-      href: 'https://www.youtube.com/watch?v=l3cL7pU6rtI&t=813s',
-      note: 'Kapurbawdi, drone still',
-      focus: '50% 45%',
-      width: 1600,
-      height: 900,
-    },
-    footage: { name: 'kapurbawdi', credit: 'InfraUnfiltered', href: 'https://www.youtube.com/watch?v=l3cL7pU6rtI&t=811s', date: '2026-10-13', note: 'Over Kapurbawdi station, drone video' },
-    side: 'right',
-  },
-  {
-    id: 'line-5',
-    photo: {
-      src: '/photos/kasheli-aerial-2026-10-13-b.jpg',
-      alt: "Drone view down Line 5's two tracks into Kasheli station under its orange roof, overhead wire masts on both sides",
-      date: '2026-10-13',
-      credit: 'InfraUnfiltered',
-      href: 'https://www.youtube.com/watch?v=l3cL7pU6rtI&t=481s',
-      note: 'Kasheli, drone still',
-      focus: '50% 40%',
-      width: 1600,
-      height: 900,
-    },
-    // No footage: the Kasheli section of the video carries the creator's picture-in-picture inset.
-    side: 'left',
-  },
-  {
-    id: 'line-6',
-    photo: {
-      src: '/hub/maps/line-6.jpg',
-      tall: '/hub/maps/line-6-tall.jpg',
-      alt: "Map of Line 6 in its pink, from Swami Samarth Nagar near Lokhandwala east past Jogeshwari, SEEPZ and Powai Lake to Vikhroli, with its 13 stations as white dots",
-      date: '2026-10-30',
-      credit: 'OpenStreetMap contributors, OpenFreeMap',
-      href: 'https://www.openstreetmap.org/copyright',
-      note: "No photo of Line 6 yet: its route from MMRDA's alignment file on a street map",
-      focus: '37% 39%',
-      width: 1600,
-      height: 1000,
-      kind: 'map',
-    },
-    side: 'right',
-  },
-  {
-    id: 'line-7a',
-    photo: {
-      src: '/hub/maps/line-7a.jpg',
-      tall: '/hub/maps/line-7a-tall.jpg',
-      alt: "Map of Line 7A in red, from Airport Colony on the Western Express Highway into a tunnel, drawn dashed, to its station by the airport's Terminal 2, with the runways below",
-      date: '2026-10-30',
-      credit: 'OpenStreetMap contributors, OpenFreeMap',
-      href: 'https://www.openstreetmap.org/copyright',
-      note: "No photo of Line 7A yet: its route from MMRDA's alignment file on a street map, the tunnel dashed",
-      focus: '63% 39%',
-      width: 1600,
-      height: 1000,
-      kind: 'map',
-    },
-    side: 'left',
-  },
-  {
-    id: 'line-12',
-    photo: {
-      src: '/photos/apmc-kalyan-2026-10-04-a.jpg',
-      alt: 'Line 12 station piers at APMC Kalyan at night, a new concrete cross arm on top and red tail lights on the road below',
-      date: '2026-10-04',
-      credit: 'Shashank Ballaya',
-      note: 'APMC Kalyan',
-      focus: '45% 60%',
-      width: 1200,
-      height: 1600,
-    },
-    footage: { name: 'apmc-kalyan', credit: 'InfraUnfiltered', href: 'https://www.youtube.com/watch?v=xpX7xRPnxf8&t=229s', date: '2026-10-10', note: 'Over the Line 12 piers at APMC Kalyan, drone video' },
-    side: 'right',
-  },
-  {
-    id: 'line-12a',
-    photo: {
-      src: '/photos/manpada-aerial-2026-10-10-a.jpg',
-      alt: "Drone view of the road at Manpada with Line 12's first piers in the foreground and open land around, where Line 12A is reported to begin",
-      date: '2026-10-10',
-      credit: 'InfraUnfiltered',
-      href: 'https://www.youtube.com/watch?v=xpX7xRPnxf8&t=582s',
-      note: "Manpada, where Line 12A is reported to begin. The piers are Line 12's; no Line 12A work has started",
-      focus: '50% 70%',
-      width: 1600,
-      height: 900,
-    },
-    footage: { name: 'manpada', credit: 'InfraUnfiltered', href: 'https://www.youtube.com/watch?v=xpX7xRPnxf8&t=580s', date: '2026-10-10', note: "Manpada, where Line 12A is reported to begin. The piers are Line 12's; no Line 12A work has started. Drone video" },
-    side: 'left',
-  },
-];
 
-const chapters = CHAPTERS.map((c) => {
-  const line = getLine(c.id);
-  const info = lines.find((l) => l.id === c.id)!;
-  const t = line.project.target_completion as typeof line.project.target_completion & { scope?: string };
-  return { ...c, line, info, target: t, strip: schematic(line), base: lineBase(c.id) };
-});
-const longest = Math.max(...chapters.map((c) => c.line.project.length_km.value));
+// The register runs from what is being built to what is only an idea; running lines close it.
+const ORDER: Stage[] = ['under_construction', 'planned', 'proposed', 'operational', 'future'];
+const groups = ORDER.map((id) => ({ id, label: stageLabel(id), lines: network.filter((l) => workStage(l) === id).map((l) => ({ l, r: record(l) })) })).filter((g) => g.lines.length);
+const upcoming = groups.filter((g) => ['under_construction', 'planned', 'proposed'].includes(g.id));
+const running = groups.find((g) => g.id === 'operational');
 
-// The next opening targets among the tracked lines (all are targets, none is an announced date).
-const soonest = chapters.map((c) => c.target.value).sort()[0];
-const nextUp = chapters.filter((c) => c.target.value === soonest);
+// The latest updates across the tracked lines: their timelines, newest first.
+const updates = network
+  .filter((l) => l.trackedId)
+  .flatMap((l) =>
+    getLine(l.trackedId as LineId)
+      // A related project's event (Line 12's note of Line 12A) is listed once, under its own line.
+      .timeline.filter((e): e is typeof e & { date: string } => Boolean(e.date) && e.date! <= today && e.kind !== 'related')
+      .map((e) => ({ e, l })),
+  )
+  .sort((a, b) => (a.e.date < b.e.date ? 1 : -1))
+  .slice(0, 10);
 
-// Where two tracked lines meet (stations.json `same_site_as`): Kalyan (Lines 12 and 5), Kapurbawdi (Lines 4 and 5), Kanjur Marg (Lines 6 and 4).
-const tracked = chapters.map((c) => c.line);
+// Where two tracked lines meet (stations.json `same_site_as`).
+const tracked = network.filter((l) => l.trackedId).map((l) => getLine(l.trackedId as LineId));
 const meets = tracked.flatMap((line) =>
   [...line.stations, ...line.spurStations].flatMap((st) => {
     const o = (st as { same_site_as?: { line: string; station: string; distance_m: number } }).same_site_as;
-    const other = o && tracked.find((l) => l.id === o.line);
+    const other = o && tracked.find((x) => x.id === o.line);
     return other ? [{ line, st, other, otherStation: other.stations.find((x) => x.id === o.station)!, distance: o.distance_m }] : [];
   }),
 );
@@ -181,265 +100,251 @@ const kalyan = meets.find((m) => m.st.id === 'kalyan');
 const kapurbawdi = meets.find((m) => m.st.id === 'kapurbawdi');
 const kanjur = meets.find((m) => m.st.id === 'kanjur-marg-west');
 
-const DISCLAIMER =
-  `Mumbai Metro Tracker is an independent public-interest site. It is not affiliated with, endorsed by or connected to MMRDA, MMRCL, CIDCO, MahaMetro or the Government of Maharashtra. The photos are the maintainer's own or used with the photographer's permission, and each carries its credit. Lines without a photo yet show a map of their route (OpenStreetMap data). Check official sources before making decisions.`;
-
-const counts = byStage.filter((s) => s.lines.length > 0);
-const title = `${SITE_NAME}: every Mumbai Metro line, built, building and planned`;
-const description = `An unofficial, sourced tracker of the Mumbai Metro: all ${network.length} metro lines in the region on one map by stage, and Lines 2B, 4, 5, 12 and 12A in full. Route, stations, progress and opening targets, each fact with its source.`;
-
-const mapData = JSON.stringify(
-  network.map((l) => ({ id: l.id, number: l.number, name: l.name, stage: l.stage, colour: l.colour ?? null, href: l.href ?? null })),
-);
-const sourcesOf = (l: (typeof network)[number]) => {
+const sourcesOf = (l: NetworkLine) => {
   const urls = [l.length.source, l.stations.source, l.agency?.source, ...l.parts.map((p) => p.source)].filter((u): u is string => Boolean(u));
   const seen = new Map<string, string>();
   for (const u of urls) if (!seen.has(outletName(u))) seen.set(outletName(u), u);
   return [...seen].map(([name, url]) => ({ name, url }));
 };
-const lineName = (l: (typeof network)[number]) => (l.system ? l.name : `Line ${l.number}, ${l.name}`);
-const km = (v: number | null) => (v === null ? null : `${Number.isInteger(v) ? v : v.toFixed(v < 10 ? 2 : 1).replace(/0+$/, '').replace(/\.$/, '')} km`);
+
+const mapData = JSON.stringify(network.map((l) => ({ id: l.id, number: l.number, name: l.name, stage: l.stage, colour: l.colour ?? null })));
+// The legend is a key to the strokes drawn (no counts: the register below counts lines by work stage).
+const counts = STAGES.filter((s) => s.id !== 'future' && network.some((l) => l.parts.some((p) => p.stage === s.id)));
+
+// The bundle: one stroke per primary line colour, in line-number order (bundleColours in src/lib/network.ts).
+// It runs across the top of the page and bends down its left side; each section hangs off it at a stop.
+// Sizes are desktop px, scaled on phones by --k in hub.css.
+const BUNDLE = bundleColours;
+const STROKE = 4; // px
+const PITCH = 6; // px, stroke plus gap
+const TW = BUNDLE.length * PITCH - (PITCH - STROKE); // width of the bundle, px
+const BEND = TW + 16; // outer radius of the bend, px
+const bendPaths = BUNDLE.map((c, i) => {
+  const o = STROKE / 2 + i * PITCH;
+  const r = BEND - o;
+  return { c, d: `M${BEND} ${o} A${r} ${r} 0 0 0 ${o} ${BEND}` };
+});
+const k = (px: number) => `calc(${px}px * var(--k))`;
+const bundleStops = BUNDLE.map((c, i) => {
+  const a = i * PITCH;
+  const gap = i < BUNDLE.length - 1 ? `, transparent ${k(a + STROKE)} ${k(a + PITCH)}` : '';
+  return `var(--${c}) ${k(a)} ${k(a + STROKE)}${gap}`;
+}).join(', ');
+const bundleStyle = `--tw:${k(TW)};--bend:${k(BEND)};--stops:${bundleStops}`;
+
+const DISCLAIMER =
+  'Mumbai Metro Tracker is an independent public-interest site. It is not affiliated with, endorsed by or connected to MMRDA, MMRCL, CIDCO, MahaMetro or the Government of Maharashtra. The map uses OpenStreetMap data. Check official sources before making decisions.';
+const title = `${SITE_NAME}: every Mumbai Metro line, built, building and planned`;
+const description = `An unofficial, sourced tracker of the Mumbai Metro: all ${network.length} metro lines in the region on one map by stage, each with its authority, size, stage and sources, and Lines 2B, 4, 5, 6, 7A, 12 and 12A in full with tenders, funding and the latest updates.`;
 ---
 
 <Base title={title} description={description}>
-  <div class="hubw" data-hub>
-    <header class="hubbar">
-      <a class="hubbar__mark" href="/">Mumbai Metro <span>Tracker</span></a>
-      <nav class="hubbar__nav" aria-label="Lines">
-        <ul role="list">
-          {chapters.map((c) => (
-            <li><a href={c.base} style={`--c:var(--${c.info.colour})`}><span class="dot" aria-hidden="true"></span>{c.info.label}</a></li>
+  <Masthead sections={[['map', 'Map'], ['lines', 'Every line'], ['updates', 'Updates'], ['meet', 'Where lines meet']]} />
+  <main id="main" class="hubmain" style={bundleStyle}>
+    <div class="bundle" aria-hidden="true">
+      <div class="bundle__in">
+        <span class="bundle__h"></span>
+        <svg class="bundle__bend" viewBox={`0 0 ${BEND} ${BEND}`} width={BEND} height={BEND} focusable="false">
+          {bendPaths.map((b) => <path d={b.d} style={`stroke:var(--${b.c})`} />)}
+        </svg>
+        <span class="bundle__v"></span>
+      </div>
+    </div>
+
+    <!-- 1. The front: the map and its fact box -->
+    <section id="map" class="front page" aria-label="The network map and the record of each line" data-front>
+      <span class="stop stop--front" aria-hidden="true"></span>
+      <div class="front__map" data-network-map data-lines={mapData} data-bounds={JSON.stringify(drawing.bounds)}>
+        <svg class="front__drawing" viewBox={`0 0 ${drawing.width} ${drawing.height}`} preserveAspectRatio="xMidYMid meet" role="img" aria-label={`Drawing of the ${network.length} metro lines in the Mumbai region, by stage. The register below lists every line.`} data-drawing>
+          {[...new Set(drawing.paths.map((p) => p.line))].map((id) => {
+            const l = network.find((x) => x.id === id)!;
+            return (
+              <g class="nl" data-line={id} style={l.colour ? `--c:var(--${l.colour})` : undefined}>
+                {drawing.paths.filter((p) => p.line === id).map((p) => <path d={p.d} class={`nl__path nl__path--${p.stage}`} vector-effect="non-scaling-stroke" />)}
+              </g>
+            );
+          })}
+          {drawing.labels.map((lb) => {
+            const l = network.find((x) => x.id === lb.line)!;
+            return <text class="nl__num" x={lb.x.toFixed(1)} y={lb.y.toFixed(1)} data-line={lb.line}>{mark(l)}</text>;
+          })}
+        </svg>
+        <ul class="front__legend" role="list">
+          {counts.map((s) => (
+            <li><span class={`stroke stroke--${s.id}`} aria-hidden="true"></span>{s.label}</li>
           ))}
-          <li><a href="#network" class="hubbar__all">All lines</a></li>
         </ul>
-      </nav>
-      <button class="hubbar__theme" type="button" data-theme-toggle aria-pressed="false">
-        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="2" /><path d="M10 3a7 7 0 0 1 0 14Z" fill="currentColor" /></svg>
-        <span data-theme-label>Switch edition</span>
-      </button>
-    </header>
+      </div>
 
-    <main id="main">
-      <!-- 1. Cover -->
-      <section class="cover" aria-labelledby="cover-title">
-        <div class="cover__grid">
-          {chapters.map((c, i) => (
-            <a class={`cover__tile cover__tile--${i + 1}`} href={`#${c.id}`} style={`--c:var(--${c.info.colour})`} data-tile={c.id}>
-              <img src={c.photo.src} alt="" width={c.photo.width} height={c.photo.height} style={`object-position:${c.photo.focus}`} loading={i < 2 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : 'auto'} decoding="async" />
-              <span class="cover__label">
-                <span class="cover__num">{c.info.number}</span>
-                <span class="cover__route">{c.info.route_short}</span>
-                <span class="hub-mr" lang="mr" aria-hidden="true">{c.info.mark_mr}</span>
-              </span>
-            </a>
-          ))}
-          <div class="cover__mark">
-            <h1 id="cover-title" class="cover__title">Mumbai Metro <span>Tracker</span><span class="hub-mr" lang="mr" aria-hidden="true">मुंबई मेट्रो</span></h1>
-            <p class="cover__lede">
-              Every metro line in the Mumbai region: where it runs, how far along it is and when it opens. Each fact with its source.
-            </p>
-            <p class="cover__next">
-              <span class="cover__next-v">{formatDate(soonest)}</span>
-              <span class="cover__next-who">
-                is the target for{' '}
-                {nextUp.map((c, i) => (
-                  <>
-                    {i > 0 && ' and '}
-                    <span class="nowrap">{c.info.label}{c.target.scope ? ` ${c.target.scope.split(',')[0].replace(' ', ' ')}` : ''}{' '}<Grade status={c.target.status} source={c.target.source_url} markLink /></span>
-                  </>
-                ))}
-                , the next lines to open. Targets, not announced dates.
-              </span>
-            </p>
-            <a class="pill pill--ink" href={`#${chapters[0].id}`}>Scroll the lines</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- 2. A chapter per tracked line -->
-      {chapters.map((c) => {
-        const p = c.line.project;
-        const len = p.length_km.value;
-        return (
-          <section
-            id={c.id}
-            class="chapter"
-            data-side={c.side}
-            aria-labelledby={`${c.id}-title`}
-            style={`--c:var(--${c.info.colour});--on-c:var(--on-${c.info.colour});--len:${(len / longest).toFixed(3)}`}
-            data-chapter>
-            <div class="chapter__stage" data-stage>
-              <figure class="chapter__art" data-art>
-                {c.footage ? (
-                  <video
-                    class="chapter__layer"
-                    data-layer="mid"
-                    data-footage={c.footage.name}
-                    poster={`/hub/footage/${c.footage.name}-poster.jpg`}
-                    muted
-                    loop
-                    playsinline
-                    preload="none"
-                    aria-label={c.photo.alt}
-                    width="1600"
-                    height="900">
-                  </video>
-                ) : (
-                  <picture class:list={['chapter__picture', c.photo.tall && 'chapter__picture--tall']}>
-                    {c.photo.tall && <source media="(max-width: 47.99rem)" srcset={c.photo.tall} width="900" height="1600" />}
-                    <img class="chapter__layer" data-layer="mid" src={c.photo.src} alt={c.photo.alt} width={c.photo.width} height={c.photo.height} style={`object-position:${c.photo.focus}`} loading="lazy" decoding="async" />
-                  </picture>
-                )}
-                <figcaption class="chapter__credit">
-                  {c.footage ? (
-                    <>
-                      {c.footage.note}. Footage: <a href={c.footage.href} target="_blank" rel="noopener">{c.footage.credit}<span class="visually-hidden"> (opens in a new tab)</span></a>, {formatDate(c.footage.date)}
-                    </>
-                  ) : (
-                    <>
-                      {c.photo.note && <>{c.photo.note}. </>}
-                      {c.photo.kind === 'map' ? 'Map' : 'Photo'}: {c.photo.href ? <a href={c.photo.href} target="_blank" rel="noopener">{c.photo.credit}<span class="visually-hidden"> (opens in a new tab)</span></a> : c.photo.credit}, {formatDate(c.photo.date)}
-                    </>
-                  )}
-                </figcaption>
-              </figure>
-              <div class="chapter__copy">
-                <h2 id={`${c.id}-title`} class="chapter__title" data-title>
-                  <span class="chapter__mast">
-                    <span class="chapter__num">{c.info.number}</span>
-                    <span class="hub-mr" lang="mr" aria-hidden="true">{c.info.mark_mr}</span>
-                  </span>
-                  <span class="chapter__name">{c.info.route_short}</span>
-                </h2>
-                <p class="chapter__phase" data-fact>
-                  {p.current_phase.value} <Grade status={p.current_phase.status} source={p.current_phase.source_url} markLink />
-                </p>
-                <p class="chapter__facts" data-fact>
-                  <span class="fact"><b>{km(len)!.replace(' km', '')}</b> km <Grade status={p.length_km.status} source={p.length_km.source_url} markLink /></span>
-                  <span class="fact"><b>{p.stations_count.value}</b> stations <Grade status={p.stations_count.status} source={p.stations_count.source_url} markLink /></span>
-                  <span class="fact">{c.target.scope ? `${c.target.scope.split(',')[0]} by` : 'Target'} <b>{formatDate(c.target.value)}</b> <Grade status={c.target.status} source={c.target.source_url} markLink /></span>
-                </p>
-                <div class="chapter__route" aria-hidden="true" data-fact>
-                  <span>{c.line.stations[0].name}</span>
-                  <svg viewBox={`0 0 ${c.strip.width} ${c.strip.height}`} preserveAspectRatio="none" focusable="false">
-                    <path d={c.strip.path} class="route-casing" vector-effect="non-scaling-stroke" pathLength="1" data-route />
-                    {c.strip.branch && <path d={c.strip.branch.path} class="route-casing" vector-effect="non-scaling-stroke" pathLength="1" data-route />}
-                  </svg>
-                  <span>{c.line.stations.at(-1)!.name}</span>
-                </div>
-                <ul class="chapter__links" role="list" data-fact>
-                  <li><a class="pill pill--line" href={c.base}>Open the {c.info.label} tracker</a></li>
-                  <li><a class="pill pill--ghost" href={`${c.base}stations/`}>All {p.stations_count.value} stations</a></li>
-                  {hasStatusPage(c.line) && <li><a class="pill pill--ghost" href={`${c.base}status/`}>Status, answered</a></li>}
-                </ul>
-              </div>
-            </div>
-          </section>
-        );
-      })}
-
-      <!-- 3. The network -->
-      <section id="network" class="network" aria-labelledby="network-title">
-        <div class="network__head">
-          <h2 id="network-title" class="network__title">The whole network</h2>
-          <p class="network__lede">
-            {network.length} metro lines in the Mumbai Metropolitan Region, by how far each has got. Solid lines carry passengers; broken lines are being
-            built; dotted lines are approved or proposed. A line with no published route is listed but not drawn.
+      <aside class="box" aria-labelledby="box-title" data-box>
+        <div class="box__index" data-box-index>
+          <h2 id="box-title" class="box__title">Being built and upcoming</h2>
+          <p class="box__lede">
+            {upcoming.reduce((t, g) => t + g.lines.length, 0)} lines in the region are under construction, approved or proposed. Choose one on the map or below for its record.
           </p>
-          <ul class="network__counts" role="list">
-            {counts.map((s) => (
-              <li><span class={`stroke stroke--${s.id}`} aria-hidden="true"></span><span class="network__count">{s.lines.length}</span> {s.label.toLowerCase()}</li>
-            ))}
-          </ul>
-        </div>
-
-        <div class="network__map" data-network-map data-lines={mapData}>
-          <p class="network__map-note">The map loads as you reach it. The list below has every line.</p>
-        </div>
-
-        <div class="network__list">
-          {byStage.filter((s) => s.lines.length).map((s) => (
-            <section class="stagegroup" aria-labelledby={`stage-${s.id}`}>
-              <h3 id={`stage-${s.id}`} class="stagegroup__title"><span class={`stroke stroke--${s.id}`} aria-hidden="true"></span>{s.label}</h3>
-              <ul class="netlist" role="list">
-                {s.lines.map((l) => (
-                  <li class="netline" style={l.colour ? `--c:var(--${l.colour});--on-c:var(--on-${l.colour})` : undefined}>
-                    <span class:list={['netline__mark', !l.colour && 'netline__mark--none']} aria-hidden="true">{l.number.replace(/^NM/, 'N')}</span>
-                    <div class="netline__body">
-                      <p class="netline__name">
-                        {l.href ? <a href={l.href}>{lineName(l)}</a> : lineName(l)}
-                      </p>
-                      <p class="netline__figs">
-                        {km(l.length.value) && <span>{km(l.length.value)} <Grade status={l.length.status} source={l.length.source} markLink /></span>}
-                        {l.stations.value !== null && <span>{l.stations.value} stations <Grade status={l.stations.status} source={l.stations.source} markLink /></span>}
-                      </p>
-                      {l.agency?.value && <p class="netline__agency">{l.agency.value}</p>}
-                      <ul class="netline__parts" role="list">
-                        {l.parts.map((part) => (
-                          <li>
-                            <span class={`stroke stroke--${part.stage}`} aria-hidden="true"></span>
-                            <span>
-                              {part.name}: {STAGES.find((x) => x.id === part.stage)!.short.toLowerCase()}
-                              {part.opened && `, open since ${formatDate(part.opened)}`}
-                              {part.note && <span class="netline__note">. {part.note.replace(/\.$/, '')}</span>}
-                              {' '}<Grade status={part.status} source={part.source} markLink />
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-                      <p class="netline__sources">
-                        Sources:{' '}
-                        {sourcesOf(l).map((src, i) => (
-                          <>{i > 0 && ', '}<a href={src.url} target="_blank" rel="noopener">{src.name}<span class="visually-hidden"> (opens in a new tab)</span></a></>
-                        ))}
-                      </p>
-                    </div>
+          {upcoming.map((g) => (
+            <section class="box__group" aria-labelledby={`box-${g.id}`}>
+              <h3 id={`box-${g.id}`} class="box__group-title"><span class={`stroke stroke--${g.id}`} aria-hidden="true"></span>{g.label}</h3>
+              <ul class="pick-list" role="list">
+                {g.lines.map(({ l, r }) => (
+                  <li>
+                    <a class="pick" href={`#${l.id}`} data-pick={l.id} style={colourStyle(l)}>
+                      <span class:list={['lmark', !l.colour && 'lmark--none']} aria-hidden="true">{mark(l)}</span>
+                      <span class="pick__name">{titleOf(l)}{routeOf(l) && <span class="pick__route">{routeOf(l)}{partlyOpen(l) && <span class="pick__open">, partly open</span>}</span>}</span>
+                      <span class="pick__when">{r ? formatDate(r.target.value) : stageShort(workStage(l))}</span>
+                    </a>
                   </li>
                 ))}
               </ul>
             </section>
           ))}
+          {running && <p class="box__more"><a href="#stage-operational" data-plain>{running.lines.length} running lines</a> are in the register below.</p>}
         </div>
-        {(kalyan || kapurbawdi || kanjur) && (
-          <section class="meet" aria-labelledby="meet-title">
-            <h3 id="meet-title" class="stagegroup__title">Where the tracked lines meet</h3>
-            {kalyan && (
-              <p>
-                Lines 12 and 5 both end at Kalyan, by the railway junction.{' '}
-                <a href={`${lineBase(kalyan.line.id)}stations/${kalyan.st.id}/`}>{kalyan.line.info.label}'s {kalyan.st.name}</a> station is planned about {kalyan.distance} m
-                from <a href={`${lineBase(kalyan.other.id)}stations/${kalyan.otherStation.id}/`}>{kalyan.other.info.label}'s {kalyan.otherStation.name}</a>, measured between
-                the two published station points.
-              </p>
-            )}
-            {kapurbawdi && (
-              <p>
-                Line 5 starts at Kapurbawdi in Thane, a station built as part of Line 4.{' '}
-                <a href={`${lineBase(kapurbawdi.line.id)}stations/${kapurbawdi.st.id}/`}>{kapurbawdi.line.info.label}'s {kapurbawdi.st.name}</a> point is {kapurbawdi.distance} m from{' '}
-                <a href={`${lineBase(kapurbawdi.other.id)}stations/${kapurbawdi.otherStation.id}/`}>{kapurbawdi.other.info.label}'s</a>, measured between the two published
-                station points.
-              </p>
-            )}
-            {kanjur && (
-              <p>
-                Line 6 crosses Line 4 at Kanjurmarg, on LBS Marg.{' '}
-                <a href={`${lineBase(kanjur.line.id)}stations/${kanjur.st.id}/`}>{kanjur.line.info.label}'s {kanjur.st.name}</a> point is {kanjur.distance} m from{' '}
-                <a href={`${lineBase(kanjur.other.id)}stations/${kanjur.otherStation.id}/`}>{kanjur.other.info.label}'s {kanjur.otherStation.name}</a>, measured between the two
-                published station points.
-              </p>
-            )}
-          </section>
-        )}
-        <p class="network__foot">
-          Network last checked {formatDate(networkReviewed)}. Routes from MMRDA's alignment files, the Thane ring project's map and OpenStreetMap
-          (Line 3, Navi Mumbai Line 1). Stages are this site's reading of the sources; see the grade on each.
+        <div class="box__record" data-box-record hidden>
+          <button class="box__back" type="button" data-box-back>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 12H5M12 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" /></svg>
+            All lines
+          </button>
+          <div class="box__slot" data-box-slot tabindex="-1"></div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- 2. The register: every line's record -->
+    <section id="lines" class="section page" aria-labelledby="lines-title">
+      <header class="section-head">
+        <span class="stop" aria-hidden="true"></span>
+        <h2 id="lines-title">Every line</h2>
+        <p>
+          All {network.length} metro lines in the Mumbai region, from those being built to those only studied. The {tracked.length} lines this site tracks in
+          full carry their tenders, funding and latest update, with a link to their own tracker.
         </p>
+      </header>
+      {groups.map((g) => (
+        <section class="stage" id={`stage-${g.id}`} aria-labelledby={`stage-${g.id}-title`}>
+          <h3 id={`stage-${g.id}-title`} class="stage__title"><span class={`stroke stroke--${g.id}`} aria-hidden="true"></span>{g.label} <span class="num">{g.lines.length}</span></h3>
+          <div class="records">
+            {g.lines.map(({ l, r }) => (
+              <article class="record" id={l.id} data-record={l.id} style={colourStyle(l)} aria-labelledby={`${l.id}-name`}>
+                <header class="record__head">
+                  <span class:list={['lmark', 'lmark--big', !l.colour && 'lmark--none']} aria-hidden="true">{mark(l)}</span>
+                  <h4 id={`${l.id}-name`} class="record__name">
+                    {titleOf(l)}
+                    {r && <span class="record__mr" lang="mr" aria-hidden="true">{r.info.mark_mr}</span>}
+                  </h4>
+                  {routeOf(l) && <p class="record__route">{routeOf(l)}</p>}
+                </header>
+                <dl class="record__facts">
+                  {r ? (
+                    <>
+                      <div><dt>Stage</dt><dd>{String(r.phase.value)} <Grade status={r.phase.status} source={r.phase.source_url} markLink /></dd></div>
+                      <div><dt>Target</dt><dd><b>{formatDate(r.target.value)}</b>{scopeOf(r.target.scope) && <> for {scopeOf(r.target.scope)}</>}; a target, not an announced date <Grade status={r.target.status} source={r.target.source_url} markLink /></dd></div>
+                    </>
+                  ) : (
+                    <div><dt>Stage</dt><dd>
+                      <ul class="record__parts" role="list">
+                        {l.parts.map((part) => (
+                          <li><span class={`stroke stroke--${part.stage}`} aria-hidden="true"></span><span>{part.name}: {stageShort(part.stage).toLowerCase()}{part.opened && `, open since ${formatDate(part.opened)}`}{part.note && `. ${part.note.replace(/\.$/, '')}`} <Grade status={part.status} source={part.source} markLink /></span></li>
+                        ))}
+                      </ul>
+                    </dd></div>
+                  )}
+                  {l.agency?.value && <div><dt>Authority</dt><dd>{l.agency.value} <Grade status={l.agency.status} source={l.agency.source} markLink /></dd></div>}
+                  {(km(l.length.value) || l.stations.value !== null) && (
+                    <div><dt>Size</dt><dd>
+                      {km(l.length.value) && <><b>{km(l.length.value)}</b> <Grade status={l.length.status} source={l.length.source} markLink /></>}
+                      {l.stations.value !== null && <>{km(l.length.value) && ', '}<b>{l.stations.value}</b> stations <Grade status={l.stations.status} source={l.stations.source} markLink /></>}
+                    </dd></div>
+                  )}
+                  {r?.cost && <div><dt>Cost</dt><dd><b>₹{inr(Number(r.cost.value))} crore</b>{r.cost.label && <span class="record__note">, {String(r.cost.label).charAt(0).toLowerCase() + String(r.cost.label).slice(1)}</span>} <Grade status={r.cost.status} source={r.cost.source_url} markLink /></dd></div>}
+                  {r?.funding && <div><dt>Funding</dt><dd>{String(r.funding.value)} <Grade status={r.funding.status} source={r.funding.source_url} markLink /></dd></div>}
+                  {r && r.tenders > 0 && (
+                    <div><dt>Tenders</dt><dd>
+                      <b>{r.tenders}</b> traced{r.latestAward && <>; latest award {r.latestAward.pkg}{r.latestAward.firm && ` to ${r.latestAward.firm}`}{r.latestAward.value != null && <>, <b>₹{inr(r.latestAward.value)} cr</b></>}, {formatDate(r.latestAward.date)} <Grade status={r.latestAward.status} source={r.latestAward.source} markLink /></>}
+                    </dd></div>
+                  )}
+                  {r?.latest && <div><dt>Latest</dt><dd>{formatDate(r.latest.date)}: {r.latest.title} <Grade status={r.latest.status} source={r.latest.source_url} markLink /></dd></div>}
+                  {!r && sourcesOf(l).length > 0 && (
+                    <div><dt>Sources</dt><dd>{sourcesOf(l).map((s, i) => <>{i > 0 && ', '}<a href={s.url} target="_blank" rel="noopener">{s.name}<span class="visually-hidden"> (opens in a new tab)</span></a></>)}</dd></div>
+                  )}
+                </dl>
+                {r && (
+                  <p class="record__links">
+                    <a class="record__open" href={r.base}>Open the {r.info.label} tracker</a>
+                    {r.tenders > 0 && <a href={`${r.base}#tenders`}>Tenders</a>}
+                    <a href={`${r.base}stations/`}>Stations</a>
+                    {r.status && <a href={`${r.base}status/`}>Status, answered</a>}
+                  </p>
+                )}
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
+      <p class="lines__foot">
+        Network last checked {formatDate(networkReviewed)}. Routes from MMRDA's alignment files, the Thane ring project's map and OpenStreetMap (Line 3, Navi
+        Mumbai Line 1). A line with no published route is listed but not drawn. Stages are this site's reading of the sources; see the grade on each.
+      </p>
+    </section>
+
+    <!-- 3. Latest updates across the tracked lines -->
+    <section id="updates" class="section page" aria-labelledby="updates-title">
+      <header class="section-head">
+        <span class="stop" aria-hidden="true"></span>
+        <h2 id="updates-title">Latest updates</h2>
+        <p>The newest milestones on the lines this site tracks in full, each linked to its report.</p>
+      </header>
+      <ol class="updates" role="list">
+        {updates.map(({ e, l }) => (
+          <li class="update" style={colourStyle(l)}>
+            <time class="update__date" datetime={e.date}>{formatDate(e.date)}</time>
+            <span class="lmark" aria-hidden="true">{mark(l)}</span>
+            <p class="update__body">
+              <a href={e.source_url} target="_blank" rel="noopener" class="update__title">{e.title}<span class="visually-hidden"> (opens in a new tab)</span></a>
+              <span class="update__meta">{titleOf(l)} · {outletName(e.source_url)} <Grade status={e.status} source={e.source_url} compact noSource /></span>
+            </p>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <!-- 4. Where the tracked lines meet -->
+    {(kalyan || kapurbawdi || kanjur) && (
+      <section id="meet" class="section page" aria-labelledby="meet-title">
+        <header class="section-head">
+        <span class="stop" aria-hidden="true"></span>
+          <h2 id="meet-title">Where the lines meet</h2>
+          <p>Stations where two tracked lines come together, measured between the two published station points.</p>
+        </header>
+        <div class="meet">
+          {kalyan && (
+            <p>
+              <b>Kalyan.</b> Lines 12 and 5 both end by the railway junction.{' '}
+              <a href={`${lineBase(kalyan.line.id)}stations/${kalyan.st.id}/`}>{kalyan.line.info.label}'s {kalyan.st.name}</a> station is planned about {kalyan.distance} m from{' '}
+              <a href={`${lineBase(kalyan.other.id)}stations/${kalyan.otherStation.id}/`}>{kalyan.other.info.label}'s {kalyan.otherStation.name}</a>.
+            </p>
+          )}
+          {kapurbawdi && (
+            <p>
+              <b>Kapurbawdi.</b> Line 5 starts at a station built as part of Line 4.{' '}
+              <a href={`${lineBase(kapurbawdi.line.id)}stations/${kapurbawdi.st.id}/`}>{kapurbawdi.line.info.label}'s {kapurbawdi.st.name}</a> point is {kapurbawdi.distance} m from{' '}
+              <a href={`${lineBase(kapurbawdi.other.id)}stations/${kapurbawdi.otherStation.id}/`}>{kapurbawdi.other.info.label}'s {kapurbawdi.otherStation.name}</a>.
+            </p>
+          )}
+          {kanjur && (
+            <p>
+              <b>Kanjurmarg.</b> Line 6 crosses Line 4 on LBS Marg.{' '}
+              <a href={`${lineBase(kanjur.line.id)}stations/${kanjur.st.id}/`}>{kanjur.line.info.label}'s {kanjur.st.name}</a> point is {kanjur.distance} m from{' '}
+              <a href={`${lineBase(kanjur.other.id)}stations/${kanjur.otherStation.id}/`}>{kanjur.other.info.label}'s {kanjur.otherStation.name}</a>.
+            </p>
+          )}
+        </div>
       </section>
-    </main>
-    <Colophon disclaimer={DISCLAIMER} />
-  </div>
+    )}
+  </main>
+  <Colophon disclaimer={DISCLAIMER} />
 </Base>
 
 <script>
-  import '../scripts/theme';
   import '../scripts/hub';
 </script>
