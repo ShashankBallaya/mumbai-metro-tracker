@@ -1,17 +1,26 @@
 {
   "_meta": {
     "description": "Written by scripts/fetch-feed.mjs. Do not edit by hand: add an item's URL to exclude_urls in feed-sources.json to hide it. Items are found automatically and are not checked by a person.",
-    "updated_at": "2026-11-01T06:27:27.395Z",
+    "updated_at": "2026-11-03T07:00:42.695Z",
     "updated_at_by_line": {
       "line-12": "2026-10-15T17:11:33.436Z",
       "line-12a": "2026-10-29T06:02:07.530Z",
-      "line-5": "2026-11-01T06:27:27.395Z",
+      "line-5": "2026-11-03T07:00:42.695Z",
       "line-2b": "2026-10-30T22:30:48.988Z",
       "line-6": "2026-10-29T06:02:07.530Z",
       "line-7a": "2026-10-30T22:30:48.988Z"
     }
   },
   "news": [
+    {
+      "title": "Mumbai Metro Line 5 Extension: 19 Stations Planned To Connect Thane, Bhiwandi, Kalyan & Ulhasnagar",
+      "outlet": "Re-Mumbai",
+      "date": "2026-11-03",
+      "url": "https://remumbai.in/2026/11/03/mumbai-metro-line-5-extension-19-stations-planned-to-connect-thane-bhiwandi-kalyan-ulhasnagar/",
+      "lines": [
+        "line-5"
+      ]
+    },
     {
       "title": "Maharashtra Approves Rs 13,856-Crore Metro Line 12A, Sets 3.5-Year Deadline",
       "outlet": "Re-Mumbai",
