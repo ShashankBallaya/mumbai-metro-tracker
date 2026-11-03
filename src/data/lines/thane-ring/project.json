@@ -1,0 +1,267 @@
+{
+  "_meta": {
+    "description": "Headline facts about the Thane Integral Ring Metro, a 29 km ring line round west Thane built by MahaMetro (Maharashtra Metro Rail Corporation), not MMRDA. Primary sources: the Union Cabinet's release of 16 Aug 2024 (PIB, Release ID 2046082, also on pmindia.gov.in) and MahaMetro's own Thane Metro website (thanemetrorail.com: route map, map file, tenders, photos). For this line 'verified' means one of those says it. The line is one section; MahaMetro has published no phases.",
+    "status_values": {
+      "verified": "Confirmed by a primary source (the Union Cabinet's release, or MahaMetro's Thane Metro website and its documents).",
+      "reported": "From a reputable secondary source (news or trade press), or a post on X by someone who follows the project. Not confirmed by a primary source.",
+      "unverified": "Single weak source, or could not be confirmed. Show with a warning in the UI.",
+      "conflicting": "Sources disagree. The value is the most recent credible figure; see 'alternatives'."
+    },
+    "last_reviewed": "2026-11-03"
+  },
+  "name": {
+    "value": "Thane Integral Ring Metro",
+    "also_known_as": [
+      "Thane Integral Ring Metro Rail Project",
+      "Thane Ring Metro",
+      "Thane Internal Ring Metro",
+      "Thane Metro"
+    ],
+    "status": "verified",
+    "source_url": "https://pib.gov.in/PressReleasePage.aspx?PRID=2046082",
+    "last_verified": "2026-11-03"
+  },
+  "implementing_agency": {
+    "value": "Maharashtra Metro Rail Corporation (MahaMetro)",
+    "status": "verified",
+    "source_url": "https://pib.gov.in/PressReleasePage.aspx?PRID=2046082",
+    "last_verified": "2026-11-03",
+    "notes": "The Cabinet release: 'Maha Metro will execute the project, along with civil, electro-mechanical, other associated facilities'. MahaMetro runs the Thane Metro website and issues the project's tenders. MMRDA builds Lines 4 and 5, which the ring meets."
+  },
+  "line_color": {
+    "value": null,
+    "status": "unverified",
+    "source_url": null,
+    "last_verified": "2026-11-03",
+    "notes": "MahaMetro has published no colour for the ring line. The site draws it in violet, its own choice: the Thane Metro website's blue and orange are already Line 1's and Lines 5 and 12's colours on this site."
+  },
+  "route": {
+    "value": "A ring round west Thane: from Raila Devi north through Wagle Estate and Manpada, along Ghodbunder Road to Waghbil, back south past Hiranandani Estate, Kolshet and Balkum, then underground to Thane station and New Thane, and back to Raila Devi",
+    "status": "verified",
+    "source_url": "https://thanemetrorail.com/route-map",
+    "last_verified": "2026-11-03",
+    "also_see": [
+      "https://pib.gov.in/PressReleasePage.aspx?PRID=2046082"
+    ],
+    "notes": "The Cabinet release: the corridor runs 'along the periphery of west side of Thane city', between the Ulhas creek and Sanjay Gandhi National Park, and connects Naupada, Wagle Estate, Dongripada, Hiranandani Estate, Kolshet and Saket. The route and stations on this page come from the project's own map file (Google My Maps, embedded on its route map page). Trains are to run both ways round the ring (MahaMetro's managing director, Oct 2026, reported). In Oct 2026 MahaMetro said route changes near Manorama Nagar and Azad Nagar would be judged on feasibility, cost and public interest (Free Press Journal)."
+  },
+  "length_km": {
+    "value": 29,
+    "structure": "26 km elevated, 3 km underground",
+    "status": "verified",
+    "source_url": "https://pib.gov.in/PressReleasePage.aspx?PRID=2046082",
+    "last_verified": "2026-11-03",
+    "context": "The whole ring, as the Cabinet approved it.",
+    "notes": "Some reports give 29.1 km. The centre line in MahaMetro's map file measures 27.45 km round; the 29 km may include the depot link, about 2 km to the depot at Kasarvadavali. The viaduct contract covers 20.527 km, from the end of the underground ramp to Balkum Naka, with the depot approach (reported).",
+    "history": []
+  },
+  "stations_count": {
+    "value": 22,
+    "structure": "20 elevated, 2 underground",
+    "context": "Thane Junction and New Thane are underground (MahaMetro's route map).",
+    "history": [],
+    "status": "verified",
+    "source_url": "https://pib.gov.in/PressReleasePage.aspx?PRID=2046082",
+    "last_verified": "2026-11-03"
+  },
+  "completion_cost_crore_inr": {
+    "value": 12200.1,
+    "label": "Estimated cost of the project",
+    "context": "The Union Cabinet, 16 Aug 2024.",
+    "history": [
+      {
+        "value": 10893,
+        "context": "An earlier estimate, about seven years before Feb 2026 (Free Press Journal)",
+        "source_url": "https://www.freepressjournal.in/mumbai/thane-ring-metro-project-update-mahametro-floats-bids-for-8-stations-cost-revised-to-12200-crore"
+      }
+    ],
+    "status": "verified",
+    "source_url": "https://pib.gov.in/PressReleasePage.aspx?PRID=2046082",
+    "last_verified": "2026-11-03"
+  },
+  "funding": {
+    "value": "Equal equity from the Government of India and the Government of Maharashtra, with part-funding from bilateral agencies",
+    "status": "verified",
+    "source_url": "https://pib.gov.in/PressReleasePage.aspx?PRID=2046082",
+    "last_verified": "2026-11-03",
+    "notes": "The Cabinet release also names station naming rights, asset monetisation and value capture financing. MahaMetro's photos show ADB and KfW teams at the site and at the Collector's office on 28 and 29 Apr 2026; no loan has been announced."
+  },
+  "depot": {
+    "value": "Kasarvadavali, north of Waghbil",
+    "area_ha": null,
+    "status": "verified",
+    "source_url": "https://thanemetrorail.com/Tenders",
+    "last_verified": "2026-11-03",
+    "context": "MahaMetro's tender T1-022/ELE-02/2025 names the 'Kasarwadavali Depot' near Waghbil station; the project's map file draws the depot tracks there, with a link of about 2 km that leaves the ring between Waghbil and Waterfront.",
+    "history": []
+  },
+  "interchanges": {
+    "value": [
+      {
+        "station": "Thane Junction",
+        "connects_to": "Central Railway at Thane station"
+      },
+      {
+        "station": "Dongripada",
+        "connects_to": "Metro Line 4, at its Dongari Pada station, 186 m away"
+      },
+      {
+        "station": "Balkum Naka",
+        "connects_to": "Metro Line 5, at its Balkum Naka station, about 1 km away"
+      }
+    ],
+    "status": "reported",
+    "source_url": "https://themetrorailguy.com/2024/08/17/thane-metros-ring-line-approved-by-central-government/",
+    "last_verified": "2026-11-03",
+    "lines": [
+      "Central Railway",
+      "Metro Line 4 (Wadala-Kasarvadavali)",
+      "Metro Line 5 (Thane-Bhiwandi-Kalyan)"
+    ],
+    "notes": "The Metro Rail Guy (Aug 2024) reports passenger interchanges with Lines 4 and 5 and Thane station, without naming stations; MahaMetro's managing director spoke of links with Lines 4 and 5 (Oct 2026). housing.com (Nov 2025) names Dongripada and Raila Devi for Line 4 and Balkum Naka for Line 5. Distances are between the points on the ring's official map file. Neither MahaMetro nor MMRDA names an interchange station.",
+    "planned": []
+  },
+  "daily_ridership_2031": {
+    "value": 647000,
+    "display": "6.47 lakh",
+    "status": "verified",
+    "source_url": "https://pib.gov.in/PressReleasePage.aspx?PRID=2046082",
+    "last_verified": "2026-11-03",
+    "notes": "The Cabinet release's figure for 2029; 7.61 lakh in 2035 and 8.72 lakh in 2045. The field name follows the other lines' files."
+  },
+  "travel_time_benefit": {
+    "value": null,
+    "status": "unverified",
+    "source_url": null,
+    "last_verified": "2026-11-03",
+    "notes": "No travel-time figure was read from MahaMetro or the Cabinet release."
+  },
+  "current_phase": {
+    "value": "Under construction: viaduct contract awarded Dec 2025, test pile May 2026, piling begun Nov 2026 (reported); station contracts not yet awarded",
+    "status": "reported",
+    "source_url": "https://x.com/Sunny29223375/status/2117214187919450176",
+    "last_verified": "2026-11-03",
+    "notes": "MahaMetro's own photos show the first test pile on 1 May 2026. Free Press Journal reported that construction began in the Ghodbunder area on 15 Apr 2026."
+  },
+  "stages": {
+    "notes": "Each section of the line from planning to opening. One section, label null: the ring is built as one. state: done, now (the current stage), started, next (not started). A note may contain {progress_as_of} or {event:<timeline id>}. 'service' is opening mode; each part is null until a source gives it.",
+    "sections": [
+      {
+        "label": null,
+        "stages": [
+          {
+            "name": "Planning",
+            "state": "done",
+            "note": "Approved by the Union Cabinet, {event:cabinet-approval}"
+          },
+          {
+            "name": "Tenders and design",
+            "state": "now",
+            "note": "Viaduct awarded, {event:c-01}; station designs and contracts still out to tender"
+          },
+          {
+            "name": "Civil construction",
+            "state": "started",
+            "note": "Test pile, {event:test-pile}; piling began, {event:piling} (reported)"
+          },
+          {
+            "name": "Systems and trains",
+            "state": "next",
+            "note": "Driverless trains planned; no contract yet"
+          },
+          {
+            "name": "Testing and safety approval",
+            "state": "next",
+            "note": "Not started"
+          },
+          {
+            "name": "Opening",
+            "state": "next",
+            "note": "Target September 2029 (reported)"
+          }
+        ],
+        "service": {
+          "opening": null,
+          "hours": null,
+          "frequency": null,
+          "fares": null
+        }
+      }
+    ]
+  },
+  "progress": {
+    "summary": "MahaMetro publishes no progress table for the ring line; its website's project update page reads 'Data Not Available'.",
+    "as_of": null,
+    "items": [],
+    "status": "verified",
+    "source_url": "https://thanemetrorail.com/Project-update",
+    "last_verified": "2026-11-03"
+  },
+  "target_completion": {
+    "value": "2029-09",
+    "countdown_date": "2029-09-30",
+    "precision": "month",
+    "scope": "The whole ring",
+    "status": "reported",
+    "source_url": "https://www.freepressjournal.in/mumbai/thane-ring-metro-route-based-on-technical-feasibility-not-political-pressure-says-mahametro-md-shravan-hardikar",
+    "last_verified": "2026-11-03",
+    "also_see": [
+      "https://pib.gov.in/PressReleasePage.aspx?PRID=2046082"
+    ],
+    "history": [
+      {
+        "value": "2025",
+        "context": "An earlier target (Free Press Journal, Feb 2026)",
+        "source_url": "https://www.freepressjournal.in/mumbai/thane-ring-metro-project-update-mahametro-floats-bids-for-8-stations-cost-revised-to-12200-crore"
+      }
+    ],
+    "notes": "The Cabinet release (Aug 2024): 'likely to be completed by 2029'. MahaMetro's managing director, Shravan Hardikar, gave September 2029 on 16 Oct 2026, subject to land and site access from the Thane Municipal Corporation. Free Press Journal (Feb 2026) reports the stations' bid documents: 5 years for the underground stations, 2.5 years for the elevated ones. The site counts to the end of September 2029.",
+    "countdown": true,
+    "countdown_label": "Reported target: September 2029"
+  },
+  "technical": {
+    "structure": "Elevated (about 26 km), with 3 km underground under Thane station and New Thane",
+    "notes": "Six-car driverless trains (UTO), sized for 30,000 to 35,000 riders an hour each way at the peak (MahaMetro's managing director, Oct 2026, reported). MahaMetro hired a consultant for driverless operation jointly with Pune Metro Line 4 (tender T1-018/RS-01/2025).",
+    "status": "verified",
+    "source_url": "https://pib.gov.in/PressReleasePage.aspx?PRID=2046082",
+    "last_verified": "2026-11-03"
+  },
+  "rolling_stock": {
+    "supplier": null,
+    "cars_per_train": 6,
+    "notes": "Six-car driverless trains, as reported. No train contract yet.",
+    "status": "reported",
+    "source_url": "https://www.freepressjournal.in/mumbai/thane-ring-metro-route-based-on-technical-feasibility-not-political-pressure-says-mahametro-md-shravan-hardikar",
+    "last_verified": "2026-11-03"
+  },
+  "incidents": [
+    {
+      "date": "2026-10-16",
+      "heading": "Trees and route objections",
+      "value": "About 3,200 trees are to be removed, with permissions under way; residents objected to the route near Manorama Nagar and Azad Nagar. MahaMetro plans to plant 37,000 trees and says route changes will rest on feasibility, cost and public interest.",
+      "status": "reported",
+      "source_url": "https://www.freepressjournal.in/mumbai/thane-ring-metro-route-based-on-technical-feasibility-not-political-pressure-says-mahametro-md-shravan-hardikar",
+      "last_verified": "2026-11-03",
+      "also_see": [
+        "https://www.freepressjournal.in/mumbai/thanes-12000-crore-internal-ring-metro-project-begins-construction-in-ghodbunder-to-ease-traffic-woes"
+      ],
+      "notes": "Free Press Journal (15 Apr 2026): the Thane Municipal Corporation sanctioned the felling of 3,000 trees. Hiranandani residents' feedback on station planning is being evaluated (16 Oct 2026)."
+    }
+  ],
+  "related_projects": [
+    {
+      "name": "Metro Line 4 (Wadala to Kasarvadavali)",
+      "summary": "MMRDA's line along the Eastern Express Highway and Ghodbunder Road. The ring runs near it from Manpada to Waghbil; Line 4's Dongari Pada is 186 m from the ring's Dongripada.",
+      "status": "verified",
+      "source_url": "https://thanemetrorail.com/route-map",
+      "last_verified": "2026-11-03"
+    },
+    {
+      "name": "Metro Line 5 (Thane-Bhiwandi-Kalyan)",
+      "summary": "MMRDA's line from Kapurbawdi to Kalyan. Its Balkum Naka station is about 1 km from the ring's.",
+      "status": "verified",
+      "source_url": "https://thanemetrorail.com/route-map",
+      "last_verified": "2026-11-03"
+    }
+  ]
+}

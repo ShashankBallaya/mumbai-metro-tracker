@@ -860,7 +860,115 @@ function line7a(line: Line): Answer[] {
   ];
 }
 
-const sets: Record<string, (line: Line) => Answer[]> = { 'line-12': line12, 'line-12a': line12a, 'line-5': line5, 'line-4': line4, 'line-2b': line2b, 'line-6': line6, 'line-7a': line7a };
+function thaneRing(line: Line): Answer[] {
+  const { project: p, stations, tenders, timeline } = line;
+  const base = lineBase(line.id);
+  type Graded = { value: string | null; status: string; source_url: string | null };
+  const x = p as unknown as {
+    target_completion: Graded;
+    completion_cost_crore_inr: { value: number; status: string; source_url: string };
+    funding: Graded;
+    depot: Graded;
+    interchanges: { value: { station: string; connects_to: string }[]; status: string; source_url: string };
+    incidents: { status: string; source_url: string; value: string }[];
+    line_color: Graded;
+    current_phase: Graded;
+    technical: Graded & { notes: string };
+  };
+  const tender = (id: string) => tenders.find((e) => e.id === id)!;
+  const event = (id: string) => timeline.find((e) => e.id === id)!;
+  const underground = stations.filter((s) => s.type === 'Underground').map((s) => s.name);
+  const c01 = tender('c-01');
+  const piling = event('piling');
+  const testPile = event('test-pile');
+  const trees = x.incidents[0];
+  return [
+    {
+      id: 'opening',
+      q: 'When will the Thane Ring Metro open?',
+      a: `MahaMetro's managing director gave September 2029 as the target in October 2026, if the Thane Municipal Corporation hands over land and sites on time; the Union Cabinet said in August 2024 that the project was likely to be completed by 2029. The site counts down to the end of September 2029. No date for a first stretch has been announced.`,
+      grades: [
+        { status: x.target_completion.status, source: x.target_completion.source_url },
+        { status: p.name.status, source: p.name.source_url },
+      ],
+    },
+    {
+      id: 'progress',
+      q: 'Has work on the Thane Ring Metro started?',
+      a: `Yes, at the very start. The viaduct contract was awarded on ${formatDate(c01.award_date!)} (reported). MahaMetro's photos show the first test pile on ${formatDate(testPile.date)}, and piling for the viaduct was reported to have begun on ${formatDate(piling.date)}. The station contracts are still out to tender. MahaMetro publishes no progress figures.`,
+      grades: [
+        { status: c01.status, source: c01.source_url },
+        { status: testPile.status, source: testPile.source_url },
+        { status: piling.status, source: piling.source_url },
+      ],
+    },
+    {
+      id: 'route',
+      q: 'What is the route of the Thane Ring Metro?',
+      a: `${p.route.value}. The Cabinet gives ${p.length_km.value} km, ${p.length_km.structure}; the centre line on MahaMetro's map is 27.45 km round. The ring runs on the west side of Thane, between the Ulhas creek and Sanjay Gandhi National Park.`,
+      grades: [
+        { status: p.route.status, source: p.route.source_url },
+        { status: p.length_km.status, source: p.length_km.source_url },
+      ],
+      more: { href: `${base}#map`, label: 'See the ring on the map' },
+    },
+    {
+      id: 'stations',
+      q: 'Which stations are on the Thane Ring Metro?',
+      a: `${stations.length}, in MahaMetro's order: ${stations.map((s) => s.name).join(', ')}, and back to ${stations[0].name}. ${underground.join(' and ')} are underground; the other ${stations.length - underground.length} are elevated.`,
+      grades: [
+        { status: p.stations_count.status, source: p.stations_count.source_url },
+        { status: 'verified', source: 'https://thanemetrorail.com/route-map' },
+      ],
+      more: { href: `${base}stations/`, label: 'A page for every station' },
+    },
+    {
+      id: 'interchanges',
+      q: 'Where does the Thane Ring Metro meet other lines?',
+      a: `${x.interchanges.value.map((i) => `${i.station}: ${i.connects_to}`).join('. ')}. The distances are from MahaMetro's map. Neither MahaMetro nor MMRDA has named an interchange station, so all of this is as reported.`,
+      grades: [{ status: x.interchanges.status, source: x.interchanges.source_url }],
+    },
+    {
+      id: 'cost',
+      q: 'How much does the Thane Ring Metro cost, and who pays?',
+      a: `Rs ${inr(x.completion_cost_crore_inr.value)} crore, the Union Cabinet's estimate of August 2024. ${x.funding.value}. ADB and KfW teams visited in April 2026; no loan has been announced.`,
+      grades: [
+        { status: x.completion_cost_crore_inr.status, source: x.completion_cost_crore_inr.source_url },
+        { status: x.funding.status, source: x.funding.source_url },
+      ],
+    },
+    {
+      id: 'builder',
+      q: 'Who is building the Thane Ring Metro?',
+      a: `MahaMetro (Maharashtra Metro Rail Corporation), not MMRDA. The HG Infra and Kalpataru joint venture holds the viaduct contract, Rs ${inr(c01.awarded_value_crore!)} crore for ${c01.scope.charAt(0).toLowerCase()}${c01.scope.slice(1)} (reported). AECOM India and Nippon Koei India are the general consultants (Rs ${inr(tender('general-consultant').awarded_value_crore!)} crore).`,
+      grades: [
+        { status: p.implementing_agency.status, source: p.implementing_agency.source_url },
+        { status: c01.status, source: c01.source_url },
+        { status: tender('general-consultant').status, source: tender('general-consultant').source_url },
+      ],
+    },
+    {
+      id: 'trees',
+      q: 'How many trees will the Thane Ring Metro cut?',
+      a: `${trees.value} All as reported.`,
+      grades: [{ status: trees.status, source: trees.source_url }],
+    },
+    {
+      id: 'riders',
+      q: 'How many people will use the Thane Ring Metro?',
+      a: `The Union Cabinet's estimate: ${p.daily_ridership_2031.display} riders a day in 2029, 7.61 lakh in 2035 and 8.72 lakh in 2045.`,
+      grades: [{ status: p.daily_ridership_2031.status, source: p.daily_ridership_2031.source_url }],
+    },
+    {
+      id: 'depot',
+      q: 'Where is the Thane Ring Metro depot?',
+      a: `At ${x.depot.value}. A link of about 2 km leaves the ring between Waghbil and Waterfront (MahaMetro's map and tenders).`,
+      grades: [{ status: x.depot.status, source: x.depot.source_url }],
+    },
+  ];
+}
+
+const sets: Record<string, (line: Line) => Answer[]> = { 'line-12': line12, 'line-12a': line12a, 'line-5': line5, 'line-4': line4, 'line-2b': line2b, 'line-6': line6, 'line-7a': line7a, 'thane-ring': thaneRing };
 
 /**
  * Opening mode: once the line's first section has an announced or past opening date, that date answers

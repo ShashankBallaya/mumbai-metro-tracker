@@ -90,6 +90,9 @@
   /* Line 7A, Line 7's Red (MMRDA calls 7A Line 7's extension): its mark, and its pages' accent (see below). White on it is 5.9:1. */
   --line-7a: #c0272b;
   --on-line-7a: #ffffff;
+  /* Thane Integral Ring Metro, violet: the site's own choice; MahaMetro publishes no line colour. Its mark, and its pages' accent (see below). White on it is 7.1:1. */
+  --thane-ring: #6a3fb0;
+  --on-thane-ring: #ffffff;
   /* Line 2B, Yellow Line (MMRDA): its mark, and its pages' accent (see the end). Navy on it is 10.9:1. */
   --line-2b: #f2c11d;
   --on-line-2b: #0c1422;
@@ -303,6 +306,45 @@
   --focus: #ff4a3d;
   --selection-bg: #d61f26;
   --selection-ink: #ffffff;
+}
+
+/*
+ * Thane Integral Ring Metro, violet. On morning paper the bands are #6a3fb0 with white text (7.1:1) and
+ * accent text is the same violet (5.9:1). On night paper the bands are #9b6fe0 with navy text (5.0:1),
+ * and accent text and focus are #b394f0 (7.3:1).
+ */
+[data-accent='thane-ring'] {
+  --signal: #6a3fb0;
+  --signal-line: #6a3fb0;
+  --signal-graphic: #6a3fb0;
+  --on-signal: #ffffff;
+  --focus: #6a3fb0;
+  --selection-bg: #6a3fb0;
+  --selection-ink: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) [data-accent='thane-ring'],
+  :root[data-accent='thane-ring']:not([data-theme='light']) {
+    --signal: #9b6fe0;
+    --signal-line: #b394f0;
+    --signal-graphic: #9b6fe0;
+    --on-signal: #0c1422;
+    --focus: #b394f0;
+    --selection-bg: #9b6fe0;
+    --selection-ink: #0c1422;
+  }
+}
+
+:root[data-theme='dark'] [data-accent='thane-ring'],
+:root[data-accent='thane-ring'][data-theme='dark'] {
+  --signal: #9b6fe0;
+  --signal-line: #b394f0;
+  --signal-graphic: #9b6fe0;
+  --on-signal: #0c1422;
+  --focus: #b394f0;
+  --selection-bg: #9b6fe0;
+  --selection-ink: #0c1422;
 }
 
 /*

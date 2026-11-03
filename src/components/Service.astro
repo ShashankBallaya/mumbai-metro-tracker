@@ -5,7 +5,7 @@
  * until then the countdown on the front page says all there is.
  */
 import Grade from './Grade.astro';
-import { formatDate, inr, openedOf, announcedOf, sectionName, clock, type Line, type StageSection } from '../lib/data';
+import { agencyOf, formatDate, inr, openedOf, announcedOf, sectionName, clock, type Line, type StageSection } from '../lib/data';
 
 interface Props {
   line: Line;
@@ -26,7 +26,7 @@ const stateOf = (sec: StageSection) => {
 <section id="service" class="section page" aria-labelledby="service-title">
   <header class="section-head">
     <h2 id="service-title">Riding the line</h2>
-    <p>The opening date, train times, how often trains run and what a ticket costs. Each fact shows once MMRDA or a news source gives it, with its source.</p>
+    <p>The opening date, train times, how often trains run and what a ticket costs. Each fact shows once {agencyOf(line)} or a news source gives it, with its source.</p>
   </header>
 
   {line.stages.map((sec) => {

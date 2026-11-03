@@ -134,8 +134,7 @@ if (!reduceMotion) {
 
     const stationIndex = target.dataset.rideStation;
     if (rideTrigger && stationIndex !== undefined) {
-      const count = document.querySelectorAll('[data-ride-station]').length;
-      const y = rideTrigger.start + (Number(stationIndex) / (count - 1)) * (rideTrigger.end - rideTrigger.start);
+      const y = rideTrigger.start + (Number(stationIndex) / rideSegments()) * (rideTrigger.end - rideTrigger.start);
       lenis.scrollTo(y + 1, { immediate: instant });
     } else if (instant) {
       lenis.scrollTo(target, { offset: -8, immediate: true });
@@ -161,6 +160,12 @@ if (!reduceMotion) {
   });
 }
 
+/** Stretches of the ride between stops: one per station gap, and on a ring one more, back to the first station. */
+function rideSegments(): number {
+  const count = document.querySelectorAll('[data-ride-station]').length;
+  return count - 1 + (document.querySelector('[data-ride-ring]') ? 1 : 0);
+}
+
 /** Pins the route and moves the train along the station positions as the reader scrolls. */
 function setUpRide(): ScrollTrigger | null {
   const section = document.querySelector<HTMLElement>('[data-ride]');
@@ -172,6 +177,14 @@ function setUpRide(): ScrollTrigger | null {
   const ticks = [...section.querySelectorAll<HTMLElement>('[data-ride-tick]')];
   const xs = stations.map((s) => parseFloat(getComputedStyle(s).getPropertyValue('--x')));
   const ys = stations.map((s) => parseFloat(getComputedStyle(s).getPropertyValue('--y')));
+  // A ring (the Thane ring) is drawn opened out: the ride's last stop is its first station again, at the
+  // right-hand end, so the train closes the loop and the pinned panel comes back to the first station.
+  const ring = section.querySelector<HTMLElement>('[data-ride-ring]');
+  if (ring) {
+    xs.push(parseFloat(getComputedStyle(ring).getPropertyValue('--x')));
+    ys.push(parseFloat(getComputedStyle(ring).getPropertyValue('--y')));
+  }
+  const stops = xs.length;
   // The line's height at x (both in % of the track), so the train rides the 45-degree bend instead of
   // cutting the corner between two stations on either side of it (Line 7A).
   const bend = train.dataset.bend ? (JSON.parse(train.dataset.bend) as { x: number; run: number; top: number; drop: number }) : null;
@@ -184,29 +197,32 @@ function setUpRide(): ScrollTrigger | null {
   const setCurrent = (i: number) => {
     if (i === current) return;
     current = i;
-    stations.forEach((s, j) => s.classList.toggle('is-current', j === i));
+    const home = i === stations.length ? 0 : i;
+    stations.forEach((s, j) => s.classList.toggle('is-current', j === home));
     ticks.forEach((t, j) => {
       t.classList.toggle('is-current', j === i);
       t.classList.toggle('is-passed', j < i);
     });
+    ring?.classList.toggle('is-current', i === stations.length);
+    section.classList.toggle('is-home', i === stations.length);
   };
   setCurrent(0);
 
   // 0.55 screens of scroll per station, but never more than 10 screens for the whole ride,
   // so a dense line (Line 4, 32 stations) does not hold the reader for 17 screens.
-  const perStation = Math.min(0.55, 10 / Math.max(stations.length - 1, 1));
+  const perStation = Math.min(0.55, 10 / Math.max(stops - 1, 1));
   const trigger = ScrollTrigger.create({
     trigger: stage,
     start: 'top top',
-    end: () => `+=${window.innerHeight * perStation * (stations.length - 1)}`,
+    end: () => `+=${window.innerHeight * perStation * (stops - 1)}`,
     pin: true,
     refreshPriority: 3,
     scrub: true,
     invalidateOnRefresh: true,
     onUpdate: (self) => {
-      const f = self.progress * (stations.length - 1);
+      const f = self.progress * (stops - 1);
       const a = Math.floor(f);
-      const b = Math.min(a + 1, stations.length - 1);
+      const b = Math.min(a + 1, stops - 1);
       const t = f - a;
       const x = xs[a] + (xs[b] - xs[a]) * t;
       train.style.left = `${x}%`;
@@ -220,7 +236,7 @@ function setUpRide(): ScrollTrigger | null {
     const station = (event.target as Element).closest<HTMLElement>('[data-ride-station]');
     if (!station) return;
     const i = Number(station.dataset.rideStation);
-    const y = trigger.start + (i / (stations.length - 1)) * (trigger.end - trigger.start);
+    const y = trigger.start + (i / (stops - 1)) * (trigger.end - trigger.start);
     lenisRef?.scrollTo(y + 1, { immediate: true });
     setCurrent(i);
   };

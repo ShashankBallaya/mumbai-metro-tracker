@@ -689,6 +689,104 @@
         "status_lead": "The questions people ask about Mumbai Metro Line 12A, Manpada to Taloja.",
         "footer_disclaimer": "Mumbai Metro Tracker is an independent public-interest site. It is not affiliated with, endorsed by or connected to MMRDA or the Government of Maharashtra. The route and station positions on this page are indicative, not official. Check official sources before making decisions."
       }
+    },
+    {
+      "id": "thane-ring",
+      "label": "Thane Ring Metro",
+      "number": "TR",
+      "colour": "thane-ring",
+      "agency_short": "MahaMetro",
+      "name_takes_the": true,
+      "official_x": ["MetroRailThane"],
+      "mark_mr": "ठाणे रिंग मेट्रो",
+      "route_short": "West Thane ring",
+      "alignment": "alignment-mahametro-2026.geojson",
+      "about": {
+        "name": "Thane Integral Ring Metro",
+        "alternate_names": [
+          "Thane Ring Metro",
+          "Thane Internal Ring Metro",
+          "Thane Integral Ring Metro Rail Project",
+          "Thane Metro"
+        ],
+        "description": "A 29 km metro ring round west Thane with 22 stations, 20 elevated and 2 underground at Thane station and New Thane, built by MahaMetro. Approved by the Union Cabinet in August 2024; the viaduct contract was awarded in December 2025 and piling began in November 2026.",
+        "same_as": [
+          "https://thanemetrorail.com/"
+        ]
+      },
+      "position_basis": {
+        "default": "MahaMetro's route map file, 2026",
+        "by_source": {}
+      },
+      "copy": {
+        "ends": [
+          "Raila Devi",
+          "New Thane"
+        ],
+        "runs": "which will run as a ring round west Thane: north from Raila Devi through Wagle Estate and Manpada, along Ghodbunder Road to Waghbil, south past Hiranandani Estate, Kolshet and Balkum, underground through Thane station and New Thane, and back to Raila Devi",
+        "station_state": "Not started.",
+        "stations_section": "All 22, round the ring in MahaMetro's order, from Raila Devi to New Thane; after New Thane the line runs back to Raila Devi. Select a station to ride to it, or open its own page.",
+        "stations_page": "All {total}, round the ring in MahaMetro's order from Raila Devi to New Thane, and back to Raila Devi. Twenty are elevated; Thane Junction and New Thane are underground. The Union Cabinet gives {km} km; the centre line on MahaMetro's map is 27.45 km round.",
+        "stations_page_description": "The {total} planned stations of the {name}, round west Thane from Raila Devi to New Thane, with interchanges and a page for each station.",
+        "route_section": "The ring, opened out: 22 stations from Raila Devi round to New Thane, and back to Raila Devi at the right-hand end. Scroll to ride it station by station. Distances follow the centre line on MahaMetro's own route map.",
+        "route_legend": "A hollow line marks track not yet built; a dashed line marks the underground stretch. The ring is drawn opened out: both ends are Raila Devi.",
+        "drawn_from": [
+          "MahaMetro's route map",
+          " for the Thane Metro website"
+        ],
+        "headline_html": "Follow the Thane Ring Metro<br> round west Thane.",
+        "front_standfirst": "A 29 km ring round west Thane, 20 stations on a viaduct and 2 underground at Thane station and New Thane: {stations} in all. The viaduct contract was awarded in December 2025, and piling began in November 2026, as reported. Station contracts are still out to tender.",
+        "countdown_title": "Days to the reported target",
+        "target_html": "Target: <strong>{target}</strong>, from MahaMetro's managing director in October 2026; the Cabinet said 2029. No month is fixed by a document; the site counts to the end of September.",
+        "lead_scene": null,
+        "map_section": "The ring on a street map. Choose a station to see where it sits, what surrounds it and what the street looks like today. The route and stations come from the map on MahaMetro's Thane Metro website.",
+        "map_legend": "Route, MahaMetro's route map; not yet built",
+        "map_underground_legend": "Underground stretch: 3.0 km, measured back from the ramp on MahaMetro's map",
+        "map_first_station": "thane-junction",
+        "numbers": {
+          "length_unit": "km round, 3 km of it underground",
+          "stations_unit": "20 elevated, 2 underground",
+          "cost_unit": "",
+          "cost_note": "The Union Cabinet's estimate, Aug 2024.",
+          "funding_head": "Centre and State, equal shares",
+          "funding_note": "Equal equity from the Government of India and the Government of Maharashtra, with part-funding from bilateral agencies (Cabinet release). ADB and KfW teams visited in April 2026; no loan has been announced.",
+          "depot_history": [],
+          "travel_head": "Not published",
+          "travel_unit": "no travel-time figure from MahaMetro",
+          "riders_head": "Daily riders in 2029, estimated"
+        },
+        "primary_sources": [
+          {
+            "name": "Union Cabinet release, 16 Aug 2024 (PIB)",
+            "note": "Length, underground length, stations, cost, funding, riders and the builder.",
+            "url": "https://pib.gov.in/PressReleasePage.aspx?PRID=2046082"
+          },
+          {
+            "name": "MahaMetro, Thane Metro website: route map",
+            "note": "The 22 stations in order, and the map file from which the route and station points are drawn.",
+            "url": "https://thanemetrorail.com/route-map"
+          },
+          {
+            "name": "MahaMetro, Thane Metro website: tenders",
+            "note": "Every notice and award MahaMetro lists, with the station packages and the underground section's length.",
+            "url": "https://thanemetrorail.com/Tenders"
+          },
+          {
+            "name": "Free Press Journal, 16 Oct 2026",
+            "note": "MahaMetro's managing director on the target, the trains, the trees and the route objections.",
+            "url": "https://www.freepressjournal.in/mumbai/thane-ring-metro-route-based-on-technical-feasibility-not-political-pressure-says-mahametro-md-shravan-hardikar"
+          }
+        ],
+        "page_description": "Unofficial, sourced tracker for the Thane Integral Ring Metro, MahaMetro's 29 km ring round west Thane: the 22 stations, the map, contracts, piling and the 2029 target. Every figure links to its source.",
+        "status_title": "Thane Ring Metro Status: route, stations, construction, opening",
+        "status_description": "How far the Thane Integral Ring Metro has got, where it runs, its 22 stations, cost, contracts and target date. Answers from MahaMetro, the Union Cabinet and news sources, checked {checked}.",
+        "status_h1": "Thane Ring Metro status, answered",
+        "status_mr": "ठाणे इंटिग्रल रिंग मेट्रो",
+        "status_lead": "The questions people ask about the Thane Integral Ring Metro.",
+        "footer_disclaimer": "Mumbai Metro Tracker is an independent public-interest site. It is not affiliated with, endorsed by or connected to MahaMetro, MMRDA or the Government of Maharashtra. Drawings are original illustrations, not official designs. Check official sources before making decisions.",
+        "dropped_heading": "In an earlier plan, not on MahaMetro's list now",
+        "tenders_intro": "Every package we could trace, with its value in crore rupees. MahaMetro lists its notices and awards on its Thane Metro website; the viaduct contract and the bidders come from trade press and posts on X."
+      }
     }
   ],
   "other_lines": [

@@ -350,6 +350,18 @@ export function positionBasis(line: Line, s: Station): string {
   return Object.entries(by_source).find(([part]) => url.includes(part))?.[1] ?? fallback;
 }
 
+/** A closed ring (the Thane ring): its alignment says `ring`. Its stations run round, so the last one leads back to the first. */
+export const isRing = (line: Line): boolean => !!(line.alignmentRaw && JSON.parse(line.alignmentRaw).properties?.ring);
+
+/** The line's name or label inside a sentence: "Line 12", but "the Thane Ring Metro" (lines.json `name_takes_the`). */
+export const inSentence = (line: Line, name: string): string => ((line.info as { name_takes_the?: boolean }).name_takes_the ? `the ${name}` : name);
+
+/** Who builds the line, short: MMRDA, unless lines.json names another agency (the Thane ring: MahaMetro). */
+export const agencyOf = (line: Line): string => (line.info as { agency_short?: string }).agency_short ?? 'MMRDA';
+
+/** X accounts whose posts count as verified on this line: MMRDA's and the operator's, and the line's own agency's. */
+export const officialX = (line: Line): string[] => ['MMRDAOfficial', 'MMMOCL_Official', ...((line.info as { official_x?: string[] }).official_x ?? [])];
+
 /** The line's own wording for a shared page (lines.json `copy`), with {total}, {km} and {name} filled in. */
 export function lineCopy(line: Line, key: 'stations_section' | 'stations_page' | 'stations_page_description' | 'route_section' | 'route_legend'): string {
   return line.info.copy[key]

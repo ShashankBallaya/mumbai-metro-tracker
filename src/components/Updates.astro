@@ -1,14 +1,14 @@
 ---
 import Grade from './Grade.astro';
-import { aboutLine, feed, formatDate, keepTogether, outletName, type Line } from '../lib/data';
+import { aboutLine, agencyOf, inSentence, feed, formatDate, keepTogether, officialX, outletName, type Line } from '../lib/data';
 
 interface Props {
   line: Line;
 }
 const { line } = Astro.props;
 const { socialPosts, timeline } = line;
-/** Posts by MMRDA and by the operator, Maha Mumbai Metro, are graded verified; everyone else's count as reported. */
-const OFFICIAL = ['MMRDAOfficial', 'MMMOCL_Official'];
+/** Posts by MMRDA, by the operator, Maha Mumbai Metro, and by the line's own agency are graded verified; everyone else's count as reported. */
+const OFFICIAL = officialX(line);
 const fromMmrda = socialPosts.some((p) => OFFICIAL.includes(p.handle));
 
 
@@ -60,7 +60,7 @@ const feedUpdated = (feed._meta.updated_at_by_line?.[line.id] ?? feed._meta.upda
         </div>
       ) : (
         <>
-          <p class="posts__note">{fromMmrda ? "Posts by MMRDA and Maha Mumbai Metro, whose claims count as verified, and by people who follow the project, whose claims count as reported." : "Posts by people who follow the project, not by MMRDA. Their claims count as reported."}</p>
+          <p class="posts__note">{fromMmrda ? "Posts by MMRDA and Maha Mumbai Metro, whose claims count as verified, and by people who follow the project, whose claims count as reported." : `Posts by people who follow the project, not by ${agencyOf(line)}. Their claims count as reported.`}</p>
           {/* A ruled list like the reports. X's script loads only when a reader asks for one full post. */}
           <ol class="posts">
             {socialPosts.map((p) => {
@@ -99,7 +99,7 @@ const feedUpdated = (feed._meta.updated_at_by_line?.[line.id] ?? feed._meta.upda
       {news.length === 0 ? (
         <div class="empty">
           <p class="empty__head">Nothing found yet.</p>
-          <p>Headlines about {line.info.label} appear here when an outlet publishes one.</p>
+          <p>Headlines about {inSentence(line, line.info.label)} appear here when an outlet publishes one.</p>
         </div>
       ) : (
         <ol class="reports">

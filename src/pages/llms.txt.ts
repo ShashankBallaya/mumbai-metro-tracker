@@ -32,9 +32,12 @@ export const GET: APIRoute = ({ site }) => {
   const line7a = getLine('line-7a');
   const p7a = line7a.project as typeof line7a.project & { route: { value: string }; length_km: { alternatives: { value: number }[]; underground_km: { value: number } } };
   const b7a = lineBase('line-7a');
+  const ring = getLine('thane-ring');
+  const pr = ring.project as typeof ring.project & { route: { value: string }; length_km: { structure: string }; target_completion: { value: string } };
+  const br = lineBase('thane-ring');
   const body = `# ${SITE_NAME}
 
-> An unofficial, sourced tracker for the Mumbai Metro lines MMRDA is building, running or planning: Line 2B (D N Nagar to Mandale, open from Mandale to Chembur), Line 4 with Line 4A (Wadala to Thane and Gaimukh), Line 5 (Thane to Kalyan), Line 6 (Swami Samarth Nagar to Vikhroli), Line 7A (Andheri to the airport), Line 12 (Kalyan to Taloja) and Line 12A (Manpada to Taloja via Kalyan Phata, approved). Every fact carries a grade (verified, reported, unverified, sources conflict) and a source link. Facts last checked ${formatDate(siteReviewed)}. Not affiliated with MMRDA.
+> An unofficial, sourced tracker for the Mumbai Metro lines MMRDA is building, running or planning: Line 2B (D N Nagar to Mandale, open from Mandale to Chembur), Line 4 with Line 4A (Wadala to Thane and Gaimukh), Line 5 (Thane to Kalyan), Line 6 (Swami Samarth Nagar to Vikhroli), Line 7A (Andheri to the airport), Line 12 (Kalyan to Taloja) and Line 12A (Manpada to Taloja via Kalyan Phata, approved), and MahaMetro's Thane Integral Ring Metro (a ring round west Thane). Every fact carries a grade (verified, reported, unverified, sources conflict) and a source link. Facts last checked ${formatDate(siteReviewed)}. Not affiliated with MMRDA or MahaMetro.
 
 - [${SITE_NAME}](${url('/')}): every line on one page.
 
@@ -164,6 +167,21 @@ ${stations.map((s) => `- [${s.name} metro station, Line 12](${url(`${b12}station
 ${hasStatusPage(line12a) ? `- [Line 12A status, answered](${url(`${b12a}status/`)}): approval, route, stations, cost, deadline.\n` : ''}- [All Line 12A stations](${url(`${b12a}stations/`)}): the ${line12a.stations.length} planned stations in order.
 ${line12a.stations.map((s) => `- [${s.name} metro station, Line 12A](${url(`${b12a}stations/${s.id}/`)})`).join('\n')}
 
+## Thane Integral Ring Metro: key facts
+
+- Name: ${pr.name.value}, also called ${pr.name.also_known_as.join(', ')}. Built by MahaMetro, not MMRDA.
+- Route: ${pr.route.value} (MahaMetro's route map, verified).
+- Length: ${pr.length_km.value} km, ${pr.length_km.structure}; ${pr.stations_count.value} stations, ${ring.stations.filter((s) => s.type === 'Underground').map((s) => s.name).join(' and ')} underground (Union Cabinet, Aug 2024, verified).
+- State: ${pr.current_phase.value}
+- Opening target: ${formatDate(pr.target_completion.value)} (MahaMetro's managing director, Oct 2026, reported); the Cabinet said 2029.
+- Cost: Rs ${inr(pr.completion_cost_crore_inr.value)} crore, equal equity from the Centre and the State (Union Cabinet, verified).
+
+## Thane Integral Ring Metro: pages
+
+- [Thane Ring Metro](${url(br)}): the ring, map, stages, tenders, timeline and sources.
+${hasStatusPage(ring) ? `- [Thane Ring Metro status, answered](${url(`${br}status/`)}): opening, works, route, stations, cost, builders, trees.\n` : ''}- [All Thane Ring Metro stations](${url(`${br}stations/`)}): the ${ring.stations.length} stations round the ring.
+${ring.stations.map((s) => `- [${s.name} metro station, Thane Ring Metro](${url(`${br}stations/${s.id}/`)})`).join('\n')}
+
 ## Sources
 
 - [MMRDA Metro Line 2B project page](https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview)
@@ -173,6 +191,8 @@ ${line12a.stations.map((s) => `- [${s.name} metro station, Line 12A](${url(`${b1
 - [MMRDA Metro Line 9 and 7A project page](https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview)
 - [MMRDA Metro Line 12 project page](https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-12/overview)
 - [MMRDA press release on the extended Line 5, May 2026](https://mmrda.maharashtra.gov.in/sites/default/files/2026-05/extended_metro_line_5_to_strengthen_connectivity_across_thane_bhiwandi_kalyan_and_ulhasnagar.pdf)
+- [Union Cabinet release on the Thane Integral Ring Metro, Aug 2024](https://pib.gov.in/PressReleasePage.aspx?PRID=2046082)
+- [MahaMetro, Thane Metro route map](https://thanemetrorail.com/route-map)
 - [Line 12 Detailed Project Report, April 2019](https://mmrda.maharashtra.gov.in/sites/default/files/2021-10/Metro%20Line%2012.pdf)
 - [Full source list](https://github.com/ShashankBallaya/mumbai-metro-tracker/blob/main/SOURCES.md)
 `;

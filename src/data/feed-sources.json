@@ -252,6 +252,45 @@
         ],
         "require_corridor": true
       }
+    },
+    "thane-ring": {
+      "search": [
+        "Thane ring metro",
+        "Thane Integral Ring Metro",
+        "Thane internal metro"
+      ],
+      "video_queries": [
+        "Thane Ring Metro",
+        "Thane Integral Ring Metro MahaMetro"
+      ],
+      "match": {
+        "comment": "The ring has no number. Its name is its strong signal; a bare 'Thane metro' could be Line 4 or 5, so it needs a ring place or MahaMetro.",
+        "strong": [
+          "thane[\\s-]*(integral|internal|inner)?[\\s-]*ring[\\s-]*metro",
+          "ring[\\s-]*metro[\\s-]*(in|of|for)?[\\s-]*thane",
+          "ठाणे[\\s-]*(इंटिग्रल|अंतर्गत)?[\\s-]*(रिंग|वर्तुळाकार)[\\s-]*मेट्रो",
+          "ठाणे[\\s-]*अंतर्गत[\\s-]*मेट्रो"
+        ],
+        "line": [
+          "thane[\\s-]*metro"
+        ],
+        "corridor": [
+          "mahametro",
+          "maha[\\s-]*metro",
+          "raila devi",
+          "wagle",
+          "dongripada",
+          "waghbil",
+          "patlipada",
+          "kolshet",
+          "balkum",
+          "rabodi",
+          "new thane",
+          "manorama nagar",
+          "azad nagar"
+        ],
+        "require_corridor": true
+      }
     }
   },
   "exclude_urls": [],

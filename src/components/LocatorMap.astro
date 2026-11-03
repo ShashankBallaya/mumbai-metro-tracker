@@ -6,7 +6,7 @@
  * It follows the route-line grammar: a hollow line (orange casing, paper core), ink dots with a paper
  * ring, the current station in orange, and the stacked-bar interchange mark.
  */
-import type { Line, Station } from '../lib/data';
+import { inSentence, type Line, type Station } from '../lib/data';
 
 interface Props {
   /** A line with an alignment file. */
@@ -89,7 +89,7 @@ const northDeg = +((Math.atan2(nx, -ny) * 180) / Math.PI).toFixed(1);
 const corner = (alignment.properties as { locator_north?: string }).locator_north ?? 'bottom-left';
 const NORTH = ({ 'bottom-left': [52, H - 34], 'bottom-right': [W - 52, H - 34], 'top-left': [52, PAD_TOP], 'top-right': [W - 52, PAD_TOP] } as const)[corner as 'bottom-left'];
 
-const label = `Drawing of ${lineData.info.label} from ${stations[0].name} to ${stations.at(-1)!.name} with ${station.name} marked, station ${station.order} of ${stations.length}.`;
+const label = `Drawing of ${inSentence(lineData, lineData.info.label)} from ${stations[0].name} to ${stations.at(-1)!.name} with ${station.name} marked, station ${station.order} of ${stations.length}.`;
 ---
 
 <figure class="locator">

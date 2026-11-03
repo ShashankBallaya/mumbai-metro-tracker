@@ -10,7 +10,7 @@ import Grade from '../../../components/Grade.astro';
 import LocatorMap from '../../../components/LocatorMap.astro';
 import LineMark from '../../../components/LineMark.astro';
 import PhotoCredit from '../../../components/PhotoCredit.astro';
-import { getLine, dprLabel, lines, lineNodeId, lineBase, SITE_NAME, stationHref, positionBasis, streetViewUrl, plannedInterchanges, formatDate, sectionOf, openedOf, announcedOf, sectionName, clock, frequencyText, inr, videoTime, type LineId, type Station, type StationPhoto } from '../../../lib/data';
+import { getLine, dprLabel, inSentence, isRing, lines, lineNodeId, lineBase, SITE_NAME, stationHref, positionBasis, streetViewUrl, plannedInterchanges, formatDate, sectionOf, openedOf, announcedOf, sectionName, clock, frequencyText, inr, videoTime, type LineId, type Station, type StationPhoto } from '../../../lib/data';
 import { hasStatusPage } from '../../../lib/answers';
 import '../../../styles/inner.css';
 
@@ -38,10 +38,12 @@ const base = lineBase(line.id);
 const list = spur ? spurStations : stations;
 const s: Station = list[i];
 // The spur's first station steps back to the station the spur leaves from.
-const prev: Station | undefined = list[i - 1] ?? (spur ? spurFrom : undefined);
-const next: Station | undefined = list[i + 1];
+// On a ring the first station follows the last, so every station has a neighbour both ways.
+const ring = !spur && isRing(line);
+const prev: Station | undefined = list[i - 1] ?? (spur ? spurFrom : ring ? list.at(-1) : undefined);
+const next: Station | undefined = list[i + 1] ?? (ring ? list[0] : undefined);
 const total = list.length;
-const on = spur ? `the Line ${s.phase} spur of ${about.name}` : about.name;
+const on = spur ? `the Line ${s.phase} spur of ${about.name}` : inSentence(line, about.name);
 const [endA, endB] = spur ? [spurFrom!.name, list.at(-1)!.name] : copy.ends;
 // A line built as one says its state (Line 12: under construction); a line in parts names the part.
 const section = stages.find((sec) => sec.phases?.includes(s.phase!));
@@ -202,7 +204,7 @@ const schema: Record<string, unknown>[] = [
           {loc.lat !== null && <LocatorMap line={line} station={s} />}
           {loc.along_m !== null && (
             <p>
-              {km(loc.along_m)} km {spur ? `along the spur from ${spurFrom!.name}` : `from the start of the line at ${stations[0].name}`}
+              {km(loc.along_m)} km {spur ? `along the spur from ${spurFrom!.name}` : ring ? `round the ring from ${stations[0].name}` : `from the start of the line at ${stations[0].name}`}
               {ch != null && <span class="fact__note num"> ({cap(dprLabel(line).replace(/^the /, ''))}: chainage {ch.toLocaleString('en-IN')} m)</span>}
             </p>
           )}
@@ -213,8 +215,17 @@ const schema: Record<string, unknown>[] = [
         <dt>Next stations</dt>
         <dd>
           <ul>
-            {prev && <li>Towards {endA}: <a href={`${base}stations/${prev.id}/`}>{prev.name}</a></li>}
-            {next && <li>Towards {endB}: <a href={`${base}stations/${next.id}/`}>{next.name}</a></li>}
+            {ring ? (
+              <>
+                <li>Clockwise: <a href={`${base}stations/${next!.id}/`}>{next!.name}</a></li>
+                <li>Anticlockwise: <a href={`${base}stations/${prev!.id}/`}>{prev!.name}</a></li>
+              </>
+            ) : (
+              <>
+                {prev && <li>Towards {endA}: <a href={`${base}stations/${prev.id}/`}>{prev.name}</a></li>}
+                {next && <li>Towards {endB}: <a href={`${base}stations/${next.id}/`}>{next.name}</a></li>}
+              </>
+            )}
             {!prev && <li>{s.name} is the first station{s.name === endA ? '' : `, at the ${endA} end`}.</li>}
             {!next && <li>{s.name} is the last station{s.name === endB ? '' : `, at the ${endB} end`}.</li>}
           </ul>
@@ -281,7 +292,7 @@ const schema: Record<string, unknown>[] = [
             </p>
           ) : (
             <p>
-              No date has been announced for this station on its own. For {label} as a whole, the reported target is{' '}
+              No date has been announced for this station on its own. For {inSentence(line, label)} as a whole, the reported target is{' '}
               {formatDate(target.value)}{(target as { alternatives?: { value: string }[] }).alternatives?.[0] ? <>; an earlier reported target was {formatDate((target as { alternatives: { value: string }[] }).alternatives[0].value)}</> : null}.
             </p>
           )}

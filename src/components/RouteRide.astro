@@ -7,7 +7,7 @@
  */
 import Grade from './Grade.astro';
 import LineMark from './LineMark.astro';
-import { lineCopy, dprLabel, extensionOf, plannedInterchanges, openedOf, sectionOf, formatDate, type Line, type Station } from '../lib/data';
+import { isRing, lineCopy, dprLabel, extensionOf, plannedInterchanges, openedOf, sectionOf, formatDate, type Line, type Station } from '../lib/data';
 import { schematic } from '../lib/route';
 
 interface Props {
@@ -20,7 +20,8 @@ const start = stations[0].name;
 
 // A line with many stations (Line 4: 32) sets its names at 45 degrees, above and below in turn, like a
 // Vignelli diagram, so close stations do not collide; the strip gets the height those names need.
-const dense = stations.length > 24;
+// Long names do the same on fewer stations (the Thane ring: 22, but "Azad Nagar Bus Stop" ran into "Kolshet Industrial Area").
+const dense = stations.length > 24 || stations.reduce((n, s) => n + s.name.length, 0) > 260;
 // Same bent schematic as the front page, drawn at poster weight.
 const strip = schematic(line, dense ? { width: 1000, top: 95, drop: 70, pad: 10, bottom: 95 } : { width: 1000, top: 30, drop: 70, pad: 10, bottom: 30 });
 const px = (i: number) => (strip.points[i][0] / strip.width) * 100;
@@ -44,6 +45,8 @@ const shieldAbove = beforeShield >= 0 && !onBend(beforeShield) && side(beforeShi
 const cap = (t: string) => t.charAt(0).toUpperCase() + t.slice(1);
 /** Opening mode: the opening fact of the station's section, once it has opened. */
 const openedAt = (s: Station) => openedOf(sectionOf(line, s));
+// A ring's full length round, for the first station's figure when the ride comes back to it.
+const roundM = strip.ringEnd && line.alignmentRaw ? (JSON.parse(line.alignmentRaw).properties.length_m as number) : null;
 const km = (m: number) => (m / 1000).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 ---
 
@@ -72,6 +75,13 @@ const km = (m: number) => (m / 1000).toLocaleString('en-IN', { minimumFractionDi
             <span class="ride__tick-name">{s.name}</span>
           </span>
         ))}
+        {strip.ringEnd && (
+          // A ring, opened out: the line comes back to its first station at the right-hand end.
+          <span data-ride-ring class:list={['ride__tick', 'ride__tick--ring', side(stations.length - 1) === 'ride__tick--above' ? 'ride__tick--below' : 'ride__tick--above']} style={`--x:${(strip.ringEnd[0] / strip.width) * 100}%;--y:${(strip.ringEnd[1] / strip.height) * 100}%`}>
+            <span class="ride__dot"></span>
+            <span class="ride__tick-name">{start}<span class="visually-hidden"> again, round the ring</span></span>
+          </span>
+        )}
         {strip.branch?.points.map(([x, y], k) => (
           // Names alternate below and above the spur: its stations sit close together.
           <span class:list={['ride__tick', k % 2 ? 'ride__tick--above' : 'ride__tick--below']} style={`--x:${(x / strip.width) * 100}%;--y:${(y / strip.height) * 100}%`}>
@@ -94,13 +104,18 @@ const km = (m: number) => (m / 1000).toLocaleString('en-IN', { minimumFractionDi
           <li class="ride__station" id={`station-${s.id}`} data-ride-station={i} style={`--x:${px(i)}%;--y:${py(i)}%`}>
             <div class="ride__id">
             <h3 class="ride__name">{s.name}</h3>
-            {s.location.along_m !== null && <p class="ride__km num" aria-hidden="true">{km(s.location.along_m)}<span> km</span></p>}
+            {s.location.along_m !== null && (
+              <p class="ride__km num" aria-hidden="true">
+                <span class="ride__km-out">{km(s.location.along_m)}<span> km</span></span>
+                {i === 0 && roundM !== null && <span class="ride__km-round">{km(roundM)}<span> km</span></span>}
+              </p>
+            )}
             <p class="ride__order num">Station {s.order} of {stations.length}</p>
             {extensionOf(line, s) && <p class="ride__ext"><LineMark lineId={line.id} label={extensionOf(line, s)} />{(line.info.copy as { extension_note?: string }).extension_note}</p>}
             {s.dpr_name && s.dpr_name !== s.name && <p class="ride__alias">Called "{s.dpr_name}" in {dprLabel(line)}.</p>}
             {s.location.along_m !== null ? (
               <p class="ride__distance num">
-                <span class="visually-hidden">{km(s.location.along_m)} km </span>from the start of the line at {start}{' '}
+                <span class="visually-hidden">{km(s.location.along_m)} km </span>{isRing(line) ? `round the ring from ${start}` : `from the start of the line at ${start}`}{' '}
                 <Grade status={s.location.status} source={s.location.source_url} compact />
               </p>
             ) : (
@@ -529,7 +544,20 @@ const km = (m: number) => (m / 1000).toLocaleString('en-IN', { minimumFractionDi
     line-height: 0.85;
     color: var(--signal-text);
   }
-  .ride__km span {
+  /* On a ring the ride ends back at the first station: its figure then reads the full way round. */
+  .ride__km-round,
+  :global(.ride.is-home) .ride__km-out {
+    display: none;
+  }
+  :global(.ride.is-home) .ride__km-round {
+    display: inline;
+  }
+  .ride__km-out,
+  .ride__km-round {
+    font: inherit;
+    color: inherit;
+  }
+  .ride__km span span {
     font-family: var(--font-body);
     font-weight: 700;
     font-size: max(0.4em, 1rem);

@@ -1,0 +1,41 @@
+{
+  "_meta": {
+    "description": "Firms appointed on the Thane Integral Ring Metro. 'tender_ids' link to tenders.json.",
+    "last_reviewed": "2026-11-03"
+  },
+  "contractors": [
+    {
+      "id": "hg-kalpataru",
+      "name": "HG Infra Engineering and Kalpataru Projects JV",
+      "role": "Civil contractor: the elevated viaduct (C-01)",
+      "tender_ids": [
+        "c-01"
+      ],
+      "status": "reported",
+      "source_url": "https://metrorailtoday.com/news/kalpataru-hg-infra-engg-jv-wins-1415-crore-epc-contract-for-thane-metro-rail-project",
+      "last_verified": "2026-11-03"
+    },
+    {
+      "id": "aecom-nippon-koei",
+      "name": "AECOM India and Nippon Koei India consortium",
+      "role": "General consultant",
+      "tender_ids": [
+        "general-consultant"
+      ],
+      "status": "verified",
+      "source_url": "https://thanemetrorail.com/Tenders",
+      "last_verified": "2026-11-03"
+    },
+    {
+      "id": "techcomm",
+      "name": "Techcomm Urban Management Consultants and Service Providers",
+      "role": "Transit oriented development and multi-modal integration plan",
+      "tender_ids": [
+        "tod-plan"
+      ],
+      "status": "verified",
+      "source_url": "https://thanemetrorail.com/Tenders",
+      "last_verified": "2026-11-03"
+    }
+  ]
+}

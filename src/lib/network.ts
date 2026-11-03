@@ -88,8 +88,10 @@ function build(raw: Raw): NetworkLine {
     return {
       id: raw.id,
       number: raw.number,
-      name: info.route_short,
-      ends: [line.stations[0].name, line.stations.at(-1)!.name],
+      // A line of another system (the Thane ring, MahaMetro) keeps its own name, so the hub does not call it "Line TR".
+      name: raw.system ? (raw.name as string) : info.route_short,
+      system: raw.system as string | undefined,
+      ends: raw.ring ? (raw.ends as string[]) : [line.stations[0].name, line.stations.at(-1)!.name],
       length: fact(pj.length_km),
       stations: fact(pj.stations_count),
       agency: fact(pj.implementing_agency),
@@ -177,6 +179,8 @@ export function networkDrawing(geometry: GeoJSON.FeatureCollection, width = 1000
 export const bundleColours: string[] = (() => {
   const primary = new Map<string, string>();
   for (const l of network) {
+    // Numbered lines only: the Thane ring ("TR") is another system and adds no stroke.
+    if (!/^\d/.test(l.number)) continue;
     const base = l.number.replace(/[A-Z]+$/, '');
     if (l.colour && !primary.has(base)) primary.set(base, l.colour);
   }

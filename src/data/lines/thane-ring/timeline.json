@@ -1,0 +1,140 @@
+{
+  "_meta": {
+    "description": "Key milestones of the Thane Integral Ring Metro, oldest first. 'date_precision' is day, month or year. 'kind' is planning, approval, tender, award, construction, related or future. Only events whose source was read are listed.",
+    "last_reviewed": "2026-11-03"
+  },
+  "events": [
+    {
+      "id": "cabinet-approval",
+      "date": "2024-08-16",
+      "date_precision": "day",
+      "kind": "approval",
+      "title": "Union Cabinet approves the Thane ring metro",
+      "summary": "29 km round west Thane (26 km elevated, 3 km underground), 22 stations, Rs 12,200.10 crore with equal equity from the Centre and the State. MahaMetro to build it, by 2029.",
+      "status": "verified",
+      "source_url": "https://pib.gov.in/PressReleasePage.aspx?PRID=2046082",
+      "last_verified": "2026-11-03"
+    },
+    {
+      "id": "foundation-stone",
+      "date": "2024-10-05",
+      "date_precision": "day",
+      "kind": "approval",
+      "title": "Prime Minister lays the foundation stone",
+      "summary": "Laid in Thane with other projects, the same day Line 3's first stretch opened.",
+      "status": "reported",
+      "source_url": "https://theprint.in/india/modi-lays-foundation-stone-of-thane-ring-metro-project-inaugurates-mumbai-metro-line-3/2298832",
+      "last_verified": "2026-11-03"
+    },
+    {
+      "id": "station-tender-c-02",
+      "date": "2025-11-25",
+      "date_precision": "day",
+      "kind": "tender",
+      "title": "Bids invited for six elevated stations",
+      "summary": "Package C-02: Manpada, Dongripada, Vijay Nagari, Waghbil, Waterfront and Patlipada, 30 months.",
+      "status": "verified",
+      "source_url": "https://thanemetrorail.com/Tenders",
+      "last_verified": "2026-11-03"
+    },
+    {
+      "id": "c-01",
+      "date": "2025-12-10",
+      "date_precision": "day",
+      "kind": "award",
+      "title": "Viaduct contract to HG Infra and Kalpataru",
+      "summary": "Package C-01, Rs 1,415 crore: 20.527 km of elevated viaduct from the end of the underground ramp to Balkum Naka, with the depot approach.",
+      "status": "reported",
+      "source_url": "https://metrorailtoday.com/news/kalpataru-hg-infra-engg-jv-wins-1415-crore-epc-contract-for-thane-metro-rail-project",
+      "last_verified": "2026-11-03"
+    },
+    {
+      "id": "works-begin",
+      "date": "2026-04-15",
+      "date_precision": "day",
+      "kind": "construction",
+      "title": "Work begins in the Ghodbunder area",
+      "summary": "First works reported on the ground; the Thane Municipal Corporation had sanctioned the felling of 3,000 trees.",
+      "status": "reported",
+      "source_url": "https://www.freepressjournal.in/mumbai/thanes-12000-crore-internal-ring-metro-project-begins-construction-in-ghodbunder-to-ease-traffic-woes",
+      "last_verified": "2026-11-03"
+    },
+    {
+      "id": "test-pile",
+      "date": "2026-05-01",
+      "date_precision": "day",
+      "kind": "construction",
+      "title": "First test pile",
+      "summary": "MahaMetro's photos show test pile 1 under construction, and a coastal zone team visit the same day.",
+      "status": "verified",
+      "source_url": "https://thanemetrorail.com/photos",
+      "last_verified": "2026-11-03"
+    },
+    {
+      "id": "general-consultant",
+      "date": "2026-07",
+      "date_precision": "month",
+      "kind": "award",
+      "title": "AECOM and Nippon Koei to be general consultants",
+      "summary": "Rs 179.85 crore, without GST.",
+      "status": "verified",
+      "source_url": "https://thanemetrorail.com/Tenders",
+      "last_verified": "2026-11-03"
+    },
+    {
+      "id": "crz-clearance",
+      "date": "2026-07-22",
+      "date_precision": "day",
+      "kind": "approval",
+      "title": "Coastal zone clearance",
+      "summary": "The Environment Ministry gives its Coastal Regulation Zone clearance for the project, as reported.",
+      "status": "reported",
+      "source_url": "https://x.com/bodkeitis/status/2079851468849582176",
+      "last_verified": "2026-11-03"
+    },
+    {
+      "id": "soil-testing",
+      "date": "2026-09-10",
+      "date_precision": "day",
+      "kind": "construction",
+      "title": "Soil testing reaches Raila Devi",
+      "summary": "The last stage of soil testing, at Raila Devi, reported as the start of phase 1.",
+      "status": "reported",
+      "source_url": "https://x.com/bodkeitis/status/2098068165867810917",
+      "last_verified": "2026-11-03"
+    },
+    {
+      "id": "md-session",
+      "date": "2026-10-16",
+      "date_precision": "day",
+      "kind": "planning",
+      "title": "MahaMetro answers Thane on route and trees",
+      "summary": "Its managing director gives September 2029 as the target, about 3,200 trees to be removed and 37,000 to be planted, and says route changes near Manorama Nagar and Azad Nagar will rest on feasibility and public interest.",
+      "status": "reported",
+      "source_url": "https://www.freepressjournal.in/mumbai/thane-ring-metro-route-based-on-technical-feasibility-not-political-pressure-says-mahametro-md-shravan-hardikar",
+      "last_verified": "2026-11-03"
+    },
+    {
+      "id": "piling",
+      "date": "2026-11-02",
+      "date_precision": "day",
+      "kind": "construction",
+      "title": "Piling begins",
+      "summary": "Piling for the viaduct is reported to have officially begun, with photos.",
+      "status": "reported",
+      "source_url": "https://x.com/Sunny29223375/status/2117214187919450176",
+      "last_verified": "2026-11-03"
+    },
+    {
+      "id": "target",
+      "date": "2029-09",
+      "date_precision": "month",
+      "kind": "future",
+      "title": "Target to open the ring",
+      "summary": "MahaMetro's target, subject to land and site access from the Thane Municipal Corporation.",
+      "status": "reported",
+      "source_url": "https://www.freepressjournal.in/mumbai/thane-ring-metro-route-based-on-technical-feasibility-not-political-pressure-says-mahametro-md-shravan-hardikar",
+      "last_verified": "2026-11-03"
+    }
+  ]
+}

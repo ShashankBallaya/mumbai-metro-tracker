@@ -28,8 +28,8 @@ const noAward = (t: { tender_status: string }) => (pending(t) ? 'Not yet' : t.te
   <header class="section-head">
     <h2 id="tenders-title">Tenders and contracts</h2>
     <p>
-      Every package we could trace, with its value in crore rupees. MMRDA keeps only current notices online, so most
-      of these come from trade press.
+      {(line.info.copy as { tenders_intro?: string }).tenders_intro ??
+        'Every package we could trace, with its value in crore rupees. MMRDA keeps only current notices online, so most of these come from trade press.'}
     </p>
   </header>
 

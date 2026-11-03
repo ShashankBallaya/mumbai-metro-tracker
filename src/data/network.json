@@ -246,13 +246,11 @@
       "number": "TR",
       "system": "Thane Integral Ring Metro",
       "name": "Thane Integral Ring Metro",
-      "agency": { "value": "Maharashtra Metro Rail Corporation (MahaMetro)", "status": "reported", "source_url": "https://www.freepressjournal.in/mumbai/thane-ring-metro-project-update-mahametro-floats-bids-for-8-stations-cost-revised-to-12200-crore", "last_verified": "2026-10-29" },
+      "tracked": "thane-ring",
       "ends": ["Thane (ring)", "Thane (ring)"],
       "ring": true,
-      "length_km": { "value": 29, "status": "reported", "source_url": "https://www.freepressjournal.in/mumbai/thane-ring-metro-project-update-mahametro-floats-bids-for-8-stations-cost-revised-to-12200-crore", "last_verified": "2026-10-29" },
-      "stations": { "value": 22, "status": "reported", "source_url": "https://www.freepressjournal.in/mumbai/thane-ring-metro-project-update-mahametro-floats-bids-for-8-stations-cost-revised-to-12200-crore", "last_verified": "2026-10-29" },
       "parts": [
-        { "name": "Whole line", "stage": "planned", "note": "Approved by the Union Cabinet in Aug 2024 (not checked here); cost revised to Rs 12,200.10 crore; station bids invited Feb 2026; a viaduct contract to a Kalpataru and HG Infra joint venture is reported but not checked. Moves to under construction once works start are sourced.", "status": "reported", "source_url": "https://www.freepressjournal.in/mumbai/thane-ring-metro-project-update-mahametro-floats-bids-for-8-stations-cost-revised-to-12200-crore", "last_verified": "2026-10-29" }
+        { "name": "Whole line", "stage": "under_construction", "note": "Viaduct contract awarded Dec 2025; piling began Nov 2026 (reported); not open.", "from_tracked": "current_phase" }
       ]
     },
     {

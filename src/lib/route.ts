@@ -12,6 +12,8 @@
  * - `indicative`: the whole route is the site's own drawing (Line 12A), so all of it is dashed.
  * A station without a published position sits between its neighbours and is marked not placed.
  * A line that loops back (Line 5 at Kalyan) is drawn unrolled: x stays distance along the line.
+ * - `ring` with `length_m`: a closed ring (the Thane ring) is drawn opened out at its first station. The
+ *   line runs on past the last station to the full length round, where `ringEnd` marks the first station again.
  * Opening mode: the stretch between the first and last open station is drawn solid (`open`).
  * - `extension_from_m` and `extension_label`: an extension built as its own project on the same line
  *   (Line 4A past Kasarvadavali). The schematic marks the joint where it begins and places a shield
@@ -40,6 +42,8 @@ export interface Schematic {
   branch?: { from: number; path: string; points: [number, number][] };
   /** The 45-degree bend, in viewBox units: where it starts (x), its run and drop, and the top row's y. The ride's train follows it. */
   bend?: { x: number; drop: number; top: number };
+  /** A ring: where the line comes back to its first station, at the right-hand end. */
+  ringEnd?: [number, number];
 }
 
 interface AlignmentProps {
@@ -49,6 +53,9 @@ interface AlignmentProps {
   underground_along_m?: [number, number];
   /** The route is the site's indicative drawing, not a published alignment: drawn dashed. */
   indicative?: boolean;
+  /** A closed ring, opened out at the first station; `length_m` is the whole way round. */
+  ring?: boolean;
+  length_m?: number;
 }
 
 /**
@@ -82,11 +89,12 @@ export function schematic(line: Line, { width = 1000, top = 26, drop = 44, pad =
   const from = line.spurFrom ? stations.indexOf(line.spurFrom) : -1;
   const spur = from >= 0 && spurStations.length ? spurStations.map((s) => along[from] + s.location.along_m) : [];
   const c0 = along[0];
-  const c1 = Math.max(along[along.length - 1], ...spur);
+  const ringM = props.ring && props.length_m ? props.length_m : undefined;
+  const c1 = Math.max(ringM ?? along[along.length - 1], ...spur);
   const x0 = pad;
   const x1 = width - pad;
   const xAt = (c: number) => x0 + ((c - c0) / (c1 - c0)) * (x1 - x0);
-  const xEnd = xAt(along[along.length - 1]);
+  const xEnd = xAt(ringM ?? along[along.length - 1]);
   const bendAt = bendM === undefined ? undefined : xAt(bendM);
   /** The line's y at x. */
   const yAt = (x: number) => (bendAt === undefined ? top : top + Math.max(0, Math.min(x - bendAt, drop)));
@@ -139,5 +147,6 @@ export function schematic(line: Line, { width = 1000, top = 26, drop = 44, pad =
     branch,
     extension,
     bend: bendAt === undefined ? undefined : { x: bendAt, drop, top },
+    ringEnd: ringM === undefined ? undefined : [xEnd, yAt(xEnd)],
   };
 }

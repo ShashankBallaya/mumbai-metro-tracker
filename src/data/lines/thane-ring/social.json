@@ -1,0 +1,68 @@
+{
+  "_meta": {
+    "description": "Hand-curated X (Twitter) posts, newest first. Each post is printed as a ruled row (date, author, text); X's script loads only when a reader asks for one full post with its photos. 'status' grades the post's claims, not the account: posts by enthusiasts are 'reported' at best; posts by MahaMetro's Thane Metro account (@MetroRailThane) count as verified. Picked by the owner, 2026-11-03.",
+    "last_reviewed": "2026-11-03"
+  },
+  "posts": [
+    {
+      "url": "https://x.com/Sunny29223375/status/2117214187919450176",
+      "author": "Sunny",
+      "handle": "Sunny29223375",
+      "date": "2026-11-02",
+      "text": "Piling has officially begun on the Thane Integral Ring Metro, with photos (credited to Kota Ganesh).",
+      "status": "reported",
+      "source_url": "https://x.com/Sunny29223375/status/2117214187919450176",
+      "last_verified": "2026-11-03"
+    },
+    {
+      "url": "https://x.com/bodkeitis/status/2098068165867810917",
+      "author": "Swarup Bodke",
+      "handle": "bodkeitis",
+      "date": "2026-09-10",
+      "text": "Soil testing has reached Raila Devi, where phase 1 starts; it is the last stage of soil testing. With photos.",
+      "status": "reported",
+      "source_url": "https://x.com/bodkeitis/status/2098068165867810917",
+      "last_verified": "2026-11-03"
+    },
+    {
+      "url": "https://x.com/bodkeitis/status/2085352793502871800",
+      "author": "Swarup Bodke",
+      "handle": "bodkeitis",
+      "date": "2026-08-06",
+      "text": "MahaMetro has invited bids for the detailed design of the underground section: architecture and E&M, tunnel ventilation with fire and airflow simulations, environmental control and building management.",
+      "status": "reported",
+      "source_url": "https://x.com/bodkeitis/status/2085352793502871800",
+      "last_verified": "2026-11-03"
+    },
+    {
+      "url": "https://x.com/bodkeitis/status/2079851468849582176",
+      "author": "Swarup Bodke",
+      "handle": "bodkeitis",
+      "date": "2026-07-22",
+      "text": "The Environment Ministry has given the project its Coastal Regulation Zone (CRZ) clearance.",
+      "status": "reported",
+      "source_url": "https://x.com/bodkeitis/status/2079851468849582176",
+      "last_verified": "2026-11-03"
+    },
+    {
+      "url": "https://x.com/Sunny29223375/status/2072286943166238921",
+      "author": "Sunny",
+      "handle": "Sunny29223375",
+      "date": "2026-07-01",
+      "text": "Only two firms bid for the detailed design of 12 elevated stations: STUP Consultants and SYSTRA MVA Consulting (India).",
+      "status": "reported",
+      "source_url": "https://x.com/Sunny29223375/status/2072286943166238921",
+      "last_verified": "2026-11-03"
+    },
+    {
+      "url": "https://x.com/RahulChels/status/2014923146797973882",
+      "author": "Artful Dodger",
+      "handle": "RahulChels",
+      "date": "2026-01-24",
+      "text": "MahaMetro invited bids for a design consultant for the two underground stations: Thane Junction at Thane suburban station, and New Thane at the Kopri bridge.",
+      "status": "reported",
+      "source_url": "https://x.com/RahulChels/status/2014923146797973882",
+      "last_verified": "2026-11-03"
+    }
+  ]
+}

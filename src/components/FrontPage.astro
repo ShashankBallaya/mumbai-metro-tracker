@@ -15,6 +15,8 @@ const { project, stations } = line;
 
 const target = project.target_completion;
 const progress = project.progress;
+// The standfirst reports the progress table. A line with no table (12A, the Thane ring) reports its current phase instead, so it takes that fact's grade.
+const standfirstGrade = progress.items.length ? progress : (project.current_phase as unknown as typeof progress);
 const pct = (name: string) => Math.round(progress.items.find((i) => i.activity.startsWith(name))!.percent_complete);
 
 // Opening mode: the first section of the line is the one the countdown is about. Once it has an
@@ -42,10 +44,11 @@ const fill = (text: string) =>
     // A range like "2030-31" stays on one line.
     .replace('{rest}', t.rest_of_line ? `<span class="nowrap">${t.rest_of_line.value}</span>` : '');
 const first = stations[0].name;
-const last = stations[stations.length - 1].name;
-
 // Schematic strip (shared geometry with the route ride).
-const { width: W, height: H, path, points: dots, placed, underground, open, branch, extension } = schematic(line);
+// A ring (the Thane ring) is drawn opened out: its right-hand end is its first station again.
+const { width: W, height: H, path, points: dots, placed, underground, open, branch, extension, ringEnd } = schematic(line);
+const last = ringEnd ? first : stations[stations.length - 1].name;
+
 const spurEnd = line.spurStations.at(-1)?.name;
 ---
 
@@ -53,7 +56,7 @@ const spurEnd = line.spurStations.at(-1)?.name;
   <div class="front__lead">
     <h1 id="front-headline" class="front__headline" data-split set:html={copy.headline_html} />
     <p class="front__standfirst">{fill(copy.front_standfirst)}</p>
-    <p class="front__grade"><Grade status={progress.status} source={progress.source_url} /></p>
+    <p class="front__grade"><Grade status={standfirstGrade.status} source={standfirstGrade.source_url} /></p>
     <a class="front__ride" href="#route" data-magnetic>
       Ride the line
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4v15M5 12l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" /></svg>
@@ -121,6 +124,7 @@ const spurEnd = line.spurStations.at(-1)?.name;
     <span class="front__strip-dots" aria-hidden="true">
       {dots.map(([x, y], i) => <span class={placed[i] ? 'front__strip-dot' : 'front__strip-dot front__strip-dot--unplaced'} style={`left:${(x / W) * 100}%;top:${(y / H) * 100}%`}></span>)}
       {branch?.points.map(([x, y]) => <span class="front__strip-dot" style={`left:${(x / W) * 100}%;top:${(y / H) * 100}%`}></span>)}
+      {ringEnd && <span class="front__strip-dot" style={`left:${(ringEnd[0] / W) * 100}%;top:${(ringEnd[1] / H) * 100}%`}></span>}
       {extension && <span class="front__strip-joint" style={`left:${(extension.joint[0] / W) * 100}%;top:${(extension.joint[1] / H) * 100}%`}></span>}
       {extension && <span class="front__strip-shield" style={`left:${(extension.shield[0] / W) * 100}%;top:${(extension.shield[1] / H) * 100}%`}>{extension.label}</span>}
     </span>

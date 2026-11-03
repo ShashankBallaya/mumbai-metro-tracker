@@ -1,0 +1,798 @@
+{
+  "_meta": {
+    "description": "The Thane Integral Ring Metro's 22 stations in MahaMetro's order, from Raila Devi round the ring to New Thane; after New Thane the line runs back to Raila Devi. 'kml_name' is the station's point in the project's official map file (Google My Maps, embedded on thanemetrorail.com/route-map). Positions and along_m come from scripts/build-alignment-thane-ring.py. Names follow MahaMetro's route map page, except where its tenders or map file differ (see each station's notes). MahaMetro has published no Marathi station names.",
+    "order_source_url": "https://thanemetrorail.com/route-map",
+    "order_status": "verified",
+    "count_source_url": "https://pib.gov.in/PressReleasePage.aspx?PRID=2046082",
+    "names_mr_source_url": null,
+    "names_mr_status": "unverified",
+    "last_reviewed": "2026-11-03"
+  },
+  "dropped_stations": [],
+  "stations": [
+    {
+      "id": "raila-devi",
+      "order": 1,
+      "name": "Raila Devi",
+      "name_mr": null,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://thanemetrorail.com/route-map",
+      "dpr_name": null,
+      "kml_name": "RAILA DEVI",
+      "location": {
+        "lng": 72.955124,
+        "lat": 19.18885,
+        "along_m": 0,
+        "method": "The project's official route map (Google My Maps, on thanemetrorail.com/route-map): point \"RAILA DEVI\". along_m is measured along the map's centre line (PROPOSED_CL) from Raila Devi, in the order of MahaMetro's list; the point is 29 m from that line.",
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "interchanges": {
+        "value": [
+          "Metro Line 4 (Wadala-Kasarvadavali)"
+        ],
+        "status": "reported",
+        "source_url": "https://housing.com/news/thane-internal-ring-metro-project/",
+        "notes": "housing.com (Nov 2025) lists an interchange with Line 4 here. On the ring's official map file the nearest Line 4 station, RTO Thane, is about 0.8 km away. Neither project calls the two an interchange."
+      },
+      "context": [
+        {
+          "text": "The first station on MahaMetro's list, where the tunnel from New Thane comes up to the viaduct. Soil testing had reached Raila Devi by Sep 2026, reported as the start of phase 1.",
+          "source_url": "https://x.com/bodkeitis/status/2098068165867810917",
+          "status": "reported"
+        }
+      ],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://x.com/Sunny29223375/status/2117214187919450176",
+        "notes": "Station design tender T1-030/DDC-04/2026; no construction contract was found. Piling for the viaduct began in Nov 2026 (reported)."
+      },
+      "notes": null,
+      "last_verified": "2026-11-03",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "wagle-circle",
+      "order": 2,
+      "name": "Wagle Circle",
+      "name_mr": null,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://thanemetrorail.com/route-map",
+      "dpr_name": null,
+      "kml_name": "WAGLE CIRCLE",
+      "location": {
+        "lng": 72.948955,
+        "lat": 19.196423,
+        "along_m": 1235,
+        "method": "The project's official route map (Google My Maps, on thanemetrorail.com/route-map): point \"WAGLE CIRCLE\". along_m is measured along the map's centre line (PROPOSED_CL) from Raila Devi, in the order of MahaMetro's list; the point is 33 m from that line.",
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://x.com/Sunny29223375/status/2117214187919450176",
+        "notes": "Station design tender T1-030/DDC-04/2026; no construction contract was found. Piling for the viaduct began in Nov 2026 (reported)."
+      },
+      "notes": null,
+      "last_verified": "2026-11-03",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "lokmanya-nagar-bus-depot",
+      "order": 3,
+      "name": "Lokmanya Nagar Bus Depot",
+      "name_mr": null,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://thanemetrorail.com/route-map",
+      "dpr_name": null,
+      "kml_name": "LOKMANYA NAGAR BUS DEPOT",
+      "location": {
+        "lng": 72.95099,
+        "lat": 19.208676,
+        "along_m": 2613,
+        "method": "The project's official route map (Google My Maps, on thanemetrorail.com/route-map): point \"LOKMANYA NAGAR BUS DEPOT\". along_m is measured along the map's centre line (PROPOSED_CL) from Raila Devi, in the order of MahaMetro's list; the point is 31 m from that line.",
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://x.com/Sunny29223375/status/2117214187919450176",
+        "notes": "Station design tender T1-030/DDC-04/2026; no construction contract was found. Piling for the viaduct began in Nov 2026 (reported)."
+      },
+      "notes": null,
+      "last_verified": "2026-11-03",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "shivai-nagar",
+      "order": 4,
+      "name": "Shivai Nagar",
+      "name_mr": null,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://thanemetrorail.com/route-map",
+      "dpr_name": null,
+      "kml_name": "SHIVAI NAGAR",
+      "location": {
+        "lng": 72.953918,
+        "lat": 19.217227,
+        "along_m": 3862,
+        "method": "The project's official route map (Google My Maps, on thanemetrorail.com/route-map): point \"SHIVAI NAGAR\". along_m is measured along the map's centre line (PROPOSED_CL) from Raila Devi, in the order of MahaMetro's list; the point is 31 m from that line.",
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://x.com/Sunny29223375/status/2117214187919450176",
+        "notes": "Station design tender T1-030/DDC-04/2026; no construction contract was found. Piling for the viaduct began in Nov 2026 (reported)."
+      },
+      "notes": "The route map page lists it as \"Shivaji Nagar\"; the map file and MahaMetro's design tender (T1-030/DDC-04/2026) call it Shivai Nagar, which the site follows.",
+      "last_verified": "2026-11-03",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "neelkanth-terminal",
+      "order": 5,
+      "name": "Neelkanth Terminal",
+      "name_mr": null,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://thanemetrorail.com/route-map",
+      "dpr_name": null,
+      "kml_name": "NEELKANTH TERMINAL",
+      "location": {
+        "lng": 72.959542,
+        "lat": 19.221481,
+        "along_m": 5107,
+        "method": "The project's official route map (Google My Maps, on thanemetrorail.com/route-map): point \"NEELKANTH TERMINAL\". along_m is measured along the map's centre line (PROPOSED_CL) from Raila Devi, in the order of MahaMetro's list; the point is 31 m from that line.",
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://x.com/Sunny29223375/status/2117214187919450176",
+        "notes": "Station design tender T1-030/DDC-04/2026; no construction contract was found. Piling for the viaduct began in Nov 2026 (reported)."
+      },
+      "notes": null,
+      "last_verified": "2026-11-03",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "gandhi-nagar",
+      "order": 6,
+      "name": "Gandhi Nagar",
+      "name_mr": null,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://thanemetrorail.com/route-map",
+      "dpr_name": null,
+      "kml_name": "GANDHI NAGAR",
+      "location": {
+        "lng": 72.967441,
+        "lat": 19.219428,
+        "along_m": 5975,
+        "method": "The project's official route map (Google My Maps, on thanemetrorail.com/route-map): point \"GANDHI NAGAR\". along_m is measured along the map's centre line (PROPOSED_CL) from Raila Devi, in the order of MahaMetro's list; the point is 31 m from that line.",
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://x.com/Sunny29223375/status/2117214187919450176",
+        "notes": "Station design tender T1-030/DDC-04/2026; no construction contract was found. Piling for the viaduct began in Nov 2026 (reported)."
+      },
+      "notes": null,
+      "last_verified": "2026-11-03",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "kashinath-ghanekar-natyagruha",
+      "order": 7,
+      "name": "Dr. Kashinath Ghanekar Natyagruha",
+      "name_mr": null,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://thanemetrorail.com/route-map",
+      "dpr_name": null,
+      "kml_name": "Dr. KASHINATH GHANEKAR NATYAGRUHA",
+      "location": {
+        "lng": 72.96992,
+        "lat": 19.229054,
+        "along_m": 7385,
+        "method": "The project's official route map (Google My Maps, on thanemetrorail.com/route-map): point \"Dr. KASHINATH GHANEKAR NATYAGRUHA\". along_m is measured along the map's centre line (PROPOSED_CL) from Raila Devi, in the order of MahaMetro's list; the point is 2 m from that line.",
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://x.com/Sunny29223375/status/2117214187919450176",
+        "notes": "Station design package DDC-01 (with Manpada to Waterfront) is reported; no construction contract was found. Piling for the viaduct began in Nov 2026 (reported)."
+      },
+      "notes": "The route map page spells it \"Natyagraha\"; the map file has \"Natyagruha\", the auditorium's name, which the site follows.",
+      "last_verified": "2026-11-03",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "manpada",
+      "order": 8,
+      "name": "Manpada",
+      "name_mr": null,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://thanemetrorail.com/route-map",
+      "dpr_name": null,
+      "kml_name": "MANPADA",
+      "location": {
+        "lng": 72.970979,
+        "lat": 19.2356,
+        "along_m": 8144,
+        "method": "The project's official route map (Google My Maps, on thanemetrorail.com/route-map): point \"MANPADA\". along_m is measured along the map's centre line (PROPOSED_CL) from Raila Devi, in the order of MahaMetro's list; the point is 28 m from that line.",
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://x.com/Sunny29223375/status/2117214187919450176",
+        "notes": "Station construction package C-02 (six elevated stations, T1-023/C-02/2025) was tendered in Nov 2025; one bid was reported and no award was found. Piling for the viaduct began in Nov 2026 (reported)."
+      },
+      "notes": null,
+      "last_verified": "2026-11-03",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "dongripada",
+      "order": 9,
+      "name": "Dongripada",
+      "name_mr": null,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://thanemetrorail.com/route-map",
+      "dpr_name": null,
+      "kml_name": "DONGRIPADA",
+      "location": {
+        "lng": 72.974207,
+        "lat": 19.249231,
+        "along_m": 9976,
+        "method": "The project's official route map (Google My Maps, on thanemetrorail.com/route-map): point \"DONGRIPADA\". along_m is measured along the map's centre line (PROPOSED_CL) from Raila Devi, in the order of MahaMetro's list; the point is 32 m from that line.",
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "interchanges": {
+        "value": [
+          "Metro Line 4 (Wadala-Kasarvadavali)"
+        ],
+        "status": "reported",
+        "source_url": "https://housing.com/news/thane-internal-ring-metro-project/",
+        "notes": "housing.com (Nov 2025) lists an interchange with Line 4 here. On the ring's official map file, Line 4's Dongari Pada is 186 m away. Neither MahaMetro nor MMRDA calls the two an interchange."
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://x.com/Sunny29223375/status/2117214187919450176",
+        "notes": "Station construction package C-02 (six elevated stations, T1-023/C-02/2025) was tendered in Nov 2025; one bid was reported and no award was found. Piling for the viaduct began in Nov 2026 (reported)."
+      },
+      "notes": null,
+      "last_verified": "2026-11-03",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "vijay-nagari",
+      "order": 10,
+      "name": "Vijay Nagari",
+      "name_mr": null,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://thanemetrorail.com/route-map",
+      "dpr_name": null,
+      "kml_name": "VIJAY NAGARI",
+      "location": {
+        "lng": 72.973205,
+        "lat": 19.255678,
+        "along_m": 10728,
+        "method": "The project's official route map (Google My Maps, on thanemetrorail.com/route-map): point \"VIJAY NAGARI\". along_m is measured along the map's centre line (PROPOSED_CL) from Raila Devi, in the order of MahaMetro's list; the point is 33 m from that line.",
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://x.com/Sunny29223375/status/2117214187919450176",
+        "notes": "Station construction package C-02 (six elevated stations, T1-023/C-02/2025) was tendered in Nov 2025; one bid was reported and no award was found. Piling for the viaduct began in Nov 2026 (reported)."
+      },
+      "notes": "The route map page writes \"Vijaynagari\"; the map file and the station tender write Vijay Nagari.",
+      "last_verified": "2026-11-03",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "waghbil",
+      "order": 11,
+      "name": "Waghbil",
+      "name_mr": null,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://thanemetrorail.com/route-map",
+      "dpr_name": null,
+      "kml_name": "WAGHBIL",
+      "location": {
+        "lng": 72.979541,
+        "lat": 19.264131,
+        "along_m": 11974,
+        "method": "The project's official route map (Google My Maps, on thanemetrorail.com/route-map): point \"WAGHBIL\". along_m is measured along the map's centre line (PROPOSED_CL) from Raila Devi, in the order of MahaMetro's list; the point is 31 m from that line.",
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "context": [
+        {
+          "text": "The car depot is north of Waghbil, at Kasarvadavali; the depot link leaves the ring between Waghbil and Waterfront (official map file; MahaMetro tender T1-022/ELE-02/2025).",
+          "source_url": "https://thanemetrorail.com/Tenders",
+          "status": "verified"
+        }
+      ],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://x.com/Sunny29223375/status/2117214187919450176",
+        "notes": "Station construction package C-02 (six elevated stations, T1-023/C-02/2025) was tendered in Nov 2025; one bid was reported and no award was found. Piling for the viaduct began in Nov 2026 (reported)."
+      },
+      "notes": null,
+      "last_verified": "2026-11-03",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "waterfront",
+      "order": 12,
+      "name": "Waterfront",
+      "name_mr": null,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://thanemetrorail.com/route-map",
+      "dpr_name": null,
+      "kml_name": "WATERFRONT",
+      "location": {
+        "lng": 72.988679,
+        "lat": 19.262741,
+        "along_m": 13043,
+        "method": "The project's official route map (Google My Maps, on thanemetrorail.com/route-map): point \"WATERFRONT\". along_m is measured along the map's centre line (PROPOSED_CL) from Raila Devi, in the order of MahaMetro's list; the point is 33 m from that line.",
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://x.com/Sunny29223375/status/2117214187919450176",
+        "notes": "Station construction package C-02 (six elevated stations, T1-023/C-02/2025) was tendered in Nov 2025; one bid was reported and no award was found. Piling for the viaduct began in Nov 2026 (reported)."
+      },
+      "notes": null,
+      "last_verified": "2026-11-03",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "patlipada",
+      "order": 13,
+      "name": "Patlipada",
+      "name_mr": null,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://thanemetrorail.com/route-map",
+      "dpr_name": null,
+      "kml_name": "PATLIPADA",
+      "location": {
+        "lng": 72.983381,
+        "lat": 19.247191,
+        "along_m": 15102,
+        "method": "The project's official route map (Google My Maps, on thanemetrorail.com/route-map): point \"PATLIPADA\". along_m is measured along the map's centre line (PROPOSED_CL) from Raila Devi, in the order of MahaMetro's list; the point is 34 m from that line.",
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://x.com/Sunny29223375/status/2117214187919450176",
+        "notes": "Station construction package C-02 (six elevated stations, T1-023/C-02/2025) was tendered in Nov 2025; one bid was reported and no award was found. Piling for the viaduct began in Nov 2026 (reported)."
+      },
+      "notes": null,
+      "last_verified": "2026-11-03",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "azad-nagar-bus-stop",
+      "order": 14,
+      "name": "Azad Nagar Bus Stop",
+      "name_mr": null,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://thanemetrorail.com/route-map",
+      "dpr_name": null,
+      "kml_name": "AZAD NAGAR BUS STOP",
+      "location": {
+        "lng": 72.981195,
+        "lat": 19.240844,
+        "along_m": 15936,
+        "method": "The project's official route map (Google My Maps, on thanemetrorail.com/route-map): point \"AZAD NAGAR BUS STOP\". along_m is measured along the map's centre line (PROPOSED_CL) from Raila Devi, in the order of MahaMetro's list; the point is 31 m from that line.",
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://x.com/Sunny29223375/status/2117214187919450176",
+        "notes": "Station design tender T1-031/DDC-05/2026; no construction contract was found. Piling for the viaduct began in Nov 2026 (reported)."
+      },
+      "notes": null,
+      "last_verified": "2026-11-03",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "manorama-nagar",
+      "order": 15,
+      "name": "Manorama Nagar",
+      "name_mr": null,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://thanemetrorail.com/route-map",
+      "dpr_name": null,
+      "kml_name": "MANORMA NAGAR",
+      "location": {
+        "lng": 72.983937,
+        "lat": 19.235183,
+        "along_m": 16977,
+        "method": "The project's official route map (Google My Maps, on thanemetrorail.com/route-map): point \"MANORMA NAGAR\". along_m is measured along the map's centre line (PROPOSED_CL) from Raila Devi, in the order of MahaMetro's list; the point is 34 m from that line.",
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://x.com/Sunny29223375/status/2117214187919450176",
+        "notes": "Station design tender T1-031/DDC-05/2026; no construction contract was found. Piling for the viaduct began in Nov 2026 (reported)."
+      },
+      "notes": "The route map page and map file write \"Manorma Nagar\"; MahaMetro's design tender (T1-031/DDC-05/2026) writes Manorama Nagar, the locality's usual spelling, which the site follows.",
+      "last_verified": "2026-11-03",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "kolshet-industrial-area",
+      "order": 16,
+      "name": "Kolshet Industrial Area",
+      "name_mr": null,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://thanemetrorail.com/route-map",
+      "dpr_name": null,
+      "kml_name": "KOLSHET INDUSTRIAL AREA",
+      "location": {
+        "lng": 72.995036,
+        "lat": 19.231177,
+        "along_m": 18306,
+        "method": "The project's official route map (Google My Maps, on thanemetrorail.com/route-map): point \"KOLSHET INDUSTRIAL AREA\". along_m is measured along the map's centre line (PROPOSED_CL) from Raila Devi, in the order of MahaMetro's list; the point is 33 m from that line.",
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://x.com/Sunny29223375/status/2117214187919450176",
+        "notes": "Station design tender T1-031/DDC-05/2026; no construction contract was found. Piling for the viaduct began in Nov 2026 (reported)."
+      },
+      "notes": null,
+      "last_verified": "2026-11-03",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "balkum-naka",
+      "order": 17,
+      "name": "Balkum Naka",
+      "name_mr": null,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://thanemetrorail.com/route-map",
+      "dpr_name": null,
+      "kml_name": "BALKUM NAKA",
+      "location": {
+        "lng": 72.997739,
+        "lat": 19.222354,
+        "along_m": 19487,
+        "method": "The project's official route map (Google My Maps, on thanemetrorail.com/route-map): point \"BALKUM NAKA\". along_m is measured along the map's centre line (PROPOSED_CL) from Raila Devi, in the order of MahaMetro's list; the point is 36 m from that line.",
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "interchanges": {
+        "value": [
+          "Metro Line 5 (Thane-Bhiwandi-Kalyan)"
+        ],
+        "status": "reported",
+        "source_url": "https://housing.com/news/thane-internal-ring-metro-project/",
+        "notes": "housing.com (Nov 2025) lists an interchange with Line 5 here. On the ring's official map file the two Balkum Naka stations are 976 m apart: the ring's is on Balkum Pipeline Road. Neither project calls them an interchange."
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://x.com/Sunny29223375/status/2117214187919450176",
+        "notes": "Station design tender T1-031/DDC-05/2026; no construction contract was found. Piling for the viaduct began in Nov 2026 (reported)."
+      },
+      "notes": null,
+      "last_verified": "2026-11-03",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "balkumpada",
+      "order": 18,
+      "name": "Balkumpada",
+      "name_mr": null,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://thanemetrorail.com/route-map",
+      "dpr_name": null,
+      "kml_name": "BALKUMPADA",
+      "location": {
+        "lng": 72.993527,
+        "lat": 19.214513,
+        "along_m": 20470,
+        "method": "The project's official route map (Google My Maps, on thanemetrorail.com/route-map): point \"BALKUMPADA\". along_m is measured along the map's centre line (PROPOSED_CL) from Raila Devi, in the order of MahaMetro's list; the point is 36 m from that line.",
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://x.com/Sunny29223375/status/2117214187919450176",
+        "notes": "Station design tender T1-031/DDC-05/2026; no construction contract was found. Piling for the viaduct began in Nov 2026 (reported)."
+      },
+      "notes": "MahaMetro's design tender writes \"Balkum Pada\".",
+      "last_verified": "2026-11-03",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "rabodi",
+      "order": 19,
+      "name": "Rabodi",
+      "name_mr": null,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://thanemetrorail.com/route-map",
+      "dpr_name": null,
+      "kml_name": "RABODI",
+      "location": {
+        "lng": 72.991175,
+        "lat": 19.206944,
+        "along_m": 21367,
+        "method": "The project's official route map (Google My Maps, on thanemetrorail.com/route-map): point \"RABODI\". along_m is measured along the map's centre line (PROPOSED_CL) from Raila Devi, in the order of MahaMetro's list; the point is 36 m from that line.",
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://x.com/Sunny29223375/status/2117214187919450176",
+        "notes": "Station design tender T1-031/DDC-05/2026; no construction contract was found. Piling for the viaduct began in Nov 2026 (reported)."
+      },
+      "notes": null,
+      "last_verified": "2026-11-03",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "shivaji-chowk",
+      "order": 20,
+      "name": "Shivaji Chowk",
+      "name_mr": null,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://thanemetrorail.com/route-map",
+      "dpr_name": null,
+      "kml_name": "SHIVAJI CHOWK",
+      "location": {
+        "lng": 72.986565,
+        "lat": 19.200598,
+        "along_m": 22249,
+        "method": "The project's official route map (Google My Maps, on thanemetrorail.com/route-map): point \"SHIVAJI CHOWK\". along_m is measured along the map's centre line (PROPOSED_CL) from Raila Devi, in the order of MahaMetro's list; the point is 35 m from that line.",
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://x.com/Sunny29223375/status/2117214187919450176",
+        "notes": "Station design tender T1-031/DDC-05/2026; no construction contract was found. Piling for the viaduct began in Nov 2026 (reported)."
+      },
+      "notes": null,
+      "last_verified": "2026-11-03",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "thane-junction",
+      "order": 21,
+      "name": "Thane Junction",
+      "name_mr": null,
+      "type": "Underground",
+      "name_status": "verified",
+      "name_source_url": "https://thanemetrorail.com/route-map",
+      "dpr_name": null,
+      "kml_name": "THANE JUNCTION",
+      "location": {
+        "lng": 72.976712,
+        "lat": 19.186813,
+        "along_m": 24219,
+        "method": "The project's official route map (Google My Maps, on thanemetrorail.com/route-map): point \"THANE JUNCTION\". along_m is measured along the map's centre line (PROPOSED_CL) from Raila Devi, in the order of MahaMetro's list; the point is 37 m from that line.",
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "interchanges": {
+        "value": [
+          "Central Railway (Thane)"
+        ],
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/Tenders",
+        "notes": "Underground at Thane suburban railway station. MahaMetro's tenders name the station Thane Junction; The Metro Rail Guy (Aug 2024) reports a passenger interchange with Thane station."
+      },
+      "context": [
+        {
+          "text": "One of the two underground stations, with New Thane. MahaMetro invited design bids for both in Dec 2025 and again in Aug 2026 (T1-024/DDC-03/2025, T1-038/DDC-06/2026).",
+          "source_url": "https://thanemetrorail.com/Tenders",
+          "status": "verified"
+        }
+      ],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://x.com/Sunny29223375/status/2117214187919450176",
+        "notes": "Station design tenders T1-024/DDC-03/2025 and T1-038/DDC-06/2026; no construction contract was found. Piling for the viaduct began in Nov 2026 (reported)."
+      },
+      "notes": null,
+      "last_verified": "2026-11-03",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "new-thane",
+      "order": 22,
+      "name": "New Thane",
+      "name_mr": null,
+      "type": "Underground",
+      "name_status": "verified",
+      "name_source_url": "https://thanemetrorail.com/route-map",
+      "dpr_name": null,
+      "kml_name": "NEW THANE",
+      "location": {
+        "lng": 72.963982,
+        "lat": 19.180566,
+        "along_m": 25784,
+        "method": "The project's official route map (Google My Maps, on thanemetrorail.com/route-map): point \"NEW THANE\". along_m is measured along the map's centre line (PROPOSED_CL) from Raila Devi, in the order of MahaMetro's list; the point is 33 m from that line.",
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://thanemetrorail.com/route-map"
+      },
+      "context": [
+        {
+          "text": "Underground, near the Kopri bridge, as reported. One of the two underground stations, with Thane Junction.",
+          "source_url": "https://x.com/RahulChels/status/2014923146797973882",
+          "status": "reported"
+        }
+      ],
+      "construction_status": {
+        "value": "Not started",
+        "status": "reported",
+        "source_url": "https://x.com/Sunny29223375/status/2117214187919450176",
+        "notes": "Station design tenders T1-024/DDC-03/2025 and T1-038/DDC-06/2026; no construction contract was found. Piling for the viaduct began in Nov 2026 (reported)."
+      },
+      "notes": null,
+      "last_verified": "2026-11-03",
+      "dpr_chainage_m": null
+    }
+  ]
+}

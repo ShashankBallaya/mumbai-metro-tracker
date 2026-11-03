@@ -545,6 +545,59 @@ Research of 2026-10-30 for `src/data/lines/line-7a/`, with the tender search. 7A
 - The telecom (Efkon), radio and fare collection (LTTS) contracts for Lines 9 and 7A, read in full; any signalling award.
 - The Airports Authority's decision on the height limit.
 
+# Thane Integral Ring Metro (Raila Devi round west Thane to New Thane, and back)
+
+Research of 2026-11-03 for `src/data/lines/thane-ring/`, with the tender search. MahaMetro builds it, not MMRDA, so its primary sources are the Union Cabinet's release and MahaMetro's own Thane Metro website. One section; MahaMetro has published no phases. Page at `/thane-ring/`.
+
+## Primary sources
+
+| Source | Checked | Used for |
+|---|---|---|
+| Union Cabinet release, "Cabinet approves Thane integral Ring Metro Rail Project", 16 Aug 2024 (PIB Release ID 2046082; read on pmindia.gov.in) | 2026-11-03 | 29 km (26 elevated, 3 underground), 22 stations, Rs 12,200.10 crore, equal equity from the Centre and the State with part-funding from bilateral agencies, riders 6.47, 7.61 and 8.72 lakh a day in 2029, 2035 and 2045, MahaMetro to build, due 2029 |
+| MahaMetro, Thane Metro website, route map page (thanemetrorail.com/route-map) | 2026-11-03 | The 22 stations in order, from Raila Devi to New Thane; Thane Junction and New Thane underground |
+| The project's map file ("Thane Metro Route Map", Google My Maps, embedded on the route map page; KML export) | 2026-11-03 | A CAD drawing: the ring's closed centre line (PROPOSED_CL, 27.45 km), a point for each station, the ramp between New Thane and Raila Devi, the depot tracks at Kasarvadavali and the depot link. It also draws Lines 4 and 5 |
+| MahaMetro, Thane Metro website, tenders page | 2026-11-03 | Every notice and award it lists (see tenders.json): the station packages C-02, DDC-04, DDC-05, DDC-03 and DDC-06 (underground section "approx 3.0 km including ramps"), the general consultant (AECOM-Nippon Koei, Rs 179.85 crore), the TOD plan (Techcomm), the power line shifts with chainages, the driverless consultant shared with Pune Line 4, the PR agency |
+| MahaMetro, Thane Metro website, home page photos | 2026-11-03 | Test pile 1 (1 May 2026), coastal zone team visit (1 May 2026), ADB and KfW visits (28 and 29 Apr 2026); the news list date for the AECOM award (4 Jul 2026) |
+| MahaMetro, Thane Metro website, project update and milestones pages | 2026-11-03 | Both read "Data Not Available": no progress table |
+
+## Secondary sources
+
+| Source | Date | Used for |
+|---|---|---|
+| ThePrint (PTI) | 5 Oct 2024 | The Prime Minister lays the foundation stone |
+| The Metro Rail Guy | 17 Aug 2024 | Passenger interchanges with Lines 4 and 5 and Thane station (no station named) |
+| housing.com | Nov 2025 | Interchanges: Line 4 at Raila Devi and Dongripada, Line 5 at Balkum Naka |
+| Metro Rail Today, NBMCW, Construction World | Nov and Dec 2025 | C-01 viaduct: Rs 1,415 crore to the HG Infra (40%) and Kalpataru (60%) JV, letter of acceptance 10 Dec 2025, 20.527 km from the end of the underground ramp to Balkum Naka with the depot approach; estimate Rs 1,424 crore; six bidders |
+| Construction World, Metro Rail News | early 2026 | C-02: one bid, BBG Infrastructure |
+| Free Press Journal | 10 Feb 2026 | Cost revised from Rs 10,893 crore to Rs 12,200.10 crore; earlier target 2025; bid terms of 5 years for the underground stations and 2.5 for the elevated |
+| Free Press Journal | 15 Apr 2026 | Works begin in the Ghodbunder area; 3,000 trees sanctioned for felling |
+| Free Press Journal | 16 Oct 2026 | MahaMetro's MD Shravan Hardikar: target September 2029, about 3,200 trees removed and 37,000 planted, six-car driverless trains, route objections near Manorama Nagar and Azad Nagar |
+| Posts on X picked by the owner (social.json): @RahulChels, @Sunny29223375, @bodkeitis | Jan to Nov 2026 | Underground station design bids; two design bidders (STUP, SYSTRA MVA); CRZ clearance (22 Jul 2026); soil testing at Raila Devi (10 Sep 2026); piling begun (2 Nov 2026) |
+
+## Derived data
+
+- `scripts/build-alignment-thane-ring.py` reads the map file's closed centre line, starts it at Raila Devi (the first station on MahaMetro's list) and runs it in the list's order back to Raila Devi, so the drawn line closes the ring. Every station point is 2 to 37 m from the line (the points sit on the station's side of the road). The stations fall in MahaMetro's order.
+- Underground stretch: it ends where the file's ramp meets the line (26.70 km round, between New Thane and Raila Devi) and starts 3.0 km before it (23.70 km, past Shivaji Chowk): MahaMetro's "approx 3.0 km including ramps". The other ramp is not drawn on the map.
+- Check: from the end of the ramp round to Balkum Naka is 20.24 km on the line, against the viaduct contract's 20.527 km with the depot approach.
+- The strip and the ride draw the ring opened out at Raila Devi: alignment property `ring` with `length_m`; both ends read Raila Devi.
+
+## Items that need your review
+
+1. **Stage.** Moved from "approved, not started" to "under construction": the viaduct contract was awarded (reported), MahaMetro's photos show a test pile (1 May 2026), and piling was reported begun on 2 Nov 2026. Station contracts are not awarded.
+2. **Colour.** MahaMetro publishes none. The site uses violet (#6a3fb0), its own choice: the Thane Metro website's blue and orange are already Line 1's and Lines 5 and 12's on this site. Graded unverified. Change it if you prefer another.
+3. **Countdown.** To 30 Sep 2029, from the MD's "September 2029" (reported); the Cabinet said 2029.
+4. **Start of the ring.** Raila Devi, as MahaMetro's list starts there and a post on X calls it the start of phase 1. Thane Junction would be the other natural start.
+5. **Station names.** Shivai Nagar (route map page: "Shivaji Nagar"), Dr. Kashinath Ghanekar Natyagruha ("Natyagraha"), Manorama Nagar ("Manorma Nagar"), Vijay Nagari ("Vijaynagari"): the site follows the map file and the tenders. No Marathi names: MahaMetro publishes none.
+6. **Interchanges.** None is official. Shown as reported: Line 4 at Dongripada (186 m) and Raila Devi (about 0.8 km), Line 5 at Balkum Naka (976 m), Central Railway at Thane Junction.
+7. **Hub art and lead picture.** None: the map-first hub needs no chapter art; a ground photo of the piling would make a lead picture.
+
+## Not found
+
+- MahaMetro's own notice of the C-01 award, and the C-02 award.
+- Any MahaMetro progress figure.
+- The proposed extensions to Bhiwandi, Kalyan, Kalwa, Mumbra and Diva (reported on MahaMetro's news list, Sep 2026; not read in full).
+- A travel-time figure.
+
 # The network (hub map, all MMR lines)
 
 Research of 2026-10-29 for `src/data/network.json` (first draft). The four tracked lines take their facts from their own files; this section covers the other 17 entries.
@@ -577,7 +630,7 @@ Research of 2026-10-29 for `src/data/network.json` (first draft). The four track
 ## Items that need your review
 
 1. **Stage definitions** (HUB-PLAN.md). Line 4's first stretch and Line 5's Phase 1 are built but not open, so they stay "under construction" until passengers ride.
-2. **Thane ring.** Union Cabinet approval (Aug 2024) and the Kalpataru and HG Infra viaduct contract come from search results only. If works have started, it moves to "under construction".
+2. **Thane ring.** Now tracked in full at `/thane-ring/` and moved to "under construction" (2026-11-03); see "Thane Integral Ring Metro" above.
 3. **Line 8.** A Jan 2026 approval by the state's Cabinet Infrastructure Committee at Rs 22,862 crore is reported (Lokmat Times), but the page refused the fetch.
 4. **Line 11.** Is it one line from Bandra Terminus to Gateway, or Line 4's extension plus a branch? Sources differ.
 5. **Line 2B stations.** MMRDA says both 19 and 20. Line 2B now has its own page; see Line 2B above.
@@ -586,5 +639,5 @@ Research of 2026-10-29 for `src/data/network.json` (first draft). The four track
 ## Not found
 
 - Line 1, 3, 9, 10, 11, 13 and 14 colours from a primary source.
-- A works contract or start for Lines 8, 10, 11, 13 and the Thane ring.
+- A works contract or start for Lines 8, 10, 11 and 13.
 - CIDCO's own page for Navi Mumbai Metro Line 2.
