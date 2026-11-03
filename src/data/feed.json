@@ -1,17 +1,27 @@
 {
   "_meta": {
     "description": "Written by scripts/fetch-feed.mjs. Do not edit by hand: add an item's URL to exclude_urls in feed-sources.json to hide it. Items are found automatically and are not checked by a person.",
-    "updated_at": "2026-11-03T07:00:42.695Z",
+    "updated_at": "2026-11-03T19:40:01.432Z",
     "updated_at_by_line": {
       "line-12": "2026-10-15T17:11:33.436Z",
       "line-12a": "2026-10-29T06:02:07.530Z",
-      "line-5": "2026-11-03T07:00:42.695Z",
+      "line-5": "2026-11-03T19:40:01.432Z",
       "line-2b": "2026-10-30T22:30:48.988Z",
       "line-6": "2026-10-29T06:02:07.530Z",
-      "line-7a": "2026-10-30T22:30:48.988Z"
+      "line-7a": "2026-10-30T22:30:48.988Z",
+      "thane-ring": "2026-11-03T19:40:01.432Z"
     }
   },
   "news": [
+    {
+      "title": "Metro 5 Extension Moves Closer To Ulhasnagar As MMRDA Floats Tenders For Three Phases",
+      "outlet": "Re-Mumbai",
+      "date": "2026-11-03",
+      "url": "https://remumbai.in/2026/11/03/metro-5-extension-moves-closer-to-ulhasnagar-as-mmrda-floats-tenders-for-three-phases/",
+      "lines": [
+        "line-5"
+      ]
+    },
     {
       "title": "Mumbai Metro Line 5 Extension: 19 Stations Planned To Connect Thane, Bhiwandi, Kalyan & Ulhasnagar",
       "outlet": "Re-Mumbai",
@@ -67,6 +77,15 @@
       ]
     },
     {
+      "title": "Thane Ring Metro: PIL Challenges TMC Nod To Cut 520 Trees",
+      "outlet": "Re-Mumbai",
+      "date": "2026-10-21",
+      "url": "https://remumbai.in/2026/10/21/thane-ring-metro-pil-challenges-tmc-nod-to-cut-520-trees/",
+      "lines": [
+        "thane-ring"
+      ]
+    },
+    {
       "title": "Mumbai Metro Line 7A Height Dispute Nears Breakthrough After Airport Survey",
       "outlet": "Re-Mumbai",
       "date": "2026-10-20",
@@ -82,6 +101,15 @@
       "url": "https://metrorailnews.in/projects/mumbai-metro-line-2a/",
       "lines": [
         "line-2b"
+      ]
+    },
+    {
+      "title": "Union Cabinet Approves Rs 12,200 Crore Thane Integral Ring Metro Project",
+      "outlet": "Re-Mumbai",
+      "date": "2026-10-19",
+      "url": "https://remumbai.in/2026/10/19/union-cabinet-approves-rs-12200-crore-thane-integral-ring-metro-project/",
+      "lines": [
+        "thane-ring"
       ]
     },
     {
@@ -175,12 +203,41 @@
       ]
     },
     {
+      "title": "Thane Ring Metro Gains Direct Links to Mumbai, Kalyan and Bhiwandi",
+      "outlet": "Urban Acres",
+      "date": "2026-09-22",
+      "url": "https://urbanacres.in/thane-ring-metro-gains-direct-links-to-mumbai-kalyan-and-bhiwandi/",
+      "lines": [
+        "line-5",
+        "thane-ring"
+      ]
+    },
+    {
+      "title": "Thane Ring Metro Set for Mumbai, Bhiwandi and Kalyan Links",
+      "outlet": "Urban Acres",
+      "date": "2026-09-22",
+      "url": "https://urbanacres.in/thane-ring-metro-set-for-mumbai-bhiwandi-and-kalyan-links/",
+      "lines": [
+        "line-5",
+        "thane-ring"
+      ]
+    },
+    {
       "title": "Mumbai Metro 2B: Shunya Iconic Bridge Enters Key Construction Phase",
       "outlet": "Re-Mumbai",
       "date": "2026-09-18",
       "url": "https://remumbai.in/2026/09/18/mumbai-metro-2b-shunya-iconic-bridge-enters-key-construction-phase/",
       "lines": [
         "line-2b"
+      ]
+    },
+    {
+      "title": "Thane Ring Metro Faces a Test Beyond Its Rs 12,100-Crore Cost",
+      "outlet": "Urban Acres",
+      "date": "2026-09-07",
+      "url": "https://urbanacres.in/thane-ring-metro-faces-a-test-beyond-its-rs-12100-crore-cost/",
+      "lines": [
+        "thane-ring"
       ]
     },
     {
@@ -307,6 +364,24 @@
       "url": "https://remumbai.in/2026/07/17/mmrda-installs-three-metro-girders-over-central-railway-tracks-to-accelerate-metro-line-2b-work/",
       "lines": [
         "line-2b"
+      ]
+    },
+    {
+      "title": "AECOM India-Nippon Koei JV wins general consultancy contract of Thane Metro",
+      "outlet": "Metro Rail News",
+      "date": "2026-07-04",
+      "url": "https://metrorailnews.in/aecom-india-nippon-koei-jv-wins-general-consultancy-contract-of-thane-metro/",
+      "lines": [
+        "thane-ring"
+      ]
+    },
+    {
+      "title": "Thane Ring Metro Balances Growth And Ecology",
+      "outlet": "Urban Acres",
+      "date": "2026-06-29",
+      "url": "https://urbanacres.in/thane-ring-metro-balances-growth-and-ecology/",
+      "lines": [
+        "thane-ring"
       ]
     },
     {
@@ -456,6 +531,15 @@
       ]
     },
     {
+      "title": "Thane Ring Metro To Ease Commute For Ghodbunder And Wagle Estate Residents",
+      "outlet": "Re-Mumbai",
+      "date": "2025-12-18",
+      "url": "https://remumbai.in/2025/12/18/thane-ring-metro-to-ease-commute-for-ghodbunder-and-wagle-estate-residents/",
+      "lines": [
+        "thane-ring"
+      ]
+    },
+    {
       "title": "Landmark Corporation Receives LoA for Architectural Finishing Works Contract of Mumbai Metro Line 2B",
       "outlet": "Metro Rail News",
       "date": "2025-12-17",
@@ -498,6 +582,24 @@
       "url": "https://metrorailnews.in/dev-engineers-bags-contract-of-mumbai-metro/",
       "lines": [
         "line-2b"
+      ]
+    },
+    {
+      "title": "Kalpataru - HG Infra JV Wins Thane Metro’s Construction Contract C-01",
+      "outlet": "The Metro Rail Guy",
+      "date": "2025-11-24",
+      "url": "https://themetrorailguy.com/2025/11/24/kalpataru-hg-infra-jv-wins-thane-metros-construction-contract-c-01/",
+      "lines": [
+        "thane-ring"
+      ]
+    },
+    {
+      "title": "Maha-Metro awards Rs. 1,415 crore Thane Metro viaduct contract to HG Infra-Kalpataru Joint Venture",
+      "outlet": "Rail Analysis India",
+      "date": "2025-11-22",
+      "url": "https://railanalysis.in/metro/maha-metro-awards-rs-1415-crore-thane-metro-viaduct-contract-to-hg-infra-kalpataru-joint-venture/",
+      "lines": [
+        "thane-ring"
       ]
     }
   ],
