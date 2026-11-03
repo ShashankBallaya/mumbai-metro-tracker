@@ -563,6 +563,7 @@ The line pages' motion.ts runs on the hub (Lenis, lerp 0.12); in-page links glid
 - **Many line colours on one page.** The One Signal Rule still holds for orange; the line colours are additional, and only as marks, strokes and the bundle.
 - **Sections** indent past the bundle, and their 4px rule starts after it.
 - **No lead picture, no halftone, no photos.** The map is the front page's picture.
+- **The hub's share card (`/og/hub/`, public/og.png)** is the one place the hub prints a photo: the owner's Shunya bridge pylon (Line 2B, 24 May 2026) full bleed, the paper's name across its sky in display type (142px, paper ink, a navy shade from the top for contrast), and a navy strip under a 0.5rem orange bar with the address, the tracked lines' marks and the photo credit. Owner's choice, 2026-11-03.
 
 ### Do's and Don'ts (hub)
 

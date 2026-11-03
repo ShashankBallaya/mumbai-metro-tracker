@@ -14,6 +14,12 @@
         "value": "anek devanagari mark",
         "createdAt": "2026-10-29T09:29:14.612Z",
         "reason": "DESIGN.md Typography names Anek Devanagari for the decorative Marathi mark; pre-existing subset face"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "anek devanagari",
+        "createdAt": "2026-11-03T17:03:41.511Z",
+        "reason": "DESIGN.md Typography names Anek Devanagari 700 as the masthead Marathi face (prose, not frontmatter); used for the same mark on the X card"
       }
     ]
   }

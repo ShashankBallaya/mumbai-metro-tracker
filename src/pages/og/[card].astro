@@ -34,11 +34,18 @@ const all = lines.map((l) => getLine(l.id));
       /* The underground stretch: the casing broken by paper, as on the line pages. */
       .tunnel { stroke: var(--paper); stroke-width: 22px; fill: none; stroke-dasharray: 12px 9px; }
       .dot { fill: var(--ink); stroke: var(--paper); stroke-width: 4px; }
-      /* Two columns of short rows (label and route), so the list fits as lines are added (seven since Line 7A). */
-      .lines { list-style: none; margin: 0 56px 36px; padding: 0; display: grid; grid-template-columns: 1fr 1fr; grid-auto-flow: column; grid-template-rows: repeat(var(--rows), auto); gap: 12px 40px; }
-      .lines li { display: flex; align-items: baseline; gap: 16px; font-size: 26px; color: var(--ink); min-width: 0; }
-      .lines b { font-family: var(--font-display); font-weight: 800; font-stretch: 75%; min-width: 72px; padding: 4px 10px 0; text-align: center; background: var(--signal); color: var(--on-signal); }
-      .lines span { color: var(--ink-2); font-size: 22px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      /* The hub card */
+      .hubcard { position: relative; height: 630px; overflow: hidden; background: #0c1422; }
+      .hubcard__photo { position: absolute; inset: 0 0 auto; width: 1200px; height: 1600px; object-fit: cover; transform: translateY(-262px); }
+      .hubcard::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, rgb(12 20 34 / 0.6), rgb(12 20 34 / 0.15) 30%, rgb(12 20 34 / 0) 48%); }
+      .hubcard__name { position: absolute; z-index: 2; top: 30px; left: 0; right: 0; margin: 0; text-align: center; color: #f6f1e7;
+        font-family: var(--font-display); font-weight: 800; font-stretch: 75%; font-size: 142px; line-height: 0.85; letter-spacing: -0.015em; text-transform: uppercase; }
+      .hubcard__strip { position: absolute; z-index: 2; left: 0; right: 0; bottom: 0; height: 104px; padding: 0 48px; background: #0c1422; color: #ece5d8;
+        display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; column-gap: 28px; align-content: center; border-top: 8px solid #f26b1d; }
+      .hubcard__url { margin: 0; font-family: var(--font-display); font-weight: 800; font-stretch: 75%; font-size: 46px; line-height: 1; text-transform: uppercase; color: #f26b1d; }
+      .hubcard__marks { list-style: none; margin: 0; padding: 0; display: flex; gap: 7px; justify-self: end; align-self: center; }
+      .hubcard__marks li { font-family: var(--font-display); font-weight: 800; font-stretch: 75%; font-size: 24px; line-height: 1; min-width: 44px; padding: 6px 7px 3px; text-align: center; border-radius: 3px; background: var(--signal); color: var(--on-signal); }
+      .hubcard__credit { grid-column: 1 / -1; margin: 8px 0 0; font-size: 17px; letter-spacing: 0.04em; text-transform: uppercase; color: #bfb7a9; }
     </style>
   </head>
   <body>
@@ -60,17 +67,18 @@ const all = lines.map((l) => getLine(l.id));
         </svg>
       </div>
     ) : (
-      <div class="card">
-        <div class="band"><b>Mumbai Metro</b><span>The unofficial tracker</span></div>
-        <div class="body">
-          <h1>{SITE_NAME}</h1>
-          <p>Every fact with its grade and source. Facts checked {formatDate(siteReviewed)}.</p>
+      /* The hub card: the owner's photo of the Line 2B arch at Shunya bridge (24 May 2026), the paper's name
+         across its sky, and a navy strip with the address, the tracked lines and the photo credit. */
+      <div class="hubcard">
+        <img class="hubcard__photo" src="/photos/shunya-bridge-2026-05-24-a.jpg" alt="" />
+        <h1 class="hubcard__name">{SITE_NAME}</h1>
+        <div class="hubcard__strip">
+          <p class="hubcard__url">mumbaimetrotracker.com</p>
+          <ul class="hubcard__marks">
+            {all.map((l) => <li data-accent={l.info.colour !== 'line-orange' ? l.info.colour : undefined}>{l.info.number}</li>)}
+          </ul>
+          <p class="hubcard__credit">Every fact sourced. Not affiliated with MMRDA. Photo: Shunya bridge, Line 2B, BKC, 24 May 2026, by Shashank Ballaya</p>
         </div>
-        <ul class="lines" style={`--rows:${Math.ceil(all.length / 2)}`}>
-          {all.map((l) => (
-            <li data-accent={l.info.colour !== 'line-orange' ? l.info.colour : undefined}><b>{l.info.number}</b>{l.info.label} <span>{l.info.route_short}</span></li>
-          ))}
-        </ul>
       </div>
     )}
   </body>
