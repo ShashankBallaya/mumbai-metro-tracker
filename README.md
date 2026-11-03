@@ -4,7 +4,7 @@ An unofficial, public-interest website that tracks the Mumbai Metro lines MMRDA 
 
 **Not affiliated with MMRDA or the Government of Maharashtra.**
 
-Live site: https://line12-tracker.pages.dev (the Cloudflare Pages project keeps its first name until the domain move)
+Live site: https://www.mumbaimetrotracker.com (the bare domain and the old `line12-tracker.pages.dev` address redirect here; the Cloudflare Pages project is still named `line12-tracker`)
 
 ## Stack
 

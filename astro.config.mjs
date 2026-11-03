@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 
 // Static-first build for Cloudflare Pages. No adapter: every page is prerendered.
 export default defineConfig({
-  site: 'https://line12-tracker.pages.dev',
+  site: 'https://www.mumbaimetrotracker.com',
   output: 'static',
   build: { inlineStylesheets: 'auto' },
   // `astro dev` only: bundle the lazily loaded libraries up front. Otherwise Vite finds them when the map or the

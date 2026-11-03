@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /og/
 
-Sitemap: https://line12-tracker.pages.dev/sitemap.xml
+Sitemap: https://www.mumbaimetrotracker.com/sitemap.xml
