@@ -4,7 +4,7 @@
     "zoom": 18,
     "before_rule": "Latest imagery captured before 3 Mar 2024 (foundation stone).",
     "began": "March 2024",
-    "last_reviewed": "2026-10-03"
+    "last_reviewed": "2026-11-03"
   },
   "spots": [
     {
@@ -23,16 +23,16 @@
         "resolution_m": 0.5
       },
       "after": {
-        "release_id": "26334",
-        "release_date": "2026-08-05",
-        "tile_url": "https://wayback.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/WMTS/1.0.0/default028mm/MapServer/tile/26334/{level}/{row}/{col}",
+        "release_id": "43291",
+        "release_date": "2026-10-29",
+        "tile_url": "https://wayback.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/WMTS/1.0.0/default028mm/MapServer/tile/43291/{level}/{row}/{col}",
         "captured": "2025-10-12",
         "provider": "Vantor",
         "resolution_m": 0.5
       },
       "status": "verified",
       "source_url": "https://livingatlas.arcgis.com/wayback/",
-      "last_verified": "2026-10-03"
+      "last_verified": "2026-11-03"
     },
     {
       "id": "dombivli-midc",
@@ -50,16 +50,16 @@
         "resolution_m": 0.5
       },
       "after": {
-        "release_id": "26334",
-        "release_date": "2026-08-05",
-        "tile_url": "https://wayback.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/WMTS/1.0.0/default028mm/MapServer/tile/26334/{level}/{row}/{col}",
+        "release_id": "43291",
+        "release_date": "2026-10-29",
+        "tile_url": "https://wayback.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/WMTS/1.0.0/default028mm/MapServer/tile/43291/{level}/{row}/{col}",
         "captured": "2025-10-12",
         "provider": "Vantor",
         "resolution_m": 0.5
       },
       "status": "verified",
       "source_url": "https://livingatlas.arcgis.com/wayback/",
-      "last_verified": "2026-10-03"
+      "last_verified": "2026-11-03"
     },
     {
       "id": "golavli",
@@ -77,16 +77,16 @@
         "resolution_m": 0.5
       },
       "after": {
-        "release_id": "26334",
-        "release_date": "2026-08-05",
-        "tile_url": "https://wayback.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/WMTS/1.0.0/default028mm/MapServer/tile/26334/{level}/{row}/{col}",
+        "release_id": "43291",
+        "release_date": "2026-10-29",
+        "tile_url": "https://wayback.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/WMTS/1.0.0/default028mm/MapServer/tile/43291/{level}/{row}/{col}",
         "captured": "2025-10-12",
         "provider": "Vantor",
         "resolution_m": 0.5
       },
       "status": "verified",
       "source_url": "https://livingatlas.arcgis.com/wayback/",
-      "last_verified": "2026-10-03"
+      "last_verified": "2026-11-03"
     },
     {
       "id": "sonarpada",
@@ -104,16 +104,16 @@
         "resolution_m": 0.5
       },
       "after": {
-        "release_id": "26334",
-        "release_date": "2026-08-05",
-        "tile_url": "https://wayback.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/WMTS/1.0.0/default028mm/MapServer/tile/26334/{level}/{row}/{col}",
+        "release_id": "43291",
+        "release_date": "2026-10-29",
+        "tile_url": "https://wayback.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/WMTS/1.0.0/default028mm/MapServer/tile/43291/{level}/{row}/{col}",
         "captured": "2025-10-12",
         "provider": "Vantor",
         "resolution_m": 0.5
       },
       "status": "verified",
       "source_url": "https://livingatlas.arcgis.com/wayback/",
-      "last_verified": "2026-10-03"
+      "last_verified": "2026-11-03"
     }
   ]
 }
