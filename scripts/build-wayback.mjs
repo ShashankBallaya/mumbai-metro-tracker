@@ -1,7 +1,8 @@
 // Builds src/data/lines/<line>/beforeafter.json: for each spot along the line, the Esri World Imagery Wayback
 // release that shows the last imagery captured before construction began, and the latest release,
 // each with its real capture date and provider from Esri's imagery metadata.
-// Run: node scripts/build-wayback.mjs <line-id>   (default line-12; needs network; re-run to pick up newer imagery)
+// Run: node scripts/build-wayback.mjs <line-id>   (default line-12; needs network; re-run to pick up newer imagery).
+// The monthly job (.github/workflows/imagery.yml) runs it for every line in LINES; add new lines there too.
 import { readFileSync, writeFileSync } from 'node:fs';
 
 const CONFIG = 'https://s3-us-west-2.amazonaws.com/config.maptiles.arcgis.com/waybackconfig.json';
@@ -39,6 +40,51 @@ const LINES = {
       { id: 'purna', station: 'purna', title: 'Purna' },
       { id: 'anjurphata', station: 'anjurphata', title: 'Anjurphata' },
       { id: 'dhamankar-naka', station: 'dhamankar-naka', title: 'Dhamankar Naka' },
+    ],
+  },
+  'line-2b': {
+    beforeLimit: 20171220, // first civil contract (western section) awarded, 20 Dec 2017
+    rule: 'Latest imagery captured before 20 Dec 2017 (first civil contract awarded).',
+    began: 'December 2017',
+    searchFrom: '2018-06-30',
+    // The eastern stretch, Mandale to Kurla (E), where the viaduct stands along the road.
+    spots: [
+      { id: 'mandale', station: 'mandale', title: 'Mandale' },
+      { id: 'mankhurd', station: 'mankhurd', title: 'Mankhurd' },
+      { id: 'diamond-garden', station: 'diamond-garden', title: 'Diamond Garden' },
+      { id: 'chembur', station: 'chembur', title: 'Chembur' },
+      { id: 'kurla-east', station: 'kurla-east', title: 'Kurla (E)' },
+    ],
+  },
+  'line-4': {
+    beforeLimit: 20180303, // five civil contracts awarded, 3 Mar 2018
+    rule: 'Latest imagery captured before 3 Mar 2018 (civil contracts awarded).',
+    began: 'March 2018',
+    searchFrom: '2018-09-30',
+    // Along LBS Marg and Ghodbunder Road, from Ghatkopar to Thane.
+    spots: [
+      { id: 'garodia-nagar', station: 'garodia-nagar', title: 'Garodia Nagar' },
+      { id: 'vikhroli', station: 'vikhroli', title: 'Vikhroli' },
+      { id: 'bhandup', station: 'bhandup', title: 'Bhandup' },
+      { id: 'mulund-fire-station', station: 'mulund-fire-station', title: 'Mulund Fire Station' },
+      { id: 'teen-haath-naka', station: 'teen-haath-naka', title: 'Teen Haath Naka' },
+      { id: 'cadbury-junction', station: 'cadbury-junction', title: 'Cadbury Junction' },
+      { id: 'kasarvadavali', station: 'kasarvadavali', title: 'Kasarvadavali' },
+    ],
+  },
+  'line-6': {
+    beforeLimit: 20180801, // first civil package awarded, August 2018
+    rule: 'Latest imagery captured before 1 Aug 2018 (first civil package awarded).',
+    began: 'August 2018',
+    searchFrom: '2019-02-28',
+    // Along JVLR, from Jogeshwari to Kanjurmarg.
+    spots: [
+      { id: 'jogeshwari-west', station: 'jogeshwari-west', title: 'Jogeshwari (W)' },
+      { id: 'jvlr', station: 'jvlr', title: 'JVLR' },
+      { id: 'seepz-village', station: 'seepz-village', title: 'SEEPZ Village' },
+      { id: 'powai-lake', station: 'powai-lake', title: 'Powai Lake' },
+      { id: 'iit-powai', station: 'iit-powai', title: 'IIT Powai' },
+      { id: 'kanjur-marg-west', station: 'kanjur-marg-west', title: 'Kanjur Marg (W)' },
     ],
   },
 };
