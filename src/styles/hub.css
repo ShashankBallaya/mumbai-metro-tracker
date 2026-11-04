@@ -635,6 +635,12 @@
   border-top: var(--rule-heavy) solid var(--rule-strong);
   padding-top: var(--s-4);
 }
+/* The table credit spans the full row, in small type. */
+.meet__credit {
+  grid-column: 1 / -1;
+  font-size: var(--step--1);
+  color: var(--ink-2);
+}
 
 /* ---------- Phones and tablets: the map first, the box under it ---------- */
 @media (max-width: 63.99rem) {

@@ -12,7 +12,7 @@ import Base from '../layouts/Base.astro';
 import Masthead from '../components/Masthead.astro';
 import Colophon from '../components/Colophon.astro';
 import Grade from '../components/Grade.astro';
-import { getLine, lineBase, formatDate, outletName, inr, SITE_NAME, type LineId } from '../lib/data';
+import { getLine, lineBase, formatDate, outletName, inr, SITE_NAME, INTERCHANGE_TABLE, type LineId } from '../lib/data';
 import { hasStatusPage } from '../lib/answers';
 import { network, STAGES, networkReviewed, networkDrawing, bundleColours, type NetworkLine, type Stage } from '../lib/network';
 import geometryRaw from '../data/network-geometry.geojson?raw';
@@ -99,6 +99,24 @@ const meets = tracked.flatMap((line) =>
 const kalyan = meets.find((m) => m.st.id === 'kalyan');
 const kapurbawdi = meets.find((m) => m.st.id === 'kapurbawdi');
 const kanjur = meets.find((m) => m.st.id === 'kanjur-marg-west');
+
+// Two more meeting points that Rohan Shanbhag's interchange table names, where the two stations stand apart.
+// Distance between the two published station points, rounded to the metre.
+const metres = (a: { lat: number | null; lng: number | null }, b: { lat: number | null; lng: number | null }) => {
+  const r = Math.PI / 180;
+  const c = Math.sin(a.lat! * r) * Math.sin(b.lat! * r) + Math.cos(a.lat! * r) * Math.cos(b.lat! * r) * Math.cos((b.lng! - a.lng!) * r);
+  return Math.round(6371000 * Math.acos(Math.min(1, c)));
+};
+const tablePair = (lineId: LineId, stId: string, otherId: LineId, otherStId: string) => {
+  const line = tracked.find((x) => x.id === lineId);
+  const other = tracked.find((x) => x.id === otherId);
+  const st = line?.stations.find((x) => x.id === stId);
+  const otherStation = other?.stations.find((x) => x.id === otherStId);
+  if (!line || !other || !st || !otherStation || st.location.lat === null || otherStation.location.lat === null) return undefined;
+  return { line, st, other, otherStation, distance: metres(st.location, otherStation.location) };
+};
+const eeh = tablePair('line-2b', 'eeh', 'line-4', 'siddharth-colony');
+const dongripada = tablePair('thane-ring', 'dongripada', 'line-4', 'dongripada');
 
 const sourcesOf = (l: NetworkLine) => {
   const urls = [l.length.source, l.stations.source, l.agency?.source, ...l.parts.map((p) => p.source)].filter((u): u is string => Boolean(u));
@@ -309,7 +327,7 @@ const description = `An unofficial, sourced tracker of the Mumbai Metro: all ${n
     </section>
 
     <!-- 4. Where the tracked lines meet -->
-    {(kalyan || kapurbawdi || kanjur) && (
+    {(kalyan || kapurbawdi || kanjur || eeh || dongripada) && (
       <section id="meet" class="section page" aria-labelledby="meet-title">
         <header class="section-head">
         <span class="stop" aria-hidden="true"></span>
@@ -336,6 +354,25 @@ const description = `An unofficial, sourced tracker of the Mumbai Metro: all ${n
               <b>Kanjurmarg.</b> Line 6 crosses Line 4 on LBS Marg.{' '}
               <a href={`${lineBase(kanjur.line.id)}stations/${kanjur.st.id}/`}>{kanjur.line.info.label}'s {kanjur.st.name}</a> point is {kanjur.distance} m from{' '}
               <a href={`${lineBase(kanjur.other.id)}stations/${kanjur.otherStation.id}/`}>{kanjur.other.info.label}'s {kanjur.otherStation.name}</a>.
+            </p>
+          )}
+          {eeh && (
+            <p>
+              <b>EEH and Siddharth Colony.</b> Line 2B meets Line 4.{' '}
+              <a href={`${lineBase(eeh.line.id)}stations/${eeh.st.id}/`}>{eeh.line.info.label}'s {eeh.st.name}</a> point is {eeh.distance} m from{' '}
+              <a href={`${lineBase(eeh.other.id)}stations/${eeh.otherStation.id}/`}>{eeh.other.info.label}'s {eeh.otherStation.name}</a>.
+            </p>
+          )}
+          {dongripada && (
+            <p>
+              <b>Dongripada.</b> The Thane Ring meets Line 4.{' '}
+              <a href={`${lineBase(dongripada.line.id)}stations/${dongripada.st.id}/`}>The ring's {dongripada.st.name}</a> point is {dongripada.distance} m from{' '}
+              <a href={`${lineBase(dongripada.other.id)}stations/${dongripada.otherStation.id}/`}>{dongripada.other.info.label}'s {dongripada.otherStation.name}</a>.
+            </p>
+          )}
+          {(eeh || dongripada) && (
+            <p class="meet__credit">
+              The interchanges at EEH and Dongripada are also in the interchange table by {INTERCHANGE_TABLE.credit} (<a href={INTERCHANGE_TABLE.href} rel="noopener" target="_blank">@{INTERCHANGE_TABLE.handle}<span class="visually-hidden"> on X (opens in a new tab)</span></a>), with news reports.
             </p>
           )}
         </div>
