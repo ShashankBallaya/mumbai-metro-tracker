@@ -154,11 +154,11 @@
     "planned": [],
     "table": [
       {
-        "station": "JVLR",
+        "station": "SEEPZ Village",
         "connects_to": "Metro Line 3 (Aqua Line), at Aarey JVLR",
         "status": "reported",
         "source_url": "https://x.com/rohanshanbhag",
-        "last_verified": "2026-11-04"
+        "last_verified": "2026-11-05"
       },
       {
         "station": "Kanjur Marg (W)",

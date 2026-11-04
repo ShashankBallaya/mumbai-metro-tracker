@@ -158,16 +158,7 @@
       },
       "notes": null,
       "last_verified": "2026-10-30",
-      "dpr_chainage_m": null,
-      "interchanges_table": {
-        "value": [
-          "Metro Line 3 (Aqua Line), at Aarey JVLR"
-        ],
-        "status": "reported",
-        "source_url": "https://x.com/rohanshanbhag",
-        "last_verified": "2026-11-04",
-        "notes": "From Rohan Shanbhag's interchange table of the Mumbai region's rail lines (Nov 2026), shared with the site."
-      }
+      "dpr_chainage_m": null
     },
     {
       "id": "shyam-nagar",
@@ -275,7 +266,16 @@
       },
       "notes": null,
       "last_verified": "2026-10-30",
-      "dpr_chainage_m": null
+      "dpr_chainage_m": null,
+      "interchanges_table": {
+        "value": [
+          "Metro Line 3 (Aqua Line), at Aarey JVLR"
+        ],
+        "status": "reported",
+        "source_url": "https://x.com/rohanshanbhag",
+        "last_verified": "2026-11-05",
+        "notes": "From Rohan Shanbhag's interchange table of the Mumbai region's rail lines (Nov 2026), shared with the site. The table names Line 3's Aarey JVLR station; the site first placed it at Line 6's JVLR station by mistake. Aarey JVLR (Line 3) is about 335 m from SEEPZ Village and about 3 km from Line 6's JVLR station (OpenStreetMap positions). Correction pointed out by @ashp111 on X, 5 Nov 2026."
+      }
     },
     {
       "id": "saki-vihar-road",
