@@ -204,7 +204,16 @@
       },
       "notes": null,
       "last_verified": "2026-10-19",
-      "dpr_chainage_m": 5936.538
+      "dpr_chainage_m": 5936.538,
+      "interchanges_table": {
+        "value": [
+          "Metro Line 8 (Gold Line)"
+        ],
+        "status": "reported",
+        "source_url": "https://x.com/rohanshanbhag",
+        "last_verified": "2026-11-04",
+        "notes": "From Rohan Shanbhag's interchange table of the Mumbai region's rail lines (Nov 2026), shared with the site."
+      }
     },
     {
       "id": "pant-nagar",
@@ -470,7 +479,16 @@
       },
       "notes": null,
       "last_verified": "2026-10-19",
-      "dpr_chainage_m": 13160.357
+      "dpr_chainage_m": 13160.357,
+      "interchanges_table": {
+        "value": [
+          "Metro Line 14 (Vikhroli-Badlapur)"
+        ],
+        "status": "reported",
+        "source_url": "https://x.com/rohanshanbhag",
+        "last_verified": "2026-11-04",
+        "notes": "From Rohan Shanbhag's interchange table of the Mumbai region's rail lines (Nov 2026), shared with the site."
+      }
     },
     {
       "id": "naval-housing",

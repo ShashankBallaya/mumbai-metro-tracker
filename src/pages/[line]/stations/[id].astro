@@ -10,7 +10,7 @@ import Grade from '../../../components/Grade.astro';
 import LocatorMap from '../../../components/LocatorMap.astro';
 import LineMark from '../../../components/LineMark.astro';
 import PhotoCredit from '../../../components/PhotoCredit.astro';
-import { getLine, dprLabel, inSentence, isRing, lines, lineNodeId, lineBase, SITE_NAME, stationHref, positionBasis, streetViewUrl, plannedInterchanges, formatDate, sectionOf, openedOf, announcedOf, sectionName, clock, frequencyText, inr, videoTime, type LineId, type Station, type StationPhoto } from '../../../lib/data';
+import { getLine, dprLabel, inSentence, isRing, lines, lineNodeId, lineBase, SITE_NAME, stationHref, positionBasis, streetViewUrl, plannedInterchanges, tableInterchanges, INTERCHANGE_TABLE, formatDate, sectionOf, openedOf, announcedOf, sectionName, clock, frequencyText, inr, videoTime, type LineId, type Station, type StationPhoto } from '../../../lib/data';
 import { hasStatusPage } from '../../../lib/answers';
 import '../../../styles/inner.css';
 
@@ -235,8 +235,22 @@ const schema: Record<string, unknown>[] = [
       <div>
         <dt>Interchange</dt>
         <dd>
-          <p>{s.interchanges.value.length ? <>{s.interchanges.value.map((v, k) => <>{k > 0 && ', '}<LineMark text={v} />{v}</>)}</> : 'None announced'}</p>
-          <p class="grades"><Grade status={s.interchanges.status} source={s.interchanges.source_url} /></p>
+          {(s.interchanges.value.length > 0 || !tableInterchanges(s)) && (
+            <>
+              <p>{s.interchanges.value.length ? <>{s.interchanges.value.map((v, k) => <>{k > 0 && ', '}<LineMark text={v} />{v}</>)}</> : 'None announced'}</p>
+              <p class="grades"><Grade status={s.interchanges.status} source={s.interchanges.source_url} /></p>
+            </>
+          )}
+          {tableInterchanges(s) && (
+            <>
+              <p>{s.interchanges.value.length > 0 && 'Also: '}{tableInterchanges(s)!.value.map((v, k) => <>{k > 0 && ', '}<LineMark text={v} />{v}</>)}</p>
+              <p class="fact__note">From the interchange table by {INTERCHANGE_TABLE.credit} (<a href={INTERCHANGE_TABLE.href} rel="noopener" target="_blank">@{INTERCHANGE_TABLE.handle}<span class="visually-hidden"> on X (opens in a new tab)</span></a>).</p>
+              <p class="grades"><Grade status={tableInterchanges(s)!.status} source={tableInterchanges(s)!.source_url} /></p>
+            </>
+          )}
+          {!tableInterchanges(s) && INTERCHANGE_TABLE.lines.includes(line.id) && (
+            <p class="fact__note">Checked against the interchange table by {INTERCHANGE_TABLE.credit} (<a href={INTERCHANGE_TABLE.href} rel="noopener" target="_blank">@{INTERCHANGE_TABLE.handle}<span class="visually-hidden"> on X (opens in a new tab)</span></a>).</p>
+          )}
           {plannedInterchanges(s) && (
             <>
               <p>Planned: {plannedInterchanges(s)!.value.join(', ')}.</p>

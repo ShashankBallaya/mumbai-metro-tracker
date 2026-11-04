@@ -151,7 +151,23 @@
       "Metro Line 7 (Dahisar (E)-Andheri (E))"
     ],
     "notes": "MMRDA's page lists five connections: Line 2A at Infinity Mall (its introduction says Adarsh Nagar), Line 7 at JVLR, Line 3 'at Arey Colony Area' (its introduction says the Aarey Depot station), Line 4 at Kanjurmarg West (its introduction says Gandhi Nagar), and the suburban railway at Jogeshwari and Kanjurmarg. It does not name the Line 6 station for Line 3.",
-    "planned": []
+    "planned": [],
+    "table": [
+      {
+        "station": "JVLR",
+        "connects_to": "Metro Line 3 (Aqua Line), at Aarey JVLR",
+        "status": "reported",
+        "source_url": "https://x.com/rohanshanbhag",
+        "last_verified": "2026-11-04"
+      },
+      {
+        "station": "Kanjur Marg (W)",
+        "connects_to": "Metro Line 14 (Vikhroli-Badlapur)",
+        "status": "reported",
+        "source_url": "https://x.com/rohanshanbhag",
+        "last_verified": "2026-11-04"
+      }
+    ]
   },
   "daily_ridership_2031": {
     "value": 769000,

@@ -125,7 +125,16 @@
       "Metro Line 7 (Dahisar (E)-Andheri (E))"
     ],
     "notes": "MMRDA's page names the connections of Lines 9 and 7A together: the Western Express Highway, the Western Railway, Line 2A and Line 7. 7A continues Line 7 from Gundavali. The Metro Rail Guy (Jul 2025): the Terminal 2 station is where 7A meets Line 3.",
-    "planned": []
+    "planned": [],
+    "table": [
+      {
+        "station": "CSIA",
+        "connects_to": "Metro Line 8 (Gold Line)",
+        "status": "reported",
+        "source_url": "https://x.com/rohanshanbhag",
+        "last_verified": "2026-11-04"
+      }
+    ]
   },
   "daily_ridership_2031": {
     "value": 1112000,

@@ -332,6 +332,21 @@ export function streetViewUrl(s: Station): string | null {
 export type PlannedInterchanges = { value: string[]; status: string; source_url: string; notes?: string };
 export const plannedInterchanges = (s: Station) => (s as { interchanges_planned?: PlannedInterchanges }).interchanges_planned;
 
+/**
+ * The interchange table that Rohan Shanbhag made of the region's rail lines and shared with the site (owner, 2026-11-04).
+ * Interchanges that only the table names sit in stations.json `interchanges_table`, graded on their own, with his X profile as the source.
+ */
+export const INTERCHANGE_TABLE = {
+  credit: 'Rohan Shanbhag',
+  handle: 'rohanshanbhag',
+  href: 'https://x.com/rohanshanbhag',
+  /** The lines the table covers. Line 12A is newer than the table. */
+  lines: ['line-2b', 'line-4', 'line-5', 'line-6', 'line-7a', 'line-12', 'thane-ring'] as string[],
+};
+export const tableInterchanges = (s: Station) => (s as { interchanges_table?: PlannedInterchanges }).interchanges_table;
+/** Every line a station is an interchange for: the sources' list, then the table's. */
+export const changesFor = (s: Station): string[] => [...s.interchanges.value, ...(tableInterchanges(s)?.value ?? [])];
+
 /** A station's page. Typed to allow null, so callers keep a plain-text fallback for a line without pages. */
 export function stationHref(id: LineId, station: string): string | null {
   return `${lineBase(id)}stations/${station}/`;

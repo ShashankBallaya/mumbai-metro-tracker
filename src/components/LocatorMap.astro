@@ -6,7 +6,7 @@
  * It follows the route-line grammar: a hollow line (orange casing, paper core), ink dots with a paper
  * ring, the current station in orange, and the stacked-bar interchange mark.
  */
-import { inSentence, type Line, type Station } from '../lib/data';
+import { changesFor, inSentence, type Line, type Station } from '../lib/data';
 
 interface Props {
   /** A line with an alignment file. */
@@ -64,7 +64,7 @@ const spurPath = spurLine && pathOf(spurLine);
 const tunnelPath = tunnel ? pathOf(tunnel) : (alignment.properties as { indicative?: boolean }).indicative ? path : undefined;
 const dots = [...stations, ...spurStations]
   .filter((s) => s.location.lat !== null)
-  .map((s) => ({ s, at: place(s.location.lng!, s.location.lat!), here: s.id === station.id, change: s.interchanges.value.length > 0 }));
+  .map((s) => ({ s, at: place(s.location.lng!, s.location.lat!), here: s.id === station.id, change: changesFor(s).length > 0 }));
 const here = dots.find((d) => d.here)!;
 const first = dots[0];
 const last = dots[stations.filter((s) => s.location.lat !== null).length - 1];

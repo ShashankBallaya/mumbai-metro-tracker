@@ -752,7 +752,16 @@
       },
       "notes": null,
       "last_verified": "2026-11-03",
-      "dpr_chainage_m": null
+      "dpr_chainage_m": null,
+      "interchanges_table": {
+        "value": [
+          "Central Railway Trans-Harbour line (Thane)"
+        ],
+        "status": "reported",
+        "source_url": "https://x.com/rohanshanbhag",
+        "last_verified": "2026-11-04",
+        "notes": "From Rohan Shanbhag's interchange table of the Mumbai region's rail lines (Nov 2026), shared with the site."
+      }
     },
     {
       "id": "new-thane",

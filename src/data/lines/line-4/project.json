@@ -280,6 +280,22 @@
         "source_url": "https://themetrorailguy.com/mumbai-metro-green-line-information-route-map-fares-timings-tenders-status-updates/",
         "last_verified": "2026-10-19"
       }
+    ],
+    "table": [
+      {
+        "station": "Gandhi Nagar",
+        "connects_to": "Metro Line 14 (Vikhroli-Badlapur)",
+        "status": "reported",
+        "source_url": "https://x.com/rohanshanbhag",
+        "last_verified": "2026-11-04"
+      },
+      {
+        "station": "Garodia Nagar",
+        "connects_to": "Metro Line 8 (Gold Line)",
+        "status": "reported",
+        "source_url": "https://x.com/rohanshanbhag",
+        "last_verified": "2026-11-04"
+      }
     ]
   },
   "daily_ridership_2031": {

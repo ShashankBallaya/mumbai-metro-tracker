@@ -16,6 +16,8 @@ const hist = (h: { value: number | string; context: string }[]) => h;
 const c = line.info.copy.numbers;
 /** Interchanges planned on other networks, graded on their own (Line 5: the Thane Integral Ring Metro). */
 const planned = (p.interchanges as { planned?: { station: string; connects_to: string; status: string; source_url: string }[] }).planned ?? [];
+/** Interchanges that only Rohan Shanbhag's interchange table names, graded on their own. */
+const fromTable = (p.interchanges as { table?: { station: string; connects_to: string; status: string; source_url: string }[] }).table ?? [];
 const cost = p.completion_cost_crore_inr as typeof p.completion_cost_crore_inr & { history?: { value: number; context: string }[] };
 const alt = (cost.alternatives as { value: number }[] | undefined)?.[0];
 // Riders as MMRDA writes them, e.g. "2.62 lakh": the figure and its decimals.
@@ -110,6 +112,11 @@ const riderDecimals = riders.split('.')[1]?.length ?? 0;
       {planned.map((i) => (
         <dd class="fact__history">
           <span>Planned: {i.station} for {i.connects_to}.</span> <Grade status={i.status} source={i.source_url} compact />
+        </dd>
+      ))}
+      {fromTable.map((i) => (
+        <dd class="fact__history">
+          <span>Also: {i.station} for <LineMark text={i.connects_to} />{i.connects_to}, from the interchange table by Rohan Shanbhag.</span> <Grade status={i.status} source={i.source_url} compact />
         </dd>
       ))}
     </div>

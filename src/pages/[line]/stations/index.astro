@@ -5,7 +5,7 @@ import Masthead from '../../../components/Masthead.astro';
 import Colophon from '../../../components/Colophon.astro';
 import Grade from '../../../components/Grade.astro';
 import LineMark from '../../../components/LineMark.astro';
-import { getLine, lines, lineBase, lineCopy, SITE_NAME, type LineId } from '../../../lib/data';
+import { changesFor, getLine, lines, lineBase, lineCopy, SITE_NAME, INTERCHANGE_TABLE, type LineId } from '../../../lib/data';
 import '../../../styles/inner.css';
 
 export function getStaticPaths() {
@@ -64,11 +64,14 @@ const schema = [
             {s.name_mr && <span class="stlist__mr mr" lang="mr">{s.name_mr}</span>}
           </span>
           <span class="stlist__meta">
-            {s.interchanges.value.length > 0 ? <>Interchange: {s.interchanges.value.map((v, k) => <>{k > 0 && ', '}<LineMark text={v} />{v}</>)}</> : s.type}
+            {changesFor(s).length > 0 ? <>Interchange: {changesFor(s).map((v, k) => <>{k > 0 && ', '}<LineMark text={v} />{v}</>)}</> : s.type}
           </span>
         </li>
       ))}
     </ol>
+    {INTERCHANGE_TABLE.lines.includes(line.id) && (
+      <p class="inner__note">Interchanges are checked against the interchange table by {INTERCHANGE_TABLE.credit} (<a href={INTERCHANGE_TABLE.href} rel="noopener" target="_blank">@{INTERCHANGE_TABLE.handle}<span class="visually-hidden"> on X (opens in a new tab)</span></a>), who made it and shared it with the site.</p>
+    )}
 
     {spurStations.length > 0 && (
       <section class="inner__block" aria-labelledby="spur-title">

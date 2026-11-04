@@ -135,7 +135,16 @@
     "status": "verified",
     "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-12/overview",
     "last_verified": "2026-09-28",
-    "notes": "MMRDA spells it 'Vikroli-Badlapur'. Rail Analysis (Dec 2025) also reports a foot overbridge link to Central Railway at Kalyan Junction (status: reported)."
+    "notes": "MMRDA spells it 'Vikroli-Badlapur'. Rail Analysis (Dec 2025) also reports a foot overbridge link to Central Railway at Kalyan Junction (status: reported).",
+    "table": [
+      {
+        "station": "Kalyan",
+        "connects_to": "Central Railway at Kalyan Junction",
+        "status": "reported",
+        "source_url": "https://x.com/rohanshanbhag",
+        "last_verified": "2026-11-04"
+      }
+    ]
   },
   "daily_ridership_2031": {
     "value": 262000,
@@ -305,8 +314,18 @@
       ],
       "last_verified": "2026-10-28",
       "stations": [
-        "Manpada", "Katai Naka", "Growth Centre", "Desai Naka", "Padle Gaon", "Kalyan Phata",
-        "Gotheghar Gaon", "Dahisar Mori", "Dahisar Gaon", "Kiravali Gaon", "Rohinjan", "Khutari Gaon"
+        "Manpada",
+        "Katai Naka",
+        "Growth Centre",
+        "Desai Naka",
+        "Padle Gaon",
+        "Kalyan Phata",
+        "Gotheghar Gaon",
+        "Dahisar Mori",
+        "Dahisar Gaon",
+        "Kiravali Gaon",
+        "Rohinjan",
+        "Khutari Gaon"
       ],
       "stations_source_url": "https://www.loksatta.com/thane/kalyan-shilphata-metro-12a-project-approved-traffic-relief-rub-99-6216027/",
       "history": [

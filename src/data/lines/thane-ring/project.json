@@ -119,7 +119,16 @@
       "Metro Line 5 (Thane-Bhiwandi-Kalyan)"
     ],
     "notes": "The Metro Rail Guy (Aug 2024) reports passenger interchanges with Lines 4 and 5 and Thane station, without naming stations; MahaMetro's managing director spoke of links with Lines 4 and 5 (Oct 2026). housing.com (Nov 2025) names Dongripada and Raila Devi for Line 4 and Balkum Naka for Line 5. Distances are between the points on the ring's official map file. Neither MahaMetro nor MMRDA names an interchange station.",
-    "planned": []
+    "planned": [],
+    "table": [
+      {
+        "station": "Thane Junction",
+        "connects_to": "the Trans-Harbour line at Thane",
+        "status": "reported",
+        "source_url": "https://x.com/rohanshanbhag",
+        "last_verified": "2026-11-04"
+      }
+    ]
   },
   "daily_ridership_2031": {
     "value": 647000,

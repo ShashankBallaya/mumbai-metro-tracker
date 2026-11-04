@@ -641,3 +641,32 @@ Research of 2026-10-29 for `src/data/network.json` (first draft). The four track
 - Line 1, 3, 9, 10, 11, 13 and 14 colours from a primary source.
 - A works contract or start for Lines 8, 10, 11 and 13.
 - CIDCO's own page for Navi Mumbai Metro Line 2.
+
+# Interchange table (all lines)
+
+Added 2026-11-04 on the owner's request.
+
+**Rohan Shanbhag ([@rohanshanbhag](https://x.com/rohanshanbhag) on X)** made a table of where the region's rail lines meet and shared it with the owner: a grid of every pair of lines (suburban, Monorail, Mumbai Metro, Navi Mumbai Metro, Thane Ring) with the stations where they meet, and a station list (not complete yet). Sheet: https://docs.google.com/spreadsheets/d/1yvLBn_Ue0Nm9KGzqtCHhWRz3nrRFL9UUBEqUxPW12DQ/edit (read 2026-11-04). The table names lines by colour: Blue 1, Yellow 2A and 2B, Aqua 3, Green 4, Orange 5 and 12, Pink 6, Red 7, 7A and 9, Gold 8, Green branch 11, Magenta 14, Thane Metro the ring.
+
+Every station page of a line the table covers credits it. Interchanges that only the table names are in stations.json `interchanges_table` and project.json `interchanges.table`, graded `reported`, with his X profile as the source:
+
+| Line | Station | Adds |
+|---|---|---|
+| 12 | Kalyan | Central Railway (Kalyan Junction) |
+| 4 | Gandhi Nagar | Metro Line 14 |
+| 4 | Garodia Nagar | Metro Line 8 |
+| 2B | Bandra Metro | Harbour line, Bandra |
+| 2B | EEH | Metro Line 4, at Siddharth Colony |
+| 2B | SG Barve Marg | Metro Line 8 |
+| 2B | Mankhurd | Metro Line 8 |
+| 6 | JVLR | Metro Line 3, at Aarey JVLR |
+| 6 | Kanjur Marg (W) | Metro Line 14 |
+| 7A | CSIA | Metro Line 8 |
+| Thane Ring | Thane Junction | Trans-Harbour line |
+
+## Items that need your review
+
+- Kept, though the table does not name them (each has its own source): Line 2B's Central Railway at Kurla (E) and Harbour line at Chembur; Line 6's Western Railway at Jogeshwari (W) and Central Railway at Kanjur Marg (W) (MMRDA); the ring's Line 4 at Raila Devi and Line 5 at Balkum Naka (housing.com); Line 5's planned ring link at Balkum Naka.
+- Not added, unclear: the table puts Orange (Lines 5 and 12) with the Vasai-Diva-Panvel line and with Navi Mumbai Metro at "Taloja" (the other cell says Amandoot). Line 12 has no station named Taloja.
+- Not added, unclear: the table puts the ring with the Central line at "Thane, Kopri". The ring has no Kopri station.
+- Line 12A is not in the table.

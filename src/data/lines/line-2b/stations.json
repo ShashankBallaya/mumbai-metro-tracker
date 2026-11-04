@@ -298,7 +298,16 @@
       },
       "notes": null,
       "last_verified": "2026-10-30",
-      "dpr_chainage_m": null
+      "dpr_chainage_m": null,
+      "interchanges_table": {
+        "value": [
+          "Central Railway Harbour line, Bandra"
+        ],
+        "status": "reported",
+        "source_url": "https://x.com/rohanshanbhag",
+        "last_verified": "2026-11-04",
+        "notes": "From Rohan Shanbhag's interchange table of the Mumbai region's rail lines (Nov 2026), shared with the site."
+      }
     },
     {
       "id": "income-tax-office",
@@ -441,7 +450,16 @@
       },
       "notes": null,
       "last_verified": "2026-10-30",
-      "dpr_chainage_m": null
+      "dpr_chainage_m": null,
+      "interchanges_table": {
+        "value": [
+          "Metro Line 8 (Gold Line)"
+        ],
+        "status": "reported",
+        "source_url": "https://x.com/rohanshanbhag",
+        "last_verified": "2026-11-04",
+        "notes": "From Rohan Shanbhag's interchange table of the Mumbai region's rail lines (Nov 2026), shared with the site."
+      }
     },
     {
       "id": "kurla-east",
@@ -523,7 +541,16 @@
       },
       "notes": null,
       "last_verified": "2026-10-30",
-      "dpr_chainage_m": null
+      "dpr_chainage_m": null,
+      "interchanges_table": {
+        "value": [
+          "Metro Line 4 (Wadala-Kasarvadavali), at Siddharth Colony"
+        ],
+        "status": "reported",
+        "source_url": "https://x.com/rohanshanbhag",
+        "last_verified": "2026-11-04",
+        "notes": "From Rohan Shanbhag's interchange table of the Mumbai region's rail lines (Nov 2026), shared with the site."
+      }
     },
     {
       "id": "chembur",
@@ -728,7 +755,16 @@
       },
       "notes": null,
       "last_verified": "2026-10-30",
-      "dpr_chainage_m": null
+      "dpr_chainage_m": null,
+      "interchanges_table": {
+        "value": [
+          "Metro Line 8 (Gold Line)"
+        ],
+        "status": "reported",
+        "source_url": "https://x.com/rohanshanbhag",
+        "last_verified": "2026-11-04",
+        "notes": "From Rohan Shanbhag's interchange table of the Mumbai region's rail lines (Nov 2026), shared with the site."
+      }
     },
     {
       "id": "mandale",

@@ -161,6 +161,36 @@
         "source_url": "https://www.oneindia.com/mumbai/mumbai-metro-line-2b-trials-begin-full-stations-list-and-key-interchange-points-inside-4126121.html",
         "last_verified": "2026-10-30"
       }
+    ],
+    "table": [
+      {
+        "station": "Bandra Metro",
+        "connects_to": "the Harbour line at Bandra",
+        "status": "reported",
+        "source_url": "https://x.com/rohanshanbhag",
+        "last_verified": "2026-11-04"
+      },
+      {
+        "station": "EEH",
+        "connects_to": "Metro Line 4 (Wadala-Kasarvadavali), at Siddharth Colony",
+        "status": "reported",
+        "source_url": "https://x.com/rohanshanbhag",
+        "last_verified": "2026-11-04"
+      },
+      {
+        "station": "SG Barve Marg",
+        "connects_to": "Metro Line 8 (Gold Line)",
+        "status": "reported",
+        "source_url": "https://x.com/rohanshanbhag",
+        "last_verified": "2026-11-04"
+      },
+      {
+        "station": "Mankhurd",
+        "connects_to": "Metro Line 8 (Gold Line)",
+        "status": "reported",
+        "source_url": "https://x.com/rohanshanbhag",
+        "last_verified": "2026-11-04"
+      }
     ]
   },
   "daily_ridership_2031": {

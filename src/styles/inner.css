@@ -119,6 +119,14 @@
   gap: var(--s-1) var(--s-5);
 }
 
+/* A short credit line under a list (the interchange table on the stations page). */
+.inner__note {
+  max-width: 60ch;
+  margin-top: var(--s-4);
+  font-size: var(--step--1);
+  color: var(--ink-2);
+}
+
 .inner__block {
   margin-top: var(--s-7);
 }
