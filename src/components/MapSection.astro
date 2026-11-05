@@ -56,6 +56,8 @@ const payload = [
 ];
 /** The alignment's parts other than the line itself (Line 5: underground, spur, superseded). */
 const parts = new Set(JSON.parse(alignment).features.map((f: { properties: { part?: string } }) => f.properties.part).filter(Boolean));
+// An optional file of the route to take away (lines.json `copy.map_download`), with what it is fit for.
+const mapDownload = (line.info.copy as { map_download?: { href: string; label: string; note: string } }).map_download;
 const streetConfig = {
   provider: STREET_LEVEL_PROVIDER,
   mapillary: Boolean(MAPILLARY_TOKEN),
@@ -79,6 +81,12 @@ const streetConfig = {
       {parts.has('underground') && (
         <p class="mapsec__map-note">
           <span class="mapsec__key mapsec__key--tunnel" aria-hidden="true"></span> {(line.info.copy as { map_underground_legend?: string }).map_underground_legend ?? 'Underground stretch, route below ground not published'}
+        </p>
+      )}
+      {mapDownload && (
+        <p class="mapsec__download">
+          <a href={mapDownload.href} download>{mapDownload.label}</a>
+          <span>{mapDownload.note}</span>
         </p>
       )}
       {parts.has('superseded') && (
@@ -184,6 +192,23 @@ const streetConfig = {
     border-top: 0.2rem dashed var(--ink-3);
     border-radius: 0;
     background: none;
+  }
+  .mapsec__download {
+    display: grid;
+    gap: var(--s-1);
+    margin-top: var(--s-3);
+    padding-left: var(--s-3);
+    border-left: 0.2rem solid var(--signal-line);
+    font-size: var(--step--1);
+    color: var(--ink-3);
+    max-width: 60ch;
+  }
+  .mapsec__download a {
+    color: var(--ink);
+    font-weight: 600;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
   }
   .mapsec__toggle {
     cursor: pointer;

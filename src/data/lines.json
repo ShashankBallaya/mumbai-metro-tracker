@@ -247,11 +247,11 @@
         "stations_section": "All {total} on the line, in order from Kapurbawdi, then the three on the Line 5A spur and the three the 2017 plan had. Names follow MMRDA. Select a station to ride to it, or open its own page.",
         "stations_page": "All {total} on the line, in order from Kapurbawdi in Thane to Kalyan, then the Line 5A spur from Bhoirwadi to Ulhasnagar. Bhiwandi is underground; every other station is elevated. The line is {km} km long with the spur.",
         "stations_page_description": "The stations of {name} in order, from Kapurbawdi in Thane through Bhiwandi and Durgadi to Kalyan, and the Line 5A spur to Ulhasnagar, with interchanges and a page for each station.",
-        "route_section": "Eighteen stations, Kapurbawdi to Kalyan, and the Line 5A spur to Ulhasnagar. Scroll to ride the line station by station. Distances follow MMRDA's alignment file of March 2025 to the Ulhas river bridge, and the tentative key plan of March 2026 past it.",
+        "route_section": "Eighteen stations, Kapurbawdi to Kalyan, and the Line 5A spur to Ulhasnagar. Scroll to ride the line station by station. Distances follow MMRDA's alignment file of March 2025 to Dhamankar Naka, and MMRDA's civil tenders of October 2026 past it.",
         "route_legend": "A hollow line marks track that is not yet open, and a dashed outline the underground stretch. No part of Line 5 has opened.",
         "drawn_from": [
           "MMRDA's alignment file",
-          " of March 2025 and the tentative key plan of March 2026"
+          " of March 2025 and the civil tenders of October 2026"
         ],
         "headline_html": "Watch Mumbai Metro Line&nbsp;5 reach Kalyan,<br> phase by phase.",
         "front_standfirst": "Phase 1, from Kapurbawdi in Thane to Dhamankar Naka in Bhiwandi, is built: on {as_of}, MMRDA's progress table showed every civil activity complete. Phases 2 and 3 take the line on to Kalyan, with a spur to Ulhasnagar: {stations} stations in all, as MMRDA counts them.",
@@ -259,9 +259,11 @@
         "target_html": "Target: <strong>{target}</strong> for Phase 1, Kapurbawdi to Dhamankar Naka, from MMRDA's press release of May 2026. No exact date. The rest of the line: {rest}, as reported.",
         "lead_scene": "kasheli",
         "lead_caption": "The Kasheli creek bridge, between Balkum Naka and Kasheli: 550 m long, in spans of 42.23 m, about 15 m above the water, as reported. Illustration, not to scale; not an official design.",
-        "map_section": "The line on a street map. Choose a station to see where it sits, what surrounds it and what the street looks like today. The route to the Ulhas river bridge comes from MMRDA's alignment file of March 2025; Phase 3 and the spur come from the tentative key plan of March 2026.",
-        "map_legend": "Route not yet open: MMRDA's alignment file, then the tentative key plan",
+        "map_section": "The line on a street map. Choose a station to see where it sits, what surrounds it and what the street looks like today. The route to Dhamankar Naka comes from MMRDA's alignment file of March 2025. Past it, the route is traced from the drawings in MMRDA's civil tenders of October 2026 (CA-317, CA-318 and CA-314).",
+        "map_legend": "Route not yet open: MMRDA's alignment file, then the 2026 tender drawings",
         "map_first_station": "kapurbawdi",
+        "map_underground_legend": "Underground stretch: twin tunnels through Bhiwandi, from the CA-317 tender",
+        "map_download": {"href": "/downloads/line-5-tender-route-chainage.kml", "label": "Download the route with tender chainage (KML, for Google Earth)", "note": "Approximate, for representation only. We traced it from MMRDA's tender drawings; it is not an official file. Stations placed by chainage can be about 50 m out. Do not use it for survey, land or property decisions."},
         "numbers": {
           "length_unit": "km with the spur; Bhiwandi underground",
           "stations_unit": "as MMRDA counts them, without Kapurbawdi",
