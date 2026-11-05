@@ -1,7 +1,9 @@
 # Builds Line 5's route line and station positions from MMRDA's alignment file.
 #
-# Sources: MMRDA's alignment file to the Ulhas river bridge at Durgadi, and past it the tentative key plan in
-# MMRDA's tender documents of March 2026 (scripts/data/line5-extension-keyplan.json, traced from an image).
+# Sources: MMRDA's alignment file to Dhamankar Naka; past it, MMRDA's civil tenders of Oct 2026 (CA-317,
+# CA-318, CA-314: scripts/data/line5-tender-route-2026.geojson, built by scripts/line5-tenders/). Kalyan
+# station, in none of those tenders, keeps its point from the March 2026 key plan
+# (scripts/data/line5-extension-keyplan.json, traced from an image).
 #
 # MMRDA publishes "Line 5 : Thane-Bhiwandi-Kalyan" as a KML on its Metro Influence Zone for
 # NOC page (uploaded March 2025). Unlike Line 12's file it has no centre line: it holds the corridor
@@ -31,12 +33,13 @@ import xml.etree.ElementTree as ET
 
 KML_URL = 'https://mmrda.maharashtra.gov.in/sites/default/files/2025-03/metro_line-5.kml'
 PAGE_URL = 'https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc'
-CHECKED = '2026-10-09'
+CHECKED = '2026-11-05'
 K = '{http://www.opengis.net/kml/2.2}'
 STATIONS = 'src/data/lines/line-5/stations.json'
 OUT = 'src/data/lines/line-5/alignment-mmrda-2025.geojson'
 KEYPLAN = 'scripts/data/line5-extension-keyplan.json'
 KAPURBAWDI = 'scripts/data/line5-kapurbawdi-osm.json'
+TENDER_ROUTE = 'scripts/data/line5-tender-route-2026.geojson'
 MMRDA_PR = 'https://mmrda.maharashtra.gov.in/sites/default/files/2026-05/extended_metro_line_5_to_strengthen_connectivity_across_thane_bhiwandi_kalyan_and_ulhasnagar.pdf'
 
 # KML placemark name -> station id in stations.json.
@@ -338,6 +341,77 @@ for st in ph3['stations']:
     place(st, st['px'], st['chainage_m'], fork_m + st['chainage_m'], 'stations', 3)
 for st in spur['stations']:
     place(st, st['px'], st['chainage_m'], st['chainage_m'], 'spur_stations', '5A')
+# ---------- Past Dhamankar Naka: MMRDA's civil tenders of Oct 2026 (CA-317, CA-318, CA-314) ----------
+# scripts/data/line5-tender-route-2026.geojson, built by scripts/line5-tenders/ from the tender drawings.
+# It replaces the 2025 route past Dhamankar Naka (kept as the superseded route) and the March 2026 key plan.
+TR = json.load(open(TENDER_ROUTE, encoding='utf-8'))
+tr_lines = {f['properties']['part']: f for f in TR['features'] if f['geometry']['type'] == 'LineString'}
+tr_points = {f['properties']['station']: f for f in TR['features'] if f['geometry']['type'] == 'Point'}
+TENDER_SRC = TR['properties']['source_url']
+DHAM_CH = 12125.569  # Dhamankar Naka's centre chainage on the tender drawings
+dham_at = along_of['dhamankar-naka']
+TENDER = {  # station id -> (name on the tender drawings, list)
+    'bhiwandi': ('Bhiwandi', 'stations'), 'temghar': ('Temghar', 'stations'), 'rajnouli': ('Rajnouli', 'stations'),
+    'gove-gaon': ('Gove Gaon', 'stations'), 'kongaon-west': ('Kon Gaon West', 'stations'), 'kon-gaon': ('Kon Gaon East', 'stations'),
+    'durgadi-fort': ('Durgadi', 'stations'), 'khadakpada': ('Khadakpada', 'stations'), 'bhoirwadi': ('Bhoirwadi', 'stations'),
+    'shivaji-path': ('Shivaji Maharaj Path', 'stations'),
+    'shanti-nagar': ('Shanti Nagar', 'spur_stations'), 'shivaji-chowk': ('Shivaji Maharaj Chowk', 'spur_stations'), 'ulhasnagar': ('Ulhasnagar', 'spur_stations'),
+}
+TENDER_OF = {'bhiwandi': 'CA-317', 'temghar': 'CA-317', 'shivaji-path': 'CA-314', 'shanti-nagar': 'CA-314', 'shivaji-chowk': 'CA-314', 'ulhasnagar': 'CA-314'}
+for sid, (tname, key) in TENDER.items():
+    f = tr_points[tname]
+    rec, (lng, lat) = by_id[sid], f['geometry']['coordinates']
+    loc, ch = rec['location'], f['properties']['chainage']
+    if loc.get('lat') is not None:
+        moved = round(math.dist(to_xy(lng, lat), to_xy(loc['lng'], loc['lat'])))
+        basis = loc.get('method', '').split('.')[0]
+        loc['earlier'] = [{'lat': loc['lat'], 'lng': loc['lng'], 'basis': basis, 'distance_m': moved}]
+    else:
+        loc.pop('earlier', None)
+    printed = f['properties']['position'] == 'tender'
+    spur_st = key == 'spur_stations'
+    pkg = TENDER_OF.get(sid, 'CA-318')
+    loc.pop('keyplan_chainage_m', None)
+    loc.update({
+        'lng': lng, 'lat': lat,
+        'along_m': round(ch - 26177) if spur_st else round(dham_at + ch - DHAM_CH),
+        'tender_chainage_m': ch,
+        'method': (f"Station centre printed on MMRDA's {pkg} plan sheets (Oct 2026), UTM 43N, chainage {ch:,.0f} m; within 6 m of the main road in OpenStreetMap." if printed else
+                   f"MMRDA's {pkg} tender gives the station centre at {'spur ' if spur_st else ''}chainage {ch - 26177 if spur_st else ch:,.0f} m; placed at that chainage along the route traced from the key plan in the tender drawings (Oct 2026), good to about 50 m.")
+                  + (' along_m is the spur chainage from its start just past Bhoirwadi.' if spur_st else ' along_m adds the chainage past Dhamankar Naka to its along_m.'),
+        'status': 'verified' if printed else 'reported',
+        'source_url': TENDER_SRC,
+    })
+    if tname != rec['name'] and sid in ('kon-gaon', 'kongaon-west'):
+        rec['name'] = tname
+        rec['name_status'], rec['name_source_url'] = 'verified', TENDER_SRC
+    print(f'{sid:18s} {loc["along_m"] / 1000:7.3f} km  (tender {"coordinates" if printed else "chainage"}; {loc["earlier"][0]["distance_m"] if loc.get("earlier") else "-"} m from before)')
+# Kalyan station is past the end of CA-314 Part A, in no published package: keep its key plan point, measured on the new line.
+tr_main = [c for part in ('CA-317', 'CA-318', 'CA-314 Part A') for c in tr_lines[part]['geometry']['coordinates']]
+tr_xy = [to_xy(*c) for c in tr_main]
+tr_cum = [0.0]
+for a, b in zip(tr_xy, tr_xy[1:]):
+    tr_cum.append(tr_cum[-1] + math.dist(a, b))
+kal = by_id['kalyan']['location']
+kq = to_xy(kal['lng'], kal['lat'])
+k_off, k_s = min(((seg_nearest(a, b, kq)[1], tr_cum[i] + seg_nearest(a, b, kq)[2]) for i, (a, b) in enumerate(zip(tr_xy, tr_xy[1:]))), key=lambda r: r[0])
+end_gap = math.dist(kq, tr_xy[-1])
+kal['along_m'] = round(dham_at + tr_cum[-1] + end_gap)
+kal['method'] = KP_METHOD + "Kalyan station is past the end of the Oct 2026 tenders' Part A, which stops short of it; along_m adds the straight distance from that end."
+def thin(coords, tol=2.0):
+    return [[round(c, 6) for c in to_ll(*q)] for q in simplify([to_xy(*c) for c in coords], tol)]
+
+
+ph3_line = cut(0, dham_at) + thin(tr_main)[1:]
+spur_line = tr_lines['CA-314 Part B']['geometry']['coordinates']
+spur_start = tr_lines.get('Spur start (CA-318 or CA-314 boundary)')
+if spur_start:
+    spur_line = spur_start['geometry']['coordinates'] + spur_line[1:]
+spur_line = thin(spur_line)
+underground_line = thin(tr_lines['Underground']['geometry']['coordinates'])
+old_2025 = cut(dham_at, length)
+print(f'Tender route: Dhamankar Naka to the end of Part A {tr_cum[-1] / 1000:.3f} km; Kalyan station {end_gap:.0f} m past it')
+
 # Keep the main list in order along the line; a station without a position stays after the one before it.
 keyed, prev = [], -1.0
 for st in doc['stations']:
@@ -357,29 +431,29 @@ feature = lambda props, coords: {'type': 'Feature', 'properties': props, 'geomet
 geo = {
     'type': 'FeatureCollection',
     'properties': {
-        'note': f'Kapurbawdi to the Ulhas river bridge at Durgadi: from the station north of the curve onto Ghodbunder Road, OpenStreetMap\'s Line 5 tracks (ODbL; scripts/data/line5-kapurbawdi-osm.json); then derived from MMRDA\'s alignment file for Line 5 ({KML_URL}), which gives the corridor as a polygon about 50 m wide; the centre line runs midway between its two sides, along the road medians of Agra Road, the Bhiwandi bypass and Kalyan-Bhiwandi Road (verified). Past the bridge, Phase 3 to Kalyan and the Line 5A spur to Ulhasnagar are traced from the tentative key plan in MMRDA\'s tender documents of March 2026 (reported, good to about 50 m; scripts/data/line5-extension-keyplan.json). Simplified to about 1 m by scripts/build-alignment-line5.py.',
+        'note': f"Kapurbawdi to Dhamankar Naka (Phase 1, built): from the station north of the curve onto Ghodbunder Road, OpenStreetMap's Line 5 tracks (ODbL; scripts/data/line5-kapurbawdi-osm.json); then derived from MMRDA's alignment file for Line 5 ({KML_URL}), which gives the corridor as a polygon about 50 m wide; the centre line runs midway between its two sides (verified). Past Dhamankar Naka, Phase 2, Phase 3 and the Line 5A spur follow MMRDA's civil tenders of Oct 2026 (CA-317, CA-318, CA-314): the route is traced from the key plan in the tender drawings and placed on the map with the station coordinates the plan sheets print; the stretches where the road flyover and the metro share one structure follow the road centre line in OpenStreetMap (reported; scripts/data/line5-tender-route-2026.geojson, built by scripts/line5-tenders/). Simplified to about 1 m by scripts/build-alignment-line5.py.",
         'source_url': PAGE_URL,
         'status': 'verified',
         'last_verified': CHECKED,
         'length_m': round(length),
-        'fork_m': round(fork_m),
+        'tender_route_from_m': round(dham_at),
         'centre_line_m': round(metres(ph3_line)),
         'spur_m': round(metres(spur_line)),
         # For the schematic strip (src/lib/route.ts): where the spur leaves the line, and the stretch to dash.
         'branch_from_station': 'bhoirwadi',
-        'underground_along_m': [round(along_of['dhamankar-naka']), round(along_of['temghar'])],
+        'underground_along_m': [round(dham_at + 13160 - DHAM_CH), round(dham_at + 16420 - DHAM_CH)],
         # The station-page locator (src/components/LocatorMap.astro): Kapurbawdi sits bottom left, so north goes top left.
         'locator_north': 'top-left',
     },
     'features': [
-        feature({'name': 'Line 5 centre line', 'part': 'current', 'note': f'Phase 1 (built) and Phase 2 (approved) from Kapurbawdi to the Ulhas river bridge, from MMRDA\'s 2025 file (verified); then Phase 3 to Kalyan from the tender key plan (reported). Phase 3 starts {fork_m / 1000:.2f} km from Kapurbawdi.'}, ph3_line),
-        feature({'name': 'Line 5 underground stretch', 'part': 'underground', 'status': 'conflicting', 'note': 'Dhamankar Naka to Temghar, which a news report (Metro Rail News, Apr 2026) says goes underground; MMRDA names only Bhiwandi station as underground. The route below ground is not published: this is the 2025 route along the road above it, which here runs on the Bhiwandi bypass flyover.'}, cut(along_of['dhamankar-naka'], along_of['temghar'])),
-        feature({'name': 'Line 5A spur', 'part': 'spur', 'status': 'reported', 'note': 'Bhoirwadi to Ulhasnagar, 5.27 km by the key plan, traced from the tentative key plan in MMRDA\'s tender documents of March 2026. Its first stretch runs beside Phase 3.'}, spur_line),
-        feature({'name': 'Line 5 route past the Ulhas bridge, 2017 plan', 'part': 'superseded', 'note': 'Durgadi Fort, Sahajanand Chowk, Kalyan and APMC Kalyan on the 2017 route, which the revised plan of 2026 replaces with Phase 3 and the spur.'}, cut(fork_m, length)),
+        feature({'name': 'Line 5 centre line', 'part': 'current', 'note': f"Phase 1 (built) from Kapurbawdi to Dhamankar Naka, from MMRDA's 2025 file (verified); then Phases 2 and 3 to the end of CA-314 Part A near Kalyan, from MMRDA's civil tenders of Oct 2026 (reported; six stations verified by the coordinates the tender prints)."}, ph3_line),
+        feature({'name': 'Line 5 underground stretch', 'part': 'underground', 'status': 'reported', 'note': "Below ground from the open-cut ramp past Dhamankar Naka (ch. 13,160) to the solid ramp before Temghar (ch. 16,420), with twin bored tunnels from ch. 13,500 to 15,960 and Bhiwandi station in them (CA-317 Vol III, Table 2-1). Route traced from the key plan in the tender drawings."}, underground_line),
+        feature({'name': 'Line 5A spur', 'part': 'spur', 'status': 'reported', 'note': "Bhavani Chowk, past Bhoirwadi, to Ulhasnagar: CA-314 Part B to spur ch. 5,272. Traced from the key plan in the tender drawings; from spur ch. 1,860 the metro and a road flyover share one structure over SH-35, so that stretch follows the road centre line in OpenStreetMap."}, spur_line),
+        feature({'name': 'Line 5 to Kalyan station, not tendered yet', 'part': 'indicative', 'status': 'unverified', 'note': 'From the end of CA-314 Part A to Kalyan station, which no published tender covers yet: a straight line, to show the connection only.'}, [tr_main[-1], [kal['lng'], kal['lat']]]),
+        feature({'name': 'Line 5 route past Dhamankar Naka, 2025 file', 'part': 'superseded', 'note': "MMRDA's alignment file of March 2025 past Dhamankar Naka: along the road above the 2026 tunnel, then the 2017 route past the Ulhas bridge to Kalyan and APMC Kalyan. The Oct 2026 tenders replace it."}, old_2025),
     ],
 }
 with open(OUT, 'w', encoding='utf-8', newline='\n') as f:
     json.dump(geo, f, indent=1)
     f.write('\n')
-print(f'MMRDA file {length / 1000:.3f} km; corridor start at the bridge {fork_m / 1000:.3f} km ({fork_off:.0f} m off the line); '
-      f'Line 5 to Kalyan {metres(ph3_line) / 1000:.3f} km; spur {metres(spur_line) / 1000:.3f} km (key plan: {ph3["length_m"] / 1000:.3f} and {spur["length_m"] / 1000:.3f})')
+print(f'MMRDA file {length / 1000:.3f} km; Line 5 to the end of Part A {metres(ph3_line) / 1000:.3f} km; spur {metres(spur_line) / 1000:.3f} km (tender: to spur ch. 5,272)')

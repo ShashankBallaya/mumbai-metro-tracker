@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "Tenders and contract packages for Line 5, Line 5A included. Values in crore INR. 'tender_status' is floated, bids_opened, awarded, cancelled or unknown. Only packages whose source was read are listed. Notices that MMRDA itself issued (its website, its notices on mahatenders.gov.in, its AIIB procurement notices) are graded verified. Search of 30 Oct 2026: the portal's archive and award lists do not hold Metro PIU's own packages, so most rows come from MMRDA notices or trade press.",
-    "last_reviewed": "2026-10-30"
+    "last_reviewed": "2026-11-05"
   },
   "tenders": [
     {
@@ -295,13 +295,13 @@
     {
       "id": "ca-317",
       "package": "CA-317",
-      "scope": "Phase 2, Dhamankar Naka to Rajnoli Junction (ch. 12,200 to 17,860): design and construction of the viaduct, cut and cover, open ramp and tunnel, with 1 underground and 1 elevated station (excluding architectural finishing and pre-engineered steel)",
+      "scope": "Phase 2, Dhamankar Naka to Rajnouli Junction (ch. 12,200 to 17,860, 5.66 km): elevated viaduct, ramps, cut and cover, twin bored tunnels of 2.46 km with Bhiwandi underground station, the elevated Temghar station, and a 76 m bow-string span over the Mumbai-Nashik highway at Rajnouli Junction (excluding architectural finishing and pre-engineered steel roof)",
       "floated": "2026-10-29",
       "estimated_value_crore": null,
       "awarded_value_crore": null,
       "awarded_to": null,
       "award_date": null,
-      "duration_months": null,
+      "duration_months": 48,
       "tender_status": "floated",
       "status": "verified",
       "source_url": "https://mahatenders.gov.in/nicgep/app?page=FrontEndTendersByOrganisation&service=page",
@@ -309,22 +309,22 @@
       "reference": "MMRDA/MMRP/ML05(II)/CA-317",
       "chainage_m": { "from": 12200, "to": 17860, "zero": "main line, as in the Phase 1 environmental report (Sep 2023)" },
       "stations_matched": ["bhiwandi", "temghar"],
-      "notes": "MMRDA's notice on the Maharashtra e-procurement portal, published 29 Oct 2026 6:50 PM. Lump-sum, 2 covers. Tender fee Rs 11,800 plus Rs 500 processing; EMD Rs 90 lakh. A date corrigendum moved the document download start to 5 Nov 2026 3:00 PM; bids close 30 Nov 2026 3:00 PM and open 2 Dec 2026. The tender spells it 'Rajnouli Junction'. Ch. 12,200 is the east end of the built Dhamankar Naka station (its centre is ch. 12,125.6 in the environmental report, and the deck is about 145 m). The two stations are matched to Bhiwandi (underground) and Temghar by MMRDA's press release of 28 May 2026; the notice does not name them. Free Press Journal (13 Jul 2026) reported a first call for bids on 11 Jul 2026 with the same split at Rajnoli Junction and 48 months to complete.",
+      "notes": "MMRDA's notice on the Maharashtra e-procurement portal, published 29 Oct 2026 6:50 PM. Lump-sum, 2 covers. Tender fee Rs 11,800 plus Rs 500 processing. Bid security Rs 8.96 crore (Rs 0.90 crore online, Rs 8.06 crore by bank guarantee). Bid documents read 5 Nov 2026: Bhiwandi underground station at ch. 14,220 (box 225 m by 24 m); Temghar at ch. 17,371.93; tunnels 5.8 m inside diameter, two TBMs launched at the Temghar end; mid-tunnel ventilation shaft at ch. 15,020 and three cross passages. MMRDA's schedules: Rs 18.31 crore miscellaneous works (Schedule B), Rs 116.08 crore provisional sum for utilities (Schedule C). The tender does not print the estimate; its qualification limits (Rs 1,434.18, 896.36 and 717.09 crore for one, two or three past projects; turnover Rs 537.82 crore) are 80, 50, 40 and 30% of about Rs 1,793 crore (derived, our working). Corrigendum 2 (4 Nov 2026) moved the dates for all three Line 5 civil tenders: pre-bid meeting 20 Nov 2026 3:00 PM at MMRDA, BKC; bids close 8 Dec 2026 3:00 PM; bids open 10 Dec 2026 12:00 noon. 48 months to build from the letter of acceptance: 12 for land, utilities and permissions, then 36 to design and build.",
       "also_see": [
         "https://www.freepressjournal.in/mumbai/mumbai-metro-line-5-extension-to-ulhasnagar-to-be-completed-in-48-months-mmrda-invites-bids-for-next-phases"
       ],
-      "last_verified": "2026-10-30"
+      "last_verified": "2026-11-05"
     },
     {
       "id": "ca-318",
       "package": "CA-318",
-      "scope": "Phase 2 and Phase 3, Rajnoli Junction to Bhoirwadi (ch. 17,860 to 26,140): design and construction of the elevated viaduct, the viaduct integrated with a road flyover, a creek bridge, connecting road ramps and 7 elevated stations (excluding architectural finishing)",
+      "scope": "Phases 2 and 3, Rajnouli Junction to Bhoirwadi (ch. 17,860 to 26,140, 8.28 km): 4.14 km of metro and road flyover on one structure over the Kalyan-Bhiwandi road with 4 stations, a 380 m balanced-cantilever bridge over the Ulhas creek (spans 69 + 105 + 69 m), elevated viaduct to Bhoirwadi, connecting road ramps and 7 elevated stations (excluding architectural finishing)",
       "floated": "2026-10-30",
       "estimated_value_crore": null,
       "awarded_value_crore": null,
       "awarded_to": null,
       "award_date": null,
-      "duration_months": null,
+      "duration_months": 48,
       "tender_status": "floated",
       "status": "verified",
       "source_url": "https://mahatenders.gov.in/nicgep/app?page=FrontEndTendersByOrganisation&service=page",
@@ -332,19 +332,19 @@
       "reference": "MMRDA/MMRP/ML5(II III)/CA-318",
       "chainage_m": { "from": 17860, "to": 26140, "zero": "main line, as in the Phase 1 environmental report (Sep 2023)" },
       "stations_matched": ["rajnouli", "gove-gaon", "kon-gaon", "kongaon-west", "durgadi-fort", "khadakpada", "bhoirwadi"],
-      "notes": "MMRDA's notice on the Maharashtra e-procurement portal, published 30 Oct 2026 10:00 AM. Lump-sum, 2 covers. Tender fee Rs 11,800 plus Rs 500 processing; EMD Rs 72 lakh. Pre-bid meeting 17 Nov 2026 3:00 PM at MMRDA, BKC. A date corrigendum moved the document download start to 5 Nov 2026 3:00 PM; bids close 30 Nov 2026 3:00 PM and open 2 Dec 2026. The creek bridge is the crossing of the Ulhas into Durgadi. The 7 stations are matched by MMRDA's press release of 28 May 2026 and the March 2026 key plan; the notice does not name them. The end, ch. 26,140, meets CA-314 Part A at its ch. 3,596, so the Phase 3 chainage starts at about main-line ch. 22,544.",
-      "last_verified": "2026-10-30"
+      "notes": "MMRDA's notice on the Maharashtra e-procurement portal, published 30 Oct 2026 10:00 AM. Lump-sum, 2 covers. Tender fee Rs 11,800 plus Rs 500 processing. Bid security Rs 7.20 crore (Rs 0.72 crore online, Rs 6.48 crore by bank guarantee). Bid documents read 5 Nov 2026: station centres Rajnouli 18,308, Gove Gaon 19,540, Kon Gaon West 20,805, Kon Gaon East 21,921, Durgadi 23,099, Khadakpada 24,604 (24,605 in the requirements), Bhoirwadi 25,875; each box 145 m. The plan sheets print coordinates for six of them. Pier positions at Durgadi Chowk must clear the memorial statue there. MMRDA's schedules: Rs 39.36 crore miscellaneous works (Schedule B), Rs 91.59 crore provisional sum for utilities (Schedule C). The tender does not print the estimate; its qualification limits (Rs 1,151.54, 719.71 and 575.77 crore; turnover Rs 431.83 crore) are 80, 50, 40 and 30% of about Rs 1,439 crore (derived, our working). Corrigendum 2 (4 Nov 2026) moved the dates for all three Line 5 civil tenders: pre-bid meeting 20 Nov 2026 3:00 PM at MMRDA, BKC; bids close 8 Dec 2026 3:00 PM; bids open 10 Dec 2026 12:00 noon. 48 months to build from the letter of acceptance: 12 for land, utilities and permissions, then 36 to design and build.",
+      "last_verified": "2026-11-05"
     },
     {
       "id": "ca-314",
       "package": "CA-314",
-      "scope": "Line 5A. Part A (ch. 3,596 to 6,521 of Phase 3): elevated viaduct and 1 elevated station. Part B (ch. 383 to 5,272 of the spur): elevated viaduct with an integrated road flyover and 3 double-decker elevated stations",
+      "scope": "Line 5A. Part A (Phase 3 ch. 3,596 to 6,521, line ch. 26,140 to 29,065, 2.93 km): elevated viaduct and Chhatrapati Shivaji Maharaj Path station. Part B (spur ch. 383 to 5,272, 4.89 km): elevated viaduct, with a road flyover on the same structure over SH-35 from spur ch. 1,860, and 3 double-decker stations: Shanti Nagar, Chhatrapati Shivaji Maharaj Chowk and Ulhasnagar",
       "floated": "2026-10-30",
       "estimated_value_crore": null,
       "awarded_value_crore": null,
       "awarded_to": null,
       "award_date": null,
-      "duration_months": null,
+      "duration_months": 48,
       "tender_status": "floated",
       "status": "verified",
       "source_url": "https://mahatenders.gov.in/nicgep/app?page=FrontEndTendersByOrganisation&service=page",
@@ -355,8 +355,8 @@
         { "part": "B", "from": 383, "to": 5272, "zero": "Line 5A spur, from Bhoirwadi, as in the March 2026 key plan" }
       ],
       "stations_matched": ["shivaji-path", "shanti-nagar", "shivaji-chowk", "ulhasnagar"],
-      "notes": "MMRDA's notice on the Maharashtra e-procurement portal, published 30 Oct 2026 10:00 AM. Lump-sum, 2 covers. Tender fee Rs 11,800 plus Rs 500 processing; EMD Rs 67 lakh. A date corrigendum moved the document download start to 5 Nov 2026 3:00 PM; bids close 30 Nov 2026 3:00 PM and open 2 Dec 2026. The chainages match the March 2026 key plan: Part B ends at ch. 5,272, the spur's length on the key plan (5,272.630 m), so its 3 stations are Shanti Nagar, Shivaji Chowk and Ulhasnagar. Part A starts past Bhoirwadi (key plan ch. 3,330) and ends before Kalyan (6,557.185), so its station is Shivaji Path (5,290). Kalyan station is not in this package. The notice does not name the stations.",
-      "last_verified": "2026-10-30"
+      "notes": "MMRDA's notice on the Maharashtra e-procurement portal, published 30 Oct 2026 10:00 AM. Lump-sum, 2 covers. Tender fee Rs 11,800 plus Rs 500 processing. Bid security Rs 6.66 crore (Rs 0.67 crore online, Rs 5.99 crore by bank guarantee). Bid documents read 5 Nov 2026: the tender names all four stations; centres at line ch. 27,820 (Shivaji Maharaj Path), 28,226, 29,606 and 30,856 (spur stations, on the spur's own line chainage). Steel spans over the Valdhuni flyover, the Smart City flyover, the railway (55 m) and the Valdhuni river (62 + 73.5 + 62 m); the road flyover joins the Valdhuni flyover. Kalyan station is not in this package. MMRDA's schedules: Rs 39.24 crore miscellaneous works (Schedule B), Rs 84.58 crore provisional sum for utilities (Schedule C). The tender does not print the estimate; its qualification limits (Rs 1,065.74, 666.09 and 532.87 crore; turnover Rs 399.65 crore) are 80, 50, 40 and 30% of about Rs 1,332 crore (derived, our working). Corrigendum 2 (4 Nov 2026) moved the dates for all three Line 5 civil tenders: pre-bid meeting 20 Nov 2026 3:00 PM at MMRDA, BKC; bids close 8 Dec 2026 3:00 PM; bids open 10 Dec 2026 12:00 noon. 48 months to build from the letter of acceptance: 12 for land, utilities and permissions, then 36 to design and build.",
+      "last_verified": "2026-11-05"
     }
   ]
 }

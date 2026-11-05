@@ -1,6 +1,6 @@
 {
  "_meta": {
-  "description": "Line 5's stations in order from Kapurbawdi, as MMRDA's revised plan of 2026 has them. 'stations' is the line itself; 'spur_stations' is the Line 5A spur from Bhoirwadi to Ulhasnagar (along_m measured on the spur); 'dropped_stations' were on the 2017 route and are not in the revised plan. Positions to the Ulhas river bridge come from MMRDA's alignment file (March 2025, verified); past it, from the tentative key plan in MMRDA's tender documents of March 2026 (reported, good to about 50 m), with the 2025 point under location.earlier where a station moved. Both by scripts/build-alignment-line5.py. Kongaon West is new and has no published position. 'phase': 1 Kapurbawdi to Dhamankar Naka, 2 to Kongaon West, 3 Durgadi to Kalyan, '5A' the spur. 'eia_chainage_m' is the chainage in MMRDA's Phase 1 environmental report (Sep 2023), kept as published; it runs 420 to 460 m short of along_m at every Phase 1 station (a different zero). 'keyplan_chainage_m' is the chainage on the key plan, from the corridor start at the bridge (Phase 3) or the spur start (5A). 'same_site_as' names a station of another line at the same place, with the distance between the two points.",
+  "description": "Line 5's stations in order from Kapurbawdi, as MMRDA's revised plan of 2026 has them. 'stations' is the line itself; 'spur_stations' is the Line 5A spur from Bhoirwadi to Ulhasnagar (along_m measured on the spur); 'dropped_stations' were on the 2017 route and are not in the revised plan. Positions to Dhamankar Naka come from MMRDA's alignment file (March 2025, verified, with fixes from imagery); past it, from MMRDA's civil tenders of Oct 2026 (CA-317, CA-318, CA-314): six stations from the coordinates the plan sheets print (verified), the others by their tender chainage along the route traced from the tender key plan (reported, good to about 50 m), with the earlier point under location.earlier. Kalyan, in none of those tenders, keeps the March 2026 key plan point. All by scripts/build-alignment-line5.py. 'tender_chainage_m' is the station centre chainage in the tender (main line; on the spur, the spur's own line chainage). 'phase': 1 Kapurbawdi to Dhamankar Naka, 2 to Kon Gaon East, 3 Durgadi to Kalyan, '5A' the spur. 'eia_chainage_m' is the chainage in MMRDA's Phase 1 environmental report (Sep 2023), kept as published; it runs 420 to 460 m short of along_m at every Phase 1 station (a different zero). 'keyplan_chainage_m' is the chainage on the key plan, from the corridor start at the bridge (Phase 3) or the spur start (5A). 'same_site_as' names a station of another line at the same place, with the distance between the two points.",
   "order_source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc",
   "count_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-5/overview",
   "names_mr_source_url": "https://mmrda.maharashtra.gov.in/mr/projects/transport/metro-line-5/overview",
@@ -364,13 +364,22 @@
    "name_status": "verified",
    "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-5/overview",
    "location": {
-    "lng": 73.059736,
-    "lat": 19.293304,
-    "along_m": 13708,
+    "lng": 73.066763,
+    "lat": 19.293341,
+    "along_m": 14675,
     "eia_chainage_m": null,
-    "method": "MMRDA alignment file for Line 5 (KML on the Metro Influence Zone page, uploaded March 2025): point \"Bhiwandi(M) Statiion\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start at Kapurbawdi; the point is 6 m from that line.",
-    "status": "verified",
-    "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+    "method": "MMRDA's CA-317 tender gives the station centre at chainage 14,220 m; placed at that chainage along the route traced from the key plan in the tender drawings (Oct 2026), good to about 50 m. along_m adds the chainage past Dhamankar Naka to its along_m.",
+    "status": "reported",
+    "source_url": "https://mahatenders.gov.in/nicgep/app?page=FrontEndTendersByOrganisation&service=page",
+    "tender_chainage_m": 14220,
+    "earlier": [
+     {
+      "lat": 19.293304,
+      "lng": 73.059736,
+      "basis": "MMRDA alignment file for Line 5 (KML on the Metro Influence Zone page, uploaded March 2025): point \"Bhiwandi(M) Statiion\"",
+      "distance_m": 739
+     }
+    ]
    },
    "interchanges": {
     "value": [],
@@ -406,13 +415,22 @@
    "name_status": "verified",
    "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-5/overview",
    "location": {
-    "lng": 73.074129,
-    "lat": 19.281687,
-    "along_m": 16150,
+    "lng": 73.08086,
+    "lat": 19.272696,
+    "along_m": 17827,
     "eia_chainage_m": null,
-    "method": "MMRDA alignment file for Line 5 (KML on the Metro Influence Zone page, uploaded March 2025): point \"Temghar(M)station\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start at Kapurbawdi; the point is 3 m from that line.",
+    "method": "Station centre printed on MMRDA's CA-317 plan sheets (Oct 2026), UTM 43N, chainage 17,372 m; within 6 m of the main road in OpenStreetMap. along_m adds the chainage past Dhamankar Naka to its along_m.",
     "status": "verified",
-    "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+    "source_url": "https://mahatenders.gov.in/nicgep/app?page=FrontEndTendersByOrganisation&service=page",
+    "tender_chainage_m": 17371.93,
+    "earlier": [
+     {
+      "lat": 19.281687,
+      "lng": 73.074129,
+      "basis": "MMRDA alignment file for Line 5 (KML on the Metro Influence Zone page, uploaded March 2025): point \"Temghar(M)station\"",
+      "distance_m": 1224
+     }
+    ]
    },
    "interchanges": {
     "value": [],
@@ -446,13 +464,22 @@
    "name_status": "verified",
    "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-5/overview",
    "location": {
-    "lng": 73.084077,
-    "lat": 19.268677,
-    "along_m": 17936,
+    "lng": 73.086184,
+    "lat": 19.265787,
+    "along_m": 18763,
     "eia_chainage_m": null,
-    "method": "MMRDA alignment file for Line 5 (KML on the Metro Influence Zone page, uploaded March 2025): point \"Rajnouli Village(M) Station\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start at Kapurbawdi; the point is 4 m from that line.",
+    "method": "Station centre printed on MMRDA's CA-318 plan sheets (Oct 2026), UTM 43N, chainage 18,308 m; within 6 m of the main road in OpenStreetMap. along_m adds the chainage past Dhamankar Naka to its along_m.",
     "status": "verified",
-    "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+    "source_url": "https://mahatenders.gov.in/nicgep/app?page=FrontEndTendersByOrganisation&service=page",
+    "tender_chainage_m": 18307.86,
+    "earlier": [
+     {
+      "lat": 19.268677,
+      "lng": 73.084077,
+      "basis": "MMRDA alignment file for Line 5 (KML on the Metro Influence Zone page, uploaded March 2025): point \"Rajnouli Village(M) Station\"",
+      "distance_m": 390
+     }
+    ]
    },
    "interchanges": {
     "value": [],
@@ -486,13 +513,22 @@
    "name_status": "verified",
    "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-5/overview",
    "location": {
-    "lng": 73.090116,
-    "lat": 19.261601,
-    "along_m": 18956,
+    "lng": 73.094506,
+    "lat": 19.257284,
+    "along_m": 19995,
     "eia_chainage_m": null,
-    "method": "MMRDA alignment file for Line 5 (KML on the Metro Influence Zone page, uploaded March 2025): point \"Gove Gaon MIDC(M) Station\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start at Kapurbawdi; the point is 0 m from that line.",
+    "method": "Station centre printed on MMRDA's CA-318 plan sheets (Oct 2026), UTM 43N, chainage 19,540 m; within 6 m of the main road in OpenStreetMap. along_m adds the chainage past Dhamankar Naka to its along_m.",
     "status": "verified",
-    "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+    "source_url": "https://mahatenders.gov.in/nicgep/app?page=FrontEndTendersByOrganisation&service=page",
+    "tender_chainage_m": 19539.62,
+    "earlier": [
+     {
+      "lat": 19.261601,
+      "lng": 73.090116,
+      "basis": "MMRDA alignment file for Line 5 (KML on the Metro Influence Zone page, uploaded March 2025): point \"Gove Gaon MIDC(M) Station\"",
+      "distance_m": 666
+     }
+    ]
    },
    "interchanges": {
     "value": [],
@@ -517,22 +553,79 @@
    "last_verified": "2026-10-09"
   },
   {
-   "id": "kon-gaon",
+   "id": "kongaon-west",
    "order": 12,
-   "name": "Kon Gaon",
+   "name": "Kon Gaon West",
+   "name_mr": null,
+   "phase": 2,
+   "type": "Elevated",
+   "name_status": "verified",
+   "name_source_url": "https://mahatenders.gov.in/nicgep/app?page=FrontEndTendersByOrganisation&service=page",
+   "location": {
+    "lng": 73.103093,
+    "lat": 19.250084,
+    "along_m": 21260,
+    "eia_chainage_m": null,
+    "method": "Station centre printed on MMRDA's CA-318 plan sheets (Oct 2026), UTM 43N, chainage 20,805 m; within 6 m of the main road in OpenStreetMap. along_m adds the chainage past Dhamankar Naka to its along_m.",
+    "status": "verified",
+    "source_url": "https://mahatenders.gov.in/nicgep/app?page=FrontEndTendersByOrganisation&service=page",
+    "tender_chainage_m": 20804.94,
+    "earlier": [
+     {
+      "lat": 19.250084,
+      "lng": 73.103093,
+      "basis": "Station centre printed on MMRDA's CA-318 plan sheets (Oct 2026), UTM 43N, chainage 20,805 m; within 6 m of the main road in OpenStreetMap",
+      "distance_m": 0
+     }
+    ]
+   },
+   "interchanges": {
+    "value": [],
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2026-05/extended_metro_line_5_to_strengthen_connectivity_across_thane_bhiwandi_kalyan_and_ulhasnagar.pdf"
+   },
+   "context": [],
+   "construction_status": {
+    "value": "Not started",
+    "status": "reported",
+    "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-line-5-trial-run-preparations-gain-momentum-as-mmrda-begins-25000-volt-overhead-wire-energisation"
+   },
+   "revised_plan_2026": {
+    "value": "New station on Phase 2",
+    "name_in_plan": "Kongaon West",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2026-05/extended_metro_line_5_to_strengthen_connectivity_across_thane_bhiwandi_kalyan_and_ulhasnagar.pdf",
+    "last_verified": "2026-10-09"
+   },
+   "notes": "New in the revised plan. Its order is MMRDA's list order; whether it lies before or after Kon Gaon on the ground is not published. Other reports call the two stations Kongan West and Kongan East.",
+   "last_verified": "2026-10-09"
+  },
+  {
+   "id": "kon-gaon",
+   "order": 13,
+   "name": "Kon Gaon East",
    "name_mr": "कोन गाव",
    "phase": 2,
    "type": "Elevated",
    "name_status": "verified",
-   "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-5/overview",
+   "name_source_url": "https://mahatenders.gov.in/nicgep/app?page=FrontEndTendersByOrganisation&service=page",
    "location": {
-    "lng": 73.106445,
-    "lat": 19.248077,
-    "along_m": 21257,
+    "lng": 73.111706,
+    "lat": 19.245841,
+    "along_m": 22377,
     "eia_chainage_m": null,
-    "method": "MMRDA alignment file for Line 5 (KML on the Metro Influence Zone page, uploaded March 2025): point \"Kon Gaon (M) Station\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from its start at Kapurbawdi; the point is 8 m from that line.",
+    "method": "Station centre printed on MMRDA's CA-318 plan sheets (Oct 2026), UTM 43N, chainage 21,921 m; within 6 m of the main road in OpenStreetMap. along_m adds the chainage past Dhamankar Naka to its along_m.",
     "status": "verified",
-    "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+    "source_url": "https://mahatenders.gov.in/nicgep/app?page=FrontEndTendersByOrganisation&service=page",
+    "tender_chainage_m": 21921.18,
+    "earlier": [
+     {
+      "lat": 19.248077,
+      "lng": 73.106445,
+      "basis": "MMRDA alignment file for Line 5 (KML on the Metro Influence Zone page, uploaded March 2025): point \"Kon Gaon (M) Station\"",
+      "distance_m": 606
+     }
+    ]
    },
    "interchanges": {
     "value": [],
@@ -557,45 +650,6 @@
    "last_verified": "2026-10-09"
   },
   {
-   "id": "kongaon-west",
-   "order": 13,
-   "name": "Kongaon West",
-   "name_mr": null,
-   "phase": 2,
-   "type": "Elevated",
-   "name_status": "verified",
-   "name_source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2026-05/extended_metro_line_5_to_strengthen_connectivity_across_thane_bhiwandi_kalyan_and_ulhasnagar.pdf",
-   "location": {
-    "lng": null,
-    "lat": null,
-    "along_m": null,
-    "eia_chainage_m": null,
-    "method": "Not published. MMRDA lists it after Kon Gaon in Phase 2 but gives no position; the 2025 alignment file has only one Kon Gaon point.",
-    "status": "unverified",
-    "source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2026-05/extended_metro_line_5_to_strengthen_connectivity_across_thane_bhiwandi_kalyan_and_ulhasnagar.pdf"
-   },
-   "interchanges": {
-    "value": [],
-    "status": "verified",
-    "source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2026-05/extended_metro_line_5_to_strengthen_connectivity_across_thane_bhiwandi_kalyan_and_ulhasnagar.pdf"
-   },
-   "context": [],
-   "construction_status": {
-    "value": "Not started",
-    "status": "reported",
-    "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-line-5-trial-run-preparations-gain-momentum-as-mmrda-begins-25000-volt-overhead-wire-energisation"
-   },
-   "revised_plan_2026": {
-    "value": "New station on Phase 2",
-    "name_in_plan": "Kongaon West",
-    "status": "verified",
-    "source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2026-05/extended_metro_line_5_to_strengthen_connectivity_across_thane_bhiwandi_kalyan_and_ulhasnagar.pdf",
-    "last_verified": "2026-10-09"
-   },
-   "notes": "New in the revised plan. Its order is MMRDA's list order; whether it lies before or after Kon Gaon on the ground is not published. Other reports call the two stations Kongan West and Kongan East.",
-   "last_verified": "2026-10-09"
-  },
-  {
    "id": "durgadi-fort",
    "order": 14,
    "name": "Durgadi",
@@ -605,22 +659,22 @@
    "name_status": "verified",
    "name_source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2026-05/extended_metro_line_5_to_strengthen_connectivity_across_thane_bhiwandi_kalyan_and_ulhasnagar.pdf",
    "location": {
-    "lng": 73.121357,
-    "lat": 19.24949,
-    "along_m": 23152,
+    "lng": 73.12191,
+    "lat": 19.249297,
+    "along_m": 23554,
     "eia_chainage_m": null,
-    "method": "Tentative route in MMRDA's tender documents of March 2026 for the general consultant of Line 5A (key plan posted on X by Arindam Mahapatra; that tender was cancelled on 19 Aug 2026). Position traced from the key plan and placed on the map with Kala Talao and the Ulhas river bridge as control points; good to about 50 m. Key plan chainage 550 m; along_m adds it to the distance from Kapurbawdi to the corridor start at the bridge.",
-    "status": "reported",
-    "source_url": "https://x.com/Maha7Arindam/status/2029366179580772677",
+    "method": "Station centre printed on MMRDA's CA-318 plan sheets (Oct 2026), UTM 43N, chainage 23,099 m; within 6 m of the main road in OpenStreetMap. along_m adds the chainage past Dhamankar Naka to its along_m.",
+    "status": "verified",
+    "source_url": "https://mahatenders.gov.in/nicgep/app?page=FrontEndTendersByOrganisation&service=page",
+    "tender_chainage_m": 23098.94,
     "earlier": [
      {
-      "lat": 19.246482,
-      "lng": 73.122811,
-      "basis": "MMRDA's alignment file of March 2025 (the 2017 route)",
-      "distance_m": 368
+      "lat": 19.24949,
+      "lng": 73.121357,
+      "basis": "Tentative route in MMRDA's tender documents of March 2026 for the general consultant of Line 5A (key plan posted on X by Arindam Mahapatra; that tender was cancelled on 19 Aug 2026)",
+      "distance_m": 62
      }
-    ],
-    "keyplan_chainage_m": 550
+    ]
    },
    "interchanges": {
     "value": [],
@@ -654,13 +708,21 @@
    "name_status": "verified",
    "name_source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2026-05/extended_metro_line_5_to_strengthen_connectivity_across_thane_bhiwandi_kalyan_and_ulhasnagar.pdf",
    "location": {
-    "lng": 73.134705,
-    "lat": 19.253137,
-    "along_m": 24662,
-    "keyplan_chainage_m": 2060,
-    "method": "Tentative route in MMRDA's tender documents of March 2026 for the general consultant of Line 5A (key plan posted on X by Arindam Mahapatra; that tender was cancelled on 19 Aug 2026). Position traced from the key plan and placed on the map with Kala Talao and the Ulhas river bridge as control points; good to about 50 m. Key plan chainage 2,060 m; along_m adds it to the distance from Kapurbawdi to the corridor start at the bridge.",
+    "lng": 73.134786,
+    "lat": 19.253364,
+    "along_m": 25059,
+    "method": "MMRDA's CA-318 tender gives the station centre at chainage 24,604 m; placed at that chainage along the route traced from the key plan in the tender drawings (Oct 2026), good to about 50 m. along_m adds the chainage past Dhamankar Naka to its along_m.",
     "status": "reported",
-    "source_url": "https://x.com/Maha7Arindam/status/2029366179580772677"
+    "source_url": "https://mahatenders.gov.in/nicgep/app?page=FrontEndTendersByOrganisation&service=page",
+    "earlier": [
+     {
+      "lat": 19.253137,
+      "lng": 73.134705,
+      "basis": "Tentative route in MMRDA's tender documents of March 2026 for the general consultant of Line 5A (key plan posted on X by Arindam Mahapatra; that tender was cancelled on 19 Aug 2026)",
+      "distance_m": 27
+     }
+    ],
+    "tender_chainage_m": 24604
    },
    "interchanges": {
     "value": [],
@@ -693,13 +755,21 @@
    "name_status": "verified",
    "name_source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2026-05/extended_metro_line_5_to_strengthen_connectivity_across_thane_bhiwandi_kalyan_and_ulhasnagar.pdf",
    "location": {
-    "lng": 73.145196,
-    "lat": 19.247668,
-    "along_m": 25932,
-    "keyplan_chainage_m": 3330,
-    "method": "Tentative route in MMRDA's tender documents of March 2026 for the general consultant of Line 5A (key plan posted on X by Arindam Mahapatra; that tender was cancelled on 19 Aug 2026). Position traced from the key plan and placed on the map with Kala Talao and the Ulhas river bridge as control points; good to about 50 m. Key plan chainage 3,330 m; along_m adds it to the distance from Kapurbawdi to the corridor start at the bridge.",
+    "lng": 73.144397,
+    "lat": 19.248064,
+    "along_m": 26330,
+    "method": "MMRDA's CA-318 tender gives the station centre at chainage 25,875 m; placed at that chainage along the route traced from the key plan in the tender drawings (Oct 2026), good to about 50 m. along_m adds the chainage past Dhamankar Naka to its along_m.",
     "status": "reported",
-    "source_url": "https://x.com/Maha7Arindam/status/2029366179580772677"
+    "source_url": "https://mahatenders.gov.in/nicgep/app?page=FrontEndTendersByOrganisation&service=page",
+    "earlier": [
+     {
+      "lat": 19.247668,
+      "lng": 73.145196,
+      "basis": "Tentative route in MMRDA's tender documents of March 2026 for the general consultant of Line 5A (key plan posted on X by Arindam Mahapatra; that tender was cancelled on 19 Aug 2026)",
+      "distance_m": 95
+     }
+    ],
+    "tender_chainage_m": 25875
    },
    "interchanges": {
     "value": [],
@@ -732,13 +802,21 @@
    "name_status": "verified",
    "name_source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2026-05/extended_metro_line_5_to_strengthen_connectivity_across_thane_bhiwandi_kalyan_and_ulhasnagar.pdf",
    "location": {
-    "lng": 73.139449,
-    "lat": 19.239522,
-    "along_m": 27892,
-    "keyplan_chainage_m": 5290,
-    "method": "Tentative route in MMRDA's tender documents of March 2026 for the general consultant of Line 5A (key plan posted on X by Arindam Mahapatra; that tender was cancelled on 19 Aug 2026). Position traced from the key plan and placed on the map with Kala Talao and the Ulhas river bridge as control points; good to about 50 m. Key plan chainage 5,290 m; along_m adds it to the distance from Kapurbawdi to the corridor start at the bridge.",
+    "lng": 73.140777,
+    "lat": 19.239557,
+    "along_m": 28276,
+    "method": "MMRDA's CA-314 tender gives the station centre at chainage 27,820 m; placed at that chainage along the route traced from the key plan in the tender drawings (Oct 2026), good to about 50 m. along_m adds the chainage past Dhamankar Naka to its along_m.",
     "status": "reported",
-    "source_url": "https://x.com/Maha7Arindam/status/2029366179580772677"
+    "source_url": "https://mahatenders.gov.in/nicgep/app?page=FrontEndTendersByOrganisation&service=page",
+    "earlier": [
+     {
+      "lat": 19.239522,
+      "lng": 73.139449,
+      "basis": "Tentative route in MMRDA's tender documents of March 2026 for the general consultant of Line 5A (key plan posted on X by Arindam Mahapatra; that tender was cancelled on 19 Aug 2026)",
+      "distance_m": 140
+     }
+    ],
+    "tender_chainage_m": 27820.44
    },
    "interchanges": {
     "value": [],
@@ -773,9 +851,9 @@
    "location": {
     "lng": 73.126342,
     "lat": 19.238679,
-    "along_m": 29159,
+    "along_m": 29915,
     "eia_chainage_m": null,
-    "method": "Tentative route in MMRDA's tender documents of March 2026 for the general consultant of Line 5A (key plan posted on X by Arindam Mahapatra; that tender was cancelled on 19 Aug 2026). Position traced from the key plan and placed on the map with Kala Talao and the Ulhas river bridge as control points; good to about 50 m. Key plan chainage 6,557 m; along_m adds it to the distance from Kapurbawdi to the corridor start at the bridge.",
+    "method": "Tentative route in MMRDA's tender documents of March 2026 for the general consultant of Line 5A (key plan posted on X by Arindam Mahapatra; that tender was cancelled on 19 Aug 2026). Position traced from the key plan and placed on the map with Kala Talao and the Ulhas river bridge as control points; good to about 50 m. Kalyan station is past the end of the Oct 2026 tenders' Part A, which stops short of it; along_m adds the straight distance from that end.",
     "status": "reported",
     "source_url": "https://x.com/Maha7Arindam/status/2029366179580772677",
     "earlier": [
@@ -958,13 +1036,21 @@
    "name_status": "verified",
    "name_source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2026-05/extended_metro_line_5_to_strengthen_connectivity_across_thane_bhiwandi_kalyan_and_ulhasnagar.pdf",
    "location": {
-    "lng": 73.150521,
-    "lat": 19.232838,
-    "along_m": 2050,
-    "keyplan_chainage_m": 2050,
-    "method": "Tentative route in MMRDA's tender documents of March 2026 for the general consultant of Line 5A (key plan posted on X by Arindam Mahapatra; that tender was cancelled on 19 Aug 2026). Position traced from the key plan and placed on the map with Kala Talao and the Ulhas river bridge as control points; good to about 50 m. along_m is the key plan chainage on the spur, from its start just past Bhoirwadi.",
+    "lng": 73.15038,
+    "lat": 19.233059,
+    "along_m": 2049,
+    "method": "MMRDA's CA-314 tender gives the station centre at spur chainage 2,049 m; placed at that chainage along the route traced from the key plan in the tender drawings (Oct 2026), good to about 50 m. along_m is the spur chainage from its start just past Bhoirwadi.",
     "status": "reported",
-    "source_url": "https://x.com/Maha7Arindam/status/2029366179580772677"
+    "source_url": "https://mahatenders.gov.in/nicgep/app?page=FrontEndTendersByOrganisation&service=page",
+    "earlier": [
+     {
+      "lat": 19.232838,
+      "lng": 73.150521,
+      "basis": "Tentative route in MMRDA's tender documents of March 2026 for the general consultant of Line 5A (key plan posted on X by Arindam Mahapatra; that tender was cancelled on 19 Aug 2026)",
+      "distance_m": 29
+     }
+    ],
+    "tender_chainage_m": 28226.41
    },
    "interchanges": {
     "value": [],
@@ -997,13 +1083,21 @@
    "name_status": "verified",
    "name_source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2026-05/extended_metro_line_5_to_strengthen_connectivity_across_thane_bhiwandi_kalyan_and_ulhasnagar.pdf",
    "location": {
-    "lng": 73.162215,
-    "lat": 19.226945,
-    "along_m": 3430,
-    "keyplan_chainage_m": 3430,
-    "method": "Tentative route in MMRDA's tender documents of March 2026 for the general consultant of Line 5A (key plan posted on X by Arindam Mahapatra; that tender was cancelled on 19 Aug 2026). Position traced from the key plan and placed on the map with Kala Talao and the Ulhas river bridge as control points; good to about 50 m. along_m is the key plan chainage on the spur, from its start just past Bhoirwadi.",
+    "lng": 73.161646,
+    "lat": 19.227186,
+    "along_m": 3429,
+    "method": "MMRDA's CA-314 tender gives the station centre at spur chainage 3,429 m; placed at that chainage along the route traced from the key plan in the tender drawings (Oct 2026), good to about 50 m. along_m is the spur chainage from its start just past Bhoirwadi.",
     "status": "reported",
-    "source_url": "https://x.com/Maha7Arindam/status/2029366179580772677"
+    "source_url": "https://mahatenders.gov.in/nicgep/app?page=FrontEndTendersByOrganisation&service=page",
+    "earlier": [
+     {
+      "lat": 19.226945,
+      "lng": 73.162215,
+      "basis": "Tentative route in MMRDA's tender documents of March 2026 for the general consultant of Line 5A (key plan posted on X by Arindam Mahapatra; that tender was cancelled on 19 Aug 2026)",
+      "distance_m": 66
+     }
+    ],
+    "tender_chainage_m": 29606.41
    },
    "interchanges": {
     "value": [],
@@ -1036,13 +1130,21 @@
    "name_status": "verified",
    "name_source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2026-05/extended_metro_line_5_to_strengthen_connectivity_across_thane_bhiwandi_kalyan_and_ulhasnagar.pdf",
    "location": {
-    "lng": 73.173399,
-    "lat": 19.219858,
-    "along_m": 4680,
-    "keyplan_chainage_m": 4680,
-    "method": "Tentative route in MMRDA's tender documents of March 2026 for the general consultant of Line 5A (key plan posted on X by Arindam Mahapatra; that tender was cancelled on 19 Aug 2026). Position traced from the key plan and placed on the map with Kala Talao and the Ulhas river bridge as control points; good to about 50 m. along_m is the key plan chainage on the spur, from its start just past Bhoirwadi.",
+    "lng": 73.17167,
+    "lat": 19.221107,
+    "along_m": 4679,
+    "method": "MMRDA's CA-314 tender gives the station centre at spur chainage 4,679 m; placed at that chainage along the route traced from the key plan in the tender drawings (Oct 2026), good to about 50 m. along_m is the spur chainage from its start just past Bhoirwadi.",
     "status": "reported",
-    "source_url": "https://x.com/Maha7Arindam/status/2029366179580772677"
+    "source_url": "https://mahatenders.gov.in/nicgep/app?page=FrontEndTendersByOrganisation&service=page",
+    "earlier": [
+     {
+      "lat": 19.219858,
+      "lng": 73.173399,
+      "basis": "Tentative route in MMRDA's tender documents of March 2026 for the general consultant of Line 5A (key plan posted on X by Arindam Mahapatra; that tender was cancelled on 19 Aug 2026)",
+      "distance_m": 229
+     }
+    ],
+    "tender_chainage_m": 30856.41
    },
    "interchanges": {
     "value": [],
