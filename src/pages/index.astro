@@ -12,6 +12,7 @@ import Base from '../layouts/Base.astro';
 import Masthead from '../components/Masthead.astro';
 import Colophon from '../components/Colophon.astro';
 import PressBanner from '../components/PressBanner.astro';
+import SendBanner from '../components/SendBanner.astro';
 import Grade from '../components/Grade.astro';
 import { getLine, lineBase, formatDate, outletName, inr, SITE_NAME, INTERCHANGE_TABLE, type LineId } from '../lib/data';
 import { hasStatusPage } from '../lib/answers';
@@ -306,6 +307,9 @@ const description = `An unofficial, sourced tracker of the Mumbai Metro: all ${n
         Mumbai Line 1). A line with no published route is listed but not drawn. Stages are this site's reading of the sources; see the grade on each.
       </p>
     </section>
+
+    <!-- Readers send photos and updates (src/pages/send.astro) -->
+    <SendBanner />
 
     <!-- 3. Latest updates across the tracked lines -->
     <section id="updates" class="section page" aria-labelledby="updates-title">

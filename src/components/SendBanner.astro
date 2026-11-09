@@ -1,0 +1,152 @@
+---
+/**
+ * The ask for reader photos and updates (the form at /send/), on the hub and each line's page.
+ * Beside it, one of Arindam Mahapatra's Amandoot photos: the first reader photos on the site, and the form
+ * was his idea, so the banner thanks him.
+ */
+import { lineBase, type Line } from '../lib/data';
+
+interface Props {
+  /** On a line's page the form opens with this line picked. */
+  line?: Line;
+}
+const { line } = Astro.props;
+const sendHref = line ? `/send/?line=${line.id}` : '/send/';
+const where = line ? line.info.label : 'any line';
+
+// Arindam's photo of Amandoot station work, 26 Aug 2026 (line-12 photos.json).
+const photo = {
+  src: '/photos/amandoot-2026-08-26-c.jpg',
+  alt: 'Work on the Amandoot station of Metro Line 12, photographed from the street by a reader',
+  width: 1200,
+  height: 1600,
+  date: '26 Aug 2026',
+  post: 'https://x.com/Maha7Arindam/status/2092489255948025861',
+};
+const amandoot = `${lineBase('line-12')}stations/amandoot/`;
+---
+
+<section class="section page sendban" aria-labelledby="sendban-title">
+  <div class="sendban__text">
+    <p class="sendban__kicker">New: reader photos</p>
+    <h2 id="sendban-title" class="sendban__title">Seen the work? Send us a photo.</h2>
+    <p class="sendban__lede">
+      You pass the pillars every day. Send your photos of {where}, or tell us what changed. We check every entry by hand, blur faces and number plates, and put
+      the photo on its station page with your name.
+    </p>
+    <a class="sendban__btn" data-magnetic href={sendHref}>Send a photo or update <span aria-hidden="true">→</span></a>
+    <p class="sendban__thanks">
+      Thank you to <a href="https://x.com/Maha7Arindam" rel="noopener" target="_blank">Arindam Mahapatra<span class="visually-hidden"> on X (opens in a new tab)</span></a>, who
+      suggested this form. His photos of <a href={amandoot}>Amandoot</a> were the first reader photos on this site.
+    </p>
+  </div>
+  <figure class="sendban__photo">
+    <img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async" />
+    <figcaption>
+      Amandoot, Line 12. Photo by <a href={photo.post} rel="noopener" target="_blank">Arindam Mahapatra<span class="visually-hidden"> (opens in a new tab)</span></a>, {photo.date}
+    </figcaption>
+  </figure>
+</section>
+
+<style>
+  .sendban {
+    display: grid;
+    gap: var(--s-6);
+    align-items: center;
+  }
+  @media (min-width: 48rem) {
+    .sendban {
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+      gap: var(--s-7);
+    }
+  }
+  .sendban__text {
+    display: grid;
+    gap: var(--s-4);
+    justify-items: start;
+  }
+  .sendban__text::before {
+    content: '';
+    width: 4.5rem;
+    height: var(--bar);
+    background: var(--signal-graphic);
+  }
+  .sendban__kicker {
+    font-size: var(--step--1);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .sendban__title {
+    font-size: var(--step-4);
+    line-height: 0.92;
+    text-transform: uppercase;
+    text-wrap: balance;
+    max-width: 14ch;
+  }
+  .sendban__lede {
+    max-width: var(--measure);
+    font-size: var(--step-1);
+    line-height: 1.45;
+    color: var(--ink-2);
+  }
+  .sendban__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--s-2);
+    min-height: 48px;
+    padding: var(--s-2) var(--s-6);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-stretch: 75%;
+    font-size: var(--step-1);
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--on-signal);
+    background: var(--signal);
+    border-radius: 4px;
+    transition: scale 0.16s var(--ease-out);
+  }
+  .sendban__btn span {
+    transition: translate 0.2s var(--ease-out);
+  }
+  .sendban__btn:active {
+    scale: 0.98;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .sendban__btn:hover span {
+      translate: 3px 0;
+    }
+  }
+  .sendban__thanks {
+    max-width: var(--measure);
+    padding-top: var(--s-3);
+    border-top: var(--rule-w) solid var(--rule);
+    font-size: var(--step--1);
+    color: var(--ink-2);
+  }
+  .sendban__photo {
+    display: grid;
+    gap: var(--s-2);
+    margin: 0;
+    max-width: 24rem;
+    justify-self: center;
+  }
+  .sendban__photo img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+  }
+  .sendban__photo figcaption {
+    font-size: var(--step--1);
+    color: var(--ink-2);
+  }
+  @media (max-width: 47.99rem) {
+    .sendban__photo {
+      max-width: 16rem;
+      justify-self: start;
+    }
+  }
+</style>

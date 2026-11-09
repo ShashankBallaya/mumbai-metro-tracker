@@ -127,6 +127,11 @@ const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || (import.meta.env.DE
         <li>If we do not use it, we delete it.</li>
       </ol>
     </section>
+
+    <p class="inner__block send__thanks">
+      This form was the idea of <a href="https://x.com/Maha7Arindam" rel="noopener" target="_blank">Arindam Mahapatra<span class="visually-hidden"> on X (opens in a new tab)</span></a>.
+      His photos of <a href="/line-12/stations/amandoot/">Amandoot station</a> were the first reader photos on this site. Thank you, Arindam.
+    </p>
   </main>
   <Colophon />
 </Base>
@@ -402,6 +407,12 @@ const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || (import.meta.env.DE
   }
   .send__after {
     max-width: 44rem;
+  }
+  .send__thanks {
+    max-width: 44rem;
+    padding-top: var(--s-4);
+    border-top: var(--rule-w) solid var(--rule);
+    color: var(--ink-2);
   }
   .send__after ol {
     display: grid;

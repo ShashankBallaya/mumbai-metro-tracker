@@ -17,6 +17,7 @@ import StationModel from '../../components/StationModel.astro';
 import Aerial from '../../components/Aerial.astro';
 import Updates from '../../components/Updates.astro';
 import SourcesFooter from '../../components/SourcesFooter.astro';
+import SendBanner from '../../components/SendBanner.astro';
 import { getLine, lines, hasService, type LineId } from '../../lib/data';
 
 export function getStaticPaths() {
@@ -42,6 +43,7 @@ const { about, route_short, copy } = line.info;
     {line.tenders.length > 0 && <Tenders line={line} />}
     {line.rollingstock && <Trains line={line} />}
     <Stations line={line} />
+    <SendBanner line={line} />
     <Updates line={line} />
     {line.timeline.length > 0 && <Timeline line={line} />}
     <SourcesFooter line={line} />
