@@ -3,6 +3,7 @@
 import type { APIRoute } from 'astro';
 import { getLine, lines, lineBase, lastReviewed as siteReviewed } from '../lib/data';
 import { hasStatusPage } from '../lib/answers';
+import { PRESS } from '../lib/press';
 
 export const GET: APIRoute = ({ site }) => {
   const url = (path: string) => new URL(path, site).toString();
@@ -18,6 +19,7 @@ export const GET: APIRoute = ({ site }) => {
         ...[...line.stations, ...line.spurStations].map((s) => ({ loc: url(`${base}stations/${s.id}/`), lastmod: s.last_verified, priority: '0.7' })),
       ];
     }),
+    ...PRESS.map((p) => ({ loc: url(`/press/${p.slug}/`), lastmod: p.date, priority: '0.5' })),
   ];
   const body = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

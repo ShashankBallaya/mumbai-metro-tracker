@@ -4,6 +4,7 @@
  * elevated line with the road below as light trails, then the dateline (dates, source code, maintainer).
  * On a station page the photo credits come first.
  */
+import { PRESS } from '../lib/press';
 import { formatDate, lastReviewed as siteReviewed, REPO_URL, CORRECTION_URL, SITE_NAME, lines, lineBase, photoContributorsFor, type Line } from '../lib/data';
 import LineMark from './LineMark.astro';
 import BackPageScene from './BackPageScene.astro';
@@ -26,12 +27,8 @@ const builtAt = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata
 // The line's own disclaimer (lines.json copy), since a line may show a maker's image; this one off a line page.
 const DISCLAIMER = 'Mumbai Metro Tracker is an independent public-interest site. It is not affiliated with, endorsed by or connected to MMRDA or the Government of Maharashtra. Drawings are original illustrations, not official designs. Check official sources before making decisions.';
 const disclaimer = pageDisclaimer ?? line?.info.copy.footer_disclaimer ?? DISCLAIMER;
-// Press coverage of the site.
-const PRESS = {
-  outlet: 'mid-day',
-  date: '2026-11-09',
-  href: 'https://www.mid-day.com/mumbai/mumbai-news/article/mumbai-new-website-built-by-24-year-old-tracks-construction-progress-costs-and-delays-of-21-metro-corridors-23659102',
-};
+// The latest press story. The footer links our thank-you page, which links the story.
+const press = PRESS[0];
 ---
 
 <footer class="colophon" data-back-page>
@@ -60,8 +57,8 @@ const PRESS = {
         </p>
         <p class="colophon__press">
           <span class="colophon__press-label">Featured in</span>
-          <a href={PRESS.href} rel="noopener" target="_blank">{PRESS.outlet}<span class="visually-hidden"> (opens in a new tab)</span></a>
-          <span class="colophon__press-date">{formatDate(PRESS.date)}</span>
+          <a href={`/press/${press.slug}/`}>{press.outlet}</a>
+          <span class="colophon__press-date">{formatDate(press.date)}</span>
         </p>
       </div>
       <nav class="back__col" aria-labelledby="back-lines">

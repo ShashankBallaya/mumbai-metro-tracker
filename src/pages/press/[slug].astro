@@ -1,0 +1,203 @@
+---
+/**
+ * /press/<outlet>/: a thank-you note to a paper that wrote about the site, with a link to the story
+ * and a short guide for readers who arrive from it. One page per entry in src/lib/press.ts.
+ */
+import Base from '../../layouts/Base.astro';
+import Masthead from '../../components/Masthead.astro';
+import Colophon from '../../components/Colophon.astro';
+import { formatDate, SITE_NAME } from '../../lib/data';
+import { PRESS, type PressStory } from '../../lib/press';
+import '../../styles/inner.css';
+
+export function getStaticPaths() {
+  return PRESS.map((story) => ({ params: { slug: story.slug }, props: { story } }));
+}
+
+const { story } = Astro.props as { story: PressStory };
+const title = `Thank you, ${story.outlet}`;
+const description = `${story.outlet} wrote about ${SITE_NAME} on ${formatDate(story.date)}. Our thanks to ${story.writer} and the ${story.outlet} team, with a link to the story.`;
+const site = Astro.site!.toString();
+
+const schema = [
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'All lines', item: site },
+      { '@type': 'ListItem', position: 2, name: title, item: new URL(Astro.url.pathname, site).toString() },
+    ],
+  },
+  {
+    '@type': 'NewsArticle',
+    headline: story.headline,
+    datePublished: story.date,
+    url: story.href,
+    author: { '@type': 'Person', name: story.writer },
+    publisher: { '@type': 'Organization', name: story.outlet },
+    about: { '@id': `${site}#site` },
+  },
+];
+
+// Where a reader from the story may want to go first. Kalyan's two lines lead, since the story starts there.
+const start = [
+  { href: '/#map', label: 'The network map', note: 'Every line the site follows, on one map.' },
+  { href: '/line-5/', label: 'Line 5: Thane to Kalyan', note: 'The route, the stations and where the work is.' },
+  { href: '/line-12/', label: 'Line 12: Kalyan to Taloja', note: 'Where this site began.' },
+  { href: '/#updates', label: 'Latest updates', note: 'News on every line, newest first.' },
+  { href: '/send/', label: 'Send a photo or update', note: 'You pass the pillars every day. Show us what you see.' },
+];
+---
+
+<Base title={title} description={description} schema={schema}>
+  <Masthead home={false} />
+  <main id="main" class="page inner press">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">All lines</a></li>
+        <li aria-current="page">{title}</li>
+      </ol>
+    </nav>
+
+    <header class="inner__head">
+      <h1 class="inner__title">Thank you, {story.outlet}</h1>
+      <p class="inner__mr mr" lang="mr">धन्यवाद, {story.outlet_mr}</p>
+      <p class="inner__standfirst">
+        On {formatDate(story.date)}, {story.outlet} told its readers about {SITE_NAME}. Our thanks to {story.writer} sir and the whole {story.outlet} team for giving a small, independent project a place in the paper.
+      </p>
+    </header>
+
+    <article class="press__clip" aria-labelledby="press-headline">
+      <p class="press__kicker">
+        <span class="press__outlet">{story.outlet}</span>
+        <time datetime={story.date}>{formatDate(story.date)}</time>
+      </p>
+      <h2 id="press-headline" class="press__headline">{story.headline}</h2>
+      <p class="press__byline">
+        By {story.writer}{story.photographer && <>. Photo: {story.photographer}</>}
+      </p>
+      <p class="press__links">
+        <a class="press__read" href={story.href} rel="noopener" target="_blank">Read the story on {story.outlet}<span class="visually-hidden"> (opens in a new tab)</span></a>
+        {story.posts.map((p) => (
+          <a href={p.href} rel="noopener" target="_blank">On {p.label}<span class="visually-hidden"> (opens in a new tab)</span></a>
+        ))}
+      </p>
+    </article>
+
+    <section class="inner__block press__note" aria-labelledby="press-note">
+      <h2 id="press-note">A note from the maker</h2>
+      <p>
+        I started this site to answer one question for my own town: when will the Metro reach Kalyan? Every number on it comes from a tender, a press release or a news report, with the source next to it. It is slow work, and for a long time only a few friends read it.
+      </p>
+      <p>
+        {story.writer} sir has written about Mumbai's railways for many years. Readers trust his reporting because he checks his facts. For him to look at this site, ask hard questions and then write about it means a great deal to me.
+      </p>
+      <p>
+        To every reader who comes here from {story.outlet}: welcome. If a fact is wrong, tell me. If you have a photo of the work near your home, send it. The site gets better with each one.
+      </p>
+      <p class="press__sign">Shashank Ballaya, Kalyan</p>
+    </section>
+
+    <section class="inner__block" aria-labelledby="press-start">
+      <h2 id="press-start">New here? Start with these</h2>
+      <ul class="press__start">
+        {start.map((s) => (
+          <li>
+            <a href={s.href}>{s.label}</a>
+            <span>{s.note}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  </main>
+  <Colophon />
+</Base>
+
+<style>
+  /* The clipping: the story's headline set like a cutting from the paper, between two heavy rules. */
+  .press__clip {
+    display: grid;
+    gap: var(--s-3);
+    max-width: 60rem;
+    padding-block: var(--s-5);
+    border-block: var(--rule-heavy) solid var(--rule-strong);
+  }
+  .press__kicker {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--s-1) var(--s-3);
+    font-size: var(--step--1);
+    color: var(--ink-2);
+  }
+  .press__outlet {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-stretch: 87.5%;
+    font-size: var(--step-1);
+    color: var(--ink);
+  }
+  .press__headline {
+    font-size: var(--step-2);
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+  .press__byline {
+    font-size: var(--step--1);
+    color: var(--ink-2);
+  }
+  .press__links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--s-2) var(--s-5);
+  }
+  .press__links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .press__read {
+    font-weight: 700;
+  }
+  .press__note p {
+    max-width: var(--measure);
+    margin-bottom: var(--s-4);
+    font-size: var(--step-1);
+    line-height: 1.5;
+  }
+  .press__note .press__sign {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--step-0);
+    color: var(--ink-2);
+  }
+  .press__start {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: var(--rule-heavy) solid var(--rule-strong);
+  }
+  .press__start li {
+    display: grid;
+    gap: var(--s-1) var(--s-5);
+    padding-block: var(--s-4);
+    border-bottom: var(--rule-w) solid var(--rule);
+  }
+  @media (min-width: 48rem) {
+    .press__start li {
+      grid-template-columns: 18rem minmax(0, 1fr);
+      align-items: baseline;
+    }
+  }
+  .press__start a {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-stretch: 87.5%;
+    font-size: var(--step-1);
+    text-transform: uppercase;
+    line-height: 1.05;
+  }
+  .press__start span {
+    color: var(--ink-2);
+  }
+</style>
