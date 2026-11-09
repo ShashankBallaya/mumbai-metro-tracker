@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "Hand-curated X (Twitter) posts, newest first. Each post is printed as a ruled row (date, author, text); X's script loads only when a reader asks for one full post with its photos. 'status' grades the post's claims, not the account: posts by enthusiasts are 'reported' at best; posts by MMRDA and by the line's operator, Maha Mumbai Metro (MMMOCL), are 'verified'. Dates come from the post ID.",
-    "last_reviewed": "2026-10-30"
+    "last_reviewed": "2026-11-09"
   },
   "posts": [
     {
@@ -43,6 +43,26 @@
       "status": "reported",
       "source_url": "https://x.com/bodkeitis/status/2112883705878561195",
       "last_verified": "2026-10-30"
+    },
+    {
+      "url": "https://x.com/Maha7Arindam/status/2111433423260958823",
+      "author": "Arindam Mahapatra",
+      "handle": "Maha7Arindam",
+      "date": "2026-10-17",
+      "text": "At Mankhurd, the connector between the railway station and the metro station is still to be built (marked with a red circle). The old ticket office will be demolished once the new ones open, and an elevated deck will be built and linked to the metro to spread out the crowd. One photo.",
+      "status": "reported",
+      "source_url": "https://x.com/Maha7Arindam/status/2111433423260958823",
+      "last_verified": "2026-11-09"
+    },
+    {
+      "url": "https://x.com/MH04Thane/status/2111358036509958612",
+      "author": "Better Thane",
+      "handle": "MH04Thane",
+      "date": "2026-10-17",
+      "text": "A trip from Thane to Chembur that skips the Central line: Trans Harbour local to Vashi, Harbour local to Mankhurd, then Line 2B from Mankhurd to Chembur. Three photos.",
+      "status": "reported",
+      "source_url": "https://x.com/MH04Thane/status/2111358036509958612",
+      "last_verified": "2026-11-09"
     },
     {
       "url": "https://x.com/rajtoday/status/2110090350882967647",
@@ -123,6 +143,16 @@
       "status": "reported",
       "source_url": "https://x.com/bodkeitis/status/2093256097062846850",
       "last_verified": "2026-10-30"
+    },
+    {
+      "url": "https://x.com/Maha7Arindam/status/2088197459113898348",
+      "author": "Arindam Mahapatra",
+      "handle": "Maha7Arindam",
+      "date": "2026-08-14",
+      "text": "The elevated deck at Mankhurd, August 2026: the pillars are done. The old ticket counter (the pink building) will be demolished after the monsoon and moved opposite the auto stand. Four photos.",
+      "status": "reported",
+      "source_url": "https://x.com/Maha7Arindam/status/2088197459113898348",
+      "last_verified": "2026-11-09"
     },
     {
       "url": "https://x.com/MMRDAOfficial/status/2077643162039030203",
