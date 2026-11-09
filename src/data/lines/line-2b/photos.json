@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "Dated ground photos, by the owner or by people who gave permission to use them. 'stations' holds photos for each station page, keyed by the station id in stations.json. Put the image files in public/photos/ (location data removed) and add entries below. See UPDATING.md.",
-    "last_reviewed": "2026-10-30"
+    "last_reviewed": "2026-11-09"
   },
   "pairs": [],
   "stations": {
@@ -14,6 +14,41 @@
         "credit": "Shashank Ballaya",
         "width": 1200,
         "height": 1600
+      }
+    ],
+    "eeh": [
+      {
+        "src": "/photos/eeh-2026-11-09-c.jpg",
+        "alt": "The side of EEH station's concourse and platform levels in bare concrete and brick, with the steel roof frame going up on top, above shops and a tin-roofed building",
+        "caption": "The station from the street, with the roof frame going up",
+        "date": "2026-11-09",
+        "credit": "Crio",
+        "handle": "Crio96",
+        "source_url": "https://x.com/Crio96/status/2119675163000406211",
+        "width": 1600,
+        "height": 728
+      },
+      {
+        "src": "/photos/eeh-2026-11-09-a.jpg",
+        "alt": "Looking up from a lane at the underside of the EEH station viaduct on its round pier, with the station's grey concrete floors and green safety nets behind",
+        "caption": "The viaduct and pier at the end of the station",
+        "date": "2026-11-09",
+        "credit": "Crio",
+        "handle": "Crio96",
+        "source_url": "https://x.com/Crio96/status/2119675163000406211",
+        "width": 1200,
+        "height": 1800
+      },
+      {
+        "src": "/photos/eeh-2026-11-09-b.jpg",
+        "alt": "A man climbs a wide concrete staircase up to the EEH station building, beside green netting and coconut palms, with rubble in front",
+        "caption": "The entrance stairs up to the station",
+        "date": "2026-11-09",
+        "credit": "Crio",
+        "handle": "Crio96",
+        "source_url": "https://x.com/Crio96/status/2119675163000406211",
+        "width": 1200,
+        "height": 1800
       }
     ]
   }
