@@ -1,0 +1,92 @@
+---
+/**
+ * A slim strip under the hub's masthead: the latest press story, the first line of its writer's words,
+ * and a link to our thank-you page. The whole strip is one link.
+ */
+import { PRESS } from '../lib/press';
+
+const story = PRESS[0];
+// The writer's first sentence, or none if the story has no words yet.
+const lead = story?.words?.text.match(/^.+?[.!?](?=\s|$)/)?.[0];
+---
+
+{story && (
+  <aside class="pressbar" aria-label="In the press">
+    <a class="page pressbar__inner" href={`/press/${story.slug}/`}>
+      <span class="pressbar__label">Featured in <span class="pressbar__outlet">{story.outlet}</span></span>
+      {lead && (
+        <span class="pressbar__quote">
+          “{lead}” <span class="pressbar__by">{story.words!.by}</span>
+        </span>
+      )}
+      <span class="pressbar__go">Read our thank-you <span aria-hidden="true">→</span></span>
+    </a>
+  </aside>
+)}
+
+<style>
+  .pressbar {
+    border-bottom: var(--rule-w) solid var(--rule);
+  }
+  .pressbar__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--s-1) var(--s-4);
+    min-height: 44px;
+    padding-block: var(--s-2);
+    font-size: var(--step--1);
+    color: var(--ink-2);
+    text-decoration: none;
+  }
+  .pressbar__label {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--s-2);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .pressbar__label::before {
+    content: '';
+    align-self: center;
+    width: var(--bar);
+    height: var(--bar);
+    background: var(--signal-graphic);
+  }
+  .pressbar__outlet {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-stretch: 87.5%;
+    font-size: var(--step-0);
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--ink);
+  }
+  .pressbar__quote {
+    color: var(--ink);
+  }
+  .pressbar__by {
+    color: var(--ink-2);
+    white-space: nowrap;
+  }
+  .pressbar__go {
+    margin-left: auto;
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    white-space: nowrap;
+  }
+  .pressbar__inner:hover .pressbar__go,
+  .pressbar__inner:focus-visible .pressbar__go {
+    text-decoration-thickness: 2px;
+  }
+  /* On a phone the quote is too long for a strip: the label and the link are enough. */
+  @media (max-width: 40rem) {
+    .pressbar__quote {
+      display: none;
+    }
+  }
+</style>
