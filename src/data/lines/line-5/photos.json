@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "Dated ground photos, by the owner or by people who gave permission to use them. Entries with kind \"drone\" are stills from a drone video by a creator who gave permission (the video is in aerial.json); video_t is the second in the video, and source_url opens the video there. 'pairs' are before/after pairs shown under the satellite comparison. 'stations' holds photos for each station page, keyed by the station id in stations.json. Put the image files in public/photos/ (location data removed) and add entries below. See UPDATING.md.",
-    "last_reviewed": "2026-10-16"
+    "last_reviewed": "2026-11-09"
   },
   "pairs": [],
   "stations": {
@@ -174,6 +174,16 @@
       }
     ],
     "kapurbawdi": [
+      {
+        "src": "/photos/kapurbawdi-2026-11-09-a.jpg",
+        "alt": "High view over Kapurbawdi junction: two metro viaducts curve over Ghodbunder Road between residential towers, with the hills of Yeoor behind",
+        "caption": "The Line 4 and Line 5 viaducts over Kapurbawdi junction, from a tower nearby",
+        "date": "2026-11-09",
+        "credit": "Mohit Joshi",
+        "handle": "mojo11697",
+        "width": 1600,
+        "height": 1066
+      },
       {
         "src": "/photos/kapurbawdi-aerial-2026-10-13-a.jpg",
         "alt": "Line 5's tracks beside Line 4's yellow-edged viaduct, leading to Kapurbawdi station and its green roof between office towers",
