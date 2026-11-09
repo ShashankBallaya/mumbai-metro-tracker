@@ -6,6 +6,8 @@
 # or with `npx wrangler pages secret put <NAME> --project-name=line12-tracker`:
 #   TURNSTILE_SECRET   secret key of the Turnstile widget
 #   ADMIN_TOKEN        a long random string; scripts/submissions.mjs sends it
+#   GITHUB_TOKEN       fine-grained token, this repository only, "Contents: Read and write";
+#                      the /admin/ page uses it to commit a published photo
 # For `wrangler pages dev`, put local values in .dev.vars (gitignored).
 name = "line12-tracker"
 pages_build_output_dir = "dist"
@@ -15,3 +17,9 @@ compatibility_date = "2025-06-01"
 [[r2_buckets]]
 binding = "SUBMISSIONS"
 bucket_name = "metro-submissions"
+
+# Cloudflare Access in front of the /admin page (moderator logins). Not secret: the API checks
+# each request's signed Access token against these (server/admin-auth.js). Empty = Access logins off.
+[vars]
+ACCESS_TEAM_DOMAIN = "jss-enterprises.cloudflareaccess.com"
+ACCESS_AUD = "2959b15f09ee262ab07e217b070de72713b276ef337a42d488ceeabbd90e581b"

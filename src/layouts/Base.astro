@@ -14,9 +14,11 @@ interface Props {
   line?: Line;
   /** A line's front page: it opens with the route-drawing preloader. */
   front?: boolean;
+  /** A private page (the moderators' /admin/): kept out of search engines. */
+  noindex?: boolean;
 }
 
-const { title, description, schema = [], line, front = false } = Astro.props;
+const { title, description, schema = [], line, front = false, noindex = false } = Astro.props;
 const lastReviewed = line?.lastReviewed ?? siteReviewed;
 const pre = line ? schematic(line, { width: 1000, top: 30, drop: 70, pad: 10, bottom: 30 }) : undefined;
 const canonical = new URL(Astro.url.pathname, Astro.site);
@@ -75,6 +77,7 @@ const graph = {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />

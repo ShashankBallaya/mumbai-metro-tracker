@@ -1,0 +1,371 @@
+---
+/**
+ * /admin/: moderators review reader entries (src/pages/send.astro), clean a photo in the browser (crop, blur
+ * plates and faces; the canvas export carries no EXIF or GPS) and publish it to its station page with one commit.
+ * Cloudflare Access guards this page and /api/admin on the live domain; the API also checks every request
+ * itself (server/admin-auth.js). The logic is in src/scripts/admin.ts.
+ */
+import Base from '../../layouts/Base.astro';
+import { getLine, lines } from '../../lib/data';
+import '../../styles/inner.css';
+
+const data = lines.map((l) => {
+  const line = getLine(l.id);
+  return {
+    id: l.id,
+    label: l.label,
+    stations: [...line.stations, ...line.spurStations].map((s) => ({ id: s.id, name: s.name, lat: s.location?.lat ?? null, lng: s.location?.lng ?? null })),
+  };
+});
+---
+
+<Base title="Reader entries" description="Moderators only." noindex>
+  <main id="main" class="page inner adm" data-admin>
+    <header class="adm__head">
+      <div>
+        <h1 class="inner__title">Reader entries</h1>
+        <p class="adm__who" data-who>Checking your login…</p>
+      </div>
+      <nav class="adm__tabs" aria-label="Entry state">
+        <button type="button" data-state="queue" aria-pressed="true">Queue</button>
+        <button type="button" data-state="approved" aria-pressed="false">Approved</button>
+        <button type="button" data-state="rejected" aria-pressed="false">Rejected</button>
+      </nav>
+    </header>
+
+    <form class="adm__login" data-login hidden>
+      <p>Log in through Cloudflare Access on the live site. On a test server, paste the admin token.</p>
+      <label for="adm-token">Admin token</label>
+      <div class="adm__row">
+        <input id="adm-token" type="password" autocomplete="off" required />
+        <button type="submit" class="adm__btn">Log in</button>
+      </div>
+    </form>
+
+    <p class="adm__msg" data-msg role="status" aria-live="polite" hidden></p>
+    <ol class="adm__list" data-list></ol>
+  </main>
+
+  <dialog class="ed" data-editor aria-labelledby="ed-title">
+    <form method="dialog" class="ed__inner" data-ed-form>
+      <header class="ed__head">
+        <h2 id="ed-title">Clean and publish</h2>
+        <button type="button" class="ed__close" data-ed-close aria-label="Close">×</button>
+      </header>
+
+      <div class="ed__body">
+        <div class="ed__stage">
+          <div class="ed__tools" role="toolbar" aria-label="Photo tools">
+            <button type="button" data-tool="blur" aria-pressed="true">Blur box</button>
+            <button type="button" data-tool="crop" aria-pressed="false">Crop</button>
+            <button type="button" data-ed-rotate>Rotate</button>
+            <button type="button" data-ed-undo>Undo</button>
+            <button type="button" data-ed-reset>Start again</button>
+          </div>
+          <canvas class="ed__canvas" data-ed-canvas></canvas>
+          <p class="ed__hint">Drag over each number plate and face to blur it. Choose Crop and drag to keep part of the photo. The published copy has no location data.</p>
+          <p class="ed__exif" data-ed-exif></p>
+        </div>
+
+        <div class="ed__fields">
+          <div class="ed__field">
+            <label for="ed-line">Line</label>
+            <select id="ed-line" data-ed-line required></select>
+          </div>
+          <div class="ed__field">
+            <label for="ed-station">Station</label>
+            <select id="ed-station" data-ed-station required></select>
+          </div>
+          <div class="ed__field">
+            <label for="ed-date">Date taken</label>
+            <input id="ed-date" type="date" data-ed-date required />
+          </div>
+          <div class="ed__field">
+            <label for="ed-alt">Alt text: what the photo shows</label>
+            <textarea id="ed-alt" rows="3" maxlength="300" minlength="10" data-ed-alt required></textarea>
+          </div>
+          <div class="ed__field">
+            <label for="ed-caption">Caption <span class="adm__opt">(optional)</span></label>
+            <input id="ed-caption" type="text" maxlength="200" data-ed-caption />
+          </div>
+          <div class="ed__field">
+            <label for="ed-credit">Credit</label>
+            <input id="ed-credit" type="text" maxlength="80" data-ed-credit required />
+          </div>
+          <div class="ed__field">
+            <label for="ed-handle">X handle <span class="adm__opt">(without @, optional)</span></label>
+            <input id="ed-handle" type="text" maxlength="15" pattern="[A-Za-z0-9_]{1,15}" data-ed-handle />
+          </div>
+          <div class="ed__field">
+            <label for="ed-source">Link for the credit <span class="adm__opt">(their post or profile, optional)</span></label>
+            <input id="ed-source" type="url" maxlength="300" placeholder="https://" data-ed-source />
+          </div>
+          <p class="ed__status" data-ed-status role="status" aria-live="polite"></p>
+          <button type="submit" class="adm__btn adm__btn--signal" data-ed-publish>Publish to the station page</button>
+        </div>
+      </div>
+    </form>
+  </dialog>
+
+  <script type="application/json" id="admin-data" set:html={JSON.stringify(data)} />
+</Base>
+
+<script>
+  import '../../scripts/admin';
+</script>
+
+<style>
+  .adm__head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: end;
+    gap: var(--s-4);
+    margin-bottom: var(--s-6);
+    padding-bottom: var(--s-4);
+    border-bottom: var(--rule-heavy) solid var(--rule-strong);
+  }
+  .adm__who {
+    margin-top: var(--s-2);
+    color: var(--ink-2);
+    font-size: var(--step--1);
+  }
+  .adm__tabs {
+    display: flex;
+    gap: var(--s-1);
+  }
+  .adm__tabs button,
+  .ed__tools button {
+    min-height: 44px;
+    padding: 0 var(--s-4);
+    font: inherit;
+    font-weight: 600;
+    color: var(--ink);
+    background: transparent;
+    border: var(--rule-w) solid var(--rule-strong);
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .adm__tabs button[aria-pressed='true'],
+  .ed__tools button[aria-pressed='true'] {
+    color: var(--paper);
+    background: var(--ink);
+  }
+  .adm__login {
+    display: grid;
+    gap: var(--s-2);
+    max-width: 30rem;
+    margin-bottom: var(--s-6);
+  }
+  .adm__login[hidden] {
+    display: none;
+  }
+  .adm__row {
+    display: flex;
+    gap: var(--s-2);
+  }
+  .adm input,
+  .ed input,
+  .ed select,
+  .ed textarea {
+    width: 100%;
+    min-height: 44px;
+    padding: var(--s-2) var(--s-3);
+    font: inherit;
+    color: var(--ink);
+    background: var(--paper);
+    border: var(--rule-heavy) solid var(--rule-strong);
+    border-radius: 4px;
+  }
+  .adm__msg {
+    padding: var(--s-3) var(--s-4);
+    background: var(--paper-2);
+    border-left: var(--bar) solid var(--ink);
+  }
+  .adm__opt {
+    font-weight: 400;
+    color: var(--ink-3);
+  }
+  .adm__list {
+    display: grid;
+    gap: var(--s-5);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  /* The editor dialog. */
+  .ed {
+    width: min(72rem, calc(100vw - 2 * var(--s-3)));
+    max-height: calc(100dvh - 2 * var(--s-3));
+    padding: 0;
+    color: var(--ink);
+    background: var(--paper);
+    border: var(--rule-heavy) solid var(--rule-strong);
+    border-radius: 4px;
+  }
+  .ed::backdrop {
+    background: rgb(0 0 0 / 0.6);
+  }
+  .ed__inner {
+    display: grid;
+    gap: var(--s-4);
+    padding: var(--s-4);
+  }
+  .ed__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .ed__head h2 {
+    font-size: var(--step-2);
+    text-transform: uppercase;
+  }
+  .ed__close {
+    width: 44px;
+    height: 44px;
+    font-size: 1.75rem;
+    line-height: 1;
+    color: var(--ink);
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+  }
+  .ed__body {
+    display: grid;
+    gap: var(--s-5);
+  }
+  @media (min-width: 56rem) {
+    .ed__body {
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+      align-items: start;
+    }
+  }
+  .ed__stage {
+    display: grid;
+    gap: var(--s-3);
+  }
+  .ed__tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-2);
+  }
+  .ed__canvas {
+    width: 100%;
+    height: auto;
+    max-height: 70dvh;
+    object-fit: contain;
+    background: var(--paper-3);
+    touch-action: none;
+    cursor: crosshair;
+  }
+  .ed__hint,
+  .ed__exif {
+    font-size: var(--step--1);
+    color: var(--ink-2);
+  }
+  .ed__exif[data-warn] {
+    color: var(--ink);
+    font-weight: 700;
+  }
+  .ed__fields {
+    display: grid;
+    gap: var(--s-3);
+  }
+  .ed__field {
+    display: grid;
+    gap: var(--s-1);
+  }
+  .ed__field label {
+    font-weight: 700;
+    font-size: var(--step--1);
+  }
+  .ed__status {
+    min-height: 1.5em;
+    font-weight: 600;
+  }
+</style>
+
+<style is:global>
+  /* Buttons, also on cards built by src/scripts/admin.ts. */
+  .adm__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 var(--s-4);
+    font: inherit;
+    font-weight: 700;
+    color: var(--paper);
+    background: var(--ink);
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .adm__btn--quiet {
+    color: var(--ink);
+    background: transparent;
+    border: var(--rule-w) solid var(--rule-strong);
+  }
+  .adm__btn--signal {
+    color: var(--on-signal);
+    background: var(--signal);
+  }
+  .adm__btn:disabled {
+    opacity: 0.55;
+    cursor: progress;
+  }
+  /* Entry cards, built by src/scripts/admin.ts. */
+  .adm-entry {
+    display: grid;
+    gap: var(--s-3);
+    padding: var(--s-4) 0 var(--s-5);
+    border-bottom: var(--rule-w) solid var(--rule);
+  }
+  .adm-entry__where {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-stretch: 75%;
+    font-size: var(--step-2);
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .adm-entry__meta {
+    font-size: var(--step--1);
+    color: var(--ink-2);
+  }
+  .adm-entry__note {
+    max-width: 65ch;
+    white-space: pre-wrap;
+  }
+  .adm-entry__photos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-3);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .adm-entry__photos li {
+    display: grid;
+    gap: var(--s-2);
+    width: 11rem;
+  }
+  .adm-entry__photos img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    background: var(--paper-3);
+    border-radius: 2px;
+  }
+  .adm-entry__photos .adm-entry__done {
+    font-size: var(--step--1);
+    font-weight: 700;
+  }
+  .adm-entry__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-2);
+  }
+</style>

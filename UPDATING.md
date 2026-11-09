@@ -228,11 +228,28 @@ Do these before the first push that includes `wrangler.toml`. The deploy fails i
 4. In GitHub (Settings > Secrets and variables > Actions > Variables), add `PUBLIC_TURNSTILE_SITE_KEY` with the Turnstile site key. Without it, `/send/` says the form opens soon.
 5. On your computer, add `SUBMISSIONS_TOKEN=<the ADMIN_TOKEN value>` to `.env` (gitignored).
 
+### Moderators and the dashboard (one-time setup)
+
+Moderators review entries at `/admin/`. Cloudflare Access logs them in with a one-time code sent to their email.
+
+1. GitHub token, so the dashboard can publish: GitHub > Settings > Developer settings > Fine-grained tokens > Generate new token. Repository access: only `mumbai-metro-tracker`. Permissions: Contents, Read and write. Set it as the Pages secret `GITHUB_TOKEN`: `npx wrangler pages secret put GITHUB_TOKEN --project-name=line12-tracker`.
+2. Cloudflare Access: dashboard > Zero Trust (choose the Free plan and a team name the first time). Access > Applications > Add an application > Self-hosted.
+   - Name: `Metro Tracker moderators`. Session duration: 1 week.
+   - Public hostname: `www.mumbaimetrotracker.com` with path `admin`. Do not add `api/admin`: the API checks the Access login itself, and the terminal script needs to reach it.
+   - Policy: action Allow, include "Emails": your email and each moderator's email. Login method: One-time PIN.
+3. In the application's overview, copy the "Application Audience (AUD) Tag". Put it in `wrangler.toml` as `ACCESS_AUD`, and put your team domain (`<team>.cloudflareaccess.com`) as `ACCESS_TEAM_DOMAIN`. Push.
+4. To add or remove a moderator later, edit the emails in the Access policy. Nothing in the code changes.
+
 ### Reviewing the queue
 
-1. `npm run submissions` lists the queue.
-2. `npm run submissions -- pull` downloads every queued entry to `ground/submissions/<id>/` (gitignored, because the originals carry GPS).
-3. To publish a photo, follow "Photos on a station page" above: resize, strip EXIF, blur faces and number plates, and credit the reader with `credit` (their name) and `source_url` (their X or Instagram profile, if they gave one).
-4. `npm run submissions -- approve <id>` or `npm run submissions -- reject <id>` moves the entry out of the queue. Delete rejected entries in the R2 dashboard when you like.
+In the browser, at `/admin/`:
+
+1. Each entry shows where, who, when, the note and the photos.
+2. "Clean and publish" opens a photo in the editor. It shows the GPS point of the original and the nearest station, and warns when the station picked is more than 1.5 km away.
+3. Drag a blur box over every number plate and face. Crop if needed. Fill in the alt text and check the date and credit.
+4. "Publish to the station page" makes one commit (the photo in `public/photos/`, the entry in the line's `photos.json`). The deploy runs by itself. The published copy has no EXIF; the server refuses one that does.
+5. "Done: approve" or "Reject" moves the entry out of the queue. Each decision keeps the moderator's email in the entry's `meta.json`.
+
+In the terminal: `npm run submissions` lists the queue, `-- pull` downloads it to `ground/submissions/<id>/` (gitignored), and `-- approve <id>` or `-- reject <id>` moves an entry.
 
 To test locally: `npm run dev:functions` builds the site and serves it with the functions on http://localhost:8788. Put `TURNSTILE_SECRET=1x0000000000000000000000000000000AA` (Cloudflare's always-pass test secret) and an `ADMIN_TOKEN` in `.dev.vars`, and build with `PUBLIC_TURNSTILE_SITE_KEY=1x00000000000000000000AA`.
