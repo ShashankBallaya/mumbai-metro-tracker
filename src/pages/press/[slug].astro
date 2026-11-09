@@ -66,6 +66,18 @@ const start = [
       </p>
     </header>
 
+    {story.words && (
+      <figure class="press__words">
+        <blockquote>
+          <p>{story.words.text}</p>
+        </blockquote>
+        <figcaption>
+          <span class="press__words-by">{story.words.by}</span>
+          <span>{story.outlet}</span>
+        </figcaption>
+      </figure>
+    )}
+
     <article class="press__clip" aria-labelledby="press-headline">
       <p class="press__kicker">
         <span class="press__outlet">{story.outlet}</span>
@@ -112,7 +124,41 @@ const start = [
 </Base>
 
 <style>
-  /* The clipping: the story's headline set like a cutting from the paper, between two heavy rules. */
+  /* The writer's own words: the page's lead, set large with a signal bar on the left. */
+  .press__words {
+    display: grid;
+    gap: var(--s-4);
+    max-width: 60rem;
+    margin: 0 0 var(--s-7);
+    padding-left: var(--s-5);
+    border-left: var(--bar) solid var(--signal-graphic);
+  }
+  .press__words blockquote {
+    margin: 0;
+  }
+  .press__words p {
+    max-width: 48ch;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: var(--step-2);
+    line-height: 1.25;
+    text-wrap: pretty;
+  }
+  .press__words figcaption {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--s-1) var(--s-3);
+    font-size: var(--step--1);
+    color: var(--ink-2);
+  }
+  .press__words-by {
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  /* The clipping:the story's headline set like a cutting from the paper, between two heavy rules. */
   .press__clip {
     display: grid;
     gap: var(--s-3);
