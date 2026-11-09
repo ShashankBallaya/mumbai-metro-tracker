@@ -37,6 +37,8 @@ const { label, route_short, about, copy } = line.info;
 const base = lineBase(line.id);
 const list = spur ? spurStations : stations;
 const s: Station = list[i];
+// The reader form (src/pages/send.astro), with this line and station picked.
+const sendHref = `/send/?line=${line.id}&station=${s.id}`;
 // The spur's first station steps back to the station the spur leaves from.
 // On a ring the first station follows the last, so every station has a neighbour both ways.
 const ring = !spur && isRing(line);
@@ -158,6 +160,7 @@ const schema: Record<string, unknown>[] = [
             </svg>
             <p class="shot__empty-head">No ground photo yet</p>
             <p>Dated photos of {s.name} from the street will appear here.</p>
+            <a class="shot__send" href={sendHref}>Send a photo of {s.name}</a>
           </div>
         </figure>
       )}
@@ -345,6 +348,11 @@ const schema: Record<string, unknown>[] = [
         </ul>
       </section>
     )}
+
+    <p class="inner__block send-cta">
+      <span>Been to {s.name} lately? Send us your photos or what you saw. We check every entry and credit you by name.</span>
+      <a href={sendHref}>Send a photo or update</a>
+    </p>
 
     <p class="inner__block fact__note">
       Facts checked <time datetime={s.last_verified}>{formatDate(s.last_verified)}</time>.{' '}

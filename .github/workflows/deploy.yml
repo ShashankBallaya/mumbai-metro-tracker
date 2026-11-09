@@ -5,6 +5,8 @@
 #   CLOUDFLARE_API_TOKEN   a token with "Cloudflare Pages: Edit" permission
 #   CLOUDFLARE_ACCOUNT_ID  your Cloudflare account ID
 # Optional repository variables: PUBLIC_MAPILLARY_TOKEN, PUBLIC_STREET_LEVEL_PROVIDER, PUBLIC_GOOGLE_MAPS_KEY
+# PUBLIC_TURNSTILE_SITE_KEY (the reader form at /send/ stays closed without it)
+# Pages bindings and secrets for functions/ are in wrangler.toml.
 name: Deploy to Cloudflare Pages
 
 on:
@@ -41,6 +43,7 @@ jobs:
           PUBLIC_MAPILLARY_TOKEN: ${{ vars.PUBLIC_MAPILLARY_TOKEN }}
           PUBLIC_STREET_LEVEL_PROVIDER: ${{ vars.PUBLIC_STREET_LEVEL_PROVIDER }}
           PUBLIC_GOOGLE_MAPS_KEY: ${{ vars.PUBLIC_GOOGLE_MAPS_KEY }}
+          PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.PUBLIC_TURNSTILE_SITE_KEY }}
       - uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}

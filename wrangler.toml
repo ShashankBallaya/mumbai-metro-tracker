@@ -1,0 +1,17 @@
+# Cloudflare Pages settings for the site. The deploy (.github/workflows/deploy.yml) reads this file.
+# The pages are static; functions/ holds the only server code: reader submissions (/api/submit) and the
+# owner's review endpoints (/api/admin/*).
+#
+# Secrets are not in this file. Set them once in the Pages dashboard (Settings > Variables and Secrets),
+# or with `npx wrangler pages secret put <NAME> --project-name=line12-tracker`:
+#   TURNSTILE_SECRET   secret key of the Turnstile widget
+#   ADMIN_TOKEN        a long random string; scripts/submissions.mjs sends it
+# For `wrangler pages dev`, put local values in .dev.vars (gitignored).
+name = "line12-tracker"
+pages_build_output_dir = "dist"
+compatibility_date = "2025-06-01"
+
+# Private bucket for reader photos and notes. Never public: no r2.dev URL, no custom domain.
+[[r2_buckets]]
+binding = "SUBMISSIONS"
+bucket_name = "metro-submissions"

@@ -1,0 +1,412 @@
+---
+/**
+ * /send/: readers send photos or an update about a line or a station. The form posts to functions/api/submit.js,
+ * which keeps every entry in a private queue. Nothing goes live until the owner approves it.
+ * Station and line pages link here with ?line= and ?station=, and the script below picks them.
+ */
+import Base from '../layouts/Base.astro';
+import Masthead from '../components/Masthead.astro';
+import Colophon from '../components/Colophon.astro';
+import { getLine, lines } from '../lib/data';
+import '../styles/inner.css';
+
+const title = 'Send a photo or update';
+const description = 'Send your photos of a Mumbai Metro station or construction site, or news about a line. Every entry is checked by hand before it goes on the site, with credit to you.';
+
+const groups = lines.map((l) => {
+  const line = getLine(l.id);
+  return { id: l.id, label: l.label, route: l.route_short, stations: [...line.stations, ...line.spurStations].map((s) => ({ id: s.id, name: s.name })) };
+});
+
+// Cloudflare's always-pass test key in `astro dev`. In a build without the real key the form says it is not open yet.
+const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || (import.meta.env.DEV ? '1x00000000000000000000AA' : '');
+---
+
+<Base title={title} description={description}>
+  <Masthead home={false} />
+  <main id="main" class="page inner send">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">All lines</a></li>
+        <li aria-current="page">Send a photo or update</li>
+      </ol>
+    </nav>
+
+    <header class="inner__head">
+      <h1 class="inner__title">Send a photo or update</h1>
+      <p class="inner__mr mr" lang="mr">फोटो किंवा माहिती पाठवा</p>
+      <p class="inner__standfirst">
+        You pass the pillars every day. Send your photos of a station or a work site, or tell us what changed. We check every entry by hand before it goes on the site, and we credit you by name.
+      </p>
+    </header>
+
+    <div class="send__status" data-send-status role="status" aria-live="polite" hidden></div>
+
+    {siteKey ? (
+      <form class="send__form" method="post" action="/api/submit" enctype="multipart/form-data" data-send-form>
+        <fieldset class="send__group">
+          <legend>Where</legend>
+          <div class="send__field">
+            <label for="send-line">Line</label>
+            <select id="send-line" name="line" required data-send-line>
+              <option value="">Pick a line</option>
+              {groups.map((g) => <option value={g.id}>{g.label}: {g.route}</option>)}
+            </select>
+          </div>
+          <div class="send__field">
+            <label for="send-station">Station <span class="send__opt">(optional)</span></label>
+            <select id="send-station" name="station" data-send-station>
+              <option value="">Not a station, or the whole line</option>
+              {groups.map((g) => (
+                <optgroup label={g.label} data-line={g.id}>
+                  {g.stations.map((s) => <option value={s.id}>{s.name}</option>)}
+                </optgroup>
+              ))}
+            </select>
+          </div>
+        </fieldset>
+
+        <fieldset class="send__group">
+          <legend>What</legend>
+          <div class="send__field">
+            <label for="send-photos">Photos <span class="send__opt">(up to 5, 12 MB each)</span></label>
+            <input id="send-photos" name="photos" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" multiple data-send-photos />
+            <p class="send__hint">Send the original photo from your phone, not a screenshot. Its date and place help us put it at the right station. We remove that data before a photo goes live.</p>
+          </div>
+          <div class="send__field">
+            <label for="send-taken">When did you take them? <span class="send__opt">(optional)</span></label>
+            <input id="send-taken" name="taken" type="month" />
+          </div>
+          <div class="send__field">
+            <label for="send-note">Update or caption</label>
+            <textarea id="send-note" name="note" rows="5" maxlength="2000" data-send-note></textarea>
+            <p class="send__hint">What does it show, and what changed? A link to a news report or an official post helps us check it. Without photos, write at least a sentence.</p>
+          </div>
+        </fieldset>
+
+        <fieldset class="send__group">
+          <legend>Credit</legend>
+          <div class="send__field">
+            <label for="send-name">Your name, as you want it in the credit</label>
+            <input id="send-name" name="name" type="text" maxlength="80" autocomplete="name" required />
+          </div>
+          <div class="send__field">
+            <label for="send-handle">X or Instagram handle <span class="send__opt">(optional)</span></label>
+            <input id="send-handle" name="handle" type="text" maxlength="60" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="@" />
+            <p class="send__hint">We link the credit to it, and we use it if we need to ask you something.</p>
+          </div>
+          <label class="send__check">
+            <input type="checkbox" name="consent" value="yes" data-send-consent />
+            <span>I took these photos myself. Mumbai Metro Tracker may publish them on the site and its social posts, with credit to me.</span>
+          </label>
+        </fieldset>
+
+        <div class="send__trap" aria-hidden="true">
+          <label for="send-website">Leave this empty</label>
+          <input id="send-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <input type="hidden" name="cf-turnstile-response" value="" data-send-token />
+        <div class="send__turnstile" data-sitekey={siteKey} data-send-turnstile></div>
+
+        <div class="send__actions">
+          <button class="send__btn" type="submit" data-send-submit>Send for review</button>
+          <p class="send__hint">Nothing goes live until we check it. We may crop a photo, and we blur faces and number plates.</p>
+        </div>
+      </form>
+    ) : (
+      <p class="send__closed">The form opens soon. Until then, tag <a href="https://x.com/SBallaya" rel="noopener" target="_blank">@SBallaya<span class="visually-hidden"> on X (opens in a new tab)</span></a> on X with your photos.</p>
+    )}
+
+    <section class="inner__block send__after" aria-labelledby="send-after">
+      <h2 id="send-after">What happens next</h2>
+      <ol>
+        <li>Your entry goes to a private queue. No one else sees it.</li>
+        <li>We check it against the site's sources and, where we can, against other photos of the same place.</li>
+        <li>If we use a photo, we remove its location data and blur faces and number plates. The station page then shows it with the date and your name.</li>
+        <li>If we do not use it, we delete it.</li>
+      </ol>
+    </section>
+  </main>
+  <Colophon />
+</Base>
+
+<script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-send-form]');
+  const status = document.querySelector<HTMLElement>('[data-send-status]')!;
+  const params = new URL(location.href).searchParams;
+
+  const messages: Record<string, string> = {
+    sent: 'Thank you. Your entry is in the queue. We check every entry by hand, so it can take a few days to appear.',
+    'no-line': 'Pick a line, then send again.',
+    'no-name': 'Add your name for the credit, then send again.',
+    'no-consent': 'Tick the box that says you took the photos, then send again.',
+    empty: 'Add a photo, or write at least a sentence, then send again.',
+    'too-many': 'Send 5 photos at most. Send the rest in a second entry.',
+    'too-big': 'A photo is larger than 12 MB. Send a smaller copy.',
+    'not-image': 'One of the files is not a JPEG, PNG, WebP or HEIC photo.',
+    'check-failed': 'The spam check did not pass. Wait for it to finish, then send again.',
+    'bad-form': 'Something went wrong. Please send again.',
+    network: 'The entry did not reach us. Check your connection and send again.',
+  };
+
+  function show(kind: 'ok' | 'error', text: string) {
+    status.hidden = false;
+    status.dataset.kind = kind;
+    status.textContent = text;
+    status.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  }
+
+  if (params.get('sent')) show('ok', messages.sent);
+  else if (params.get('error')) show('error', messages[params.get('error')!] ?? messages['bad-form']);
+
+  if (form) {
+    const line = form.querySelector<HTMLSelectElement>('[data-send-line]')!;
+    const station = form.querySelector<HTMLSelectElement>('[data-send-station]')!;
+    const photos = form.querySelector<HTMLInputElement>('[data-send-photos]')!;
+    const consent = form.querySelector<HTMLInputElement>('[data-send-consent]')!;
+    const token = form.querySelector<HTMLInputElement>('[data-send-token]')!;
+    const submit = form.querySelector<HTMLButtonElement>('[data-send-submit]')!;
+    const box = form.querySelector<HTMLElement>('[data-send-turnstile]')!;
+
+    // Show only the picked line's stations.
+    const groups = [...station.querySelectorAll('optgroup')];
+    const filter = () => {
+      for (const g of groups) {
+        const on = !line.value || g.dataset.line === line.value;
+        g.hidden = !on;
+        g.disabled = !on;
+      }
+      if (station.selectedOptions[0]?.parentElement instanceof HTMLOptGroupElement && station.selectedOptions[0].parentElement.disabled) station.value = '';
+    };
+    line.addEventListener('change', filter);
+
+    // A link from a line or station page fills in where.
+    const wantLine = params.get('line');
+    if (wantLine && [...line.options].some((o) => o.value === wantLine)) line.value = wantLine;
+    filter();
+    const wantStation = params.get('station');
+    if (wantStation) {
+      const opt = [...station.querySelectorAll<HTMLOptionElement>(`optgroup[data-line="${CSS.escape(line.value)}"] option`)].find((o) => o.value === wantStation);
+      if (opt) opt.selected = true;
+    }
+
+    // Photos need the consent box ticked.
+    const syncConsent = () => (consent.required = photos.files!.length > 0);
+    photos.addEventListener('change', () => {
+      syncConsent();
+      const files = [...photos.files!];
+      if (files.length > 5) photos.setCustomValidity(messages['too-many']);
+      else if (files.some((f) => f.size > 12 * 1024 * 1024)) photos.setCustomValidity(messages['too-big']);
+      else photos.setCustomValidity('');
+      photos.reportValidity();
+    });
+
+    // Turnstile renders when its script is ready.
+    const render = () => {
+      const ts = (window as unknown as { turnstile?: { render: (el: HTMLElement, o: object) => void } }).turnstile;
+      if (!ts) return void setTimeout(render, 200);
+      ts.render(box, {
+        sitekey: box.dataset.sitekey,
+        theme: 'auto',
+        callback: (t: string) => (token.value = t),
+        'expired-callback': () => (token.value = ''),
+      });
+    };
+    render();
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      syncConsent();
+      const note = form.querySelector<HTMLTextAreaElement>('[data-send-note]')!;
+      if (photos.files!.length === 0 && note.value.trim().length < 10) {
+        note.setCustomValidity(messages.empty);
+        note.reportValidity();
+        note.addEventListener('input', () => note.setCustomValidity(''), { once: true });
+        return;
+      }
+      if (!form.reportValidity()) return;
+      if (!token.value) return show('error', messages['check-failed']);
+
+      submit.disabled = true;
+      submit.textContent = 'Sending…';
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { accept: 'application/json' } });
+        const out = await res.json().catch(() => ({ ok: false, error: 'bad-form' }));
+        if (out.ok) {
+          form.hidden = true;
+          show('ok', messages.sent);
+        } else {
+          show('error', messages[out.error] ?? messages['bad-form']);
+          (window as unknown as { turnstile?: { reset: (el: HTMLElement) => void } }).turnstile?.reset(box);
+          token.value = '';
+        }
+      } catch {
+        show('error', messages.network);
+      } finally {
+        submit.disabled = false;
+        submit.textContent = 'Send for review';
+      }
+    });
+  }
+</script>
+
+<style>
+  .send__form {
+    display: grid;
+    gap: var(--s-6);
+    max-width: 44rem;
+  }
+  .send__form[hidden] {
+    display: none;
+  }
+  .send__group {
+    display: grid;
+    gap: var(--s-5);
+    margin: 0;
+    padding: var(--s-5) 0 0;
+    border: 0;
+    border-top: var(--rule-heavy) solid var(--rule-strong);
+    min-width: 0;
+  }
+  .send__group legend {
+    float: left;
+    width: 100%;
+    margin-bottom: var(--s-1);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-stretch: 75%;
+    font-size: var(--step-2);
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .send__field {
+    display: grid;
+    gap: var(--s-2);
+  }
+  .send__field label {
+    font-weight: 700;
+  }
+  .send__opt {
+    font-weight: 400;
+    color: var(--ink-3);
+  }
+  .send__hint {
+    font-size: var(--step--1);
+    color: var(--ink-2);
+    max-width: 60ch;
+  }
+  .send select,
+  .send input[type='text'],
+  .send input[type='month'],
+  .send input[type='file'],
+  .send textarea {
+    width: 100%;
+    min-height: 48px;
+    padding: var(--s-2) var(--s-3);
+    font: inherit;
+    color: var(--ink);
+    background: var(--paper);
+    border: var(--rule-heavy) solid var(--rule-strong);
+    border-radius: 4px;
+  }
+  .send textarea {
+    resize: vertical;
+    line-height: 1.5;
+  }
+  .send input[type='file'] {
+    padding-block: var(--s-3);
+    border-style: dashed;
+    background: var(--paper-2);
+  }
+  .send input[type='file']::file-selector-button {
+    margin-right: var(--s-3);
+    min-height: 40px;
+    padding: 0 var(--s-4);
+    font: inherit;
+    font-weight: 700;
+    color: var(--paper);
+    background: var(--ink);
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .send__check {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--s-3);
+    align-items: start;
+    min-height: 44px;
+    cursor: pointer;
+  }
+  .send__check input {
+    width: 24px;
+    height: 24px;
+    margin-top: 2px;
+    accent-color: var(--ink);
+  }
+  .send__trap {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+  .send__turnstile {
+    min-height: 65px;
+  }
+  .send__actions {
+    display: grid;
+    gap: var(--s-3);
+    justify-items: start;
+  }
+  .send__btn {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    padding: var(--s-2) var(--s-6);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-stretch: 75%;
+    font-size: var(--step-1);
+    text-transform: uppercase;
+    color: var(--on-signal);
+    background: var(--signal);
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: scale 0.16s var(--ease-out), opacity 0.2s var(--ease-out);
+  }
+  .send__btn:active {
+    scale: 0.98;
+  }
+  .send__btn:disabled {
+    opacity: 0.6;
+    cursor: progress;
+  }
+  .send__status {
+    max-width: 44rem;
+    margin-bottom: var(--s-6);
+    padding: var(--s-4) var(--s-5);
+    border-left: var(--bar) solid var(--ink);
+    background: var(--paper-2);
+    font-weight: 600;
+  }
+  .send__status[data-kind='error'] {
+    border-left-color: var(--signal-line);
+  }
+  .send__closed {
+    max-width: 44rem;
+    font-size: var(--step-1);
+  }
+  .send__after {
+    max-width: 44rem;
+  }
+  .send__after ol {
+    display: grid;
+    gap: var(--s-2);
+    padding-left: 1.25em;
+    color: var(--ink-2);
+  }
+</style>

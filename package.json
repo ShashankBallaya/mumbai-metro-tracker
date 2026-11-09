@@ -9,7 +9,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check && node scripts/validate-data.mjs",
-    "validate": "node scripts/validate-data.mjs"
+    "validate": "node scripts/validate-data.mjs",
+    "submissions": "node scripts/submissions.mjs",
+    "dev:functions": "astro build && npx wrangler pages dev"
   },
   "engines": {
     "node": ">=20"

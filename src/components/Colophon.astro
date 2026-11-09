@@ -26,6 +26,12 @@ const builtAt = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata
 // The line's own disclaimer (lines.json copy), since a line may show a maker's image; this one off a line page.
 const DISCLAIMER = 'Mumbai Metro Tracker is an independent public-interest site. It is not affiliated with, endorsed by or connected to MMRDA or the Government of Maharashtra. Drawings are original illustrations, not official designs. Check official sources before making decisions.';
 const disclaimer = pageDisclaimer ?? line?.info.copy.footer_disclaimer ?? DISCLAIMER;
+// Press coverage of the site.
+const PRESS = {
+  outlet: 'mid-day',
+  date: '2026-11-09',
+  href: 'https://www.mid-day.com/mumbai/mumbai-news/article/mumbai-new-website-built-by-24-year-old-tracks-construction-progress-costs-and-delays-of-21-metro-corridors-23659102',
+};
 ---
 
 <footer class="colophon" data-back-page>
@@ -52,6 +58,11 @@ const disclaimer = pageDisclaimer ?? line?.info.copy.footer_disclaimer ?? DISCLA
         <p class="colophon__disclaimer">
           <strong>Unofficial.</strong> {disclaimer}
         </p>
+        <p class="colophon__press">
+          <span class="colophon__press-label">Featured in</span>
+          <a href={PRESS.href} rel="noopener" target="_blank">{PRESS.outlet}<span class="visually-hidden"> (opens in a new tab)</span></a>
+          <span class="colophon__press-date">{formatDate(PRESS.date)}</span>
+        </p>
       </div>
       <nav class="back__col" aria-labelledby="back-lines">
         <h2 id="back-lines" class="back__head">The lines</h2>
@@ -67,6 +78,7 @@ const disclaimer = pageDisclaimer ?? line?.info.copy.footer_disclaimer ?? DISCLA
           <li><a href="/#map">The network map</a></li>
           <li><a href="/#lines">Every line in the region</a></li>
           <li><a href="/#updates">Latest updates</a></li>
+          <li><a href="/send/">Send a photo or update</a></li>
           <li><a href={CORRECTION_URL} rel="noopener" target="_blank">Send a correction<span class="visually-hidden"> (opens in a new tab)</span></a></li>
           <li><a href={REPO_URL} rel="noopener" target="_blank">Source code<span class="visually-hidden"> (opens in a new tab)</span></a></li>
         </ul>
@@ -259,6 +271,34 @@ const disclaimer = pageDisclaimer ?? line?.info.copy.footer_disclaimer ?? DISCLA
     max-width: var(--measure);
     font-size: var(--step-1);
     line-height: 1.45;
+  }
+  /* Press line: a small caps label, the outlet in display type, then the date. */
+  .colophon__press {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--s-1) var(--s-3);
+    padding-top: var(--s-3);
+    border-top: var(--rule-w) solid var(--rule);
+    max-width: var(--measure);
+  }
+  .colophon__press-label {
+    font-size: var(--step--1);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .colophon__press a {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-stretch: 87.5%;
+    font-size: var(--step-1);
+    color: var(--ink);
+  }
+  .colophon__press-date {
+    font-size: var(--step--1);
+    color: var(--ink-2);
   }
   .colophon__credit {
     font-family: var(--font-display);

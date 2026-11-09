@@ -206,6 +206,54 @@
   font-size: var(--step-0);
   color: var(--ink);
 }
+/* The empty photo slot asks for a photo (src/pages/send.astro). */
+.shot__send {
+  justify-self: center;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: var(--s-2);
+  padding: 0 var(--s-4);
+  font-weight: 700;
+  color: var(--paper);
+  background: var(--ink);
+  border-radius: 4px;
+  text-decoration: none;
+}
+/* A ruled line before the page's foot note: an ask for reader photos and updates. */
+.send-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3) var(--s-5);
+  padding-block: var(--s-4);
+  border-block: var(--rule-w) solid var(--rule);
+  color: var(--ink-2);
+}
+.send-cta span {
+  max-width: 60ch;
+}
+.send-cta a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 var(--s-4);
+  font-weight: 700;
+  color: var(--ink);
+  border: var(--rule-heavy) solid var(--rule-strong);
+  border-radius: 4px;
+  text-decoration: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .shot__send:hover {
+    background: var(--signal);
+    color: var(--on-signal);
+  }
+  .send-cta a:hover {
+    background: var(--paper-2);
+  }
+}
 .shots {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));

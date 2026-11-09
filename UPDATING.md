@@ -211,3 +211,28 @@ A creator's drone flight along a line can fill the station photo slots and a "Fr
 3. Add each still under the station in `photos.json`, with `"kind": "drone"`, `credit` (the channel name), `channel_url`, `video_t` (the second of the frame) and `source_url` (the video link with `&t=<seconds>s`). `date` is the publish date, because the flight date is not known.
 
 The page loads nothing from YouTube until a reader presses play. Then it uses youtube-nocookie.com.
+
+## Reader photos and updates
+
+Readers send photos and updates with the form at `/send/`. Station pages and line pages link to it with the line and station filled in. `functions/api/submit.js` puts each entry in a private R2 bucket (`metro-submissions`) under `queue/<id>/`. Nothing goes live until you publish it by hand.
+
+### One-time setup (Cloudflare and GitHub)
+
+Do these before the first push that includes `wrangler.toml`. The deploy fails if the bucket does not exist.
+
+1. Create the R2 bucket `metro-submissions` (Cloudflare dashboard > R2 > Create bucket). Do not turn on public access.
+2. Create a Turnstile widget (Cloudflare dashboard > Turnstile > Add widget) for `www.mumbaimetrotracker.com` and `mumbaimetrotracker.com`, mode "Managed". It gives a site key and a secret key.
+3. In the Pages project `line12-tracker` (Settings > Variables and Secrets, Production), add two secrets:
+   - `TURNSTILE_SECRET`: the Turnstile secret key.
+   - `ADMIN_TOKEN`: a long random string (for example the output of `node -e "console.log(crypto.randomUUID()+crypto.randomUUID())"`).
+4. In GitHub (Settings > Secrets and variables > Actions > Variables), add `PUBLIC_TURNSTILE_SITE_KEY` with the Turnstile site key. Without it, `/send/` says the form opens soon.
+5. On your computer, add `SUBMISSIONS_TOKEN=<the ADMIN_TOKEN value>` to `.env` (gitignored).
+
+### Reviewing the queue
+
+1. `npm run submissions` lists the queue.
+2. `npm run submissions -- pull` downloads every queued entry to `ground/submissions/<id>/` (gitignored, because the originals carry GPS).
+3. To publish a photo, follow "Photos on a station page" above: resize, strip EXIF, blur faces and number plates, and credit the reader with `credit` (their name) and `source_url` (their X or Instagram profile, if they gave one).
+4. `npm run submissions -- approve <id>` or `npm run submissions -- reject <id>` moves the entry out of the queue. Delete rejected entries in the R2 dashboard when you like.
+
+To test locally: `npm run dev:functions` builds the site and serves it with the functions on http://localhost:8788. Put `TURNSTILE_SECRET=1x0000000000000000000000000000000AA` (Cloudflare's always-pass test secret) and an `ADMIN_TOKEN` in `.dev.vars`, and build with `PUBLIC_TURNSTILE_SITE_KEY=1x00000000000000000000AA`.
