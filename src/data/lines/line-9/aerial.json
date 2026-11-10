@@ -1,0 +1,39 @@
+{
+  "_meta": {
+    "description": "A drone flight along the line, by a creator who gave permission to use it. 'video' is the YouTube video; 'stops' are the stations in the order the flight reaches them, with 't' the second in the video where the station comes into view (each checked against the creator's on-screen station label). Stills from the video are in photos.json under each station. The flight covers Phase 2 only; the Phase 1 stills come from the same creator's flight of 24 Jan 2026 (0Apy8xGYPjw), checked the same way. See UPDATING.md.",
+    "permission": "InfraUnfiltered gave the owner permission to use their drone videos (owner, 2026-10-16); the owner shared these Line 9 videos in chat on 2026-11-10.",
+    "last_reviewed": "2026-11-10"
+  },
+  "video": {
+    "id": "hSDByvtZwP8",
+    "title": "Metro Line 9 Phase 2 Update 2026 | 5 Months Progress | Dahisar to Mira Bhayandar Metro",
+    "creator": "InfraUnfiltered",
+    "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+    "published": "2026-09-01",
+    "duration_s": 427,
+    "poster": "/photos/meditiya-nagar-aerial-2026-09-01-a.jpg",
+    "covers": "Phase 2, from Kashigaon to Subhash Chandra Bose Stadium"
+  },
+  "stops": [
+    {
+      "station": "kashigaon",
+      "t": 88
+    },
+    {
+      "station": "sai-baba-nagar",
+      "t": 148
+    },
+    {
+      "station": "meditiya-nagar",
+      "t": 228
+    },
+    {
+      "station": "shahid-bhagat-singh-garden",
+      "t": 308
+    },
+    {
+      "station": "subhash-chandra-bose-stadium",
+      "t": 334
+    }
+  ]
+}

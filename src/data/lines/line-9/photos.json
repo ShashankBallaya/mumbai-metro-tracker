@@ -1,0 +1,129 @@
+{
+  "_meta": {
+    "description": "Dated ground photos, by the owner or by people who gave permission to use them. Entries with kind \"drone\" are stills from a drone video by a creator who gave permission (the main flight is in aerial.json; the Phase 1 stills come from the creator's January 2026 flight); video_t is the second in the video, and source_url opens the video there. 'pairs' are before/after pairs shown under the satellite comparison. 'stations' holds photos for each station page, keyed by the station id in stations.json. Put the image files in public/photos/ (location data removed) and add entries below. See UPDATING.md.",
+    "last_reviewed": "2026-11-10"
+  },
+  "pairs": [],
+  "stations": {
+    "dahisar-east": [
+      {
+        "src": "/photos/dahisar-east-aerial-2026-01-24-a.jpg",
+        "alt": "Drone view of two elevated stations side by side at Dahisar East, one with a yellow roof and one with a red roof, with the viaducts running between buildings",
+        "caption": "The Line 9 station, red roof, beside Line 2A's, yellow roof, before Phase 1 opened",
+        "date": "2026-01-24",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=0Apy8xGYPjw&t=136s",
+        "video_t": 136,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "pandurang-wadi": [
+      {
+        "src": "/photos/pandurang-wadi-aerial-2026-01-24-a.jpg",
+        "alt": "Drone view along the viaduct to the red-roofed Pandurang Wadi station above a busy road, with cleared land on the right",
+        "caption": "The station above the road, before Phase 1 opened",
+        "date": "2026-01-24",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=0Apy8xGYPjw&t=167s",
+        "video_t": 167,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "miragaon": [
+      {
+        "src": "/photos/miragaon-aerial-2026-01-24-a.jpg",
+        "alt": "Drone view of the red-roofed Miragaon station on the viaduct beside the highway flyover, with towers on the right, in haze",
+        "caption": "The station beside the highway, before Phase 1 opened",
+        "date": "2026-01-24",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=0Apy8xGYPjw&t=210s",
+        "video_t": 210,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "kashigaon": [
+      {
+        "src": "/photos/kashigaon-aerial-2026-09-01-a.jpg",
+        "alt": "Drone view of the viaduct curving towards the red-roofed Kashigaon station, with a train on the curve and hills behind",
+        "caption": "The line curves into Kashigaon, the end of the open stretch",
+        "date": "2026-09-01",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=hSDByvtZwP8&t=88s",
+        "video_t": 88,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "sai-baba-nagar": [
+      {
+        "src": "/photos/sai-baba-nagar-aerial-2026-09-01-a.jpg",
+        "alt": "Drone view looking straight down the tracks inside the station's steel roof frame, with the platform slabs on each side",
+        "caption": "Tracks and platforms inside the station, from above",
+        "date": "2026-09-01",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=hSDByvtZwP8&t=158s",
+        "video_t": 158,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "meditiya-nagar": [
+      {
+        "src": "/photos/meditiya-nagar-aerial-2026-09-01-a.jpg",
+        "alt": "Drone view of the long red station roof on the viaduct, between blue-roofed housing blocks",
+        "caption": "The roof sheeting on, from above",
+        "date": "2026-09-01",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=hSDByvtZwP8&t=238s",
+        "video_t": 238,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "shahid-bhagat-singh-garden": [
+      {
+        "src": "/photos/shahid-bhagat-singh-garden-aerial-2026-09-01-a.jpg",
+        "alt": "Drone view along the viaduct to the station's bare steel roof frame, between high-rise housing, with green land beyond",
+        "caption": "The station's steel roof frame, not yet clad",
+        "date": "2026-09-01",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=hSDByvtZwP8&t=320s",
+        "video_t": 320,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "subhash-chandra-bose-stadium": [
+      {
+        "src": "/photos/subhash-chandra-bose-stadium-aerial-2026-09-01-a.jpg",
+        "alt": "Drone view of the end of the viaduct at the station site, beside buildings under construction, with mangroves and open land beyond",
+        "caption": "The end of the line at the station site, from above",
+        "date": "2026-09-01",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=hSDByvtZwP8&t=349s",
+        "video_t": 349,
+        "width": 1600,
+        "height": 900
+      }
+    ]
+  }
+}
