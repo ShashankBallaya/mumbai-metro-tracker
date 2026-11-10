@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "description": "Rolling stock for Line 2B. Trains run now (Mandale to Chembur): six-car trains by BEML, from MMRDA's order MRS1 (2018), which the news gives for Lines 2A, 2B and 7. 'in_service' is the section's opening paragraph. No source gives how many trains run on Line 2B. No image is sourced.",
+    "description": "Rolling stock for Line 2B. Trains run now (Mandale to Chembur): six-car trains by BEML, from MMRDA's order MRS1 (2018; Press Information Bureau, 22 Nov 2018), which the news gives for Lines 2A, 2B and 7. 'in_service' is the section's opening paragraph. No source gives how many trains run on Line 2B. No image is sourced.",
     "last_reviewed": "2026-11-10"
   },
   "in_service": {
@@ -8,51 +8,53 @@
   },
   "procurement": {
     "manufacturer": "BEML",
-    "value": "MMRDA's order to BEML for 378 cars, Rs 3,015 crore (package MRS1, letter of acceptance November 2018)",
+    "value": "The Government's release of 22 Nov 2018: 378 cars (63 trains of 6 cars) for Lines 2A, 2B and 7, Rs 3,015 crore",
     "package": "MRS1",
-    "date": "2018-11",
+    "date": "2018-11-22",
     "value_crore": 3015,
     "trains": 63,
     "cars_per_train": 6,
     "coaches": 378,
     "phases": "Lines 2A, 2B and 7",
     "scope": "Design, manufacture, supply, testing and commissioning of the cars, with spares and training",
-    "built_at": null,
-    "status": "reported",
-    "source_url": "https://www.freepressjournal.in/mumbai/metro-iii-mmrda-awards-rs-3015-crore-contract-to-beml-for-rolling-stock/",
+    "built_at": "Bengaluru",
+    "status": "verified",
+    "source_url": "https://www.pib.gov.in/newsite/PrintRelease.aspx?relid=185919",
     "also_see": [
-      "https://themetrorailguy.com/2020/11/23/beml-receives-72-coach-order-for-mumbai-metros-lines-2-7/"
+      "https://www.freepressjournal.in/mumbai/metro-iii-mmrda-awards-rs-3015-crore-contract-to-beml-for-rolling-stock/",
+      "https://themetrorailguy.com/2020/11/23/beml-receives-72-coach-order-for-mumbai-metros-lines-2-7/",
+      "https://www.bemlindia.in/product/standard-gauge-25kv-ac-overhead-2/"
     ],
     "last_verified": "2026-11-10",
-    "notes": "Free Press Journal (May 2019) names Lines 2A, 2B and 7 for the 378 cars; The Metro Rail Guy (Nov 2020) describes the order and its two additions for Lines 2A and 7 and does not name 2B. Swarajya (Oct 2025) names BEML for Line 2B's trains."
+    "notes": "Press Information Bureau (Ministry of Housing and Urban Affairs, 22 Nov 2018) names Lines 2A, 2B and 7 for the 378 cars; BEML was the lowest of seven bidders. Free Press Journal (May 2019) names Lines 2A, 2B and 7 for the 378 cars; The Metro Rail Guy (Nov 2020) describes the order and its two additions for Lines 2A and 7 and does not name 2B. Swarajya (Oct 2025) names BEML for Line 2B's trains."
   },
   "specs": {
-    "label": "Figures reported at the order, 2019.",
+    "label": "The Government's figures at the award, 2018.",
     "rows": [
       [
         "Cars per train",
         "6"
       ],
       [
-        "Car width",
-        "3.2 m"
+        "Riders per car",
+        "300"
       ],
       [
-        "Track gauge",
-        "Standard"
+        "Body",
+        "Stainless steel"
+      ],
+      [
+        "Doors",
+        "4 on each side of a car"
       ],
       [
         "Power",
         "25 kV AC overhead"
-      ],
-      [
-        "Riders per train",
-        "About 2,400"
       ]
     ],
-    "notes": "The six-car formation on Line 2B is reported by Swarajya (Oct 2025).",
-    "status": "reported",
-    "source_url": "https://www.freepressjournal.in/mumbai/metro-iii-mmrda-awards-rs-3015-crore-contract-to-beml-for-rolling-stock/",
+    "notes": "Standard gauge and a car width of 3.2 m are reported at the order (Free Press Journal, May 2019).",
+    "status": "verified",
+    "source_url": "https://www.pib.gov.in/newsite/PrintRelease.aspx?relid=185919",
     "last_verified": "2026-11-10"
   },
   "facts": [
@@ -65,9 +67,23 @@
     },
     {
       "label": "Designed for",
-      "value": "Unattended, driverless running; about 2,400 riders in a six-car train; regenerative braking, CCTV in the cars and on the track ahead, wheelchair spaces and charging points. Built in India by BEML, with Hitachi as technology partner",
-      "status": "reported",
-      "source_url": "https://www.freepressjournal.in/mumbai/metro-iii-mmrda-awards-rs-3015-crore-contract-to-beml-for-rolling-stock/",
+      "value": "Driverless running, regenerative braking, CCTV for riders and for watching the track ahead, full air conditioning",
+      "status": "verified",
+      "source_url": "https://www.pib.gov.in/newsite/PrintRelease.aspx?relid=185919",
+      "last_verified": "2026-11-10"
+    },
+    {
+      "label": "The maker's description",
+      "value": "Six-car trains for unattended train operation (UTO), with a train control and management system (TCMS), built to the EN 45545 HL3 fire standard",
+      "status": "verified",
+      "source_url": "https://www.bemlindia.in/product/standard-gauge-25kv-ac-overhead-2/",
+      "last_verified": "2026-11-10"
+    },
+    {
+      "label": "Supply",
+      "value": "At the award, supply was to begin in October 2020 and end in December 2022; the cars are built at BEML's factory in Bengaluru, with Hitachi for some designs",
+      "status": "verified",
+      "source_url": "https://www.pib.gov.in/newsite/PrintRelease.aspx?relid=185919",
       "last_verified": "2026-11-10"
     },
     {
@@ -79,13 +95,16 @@
     }
   ],
   "image": {
-    "src": null,
-    "alt": "",
-    "caption": "",
-    "credit": null,
-    "status": "unverified",
-    "source_url": null,
-    "last_verified": "2026-11-10",
-    "notes": "No image of the Line 2B trains is sourced. An owner or reader photo would do."
+    "src": "/images/beml-mumbai-metro-yellow.webp",
+    "width": 1200,
+    "height": 798,
+    "alt": "Two blue BEML metro trains with yellow trim and the MMRDA logo on the front, side by side on an elevated track under overhead wires.",
+    "caption": "BEML's photo of its Mumbai Metro trains, trimmed in yellow, the Yellow Line's colour. BEML names the place as Gundavali station; it does not say which line the trains run on. Line 2B's trains come from the same order.",
+    "notes": "Supplied at the owner's request, 2026-11-10, from BEML's product page (file Mumbai_Metro_at_Gundavali_Station-002). The maker's photo, shown with credit and a link at the owner's decision. Graded verified at the owner's decision (2026-11-10): the maker's own photo of its Mumbai Metro trains; BEML does not say which line it shows. Replace with a photo of a Line 2B train when one is sourced.",
+    "credit": "BEML",
+    "status": "verified",
+    "source_url": "https://www.bemlindia.in/product/standard-gauge-25kv-ac-overhead-2/",
+    "link_url": "https://www.bemlindia.in/product/standard-gauge-25kv-ac-overhead-2/",
+    "last_verified": "2026-11-10"
   }
 }

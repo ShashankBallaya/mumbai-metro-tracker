@@ -87,10 +87,20 @@ if (!line && sections) inside.push(...sections);
   </div>
   {inside.length > 0 && <nav class:list={['page masthead__inside', { 'masthead__inside--hub': !line }]} aria-label="Inside this edition">
     <span class="masthead__inside-label">Inside</span>
-    <ul>
-      {inside.map(([id, label]) => <li><a href={to(id)}>{label}</a></li>)}
-    </ul>
+    {/* On a narrow screen the links scroll sideways; the arrows show there is more, and move the list. */}
+    <div class="masthead__inside-track" data-inside>
+      <button type="button" class="masthead__inside-arrow masthead__inside-arrow--prev" data-inside-step="-1" aria-label="Earlier sections" hidden>
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="square" /></svg>
+      </button>
+      <ul data-inside-list>
+        {inside.map(([id, label]) => <li><a href={to(id)}>{label}</a></li>)}
+      </ul>
+      <button type="button" class="masthead__inside-arrow masthead__inside-arrow--next" data-inside-step="1" aria-label="More sections" hidden>
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M7.5 4.5 13 10l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="square" /></svg>
+      </button>
+    </div>
   </nav>}
+
 </header>
 
 <style>
@@ -237,8 +247,74 @@ if (!line && sections) inside.push(...sections);
     align-items: center;
     gap: var(--s-4);
     padding-block: var(--s-2);
+  }
+  /* The links scroll; the "Inside" label stays put. */
+  .masthead__inside-track {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+  }
+  .masthead__inside-track ul {
     overflow-x: auto;
     scrollbar-width: none;
+    overscroll-behavior-x: contain;
+  }
+  .masthead__inside-track ul::-webkit-scrollbar {
+    display: none;
+  }
+  /* An arrow at each end, over a fade into the paper, only while there is more that way. */
+  .masthead__inside-arrow {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    width: 3.25rem;
+    padding: 0;
+    border: 0;
+    color: var(--ink);
+    cursor: pointer;
+    transition: opacity 0.18s var(--ease-out);
+  }
+  .masthead__inside-arrow[hidden] {
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .masthead__inside-arrow--next {
+    right: 0;
+    justify-content: flex-end;
+    background: linear-gradient(to right, transparent, var(--paper) 55%);
+  }
+  .masthead__inside-arrow--prev {
+    left: 0;
+    justify-content: flex-start;
+    background: linear-gradient(to left, transparent, var(--paper) 55%);
+  }
+  .masthead__inside-arrow svg {
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: 0.2rem;
+    border-radius: 999px;
+    background: var(--paper-2);
+    box-shadow: inset 0 0 0 1px var(--rule);
+    transition: scale 0.16s var(--ease-out);
+  }
+  .masthead__inside-arrow:active svg {
+    scale: 0.92;
+  }
+  .masthead__inside-arrow:focus-visible {
+    outline: none;
+  }
+  .masthead__inside-arrow:focus-visible svg {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .masthead__inside-arrow:hover svg {
+      background: var(--paper-3);
+    }
   }
   /* The hub lists only four sections: on a phone they wrap instead of scrolling out of sight. */
   @media (max-width: 30rem) {
@@ -253,6 +329,7 @@ if (!line && sections) inside.push(...sections);
       flex: 1;
       min-width: 0;
       flex-wrap: wrap;
+      overflow-x: visible;
     }
   }
   .masthead__inside-label {
@@ -307,3 +384,32 @@ if (!line && sections) inside.push(...sections);
     }
   }
 </style>
+
+<script>
+  // The "Inside" links on a narrow screen: show an arrow at each end that has more links past it,
+  // and move the list most of its width per press. Swipe and trackpad scrolling stay native.
+  const track = document.querySelector<HTMLElement>('[data-inside]');
+  const list = track?.querySelector<HTMLElement>('[data-inside-list]');
+  if (track && list) {
+    const arrows = [...track.querySelectorAll<HTMLButtonElement>('[data-inside-step]')];
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => {
+      const max = list.scrollWidth - list.clientWidth;
+      for (const arrow of arrows) {
+        const back = arrow.dataset.insideStep === '-1';
+        // 4 px of slack, so a list scrolled to within a hair of its end does not keep an arrow.
+        arrow.hidden = back ? list.scrollLeft <= 4 : list.scrollLeft >= max - 4;
+      }
+    };
+    for (const arrow of arrows) {
+      arrow.addEventListener('click', (event) => {
+        const step = Number(arrow.dataset.insideStep) * list.clientWidth * 0.7;
+        // A press from the keyboard (detail 0) jumps: no motion on keyboard actions.
+        list.scrollBy({ left: step, behavior: reduce.matches || event.detail === 0 ? 'auto' : 'smooth' });
+      });
+    }
+    list.addEventListener('scroll', update, { passive: true });
+    new ResizeObserver(update).observe(list);
+    update();
+  }
+</script>
