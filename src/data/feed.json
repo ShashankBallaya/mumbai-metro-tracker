@@ -605,6 +605,17 @@
   ],
   "videos": [
     {
+      "id": "hNTgN6pSIn4",
+      "title": "Mumbai Metro Yellow Line 2B Chembur To Bandra West",
+      "channel": "Highway Hiccups",
+      "date": "2026-11-06",
+      "url": "https://www.youtube.com/watch?v=hNTgN6pSIn4",
+      "lines": [
+        "line-2b"
+      ],
+      "picked": true
+    },
+    {
       "id": "969MlryaIKg",
       "title": "Mumbai Metro Line 2B Phase 3 Update | BKC, Kurla & Chembur Latest Progress 2026",
       "channel": "InfraUnfiltered",
