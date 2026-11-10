@@ -1,0 +1,55 @@
+# Every 3 hours: look at MMRDA's own website for changes (scripts/watch-mmrda.mjs): new press releases,
+# tenders, circulars and documents, and new progress figures on the Metro line pages.
+# When something changed, it opens a GitHub issue that mentions the owner, so GitHub sends an email.
+# It does not change the site. It commits only its memory file, scripts/data/mmrda-watch.json.
+name: Watch MMRDA website
+
+on:
+  schedule:
+    # Minute 41, clear of the feed job (minute 23). Times are UTC.
+    - cron: '41 */3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: mmrda-watch
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 26
+      - run: node scripts/watch-mmrda.mjs
+        env:
+          WATCH_REPORT: ${{ runner.temp }}/mmrda-report.md
+      - name: Open an issue for the owner
+        if: hashFiles(format('{0}/mmrda-report.md', runner.temp)) != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPORT: ${{ runner.temp }}/mmrda-report.md
+        run: |
+          {
+            echo "@${{ github.repository_owner }}, the MMRDA website changed. Check each change before it goes on the site."
+            echo
+            cat "$REPORT"
+          } > "$RUNNER_TEMP/issue.md"
+          gh label create mmrda --color 1d76db --description "Changes on the MMRDA website" 2>/dev/null || true
+          gh issue create --title "MMRDA website changed, $(date -u +%Y-%m-%d)" --label mmrda --body-file "$RUNNER_TEMP/issue.md"
+      - name: Save what was seen
+        run: |
+          if [ -z "$(git status --porcelain -- scripts/data/mmrda-watch.json)" ]; then
+            exit 0
+          fi
+          git config user.name "line12-mmrda[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scripts/data/mmrda-watch.json
+          git commit -m "MMRDA watch: what the website shows now"
+          git pull --rebase
+          git push
