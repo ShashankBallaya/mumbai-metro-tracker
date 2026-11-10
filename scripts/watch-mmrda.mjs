@@ -148,6 +148,7 @@ if (ok === 0) {
   process.exit(1);
 }
 // No check date in the file: it changes only when MMRDA's pages change, so the job commits only then.
+delete state.checked;
 writeFileSync(STATE, JSON.stringify(state, null, 2) + '\n');
 if (sections.length && process.env.WATCH_REPORT) {
   writeFileSync(process.env.WATCH_REPORT, sections.join('\n\n') + '\n');

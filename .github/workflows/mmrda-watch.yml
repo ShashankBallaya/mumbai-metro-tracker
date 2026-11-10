@@ -29,12 +29,18 @@ jobs:
       - run: node scripts/watch-mmrda.mjs
         env:
           WATCH_REPORT: ${{ runner.temp }}/mmrda-report.md
+          # MMRDA sends an incomplete certificate chain; this adds the missing public CA certificate.
+          NODE_EXTRA_CA_CERTS: scripts/data/emsign-dv-tls-ca-g2a1.pem
       - name: Open an issue for the owner
-        if: hashFiles(format('{0}/mmrda-report.md', runner.temp)) != ''
         env:
           GH_TOKEN: ${{ github.token }}
           REPORT: ${{ runner.temp }}/mmrda-report.md
         run: |
+          # The watch step writes the report only when a page changed.
+          if [ ! -s "$REPORT" ]; then
+            echo "No changes, no issue."
+            exit 0
+          fi
           {
             echo "@${{ github.repository_owner }}, the MMRDA website changed. Check each change before it goes on the site."
             echo
