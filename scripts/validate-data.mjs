@@ -8,6 +8,7 @@
 //   - project.json stages: a known state, and every {event:<id>} names an event in that line's timeline.json
 //   - stations.json plan_2017: each entry names a current or dropped station, or has a note
 //   - project.json stages: every section has a service block (opening mode), each fact null or in its shape
+//   - photos.json watch_points: kind, open or cleared, two stations of the line, photo files that exist
 // Run: npm run validate
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
@@ -20,7 +21,9 @@ const errors = [];
 function walk(node, path, file) {
   if (Array.isArray(node)) return node.forEach((v, i) => walk(v, `${path}[${i}]`, file));
   if (node && typeof node === 'object') {
-    if ('status' in node && typeof node.status === 'string') {
+    // A watch point's status is open or cleared, not a grade; it has its own checks below.
+    const watchPoint = /\.watch_points\[\d+\]$/.test(path);
+    if ('status' in node && typeof node.status === 'string' && !watchPoint) {
       if (!GRADES.has(node.status)) errors.push(`${file} ${path}: status "${node.status}" is not a grade`);
       if (!('source_url' in node)) errors.push(`${file} ${path}: missing source_url`);
       if (!('last_verified' in node) && !path.includes('.location') && !path.includes('.context') && !path.includes('.interchanges') && !path.includes('.construction_status') && !path.includes('.details_reported')) {
@@ -109,6 +112,35 @@ for (const line of lines) {
     if (e.now && !now.has(e.now)) errors.push(`${at}: no station "${e.now}"`);
     if (e.dropped && !dropped.has(e.dropped)) errors.push(`${at}: no dropped station "${e.dropped}"`);
     if ([e.now, e.dropped, e.note].filter(Boolean).length !== 1) errors.push(`${at}: give one of now, dropped or note`);
+  });
+}
+// Watch points (photos.json watch_points, see src/lib/watch.ts): places between stations that can hold up a line.
+const WATCH_KINDS = new Set(['crossing', 'demolition', 'power-lines', 'land', 'utilities', 'court', 'other']);
+const DAY = /^\d{4}-\d{2}-\d{2}$/;
+for (const line of lines) {
+  const dir = join(DIR, 'lines', line.id);
+  const photos = existsSync(join(dir, 'photos.json')) ? JSON.parse(readFileSync(join(dir, 'photos.json'), 'utf8')) : null;
+  const st = existsSync(join(dir, 'stations.json')) ? JSON.parse(readFileSync(join(dir, 'stations.json'), 'utf8')) : null;
+  const stationIds = new Set([...(st?.stations ?? []), ...(st?.spur_stations ?? [])].map((s) => s.id));
+  const seen = new Set();
+  (photos?.watch_points ?? []).forEach((w, i) => {
+    const at = `lines/${line.id}/photos.json watch_points[${i}]`;
+    if (!/^[a-z0-9-]{1,40}$/.test(w.id ?? '')) errors.push(`${at}: id "${w.id}" is not lower-case words with hyphens`);
+    if (seen.has(w.id)) errors.push(`${at}: id "${w.id}" is used twice`);
+    seen.add(w.id);
+    if (!w.title || w.title.length < 4) errors.push(`${at}: title too short`);
+    if (!WATCH_KINDS.has(w.kind)) errors.push(`${at}: kind "${w.kind}" is not one of ${[...WATCH_KINDS].join(', ')}`);
+    if (!['open', 'cleared'].includes(w.status)) errors.push(`${at}: status "${w.status}" is not open or cleared`);
+    if (w.status === 'cleared' && !DAY.test(w.cleared ?? '')) errors.push(`${at}: a cleared watch point needs cleared as YYYY-MM-DD`);
+    if (!DAY.test(w.added ?? '')) errors.push(`${at}: added is not YYYY-MM-DD`);
+    if (typeof w.lat !== 'number' || typeof w.lng !== 'number') errors.push(`${at}: lat and lng must be numbers`);
+    if (!Array.isArray(w.between) || w.between.length !== 2 || w.between.some((s) => !stationIds.has(s))) errors.push(`${at}: between must name two stations of the line`);
+    if (!Array.isArray(w.sources) || w.sources.some((u) => !/^https:\/\//.test(u) || /wikipedia\.org/i.test(u))) errors.push(`${at}: sources must be https links, never Wikipedia`);
+    if (!Array.isArray(w.photos) || w.photos.length === 0) errors.push(`${at}: needs at least one photo`);
+    (w.photos ?? []).forEach((p, j) => {
+      if (!p.src?.startsWith('/photos/') || !existsSync(fileURLToPath(new URL(`../public${p.src}`, import.meta.url)))) errors.push(`${at}.photos[${j}]: no file public${p.src}`);
+      if (!DAY.test(p.date ?? '') || !p.alt || !p.credit) errors.push(`${at}.photos[${j}]: needs date, alt and credit`);
+    });
   });
 }
 for (const dir of readdirSync(join(DIR, 'lines'))) {
