@@ -1,18 +1,29 @@
 {
   "_meta": {
     "description": "Written by scripts/fetch-feed.mjs. Do not edit by hand: add an item's URL to exclude_urls in feed-sources.json to hide it. Items are found automatically and are not checked by a person.",
-    "updated_at": "2026-11-03T19:40:01.432Z",
+    "updated_at": "2026-11-10T15:12:35.309Z",
     "updated_at_by_line": {
       "line-12": "2026-10-15T17:11:33.436Z",
       "line-12a": "2026-10-29T06:02:07.530Z",
       "line-5": "2026-11-03T19:40:01.432Z",
-      "line-2b": "2026-10-30T22:30:48.988Z",
+      "line-2b": "2026-11-10T15:12:35.309Z",
       "line-6": "2026-10-29T06:02:07.530Z",
+      "line-9": "2026-11-10T15:12:35.309Z",
       "line-7a": "2026-10-30T22:30:48.988Z",
       "thane-ring": "2026-11-03T19:40:01.432Z"
     }
   },
   "news": [
+    {
+      "title": "Mumbai Metro: MMRDA Targets Year-End Opening of Four More Line 9 Stations and Next Line 2B Stretch",
+      "outlet": "Metro Rail News",
+      "date": "2026-11-08",
+      "url": "https://metrorailnews.in/mumbai-metro-line-9-2b-new-stations-year-end/",
+      "lines": [
+        "line-2b",
+        "line-9"
+      ]
+    },
     {
       "title": "Metro 5 Extension Moves Closer To Ulhasnagar As MMRDA Floats Tenders For Three Phases",
       "outlet": "Re-Mumbai",
@@ -77,6 +88,42 @@
       ]
     },
     {
+      "title": "Mumbai Metro Line 9 Phase II Targets December Completion",
+      "outlet": "Re-Mumbai",
+      "date": "2026-10-22",
+      "url": "https://remumbai.in/2026/10/22/mumbai-metro-line-9-phase-ii-targets-december-completion/",
+      "lines": [
+        "line-9"
+      ]
+    },
+    {
+      "title": "Mumbai Metro Line 9 Expansion Nears Finish, Four New Stations Likely To Open In December",
+      "outlet": "Re-Mumbai",
+      "date": "2026-10-21",
+      "url": "https://remumbai.in/2026/10/21/mumbai-metro-line-9-expansion-nears-finish-four-new-stations-likely-to-open-in-december/",
+      "lines": [
+        "line-9"
+      ]
+    },
+    {
+      "title": "Mumbai Metro Line 9 Phase II Set for December Opening",
+      "outlet": "Urban Acres",
+      "date": "2026-10-21",
+      "url": "https://urbanacres.in/mumbai-metro-line-9-phase-ii-set-for-december-opening/",
+      "lines": [
+        "line-9"
+      ]
+    },
+    {
+      "title": "Mumbai Metro Line 9 Phase II Set to Reach Mira-Bhayandar by December",
+      "outlet": "Urban Acres",
+      "date": "2026-10-21",
+      "url": "https://urbanacres.in/mumbai-metro-line-9-phase-ii-set-to-reach-mira-bhayandar-by-december/",
+      "lines": [
+        "line-9"
+      ]
+    },
+    {
       "title": "Thane Ring Metro: PIL Challenges TMC Nod To Cut 520 Trees",
       "outlet": "Re-Mumbai",
       "date": "2026-10-21",
@@ -101,6 +148,15 @@
       "url": "https://metrorailnews.in/projects/mumbai-metro-line-2a/",
       "lines": [
         "line-2b"
+      ]
+    },
+    {
+      "title": "Mumbai Metro Line 9",
+      "outlet": "Metro Rail News",
+      "date": "2026-10-19",
+      "url": "https://metrorailnews.in/projects/mumbai-metro-line-9/",
+      "lines": [
+        "line-9"
       ]
     },
     {
@@ -223,12 +279,39 @@
       ]
     },
     {
+      "title": "Mumbai Metro 9 Safety Crisis Deepens After Teen Is Seriously Hurt",
+      "outlet": "Urban Acres",
+      "date": "2026-09-21",
+      "url": "https://urbanacres.in/mumbai-metro-9-safety-crisis-deepens-after-teen-is-seriously-hurt/",
+      "lines": [
+        "line-9"
+      ]
+    },
+    {
+      "title": "Mumbai Metro Line 9: Slab Falls From Viaduct, Passerby Injured",
+      "outlet": "Re-Mumbai",
+      "date": "2026-09-21",
+      "url": "https://remumbai.in/2026/09/21/mumbai-metro-line-9-slab-falls-from-viaduct-passerby-injured/",
+      "lines": [
+        "line-9"
+      ]
+    },
+    {
       "title": "Mumbai Metro 2B: Shunya Iconic Bridge Enters Key Construction Phase",
       "outlet": "Re-Mumbai",
       "date": "2026-09-18",
       "url": "https://remumbai.in/2026/09/18/mumbai-metro-2b-shunya-iconic-bridge-enters-key-construction-phase/",
       "lines": [
         "line-2b"
+      ]
+    },
+    {
+      "title": "Mumbai Metro Line 9 Takes Key Step Towards Mira-Bhayandar Link",
+      "outlet": "Urban Acres",
+      "date": "2026-09-14",
+      "url": "https://urbanacres.in/mumbai-metro-line-9-takes-key-step-towards-mira-bhayandar-link/",
+      "lines": [
+        "line-9"
       ]
     },
     {
@@ -385,12 +468,48 @@
       ]
     },
     {
+      "title": "MMRDA To Build Seven FOBs Along Metro Line 9 To Improve Connectivity In Mira-Bhayandar",
+      "outlet": "Re-Mumbai",
+      "date": "2026-06-05",
+      "url": "https://remumbai.in/2026/06/05/mmrda-to-build-seven-fobs-along-metro-line-9-to-improve-connectivity-in-mira-bhayandar/",
+      "lines": [
+        "line-9"
+      ]
+    },
+    {
+      "title": "MMRDA plans 7 FOBs to boost Metro Line 9 connectivity in Mira Bhayandar",
+      "outlet": "Metro Rail News",
+      "date": "2026-06-04",
+      "url": "https://metrorailnews.in/mumbai-metro-line-9-connectivity-to-get-7-fobs/",
+      "lines": [
+        "line-9"
+      ]
+    },
+    {
       "title": "MMRDA invites bids for track works at Kasheli Depot of Mumbai Metro Line 5",
       "outlet": "Metro Rail News",
       "date": "2026-06-03",
       "url": "https://metrorailnews.in/bids-invited-for-track-work-mumbai-metro-line-5/",
       "lines": [
         "line-5"
+      ]
+    },
+    {
+      "title": "MMRDA to Build 7 FOBs along Metro Line 9 corridor connecting Dahisar East and Mira-Bhayandar",
+      "outlet": "Rail Analysis India",
+      "date": "2026-06-03",
+      "url": "https://railanalysis.in/metro/mmrda-to-build-7-fobs-along-metro-line-9-corridor-connecting-dahisar-east-and-mira-bhayandar/",
+      "lines": [
+        "line-9"
+      ]
+    },
+    {
+      "title": "MMRDA Plans Seven Foot Over Bridges Along Metro Line 9 To Strengthen Safety & Last-Mile Connectivity",
+      "outlet": "Re-Mumbai",
+      "date": "2026-06-02",
+      "url": "https://remumbai.in/2026/06/02/mmrda-plans-seven-foot-over-bridges-along-metro-line-9-to-strengthen-safety-last-mile-connectivity/",
+      "lines": [
+        "line-9"
       ]
     },
     {
@@ -473,6 +592,15 @@
       "url": "https://railanalysis.in/metro/mumbai-metro-expands-its-network-with-the-inauguration-of-lines-2b-9-enhancing-urban-connectivity/",
       "lines": [
         "line-2b"
+      ]
+    },
+    {
+      "title": "Thane gets its first direct metro link to Mumbai with inauguration of Mumbai Metro Line 9",
+      "outlet": "Metro Rail News",
+      "date": "2026-04-07",
+      "url": "https://metrorailnews.in/mumbai-metro-line-9-inaugurated/",
+      "lines": [
+        "line-9"
       ]
     },
     {
