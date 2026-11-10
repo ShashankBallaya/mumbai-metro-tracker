@@ -504,6 +504,98 @@
       }
     },
     {
+      "id": "line-9",
+      "label": "Line 9",
+      "number": "9",
+      "colour": "line-9",
+      "mark_mr": "मेट्रो ९",
+      "route_short": "Dahisar (E) to Mira-Bhayandar",
+      "alignment": "alignment-mmrda-2025.geojson",
+      "about": {
+        "name": "Mumbai Metro Line 9",
+        "alternate_names": [
+          "Metro Line 9",
+          "Metro 9",
+          "Red Line",
+          "Dahisar-Mira Bhayandar Metro"
+        ],
+        "description": "An elevated metro line from Dahisar (E), where it extends Line 7, through Mira Road to Bhayandar (W), built by MMRDA. Dahisar (E) to Kashigaon is open; the rest is under construction.",
+        "same_as": [
+          "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview"
+        ]
+      },
+      "position_basis": {
+        "default": "MMRDA's alignment file, Mar 2025",
+        "by_source": {}
+      },
+      "copy": {
+        "ends": [
+          "Dahisar (E)",
+          "Subhash Chandra Bose Stadium"
+        ],
+        "runs": "which runs fully elevated from Dahisar (E), at the north end of Line 7, through Mira Road to Bhayandar (W)",
+        "station_state": null,
+        "stations_section": "All {total}, in order from Dahisar (E) to Subhash Chandra Bose Stadium in Bhayandar. Names follow MMRDA. Select a station to ride to it, or open its own page.",
+        "stations_page": "All {total}, in order from Dahisar (E) to Subhash Chandra Bose Stadium. Every station is elevated. Dahisar (E) to Kashigaon is open; trains run through from Line 7.",
+        "stations_page_description": "The {total} stations of {name} in order, from Dahisar (E) through Mira Road to Bhayandar, with interchanges, which are open and a page for each station.",
+        "route_section": "Eight stations, Dahisar (E) to Subhash Chandra Bose Stadium. Scroll to ride the line station by station. Distances follow MMRDA's alignment file of March 2025, from Dahisar (E).",
+        "route_legend": "A solid line marks track open to riders, Dahisar (E) to Kashigaon; a hollow line marks track under construction.",
+        "drawn_from": [
+          "MMRDA's alignment file",
+          " of March 2025"
+        ],
+        "headline_html": "Follow Mumbai Metro Line&nbsp;9<br> from Dahisar to Bhayandar.",
+        "front_standfirst": "Four stations are open, from Dahisar (E) to Kashigaon, and trains run through from Line 7. The other four, from Kashigaon to Bhayandar, are nearly built: on {as_of}, MMRDA put U-girder erection at {pct:U-girder erection} per cent. {stations} stations in all.",
+        "countdown_title": "Days to the reported target",
+        "target_html": "Target: <strong>{target}</strong> for Kashigaon to Subhash Chandra Bose Stadium, as reported, after the safety inspection. No day announced; the site counts to the end of the month.",
+        "lead_scene": null,
+        "map_section": "The line on a street map. Choose a station to see where it sits, what surrounds it and what the street looks like today. The route and stations come from MMRDA's alignment file of March 2025.",
+        "map_legend": "Route, MMRDA's alignment file; open from Dahisar (E) to Kashigaon",
+        "map_first_station": "kashigaon",
+        "numbers": {
+          "length_unit": "km, fully elevated; sources differ",
+          "stations_unit": "all elevated",
+          "cost_unit": ", for Lines 9 and 7A together",
+          "cost_note": "MMRDA's Line 9 and 7A page gives one cost for both lines, including state taxes and escalation. No figure for Line 9 alone was read from MMRDA.",
+          "funding_head": "Not published",
+          "funding_note": "No loan or funding split for Line 9 was read.",
+          "depot_history": [],
+          "travel_head": "50 to 75% shorter",
+          "travel_unit": "than by road today, for Lines 9 and 7A (MMRDA)"
+        },
+        "primary_sources": [
+          {
+            "name": "MMRDA, Metro Line 9 and 7A project page",
+            "note": "Stations, the Phase I opening date, cost and riders for both lines, and the progress table for Line 9.",
+            "url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview"
+          },
+          {
+            "name": "Alignment file of Line 9 (MMRDA, March 2025)",
+            "note": "The route line and every station position on the map.",
+            "url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+          },
+          {
+            "name": "MMRDA, Metro Line 9 and 7A page in Marathi",
+            "note": "The station names in Marathi.",
+            "url": "https://mmrda.maharashtra.gov.in/mr/projects/transport/metro-line-9/overview"
+          },
+          {
+            "name": "Free Press Journal, 7 Apr 2026",
+            "note": "Phase I at the opening: train times, frequency, fares.",
+            "url": "https://www.freepressjournal.in/mumbai/good-news-commuters-now-travel-from-andheri-to-kashigaon-at-rs-50-know-fares-on-newly-launched-mumbai-metro-line-9"
+          }
+        ],
+        "page_description": "Unofficial, sourced tracker for Mumbai Metro Line 9 (Red Line), Dahisar (E) to Mira-Bhayandar: what is open, train times and fares, progress on the rest, all 8 stations, map and contracts. Every figure links to its source.",
+        "status_title": "Mumbai Metro Line 9 Status: open stations, Bhayandar opening, route",
+        "status_description": "Which part of Metro Line 9 (Dahisar to Mira-Bhayandar) is open, train times and fares, when the rest opens, stations, cost and depot. Answers from MMRDA and news sources, checked {checked}.",
+        "status_h1": "Metro Line 9 status, answered",
+        "status_mr": "दहिसर-मीरा भाईंदर मेट्रो ९",
+        "status_lead": "The questions people ask about Mumbai Metro Line 9, Dahisar (E) to Mira-Bhayandar.",
+        "footer_disclaimer": "Mumbai Metro Tracker is an independent public-interest site. It is not affiliated with, endorsed by or connected to MMRDA, Maha Mumbai Metro or the Government of Maharashtra. Drawings are original illustrations, not official designs. Check official sources before making decisions.",
+        "dropped_heading": "In an earlier plan, not on MMRDA's list now"
+      }
+    },
+    {
       "id": "line-12",
       "label": "Line 12",
       "number": "12",

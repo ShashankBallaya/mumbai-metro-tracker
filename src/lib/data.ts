@@ -341,7 +341,7 @@ export const INTERCHANGE_TABLE = {
   handle: 'rohanshanbhag',
   href: 'https://x.com/rohanshanbhag',
   /** The lines the table covers. Line 12A is newer than the table. */
-  lines: ['line-2b', 'line-4', 'line-5', 'line-6', 'line-7a', 'line-12', 'thane-ring'] as string[],
+  lines: ['line-2b', 'line-4', 'line-5', 'line-6', 'line-7a', 'line-9', 'line-12', 'thane-ring'] as string[],
 };
 export const tableInterchanges = (s: Station) => (s as { interchanges_table?: PlannedInterchanges }).interchanges_table;
 /** Every line a station is an interchange for: the sources' list, then the table's. */

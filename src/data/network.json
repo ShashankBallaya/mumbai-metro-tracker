@@ -139,14 +139,10 @@
     {
       "id": "line-9",
       "number": "9",
-      "name": "Dahisar (East) to Mira-Bhayandar",
-      "agency": { "value": "MMRDA", "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview", "last_verified": "2026-10-29" },
-      "ends": ["Dahisar (East)", "Subhash Chandra Bose Stadium"],
-      "length_km": { "value": 13.581, "status": "verified", "note": "MMRDA's figure covers Line 9 and Line 7A together.", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview", "last_verified": "2026-10-29" },
-      "stations": { "value": 8, "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview", "last_verified": "2026-10-29" },
+      "tracked": "line-9",
       "parts": [
-        { "name": "Phase I, Dahisar (East) to Kashigaon", "stage": "operational", "opened": "2026-04-07", "length_km": 4.7, "stations": 4, "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview", "last_verified": "2026-10-29" },
-        { "name": "Kashigaon to Subhash Chandra Bose Stadium", "stage": "under_construction", "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview", "last_verified": "2026-10-29" }
+        { "name": "Phase I, Dahisar (East) to Kashigaon", "stage": "operational", "opened": "2026-04-07", "length_km": 4.7, "stations": 4, "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview", "last_verified": "2026-11-10" },
+        { "name": "Kashigaon to Subhash Chandra Bose Stadium", "stage": "under_construction", "note": "Reported for December 2026; power on since 29 Jul 2026.", "from_tracked": "current_phase" }
       ]
     },
     {

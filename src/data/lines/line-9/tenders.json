@@ -1,0 +1,72 @@
+{
+  "_meta": {
+    "description": "Tenders and contract packages for Line 9. Values in crore INR. 'tender_status' is floated, bids_opened, awarded, cancelled or unknown. Only packages whose source was read are listed. Several packages are shared with Line 7A; the telecom, fare collection and signalling contracts wait for a source read in full.",
+    "last_reviewed": "2026-11-10"
+  },
+  "tenders": [
+    {
+      "id": "ca-48",
+      "package": "CA-48",
+      "scope": "Viaduct, ramps, stations and flyovers of Line 9, and the tunnels and underground station of 7A",
+      "floated": null,
+      "estimated_value_crore": null,
+      "awarded_value_crore": 1998,
+      "awarded_to": "j-kumar",
+      "award_date": "2019-09-13",
+      "duration_months": null,
+      "tender_status": "awarded",
+      "status": "reported",
+      "source_url": "https://www.business-standard.com/article/news-cm/j-kumar-infraprojects-bags-contract-worth-rs-1998-cr-for-mumbai-metro-rail-project-119091300371_1.html",
+      "last_verified": "2026-11-10",
+      "notes": "Business Standard (13 Sep 2019): one letter of acceptance for the Line 7 extensions from Dahisar (E) to Mira-Bhayandar and from Andheri to the airport. The Metro Rail Guy names the package CA-48 (J Kumar, at work since March 2020). Shared with Line 7A."
+    },
+    {
+      "id": "ca-167",
+      "package": "CA-167",
+      "scope": "Ballastless track from Dahisar (E) to Bhayandar, with a third track, a siding and a dead end at Dahisar",
+      "floated": "2023-04",
+      "estimated_value_crore": 88.28,
+      "awarded_value_crore": null,
+      "awarded_to": "rahee",
+      "award_date": null,
+      "duration_months": 18,
+      "tender_status": "bids_opened",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2023/09/22/mumbai-metro-line-9-rahee-wins-track-work-contract-ca-167/",
+      "last_verified": "2026-11-10",
+      "notes": "Estimate before tax. Bids with tax: Rahee Rs 91.86 crore (lowest), Paras Railtech Rs 92.65 crore, Texmaco Rs 99.56 crore, ITD Cementation Rs 114.38 crore. The award was not yet made when The Metro Rail Guy reported it (22 Sep 2023)."
+    },
+    {
+      "id": "ca-176",
+      "package": "CA-176",
+      "scope": "Power: 33 kV and 25 kV cabling, overhead wire with switching station, auxiliary power, SCADA, for Lines 9 and 7A",
+      "floated": null,
+      "estimated_value_crore": 108.01,
+      "awarded_value_crore": null,
+      "awarded_to": "leena-umesh",
+      "award_date": "2025-06",
+      "duration_months": 30,
+      "tender_status": "awarded",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2024/07/24/leena-wins-mumbai-metro-line-7a-9s-electrification-contract-ca-176/",
+      "last_verified": "2026-11-10",
+      "notes": "Lowest bid Rs 122.09 crore (13.03% above the estimate); award reported in a June 2025 update. Shared with Line 7A."
+    },
+    {
+      "id": "ca-207",
+      "package": "CA-207",
+      "scope": "Dongri depot for the Red Line (Lines 9, 7 and 7A): land development, stabling yard, control centres, workshops",
+      "floated": "2024-02",
+      "estimated_value_crore": 639.58,
+      "awarded_value_crore": 701.94,
+      "awarded_to": "rithwik-soma",
+      "award_date": "2024-08-08",
+      "duration_months": 52,
+      "tender_status": "awarded",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2024/07/12/rithwik-wins-mumbai-metro-dongri-depots-contract-ca-207/",
+      "last_verified": "2026-11-10",
+      "notes": "Bids: Rithwik-Soma JV Rs 733.24 crore, NCC Rs 798.35 crore; awarded at Rs 701.94 crore. 41.36 ha, 20 stabling lines with room for 18 more."
+    }
+  ]
+}

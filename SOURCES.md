@@ -556,6 +556,52 @@ Research of 2026-10-30 for `src/data/lines/line-7a/`, with the tender search. 7A
 - The telecom (Efkon), radio and fare collection (LTTS) contracts for Lines 9 and 7A, read in full; any signalling award.
 - The Airports Authority's decision on the height limit.
 
+# Line 9 (Dahisar (E) to Mira-Bhayandar)
+
+Research of 2026-11-10 for `src/data/lines/line-9/` (a viewer noted the site had no Line 9). Line 9 extends Line 7 north; MMRDA covers it on one page with 7A. Phase I, Dahisar (E) to Kashigaon, open 7 Apr 2026; the rest under construction. Two sections.
+
+## Primary sources
+
+| Source | Checked | Used for |
+|---|---|---|
+| MMRDA, "Metro Line - 9 & 7A" page | 2026-11-10 | 8 stations (all elevated), Phase I opening (4.7 km, 4 stations, 7 Apr 2026), Rs 6,607 crore and 11.12 lakh riders for both lines, the Line 9 progress tables (no date of their own; the page's date, 31 Aug 2026, heads the 7A table) |
+| MMRDA, the same page in Marathi | 2026-11-10 | Marathi station names |
+| MMRDA alignment file `line-9_2.kml` (Metro Influence Zone NOC page, March 2025) | 2026-11-10 | Corridor polygon and 8 station points (Amar Palace = Miragaon, Zankar Company = Kashigaon, Deepak Hospital = Meditiya Nagar) |
+| MMRDA, Line 7 page | 2026-10-29 | Line 7's colour, Red |
+
+## Secondary sources
+
+| Source | Date | Used for |
+|---|---|---|
+| Ummid | 11 Sep 2018 | Cabinet approval; 10.41 km elevated |
+| Business Standard | 13 Sep 2019 | J Kumar, Rs 1,998 crore letter of acceptance for Lines 9 and 7A |
+| The Metro Rail Guy | 22 Sep 2023 | CA-167 track bids; CA-48 to J Kumar; 11.38 km; Dongri depot land |
+| The Metro Rail Guy | 12 Jul 2024 (update 8 Aug 2024) | CA-207 Dongri depot, Rs 701.94 crore; 4.9 km extension to the depot |
+| Free Press Journal | 14 Jun 2025 | 65 m girder over the Western Railway at Bhayandar; double-decker; 10.54 km |
+| Indian Infrastructure | 8 Jul 2025 | Safety inspection of Dahisar to Kashigaon |
+| Free Press Journal | 23 Jan 2026 | Safety clearance for Phase I; trains kept at Charkop |
+| Free Press Journal | 7 Apr 2026 (two reports) | Opening; hours 5:50 am to 11 pm; under 6 min at peak; trips; fares |
+| Free Press Journal | 1 Aug 2026 | Power on from Kashigaon from 29 Jul 2026; 10.5 km; 5.8 km left |
+| Swarajya; Construction World | 21 and 23 Oct 2026 | Rest of the line expected in December 2026; 96% |
+
+## Derived data
+
+- `scripts/build-alignment-line9.py` derives the centre line from the corridor polygon (as for Line 2B). All 8 points within 13 m, in order. Drawn from Dahisar (E) to Subhash Chandra Bose Stadium: 8.26 km. The 1.9 km of corridor past the last station is not drawn.
+
+## Items that need your review
+
+1. **Countdown.** To 31 Dec 2026, reported target for Kashigaon to Subhash Chandra Bose Stadium. Check if MMRDA gives a date.
+2. **Length.** 10.5 km (FPJ 2026), 10.41 km (2018), 11.38 km (The Metro Rail Guy). Graded conflicting.
+3. **Names.** "Dahisar (E)" (MMRDA's list says Dahisar); "Pandurang Wadi" (MMRDA's English list spells Pandhurang Wadi; its file and Marathi page do not).
+4. **Package CA-48.** The 7A page calls CA-48 7A's package; the sources read say one J Kumar contract covers both lines. Both pages now say it is shared.
+5. **No Trains section, no hub chapter art, no X posts yet.**
+6. **Line 10 at Shivaji Chowk (Mira Road).** Rohan Shanbhag's table puts the Red Line with Line 10 there; no source names the Line 9 station. Not shown.
+
+## Not found
+
+- Signalling, telecom and fare collection contracts for Line 9.
+- When the depot extension (Murdha, Rai Gaon) will be built.
+
 # Thane Integral Ring Metro (Raila Devi round west Thane to New Thane, and back)
 
 Research of 2026-11-03 for `src/data/lines/thane-ring/`, with the tender search. MahaMetro builds it, not MMRDA, so its primary sources are the Union Cabinet's release and MahaMetro's own Thane Metro website. One section; MahaMetro has published no phases. Page at `/thane-ring/`.

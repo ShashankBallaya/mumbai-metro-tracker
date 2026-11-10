@@ -219,6 +219,42 @@
         "require_corridor": true
       }
     },
+    "line-9": {
+      "search": [
+        "Metro 9",
+        "Kashigaon",
+        "Mira-Bhayandar metro"
+      ],
+      "video_queries": [
+        "Mumbai Metro Line 9 Dahisar Mira Bhayandar",
+        "Metro 9 Kashigaon Bhayandar"
+      ],
+      "match": {
+        "comment": "Other cities have a Line 9 too, so a bare 'Line 9' needs a Line 9 place. The patterns do not match 'Metro 9A' or numbers like 90.",
+        "strong": [
+          "mumbai[\\s-]*metro[\\s-]*(line[\\s-]*)?9\\b(?![\\s-]*a\\b)",
+          "metro[\\s-]*9\\b(?![\\s-]*a\\b)",
+          "मेट्रो[\\s-]*(९|9)(?![\\d०-९])"
+        ],
+        "line": [
+          "lines?[\\s-]*9\\b(?![\\s-]*a\\b)"
+        ],
+        "corridor": [
+          "dahisar",
+          "mira road",
+          "mira-bhayandar",
+          "mira bhayandar",
+          "bhayandar",
+          "bhayander",
+          "kashigaon",
+          "miragaon",
+          "pandurang",
+          "subhash chandra bose",
+          "mmrda"
+        ],
+        "require_corridor": true
+      }
+    },
     "line-7a": {
       "search": [
         "7A",

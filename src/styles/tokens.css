@@ -90,6 +90,9 @@
   /* Line 7A, Line 7's Red (MMRDA calls 7A Line 7's extension): its mark, and its pages' accent (see below). White on it is 5.9:1. */
   --line-7a: #c0272b;
   --on-line-7a: #ffffff;
+  /* Line 9, Line 7's Red too (MMRDA calls Line 9 Line 7's extension): the same values as Line 7A. */
+  --line-9: #c0272b;
+  --on-line-9: #ffffff;
   /* Thane Integral Ring Metro, violet: the site's own choice; MahaMetro publishes no line colour. Its mark, and its pages' accent (see below). White on it is 7.1:1. */
   --thane-ring: #6a3fb0;
   --on-thane-ring: #ffffff;
@@ -269,12 +272,13 @@
 }
 
 /*
- * Line 7A, red. On morning paper the bands are #c0272b with white text (5.9:1) and accent text is
+ * Lines 7A and 9, red. On morning paper the bands are #c0272b with white text (5.9:1) and accent text is
  * #b82326 (5.3:1). On night paper the red stays saturated (a light red reads as coral there): bands
  * #d61f26 with white text (5.1:1), route lines and bars #e5332f (4.3:1 on night paper), strokes, large
  * figures and focus #ff4a3d (5.5:1).
  */
-[data-accent='line-7a'] {
+[data-accent='line-7a'],
+[data-accent='line-9'] {
   --signal: #c0272b;
   --signal-line: #b82326;
   --signal-graphic: #c0272b;
@@ -286,7 +290,9 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) [data-accent='line-7a'],
-  :root[data-accent='line-7a']:not([data-theme='light']) {
+  :root[data-accent='line-7a']:not([data-theme='light']),
+  :root:not([data-theme='light']) [data-accent='line-9'],
+  :root[data-accent='line-9']:not([data-theme='light']) {
     --signal: #d61f26;
     --signal-line: #ff4a3d;
     --signal-graphic: #e5332f;
@@ -298,7 +304,9 @@
 }
 
 :root[data-theme='dark'] [data-accent='line-7a'],
-:root[data-accent='line-7a'][data-theme='dark'] {
+:root[data-accent='line-7a'][data-theme='dark'],
+:root[data-theme='dark'] [data-accent='line-9'],
+:root[data-accent='line-9'][data-theme='dark'] {
   --signal: #d61f26;
   --signal-line: #ff4a3d;
   --signal-graphic: #e5332f;

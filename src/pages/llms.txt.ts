@@ -32,12 +32,15 @@ export const GET: APIRoute = ({ site }) => {
   const line7a = getLine('line-7a');
   const p7a = line7a.project as typeof line7a.project & { route: { value: string }; length_km: { alternatives: { value: number }[]; underground_km: { value: number } } };
   const b7a = lineBase('line-7a');
+  const line9 = getLine('line-9');
+  const p9 = line9.project as typeof line9.project & { route: { value: string }; length_km: { alternatives: { value: number }[] }; target_completion: { scope: string } };
+  const b9 = lineBase('line-9');
   const ring = getLine('thane-ring');
   const pr = ring.project as typeof ring.project & { route: { value: string }; length_km: { structure: string }; target_completion: { value: string } };
   const br = lineBase('thane-ring');
   const body = `# ${SITE_NAME}
 
-> An unofficial, sourced tracker for the Mumbai Metro lines MMRDA is building, running or planning: Line 2B (D N Nagar to Mandale, open from Mandale to Chembur), Line 4 with Line 4A (Wadala to Thane and Gaimukh), Line 5 (Thane to Kalyan), Line 6 (Swami Samarth Nagar to Vikhroli), Line 7A (Andheri to the airport), Line 12 (Kalyan to Taloja) and Line 12A (Manpada to Taloja via Kalyan Phata, approved), and MahaMetro's Thane Integral Ring Metro (a ring round west Thane). Every fact carries a grade (verified, reported, unverified, sources conflict) and a source link. Facts last checked ${formatDate(siteReviewed)}. Not affiliated with MMRDA or MahaMetro.
+> An unofficial, sourced tracker for the Mumbai Metro lines MMRDA is building, running or planning: Line 2B (D N Nagar to Mandale, open from Mandale to Chembur), Line 4 with Line 4A (Wadala to Thane and Gaimukh), Line 5 (Thane to Kalyan), Line 6 (Swami Samarth Nagar to Vikhroli), Line 7A (Andheri to the airport), Line 9 (Dahisar (E) to Mira-Bhayandar, open from Dahisar (E) to Kashigaon), Line 12 (Kalyan to Taloja) and Line 12A (Manpada to Taloja via Kalyan Phata, approved), and MahaMetro's Thane Integral Ring Metro (a ring round west Thane). Every fact carries a grade (verified, reported, unverified, sources conflict) and a source link. Facts last checked ${formatDate(siteReviewed)}. Not affiliated with MMRDA or MahaMetro.
 
 - [${SITE_NAME}](${url('/')}): every line on one page.
 
@@ -127,6 +130,21 @@ ${line6.stations.map((s) => `- [${s.name} metro station, Line 6](${url(`${b6}sta
 - [Line 7A](${url(b7a)}): route, map, progress, the airport height issue, tenders, timeline and sources.
 ${hasStatusPage(line7a) ? `- [Line 7A status, answered](${url(`${b7a}status/`)}): opening, height issue, progress, cost, builders.\n` : ''}- [All Line 7A stations](${url(`${b7a}stations/`)}): the ${line7a.stations.length} stations in order.
 ${line7a.stations.map((s) => `- [${s.name} metro station, Line 7A](${url(`${b7a}stations/${s.id}/`)})`).join('\n')}
+
+## Line 9: key facts
+
+- Name: ${p9.name.value}, also called ${p9.name.also_known_as.join(', ')}. MMRDA calls it the extension of Line 7.
+- Route: ${p9.route.value} (MMRDA, verified).
+- Length: about ${p9.length_km.value} km (sources differ: ${p9.length_km.alternatives.map((a) => a.value).join(' or ')} km), fully elevated. ${line9.stations.length} stations: ${line9.stations.map((s) => s.name).join(', ')} (MMRDA, verified).
+- Open: Dahisar (E) to Kashigaon since ${formatDate(line9.stages[0].service!.opening!.date)} (MMRDA, verified); trains run through from Line 7 (reported).
+- Rest: ${p9.target_completion.scope}, reported for ${p9.target_completion.value}.
+- Cost: Rs ${inr(p9.completion_cost_crore_inr.value)} crore for Lines 9 and 7A together (MMRDA, verified).
+
+## Line 9: pages
+
+- [Line 9](${url(b9)}): what is open, train times and fares, route, map, progress, tenders, timeline and sources.
+${hasStatusPage(line9) ? `- [Line 9 status, answered](${url(`${b9}status/`)}): open stations, the Bhayandar opening, progress, cost, builders.\n` : ''}- [All Line 9 stations](${url(`${b9}stations/`)}): the ${line9.stations.length} stations in order.
+${line9.stations.map((s) => `- [${s.name} metro station, Line 9](${url(`${b9}stations/${s.id}/`)})`).join('\n')}
 
 ## Line 12: key facts
 

@@ -1,0 +1,363 @@
+{
+  "_meta": {
+    "description": "Line 9's stations in order from Dahisar (E) to Subhash Chandra Bose Stadium, as MMRDA's Line 9 and 7A page lists them. 'phase' is the order of opening: 1 Phase I, Dahisar (E) to Kashigaon (open 7 Apr 2026, MMRDA); 2 the rest, Kashigaon to Subhash Chandra Bose Stadium, under construction (Phase II in the news; MMRDA names only Phase I). 'kml_name' is the station's point in MMRDA's alignment file, where three stations still have older names. Positions and along_m come from scripts/build-alignment-line9.py. Names follow MMRDA's English list, except where 'context' says; name_mr its Marathi page.",
+    "order_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+    "order_status": "verified",
+    "count_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+    "names_mr_source_url": "https://mmrda.maharashtra.gov.in/mr/projects/transport/metro-line-9/overview",
+    "names_mr_status": "verified",
+    "phase_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+    "phase_status": "verified",
+    "last_reviewed": "2026-11-10"
+  },
+  "stations": [
+    {
+      "id": "dahisar-east",
+      "order": 1,
+      "name": "Dahisar (E)",
+      "name_mr": "दहिसर",
+      "phase": 1,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+      "dpr_name": null,
+      "kml_name": "Dahisar(E) (M) Station",
+      "location": {
+        "lng": 72.867264,
+        "lat": 19.250798,
+        "along_m": 0,
+        "method": "MMRDA alignment file for Line 9 (KML on the Metro Influence Zone page, uploaded March 2025): point \"Dahisar(E) (M) Station\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Dahisar (E) station; the point is 4 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [
+          "Metro Line 7 (Dahisar (E)-Andheri (E))",
+          "Metro Line 2A (Dahisar-D N Nagar)"
+        ],
+        "status": "reported",
+        "source_url": "https://www.freepressjournal.in/mumbai/good-news-commuters-now-travel-from-andheri-to-kashigaon-at-rs-50-know-fares-on-newly-launched-mumbai-metro-line-9",
+        "notes": "Free Press Journal (7 Apr 2026): Dahisar East serves Lines 7, 9 and 2A. MMRDA's page names Lines 2A and 7 as the connections of Lines 9 and 7A. Rohan Shanbhag's interchange table agrees (Red and Yellow lines at Dahisar East)."
+      },
+      "context": [
+        {
+          "text": "MMRDA's English list calls it Dahisar; the site adds (E), as the news and MMRDA's alignment file do. Line 9 begins here, at the north end of Line 7.",
+          "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc",
+          "status": "verified"
+        },
+        {
+          "text": "Trains run through from Gundavali on Line 7 to Kashigaon; for Line 2A, change here.",
+          "source_url": "https://www.freepressjournal.in/mumbai/good-news-commuters-now-travel-from-andheri-to-kashigaon-at-rs-50-know-fares-on-newly-launched-mumbai-metro-line-9",
+          "status": "reported"
+        }
+      ],
+      "construction_status": {
+        "value": "Open since 7 Apr 2026 (Phase I, Dahisar (E) to Kashigaon)",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+        "notes": "MMRDA: Phase I, 4.7 km with 4 stations, operational from 7 Apr 2026. Inaugurated that day; open to riders from 8 Apr (Free Press Journal)."
+      },
+      "notes": null,
+      "last_verified": "2026-11-10",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "pandurang-wadi",
+      "order": 2,
+      "name": "Pandurang Wadi",
+      "name_mr": "पांडुरंग वाडी",
+      "phase": 1,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+      "dpr_name": null,
+      "kml_name": "Pandurang Wadi(M) Station",
+      "location": {
+        "lng": 72.875159,
+        "lat": 19.265047,
+        "along_m": 1802,
+        "method": "MMRDA alignment file for Line 9 (KML on the Metro Influence Zone page, uploaded March 2025): point \"Pandurang Wadi(M) Station\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Dahisar (E) station; the point is 4 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview"
+      },
+      "context": [
+        {
+          "text": "MMRDA's English list spells it Pandhurang Wadi; its alignment file and its Marathi page give Pandurang Wadi, as the site does.",
+          "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc",
+          "status": "verified"
+        }
+      ],
+      "construction_status": {
+        "value": "Open since 7 Apr 2026 (Phase I, Dahisar (E) to Kashigaon)",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+        "notes": "MMRDA: Phase I, 4.7 km with 4 stations, operational from 7 Apr 2026. Inaugurated that day; open to riders from 8 Apr (Free Press Journal)."
+      },
+      "notes": null,
+      "last_verified": "2026-11-10",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "miragaon",
+      "order": 3,
+      "name": "Miragaon",
+      "name_mr": "मिरागाव",
+      "phase": 1,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+      "dpr_name": null,
+      "kml_name": "Amar Palace(M) Station",
+      "location": {
+        "lng": 72.880865,
+        "lat": 19.271131,
+        "along_m": 2720,
+        "method": "MMRDA alignment file for Line 9 (KML on the Metro Influence Zone page, uploaded March 2025): point \"Amar Palace(M) Station\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Dahisar (E) station; the point is 1 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview"
+      },
+      "context": [
+        {
+          "text": "Called Amar Palace in MMRDA's alignment file (March 2025).",
+          "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc",
+          "status": "verified"
+        }
+      ],
+      "construction_status": {
+        "value": "Open since 7 Apr 2026 (Phase I, Dahisar (E) to Kashigaon)",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+        "notes": "MMRDA: Phase I, 4.7 km with 4 stations, operational from 7 Apr 2026. Inaugurated that day; open to riders from 8 Apr (Free Press Journal)."
+      },
+      "notes": null,
+      "last_verified": "2026-11-10",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "kashigaon",
+      "order": 4,
+      "name": "Kashigaon",
+      "name_mr": "काशीगाव",
+      "phase": 1,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+      "dpr_name": null,
+      "kml_name": "Zankar Company (M) Station",
+      "location": {
+        "lng": 72.88016,
+        "lat": 19.277693,
+        "along_m": 3609,
+        "method": "MMRDA alignment file for Line 9 (KML on the Metro Influence Zone page, uploaded March 2025): point \"Zankar Company (M) Station\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Dahisar (E) station; the point is 1 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview"
+      },
+      "context": [
+        {
+          "text": "Called Zankar Company in MMRDA's alignment file (March 2025).",
+          "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc",
+          "status": "verified"
+        },
+        {
+          "text": "The end of the open stretch since 7 Apr 2026. At the opening the fare was Rs 20 from Dahisar (E) and Rs 50 from Gundavali on Line 7.",
+          "source_url": "https://www.freepressjournal.in/mumbai/good-news-commuters-now-travel-from-andheri-to-kashigaon-at-rs-50-know-fares-on-newly-launched-mumbai-metro-line-9",
+          "status": "reported"
+        }
+      ],
+      "construction_status": {
+        "value": "Open since 7 Apr 2026 (Phase I, Dahisar (E) to Kashigaon)",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+        "notes": "MMRDA: Phase I, 4.7 km with 4 stations, operational from 7 Apr 2026. Inaugurated that day; open to riders from 8 Apr (Free Press Journal)."
+      },
+      "notes": null,
+      "last_verified": "2026-11-10",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "sai-baba-nagar",
+      "order": 5,
+      "name": "Sai Baba Nagar",
+      "name_mr": "साई बाबा नगर",
+      "phase": 2,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+      "dpr_name": null,
+      "kml_name": "Sai Baba Nagar (M) Station",
+      "location": {
+        "lng": 72.871035,
+        "lat": 19.284367,
+        "along_m": 4827,
+        "method": "MMRDA alignment file for Line 9 (KML on the Metro Influence Zone page, uploaded March 2025): point \"Sai Baba Nagar (M) Station\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Dahisar (E) station; the point is 2 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview"
+      },
+      "context": [
+        {
+          "text": "The first station past Kashigaon. Power was switched on along the stretch from Kashigaon from 29 Jul 2026.",
+          "source_url": "https://www.freepressjournal.in/business/mmrda-energises-final-metro-line-9-stretch-full-dahisar-eastmira-bhayandar-corridor-nears-completion",
+          "status": "reported"
+        }
+      ],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+        "notes": "MMRDA publishes progress for the whole line, not by station (U-girder erection 98% on the viaduct, T-girder erection 97% at the stations, as of 31 Aug 2026). Power on from 29 Jul 2026 (Free Press Journal). Reported for December 2026, after the safety commissioner's inspection. Civil package CA-48 (J Kumar Infraprojects)."
+      },
+      "notes": null,
+      "last_verified": "2026-11-10",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "meditiya-nagar",
+      "order": 6,
+      "name": "Meditiya Nagar",
+      "name_mr": "मेदितिया नगर",
+      "phase": 2,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+      "dpr_name": null,
+      "kml_name": "Deepak Hospital (M) Station",
+      "location": {
+        "lng": 72.859725,
+        "lat": 19.294124,
+        "along_m": 6448,
+        "method": "MMRDA alignment file for Line 9 (KML on the Metro Influence Zone page, uploaded March 2025): point \"Deepak Hospital (M) Station\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Dahisar (E) station; the point is 5 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview"
+      },
+      "context": [
+        {
+          "text": "Called Deepak Hospital in MMRDA's alignment file (March 2025). News reports spell it Medtiya or Meditya Nagar.",
+          "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc",
+          "status": "verified"
+        }
+      ],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+        "notes": "MMRDA publishes progress for the whole line, not by station (U-girder erection 98% on the viaduct, T-girder erection 97% at the stations, as of 31 Aug 2026). Power on from 29 Jul 2026 (Free Press Journal). Reported for December 2026, after the safety commissioner's inspection. Civil package CA-48 (J Kumar Infraprojects)."
+      },
+      "notes": null,
+      "last_verified": "2026-11-10",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "shahid-bhagat-singh-garden",
+      "order": 7,
+      "name": "Shahid Bhagat Singh Garden",
+      "name_mr": "शहीद भगतसिंग गार्डन",
+      "phase": 2,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+      "dpr_name": null,
+      "kml_name": "Shahid Bhagatsingh Garden (M) Station",
+      "location": {
+        "lng": 72.849208,
+        "lat": 19.29467,
+        "along_m": 7618,
+        "method": "MMRDA alignment file for Line 9 (KML on the Metro Influence Zone page, uploaded March 2025): point \"Shahid Bhagatsingh Garden (M) Station\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Dahisar (E) station; the point is 12 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview"
+      },
+      "context": [
+        {
+          "text": "News reports call it Shaheed Bhagat Singh Garden or Udyan.",
+          "source_url": "https://swarajyamag.com/news-brief/four-new-stations-on-mumbai-metro-line-9-phase-2-expected-to-open-by-december-after-safety-inspection",
+          "status": "reported"
+        }
+      ],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+        "notes": "MMRDA publishes progress for the whole line, not by station (U-girder erection 98% on the viaduct, T-girder erection 97% at the stations, as of 31 Aug 2026). Power on from 29 Jul 2026 (Free Press Journal). Reported for December 2026, after the safety commissioner's inspection. Civil package CA-48 (J Kumar Infraprojects)."
+      },
+      "notes": null,
+      "last_verified": "2026-11-10",
+      "dpr_chainage_m": null
+    },
+    {
+      "id": "subhash-chandra-bose-stadium",
+      "order": 8,
+      "name": "Subhash Chandra Bose Stadium",
+      "name_mr": "सुभाषचंद्र बोस स्टेडियम",
+      "phase": 2,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+      "dpr_name": null,
+      "kml_name": "Subhash Chandra Bose Stadium (M) station",
+      "location": {
+        "lng": 72.843213,
+        "lat": 19.294129,
+        "along_m": 8258,
+        "method": "MMRDA alignment file for Line 9 (KML on the Metro Influence Zone page, uploaded March 2025): point \"Subhash Chandra Bose Stadium (M) station\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from Dahisar (E) station; the point is 11 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview"
+      },
+      "context": [
+        {
+          "text": "The end of the line, in Bhayandar (W). Near it the line crosses the Western Railway on a 65 m steel girder (June 2025), on a double-decker stretch that shares its viaduct with a road flyover.",
+          "source_url": "https://www.freepressjournal.in/mumbai/mmrda-achieves-key-milestone-as-it-launches-65-meter-girder-for-mumbais-double-decker-metro-line-9-near-bhayandar",
+          "status": "reported"
+        },
+        {
+          "text": "News reports also call it Netaji Subhash Chandra Bose Udyan.",
+          "source_url": "https://www.freepressjournal.in/business/mmrda-energises-final-metro-line-9-stretch-full-dahisar-eastmira-bhayandar-corridor-nears-completion",
+          "status": "reported"
+        }
+      ],
+      "construction_status": {
+        "value": "Under construction",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+        "notes": "MMRDA publishes progress for the whole line, not by station (U-girder erection 98% on the viaduct, T-girder erection 97% at the stations, as of 31 Aug 2026). Power on from 29 Jul 2026 (Free Press Journal). Reported for December 2026, after the safety commissioner's inspection. Civil package CA-48 (J Kumar Infraprojects)."
+      },
+      "notes": null,
+      "last_verified": "2026-11-10",
+      "dpr_chainage_m": null
+    }
+  ],
+  "dropped_stations": []
+}

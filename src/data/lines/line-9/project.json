@@ -1,0 +1,393 @@
+{
+  "_meta": {
+    "description": "Headline facts about Mumbai Metro Line 9 (Dahisar (E) to Mira-Bhayandar), the northern extension of Line 7. MMRDA covers it on one page with Line 7A ('Metro Line - 9 & 7A', checked 10 Nov 2026), with one length, one cost and one rider figure for the two lines, and a progress table for Line 9. That page is the primary source. Phase I, Dahisar (E) to Kashigaon, is open (7 Apr 2026); the rest is under construction.",
+    "status_values": {
+      "verified": "Confirmed by a primary source (MMRDA website or an MMRDA-published document).",
+      "reported": "From a reputable secondary source (news or trade press). Not confirmed by a primary source.",
+      "unverified": "Single weak source, or could not be confirmed. Show with a warning in the UI.",
+      "conflicting": "Sources disagree. The value is the most recent credible figure; see 'alternatives'."
+    },
+    "last_reviewed": "2026-11-10"
+  },
+  "name": {
+    "value": "Mumbai Metro Line 9",
+    "also_known_as": [
+      "Metro 9",
+      "Red Line",
+      "Dahisar-Mira Bhayandar Metro"
+    ],
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+    "last_verified": "2026-11-10"
+  },
+  "implementing_agency": {
+    "value": "Mumbai Metropolitan Region Development Authority (MMRDA)",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+    "last_verified": "2026-11-10"
+  },
+  "line_color": {
+    "value": "Red",
+    "notes": "MMRDA's Line 9 and 7A page calls Line 9 the extension of Line 7 from Dahisar to Mira-Bhayander, and its Line 7 page gives Line 7's colour as Red. The news calls the run from Gundavali to Kashigaon the Red Line. The Metro Rail Guy's list of the line colours (29 Feb 2020) gives Red for Lines 7, 7A and 9. MMRDA publishes no colour value; the site uses the red of its Line 7A pages.",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-7/overview",
+    "last_verified": "2026-11-10",
+    "also_see": [
+      "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+      "https://themetrorailguy.com/2020/02/29/mumbai-metros-official-line-colours-unveiled/"
+    ]
+  },
+  "route": {
+    "value": "Dahisar (E) to Mira-Bhayandar, extending Line 7 north from Dahisar (E)",
+    "notes": "From Dahisar (E), Line 7's north end, the line runs north through Mira Road to Kashigaon, then west to Bhayandar (W), where it ends at Subhash Chandra Bose Stadium (MMRDA's alignment file, March 2025). Trains run through from Line 7: Gundavali to Kashigaon is one ride (Free Press Journal, 7 Apr 2026).",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+    "last_verified": "2026-11-10"
+  },
+  "length_km": {
+    "value": 10.5,
+    "structure": "Fully elevated",
+    "status": "conflicting",
+    "source_url": "https://www.freepressjournal.in/business/mmrda-energises-final-metro-line-9-stretch-full-dahisar-eastmira-bhayandar-corridor-nears-completion",
+    "last_verified": "2026-11-10",
+    "context": "Phase I, 4.7 km (MMRDA), and the 5.8 km from Kashigaon (Free Press Journal, Aug 2026).",
+    "alternatives": [
+      {
+        "value": 10.41,
+        "context": "At the Cabinet's approval, Sep 2018 (Ummid); with 7A's 3.17 km, MMRDA's 13.58 km",
+        "source_url": "https://ummid.com/news/2018/September/11.09.2018/dahisar-mira-bhayander-and-andheri-csim-airport-metro-projects-get-cabinet-nod.html"
+      },
+      {
+        "value": 11.38,
+        "context": "The Metro Rail Guy, Sep 2023, with the track contract",
+        "source_url": "https://themetrorailguy.com/2023/09/22/mumbai-metro-line-9-rahee-wins-track-work-contract-ca-167/"
+      }
+    ],
+    "notes": "MMRDA gives one length, 13.581 km, for Lines 9 and 7A together (11.386 km elevated, 2.195 km underground, all of it on 7A). For Line 9 alone the news gives 10.41 km (2018), 10.54 km (Free Press Journal, June 2025) and 10.5 km (Aug 2026); The Metro Rail Guy 11.38 km. The drawn line from Dahisar (E) to Subhash Chandra Bose Stadium, station to station, is 8.26 km.",
+    "history": [
+      {
+        "value": 10.41,
+        "context": "At the Cabinet's approval, Sep 2018 (Ummid)",
+        "source_url": "https://ummid.com/news/2018/September/11.09.2018/dahisar-mira-bhayander-and-andheri-csim-airport-metro-projects-get-cabinet-nod.html"
+      }
+    ]
+  },
+  "stations_count": {
+    "value": 8,
+    "structure": "All elevated",
+    "context": "MMRDA: 'Dahisar (E) to Mira-Bhayander (all elevated)', 8 stations; 10 with 7A's two.",
+    "history": [],
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+    "last_verified": "2026-11-10"
+  },
+  "completion_cost_crore_inr": {
+    "value": 6607,
+    "label": "Project base cost of Lines 9 and 7A together, including state taxes and 7.5% a year escalation",
+    "context": "MMRDA's page gives one cost for both lines.",
+    "history": [],
+    "notes": "J Kumar Infraprojects' civil contract for Lines 9 and 7A is reported at Rs 1,998 crore (Business Standard, Sep 2019). No figure for Line 9 alone was read from MMRDA.",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+    "last_verified": "2026-11-10"
+  },
+  "funding": {
+    "value": "Not published for Line 9 alone",
+    "notes": "The 2018 approval reports give Rs 6,607 crore for Lines 9 and 7A together and let MMRDA raise the funds. No loan or funding split for Line 9 was read.",
+    "status": "reported",
+    "source_url": "https://ummid.com/news/2018/September/11.09.2018/dahisar-mira-bhayander-and-andheri-csim-airport-metro-projects-get-cabinet-nod.html",
+    "last_verified": "2026-11-10"
+  },
+  "depot": {
+    "value": "Dongri, under construction",
+    "context": "A 41.36 ha depot at Dongri, near Uttan, for the whole Red Line (Lines 9, 7 and 7A): contract CA-207 to Rithwik-Soma JV, Rs 701.94 crore, 52 months, awarded Aug 2024. A 4.9 km extension of Line 9 along Uttan Road, with stations at Murdha and Rai Gaon, is to reach it.",
+    "history": [
+      {
+        "value": "Morva, Rai and Murdhe villages",
+        "context": "The first site; moved to Dongri when the land could not be had (The Metro Rail Guy)",
+        "source_url": "https://themetrorailguy.com/2024/07/12/rithwik-wins-mumbai-metro-dongri-depots-contract-ca-207/"
+      }
+    ],
+    "notes": "Until Dongri is ready, Line 9's trains are kept at Charkop, Line 7's depot (Free Press Journal, Jan 2026). The extension to the depot is not on MMRDA's list of 8 stations; no source read says when it will be built.",
+    "status": "reported",
+    "source_url": "https://themetrorailguy.com/2024/07/12/rithwik-wins-mumbai-metro-dongri-depots-contract-ca-207/",
+    "last_verified": "2026-11-10",
+    "also_see": [
+      "https://www.freepressjournal.in/mumbai/mumbai-metro-line-9-gets-cmrs-nod-for-phase-1-commuter-services-yet-to-be-announced"
+    ]
+  },
+  "interchanges": {
+    "value": [
+      {
+        "station": "Dahisar (E)",
+        "connects_to": "Metro Line 7 (Red Line); trains run through"
+      },
+      {
+        "station": "Dahisar (E)",
+        "connects_to": "Metro Line 2A (Yellow Line)"
+      }
+    ],
+    "status": "reported",
+    "source_url": "https://www.freepressjournal.in/mumbai/good-news-commuters-now-travel-from-andheri-to-kashigaon-at-rs-50-know-fares-on-newly-launched-mumbai-metro-line-9",
+    "last_verified": "2026-11-10",
+    "lines": [
+      "Western Express Highway",
+      "Western Railway",
+      "Metro Line 2A (Dahisar-D N Nagar)",
+      "Metro Line 7 (Dahisar (E)-Andheri (E))"
+    ],
+    "notes": "MMRDA's page names the connections of Lines 9 and 7A together: the Western Express Highway, the Western Railway, Line 2A and Line 7. Free Press Journal (7 Apr 2026): Dahisar East serves Lines 7, 9 and 2A; trains run through from Line 7. Rohan Shanbhag's interchange table also puts the Red Line with Line 10 at Shivaji Chowk (Mira Road), a planned line; no source read names the Line 9 station there.",
+    "planned": [],
+    "table": []
+  },
+  "daily_ridership_2031": {
+    "value": 1112000,
+    "display": "11.12 lakh",
+    "notes": "MMRDA's figure is for Lines 9 and 7A together (PHPDT 30,389 in 2031; 8.47 lakh a day in 2021). No figure for Line 9 alone.",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+    "last_verified": "2026-11-10"
+  },
+  "travel_time_benefit": {
+    "value": "Reduces current travel time by 50% to 75%, depending on road conditions (Lines 9 and 7A)",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+    "last_verified": "2026-11-10"
+  },
+  "current_phase": {
+    "value": "Dahisar (E) to Kashigaon open since 7 Apr 2026 (four stations). Kashigaon to Subhash Chandra Bose Stadium under construction: U-girder erection 98%, station T-girder erection 97% (MMRDA, 31 Aug 2026); power on since 29 Jul 2026; reported for December 2026.",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+    "last_verified": "2026-11-10"
+  },
+  "stages": {
+    "notes": "Each section of the line from planning to opening. 'sections' has one entry per part of the line that opens on its own. state: done, now (the current stage), started, next (not started). A note may contain {progress_as_of} or {event:<timeline id>}, which the page fills with that date. 'phases' lists the station phases (stations.json 'phase') a section covers. 'service' is opening mode: how the section runs once it opens; each part is null until a source gives it.",
+    "sections": [
+      {
+        "label": "Phase I, Dahisar (E) to Kashigaon",
+        "phases": [
+          1
+        ],
+        "stages": [
+          {
+            "name": "Planning",
+            "state": "done",
+            "note": "Approved by the State Cabinet with 7A, {event:state-approval} (reported)"
+          },
+          {
+            "name": "Tenders and design",
+            "state": "done",
+            "note": "Civil package to J Kumar, {event:civil-award} (reported)"
+          },
+          {
+            "name": "Civil construction",
+            "state": "done",
+            "note": "Stations and viaduct finished for the opening"
+          },
+          {
+            "name": "Systems and trains",
+            "state": "done",
+            "note": "Trial run on {event:trial-run} (reported)"
+          },
+          {
+            "name": "Testing and safety approval",
+            "state": "done",
+            "note": "Safety commissioner's clearance, {event:cmrs-clearance} (reported)"
+          },
+          {
+            "name": "Opening",
+            "state": "done",
+            "note": "Open since {event:phase-1-open}"
+          }
+        ],
+        "service": {
+          "opening": {
+            "date": "2026-04-07",
+            "status": "verified",
+            "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+            "last_verified": "2026-11-10",
+            "notes": "MMRDA: 'Phase I of Line 9 (Dahisar (E) to Kashigaon, 4.7 km with 4 stations): Operational from 07-April-2026.' Inaugurated that day by the Chief Minister; open to riders from 8 Apr (Free Press Journal)."
+          },
+          "hours": {
+            "first": "05:50",
+            "last": "23:00",
+            "status": "reported",
+            "source_url": "https://www.freepressjournal.in/mumbai/good-news-commuters-now-travel-from-andheri-to-kashigaon-at-rs-50-know-fares-on-newly-launched-mumbai-metro-line-9",
+            "last_verified": "2026-11-10",
+            "notes": "At the opening, 7 Apr 2026: the Line 7 and 9 corridor runs from 5:50 am to 11 pm. Check Maha Mumbai Metro for today's timetable."
+          },
+          "frequency": {
+            "peak_min": 6,
+            "off_peak_min": null,
+            "status": "reported",
+            "source_url": "https://www.freepressjournal.in/mumbai/good-news-commuters-now-travel-from-andheri-to-kashigaon-at-rs-50-know-fares-on-newly-launched-mumbai-metro-line-9",
+            "last_verified": "2026-11-10",
+            "notes": "At the opening: under six minutes at peak on the Line 7 and 9 corridor; 276 trips on weekdays, 223 on Saturdays, 205 on Sundays (MMRDA release, as reported). No off-peak figure was read."
+          },
+          "fares": {
+            "min_inr": 10,
+            "max_inr": 20,
+            "status": "reported",
+            "source_url": "https://www.freepressjournal.in/mumbai/good-news-commuters-now-travel-from-andheri-to-kashigaon-at-rs-50-know-fares-on-newly-launched-mumbai-metro-line-9",
+            "last_verified": "2026-11-10",
+            "notes": "At the opening, on Line 9: Rs 10 from Pandurang Wadi to Kashigaon, Rs 20 from Dahisar (E) to Kashigaon. From Gundavali on Line 7: Rs 40 to Pandurang Wadi or Miragaon, Rs 50 to Kashigaon (Free Press Journal, 7 Apr 2026)."
+          }
+        }
+      },
+      {
+        "label": "Kashigaon to Subhash Chandra Bose Stadium",
+        "phases": [
+          2
+        ],
+        "stages": [
+          {
+            "name": "Planning",
+            "state": "done",
+            "note": "Approved by the State Cabinet with 7A, {event:state-approval} (reported)"
+          },
+          {
+            "name": "Tenders and design",
+            "state": "done",
+            "note": "Civil package to J Kumar, {event:civil-award} (reported)"
+          },
+          {
+            "name": "Civil construction",
+            "state": "now",
+            "note": "U-girders erected 98%, station T-girders 97%, {progress_as_of}"
+          },
+          {
+            "name": "Systems and trains",
+            "state": "started",
+            "note": "Power on from {event:phase-2-power} (reported)"
+          },
+          {
+            "name": "Testing and safety approval",
+            "state": "next",
+            "note": "Safety commissioner's inspection still to come"
+          },
+          {
+            "name": "Opening",
+            "state": "next",
+            "note": "Reported target: December 2026"
+          }
+        ],
+        "service": {
+          "opening": null,
+          "hours": null,
+          "frequency": null,
+          "fares": null
+        }
+      }
+    ]
+  },
+  "progress": {
+    "summary": "MMRDA publishes a progress table for Line 9 by part of the work (viaduct, stations, flyover). The site shows the items that are not yet complete and one finished item from each part.",
+    "as_of": "2026-08-31",
+    "items": [
+      {
+        "activity": "Viaduct, piers",
+        "percent_complete": 100
+      },
+      {
+        "activity": "U-girder erection",
+        "percent_complete": 98
+      },
+      {
+        "activity": "Station piers, concourse to platform",
+        "percent_complete": 97
+      },
+      {
+        "activity": "Station platform pier arms, erection",
+        "percent_complete": 96
+      },
+      {
+        "activity": "Station U-girder erection",
+        "percent_complete": 96
+      },
+      {
+        "activity": "Station Pi-girder erection",
+        "percent_complete": 95
+      },
+      {
+        "activity": "Station T-girder erection",
+        "percent_complete": 97
+      },
+      {
+        "activity": "Flyover, I-girder erection",
+        "percent_complete": 98
+      },
+      {
+        "activity": "Flyover, deck slab",
+        "percent_complete": 95
+      }
+    ],
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+    "last_verified": "2026-11-10",
+    "notes": "MMRDA's Line 9 tables: elevated viaduct (14 items, all 100% except U-girder casting 99% and erection 98%), elevated stations (20 items, 95% to 100%) and a flyover (13 items; I-girder erection 98%, deck slab 95%). The page heads its tables 'Updates as on 31st August 2026' above the 7A table; the Line 9 tables carry no date of their own. Construction World (23 Oct 2026, citing MMRDA) and Swarajya (21 Oct 2026) put the rest of the line at 96%."
+  },
+  "target_completion": {
+    "value": "December 2026",
+    "countdown_date": "2026-12-31",
+    "precision": "month",
+    "scope": "Kashigaon to Subhash Chandra Bose Stadium",
+    "status": "reported",
+    "source_url": "https://www.constructionworld.in/transport-infrastructure/metro-rail-and-railways-infrastructure/mumbai-metro-line-9-phase-ii-set-to-reach-mira-bhayandar-by-december/99222",
+    "last_verified": "2026-11-10",
+    "history": [
+      {
+        "value": "December 2025 for Phase I; December 2026 for the rest",
+        "context": "Free Press Journal, June 2025; Phase I opened in April 2026",
+        "source_url": "https://www.freepressjournal.in/mumbai/mmrda-achieves-key-milestone-as-it-launches-65-meter-girder-for-mumbais-double-decker-metro-line-9-near-bhayandar"
+      },
+      {
+        "value": "Two to three months after power-on (about October 2026)",
+        "context": "Free Press Journal, 1 Aug 2026; passed",
+        "source_url": "https://www.freepressjournal.in/business/mmrda-energises-final-metro-line-9-stretch-full-dahisar-eastmira-bhayandar-corridor-nears-completion"
+      }
+    ],
+    "notes": "Construction World (23 Oct 2026) says MMRDA expects the stretch to be completed in December; Swarajya (21 Oct 2026, citing the Times of India) says the same. The safety commissioner must inspect and certify the stretch first. No day announced; the site counts to the end of December.",
+    "rest_of_line": {
+      "value": "December 2026",
+      "context": "Reported in October 2026; no day",
+      "status": "reported",
+      "source_url": "https://www.constructionworld.in/transport-infrastructure/metro-rail-and-railways-infrastructure/mumbai-metro-line-9-phase-ii-set-to-reach-mira-bhayandar-by-december/99222",
+      "last_verified": "2026-11-10"
+    },
+    "countdown": true,
+    "countdown_label": "Rest of the line, reported target: December 2026"
+  },
+  "technical": {
+    "value": "Elevated",
+    "structure": "Fully elevated, with a double-decker stretch near Bhayandar",
+    "notes": "Near Bhayandar (W) the viaduct is shared with a road flyover, Mumbai's first double-decker of this kind (Free Press Journal, June 2025); MMRDA's progress table lists the flyover. Over the Western Railway at Bhayandar the line crosses on a 65 m composite steel girder of about 700 t, launched in three night blocks in June 2025. Ballastless track by Rahee Infratech (CA-167, lowest bid, 2023).",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+    "last_verified": "2026-11-10"
+  },
+  "rolling_stock": {
+    "supplier": null,
+    "cars_per_train": null,
+    "notes": "Line 9 runs as one service with Line 7: trains go through from Gundavali to Kashigaon (Free Press Journal, Apr 2026), kept at Line 7's Charkop depot for now (Free Press Journal, Jan 2026). No source read names the trains or their number for Line 9. MMRDA's page gives the car size for Lines 9 and 7A: 21.84 m long, 3.20 m wide; 2,352 riders in an 8-car train.",
+    "status": "reported",
+    "source_url": "https://www.freepressjournal.in/mumbai/good-news-commuters-now-travel-from-andheri-to-kashigaon-at-rs-50-know-fares-on-newly-launched-mumbai-metro-line-9",
+    "last_verified": "2026-11-10"
+  },
+  "incidents": [],
+  "related_projects": [
+    {
+      "name": "Metro Line 7 (Dahisar (E) to Andheri (E))",
+      "summary": "Open since 2022 and 2023. Line 9 extends it north from Dahisar (E); trains run through.",
+      "status": "verified",
+      "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-7/overview",
+      "last_verified": "2026-11-10"
+    },
+    {
+      "name": "Metro Line 7A (Andheri (E) to the airport)",
+      "summary": "Built with Line 9 as one MMRDA project, with one length (13.581 km) and one cost (Rs 6,607 crore) for both. Under construction.",
+      "status": "verified",
+      "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+      "last_verified": "2026-11-10"
+    }
+  ]
+}

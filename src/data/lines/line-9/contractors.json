@@ -1,0 +1,53 @@
+{
+  "_meta": {
+    "description": "Firms appointed on Line 9. 'tender_ids' link to tenders.json.",
+    "last_reviewed": "2026-11-10"
+  },
+  "contractors": [
+    {
+      "id": "j-kumar",
+      "name": "J Kumar Infraprojects",
+      "role": "Civil contractor: viaduct, stations and the double-decker flyover (with 7A)",
+      "tender_ids": [
+        "ca-48"
+      ],
+      "status": "reported",
+      "source_url": "https://www.business-standard.com/article/news-cm/j-kumar-infraprojects-bags-contract-worth-rs-1998-cr-for-mumbai-metro-rail-project-119091300371_1.html",
+      "last_verified": "2026-11-10"
+    },
+    {
+      "id": "rahee",
+      "name": "Rahee Infratech",
+      "role": "Track (lowest bidder, CA-167)",
+      "tender_ids": [
+        "ca-167"
+      ],
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2023/09/22/mumbai-metro-line-9-rahee-wins-track-work-contract-ca-167/",
+      "last_verified": "2026-11-10"
+    },
+    {
+      "id": "leena-umesh",
+      "name": "Leena Powertech-Umesh Brothers JV",
+      "role": "Power and overhead wire for Lines 9 and 7A (CA-176)",
+      "tender_ids": [
+        "ca-176"
+      ],
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2024/07/24/leena-wins-mumbai-metro-line-7a-9s-electrification-contract-ca-176/",
+      "last_verified": "2026-11-10"
+    },
+    {
+      "id": "rithwik-soma",
+      "name": "Rithwik Projects-Soma Enterprise JV",
+      "role": "Dongri depot (CA-207)",
+      "tender_ids": [
+        "ca-207"
+      ],
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2024/07/12/rithwik-wins-mumbai-metro-dongri-depots-contract-ca-207/",
+      "last_verified": "2026-11-10"
+    }
+  ],
+  "excluded_claims": []
+}

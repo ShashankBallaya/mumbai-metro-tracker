@@ -647,6 +647,129 @@ function line2b(line: Line): Answer[] {
   ];
 }
 
+/** Line 9: Dahisar (E) to Kashigaon open; the rest reported for December 2026. Facts shared with 7A are labelled so. */
+function line9(line: Line): Answer[] {
+  const { project: p, stations, timeline, tenders } = line;
+  const base = lineBase(line.id);
+  type Graded = { value: string; status: string; source_url: string };
+  const x = p as unknown as {
+    target_completion: Graded & { scope: string };
+    length_km: { value: number; status: string; source_url: string; alternatives: { value: number }[] };
+    completion_cost_crore_inr: { value: number; status: string; source_url: string };
+    funding: Graded;
+    depot: Graded;
+    interchanges: { lines: string[]; status: string; source_url: string };
+    rolling_stock: { status: string; source_url: string };
+    line_color: Graded;
+    technical: Graded;
+  };
+  const prog = p.progress;
+  const event = (id: string) => timeline.find((e) => e.id === id)!;
+  const tender = (id: string) => tenders.find((e) => e.id === id)!;
+  const list = (names: string[]) => `${names.slice(0, -1).join(', ')} and ${names.at(-1)}`;
+  const [ph1, rest] = line.stages;
+  const open1 = ph1.service!.opening!;
+  const fares = ph1.service!.fares!;
+  const openStations = stations.filter((s) => s.phase === 1);
+  const restStations = stations.filter((s) => s.phase !== 1);
+  const pct = (activity: string) => prog.items.find((i) => i.activity === activity)!.percent_complete;
+  return [
+    {
+      id: 'opening',
+      q: 'When will Mumbai Metro Line 9 open?',
+      a: 'Replaced by opening mode.',
+      grades: [],
+    },
+    {
+      id: 'open-stations',
+      q: 'Which Line 9 stations are open?',
+      a: `${openStations.length} of ${stations.length}: ${list(openStations.map((s) => s.name))}. MMRDA opened Phase I, ${ph1.label!.replace(/^Phase I, /, '')} (4.7 km), on ${formatDate(open1.date)}; riders could board from the next day. Trains run through from Gundavali on Line 7, as reported; at the opening a ride cost Rs ${fares.min_inr} to Rs ${fares.max_inr} on Line 9 and Rs 50 from Gundavali to Kashigaon.`,
+      grades: [
+        { status: open1.status, source: open1.source_url },
+        { status: fares.status, source: fares.source_url },
+      ],
+      more: { href: `${base}stations/`, label: 'A page for every station' },
+    },
+    {
+      id: 'rest',
+      q: 'When will Line 9 reach Bhayandar?',
+      a: `The rest of the line, ${x.target_completion.scope} (${list(restStations.map((s) => s.name))}), is reported for ${x.target_completion.value}, after the Commissioner of Metro Rail Safety inspects it. Power was switched on along it from ${formatDate(event('phase-2-power').date)}. No day has been announced; the site counts down to the end of December. An earlier report, of August 2026, expected it within two to three months.`,
+      grades: [
+        { status: x.target_completion.status, source: x.target_completion.source_url },
+        { status: event('phase-2-power').status, source: event('phase-2-power').source_url },
+      ],
+    },
+    {
+      id: 'progress',
+      q: 'How much of Line 9 is built?',
+      a: `Nearly all of it. MMRDA's table for ${formatDate(prog.as_of)} shows every viaduct item at 100% except U-girder erection (${pct('U-girder erection')}%), and the station items at 95% to 100%. The double-decker flyover's deck slab is at ${pct('Flyover, deck slab')}%. News reports of October 2026 put the rest of the line at 96%.`,
+      grades: [{ status: prog.status, source: prog.source_url }],
+    },
+    {
+      id: 'route',
+      q: 'What is the route of Metro Line 9?',
+      a: `${p.route.value}. It is fully elevated. From Dahisar (E), at the north end of Line 7, it runs north through Mira Road to Kashigaon, then west to Bhayandar (W). Near Bhayandar it shares a double-decker viaduct with a road flyover and crosses the Western Railway on a 65 m steel span. Sources give its length as ${x.length_km.value}, ${x.length_km.alternatives[0].value} or ${x.length_km.alternatives[1].value} km; MMRDA gives 13.581 km for Lines 9 and 7A together.`,
+      grades: [
+        { status: p.route.status, source: p.route.source_url },
+        { status: x.length_km.status, source: x.length_km.source_url },
+        { status: x.technical.status, source: x.technical.source_url },
+      ],
+      more: { href: `${base}#map`, label: 'See the route on the map' },
+    },
+    {
+      id: 'stations',
+      q: 'Which stations are on Line 9?',
+      a: `${stations.length}, all elevated, in order from Dahisar (E): ${stations.map((s) => s.name).join(', ')}. MMRDA's alignment file of March 2025 still calls three of them by older names: Amar Palace (Miragaon), Zankar Company (Kashigaon) and Deepak Hospital (Meditiya Nagar).`,
+      grades: [{ status: p.stations_count.status, source: p.stations_count.source_url }],
+      more: { href: `${base}stations/`, label: 'A page for every station' },
+    },
+    {
+      id: 'interchanges',
+      q: 'Where does Line 9 meet other lines?',
+      a: `At Dahisar (E), with Line 7, which its trains run through to, and Line 2A, as reported. MMRDA names the connections of Lines 9 and 7A together: ${list(x.interchanges.lines)}.`,
+      grades: [{ status: x.interchanges.status, source: x.interchanges.source_url }],
+    },
+    {
+      id: 'cost',
+      q: 'How much does Metro Line 9 cost?',
+      a: `MMRDA gives one cost for Lines 9 and 7A together: Rs ${inr(x.completion_cost_crore_inr.value)} crore, including state taxes and escalation. No figure for Line 9 alone was found. The civil contract for both lines is reported at Rs ${inr(tender('ca-48').awarded_value_crore!)} crore.`,
+      grades: [
+        { status: x.completion_cost_crore_inr.status, source: x.completion_cost_crore_inr.source_url },
+        { status: tender('ca-48').status, source: tender('ca-48').source_url },
+      ],
+    },
+    {
+      id: 'builder',
+      q: 'Who is building Line 9?',
+      a: `MMRDA. J Kumar Infraprojects builds the viaduct, stations and flyover (package CA-48, ${formatDate(tender('ca-48').award_date)}, shared with 7A). Rahee Infratech bid lowest for the track (CA-167), Leena Powertech and Umesh Brothers for the power (CA-176, with 7A), and Rithwik-Soma JV builds the Dongri depot (CA-207), all as reported.`,
+      grades: [
+        { status: p.implementing_agency.status, source: p.implementing_agency.source_url },
+        { status: tender('ca-48').status, source: tender('ca-48').source_url },
+        { status: tender('ca-167').status, source: tender('ca-167').source_url },
+        { status: tender('ca-207').status, source: tender('ca-207').source_url },
+      ],
+    },
+    {
+      id: 'depot',
+      q: 'Where is the Line 9 depot?',
+      a: `A depot for the whole Red Line is being built at Dongri, near Uttan (Rs ${inr(tender('ca-207').awarded_value_crore!)} crore, awarded ${formatDate(tender('ca-207').award_date)}), to be reached by a 4.9 km extension along Uttan Road. Until it is ready, Line 9's trains are kept at Line 7's Charkop depot, as reported.`,
+      grades: [{ status: x.depot.status, source: x.depot.source_url }],
+    },
+    {
+      id: 'riders',
+      q: 'How many people will use Line 9?',
+      a: `MMRDA projects ${p.daily_ridership_2031.display} riders a day by 2031 for Lines 9 and 7A together, with up to 30,389 an hour in the busiest direction. It says the lines cut travel time by 50% to 75%, depending on road conditions.`,
+      grades: [{ status: p.daily_ridership_2031.status, source: p.daily_ridership_2031.source_url }],
+    },
+    {
+      id: 'names',
+      q: 'What else is Metro Line 9 called?',
+      a: `${p.name.value} is also called ${p.name.also_known_as[0]} or the ${p.name.also_known_as[1]}: MMRDA calls it the extension of Line 7, whose colour is ${x.line_color.value}. ${rest.label} is called Phase II in the news.`,
+      grades: [{ status: x.line_color.status, source: x.line_color.source_url }],
+    },
+  ];
+}
+
 /** Line 6: under construction, no stretch open; the depot land is disputed. */
 function line6(line: Line): Answer[] {
   const { project: p, stations, timeline, tenders } = line;
@@ -968,7 +1091,7 @@ function thaneRing(line: Line): Answer[] {
   ];
 }
 
-const sets: Record<string, (line: Line) => Answer[]> = { 'line-12': line12, 'line-12a': line12a, 'line-5': line5, 'line-4': line4, 'line-2b': line2b, 'line-6': line6, 'line-7a': line7a, 'thane-ring': thaneRing };
+const sets: Record<string, (line: Line) => Answer[]> = { 'line-12': line12, 'line-12a': line12a, 'line-5': line5, 'line-4': line4, 'line-2b': line2b, 'line-6': line6, 'line-7a': line7a, 'line-9': line9, 'thane-ring': thaneRing };
 
 /**
  * Opening mode: once the line's first section has an announced or past opening date, that date answers

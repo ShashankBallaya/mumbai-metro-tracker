@@ -1,0 +1,140 @@
+{
+  "_meta": {
+    "description": "Key milestones of Line 9, oldest first. 'date_precision' is day, month or year. 'kind' is planning, approval, tender, award, construction, related or future. Only events whose source was read are listed.",
+    "last_reviewed": "2026-11-10"
+  },
+  "events": [
+    {
+      "id": "state-approval",
+      "date": "2018-09-11",
+      "date_precision": "day",
+      "kind": "approval",
+      "title": "State Cabinet approves Lines 9 and 7A",
+      "summary": "The Maharashtra Cabinet approves the Dahisar to Mira-Bhayandar line, 10.41 km and elevated, with the Andheri to airport line, at Rs 6,607 crore for both.",
+      "status": "reported",
+      "source_url": "https://ummid.com/news/2018/September/11.09.2018/dahisar-mira-bhayander-and-andheri-csim-airport-metro-projects-get-cabinet-nod.html",
+      "last_verified": "2026-11-10"
+    },
+    {
+      "id": "civil-award",
+      "date": "2019-09-13",
+      "date_precision": "day",
+      "kind": "award",
+      "title": "Civil contract to J Kumar Infraprojects",
+      "summary": "J Kumar Infraprojects announces a Rs 1,998 crore letter of acceptance from MMRDA for the viaduct, ramps and the underground station of Line 9 and its Andheri to airport arm (package CA-48).",
+      "status": "reported",
+      "source_url": "https://www.business-standard.com/article/news-cm/j-kumar-infraprojects-bags-contract-worth-rs-1998-cr-for-mumbai-metro-rail-project-119091300371_1.html",
+      "last_verified": "2026-11-10"
+    },
+    {
+      "id": "ca-167",
+      "date": "2023-09",
+      "date_precision": "month",
+      "kind": "tender",
+      "title": "Track contract: Rahee lowest bidder",
+      "summary": "Rahee Infratech is the lowest of four bidders for the ballastless track from Dahisar (E) to Bhayandar (CA-167), at Rs 91.86 crore against an estimate of Rs 88.28 crore plus tax.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2023/09/22/mumbai-metro-line-9-rahee-wins-track-work-contract-ca-167/",
+      "last_verified": "2026-11-10"
+    },
+    {
+      "id": "ca-176",
+      "date": "2024-07",
+      "date_precision": "month",
+      "kind": "tender",
+      "title": "Power contract: Leena-Umesh JV lowest bidder",
+      "summary": "Leena Powertech and Umesh Brothers bid lowest for the power and overhead wire of Lines 9 and 7A (CA-176); the award is reported in June 2025.",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2024/07/24/leena-wins-mumbai-metro-line-7a-9s-electrification-contract-ca-176/",
+      "last_verified": "2026-11-10"
+    },
+    {
+      "id": "ca-207",
+      "date": "2024-08-08",
+      "date_precision": "day",
+      "kind": "award",
+      "title": "Dongri depot to Rithwik-Soma JV",
+      "summary": "MMRDA awards the depot at Dongri, for the whole Red Line, to Rithwik-Soma JV at Rs 701.94 crore, for 52 months (CA-207).",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2024/07/12/rithwik-wins-mumbai-metro-dongri-depots-contract-ca-207/",
+      "last_verified": "2026-11-10"
+    },
+    {
+      "id": "bhayandar-girder",
+      "date": "2025-06",
+      "date_precision": "month",
+      "kind": "construction",
+      "title": "Steel span over the railway at Bhayandar",
+      "summary": "A 65 m composite steel girder of about 700 t is launched over the Western Railway at Bhayandar (W) in three night blocks, on the double-decker stretch.",
+      "status": "reported",
+      "source_url": "https://www.freepressjournal.in/mumbai/mmrda-achieves-key-milestone-as-it-launches-65-meter-girder-for-mumbais-double-decker-metro-line-9-near-bhayandar",
+      "last_verified": "2026-11-10"
+    },
+    {
+      "id": "cmrs-inspection",
+      "date": "2025-07",
+      "date_precision": "month",
+      "kind": "construction",
+      "title": "Safety commissioner inspects Dahisar to Kashigaon",
+      "summary": "The Commissioner of Metro Rail Safety completes an inspection of the 4.4 km Dahisar to Kashigaon stretch, with Line 2B.",
+      "status": "reported",
+      "source_url": "https://indianinfrastructure.com/2025/07/08/commissioner-of-metro-rail-safety-completes-safety-inspection-for-mumbai-metro-line-2b-and-line-9-projects/",
+      "last_verified": "2026-11-10"
+    },
+    {
+      "id": "cmrs-clearance",
+      "date": "2026-01",
+      "date_precision": "month",
+      "kind": "approval",
+      "title": "Safety clearance for Phase I",
+      "summary": "The safety commissioner's final clearance for the 4.973 km from Dahisar (E) to Kashigaon is reported; trains are to be kept at Line 7's Charkop depot.",
+      "status": "reported",
+      "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-line-9-gets-cmrs-nod-for-phase-1-commuter-services-yet-to-be-announced",
+      "last_verified": "2026-11-10"
+    },
+    {
+      "id": "trial-run",
+      "date": "2026-04-02",
+      "date_precision": "day",
+      "kind": "construction",
+      "title": "Trial run, Kashigaon to Dahisar",
+      "summary": "A trial run is held between Kashigaon and Dahisar; the opening planned for 3 Apr is put back.",
+      "status": "reported",
+      "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-line-9-trial-run-conducted-between-kashigaon-dahisar-ahead-of-inauguration-watch",
+      "last_verified": "2026-11-10"
+    },
+    {
+      "id": "phase-1-open",
+      "date": "2026-04-07",
+      "date_precision": "day",
+      "kind": "construction",
+      "title": "Phase I opens: Dahisar (E) to Kashigaon",
+      "summary": "The Chief Minister opens Phase I, 4.7 km with four stations; trains run through from Gundavali on Line 7. Open to riders from 8 Apr.",
+      "status": "verified",
+      "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+      "last_verified": "2026-11-10"
+    },
+    {
+      "id": "phase-2-power",
+      "date": "2026-07-29",
+      "date_precision": "day",
+      "kind": "construction",
+      "title": "Power on from Kashigaon",
+      "summary": "MMRDA switches on the overhead power over the 5.8 km from Kashigaon to Subhash Chandra Bose Stadium; checks and then trial runs are to follow.",
+      "status": "reported",
+      "source_url": "https://www.freepressjournal.in/business/mmrda-energises-final-metro-line-9-stretch-full-dahisar-eastmira-bhayandar-corridor-nears-completion",
+      "last_verified": "2026-11-10"
+    },
+    {
+      "id": "phase-2-target",
+      "date": "2026-12",
+      "date_precision": "month",
+      "kind": "future",
+      "title": "Rest of the line, reported target",
+      "summary": "Kashigaon to Subhash Chandra Bose Stadium is expected to be completed in December, after the safety commissioner's inspection (MMRDA, as reported).",
+      "status": "reported",
+      "source_url": "https://www.constructionworld.in/transport-infrastructure/metro-rail-and-railways-infrastructure/mumbai-metro-line-9-phase-ii-set-to-reach-mira-bhayandar-by-december/99222",
+      "last_verified": "2026-11-10"
+    }
+  ]
+}
