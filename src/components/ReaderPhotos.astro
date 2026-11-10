@@ -1,0 +1,120 @@
+---
+/**
+ * The newest reader photos of one line, on its page: station photos and watch point photos together, each with
+ * the sender's name and X handle, and a link to where the photo lives (its station page or its watch point).
+ * Reader photos are ground photos not by the owner; drone stills are left out. Hidden when a line has none.
+ */
+import { formatDate, stationHref, type Line } from '../lib/data';
+
+interface Props {
+  line: Line;
+  /** How many photos to show. */
+  max?: number;
+}
+const { line, max = 8 } = Astro.props;
+const OWNER = 'Shashank Ballaya';
+const stations = [...line.stations, ...line.spurStations];
+
+type Tile = { count?: number; src: string; alt: string; date: string; credit: string; handle?: string; place: string; href: string; width: number; height: number };
+const all: Tile[] = [
+  ...Object.entries(line.stationPhotos).flatMap(([id, list]) =>
+    list
+      .filter((p) => p.kind !== 'drone' && p.credit !== OWNER)
+      .map((p) => ({ ...p, place: stations.find((s) => s.id === id)?.name ?? id, href: stationHref(line.id, id) ?? `#station-${id}` })),
+  ),
+  ...line.watchPoints.flatMap((w) => w.photos.filter((p) => p.credit !== OWNER).map((p) => ({ ...p, place: w.title, href: `#watch-${w.id}` }))),
+]
+  .sort((a, b) => b.date.localeCompare(a.date));
+// One tile per sender, place and day, so one post of three photos takes one tile.
+const groups = new Map<string, Tile>();
+for (const t of all) {
+  const key = `${t.href}|${t.credit}|${t.date}`;
+  const seen = groups.get(key);
+  if (seen) seen.count = (seen.count ?? 1) + 1;
+  else groups.set(key, { ...t });
+}
+const tiles = [...groups.values()].slice(0, max);
+---
+
+{
+  tiles.length > 0 && (
+    <section id="reader-photos" class="section page rp" aria-labelledby="rp-title">
+      <header class="section-head">
+        <h2 id="rp-title">From readers</h2>
+        <p>The newest photos that readers sent of {line.info.label}. Tap a photo to see its station or watch point.</p>
+      </header>
+      <ul class="rp__list">
+        {tiles.map((t) => (
+          <li class="rp__item">
+            <a class="rp__link" href={t.href}>
+              <img src={t.src} alt={t.alt} width={t.width} height={t.height} loading="lazy" decoding="async" />
+              <span class="rp__place">{t.place}</span>
+            </a>
+            <span class="rp__meta">
+              {formatDate(t.date)}{t.count && t.count > 1 ? `, ${t.count} photos` : ""}. {t.credit}
+              {t.handle && (
+                <>
+                  {' '}
+                  <a href={`https://x.com/${t.handle}`} rel="noopener" target="_blank">
+                    @{t.handle}
+                    <span class="visually-hidden"> on X (opens in a new tab)</span>
+                  </a>
+                </>
+              )}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}
+
+<style>
+  .rp__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr));
+    gap: var(--s-5) var(--s-4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .rp__item {
+    display: grid;
+    gap: var(--s-2);
+    align-content: start;
+  }
+  .rp__link {
+    display: grid;
+    gap: var(--s-2);
+    color: inherit;
+    text-decoration: none;
+  }
+  .rp__link img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    background: var(--paper-3);
+    transition: opacity 0.16s var(--ease-out);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .rp__link:hover img {
+      opacity: 0.85;
+    }
+    .rp__link:hover .rp__place {
+      text-decoration: underline;
+    }
+  }
+  .rp__place {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-stretch: 75%;
+    font-size: var(--step-1);
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .rp__meta {
+    font-size: var(--step--1);
+    color: var(--ink-2);
+  }
+</style>
