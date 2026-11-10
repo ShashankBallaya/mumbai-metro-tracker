@@ -56,13 +56,17 @@ const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || (import.meta.env.DE
           <div class="send__field">
             <label for="send-station">Station <span class="send__opt">(optional)</span></label>
             <select id="send-station" name="station" data-send-station>
-              <option value="">Not a station, or the whole line</option>
+              <option value="">Not a station: a place between stations, or the whole line</option>
               {groups.map((g) => (
                 <optgroup label={g.label} data-line={g.id}>
                   {g.stations.map((s) => <option value={s.id}>{s.name}</option>)}
                 </optgroup>
               ))}
             </select>
+            <p class="send__hint">
+              A place between stations can be a watch point: somewhere that can hold up the line, like a long span over a busy junction, a building in the way, or power
+              lines. Say in the note where it is and what holds up the work.
+            </p>
           </div>
         </fieldset>
 
@@ -123,7 +127,7 @@ const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || (import.meta.env.DE
       <ol>
         <li>Your entry goes to a private queue. No one else sees it.</li>
         <li>We check it against the site's sources and, where we can, against other photos of the same place.</li>
-        <li>If we use a photo, we remove its location data and blur faces and number plates. The station page then shows it with the date and your name.</li>
+        <li>If we use a photo, we remove its location data and blur faces and number plates. The station page, or the line page for a watch point, then shows it with the date and your name.</li>
         <li>If we do not use it, we delete it.</li>
       </ol>
     </section>

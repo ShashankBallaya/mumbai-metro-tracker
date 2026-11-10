@@ -30,6 +30,7 @@ const data = lines.map((l) => {
         <button type="button" data-state="queue" aria-pressed="true">Queue</button>
         <button type="button" data-state="approved" aria-pressed="false">Approved</button>
         <button type="button" data-state="rejected" aria-pressed="false">Rejected</button>
+        <button type="button" data-state="watch" aria-pressed="false">Watch points</button>
       </nav>
     </header>
 
@@ -44,6 +45,18 @@ const data = lines.map((l) => {
 
     <p class="adm__msg" data-msg role="status" aria-live="polite" hidden></p>
     <ol class="adm__list" data-list></ol>
+
+    <section class="wpa" data-watch-view hidden aria-label="Watch points">
+      <p class="wpa__lede">
+        Watch points are places between stations that can hold up a line: a long span over a junction, a building in the way, power lines, land, a court case. A
+        watch point starts when you publish a reader photo to it. Here you change its words and mark it cleared.
+      </p>
+      <div class="ed__field wpa__line">
+        <label for="wpa-line">Line</label>
+        <select id="wpa-line" data-watch-line></select>
+      </div>
+      <ol class="adm__list" data-watch-list></ol>
+    </section>
   </main>
 
   <dialog class="ed" data-editor aria-labelledby="ed-title">
@@ -72,9 +85,32 @@ const data = lines.map((l) => {
             <label for="ed-line">Line</label>
             <select id="ed-line" data-ed-line required></select>
           </div>
-          <div class="ed__field">
+          <fieldset class="ed__field ed__target">
+            <legend>Where it goes</legend>
+            <label><input type="radio" name="ed-target" value="station" data-ed-target checked /> A station page</label>
+            <label><input type="radio" name="ed-target" value="watch" data-ed-target /> A watch point (a place between stations)</label>
+          </fieldset>
+          <div class="ed__field" data-ed-for="station">
             <label for="ed-station">Station</label>
             <select id="ed-station" data-ed-station required></select>
+          </div>
+          <div class="ed__field" data-ed-for="watch" hidden>
+            <label for="ed-watch">Watch point</label>
+            <select id="ed-watch" data-ed-watch></select>
+          </div>
+          <div class="ed__new" data-ed-for="new" hidden>
+            <div class="ed__field">
+              <label for="ed-wtitle">Title <span class="adm__opt">(the place, for example "Shunya bridge, BKC")</span></label>
+              <input id="ed-wtitle" type="text" maxlength="80" minlength="4" data-ed-wtitle />
+            </div>
+            <div class="ed__field">
+              <label for="ed-wkind">Kind</label>
+              <select id="ed-wkind" data-ed-wkind></select>
+            </div>
+            <div class="ed__field">
+              <label for="ed-wplace">Place <span class="adm__opt">(latitude, longitude; from the photo's GPS, or copy it from a map)</span></label>
+              <input id="ed-wplace" type="text" maxlength="60" placeholder="19.0655, 72.8640" data-ed-wplace />
+            </div>
           </div>
           <div class="ed__field">
             <label for="ed-date">Date taken</label>
@@ -101,7 +137,7 @@ const data = lines.map((l) => {
             <input id="ed-source" type="url" maxlength="300" placeholder="https://" data-ed-source />
           </div>
           <p class="ed__status" data-ed-status role="status" aria-live="polite"></p>
-          <button type="submit" class="adm__btn adm__btn--signal" data-ed-publish>Publish to the station page</button>
+          <button type="submit" class="adm__btn adm__btn--signal" data-ed-publish>Publish</button>
         </div>
       </div>
     </form>
@@ -132,6 +168,7 @@ const data = lines.map((l) => {
   }
   .adm__tabs {
     display: flex;
+    flex-wrap: wrap;
     gap: var(--s-1);
   }
   .adm__tabs button,
@@ -280,6 +317,57 @@ const data = lines.map((l) => {
     font-weight: 700;
     font-size: var(--step--1);
   }
+  .ed__target {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  .ed__target legend {
+    font-weight: 700;
+    font-size: var(--step--1);
+    margin-bottom: var(--s-1);
+  }
+  .ed__target label {
+    display: flex;
+    gap: var(--s-2);
+    align-items: center;
+    min-height: 36px;
+  }
+  .ed .ed__target input {
+    width: auto;
+    min-height: 0;
+  }
+  .ed__new {
+    display: grid;
+    gap: var(--s-3);
+    padding-left: var(--s-3);
+    border-left: var(--bar) solid var(--signal-graphic);
+  }
+  [data-ed-for][hidden],
+  .wpa[hidden] {
+    display: none;
+  }
+  .wpa {
+    display: grid;
+    gap: var(--s-4);
+  }
+  .wpa__lede {
+    max-width: 65ch;
+    color: var(--ink-2);
+  }
+  .wpa__line {
+    max-width: 20rem;
+  }
+  .wpa select {
+    width: 100%;
+    min-height: 44px;
+    padding: var(--s-2) var(--s-3);
+    font: inherit;
+    color: var(--ink);
+    background: var(--paper);
+    border: var(--rule-heavy) solid var(--rule-strong);
+    border-radius: 4px;
+  }
   .ed__status {
     min-height: 1.5em;
     font-weight: 600;
@@ -362,6 +450,43 @@ const data = lines.map((l) => {
   .adm-entry__photos .adm-entry__done {
     font-size: var(--step--1);
     font-weight: 700;
+  }
+  .wpa-item {
+    display: grid;
+    gap: var(--s-3);
+    max-width: 48rem;
+  }
+  .wpa-item .wpa-item__grid {
+    display: grid;
+    gap: var(--s-3);
+  }
+  @media (min-width: 40rem) {
+    .wpa-item .wpa-item__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .wpa-item label {
+    display: grid;
+    gap: var(--s-1);
+    font-weight: 700;
+    font-size: var(--step--1);
+  }
+  .wpa-item input,
+  .wpa-item select,
+  .wpa-item textarea {
+    width: 100%;
+    min-height: 44px;
+    padding: var(--s-2) var(--s-3);
+    font: inherit;
+    font-weight: 400;
+    font-size: var(--step-0);
+    color: var(--ink);
+    background: var(--paper);
+    border: var(--rule-heavy) solid var(--rule-strong);
+    border-radius: 4px;
+  }
+  .wpa-item__status {
+    font-weight: 600;
   }
   .adm-entry__actions {
     display: flex;

@@ -1,0 +1,224 @@
+---
+/**
+ * Watch points on a line's page: places between stations that can hold up the work (a long span over a
+ * junction, a structure in the way, power lines, land, a court case). Readers who know the area make them by
+ * sending photos; moderators publish them from /admin/. Data: photos.json `watch_points` (src/lib/watch.ts).
+ * With none yet, the section stays short and asks for the first one.
+ */
+import { formatDate, stationHref, type Line } from '../lib/data';
+import { kindLabel } from '../lib/watch';
+
+interface Props {
+  line: Line;
+}
+const { line } = Astro.props;
+const points = line.watchPoints;
+const open = points.filter((w) => w.status === 'open').length;
+const cleared = points.length - open;
+const stations = [...line.stations, ...line.spurStations];
+const name = (id: string) => stations.find((s) => s.id === id)?.name ?? id;
+const href = (id: string) => stationHref(line.id, id) ?? `#station-${id}`;
+const sendHref = `/send/?line=${line.id}`;
+const host = (url: string) => {
+  try {
+    return new URL(url).hostname.replace(/^www\./, '');
+  } catch {
+    return url;
+  }
+};
+const mapHref = (lat: number, lng: number) => `https://www.openstreetmap.org/?mlat=${lat}&mlon=${lng}#map=17/${lat}/${lng}`;
+const tally = [open && `${open} open`, cleared && `${cleared} cleared`].filter(Boolean).join(', ');
+---
+
+<section id="watch-points" class="section page wp" aria-labelledby="wp-title">
+  <header class="section-head">
+    <h2 id="wp-title">Watch points</h2>
+    <p>
+      Places between stations that can hold up {line.info.label}: a long span over a busy junction, a structure in the way, power lines, land, a court case.
+      Readers who know the area send these photos.{tally && ` Now: ${tally}.`}
+    </p>
+  </header>
+
+  {
+    points.length === 0 ? (
+      <p class="wp__empty">
+        No watch points on this line yet. Do you know a place that holds up the work? <a href={sendHref}>Send a photo of it</a>, choose "Not a station", and
+        say where it is.
+      </p>
+    ) : (
+      <ol class="wp__list">
+        {points.map((w) => {
+          const [lead, ...more] = w.photos;
+          const credits = [...new Map(w.photos.map((p) => [p.credit, p])).values()];
+          return (
+            <li class="wp__item" id={`watch-${w.id}`} data-status={w.status}>
+              {lead && (
+                <figure class="wp__lead">
+                  <img src={lead.src} alt={lead.alt} width={lead.width} height={lead.height} loading="lazy" decoding="async" />
+                  <figcaption>
+                    {formatDate(lead.date)}. Photo by {lead.handle ? <a href={`https://x.com/${lead.handle}`} rel="noopener" target="_blank">{lead.credit}</a> : lead.credit}
+                    {lead.caption && <>. {lead.caption}</>}
+                  </figcaption>
+                </figure>
+              )}
+              <div class="wp__text">
+                <p class="wp__kicker">
+                  <span class="wp__status">{w.status === 'open' ? 'Open' : `Cleared ${formatDate(w.cleared)}`}</span>
+                  <span>{kindLabel(w.kind)}</span>
+                </p>
+                <h3 class="wp__title">{w.title}</h3>
+                <p class="wp__where">
+                  Between <a href={href(w.between[0])}>{name(w.between[0])}</a> and <a href={href(w.between[1])}>{name(w.between[1])}</a>.{' '}
+                  <a href={mapHref(w.lat, w.lng)} rel="noopener" target="_blank">
+                    See the place on a map<span class="visually-hidden"> (opens in a new tab)</span>
+                  </a>
+                </p>
+                {w.note && <p class="wp__note">{w.note}</p>}
+                {more.length > 0 && (
+                  <ul class="wp__more" aria-label={`More photos of ${w.title}, newest first`}>
+                    {more.map((p) => (
+                      <li>
+                        <a href={p.src}>
+                          <img src={p.src} alt={p.alt} width={p.width} height={p.height} loading="lazy" decoding="async" />
+                        </a>
+                        <span>{formatDate(p.date)}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                <p class="wp__credit">
+                  Since {formatDate(w.added)}. Photos: {credits.map((p, k) => <>{k > 0 && ', '}{p.handle ? <a href={`https://x.com/${p.handle}`} rel="noopener" target="_blank">{p.credit}</a> : p.credit}</>)}.
+                  {w.sources.length > 0 && (
+                    <>
+                      {' '}Sources:{' '}
+                      {w.sources.map((u, k) => (
+                        <>
+                          {k > 0 && ', '}
+                          <a href={u} rel="noopener" target="_blank">{host(u)}</a>
+                        </>
+                      ))}
+                      .
+                    </>
+                  )}
+                </p>
+              </div>
+            </li>
+          );
+        })}
+      </ol>
+    )
+  }
+
+  {points.length > 0 && <p class="wp__ask">Seen a place like this on {line.info.label}? <a href={sendHref}>Send a photo</a>.</p>}
+</section>
+
+<style>
+  .wp__empty,
+  .wp__ask {
+    max-width: var(--measure);
+    padding: var(--s-4) 0;
+    border-top: var(--rule-w) solid var(--rule);
+    color: var(--ink-2);
+  }
+  .wp__list {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: var(--rule-heavy) solid var(--rule-strong);
+  }
+  .wp__item {
+    display: grid;
+    gap: var(--s-4) var(--s-6);
+    padding: var(--s-5) 0;
+    border-bottom: var(--rule-w) solid var(--rule);
+    scroll-margin-top: var(--s-7);
+  }
+  @media (min-width: 48rem) {
+    .wp__item {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+      align-items: start;
+    }
+  }
+  .wp__lead {
+    display: grid;
+    gap: var(--s-2);
+    margin: 0;
+  }
+  .wp__lead img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    background: var(--paper-3);
+  }
+  .wp__lead figcaption,
+  .wp__credit,
+  .wp__more span {
+    font-size: var(--step--1);
+    color: var(--ink-2);
+  }
+  .wp__text {
+    display: grid;
+    gap: var(--s-3);
+    align-content: start;
+  }
+  .wp__kicker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-3);
+    align-items: center;
+    font-size: var(--step--1);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .wp__status {
+    padding: 0.15em 0.55em;
+    color: var(--on-signal);
+    background: var(--signal);
+    border-radius: 2px;
+  }
+  [data-status='cleared'] .wp__status {
+    color: var(--ink);
+    background: transparent;
+    border: var(--rule-w) solid var(--rule-strong);
+  }
+  [data-status='cleared'] .wp__lead img {
+    filter: grayscale(0.6);
+  }
+  .wp__title {
+    font-size: var(--step-2);
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .wp__note {
+    max-width: var(--measure);
+    font-size: var(--step-1);
+    line-height: 1.45;
+  }
+  .wp__where {
+    color: var(--ink-2);
+  }
+  .wp__more {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-3);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .wp__more li {
+    display: grid;
+    gap: var(--s-1);
+    width: 7.5rem;
+  }
+  .wp__more img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    background: var(--paper-3);
+  }
+</style>

@@ -1,11 +1,12 @@
 /**
  * The moderators' page (src/pages/admin/index.astro): lists reader entries, opens a photo in a canvas editor
- * (blur boxes, crop, rotate), and publishes the cleaned JPEG through /api/admin/publish.
+ * (blur boxes, crop, rotate), and publishes the cleaned JPEG through /api/admin/publish, to a station page or to a
+ * watch point (src/lib/watch.ts). The Watch points tab edits a watch point's words and status.
  *
  * Privacy: the original keeps its EXIF only in the private bucket. The editor reads its date and GPS point to help
  * check the station, and the export comes from a canvas, which writes no EXIF. The server checks that again.
  */
-export {};
+import { WATCH_KINDS, kindLabel, type WatchPoint } from '../lib/watch';
 
 type StationRef = { id: string; name: string; lat: number | null; lng: number | null };
 type LineRef = { id: string; label: string; stations: StationRef[] };
@@ -20,7 +21,7 @@ type Entry = {
   handle: string | null;
   taken: string | null;
   files: FileMeta[];
-  published?: { file: string; src: string; commit: string; by: string }[];
+  published?: { file: string; src: string; watch?: string; commit: string; by: string }[];
   moved_by?: string;
   moved_at?: string;
 };
@@ -97,8 +98,9 @@ function card(e: Entry) {
       void thumb(f.key, img);
       const item = el('li', {}, img);
       const done = e.published?.find((p) => p.file === f.key);
-      if (done) item.append(el('span', { class: 'adm-entry__done' }, `Published as ${done.src.split('/').pop()}`));
-      if (state === 'queue') {
+      if (done) item.append(el('span', { class: 'adm-entry__done' }, `Published as ${done.src.split('/').pop()}${done.watch ? ' (watch point)' : ''}`));
+      // An approved entry can still have a photo published later.
+      if (state === 'queue' || state === 'approved') {
         const btn = el('button', { type: 'button', class: 'adm__btn adm__btn--quiet', textContent: done ? 'Publish again' : 'Clean and publish' });
         btn.addEventListener('click', () => openEditor(e, f));
         item.append(btn);
@@ -132,6 +134,12 @@ async function move(e: Entry, to: 'approved' | 'rejected', btn: HTMLButtonElemen
 async function load() {
   objectUrls.splice(0).forEach((u) => URL.revokeObjectURL(u));
   list.replaceChildren();
+  list.hidden = state === 'watch';
+  watchView.hidden = state !== 'watch';
+  if (state === 'watch') {
+    say('');
+    return loadWatch();
+  }
   const res = await api(`list?state=${state}`);
   if (res.status === 401) return showLogin();
   if (!res.ok) return say(`Could not load entries (${res.status}).`);
@@ -266,7 +274,62 @@ const f = {
   status: $<HTMLParagraphElement>('[data-ed-status]'),
   exif: $<HTMLParagraphElement>('[data-ed-exif]'),
   publish: $<HTMLButtonElement>('[data-ed-publish]'),
+  watch: $<HTMLSelectElement>('[data-ed-watch]'),
+  wtitle: $<HTMLInputElement>('[data-ed-wtitle]'),
+  wkind: $<HTMLSelectElement>('[data-ed-wkind]'),
+  wplace: $<HTMLInputElement>('[data-ed-wplace]'),
 };
+const targetRadios = [...document.querySelectorAll<HTMLInputElement>('[data-ed-target]')];
+const target = () => targetRadios.find((r) => r.checked)?.value ?? 'station';
+f.wkind.append(...Object.entries(WATCH_KINDS).map(([k, label]) => new Option(label, k)));
+
+/** Watch points per line, read from main through the API, so a point made a minute ago is there. */
+const watchCache = new Map<string, WatchPoint[]>();
+async function watchPoints(line: string, fresh = false) {
+  if (!fresh && watchCache.has(line)) return watchCache.get(line)!;
+  const res = await api(`watch?line=${encodeURIComponent(line)}`);
+  const out = res.ok ? ((await res.json()).watch_points as WatchPoint[]) : [];
+  watchCache.set(line, out);
+  return out;
+}
+
+async function fillWatch() {
+  const line = f.line.value;
+  f.watch.replaceChildren(new Option('Loading…', ''));
+  const points = await watchPoints(line, true);
+  if (f.line.value !== line) return;
+  f.watch.replaceChildren(
+    new Option('New watch point', 'new'),
+    ...points.map((w) => new Option(`${w.title} (${kindLabel(w.kind)}${w.status === 'cleared' ? ', cleared' : ''})`, w.id)),
+  );
+  // Suggest the nearest existing point when the photo has GPS.
+  const gps = current?.gps;
+  if (gps) {
+    const near = points.map((w) => ({ w, d: metres(gps.lat, gps.lng, w.lat, w.lng) })).sort((a, b) => a.d - b.d)[0];
+    if (near && near.d < 300) f.watch.value = near.w.id;
+  }
+  showTarget();
+}
+
+function showTarget() {
+  const t = target();
+  const isNew = t === 'watch' && f.watch.value === 'new';
+  document.querySelectorAll<HTMLElement>('[data-ed-for]').forEach((n) => {
+    const want = n.dataset.edFor;
+    n.hidden = !(want === t || (want === 'new' && isNew));
+  });
+  f.station.required = t === 'station';
+  f.wtitle.required = isNew;
+  f.wplace.required = isNew;
+  f.publish.textContent = t === 'station' ? 'Publish to the station page' : isNew ? 'Publish as a new watch point' : 'Publish to the watch point';
+}
+targetRadios.forEach((r) =>
+  r.addEventListener('change', () => {
+    if (target() === 'watch') void fillWatch();
+    showTarget();
+  }),
+);
+f.watch.addEventListener('change', showTarget);
 
 let original: ImageBitmap | null = null;
 let rotation = 0;
@@ -284,7 +347,10 @@ function fillStations(lineId: string, pick?: string | null) {
   f.station.value = pick && line?.stations.some((s) => s.id === pick) ? pick : '';
   checkGps();
 }
-f.line.addEventListener('change', () => fillStations(f.line.value));
+f.line.addEventListener('change', () => {
+  fillStations(f.line.value);
+  if (target() === 'watch') void fillWatch();
+});
 f.station.addEventListener('change', checkGps);
 
 function checkGps() {
@@ -439,6 +505,12 @@ async function openEditor(entry: Entry, file: FileMeta) {
 
   f.line.value = entry.line;
   fillStations(entry.line, entry.station);
+  // An entry sent for no station is most likely a place between stations.
+  targetRadios.forEach((r) => (r.checked = r.value === (entry.station ? 'station' : 'watch')));
+  f.wtitle.value = '';
+  f.wkind.value = 'crossing';
+  f.wplace.value = '';
+  showTarget();
   f.date.max = new Date().toISOString().slice(0, 10);
   f.date.value = '';
   f.alt.value = '';
@@ -456,7 +528,11 @@ async function openEditor(entry: Entry, file: FileMeta) {
   const blob = await res.blob();
   const exif = readExif(await blob.arrayBuffer());
   if (exif.date) f.date.value = exif.date;
-  if (exif.lat != null && exif.lng != null) current.gps = { lat: exif.lat, lng: exif.lng };
+  if (exif.lat != null && exif.lng != null) {
+    current.gps = { lat: exif.lat, lng: exif.lng };
+    f.wplace.value = `${exif.lat.toFixed(5)}, ${exif.lng.toFixed(5)}`;
+  }
+  if (target() === 'watch') void fillWatch();
   else f.exif.textContent = `No GPS in the original.${entry.taken ? ` The sender says it was taken ${entry.taken}.` : ''}`;
   checkGps();
 
@@ -502,7 +578,14 @@ $<HTMLFormElement>('[data-ed-form]').addEventListener('submit', async (ev) => {
     body.set('id', current.entry.id);
     body.set('file_key', current.file.key);
     body.set('line', f.line.value);
-    body.set('station', f.station.value);
+    body.set('target', target());
+    if (target() === 'station') body.set('station', f.station.value);
+    else if (f.watch.value !== 'new') body.set('watch_id', f.watch.value);
+    else {
+      body.set('watch_title', f.wtitle.value);
+      body.set('watch_kind', f.wkind.value);
+      body.set('watch_place', f.wplace.value);
+    }
     body.set('date', f.date.value);
     body.set('alt', f.alt.value);
     body.set('caption', f.caption.value);
@@ -517,8 +600,10 @@ $<HTMLFormElement>('[data-ed-form]').addEventListener('submit', async (ev) => {
       f.publish.disabled = false;
       return;
     }
+    // A new watch point now exists: show it in the list for the next photo of the same entry.
+    if (out.watch && target() === 'watch') void fillWatch().then(() => (f.watch.value = out.watch));
     f.status.replaceChildren(
-      `Published as ${out.src.split('/').pop()}. The site redeploys in a few minutes. `,
+      `Published as ${out.src.split('/').pop()}${out.watch ? ` to the watch point "${out.watch}"` : ''}. The site redeploys in a few minutes. `,
       el('a', { href: out.url, target: '_blank', rel: 'noopener', textContent: 'See the commit' }),
     );
     void load();
@@ -527,5 +612,87 @@ $<HTMLFormElement>('[data-ed-form]').addEventListener('submit', async (ev) => {
     f.publish.disabled = false;
   }
 });
+
+// ---------- Watch points tab ----------
+
+const watchView = $<HTMLElement>('[data-watch-view]');
+const watchLine = $<HTMLSelectElement>('[data-watch-line]');
+const watchList = $<HTMLOListElement>('[data-watch-list]');
+watchLine.append(...LINES.map((l) => new Option(l.label, l.id)));
+watchLine.addEventListener('change', () => void loadWatch());
+
+async function loadWatch() {
+  watchList.replaceChildren(el('li', {}, 'Loading…'));
+  const line = watchLine.value;
+  const points = await watchPoints(line, true);
+  if (watchLine.value !== line) return;
+  watchList.replaceChildren(
+    ...(points.length ? points.map((w) => watchForm(line, w)) : [el('li', {}, 'No watch points on this line yet. Publish a reader photo to "A watch point" to start one.')]),
+  );
+}
+
+function watchForm(line: string, w: WatchPoint) {
+  const stations = lineById.get(line)?.stations ?? [];
+  const name = (id: string) => stations.find((s) => s.id === id)?.name ?? id;
+  const title = el('input', { type: 'text', value: w.title, maxLength: 80, minLength: 4, required: true });
+  const kind = el('select');
+  kind.append(...Object.entries(WATCH_KINDS).map(([k, label]) => new Option(label, k, false, k === w.kind)));
+  const status = el('select');
+  status.append(new Option('Open: still holds up the work', 'open', false, w.status === 'open'), new Option('Cleared', 'cleared', false, w.status === 'cleared'));
+  const cleared = el('input', { type: 'date', value: w.cleared ?? '' });
+  const note = el('textarea', { rows: 3, maxLength: 600, value: w.note ?? '' });
+  const sources = el('textarea', { rows: 3, value: (w.sources ?? []).join('\n'), placeholder: 'https://… one link on each line. No Wikipedia.' });
+  const msg = el('p', { class: 'wpa-item__status' });
+  const save = el('button', { type: 'submit', class: 'adm__btn', textContent: 'Save' });
+  const label = (text: string, input: HTMLElement) => el('label', {}, text, input);
+
+  const form = el(
+    'form',
+    { class: 'wpa-item' },
+    el('p', { class: 'adm-entry__where' }, w.title),
+    el(
+      'p',
+      { class: 'adm-entry__meta' },
+      `Between ${name(w.between[0])} and ${name(w.between[1])}. ${w.photos.length} photo${w.photos.length === 1 ? '' : 's'}. Started ${w.added}. `,
+      el('a', { href: `https://www.openstreetmap.org/?mlat=${w.lat}&mlon=${w.lng}#map=17/${w.lat}/${w.lng}`, target: '_blank', rel: 'noopener', textContent: 'See the place on a map' }),
+    ),
+    el('div', { class: 'wpa-item__grid' }, label('Title', title), label('Kind', kind), label('Status', status), label('Date cleared', cleared)),
+    label('What holds up the work here (one or two sentences, facts only)', note),
+    label('Sources for the note', sources),
+    el('div', { class: 'adm-entry__actions' }, save),
+    msg,
+  );
+  form.addEventListener('submit', async (ev) => {
+    ev.preventDefault();
+    if (status.value === 'cleared' && !cleared.value) {
+      msg.textContent = 'Give the date the place was cleared.';
+      return;
+    }
+    save.disabled = true;
+    msg.textContent = 'Saving…';
+    const res = await api('watch', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        line,
+        id: w.id,
+        title: title.value,
+        kind: kind.value,
+        status: status.value,
+        cleared: cleared.value,
+        note: note.value,
+        sources: sources.value.split(/\s+/).filter(Boolean),
+      }),
+    });
+    const out = await res.json().catch(() => ({ ok: false, error: `Error ${res.status}` }));
+    save.disabled = false;
+    if (!out.ok) {
+      msg.textContent = out.error;
+      return;
+    }
+    msg.replaceChildren('Saved. The site redeploys in a few minutes. ', el('a', { href: out.url, target: '_blank', rel: 'noopener', textContent: 'See the commit' }));
+  });
+  return el('li', { class: 'adm-entry' }, form);
+}
 
 void start();

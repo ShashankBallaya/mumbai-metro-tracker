@@ -248,7 +248,16 @@ In the browser, at `/admin/`:
 2. "Clean and publish" opens a photo in the editor. It shows the GPS point of the original and the nearest station, and warns when the station picked is more than 1.5 km away.
 3. Drag a blur box over every number plate and face. Crop if needed. Fill in the alt text and check the date and credit.
 4. "Publish to the station page" makes one commit (the photo in `public/photos/`, the entry in the line's `photos.json`). The deploy runs by itself. The published copy has no EXIF; the server refuses one that does.
-5. "Done: approve" or "Reject" moves the entry out of the queue. Each decision keeps the moderator's email in the entry's `meta.json`.
+5. "Done: approve" or "Reject" moves the entry out of the queue. Each decision keeps the moderator's email in the entry's `meta.json`. An approved entry still has "Clean and publish" for each photo.
+
+### Watch points
+
+A watch point is a place between stations that can hold up a line: a long span over a junction, a structure in the way, power lines, land, utilities to shift, a court case. They come only from reader photos. Each one is in the line's `photos.json` under `watch_points` (types in `src/lib/watch.ts`) and shows in the "Watch points" section of the line page.
+
+1. In the editor, under "Where it goes", choose "A watch point". An entry sent with no station starts there.
+2. Pick an existing watch point, or "New watch point" with a title, a kind and the place (latitude, longitude). The photo's GPS fills in the place. The server finds the two stations on each side and refuses a place more than 1.5 km from the line.
+3. Later photos of the same place go to the same watch point. The newest photo leads.
+4. The "Watch points" tab edits a watch point: title, kind, status (Open or Cleared, with the date), a short note of facts, and source links (no Wikipedia). Each save is one commit.
 
 In the terminal: `npm run submissions` lists the queue, `-- pull` downloads it to `ground/submissions/<id>/` (gitignored), and `-- approve <id>` or `-- reject <id>` moves an entry.
 

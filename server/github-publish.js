@@ -72,46 +72,156 @@ async function ok(res, what) {
   throw err;
 }
 
-/**
- * photo: { line, station, date, alt, caption?, credit, handle?, source_url?, jpeg: Uint8Array, width, height }
- * note:  extra lines for the commit message.
- * Returns { src, commit, url }.
- */
-export async function publishPhoto(env, photo, note) {
-  if (!env.GITHUB_TOKEN) throw Object.assign(new Error('GITHUB_TOKEN is not set'), { status: 500 });
-  const gh = client(env);
+/** Kinds of watch point: places on a line, not stations, that can hold up the work. */
+export const WATCH_KINDS = ['crossing', 'demolition', 'power-lines', 'land', 'utilities', 'court', 'other'];
 
+const fail = (status, message) => Object.assign(new Error(message), { status });
+
+/** Metres from point p to the segment a-b (flat earth; fine at city scale). */
+function toSegment(p, a, b) {
+  const r = Math.PI / 180;
+  const kx = Math.cos(p.lat * r) * 6371000 * r;
+  const ky = 6371000 * r;
+  const ax = (a.lng - p.lng) * kx;
+  const ay = (a.lat - p.lat) * ky;
+  const dx = (b.lng - p.lng) * kx - ax;
+  const dy = (b.lat - p.lat) * ky - ay;
+  const t = dx || dy ? Math.max(0, Math.min(1, -(ax * dx + ay * dy) / (dx * dx + dy * dy))) : 0;
+  return Math.hypot(ax + t * dx, ay + t * dy);
+}
+
+/** The two stations on each side of a place, in line order, and how far the place is from the line. */
+export function betweenStations(stations, p) {
+  const placed = stations.filter((s) => s.location?.lat != null).sort((x, y) => (x.order ?? 0) - (y.order ?? 0));
+  let best = null;
+  for (let i = 0; i + 1 < placed.length; i++) {
+    const d = toSegment(p, placed[i].location, placed[i + 1].location);
+    if (!best || d < best.d) best = { d, between: [placed[i].id, placed[i + 1].id] };
+  }
+  return best ? { between: best.between, off_m: Math.round(best.d) } : null;
+}
+
+const slug = (text) =>
+  text
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 40)
+    .replace(/-+$/, '') || 'spot';
+
+/**
+ * Reads main, lets `change` edit files, and commits the result in one commit. Starts again once if main moved.
+ * change gets { read(path) -> text | null, exists(path) -> bool } and returns { files: {path: text | Uint8Array}, message, result }.
+ */
+async function commitToMain(env, change) {
+  if (!env.GITHUB_TOKEN) throw fail(500, 'GITHUB_TOKEN is not set');
+  const gh = client(env);
   for (let attempt = 0; attempt < 2; attempt++) {
     const head = await ok(await gh(`git/ref/heads/${BRANCH}`), 'ref');
     const base = await ok(await gh(`git/commits/${head.object.sha}`), 'commit');
+    const at = head.object.sha;
+    const read = async (path) => {
+      const res = await gh(`contents/${path}?ref=${at}`);
+      if (res.status === 404) return null;
+      return fromBase64Utf8((await ok(res, path)).content);
+    };
+    const exists = async (path) => (await gh(`contents/${path}?ref=${at}`, { method: 'HEAD' })).status !== 404;
+    const { files, message, result } = await change({ read, exists });
 
-    // The station must be on the line as main has it now.
-    const stationsRes = await gh(`contents/src/data/lines/${photo.line}/stations.json?ref=${head.object.sha}`);
-    if (stationsRes.status === 404) throw Object.assign(new Error(`No line ${photo.line}`), { status: 400 });
-    const stationsFile = JSON.parse(fromBase64Utf8((await ok(stationsRes, 'stations.json')).content));
-    const known = [...(stationsFile.stations ?? []), ...(stationsFile.spur_stations ?? [])].some((s) => s.id === photo.station);
-    if (!known) throw Object.assign(new Error(`No station ${photo.station} on ${photo.line}`), { status: 400 });
+    const tree = [];
+    for (const [path, content] of Object.entries(files)) {
+      const body = content instanceof Uint8Array ? { content: toBase64(content), encoding: 'base64' } : { content, encoding: 'utf-8' };
+      const blob = await ok(await gh('git/blobs', { method: 'POST', body: JSON.stringify(body) }), `blob ${path}`);
+      tree.push({ path, mode: '100644', type: 'blob', sha: blob.sha });
+    }
+    const newTree = await ok(await gh('git/trees', { method: 'POST', body: JSON.stringify({ base_tree: base.tree.sha, tree }) }), 'tree');
+    const commit = await ok(await gh('git/commits', { method: 'POST', body: JSON.stringify({ message, tree: newTree.sha, parents: [at] }) }), 'new commit');
+    const moved = await gh(`git/refs/heads/${BRANCH}`, { method: 'PATCH', body: JSON.stringify({ sha: commit.sha, force: false }) });
+    // Someone pushed in the meantime: start again from the new head.
+    if (moved.status === 422 && attempt === 0) continue;
+    await ok(moved, 'update main');
+    return { ...result, commit: commit.sha, url: commit.html_url };
+  }
+  throw fail(409, 'main kept moving; try again');
+}
 
-    const jsonPath = `src/data/lines/${photo.line}/photos.json`;
-    const jsonRes = await gh(`contents/${jsonPath}?ref=${head.object.sha}`);
-    let data;
-    if (jsonRes.status === 404) data = { _meta: { ...PHOTOS_META, last_reviewed: photo.date }, pairs: [], stations: {} };
-    else data = JSON.parse(fromBase64Utf8((await ok(jsonRes, 'photos.json')).content));
-    data.stations ??= {};
-    const list = (data.stations[photo.station] ??= []);
+async function readLine(read, line) {
+  const stationsText = await read(`src/data/lines/${line}/stations.json`);
+  if (stationsText == null) throw fail(400, `No line ${line}`);
+  const stationsFile = JSON.parse(stationsText);
+  const jsonPath = `src/data/lines/${line}/photos.json`;
+  const text = await read(jsonPath);
+  const data = text == null ? { _meta: { ...PHOTOS_META }, pairs: [], stations: {} } : JSON.parse(text);
+  return { stations: stationsFile.stations ?? [], spur: stationsFile.spur_stations ?? [], jsonPath, data };
+}
+const jsonText = (data) => `${JSON.stringify(data, null, 2)}\n`;
 
-    // <station>-<date>-a.jpg, then -b, -c... the first name not in use anywhere in public/photos.
+/** Watch points of one line as main has them now (for the admin page). */
+export async function readWatchPoints(env, line) {
+  if (!env.GITHUB_TOKEN) throw fail(500, 'GITHUB_TOKEN is not set');
+  const res = await client(env)(`contents/src/data/lines/${line}/photos.json?ref=${BRANCH}`);
+  if (res.status === 404) return [];
+  const data = JSON.parse(fromBase64Utf8((await ok(res, 'photos.json')).content));
+  return data.watch_points ?? [];
+}
+
+/**
+ * photo: { line, date, alt, caption?, credit, handle?, source_url?, jpeg: Uint8Array, width, height } and one target:
+ *        station: '<id>'                              a station page, or
+ *        watch: { id } | { title, kind, lat, lng }    an existing watch point, or a new one.
+ * note:  extra lines for the commit message.
+ * Returns { src, watch?, commit, url }.
+ */
+export async function publishPhoto(env, photo, note) {
+  return commitToMain(env, async ({ read, exists }) => {
+    const { stations, spur, jsonPath, data } = await readLine(read, photo.line);
+
+    let list;
+    let stem;
+    let where;
+    let watchId;
+    if (photo.station) {
+      if (![...stations, ...spur].some((s) => s.id === photo.station)) throw fail(400, `No station ${photo.station} on ${photo.line}`);
+      data.stations ??= {};
+      list = data.stations[photo.station] ??= [];
+      stem = photo.station;
+      where = photo.station;
+    } else if (photo.watch) {
+      data.watch_points ??= [];
+      let wp;
+      if (photo.watch.id) {
+        wp = data.watch_points.find((w) => w.id === photo.watch.id);
+        if (!wp) throw fail(400, `No watch point ${photo.watch.id} on ${photo.line}`);
+      } else {
+        const { title, kind, lat, lng } = photo.watch;
+        const place = betweenStations(stations, { lat, lng });
+        if (!place) throw fail(400, 'This line has no station places to measure from.');
+        if (place.off_m > 1500) throw fail(400, `The place is ${place.off_m.toLocaleString('en-IN')} m from the line. Check the point.`);
+        const base = slug(title);
+        let id = base;
+        for (let n = 2; data.watch_points.some((w) => w.id === id) || stations.some((s) => s.id === id); n++) id = `${base.slice(0, 36)}-${n}`;
+        wp = { id, title, kind, status: 'open', added: photo.date, lat: +lat.toFixed(5), lng: +lng.toFixed(5), between: place.between, note: '', sources: [], photos: [] };
+        data.watch_points.push(wp);
+      }
+      wp.photos ??= [];
+      list = wp.photos;
+      stem = wp.id;
+      where = `watch point ${wp.id}`;
+      watchId = wp.id;
+    } else throw fail(400, 'Pick a station or a watch point');
+
+    // <stem>-<date>-a.jpg, then -b, -c... the first name not in use anywhere in public/photos.
     let name;
     for (const letter of 'abcdefghijklmnopqrstuvwxyz') {
-      const candidate = `${photo.station}-${photo.date}-${letter}.jpg`;
+      const candidate = `${stem}-${photo.date}-${letter}.jpg`;
       if (list.some((p) => p.src === `/photos/${candidate}`)) continue;
-      const exists = await gh(`contents/public/photos/${candidate}?ref=${head.object.sha}`, { method: 'HEAD' });
-      if (exists.status === 404) {
+      if (!(await exists(`public/photos/${candidate}`))) {
         name = candidate;
         break;
       }
     }
-    if (!name) throw Object.assign(new Error('No free file name for this station and date'), { status: 409 });
+    if (!name) throw fail(409, 'No free file name for this place and date');
 
     const entry = {
       src: `/photos/${name}`,
@@ -124,35 +234,44 @@ export async function publishPhoto(env, photo, note) {
       width: photo.width,
       height: photo.height,
     };
-    // Ground photos go before drone stills, so a ground photo leads the station page.
-    const firstDrone = list.findIndex((p) => p.kind === 'drone');
-    list.splice(firstDrone === -1 ? list.length : firstDrone, 0, entry);
+    if (photo.station) {
+      // Ground photos go before drone stills, so a ground photo leads the station page.
+      const firstDrone = list.findIndex((p) => p.kind === 'drone');
+      list.splice(firstDrone === -1 ? list.length : firstDrone, 0, entry);
+    } else {
+      // Watch point photos: newest first, so the latest state of the place leads.
+      const at = list.findIndex((p) => p.date < entry.date);
+      list.splice(at === -1 ? list.length : at, 0, entry);
+    }
 
-    const imgBlob = await ok(await gh('git/blobs', { method: 'POST', body: JSON.stringify({ content: toBase64(photo.jpeg), encoding: 'base64' }) }), 'image blob');
-    const jsonBlob = await ok(
-      await gh('git/blobs', { method: 'POST', body: JSON.stringify({ content: `${JSON.stringify(data, null, 2)}\n`, encoding: 'utf-8' }) }),
-      'json blob',
-    );
-    const tree = await ok(
-      await gh('git/trees', {
-        method: 'POST',
-        body: JSON.stringify({
-          base_tree: base.tree.sha,
-          tree: [
-            { path: `public/photos/${name}`, mode: '100644', type: 'blob', sha: imgBlob.sha },
-            { path: jsonPath, mode: '100644', type: 'blob', sha: jsonBlob.sha },
-          ],
-        }),
-      }),
-      'tree',
-    );
-    const message = `Reader photo: ${photo.station} (${photo.line}), by ${photo.credit}\n\n${note}`;
-    const commit = await ok(await gh('git/commits', { method: 'POST', body: JSON.stringify({ message, tree: tree.sha, parents: [head.object.sha] }) }), 'new commit');
-    const moved = await gh(`git/refs/heads/${BRANCH}`, { method: 'PATCH', body: JSON.stringify({ sha: commit.sha, force: false }) });
-    // Someone pushed in the meantime: start again from the new head.
-    if (moved.status === 422 && attempt === 0) continue;
-    await ok(moved, 'update main');
-    return { src: entry.src, commit: commit.sha, url: commit.html_url };
-  }
-  throw Object.assign(new Error('main kept moving; try again'), { status: 409 });
+    return {
+      files: { [`public/photos/${name}`]: photo.jpeg, [jsonPath]: jsonText(data) },
+      message: `Reader photo: ${where} (${photo.line}), by ${photo.credit}\n\n${note}`,
+      result: { src: entry.src, ...(watchId ? { watch: watchId } : {}) },
+    };
+  });
+}
+
+/**
+ * Edits a watch point's words and status. fields: { title, kind, status, cleared, note, sources: [url] }.
+ * A cleared watch point keeps its photos and stays on the page, marked as cleared.
+ */
+export async function updateWatchPoint(env, line, id, fields, by) {
+  return commitToMain(env, async ({ read }) => {
+    const { jsonPath, data } = await readLine(read, line);
+    const wp = (data.watch_points ?? []).find((w) => w.id === id);
+    if (!wp) throw fail(404, `No watch point ${id} on ${line}`);
+    wp.title = fields.title;
+    wp.kind = fields.kind;
+    wp.status = fields.status;
+    if (fields.status === 'cleared') wp.cleared = fields.cleared;
+    else delete wp.cleared;
+    wp.note = fields.note;
+    wp.sources = fields.sources;
+    return {
+      files: { [jsonPath]: jsonText(data) },
+      message: `Watch point: ${id} (${line}), ${fields.status}\n\nEdited in the admin dashboard by ${by}.`,
+      result: { watch: wp },
+    };
+  });
 }

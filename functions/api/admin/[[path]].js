@@ -6,12 +6,14 @@
  *   GET  /api/admin/list?state=queue           meta.json of every entry in queue/, approved/ or rejected/
  *   GET  /api/admin/file?key=queue/<id>/01.jpg one stored file
  *   POST /api/admin/move {"id", "from", "to"}  approve or reject an entry
- *   POST /api/admin/publish (multipart)        commit a cleaned photo to the station page (server/github-publish.js)
+ *   POST /api/admin/publish (multipart)        commit a cleaned photo to a station page or a watch point (server/github-publish.js)
+ *   GET  /api/admin/watch?line=line-2b         the line's watch points as main has them now
+ *   POST /api/admin/watch {"line", "id", ...}  edit a watch point's title, kind, status, note and sources
  *
  * Bindings: SUBMISSIONS (R2). Secrets: ADMIN_TOKEN, GITHUB_TOKEN. Vars: ACCESS_TEAM_DOMAIN, ACCESS_AUD.
  */
 import { adminUser } from '../../../server/admin-auth.js';
-import { cleanJpegInfo, publishPhoto } from '../../../server/github-publish.js';
+import { cleanJpegInfo, publishPhoto, readWatchPoints, updateWatchPoint, WATCH_KINDS } from '../../../server/github-publish.js';
 
 const STATES = ['queue', 'approved', 'rejected'];
 const ENTRY_RE = /^\d{8}-\d{6}-[0-9a-f]{6}$/;
@@ -98,6 +100,11 @@ export async function onRequest({ request, env, params }) {
     const fileKey = clean(form.get('file_key'), 120);
     const line = clean(form.get('line'), 40);
     const station = clean(form.get('station'), 40);
+    const target = clean(form.get('target'), 10) || 'station';
+    const watchId = clean(form.get('watch_id'), 40);
+    const watchTitle = clean(form.get('watch_title'), 80);
+    const watchKind = clean(form.get('watch_kind'), 20);
+    const place = clean(form.get('watch_place'), 60).match(/^(-?\d{1,2}(?:\.\d+)?)\s*,\s*(-?\d{1,3}(?:\.\d+)?)$/);
     const date = clean(form.get('date'), 10);
     const alt = clean(form.get('alt'), 300);
     const caption = clean(form.get('caption'), 200);
@@ -109,7 +116,16 @@ export async function onRequest({ request, env, params }) {
     const today = new Date(Date.now() + 5.5 * 3600 * 1000).toISOString().slice(0, 10);
     const problems = [];
     if (!ENTRY_RE.test(id)) problems.push('entry');
-    if (!ID_RE.test(line) || !ID_RE.test(station)) problems.push('line or station');
+    if (!ID_RE.test(line)) problems.push('line');
+    if (target === 'station' && !ID_RE.test(station)) problems.push('station');
+    if (target === 'watch' && watchId && !ID_RE.test(watchId)) problems.push('watch point');
+    if (target === 'watch' && !watchId) {
+      if (watchTitle.length < 4) problems.push('watch point title');
+      if (!WATCH_KINDS.includes(watchKind)) problems.push('watch point kind');
+      const [lat, lng] = place ? [+place[1], +place[2]] : [NaN, NaN];
+      if (!(lat > 18.8 && lat < 19.5 && lng > 72.7 && lng < 73.3)) problems.push('place (latitude, longitude in Mumbai)');
+    }
+    if (!['station', 'watch'].includes(target)) problems.push('target');
     if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || date > today || date < '2015-01-01') problems.push('date');
     if (alt.length < 10) problems.push('alt text (at least 10 characters)');
     if (!credit) problems.push('credit');
@@ -118,8 +134,11 @@ export async function onRequest({ request, env, params }) {
     if (!image || typeof image !== 'object' || image.size === 0 || image.size > 3 * 1024 * 1024) problems.push('image');
     if (problems.length) return json({ ok: false, error: `Check: ${problems.join(', ')}` }, 400);
 
-    const meta = await readMeta(bucket, 'queue', id);
-    if (!meta) return json({ ok: false, error: 'The entry is no longer in the queue.' }, 404);
+    // A moderator may approve an entry first and publish its photos later.
+    let from = 'queue';
+    let meta = await readMeta(bucket, from, id);
+    if (!meta) meta = await readMeta(bucket, (from = 'approved'), id);
+    if (!meta) return json({ ok: false, error: 'The entry is not in the queue or in Approved.' }, 404);
 
     const jpeg = new Uint8Array(await image.arrayBuffer());
     const info = cleanJpegInfo(jpeg);
@@ -128,12 +147,64 @@ export async function onRequest({ request, env, params }) {
     try {
       const out = await publishPhoto(
         env,
-        { line, station, date, alt, caption, credit, handle, source_url: sourceUrl, jpeg, width: info.width, height: info.height },
+        {
+          line,
+          ...(target === 'station'
+            ? { station }
+            : { watch: watchId ? { id: watchId } : { title: watchTitle, kind: watchKind, lat: +place[1], lng: +place[2] } }),
+          date,
+          alt,
+          caption,
+          credit,
+          handle,
+          source_url: sourceUrl,
+          jpeg,
+          width: info.width,
+          height: info.height,
+        },
         `Sent with the reader form (entry ${id}) and approved in the admin dashboard. Location data removed.`,
       );
-      meta.published = [...(meta.published ?? []), { file: fileKey, src: out.src, commit: out.commit, by: user.email, at: new Date().toISOString() }];
-      await writeMeta(bucket, 'queue', meta);
+      meta.published = [
+        ...(meta.published ?? []),
+        { file: fileKey, src: out.src, ...(out.watch ? { watch: out.watch } : {}), commit: out.commit, by: user.email, at: new Date().toISOString() },
+      ];
+      await writeMeta(bucket, from, meta);
       return json({ ok: true, ...out });
+    } catch (err) {
+      return json({ ok: false, error: err.message }, err.status && err.status < 500 ? err.status : 502);
+    }
+  }
+
+  if (action === 'watch') {
+    try {
+      if (request.method === 'GET') {
+        const line = url.searchParams.get('line') ?? '';
+        if (!ID_RE.test(line)) return json({ ok: false, error: 'bad-line' }, 400);
+        return json({ ok: true, line, watch_points: await readWatchPoints(env, line) });
+      }
+      if (request.method === 'POST') {
+        const b = await request.json().catch(() => ({}));
+        const line = clean(b.line, 40);
+        const id = clean(b.id, 40);
+        const fields = {
+          title: clean(b.title, 80),
+          kind: clean(b.kind, 20),
+          status: clean(b.status, 10),
+          cleared: clean(b.cleared, 10),
+          note: clean(b.note, 600),
+          sources: (Array.isArray(b.sources) ? b.sources : []).map((u) => clean(u, 300)).filter(Boolean).slice(0, 8),
+        };
+        const problems = [];
+        if (!ID_RE.test(line) || !ID_RE.test(id)) problems.push('line or id');
+        if (fields.title.length < 4) problems.push('title');
+        if (!WATCH_KINDS.includes(fields.kind)) problems.push('kind');
+        if (!['open', 'cleared'].includes(fields.status)) problems.push('status');
+        if (fields.status === 'cleared' && !/^\d{4}-\d{2}-\d{2}$/.test(fields.cleared)) problems.push('date cleared');
+        if (fields.sources.some((u) => !/^https:\/\/[^\s]+$/.test(u))) problems.push('source links (https only)');
+        if (fields.sources.some((u) => /wikipedia\.org/i.test(u))) problems.push('source links (no Wikipedia)');
+        if (problems.length) return json({ ok: false, error: `Check: ${problems.join(', ')}` }, 400);
+        return json({ ok: true, ...(await updateWatchPoint(env, line, id, fields, user.email)) });
+      }
     } catch (err) {
       return json({ ok: false, error: err.message }, err.status && err.status < 500 ? err.status : 502);
     }

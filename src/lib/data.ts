@@ -9,6 +9,7 @@
  */
 import linesJson from '../data/lines.json';
 import feedJson from '../data/feed.json';
+import type { WatchPoint } from './watch';
 
 type ProjectFile = typeof import('../data/lines/line-12/project.json');
 type StationsFile = typeof import('../data/lines/line-12/stations.json');
@@ -178,6 +179,8 @@ export interface Line {
   socialPosts: SocialPost[];
   stationPhotos: Record<string, StationPhoto[]>;
   photoPairs: PhotosFile['pairs'];
+  /** Places between stations that can hold up the work, from reader photos (src/lib/watch.ts). Open ones first. */
+  watchPoints: WatchPoint[];
   /** From project.json `stages`, with dates filled in; empty when the line has none. */
   stages: StageSection[];
   beforeAfter?: BeforeAfterFile;
@@ -225,6 +228,9 @@ export function getLine(id: LineId): Line {
     socialPosts: (social?.posts ?? []) as SocialPost[],
     stationPhotos: (photos?.stations ?? {}) as Record<string, StationPhoto[]>,
     photoPairs: photos?.pairs ?? [],
+    watchPoints: [...((photos as { watch_points?: WatchPoint[] } | undefined)?.watch_points ?? [])].sort(
+      (a, b) => Number(a.status === 'cleared') - Number(b.status === 'cleared') || b.added.localeCompare(a.added),
+    ),
     stages: fillStages(id, (project as { stages?: { sections: StageSection[] } }).stages?.sections ?? [], project.progress.as_of, timeline?.events ?? []),
     beforeAfter: file('beforeafter.json'),
     stationModel: file('station-model.json'),
