@@ -4,68 +4,72 @@
  * the new lines' livery on the deck and the road below drawn as long-exposure light trails in the
  * bundle's colours. Original illustration of a generic line (no real station, train or official design).
  *
- * Layers, so scrolling stays cheap (src/lib/back-page-art.ts): the city and the deck are static SVG
- * files per edition, rasterised once; the trails and the train are thin inline strips, so the streaming
- * light repaints only the road and the train moves as one composited layer. Motion is in
+ * Layers, so scrolling stays cheap (src/lib/back-page-art.ts): the city, the road's light and the deck
+ * are static SVG files per edition, rasterised once. Only what moves is inline: the cores of the
+ * trails, which draw in once; two veils that slide over the light inside masks, so the stream is a
+ * transform and repaints nothing; and the train, one composited layer. Motion is in
  * src/scripts/back-page.ts; without it the drawing is complete.
  */
 import { bundleColours } from '../lib/network';
-import { W, H, WIRE, f } from '../lib/back-page-art';
+import { W, H, WIRE, DECK_TOP, ROAD_Y, ROAD_H, roadLine, bandMiddle, f } from '../lib/back-page-art';
 
 // ---------- The train: six cars running right, nose at the right ----------
-const CAR = 168;
-const GAP = 8;
+// About 10 units to the metre, like the viaduct: a car is long and low, as on a real line.
+const CAR = 216;
+const GAP = 6;
 const CARS = 6;
 const TRAIN_W = CARS * CAR + (CARS - 1) * GAP;
 const TX = W / 2 - TRAIN_W / 2; // the train's place when it stops: centred
-const TY = 216; // roof line
-const TB = 300; // body bottom: the deck's top
-const BAND_T = TY + 18; // window band
-const BAND_B = TY + 42;
+const TB = DECK_TOP; // body bottom: the parapet hides the running gear
+const TY = TB - 46; // roof line
+const BAND_T = TY + 9; // the white window band
+const BAND_B = TY + 30;
+const GLASS_T = TY + 12;
+const GLASS_H = 15;
+const DOOR = 18;
+const CAB = 46; // a cab's length, from its door post to the nose
 const cars = Array.from({ length: CARS }, (_, i) => {
   const x = i * (CAR + GAP);
   const nose = i === CARS - 1;
-  const tail = i === 0;
-  // A cab end leans out and rounds into the roof; the other cars are boxes with a rounded roof.
-  const body = nose
-    ? `M${x} ${TB}V${TY + 8}q0 -8 8 -8H${x + CAR - 34}q16 0 26 14l10 18q6 11 6 26V${TB}Z`
-    : tail
-      ? `M${x + CAR} ${TB}V${TY + 8}q0 -8 -8 -8H${x + 34}q-16 0 -26 14l-10 18q-6 11 -6 26V${TB}Z`
-      : `M${x} ${TB}V${TY + 8}q0 -8 8 -8H${x + CAR - 8}q8 0 8 8V${TB}Z`;
-  // A cab car's doors step back from the windscreen.
-  const at = nose ? [0.12, 0.38, 0.64] : tail ? [0.36, 0.62, 0.88] : [0.18, 0.5, 0.82];
-  const doors = at.map((d) => f(x + CAR * d - 12));
-  // The window band runs the car's length (stopping short of a cab's windscreen); doors sit over it.
-  const bandFrom = tail ? x + 46 : x + 6;
-  const bandTo = nose ? x + CAR - 46 : x + CAR - 6;
-  const mullions: number[] = [];
-  for (let m = bandFrom + 24; m < bandTo - 6; m += 24) if (!doors.some((d) => m > d - 4 && m < d + 28)) mullions.push(f(m));
-  return { x, body, doors, bandFrom, bandTo, mullions, nose, tail };
+  const cab = nose || i === 0;
+  // Every car is drawn nose right; the tail car is the nose car mirrored. A cab end leans out: the
+  // roof rounds down into a raked windscreen and the nose stands proud of it at the floor.
+  const body = cab
+    ? `M${x} ${TB}V${TY + 5}q0 -5 5 -5H${x + CAR - 42}q15 0 23 9l13 17q6 8 6 17V${TB}Z`
+    : `M${x} ${TB}V${TY + 5}q0 -5 5 -5H${x + CAR - 5}q5 0 5 5V${TB}Z`;
+  const flip = !nose && cab ? `translate(${2 * x + CAR} 0) scale(-1 1)` : undefined;
+  const doors = (cab ? [0.09, 0.29, 0.49, 0.69] : [0.14, 0.38, 0.62, 0.86]).map((d) => f(x + CAR * d - DOOR / 2));
+  // Saloon windows fill the white band between the doors; a long bay is two panes.
+  const stops = [x + 2, ...doors.flatMap((d) => [d, d + DOOR]), cab ? x + CAR - CAB : x + CAR - 2];
+  const panes: { x: number; w: number }[] = [];
+  for (let k = 0; k < stops.length; k += 2) {
+    const from = stops[k] + 5;
+    const to = stops[k + 1] - 5;
+    if (to - from < 7) continue;
+    if (to - from > 30) {
+      const half = (to - from - 3) / 2;
+      panes.push({ x: f(from), w: f(half) }, { x: f(from + half + 3), w: f(half) });
+    } else panes.push({ x: f(from), w: f(to - from) });
+  }
+  // Roof gear: two cooling units, low and long.
+  const pods = cab ? [x + 26, x + 100] : [x + 30, x + CAR - 88];
+  return { x, body, flip, doors, panes, pods, cab, nose, cx: x + CAR - CAB };
 });
 const PANTO = [1, 4].map((i) => cars[i].x + CAR / 2);
+const NOSE = TRAIN_W; // the nose's tip
+// The headlight's beam: a faint wedge and a few ruled rays.
+const RAY_REACH = [250, 310, 285, 330, 270, 300];
+const RAY_DASH = ['46 5 90 7 30 9', '120 6 60 8', '30 4 150 9 40 6', '80 5 140 8', '20 6 110 7 60 8', '64 5 44 7 120 9'];
+const RAYS = [-15, -9, -3.5, 2, 7.5, 12].map((dy, k) => ({ d: `M${NOSE + 6} ${TY + 34.5}L${NOSE + RAY_REACH[k]} ${TY + 34.5 + dy}`, dash: RAY_DASH[k] }));
 
-// ---------- The road: long-exposure trails, wide in front and narrowing into the distance ----------
-// Each bundle colour is a band of strands; the bands fan out towards the viewer (bottom left).
-const N = bundleColours.length;
-const trailPath = (k: number) => {
-  const o = k - (N - 1) / 2; // offset from the bundle's middle, in bands
-  return `M-80 ${f(668 + o * 30)}C180 ${f(566 + o * 21)} 420 ${f(514 + o * 11)} 760 ${f(522 + o * 6.5)}S1340 ${f(530 + o * 3.5)} 1700 ${f(488 + o * 1.6)}`;
-};
-const STRANDS = [
-  { d: -0.32, cls: 'trail__spark', dash: '2 9 26 6 1 12' },
-  { d: -0.12, cls: 'trail__fine', dash: '40 3 6 3' },
-  { d: 0, cls: 'trail__core', dash: '' },
-  { d: 0.14, cls: 'trail__fine', dash: '18 5 2 5 60 4' },
-  { d: 0.33, cls: 'trail__spark', dash: '1 6 9 4 30 8' },
-];
-const trails = bundleColours.map((c, i) => ({ c, glow: trailPath(i), strands: STRANDS.map((s) => ({ ...s, path: trailPath(i + s.d) })) }));
+// ---------- The road: one core for each bundle colour, drawn in when the drawing arrives ----------
+// The ribbons of light themselves are a static file (roadLayer in src/lib/back-page-art.ts).
+const cores = bundleColours.map((c, k) => ({ c, d: roadLine(bandMiddle(k)) }));
 
 // Each moving part is a strip of the drawing, so its layer is no bigger than it needs to be.
 const strip = (y: number, h: number) => `top:${f((y / H) * 100)}%;height:${f((h / H) * 100)}%`;
-const TRAIN_Y = 190; // from above the wire to the deck
+const TRAIN_Y = WIRE - 6; // from above the wire to the deck
 const TRAIN_H = TB - TRAIN_Y;
-const ROAD_Y = 420;
-const ROAD_H = H - ROAD_Y;
 const ALT = "Illustration: a metro train crosses an elevated line at dusk, with the traffic below drawn as trails of light in the lines' colours.";
 ---
 
@@ -74,15 +78,19 @@ const ALT = "Illustration: a metro train crosses an elevated line at dusk, with 
     <img class="layer layer--day" src="/back-page/day-back.svg" alt="" width={W} height={H} loading="lazy" decoding="async" />
     <img class="layer layer--night" src="/back-page/night-back.svg" alt="" width={W} height={H} loading="lazy" decoding="async" />
 
-    <!-- The road: long-exposure trails, one band of strands per line colour -->
-    <svg class="layer layer--strip" style={strip(ROAD_Y, ROAD_H)} viewBox={`0 ${ROAD_Y} ${W} ${ROAD_H}`} preserveAspectRatio="none" aria-hidden="true" focusable="false">
-      {trails.map((t, i) => (
-        <g class="trail" style={`--c:var(--${t.c});--i:${i}`}>
-          <path d={t.glow} class="trail__glow" />
-          {t.strands.map((s) => (s.dash ? <path d={s.path} class={s.cls} style={`stroke-dasharray:${s.dash}`} /> : <path d={s.path} class={s.cls} pathLength="1" />))}
-        </g>
-      ))}
-    </svg>
+    <!-- The road: a long exposure of the traffic. The cores draw in first; the ribbons of light come
+         up over them; then two veils slide inside their masks, so the light seems to stream. -->
+    <div class="road" style={strip(ROAD_Y, ROAD_H)}>
+      <svg class="layer road__cores" viewBox={`0 ${ROAD_Y} ${W} ${ROAD_H}`} preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        {cores.map((t, i) => <path d={t.d} pathLength="1" style={`stroke:var(--${t.c});--i:${i}`} />)}
+      </svg>
+      <div class="layer road__light">
+        <img class="layer layer--day" src="/back-page/day-road.svg" alt="" width={W} height={ROAD_H} loading="lazy" decoding="async" />
+        <img class="layer layer--night" src="/back-page/night-road.svg" alt="" width={W} height={ROAD_H} loading="lazy" decoding="async" />
+        <div class="layer flow flow--near"><div class="flow__run"></div></div>
+        <div class="layer flow flow--far"><div class="flow__run"></div></div>
+      </div>
+    </div>
 
     <img class="layer layer--day" src="/back-page/day-front.svg" alt="" width={W} height={H} loading="lazy" decoding="async" />
     <img class="layer layer--night" src="/back-page/night-front.svg" alt="" width={W} height={H} loading="lazy" decoding="async" />
@@ -91,57 +99,68 @@ const ALT = "Illustration: a metro train crosses an elevated line at dusk, with 
          rakes. Original drawing: no maker's or authority's marks. -->
     <svg class="layer layer--strip layer--train" style={strip(TRAIN_Y, TRAIN_H)} viewBox={`0 ${TRAIN_Y} ${W} ${TRAIN_H}`} preserveAspectRatio="none" aria-hidden="true" focusable="false" data-train>
       <defs>
-        <pattern id="h-rake" width="3" height="3" patternUnits="userSpaceOnUse">
-          <path d="M0 0H3" class="hatch--rake" />
+        <pattern id="h-rake" width="2.2" height="2.2" patternUnits="userSpaceOnUse">
+          <path d="M0 .6H2.2" class="hatch--rake" />
         </pattern>
-        <linearGradient id="glass-lit" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" class="lit-a" />
-          <stop offset="1" class="lit-b" />
-        </linearGradient>
         <linearGradient id="beam" x1="0" x2="1">
           <stop offset="0" class="beam-a" />
           <stop offset="1" class="beam-b" />
         </linearGradient>
       </defs>
       <g transform={`translate(${f(TX)} 0)`}>
-        <path d={`M${TRAIN_W + 8} ${TY + 62}L${TRAIN_W + 380} ${TY + 36}V${TB}L${TRAIN_W + 8} ${TY + 70}Z`} fill="url(#beam)" class="train__beam" />
+        <g class="train__beam">
+          <path d={`M${NOSE + 2} ${TY + 33}L${NOSE + 340} ${TY + 12}V${TB}L${NOSE + 2} ${TY + 37}Z`} fill="url(#beam)" />
+          {RAYS.map((r) => <path d={r.d} class="train__ray" style={`stroke-dasharray:${r.dash}`} />)}
+        </g>
+        {cars.slice(0, -1).map((c) => (
+          <g>
+            <rect x={c.x + CAR - 1} y={TY + 6} width={GAP + 2} height={TB - TY - 6} class="rake-gangway" />
+            <path d={`M${c.x + CAR + 2} ${TY + 7}V${TB}M${c.x + CAR + 4} ${TY + 7}V${TB}`} class="rake-fold" />
+          </g>
+        ))}
         {cars.map((c, i) => (
           <g class="car">
             <clipPath id={`car-${i}`}><path d={c.body} /></clipPath>
-            <g clip-path={`url(#car-${i})`}>
-              <rect x={c.x - 2} y={TY - 2} width={CAR + 4} height={TB - TY + 4} class="rake-blue" />
-              <rect x={c.x - 2} y={TY - 2} width={CAR + 4} height="11" class="rake-roof" />
-              <rect x={c.x - 2} y={TY + 9} width={CAR + 4} height="3" class="rake-yellow" />
-              <path d={`M${c.bandFrom} ${BAND_T}H${c.bandTo}V${BAND_B}H${c.bandFrom}Z`} class="rake-halo" />
-              <path d={`M${c.bandFrom} ${BAND_T}H${c.bandTo}V${BAND_B}H${c.bandFrom}Z`} class="rake-glass" />
-              <path d={c.mullions.map((m) => `M${m} ${BAND_T}V${BAND_B}`).join('')} class="rake-mullion" />
-              <rect x={c.x - 2} y={TY + 48} width={CAR + 4} height="19" class="rake-white" />
-              <rect x={c.x - 2} y={TY + 67} width={CAR + 4} height="4" class="rake-yellow" />
-              <rect x={c.x - 2} y={TY + 48} width={CAR + 4} height={TB - TY - 48} fill="url(#h-rake)" class="rake-shade" />
-              {c.doors.map((d) => (
+            <g transform={c.flip}>
+              {c.pods.map((px) => (
                 <g>
-                  <path d={`M${d + 3} ${TY + 16}h7v28h-7ZM${d + 14} ${TY + 16}h7v28h-7Z`} class="rake-glass" />
-                  <path d={`M${d} ${TB}V${TY + 13}h24V${TB}M${d + 12} ${TY + 13}V${TB}`} class="rake-ink rake-ink--thin" />
+                  <path d={`M${px} ${TY}v-3.2q0 -1.6 1.6 -1.6h54.8q1.6 0 1.6 1.6V${TY}Z`} class="rake-roof" />
+                  <path d={`M${px} ${TY}v-3.2q0 -1.6 1.6 -1.6h54.8q1.6 0 1.6 1.6V${TY}M${px + 6} ${TY - 2.4}h46M${px + 20} ${TY - 4.8}V${TY}M${px + 38} ${TY - 4.8}V${TY}`} class="rake-ink rake-ink--roof" />
                 </g>
               ))}
-              {(c.nose || c.tail) && (
-                <g transform={c.tail ? `translate(${2 * c.x + CAR} 0) scale(-1 1)` : undefined}>
-                  <path d={`M${c.x + CAR - 42} ${TY + 12}H${c.x + CAR - 26}l12 18l6 16V${TY + 50}H${c.x + CAR - 42}Z`} class="rake-cab" />
-                  <path d={`M${c.x + CAR - 74} ${TY + 10}H${c.x + CAR - 34}q16 0 26 14l10 18q6 11 6 24q0 8 -12 9L${c.x + CAR - 84} ${TY + 70}`} class="rake-sweep" />
-                  <path d={`M${c.x + CAR - 9} ${TY + 58}h3M${c.x + CAR - 9} ${TY + 63}h3`} class={c.nose ? 'train__lamp' : 'train__tail'} />
-                </g>
-              )}
+              <g clip-path={`url(#car-${i})`}>
+                <rect x={c.x - 2} y={TY - 2} width={CAR + 4} height={TB - TY + 4} class="rake-blue" />
+                <rect x={c.x - 2} y={TY - 2} width={CAR + 4} height="6.5" class="rake-roof" />
+                <rect x={c.x - 2} y={BAND_T} width={CAR + 4} height={BAND_B - BAND_T} class="rake-white" />
+                <rect x={c.x - 2} y={BAND_B} width={CAR + 4} height="2.6" class="rake-yellow" />
+                {c.cab && (
+                  <g>
+                    <path d={`M${c.cx - 14} ${TB}V${BAND_B + 2.6}C${c.cx - 2} ${BAND_B + 2.6} ${c.cx - 4} ${TY + 4} ${c.cx + 12} ${TY + 2}H${c.x + CAR + 4}V${TB}Z`} class="rake-blue" />
+                    <path d={`M${c.cx - 16} ${BAND_B + 1.3}C${c.cx - 3} ${BAND_B + 1.3} ${c.cx - 5} ${TY + 4.8} ${c.cx + 12} ${TY + 4.4}H${c.x + CAR - 40}`} class="rake-sweep" />
+                    <path d={`M${c.cx + 6} ${TY + 8}H${c.x + CAR - 26}q5 .5 8 5l9.5 12.5q1 1.5 -1 1.5H${c.cx + 6}Z`} class="rake-cab" />
+                    <path d={`M${c.x + CAR - 30} ${TY + 8}l2.5 19`} class="rake-pillar" />
+                    <path d={`M${c.x + CAR - 9.5} ${TY + 33.5}h6M${c.x + CAR - 8.5} ${TY + 37.5}h5.5`} class={c.nose ? 'train__lamp' : 'train__tail'} />
+                  </g>
+                )}
+                {c.panes.map((w) => <rect x={w.x} y={GLASS_T} width={w.w} height={GLASS_H} rx="1.4" class="rake-halo" />)}
+                {c.panes.map((w) => <rect x={w.x} y={GLASS_T} width={w.w} height={GLASS_H} rx="1.4" class="rake-glass" />)}
+                {c.doors.map((d) => (
+                  <g>
+                    <path d={`M${d + 2.4} ${GLASS_T}h5.4v${GLASS_H}h-5.4ZM${d + 10.2} ${GLASS_T}h5.4v${GLASS_H}h-5.4Z`} class="rake-glass" />
+                    <path d={`M${d} ${TB}V${BAND_T}h${DOOR}V${TB}M${d + DOOR / 2} ${BAND_T}V${TB}`} class="rake-ink rake-ink--thin" />
+                  </g>
+                ))}
+                <rect x={c.x - 2} y={BAND_B + 2.6} width={CAR + 4} height={TB - BAND_B} fill="url(#h-rake)" class="rake-shade" />
+                <path d={`M${c.x + 8} ${TY + 2.2}H${c.x + CAR - (c.cab ? 52 : 8)}`} class="rake-light" />
+                <path d={`M${c.x - 2} ${BAND_T}H${c.cab ? c.cx - 2 : c.x + CAR + 4}M${c.x - 2} ${TY + 4.5}H${c.cab ? c.cx + 10 : c.x + CAR + 4}`} class="rake-ink rake-ink--thin" />
+              </g>
+              <path d={c.body} class="rake-ink" />
             </g>
-            <path d={c.body} class="rake-ink" />
-            <rect x={c.x + 28} y={TY - 7} width="44" height="7" class="rake-roof" />
-            <rect x={c.x + 28} y={TY - 7} width="44" height="7" fill="url(#h-rake)" class="rake-shade" />
-            <path d={`M${c.x + 28} ${TY}v-7h44v7M${c.x + CAR - 70} ${TY}v-5h36v5`} class="rake-ink rake-ink--thin" />
           </g>
         ))}
-        {cars.slice(0, -1).map((c) => (
-          <path d={`M${c.x + CAR} ${TY + 10}h${GAP}V${TB}h-${GAP}M${c.x + CAR + 3} ${TY + 12}V${TB}M${c.x + CAR + 5} ${TY + 12}V${TB}`} class="line line--thin" />
+        {PANTO.map((x) => (
+          <path d={`M${x - 20} ${TY - 1.2}h16M${x - 17} ${TY - 1.2}v-2.4M${x - 7} ${TY - 1.2}v-2.4M${x - 18} ${TY - 3.6}L${x + 7} ${TY - 13}L${x - 9} ${WIRE + 1.6}M${x - 4} ${TY - 3.6}L${x + 7} ${TY - 13}M${x - 19} ${WIRE + 1.6}h20M${x - 19} ${WIRE + 1.6}l-2 1.6M${x + 1} ${WIRE + 1.6}l2 1.6`} class="line line--panto" />
         ))}
-        {PANTO.map((x) => <path d={`M${x - 18} ${TY - 3}L${x + 8} ${TY - 18}L${x - 10} ${WIRE + 1}M${x - 22} ${WIRE + 1}h26`} class="line line--panto" />)}
       </g>
     </svg>
   </div>
@@ -163,6 +182,33 @@ const ALT = "Illustration: a metro train crosses an elevated line at dusk, with 
     width: max(100%, 62rem);
     aspect-ratio: 5 / 2;
     color: var(--ink);
+    /* What changes with the edition: the glass, the engraved line and the light on the paint. */
+    --glass: var(--rake-glass);
+    --halo: 0;
+    --rake-line: var(--rake-ink);
+  }
+  /* Night edition: the same livery under night light (the paint dims a little), the saloon lit, and
+     the rake's outline engraved in the page's cream line like the rest of the drawing. The cab stays
+     dark. */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme='light']) .scene {
+      --glass: #ffd98f;
+      --halo: 0.2;
+      --rake-line: color-mix(in srgb, var(--ink) 72%, transparent);
+      --rake-blue: #1c3382;
+      --rake-white: #9aa0b0;
+      --rake-yellow: #cfa01c;
+      --rake-roof: #454c5e;
+    }
+  }
+  :root[data-theme='dark'] .scene {
+    --glass: #ffd98f;
+    --halo: 0.2;
+    --rake-line: color-mix(in srgb, var(--ink) 72%, transparent);
+    --rake-blue: #1c3382;
+    --rake-white: #9aa0b0;
+    --rake-yellow: #cfa01c;
+    --rake-roof: #454c5e;
   }
   .layer {
     position: absolute;
@@ -195,15 +241,11 @@ const ALT = "Illustration: a metro train crosses an elevated line at dusk, with 
   .line {
     fill: none;
     stroke: currentColor;
-    stroke-width: 1.6;
     stroke-linejoin: round;
     stroke-linecap: round;
   }
-  .line--thin {
-    stroke-width: 0.9;
-  }
   .line--panto {
-    stroke-width: 1.5;
+    stroke-width: 1.1;
   }
   /* The rake: flat livery colours under engraved ink, as on a hand-coloured print. */
   .rake-blue {
@@ -218,101 +260,68 @@ const ALT = "Illustration: a metro train crosses an elevated line at dusk, with 
   .rake-roof {
     fill: var(--rake-roof);
   }
-  .rake-glass,
-  .rake-cab {
+  .rake-glass {
+    fill: var(--glass);
+  }
+  .rake-cab,
+  .rake-gangway {
     fill: var(--rake-glass);
   }
-  .rake-mullion {
+  .rake-halo {
+    fill: none;
+    stroke: var(--glass);
+    stroke-width: 5;
+    stroke-opacity: var(--halo);
+  }
+  .rake-pillar {
+    fill: none;
     stroke: var(--rake-blue);
-    stroke-width: 3;
+    stroke-width: 2.2;
   }
   .rake-sweep {
     fill: none;
     stroke: var(--rake-yellow);
-    stroke-width: 4;
+    stroke-width: 2.6;
     stroke-linejoin: round;
-    stroke-linecap: round;
   }
+  .rake-fold {
+    fill: none;
+    stroke: var(--rake-roof);
+    stroke-width: 0.7;
+    opacity: 0.6;
+  }
+  /* Engraved tone: the lower body in shade, a line of light along the roof. */
   .rake-shade {
     opacity: 0.3;
   }
   .hatch--rake {
     stroke: var(--rake-ink);
-    stroke-width: 0.6;
+    stroke-width: 0.55;
+  }
+  .rake-light {
+    fill: none;
+    stroke: var(--rake-white);
+    stroke-width: 0.7;
+    opacity: 0.5;
   }
   .rake-ink {
     fill: none;
-    stroke: var(--rake-ink);
-    stroke-width: 2;
+    stroke: var(--rake-line);
+    stroke-width: 1.25;
     stroke-linejoin: round;
   }
+  .rake-ink--roof {
+    stroke-width: 0.7;
+  }
   .rake-ink--thin {
-    stroke-width: 0.9;
-  }
-  .rake-halo {
-    display: none;
-  }
-  /* Night edition of the rake: the paint dims under night light, the saloon windows glow warm with a
-     soft halo, the cab stays dark, and the outlines are engraved in the page's cream line like the
-     rest of the drawing. */
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme='light']) .scene {
-      --rake-blue: #1b2f72;
-      --rake-white: #8f95a6;
-      --rake-yellow: #c99a1c;
-      --rake-roof: #3d4456;
-      --rake-ink: color-mix(in srgb, var(--ink) 62%, transparent);
-    }
-    :root:not([data-theme='light']) .rake-glass {
-      fill: url(#glass-lit);
-    }
-    :root:not([data-theme='light']) .rake-halo {
-      display: inline;
-      fill: none;
-      stroke: #ffc56b;
-      stroke-width: 7;
-      stroke-opacity: 0.22;
-    }
-    :root:not([data-theme='light']) .rake-mullion {
-      stroke: #0f1a3d;
-    }
-    :root:not([data-theme='light']) .rake-ink--thin {
-      stroke: color-mix(in srgb, var(--ink) 30%, transparent);
-    }
-  }
-  :root[data-theme='dark'] .scene {
-    --rake-blue: #1b2f72;
-    --rake-white: #8f95a6;
-    --rake-yellow: #c99a1c;
-    --rake-roof: #3d4456;
-    --rake-ink: color-mix(in srgb, var(--ink) 62%, transparent);
-  }
-  :root[data-theme='dark'] .rake-glass {
-    fill: url(#glass-lit);
-  }
-  :root[data-theme='dark'] .rake-halo {
-    display: inline;
-    fill: none;
-    stroke: #ffc56b;
-    stroke-width: 7;
-    stroke-opacity: 0.22;
-  }
-  :root[data-theme='dark'] .rake-mullion {
-    stroke: #0f1a3d;
-  }
-  :root[data-theme='dark'] .rake-ink--thin {
-    stroke: color-mix(in srgb, var(--ink) 30%, transparent);
-  }
-  .lit-a {
-    stop-color: #ffe4a8;
-  }
-  .lit-b {
-    stop-color: #e9a24a;
+    stroke: var(--rake-ink);
+    stroke-width: 0.6;
+    opacity: 0.75;
   }
   .train__lamp,
   .train__tail {
     fill: none;
-    stroke-width: 5;
+    stroke-width: 2.4;
     stroke-linecap: round;
   }
   .train__lamp {
@@ -323,101 +332,159 @@ const ALT = "Illustration: a metro train crosses an elevated line at dusk, with 
   }
   .beam-a {
     stop-color: var(--line-2b);
-    stop-opacity: 0.32;
+    stop-opacity: 0.26;
   }
   .beam-b {
     stop-color: var(--line-2b);
     stop-opacity: 0;
   }
-  /* Trails: a soft wash, a printed core, fine streaks and a stipple of sparks, as on a long exposure. */
-  .trail path {
+  .train__ray {
     fill: none;
-    stroke: var(--c);
+    stroke: var(--line-2b);
+    stroke-width: 0.7;
+    opacity: 0.6;
+  }
+  /* The road: its own layer, so nothing under it repaints when the cores draw in. */
+  .road {
+    position: absolute;
+    inset: auto 0;
+    transform: translateZ(0);
+  }
+  .road__cores path {
+    fill: none;
+    stroke-width: 1.6;
     stroke-linecap: round;
   }
-  .trail__glow {
-    stroke-width: 16;
-    opacity: 0.1;
+  /* The stream. A veil of pale light slides along the road inside a mask of the filaments, so
+     glints seem to run down them: towards the reader on one hand of filaments, away on the other.
+     Each glint is a comet, a bright head with a long tail. The veil leans, so a glint reaches each
+     colour at a different place and the bands never pulse together. Only a transform moves, on the
+     compositor. One tile of the pattern is a quarter of the road's width. */
+  .flow {
+    overflow: hidden;
+    --glint: color-mix(in srgb, var(--paper) 36%, transparent);
+    -webkit-mask: url('/back-page/flow-near.svg') center / 100% 100% no-repeat;
+    mask: url('/back-page/flow-near.svg') center / 100% 100% no-repeat;
   }
-  .trail__core {
-    stroke-width: 2.6;
+  .flow--far {
+    -webkit-mask-image: url('/back-page/flow-far.svg');
+    mask-image: url('/back-page/flow-far.svg');
   }
-  .trail__fine {
-    stroke-width: 1.1;
-    opacity: 0.85;
-  }
-  .trail__spark {
-    stroke-width: 1.4;
-    opacity: 0.7;
-  }
-  /* On night paper the trails glow as they would at dusk. */
   @media (prefers-color-scheme: dark) {
-    :root:not([data-theme='light']) .trail__glow {
-      opacity: 0.2;
+    :root:not([data-theme='light']) .flow {
+      --glint: rgb(255 248 232 / 0.72);
     }
   }
-  :root[data-theme='dark'] .trail__glow {
-    opacity: 0.2;
+  :root[data-theme='dark'] .flow {
+    --glint: rgb(255 248 232 / 0.72);
+  }
+  .flow__run {
+    position: absolute;
+    inset: 0 auto 0 -30%;
+    width: 175%;
+    transform: skewX(-66deg);
+    background: linear-gradient(
+        90deg,
+        transparent 6%,
+        var(--glint) 7.2%,
+        transparent 27%,
+        transparent 46%,
+        var(--glint) 46.8%,
+        transparent 58%,
+        transparent 71%,
+        var(--glint) 72.4%,
+        transparent 96%
+      )
+      0 0 / calc(100% / 7) 100% repeat-x;
+  }
+  .flow--far .flow__run {
+    transform: skewX(58deg);
+    background-image: linear-gradient(
+      90deg,
+      transparent 4%,
+      var(--glint) 21%,
+      transparent 22%,
+      transparent 38%,
+      var(--glint) 49%,
+      transparent 49.8%,
+      transparent 60%,
+      var(--glint) 88%,
+      transparent 89.2%
+    );
   }
 
   /* ---------- Motion (src/scripts/back-page.ts) ----------
      The start state applies only once the script has set data-motion="ready"; without the script,
-     or with reduced motion, the drawing is complete and still. The train strip moves as one
-     composited layer; only the road strip repaints while the light streams. */
-  .layer--train {
-    transition: translate 2.6s cubic-bezier(0.16, 1, 0.3, 1) 0.35s;
-  }
+     or with reduced motion, the drawing is complete and still. The transitions belong to
+     data-motion="run" alone, so the start state is set at once and only the arrival moves. The train
+     strip moves as one composited layer; only the road strip repaints while the light streams. */
   [data-motion='ready'] .layer--train {
     translate: -110% 0;
   }
-  .train__beam {
-    transition: opacity 0.6s var(--ease-out) 2.3s;
+  [data-motion='run'] .layer--train {
+    transition: translate 2.6s cubic-bezier(0.16, 1, 0.3, 1) 0.35s;
   }
   [data-motion='ready'] .train__beam {
     opacity: 0;
   }
-  /* The trails' cores draw in, colour by colour, as the train comes. */
-  .trail__core {
+  [data-motion='run'] .train__beam {
+    transition: opacity 0.6s var(--ease-out) 2.6s;
+  }
+  /* The cores of the trails draw in, colour by colour, as the train comes; the light comes up over them. */
+  .road__cores path {
     stroke-dasharray: 1 1;
     stroke-dashoffset: 0;
-    transition: stroke-dashoffset 1.8s cubic-bezier(0.16, 1, 0.3, 1) calc(var(--i) * 70ms);
   }
-  [data-motion='ready'] .trail__core {
+  [data-motion='ready'] .road__cores path {
     stroke-dashoffset: 1;
   }
-  .trail__fine,
-  .trail__spark {
-    transition: opacity 1.2s var(--ease-out) calc(0.4s + var(--i) * 70ms);
+  [data-motion='run'] .road__cores path {
+    transition: stroke-dashoffset 1.8s cubic-bezier(0.16, 1, 0.3, 1) calc(var(--i) * 70ms);
   }
-  [data-motion='ready'] :is(.trail__fine, .trail__spark) {
+  [data-motion='ready'] .road__light {
     opacity: 0;
   }
-  /* A long exposure keeps moving: streaks run one way, sparks the other, as on a two-way road.
-     Linear and constant; it runs only while the drawing is on screen. */
-  @keyframes trail-out {
+  [data-motion='run'] .road__light {
+    transition: opacity 1.6s var(--ease-out) 0.7s;
+  }
+  /* A long exposure keeps moving: one veil runs each way, as on a two-way road. Linear and constant;
+     it runs only while the drawing is on screen. Each veil moves by one whole tile of its pattern
+     (a seventh of its width), so the loop has no seam. */
+  @keyframes flow-near {
+    from {
+      transform: translateX(0) skewX(-66deg);
+    }
     to {
-      stroke-dashoffset: -240;
+      transform: translateX(calc(-100% / 7)) skewX(-66deg);
     }
   }
-  @keyframes trail-in {
+  @keyframes flow-far {
+    from {
+      transform: translateX(calc(-100% / 7)) skewX(58deg);
+    }
     to {
-      stroke-dashoffset: 240;
+      transform: translateX(0) skewX(58deg);
     }
   }
-  [data-flowing] .trail__fine {
-    animation: trail-out 9s linear infinite;
+  [data-flowing] .flow__run {
+    will-change: transform;
   }
-  [data-flowing] .trail__spark {
-    animation: trail-in 13s linear infinite;
+  [data-flowing] .flow--near .flow__run {
+    animation: flow-near 5.5s linear infinite;
   }
-  /* While the reader scrolls, the light holds still, so the scroll gets the whole frame. */
-  [data-scrolling] .trail path {
+  [data-flowing] .flow--far .flow__run {
+    animation: flow-far 9s linear infinite;
+  }
+  /* While the reader scrolls, the light holds still. */
+  [data-scrolling] .flow .flow__run {
     animation-play-state: paused;
   }
   @media (prefers-reduced-motion: reduce) {
     .layer--train,
     .train__beam,
-    .trail path {
+    .road__cores path,
+    .road__light,
+    .flow__run {
       transition: none;
       animation: none;
     }
