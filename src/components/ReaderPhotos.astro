@@ -2,7 +2,7 @@
 /**
  * The newest reader photos of one line, on its page: station photos and watch point photos together, each with
  * the sender's name and X handle, and a link to where the photo lives (its station page or its watch point).
- * Reader photos are ground photos not by the owner; drone stills are left out. Hidden when a line has none.
+ * Reader photos are ground photos not by the owner; video stills are left out. Hidden when a line has none.
  */
 import { formatDate, stationHref, type Line } from '../lib/data';
 
@@ -19,7 +19,7 @@ type Tile = { count?: number; src: string; alt: string; date: string; credit: st
 const all: Tile[] = [
   ...Object.entries(line.stationPhotos).flatMap(([id, list]) =>
     list
-      .filter((p) => p.kind !== 'drone' && p.credit !== OWNER)
+      .filter((p) => !p.kind && p.credit !== OWNER)
       .map((p) => ({ ...p, place: stations.find((s) => s.id === id)?.name ?? id, href: stationHref(line.id, id) ?? `#station-${id}` })),
   ),
   ...line.watchPoints.flatMap((w) => w.photos.filter((p) => p.credit !== OWNER).map((p) => ({ ...p, place: w.title, href: `#watch-${w.id}` }))),

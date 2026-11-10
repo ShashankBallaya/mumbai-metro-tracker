@@ -72,9 +72,12 @@ export interface StationPhoto {
   width: number;
   height: number;
   caption?: string;
-  /** A still from a drone video (the line's aerial.json). `date` is then the day the video was published. */
-  kind?: 'drone';
-  /** The creator's YouTube channel, for a drone still. */
+  /**
+   * A still from a creator's video, shared with permission: 'drone' for a drone flight (the line's aerial.json),
+   * 'video' for a ground ride. `date` is then the day the video was published.
+   */
+  kind?: 'drone' | 'video';
+  /** The creator's YouTube channel, for a video still. */
   channel_url?: string;
   /** The second in the video the still is from. */
   video_t?: number;
@@ -409,14 +412,14 @@ export const aboutLine = (item: { lines?: string[] }, line: Line) => (item.lines
 
 /**
  * People who shared their photos with permission on one station page: those with an X handle,
- * and drone video creators, linked to their YouTube channel.
+ * and video creators (drone or ground), linked to their YouTube channel.
  */
 export const photoContributorsFor = (line: Line, stationId: string) => {
-  const byCredit = new Map<string, { credit: string; href: string; label: string; site: string; drone: boolean }>();
+  const byCredit = new Map<string, { credit: string; href: string; label: string; site: string; what: string }>();
   for (const ph of line.stationPhotos[stationId] ?? []) {
     if (byCredit.has(ph.credit)) continue;
-    if (ph.handle) byCredit.set(ph.credit, { credit: ph.credit, href: `https://x.com/${ph.handle}`, label: `@${ph.handle}`, site: 'X', drone: false });
-    else if (ph.channel_url) byCredit.set(ph.credit, { credit: ph.credit, href: ph.channel_url, label: 'YouTube channel', site: '', drone: ph.kind === 'drone' });
+    if (ph.handle) byCredit.set(ph.credit, { credit: ph.credit, href: `https://x.com/${ph.handle}`, label: `@${ph.handle}`, site: 'X', what: 'Ground photos' });
+    else if (ph.channel_url) byCredit.set(ph.credit, { credit: ph.credit, href: ph.channel_url, label: 'YouTube channel', site: '', what: ph.kind === 'drone' ? 'Drone stills' : ph.kind === 'video' ? 'Video stills' : 'Ground photos' });
   }
   return [...byCredit.values()];
 };

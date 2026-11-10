@@ -212,6 +212,10 @@ A creator's drone flight along a line can fill the station photo slots and a "Fr
 
 The page loads nothing from YouTube until a reader presses play. Then it uses youtube-nocookie.com.
 
+### Ground video stills
+
+A creator's ground ride along a line (not a drone flight) can also fill the station photo slots, with permission. There is no aerial.json for these. Find each station by the creator's on-screen label or spoken station name, take the still at 1600 x 900, blur readable number plates and phone numbers, and name it `<station>-video-<publish date>-a.jpg`. Add it under the station in `photos.json` with `"kind": "video"` and the same `credit`, `channel_url`, `video_t` and `source_url` fields as a drone still. The credit line reads "Still from <creator>'s video".
+
 ## Reader photos and updates
 
 Readers send photos and updates with the form at `/send/`. Station pages and line pages link to it with the line and station filled in. `functions/api/submit.js` puts each entry in a private R2 bucket (`metro-submissions`) under `queue/<id>/`. Nothing goes live until you publish it by hand.

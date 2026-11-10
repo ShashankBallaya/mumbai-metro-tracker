@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "description": "Dated ground photos, by the owner or by people who gave permission to use them. 'stations' holds photos for each station page, keyed by the station id in stations.json. Put the image files in public/photos/ (location data removed) and add entries below. See UPDATING.md.",
-    "last_reviewed": "2026-11-09"
+    "description": "Dated ground photos, by the owner or by people who gave permission to use them. Entries with kind \"video\" are stills from a creator's ground video, shared with permission (InfraUnfiltered, owner confirmed 2026-11-10); 'date' is then the day the video was published, video_t is the second in the video, and source_url opens the video there. Each still is matched to its station by the creator's spoken station name at that point. 'stations' holds photos for each station page, keyed by the station id in stations.json. Put the image files in public/photos/ (location data removed) and add entries below. See UPDATING.md.",
+    "last_reviewed": "2026-11-10"
   },
   "pairs": [],
   "stations": {
@@ -14,6 +14,19 @@
         "credit": "Shashank Ballaya",
         "width": 1200,
         "height": 1600
+      },
+      {
+        "src": "/photos/income-tax-office-video-2026-07-21-a.jpg",
+        "alt": "Station frames of Income Tax Office station across the road in BKC, with a finished Line 2B pier on the right",
+        "caption": "The station frames. The creator says deck slabs are going in",
+        "date": "2026-07-21",
+        "kind": "video",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=969MlryaIKg&t=272s",
+        "video_t": 272,
+        "width": 1600,
+        "height": 900
       }
     ],
     "eeh": [
@@ -49,6 +62,19 @@
         "source_url": "https://x.com/Crio96/status/2119675163000406211",
         "width": 1200,
         "height": 1800
+      },
+      {
+        "src": "/photos/eeh-video-2026-07-21-a.jpg",
+        "alt": "Beams of the EEH station from below at the junction, where the Line 2B viaduct and the station frames meet over the road",
+        "caption": "The station from below. The creator says the platform deck is nearly complete",
+        "date": "2026-07-21",
+        "kind": "video",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=969MlryaIKg&t=745s",
+        "video_t": 745,
+        "width": 1600,
+        "height": 900
       }
     ],
     "esic-nagar": [
@@ -61,6 +87,184 @@
         "source_url": "https://x.com/sssaaagar/status/2118935276773056579?a=yY-30BOISoQz4gdTcG4&s=19",
         "width": 1200,
         "height": 1600
+      },
+      {
+        "src": "/photos/esic-nagar-video-2026-07-07-a.jpg",
+        "alt": "Looking up from the road at ESIC Nagar station: the platform deck on its piers, with the first steel roof arches on top and a crane boom in front",
+        "caption": "The station deck, with the first roof arches going up",
+        "date": "2026-07-07",
+        "kind": "video",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=xnm_m24L_JE&t=212s",
+        "video_t": 212,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "prem-nagar": [
+      {
+        "src": "/photos/prem-nagar-video-2026-07-07-a.jpg",
+        "alt": "Underside of the Prem Nagar station deck over the road, with a station pier and a truck parked below",
+        "caption": "The station deck from below. The creator says platform and finishing work is going on",
+        "date": "2026-07-07",
+        "kind": "video",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=xnm_m24L_JE&t=304s",
+        "video_t": 304,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "indira-nagar": [
+      {
+        "src": "/photos/indira-nagar-video-2026-07-07-a.jpg",
+        "alt": "Underside of the Indira Nagar station deck with its wide cross beams, auto rickshaws on the road and site cabins beside a pier",
+        "caption": "The station deck from below. The creator says platform work is going on and the roof is next",
+        "date": "2026-07-07",
+        "kind": "video",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=xnm_m24L_JE&t=346s",
+        "video_t": 346,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "nanavati-hospital": [
+      {
+        "src": "/photos/nanavati-hospital-video-2026-07-07-a.jpg",
+        "alt": "The Nanavati Hospital station deck seen from below, with a large station pier on the right and traffic beside the site barricade",
+        "caption": "The station deck from below. The creator says the roof is next",
+        "date": "2026-07-07",
+        "kind": "video",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=xnm_m24L_JE&t=430s",
+        "video_t": 430,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "khira-nagar": [
+      {
+        "src": "/photos/khira-nagar-video-2026-07-07-a.jpg",
+        "alt": "Underside of the Khira Nagar station deck along the road, with a blue site cabin under it",
+        "caption": "The creator says the platform deck is complete and the roof is next",
+        "date": "2026-07-07",
+        "kind": "video",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=xnm_m24L_JE&t=522s",
+        "video_t": 522,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "saraswat-nagar": [
+      {
+        "src": "/photos/saraswat-nagar-video-2026-07-07-a.jpg",
+        "alt": "The Saraswat Nagar station deck from below, with a scaffolded concrete structure going up on the left",
+        "caption": "The creator says the platform deck is complete and the roof is next",
+        "date": "2026-07-07",
+        "kind": "video",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=xnm_m24L_JE&t=594s",
+        "video_t": 594,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "bandra-metro": [
+      {
+        "src": "/photos/bandra-metro-video-2026-07-21-a.jpg",
+        "alt": "Bandra Metro station under construction at a busy junction: wide station piers with cross arms and part of the deck in place, with cars and a taxi below",
+        "caption": "Station piers and part of the deck. The creator says much work is still left here",
+        "date": "2026-07-21",
+        "kind": "video",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=969MlryaIKg&t=152s",
+        "video_t": 152,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "ilfs": [
+      {
+        "src": "/photos/ilfs-video-2026-07-21-a.jpg",
+        "alt": "Portal frames of ILFS station over the road in BKC, with reinforcement bars standing up for the deck and steel parts by the roadside",
+        "caption": "The station frames. The creator says the platform deck is not started yet",
+        "date": "2026-07-21",
+        "kind": "video",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=969MlryaIKg&t=368s",
+        "video_t": 368,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "mtnl-metro": [
+      {
+        "src": "/photos/mtnl-metro-video-2026-07-21-a.jpg",
+        "alt": "The MTNL Metro station structure along the road in BKC, with its concrete side walls and wide underside",
+        "caption": "The creator says the station deck is nearly complete and roof columns have started",
+        "date": "2026-07-21",
+        "kind": "video",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=969MlryaIKg&t=415s",
+        "video_t": 415,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "sg-barve-marg": [
+      {
+        "src": "/photos/sg-barve-marg-video-2026-07-21-a.jpg",
+        "alt": "Station portal frames of SG Barve Marg station over the road, with green netting on top and traffic below",
+        "caption": "The station frames. The creator says the platform deck is not started yet",
+        "date": "2026-07-21",
+        "kind": "video",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=969MlryaIKg&t=523s",
+        "video_t": 523,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "kurla-east": [
+      {
+        "src": "/photos/kurla-east-video-2026-07-21-a.jpg",
+        "alt": "Kurla (E) station beside the road, with its steel roof frame on top of the station box",
+        "caption": "The creator says the roofing work is going on",
+        "date": "2026-07-21",
+        "kind": "video",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=969MlryaIKg&t=618s",
+        "video_t": 618,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "chembur": [
+      {
+        "src": "/photos/chembur-video-2026-07-21-a.jpg",
+        "alt": "Chembur station, open, from the road below, with its name board under the viaduct and a grey wall beside the road",
+        "caption": "The open Chembur station, where the Phase 3 stretch ends",
+        "date": "2026-07-21",
+        "kind": "video",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=969MlryaIKg&t=821s",
+        "video_t": 821,
+        "width": 1600,
+        "height": 900
       }
     ]
   },
