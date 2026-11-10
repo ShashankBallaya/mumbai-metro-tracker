@@ -9,6 +9,11 @@ on:
     # Minute 41, clear of the feed job (minute 23). Times are UTC.
     - cron: '41 */3 * * *'
   workflow_dispatch:
+    inputs:
+      test:
+        description: 'Open a test issue, to check that the email reaches the owner'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -35,19 +40,27 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           REPORT: ${{ runner.temp }}/mmrda-report.md
+          TEST: ${{ inputs.test }}
         run: |
+          title="MMRDA website changed, $(date -u +%Y-%m-%d)"
+          lead="the MMRDA website changed. Check each change before it goes on the site."
+          if [ "$TEST" = "true" ]; then
+            title="Test: MMRDA watch email, $(date -u +%Y-%m-%d)"
+            lead="this is a test of the MMRDA watch email."
+            printf 'This is a test. MMRDA did not change. You can close this issue.\n\nA real issue lists the new and removed text of each changed MMRDA page, and its new documents.\n' > "$REPORT"
+          fi
           # The watch step writes the report only when a page changed.
           if [ ! -s "$REPORT" ]; then
             echo "No changes, no issue."
             exit 0
           fi
           {
-            echo "@${{ github.repository_owner }}, the MMRDA website changed. Check each change before it goes on the site."
+            echo "@${{ github.repository_owner }}, $lead"
             echo
             cat "$REPORT"
           } > "$RUNNER_TEMP/issue.md"
           gh label create mmrda --color 1d76db --description "Changes on the MMRDA website" 2>/dev/null || true
-          gh issue create --title "MMRDA website changed, $(date -u +%Y-%m-%d)" --label mmrda --body-file "$RUNNER_TEMP/issue.md"
+          gh issue create --title "$title" --label mmrda --body-file "$RUNNER_TEMP/issue.md"
       - name: Save what was seen
         run: |
           if [ -z "$(git status --porcelain -- scripts/data/mmrda-watch.json)" ]; then
