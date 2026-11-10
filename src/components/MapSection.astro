@@ -5,7 +5,7 @@
  * viewport) adds the route and stations; choosing a station fills the panel, including street level.
  */
 import Grade from './Grade.astro';
-import { changesFor, dprLabel, formatDate, positionBasis, streetViewUrl, type Line } from '../lib/data';
+import { changesFor, dprLabel, formatDate, isOpen, positionBasis, streetViewUrl, type Line } from '../lib/data';
 
 interface Props {
   line: Line;
@@ -38,6 +38,8 @@ const toData = (s: (typeof stations)[number], group: Group) => ({
   context: s.context.map((c) => ({ text: cap(c.text.replace(/^DPR: /, `In ${dprLabel(line)}: `)), status: c.status, source: c.source_url })),
   status: s.construction_status.value,
   group,
+  // Opening mode: the map draws the stretch between the first and last open station solid.
+  open: !group && isOpen(line, s) ? 1 : 0,
   // A chosen Street View, when the station has one; the map script otherwise opens the nearest panorama.
   streetView: (s as { street_view?: unknown }).street_view ? streetViewUrl(s) : undefined,
   note: [
@@ -58,6 +60,12 @@ const payload = [
 const parts = new Set(JSON.parse(alignment).features.map((f: { properties: { part?: string } }) => f.properties.part).filter(Boolean));
 // An optional file of the route to take away (lines.json `copy.map_download`), with what it is fit for.
 const mapDownload = (line.info.copy as { map_download?: { href: string; label: string; note: string } }).map_download;
+// The stretch in service, for the legend: from the first open station to the last.
+const openStations = stations.filter((s) => isOpen(line, s));
+const openFrom = openStations[0]?.name;
+const openTo = openStations.at(-1)?.name;
+// The line's own wording when its usual direction differs from station order (Line 2B: Mandale to Chembur).
+const openLegend = (line.info.copy as { map_open_legend?: string }).map_open_legend ?? `Open to riders, ${openFrom} to ${openTo}`;
 const streetConfig = {
   provider: STREET_LEVEL_PROVIDER,
   mapillary: Boolean(MAPILLARY_TOKEN),
@@ -74,6 +82,11 @@ const streetConfig = {
   <div class="mapsec__layout">
     <div class="mapsec__map-wrap">
       <div class="mapsec__map" data-map aria-label={`Map of the ${line.info.about.name} route`} role="region"></div>
+      {openStations.length > 1 && (
+        <p class="mapsec__map-note">
+          <span class="mapsec__key mapsec__key--open" aria-hidden="true"></span> {openLegend}
+        </p>
+      )}
       <p class="mapsec__map-note">
         <span class:list={['mapsec__key', parts.has('indicative') && 'mapsec__key--tunnel']} aria-hidden="true"></span> {line.info.copy.map_legend}
         <Grade status={alignMeta.status} source={alignMeta.source_url} compact />
@@ -185,6 +198,10 @@ const streetConfig = {
   }
   .mapsec__key--tunnel {
     border-style: dashed;
+  }
+  /* The stretch in service: solid, as the map draws it. */
+  .mapsec__key--open {
+    background: var(--route-line);
   }
   .mapsec__key--old {
     height: 0;

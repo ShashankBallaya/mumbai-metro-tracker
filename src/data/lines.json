@@ -52,7 +52,8 @@
         "target_html": "Target: <strong>{target}</strong> for the next stretch, Diamond Garden to Saraswat Nagar, as reported. No month; the site counts to the end of the year. MMRDA has announced no date.",
         "lead_scene": null,
         "map_section": "The line on a street map. Choose a station to see where it sits, what surrounds it and what the street looks like today. The route and stations come from MMRDA's alignment file of March 2025.",
-        "map_legend": "Route, MMRDA's alignment file; open from Mandale to Chembur",
+        "map_legend": "Under construction, Chembur to D N Nagar. Route from MMRDA's alignment file",
+        "map_open_legend": "Open to riders, Mandale to Chembur",
         "map_first_station": "chembur",
         "numbers": {
           "length_unit": "km, fully elevated, from D N Nagar",
@@ -550,7 +551,7 @@
         "target_html": "Target: <strong>{target}</strong> for Kashigaon to Subhash Chandra Bose Stadium, as reported, after the safety inspection. No day announced; the site counts to the end of the month.",
         "lead_scene": null,
         "map_section": "The line on a street map. Choose a station to see where it sits, what surrounds it and what the street looks like today. The route and stations come from MMRDA's alignment file of March 2025.",
-        "map_legend": "Route, MMRDA's alignment file; open from Dahisar (E) to Kashigaon",
+        "map_legend": "Under construction, Kashigaon to Subhash Chandra Bose Stadium. Route from MMRDA's alignment file",
         "map_first_station": "kashigaon",
         "numbers": {
           "length_unit": "km, fully elevated; sources differ",

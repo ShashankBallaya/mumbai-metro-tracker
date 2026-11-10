@@ -12,6 +12,9 @@ interface Props {
 }
 const { line } = Astro.props;
 const parts = line.stages.length > 1;
+// The rest of a partly open line has a reported target (Lines 2B and 9); its last section says so.
+const target = line.project.target_completion as { rest_of_line?: { value: string; status: string; source_url: string } };
+const rest = parts ? target.rest_of_line : undefined;
 
 /** The section's state in one sentence: open, opening on a date, or not open. */
 const stateOf = (sec: StageSection) => {
@@ -29,8 +32,9 @@ const stateOf = (sec: StageSection) => {
     <p>The opening date, train times, how often trains run and what a ticket costs. Each fact shows once {agencyOf(line)} or a news source gives it, with its source.</p>
   </header>
 
-  {line.stages.map((sec) => {
+  {line.stages.map((sec, i) => {
     const state = stateOf(sec);
+    const restTarget = rest && i === line.stages.length - 1 && !state.open && !announcedOf(sec) ? rest : undefined;
     const sv = sec.service;
     return (
       <div class:list={['service', parts && 'service--part']}>
@@ -40,6 +44,7 @@ const stateOf = (sec: StageSection) => {
           <span>
             {parts ? state.text : `${sectionName(line, sec)}: ${state.text.charAt(0).toLowerCase()}${state.text.slice(1)}`}
             {sv?.opening && <> <Grade status={sv.opening.status} source={sv.opening.source_url} compact /></>}
+            {restTarget && <> Reported target: <span class="nowrap">{restTarget.value}</span>. <Grade status={restTarget.status} source={restTarget.source_url} compact /></>}
           </span>
         </p>
         {sv?.opening?.notes && <p class="fact__note">{sv.opening.notes}</p>}
@@ -172,5 +177,8 @@ const stateOf = (sec: StageSection) => {
   }
   .fact__none {
     color: var(--ink-3);
+  }
+  .service__state .nowrap {
+    white-space: nowrap;
   }
 </style>

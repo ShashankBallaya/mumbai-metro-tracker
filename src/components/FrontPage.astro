@@ -29,8 +29,11 @@ const countTo = announced?.date ?? target.countdown_date;
 
 // Build-time value; the countdown script refreshes it in the browser.
 const msPerDay = 86_400_000;
-const daysLeft = Math.max(0, Math.ceil((Date.parse(`${countTo}T23:59:59+05:30`) - Date.now()) / msPerDay));
+const daysTo = (date: string) => Math.max(0, Math.ceil((Date.parse(`${date}T23:59:59+05:30`) - Date.now()) / msPerDay));
+const daysLeft = daysTo(countTo);
 const t = target as typeof target & { rest_of_line?: { value: string } };
+// Partly open (Lines 2B and 9): the rest of the line keeps its own count of days, a step below the opening date.
+const restCount = opened && t.rest_of_line && target.countdown && target.countdown_date ? daysTo(target.countdown_date) : null;
 const earlier = t.alternatives?.[0];
 const copy = line.info.copy;
 /** The line's own wording (lines.json `copy`), with figures from project.json. */
@@ -72,9 +75,18 @@ const spurEnd = line.spurStations.at(-1)?.name;
           {sectionSubject(line, firstSection)} opened on <strong>{formatDate(opened.date)}</strong>.
           {service?.hours && <> Trains run from {clock(service.hours.first)} to {clock(service.hours.last)}.</>}
           {service?.frequency && <> Every {frequencyText(service.frequency)}.</>}
-          {t.rest_of_line && <> The rest of the line has a reported target of <span class="nowrap">{t.rest_of_line.value}</span>.</>}
+          {t.rest_of_line && restCount === null && <> The rest of the line has a reported target of <span class="nowrap">{t.rest_of_line.value}</span>.</>}
         </p>
         <p><Grade status={opened.status} source={opened.source_url} /></p>
+        {restCount !== null && (
+          <p class="front__next">
+            <span class="front__next-days num" data-countdown={target.countdown_date}><span data-countdown-value>{restCount.toLocaleString('en-IN')}</span></span>
+            <span class="front__next-text">
+              {restCount === 1 ? 'day' : 'days'} to the reported target for the rest of the line, <span class="nowrap">{t.rest_of_line!.value}</span>.{' '}
+              <Grade status={target.status} source={target.source_url} compact />
+            </span>
+          </p>
+        )}
       </>
     ) : announced ? (
       <>
@@ -238,6 +250,29 @@ const spurEnd = line.spurStations.at(-1)?.name;
   .front__days--date {
     font-size: var(--step-3);
     text-transform: uppercase;
+  }
+  /* The rest of a partly open line: its days a step below the opening date, the same display face. */
+  .front__next {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: baseline;
+    gap: var(--s-3);
+    padding-top: var(--s-3);
+    border-top: 1px solid var(--rule);
+  }
+  .front__next-days {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-stretch: 75%;
+    font-size: var(--step-2);
+    line-height: 0.9;
+    color: var(--signal-line);
+  }
+  .front__next-text {
+    color: var(--ink-2);
+    font-size: var(--step--1);
+    line-height: 1.45;
+    max-width: 40ch;
   }
   .front__status a {
     display: inline-flex;

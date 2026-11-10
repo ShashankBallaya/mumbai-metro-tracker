@@ -56,33 +56,40 @@ if (!reduceMotion) {
   const later = window.matchMedia('(max-width: 63.99rem)').matches ? onFirstMove : whenIdle;
   later(() => {
     // ---------- Counters: the final value is already in the DOM; we count up to it ----------
-    document.querySelectorAll<HTMLElement>('[data-count]').forEach((el) => {
+    const countUp = (el: HTMLElement, delay = 0) => {
       const end = Number(el.dataset.count);
       const decimals = Number(el.dataset.decimals ?? 0);
       const state = { v: 0 };
       const fmt = (v: number) => v.toLocaleString('en-IN', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
-      ScrollTrigger.create({
-        trigger: el,
-        start: 'top 90%',
-        once: true,
-        onEnter: () =>
-          gsap.to(state, {
-            v: end,
-            duration: 1.2,
-            ease: 'expo.out',
-            onUpdate: () => (el.textContent = fmt(state.v)),
-            onComplete: () => (el.textContent = fmt(end)),
-          }),
+      gsap.to(state, {
+        v: end,
+        duration: 1.2,
+        delay,
+        ease: 'expo.out',
+        onUpdate: () => (el.textContent = fmt(state.v)),
+        onComplete: () => (el.textContent = fmt(end)),
       });
+    };
+    // A progress row's figure moves with its bar (below); every other counter runs on its own.
+    const rowOf = (el: Element) => el.closest('.work');
+    document.querySelectorAll<HTMLElement>('[data-count]').forEach((el) => {
+      if (rowOf(el)?.querySelector('[data-grow]')) return;
+      ScrollTrigger.create({ trigger: el, start: 'top 90%', once: true, onEnter: () => countUp(el) });
     });
 
     // ---------- Progress bars grow from the left on first view ----------
+    // The rows of one table cascade, 45 ms apart, so a long table reads top to bottom instead of
+    // every bar starting in the same frame. Each row's figure counts up with its bar.
     gsap.utils.toArray<HTMLElement>('[data-grow]').forEach((bar) => {
+      const row = rowOf(bar);
+      const delay = row ? [...row.parentElement!.children].indexOf(row) * 0.045 : 0;
+      const figure = row?.querySelector<HTMLElement>('[data-count]');
       gsap.from(bar, {
         scaleX: 0,
         duration: 1.2,
+        delay,
         ease: 'expo.out',
-        scrollTrigger: { trigger: bar, start: 'top 90%', once: true },
+        scrollTrigger: { trigger: bar, start: 'top 90%', once: true, onEnter: () => figure && countUp(figure, delay) },
       });
     });
 

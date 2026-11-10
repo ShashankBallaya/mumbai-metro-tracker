@@ -29,10 +29,49 @@ interface StationData {
   group?: 'spur' | 'dropped';
   /** A chosen Street View link for the station. */
   streetView?: string;
+  /** 1 when the station's section is open to riders. */
+  open?: 0 | 1;
 }
 
 /** Parts of an alignment drawn apart from the line (a feature without `part` is the line). */
 const isPart = (...parts: string[]) => ['in', ['get', 'part'], ['literal', parts]] as maplibregl.ExpressionSpecification;
+
+/**
+ * The stretch in service, cut from the line between its first and last open station, so the map
+ * draws it solid like the route ride and the share card. Distances are planar in degrees, which is
+ * enough to order points along a few kilometres of line.
+ */
+function openStretch(alignment: GeoJSON.FeatureCollection, stations: StationData[]): GeoJSON.FeatureCollection {
+  const empty: GeoJSON.FeatureCollection = { type: 'FeatureCollection', features: [] };
+  const open = stations.filter((s) => s.open && !s.group && s.lat !== null);
+  const main = alignment.features.find((f) => f.geometry.type === 'LineString' && (!f.properties?.part || f.properties.part === 'current'));
+  if (open.length < 2 || !main) return empty;
+  const line = (main.geometry as GeoJSON.LineString).coordinates as [number, number][];
+  // Where a point falls on the line: segment index plus how far along that segment (0 to 1).
+  const locate = (p: [number, number]) => {
+    let best = { d: Infinity, at: 0 };
+    for (let i = 0; i < line.length - 1; i++) {
+      const [ax, ay] = line[i];
+      const [bx, by] = line[i + 1];
+      const dx = bx - ax;
+      const dy = by - ay;
+      const t = Math.max(0, Math.min(1, ((p[0] - ax) * dx + (p[1] - ay) * dy) / (dx * dx + dy * dy || 1e-18)));
+      const d = (p[0] - ax - t * dx) ** 2 + (p[1] - ay - t * dy) ** 2;
+      if (d < best.d) best = { d, at: i + t };
+    }
+    return best.at;
+  };
+  const ats = open.map((s) => locate([s.lng!, s.lat!]));
+  const from = Math.min(...ats);
+  const to = Math.max(...ats);
+  const point = (at: number): [number, number] => {
+    const i = Math.min(Math.floor(at), line.length - 2);
+    const t = at - i;
+    return [line[i][0] + (line[i + 1][0] - line[i][0]) * t, line[i][1] + (line[i + 1][1] - line[i][1]) * t];
+  };
+  const coords = [point(from), ...line.slice(Math.floor(from) + 1, Math.ceil(to)), point(to)];
+  return { type: 'FeatureCollection', features: [{ type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates: coords } }] };
+}
 
 const css = (name: string) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 const esc = (s: string) => s.replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
@@ -79,6 +118,7 @@ function buildStyle(alignment: GeoJSON.FeatureCollection, stations: StationData[
     sources: {
       omt: { type: 'vector', url: MAP_TILES, attribution: '<a href="https://openfreemap.org" target="_blank">OpenFreeMap</a> <a href="https://www.openmaptiles.org/" target="_blank">&copy; OpenMapTiles</a> Data from <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>' },
       route: { type: 'geojson', data: alignment },
+      open: { type: 'geojson', data: openStretch(alignment, stations) },
       stations: { type: 'geojson', data: points },
     },
     layers: [
@@ -100,6 +140,8 @@ function buildStyle(alignment: GeoJSON.FeatureCollection, stations: StationData[
       { id: 'route-edge', type: 'line', source: 'route', filter: ['!', isPart('superseded', 'underground')], layout: { visibility: edged ? 'visible' : 'none', 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': edged ? routeEdge : paper, 'line-width': ['interpolate', ['linear'], ['zoom'], 10, 7, 16, 19] } },
       { id: 'route-casing', type: 'line', source: 'route', filter: ['!', isPart('superseded', 'underground')], layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': routeLine, 'line-width': ['interpolate', ['linear'], ['zoom'], 10, 5, 16, 16] } },
       { id: 'route-core', type: 'line', source: 'route', filter: ['!', isPart('superseded', 'underground')], layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': paper, 'line-width': ['interpolate', ['linear'], ['zoom'], 10, 1.6, 16, 6] } },
+      // Opening mode: the stretch in service is solid, as on the route ride (hollow = under construction).
+      { id: 'route-open', type: 'line', source: 'open', layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': routeLine, 'line-width': ['interpolate', ['linear'], ['zoom'], 10, 5, 16, 16] } },
       // Underground: gaps cut into the hollow line, so it reads as a dashed outline.
       { id: 'route-tunnel', type: 'line', source: 'route', filter: isPart('underground'), layout: { 'line-cap': 'butt', 'line-join': 'round' }, paint: { 'line-color': paper, 'line-width': ['interpolate', ['linear'], ['zoom'], 10, 5, 16, 16], 'line-dasharray': [0.7, 0.6] } },
       // Indicative (Line 12A, no published alignment): the same dashed outline, in longer dashes.
@@ -107,7 +149,7 @@ function buildStyle(alignment: GeoJSON.FeatureCollection, stations: StationData[
       { id: 'stations-old', type: 'circle', source: 'stations', filter: ['==', ['get', 'dropped'], 1], layout: { visibility: showOld ? 'visible' : 'none' }, paint: { 'circle-color': ['case', ['==', ['get', 'sel'], 1], ink3, paper], 'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, 4, 16, 8], 'circle-stroke-color': ink3, 'circle-stroke-width': 2 } },
       { id: 'station-old-label', type: 'symbol', source: 'stations', filter: ['==', ['get', 'dropped'], 1], layout: { visibility: showOld ? 'visible' : 'none', 'text-field': ['get', 'name'], 'text-font': font, 'text-size': 11, 'text-offset': [0.9, 0], 'text-anchor': 'left', 'text-optional': true }, paint: { 'text-color': ink3, 'text-halo-color': paper, 'text-halo-width': 2 } },
       { id: 'stations', type: 'circle', source: 'stations', filter: ['==', ['get', 'dropped'], 0], paint: { 'circle-color': ['case', ['==', ['get', 'sel'], 1], routeLine, ink], 'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, ['case', ['==', ['get', 'sel'], 1], 7, 4.5], 16, ['case', ['==', ['get', 'sel'], 1], 14, 9]], 'circle-stroke-color': edged ? ['case', ['==', ['get', 'sel'], 1], routeEdge, paper] : paper, 'circle-stroke-width': 2.5 } },
-      { id: 'station-label', type: 'symbol', source: 'stations', filter: ['==', ['get', 'dropped'], 0], layout: { 'text-field': ['get', 'name'], 'text-font': ['Noto Sans Bold'], 'text-size': ['case', ['==', ['get', 'sel'], 1], 15, 12], 'text-offset': [0.9, 0], 'text-anchor': 'left', 'text-optional': true }, paint: { 'text-color': ink, 'text-halo-color': paper, 'text-halo-width': 2 } },
+      { id: 'station-label', type: 'symbol', source: 'stations', filter: ['==', ['get', 'dropped'], 0], layout: { 'text-field': ['get', 'name'], 'text-font': ['Noto Sans Bold'], 'text-size': ['case', ['==', ['get', 'sel'], 1], 15, 12], 'text-radial-offset': 0.9, 'text-variable-anchor': ['left', 'right', 'top', 'bottom'], 'text-justify': 'auto', 'text-optional': true }, paint: { 'text-color': ink, 'text-halo-color': paper, 'text-halo-width': 2 } },
     ],
   };
 }
