@@ -27,7 +27,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 26
       # The fetch and the data check use Node's own modules only, so no npm install.
       - run: node scripts/fetch-feed.mjs
         env:
