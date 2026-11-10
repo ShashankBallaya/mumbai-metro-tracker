@@ -63,5 +63,32 @@
         "height": 1600
       }
     ]
-  }
+  },
+  "watch_points": [
+    {
+      "id": "shunya-bridge-bkc",
+      "title": "Shunya bridge, BKC",
+      "kind": "crossing",
+      "status": "open",
+      "added": "2026-10-31",
+      "lat": 19.06026,
+      "lng": 72.8572,
+      "between": [
+        "income-tax-office",
+        "ilfs"
+      ],
+      "note": "",
+      "sources": [],
+      "photos": [
+        {
+          "src": "/photos/shunya-bridge-bkc-2026-10-31-a.jpg",
+          "alt": "Shunya Bridge, BKC",
+          "date": "2026-10-31",
+          "credit": "Kalpesh Patel",
+          "width": 1600,
+          "height": 1200
+        }
+      ]
+    }
+  ]
 }
