@@ -31,6 +31,8 @@ interface Ordered {
   facts?: (Graded & { label: string; value: string })[];
 }
 const ordered = rollingstock.procurement.manufacturer ? (rollingstock as unknown as Ordered) : undefined;
+/** Trains already carrying riders (Lines 2B and 9): the opening paragraph says what runs, and the order they came from. */
+const inService = (rollingstock as { in_service?: { summary: string } }).in_service;
 const d = rollingstock.dpr_design_assumptions;
 const l5 = rollingstock.line5_contract;
 const img = rollingstock.image as { src: string | null; width?: number; height?: number; alt: string; caption: string; credit: string | null; status: string; source_url: string | null };
@@ -41,7 +43,8 @@ const carW = (680 - (cars - 1) * 10) / cars;
 const carXs = Array.from({ length: cars }, (_, i) => 20 + i * (carW + 10));
 const carWord = ordered ? (['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight'][ordered.procurement.cars_per_train] ?? `${ordered.procurement.cars_per_train}`) : '';
 const packageLabel = ordered && [
-  `Package ${ordered.procurement.package}`,
+  // Trains in service came from an order placed for several lines; say which order it was.
+  `${(rollingstock as { in_service?: unknown }).in_service && ordered.procurement.date ? `The ${ordered.procurement.date.slice(0, 4)} order, package` : 'Package'} ${ordered.procurement.package}`,
   ordered.procurement.contractor && `held by ${ordered.procurement.contractor}`,
   ordered.procurement.value_crore !== null && `₹${ordered.procurement.value_crore.toLocaleString('en-IN')} crore`,
 ].filter(Boolean).join(', ');
@@ -64,7 +67,9 @@ const specs: [string, string][] = ordered ? ordered.specs.rows : [
 <section id="trains" class="section page" aria-labelledby="trains-title">
   <header class="section-head">
     <h2 id="trains-title">Trains</h2>
-    {ordered ? (
+    {inService ? (
+      <p>{inService.summary}</p>
+    ) : ordered ? (
       ordered.procurement.contractor ? (
         <p>
           The trains are ordered. {ordered.procurement.manufacturer} is building {ordered.procurement.trains}{' '}
@@ -91,7 +96,7 @@ const specs: [string, string][] = ordered ? ordered.specs.rows : [
         <img src={img.src} alt={img.alt} width={img.width} height={img.height} loading="lazy" decoding="async" style={img.width ? `max-width:${img.width}px` : undefined} />
         <figcaption>
           {img.caption} {img.credit && <>Image: {img.credit}.</>} <Grade status={img.status} source={img.source_url} />
-          {ordered && <span class="trains__photo-maker">{ordered.procurement.trains} trains of {ordered.procurement.cars_per_train} cars are ordered for {line.info.label} (package {ordered.procurement.package}).</span>}
+          {ordered && !inService && <span class="trains__photo-maker">{ordered.procurement.trains} trains of {ordered.procurement.cars_per_train} cars are ordered for {line.info.label} (package {ordered.procurement.package}).</span>}
         </figcaption>
       </figure>
     ) : (

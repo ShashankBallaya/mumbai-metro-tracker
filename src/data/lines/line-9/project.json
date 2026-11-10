@@ -366,9 +366,9 @@
     "last_verified": "2026-11-10"
   },
   "rolling_stock": {
-    "supplier": null,
-    "cars_per_train": null,
-    "notes": "Line 9 runs as one service with Line 7: trains go through from Gundavali to Kashigaon (Free Press Journal, Apr 2026), kept at Line 7's Charkop depot for now (Free Press Journal, Jan 2026). No source read names the trains or their number for Line 9. MMRDA's page gives the car size for Lines 9 and 7A: 21.84 m long, 3.20 m wide; 2,352 riders in an 8-car train.",
+    "supplier": "BEML",
+    "cars_per_train": 6,
+    "notes": "Line 9 runs as one service with Line 7: six-car BEML trains go through from Gundavali to Kashigaon (Free Press Journal, Apr 2026), kept at Line 7's Charkop depot for now (Free Press Journal, Jan 2026). They are of the fleet MMRDA ordered from BEML in 2018 for Lines 2A, 2B and 7 (rollingstock.json). No source read gives how many run on Line 9. MMRDA's page gives the car size for Lines 9 and 7A: 21.84 m long, 3.20 m wide; 2,352 riders in an 8-car train.",
     "status": "reported",
     "source_url": "https://www.freepressjournal.in/mumbai/good-news-commuters-now-travel-from-andheri-to-kashigaon-at-rs-50-know-fares-on-newly-launched-mumbai-metro-line-9",
     "last_verified": "2026-11-10"

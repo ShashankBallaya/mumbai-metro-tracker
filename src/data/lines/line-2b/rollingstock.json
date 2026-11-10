@@ -1,0 +1,91 @@
+{
+  "_meta": {
+    "description": "Rolling stock for Line 2B. Trains run now (Mandale to Chembur): six-car trains by BEML, from MMRDA's order MRS1 (2018), which the news gives for Lines 2A, 2B and 7. 'in_service' is the section's opening paragraph. No source gives how many trains run on Line 2B. No image is sourced.",
+    "last_reviewed": "2026-11-10"
+  },
+  "in_service": {
+    "summary": "Line 2B runs six-car trains built in India by BEML. They come from MMRDA's 2018 order for 378 cars for Lines 2A, 2B and 7. No source gives how many of them run on Line 2B."
+  },
+  "procurement": {
+    "manufacturer": "BEML",
+    "value": "MMRDA's order to BEML for 378 cars, Rs 3,015 crore (package MRS1, letter of acceptance November 2018)",
+    "package": "MRS1",
+    "date": "2018-11",
+    "value_crore": 3015,
+    "trains": 63,
+    "cars_per_train": 6,
+    "coaches": 378,
+    "phases": "Lines 2A, 2B and 7",
+    "scope": "Design, manufacture, supply, testing and commissioning of the cars, with spares and training",
+    "built_at": null,
+    "status": "reported",
+    "source_url": "https://www.freepressjournal.in/mumbai/metro-iii-mmrda-awards-rs-3015-crore-contract-to-beml-for-rolling-stock/",
+    "also_see": [
+      "https://themetrorailguy.com/2020/11/23/beml-receives-72-coach-order-for-mumbai-metros-lines-2-7/"
+    ],
+    "last_verified": "2026-11-10",
+    "notes": "Free Press Journal (May 2019) names Lines 2A, 2B and 7 for the 378 cars; The Metro Rail Guy (Nov 2020) describes the order and its two additions for Lines 2A and 7 and does not name 2B. Swarajya (Oct 2025) names BEML for Line 2B's trains."
+  },
+  "specs": {
+    "label": "Figures reported at the order, 2019.",
+    "rows": [
+      [
+        "Cars per train",
+        "6"
+      ],
+      [
+        "Car width",
+        "3.2 m"
+      ],
+      [
+        "Track gauge",
+        "Standard"
+      ],
+      [
+        "Power",
+        "25 kV AC overhead"
+      ],
+      [
+        "Riders per train",
+        "About 2,400"
+      ]
+    ],
+    "notes": "The six-car formation on Line 2B is reported by Swarajya (Oct 2025).",
+    "status": "reported",
+    "source_url": "https://www.freepressjournal.in/mumbai/metro-iii-mmrda-awards-rs-3015-crore-contract-to-beml-for-rolling-stock/",
+    "last_verified": "2026-11-10"
+  },
+  "facts": [
+    {
+      "label": "On Line 2B",
+      "value": "Six-car BEML trains, made in India, with regenerative braking, CCTV, charging points and space for bicycles",
+      "status": "reported",
+      "source_url": "https://swarajyamag.com/news-brief/mumbai-metro-yellow-line-2b-set-for-december-debut-with-second-phase-launching-summer-2026",
+      "last_verified": "2026-11-10"
+    },
+    {
+      "label": "Designed for",
+      "value": "Unattended, driverless running; about 2,400 riders in a six-car train; regenerative braking, CCTV in the cars and on the track ahead, wheelchair spaces and charging points. Built in India by BEML, with Hitachi as technology partner",
+      "status": "reported",
+      "source_url": "https://www.freepressjournal.in/mumbai/metro-iii-mmrda-awards-rs-3015-crore-contract-to-beml-for-rolling-stock/",
+      "last_verified": "2026-11-10"
+    },
+    {
+      "label": "Later orders",
+      "value": "BEML got two more orders under the same contract: 126 cars (21 trains, Rs 834 crore, August 2019) and 72 cars (12 trains, Rs 501 crore, November 2020), for 576 cars, 96 trains, in all. The Metro Rail Guy gives these for Lines 2A and 7",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2020/11/23/beml-receives-72-coach-order-for-mumbai-metros-lines-2-7/",
+      "last_verified": "2026-11-10"
+    }
+  ],
+  "image": {
+    "src": null,
+    "alt": "",
+    "caption": "",
+    "credit": null,
+    "status": "unverified",
+    "source_url": null,
+    "last_verified": "2026-11-10",
+    "notes": "No image of the Line 2B trains is sourced. An owner or reader photo would do."
+  }
+}

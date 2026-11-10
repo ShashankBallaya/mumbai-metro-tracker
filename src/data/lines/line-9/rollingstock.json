@@ -1,0 +1,94 @@
+{
+  "_meta": {
+    "description": "Rolling stock for Line 9. Trains run now (Dahisar (E) to Kashigaon), through from Line 7: six-car BEML trains of the Line 2A and 7 fleet, from MMRDA's order MRS1 (2018) and its additions. 'in_service' is the section's opening paragraph. 'specs' are MMRDA's car figures for Lines 9 and 7A. No source gives how many trains run on Line 9. No image is sourced.",
+    "last_reviewed": "2026-11-10"
+  },
+  "in_service": {
+    "summary": "Line 9 runs as one service with Line 7: BEML-built trains go through from Gundavali to Kashigaon. They are of the fleet MMRDA ordered from BEML in 2018 for Lines 2A, 2B and 7. No source gives how many of them run on Line 9, or which of the orders they came from."
+  },
+  "procurement": {
+    "manufacturer": "BEML",
+    "value": "MMRDA's order to BEML for 378 cars, Rs 3,015 crore (package MRS1, letter of acceptance November 2018)",
+    "package": "MRS1",
+    "date": "2018-11",
+    "value_crore": 3015,
+    "trains": 63,
+    "cars_per_train": 6,
+    "coaches": 378,
+    "phases": "Lines 2A, 2B and 7",
+    "scope": "Design, manufacture, supply, testing and commissioning of the cars, with spares and training",
+    "built_at": null,
+    "status": "reported",
+    "source_url": "https://www.freepressjournal.in/mumbai/metro-iii-mmrda-awards-rs-3015-crore-contract-to-beml-for-rolling-stock/",
+    "also_see": [
+      "https://themetrorailguy.com/2020/11/23/beml-receives-72-coach-order-for-mumbai-metros-lines-2-7/"
+    ],
+    "last_verified": "2026-11-10",
+    "notes": "No source read names an order for Line 9 itself. Free Press Journal (Apr 2026): Line 7 is integrated with Line 9; (Jan 2026): Line 9's trains are kept at Line 7's Charkop depot. Metro Rail Today (Sep 2025): BEML-built trains on Line 9."
+  },
+  "specs": {
+    "label": "MMRDA's figures for Lines 9 and 7A.",
+    "rows": [
+      [
+        "Car length",
+        "21.84 m"
+      ],
+      [
+        "Car width",
+        "3.20 m"
+      ],
+      [
+        "Car height",
+        "3.90 m"
+      ],
+      [
+        "Riders, 8-car train",
+        "2,352"
+      ]
+    ],
+    "notes": "MMRDA's page lists the car size and an eight-car capacity for Lines 9 and 7A; the trains running now have six cars (reported).",
+    "status": "verified",
+    "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
+    "last_verified": "2026-11-10"
+  },
+  "facts": [
+    {
+      "label": "On Line 9",
+      "value": "The trains run through from Gundavali on Line 7 to Kashigaon, and are kept at Charkop, Line 7's depot, until the Dongri depot is built",
+      "status": "reported",
+      "source_url": "https://www.freepressjournal.in/mumbai/good-news-commuters-now-travel-from-andheri-to-kashigaon-at-rs-50-know-fares-on-newly-launched-mumbai-metro-line-9",
+      "last_verified": "2026-11-10"
+    },
+    {
+      "label": "Trials",
+      "value": "The Research Designs and Standards Organisation's speed and brake trials of BEML trains on Line 9 reached 90 km/h (September 2025)",
+      "status": "reported",
+      "source_url": "https://metrorailtoday.com/news/rdso-successfully-conducts-brake-and-speed-trial-tests-on-mumbai-metro-line-9",
+      "last_verified": "2026-11-10"
+    },
+    {
+      "label": "Designed for",
+      "value": "Unattended, driverless running; about 2,400 riders in a six-car train; regenerative braking, CCTV in the cars and on the track ahead, wheelchair spaces and charging points. Built in India by BEML, with Hitachi as technology partner",
+      "status": "reported",
+      "source_url": "https://www.freepressjournal.in/mumbai/metro-iii-mmrda-awards-rs-3015-crore-contract-to-beml-for-rolling-stock/",
+      "last_verified": "2026-11-10"
+    },
+    {
+      "label": "Later orders",
+      "value": "BEML got two more orders under the same contract: 126 cars (21 trains, Rs 834 crore, August 2019) and 72 cars (12 trains, Rs 501 crore, November 2020), for 576 cars, 96 trains, in all. The Metro Rail Guy gives these for Lines 2A and 7",
+      "status": "reported",
+      "source_url": "https://themetrorailguy.com/2020/11/23/beml-receives-72-coach-order-for-mumbai-metros-lines-2-7/",
+      "last_verified": "2026-11-10"
+    }
+  ],
+  "image": {
+    "src": null,
+    "alt": "",
+    "caption": "",
+    "credit": null,
+    "status": "unverified",
+    "source_url": null,
+    "last_verified": "2026-11-10",
+    "notes": "No image of the Line 9 trains is sourced. An owner or reader photo would do."
+  }
+}

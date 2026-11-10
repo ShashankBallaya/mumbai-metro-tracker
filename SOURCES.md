@@ -442,7 +442,7 @@ MMRDA's site fails a certificate check in some tools; Python's standard library 
 
 1. **Countdown.** The site counts to 31 Dec 2027 for "Diamond Garden to Saraswat Nagar, 2027" (Free Press Journal, Apr 2026), labelled a reported target with no month.
 2. **Hub chapter.** Done 2026-10-30: the owner's own photo of the Shunya bridge pylon (24 May 2026) is Line 2B's cover tile and chapter art.
-3. **Trains.** No Trains section: the only source is Swarajya (BEML, six cars). The number of trains and the order they came from are not found.
+3. **Trains.** Trains section added 2026-11-10 (owner): six-car BEML trains (Swarajya, Oct 2025) from MMRDA's order MRS1, 378 cars for Rs 3,015 crore, which Free Press Journal (29 May 2019) gives for Lines 2A, 2B and 7; The Metro Rail Guy (23 Nov 2020) gives the order and its two additions (126 and 72 cars, 576 in all) for Lines 2A and 7 and does not name 2B. The number of trains on Line 2B is not found.
 4. **Riders.** "About 300 a day" (Free Press Journal, citing Loksatta, Apr 2026) seems very low; shown as reported, in the riders answer only.
 5. **Kurla Terminus.** Graded reported as dropped; the reason (an airport approach funnel) is from a property site only.
 6. **National College.** InfraUnfiltered's video of 21 Jul 2026 (969MlryaIKg) lists "National College Metro Station Cancellation" in its description. MMRDA's list (checked 30 Oct 2026) still has the station. Not changed; find a news or MMRDA source.
@@ -594,7 +594,8 @@ Research of 2026-11-10 for `src/data/lines/line-9/` (a viewer noted the site had
 2. **Length.** 10.5 km (FPJ 2026), 10.41 km (2018), 11.38 km (The Metro Rail Guy). Graded conflicting.
 3. **Names.** "Dahisar (E)" (MMRDA's list says Dahisar); "Pandurang Wadi" (MMRDA's English list spells Pandhurang Wadi; its file and Marathi page do not).
 4. **Package CA-48.** The 7A page calls CA-48 7A's package; the sources read say one J Kumar contract covers both lines. Both pages now say it is shared.
-5. **No Trains section, no hub chapter art, no X posts yet.**
+5. **Trains.** Trains section added 2026-11-10 (owner): Line 9 runs through from Line 7 on BEML trains of the Line 2A and 7 fleet (Free Press Journal, Apr 2026), kept at Charkop (Jan 2026); RDSO speed and brake trials to 90 km/h (Metro Rail Today, Sep 2025); order MRS1 as for Line 2B. Car size from MMRDA's Line 9 and 7A page. No source gives how many trains run on Line 9 or which order they came from. Still missing: hub chapter art, X posts.
+7. **Line 10 at Miragaon.** Metro Rail Today (Sep 2025) says Miragaon will connect to Line 10; Rohan Shanbhag's table says Shivaji Chowk (Mira Road). Not shown until a primary source names the station.
 6. **Line 10 at Shivaji Chowk (Mira Road).** Rohan Shanbhag's table puts the Red Line with Line 10 there; no source names the Line 9 station. Not shown.
 
 ## Not found
