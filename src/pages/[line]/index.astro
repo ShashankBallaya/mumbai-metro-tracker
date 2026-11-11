@@ -20,16 +20,26 @@ import SourcesFooter from '../../components/SourcesFooter.astro';
 import SendBanner from '../../components/SendBanner.astro';
 import WatchPoints from '../../components/WatchPoints.astro';
 import ReaderPhotos from '../../components/ReaderPhotos.astro';
-import { getLine, lines, hasService, type LineId } from '../../lib/data';
+import { getLine, lines, hasService, lineBase, SITE_NAME, type LineId } from '../../lib/data';
 
 export function getStaticPaths() {
   return lines.map((l) => ({ params: { line: l.id } }));
 }
 const line = getLine(Astro.params.line as LineId);
 const { about, route_short, copy } = line.info;
+const site = Astro.site!.toString();
+const schema = [
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: SITE_NAME, item: site },
+      { '@type': 'ListItem', position: 2, name: line.info.label, item: `${site}${lineBase(line.id).slice(1)}` },
+    ],
+  },
+];
 ---
 
-<Base title={`${about.name} Tracker: ${route_short} status, stations, map`} line={line} description={copy.page_description} front>
+<Base title={`${about.name} Tracker: ${route_short} status, stations, map`} line={line} description={copy.page_description} schema={schema} front>
   <Masthead line={line} />
   <main id="main">
     <FrontPage line={line} />

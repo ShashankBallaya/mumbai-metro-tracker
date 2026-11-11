@@ -1,4 +1,25 @@
+# Every crawler may read the public pages, search and AI crawlers included.
+# A plain summary for AI assistants: /llms.txt (short) and /llms-full.txt (every fact, grade and source).
+
 User-agent: *
+Allow: /
+Disallow: /og/
+Disallow: /api/
+Disallow: /admin/
+
+# Named so the intent is plain: answer engines and AI search may read and cite the site.
+User-agent: Googlebot
+User-agent: Google-Extended
+User-agent: Bingbot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: Applebot
 Allow: /
 Disallow: /og/
 Disallow: /api/

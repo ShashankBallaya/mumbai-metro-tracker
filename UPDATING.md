@@ -146,7 +146,7 @@ These are built from the data files. You never edit them by hand:
 
 - `/stations/` and one page per station come from `src/data/lines/line-12/stations.json`. A new station there gets its own page and a sitemap entry.
 - `/status/` answers common questions from `project.json`, `contractors.json` and `rollingstock.json`. When a fact changes there, the answer changes too.
-- `sitemap.xml` and `llms.txt` (a plain summary for AI assistants) are rebuilt on every deploy.
+- `sitemap.xml`, `llms.txt` (a short index for AI assistants) and `llms-full.txt` (every status answer with its grade and source, and every station) are rebuilt on every deploy. The two text files come from `src/lib/llms.ts`, which loops over `lines.json` and takes its words from the status answers (`src/lib/answers.ts`), so a new line needs no edit there.
 
 ### Nearby places
 

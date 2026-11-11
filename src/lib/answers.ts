@@ -258,7 +258,7 @@ function line5(line: Line): Answer[] {
     {
       id: 'names',
       q: 'What else is Metro Line 5 called?',
-      a: `${p.name.value} is also called ${p.name.also_known_as[0]}, the ${p.name.also_known_as[1]} or the ${p.name.also_known_as[2]}. Trade press treats Lines 5 and 12 as one Orange Line, a colour MMRDA announced in 2020; MMRDA's Line 5 page names no colour.`,
+      a: `${p.name.value} is also called ${[p.name.also_known_as[0], ...p.name.also_known_as.slice(1).map((n) => `the ${n}`)].join(', ').replace(/, (?=[^,]*$)/, ' or ')}. Trade press treats Lines 5 and 12 as one Orange Line, a colour MMRDA announced in 2020; MMRDA's Line 5 page names no colour.`,
       grades: [
         { status: p.name.status, source: p.name.source_url },
         { status: colour.status, source: colour.source_url },

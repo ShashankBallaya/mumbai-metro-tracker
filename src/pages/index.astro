@@ -14,7 +14,7 @@ import Colophon from '../components/Colophon.astro';
 import PressBanner from '../components/PressBanner.astro';
 import SendBanner from '../components/SendBanner.astro';
 import Grade from '../components/Grade.astro';
-import { getLine, lineBase, formatDate, outletName, inr, SITE_NAME, INTERCHANGE_TABLE, type LineId } from '../lib/data';
+import { getLine, lines, lineBase, formatDate, outletName, inr, SITE_NAME, INTERCHANGE_TABLE, type LineId } from '../lib/data';
 import { hasStatusPage } from '../lib/answers';
 import { network, STAGES, networkReviewed, networkDrawing, bundleColours, type NetworkLine, type Stage } from '../lib/network';
 import geometryRaw from '../data/network-geometry.geojson?raw';
@@ -155,10 +155,24 @@ const bundleStyle = `--tw:${k(TW)};--bend:${k(BEND)};--stops:${bundleStops}`;
 const DISCLAIMER =
   'Mumbai Metro Tracker is an independent public-interest site. It is not affiliated with, endorsed by or connected to MMRDA, MMRCL, CIDCO, MahaMetro or the Government of Maharashtra. The map uses OpenStreetMap data. Check official sources before making decisions.';
 const title = `${SITE_NAME}: every Mumbai Metro line, built, building and planned`;
-const description = `An unofficial, sourced tracker of the Mumbai Metro: all ${network.length} metro lines in the region on one map by stage, each with its authority, size, stage and sources, and Lines 2B, 4, 5, 6, 7A, 12 and 12A in full with tenders, funding and the latest updates.`;
+// The lines covered in full, from lines.json: "Lines 2B, 4, ... 12A and the Thane Ring Metro".
+const numbered = lines.filter((l) => l.label.startsWith('Line ')).map((l) => l.number);
+const named = lines.filter((l) => !l.label.startsWith('Line ')).map((l) => `the ${l.label}`);
+const covered = `Lines ${numbered.slice(0, -1).join(', ')}${named.length ? `, ${numbered.at(-1)}` : ` and ${numbered.at(-1)}`}${named.length ? ` and ${named.join(' and ')}` : ''}`;
+const description = `An unofficial, sourced tracker of the Mumbai Metro: all ${network.length} metro lines in the region on one map by stage, each with its authority, size, stage and sources, and ${covered} in full with tenders, funding and the latest updates.`;
+// The lines this site covers in full, for search engines and answer engines.
+const site = Astro.site!.toString();
+const schema = [
+  {
+    '@type': 'ItemList',
+    name: 'Mumbai Metro lines tracked in full',
+    numberOfItems: lines.length,
+    itemListElement: lines.map((l, i) => ({ '@type': 'ListItem', position: i + 1, name: l.about.name, url: `${site}${lineBase(l.id).slice(1)}` })),
+  },
+];
 ---
 
-<Base title={title} description={description}>
+<Base title={title} description={description} schema={schema}>
   <Masthead sections={[['map', 'Map'], ['lines', 'Every line'], ['updates', 'Updates'], ['meet', 'Where lines meet']]} />
   <PressBanner />
   <main id="main" class="hubmain" style={bundleStyle}>
