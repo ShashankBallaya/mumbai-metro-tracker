@@ -1,0 +1,204 @@
+{
+  "_meta": {
+    "description": "Dated ground photos, by the owner or by people who gave permission to use them. All entries now are stills from InfraUnfiltered's Line 6 ground report of 8 Aug 2026 (GKJLENdWdYA), shared with permission (owner, 2026-10-16 for drone videos and 2026-11-10 for ground videos; this video shared by the owner on 2026-11-11). The video mixes drone shots (kind \"drone\") and walks through the stations (kind \"video\"). Each still is matched to its station by the creator's on-screen station label or, for SEEPZ Village, by the station the creator names at that moment; 'date' is the day the video was published, video_t is the second in the video, and source_url opens the video there. 'pairs' are before/after pairs shown under the satellite comparison. 'stations' holds photos for each station page, keyed by the station id in stations.json. Put the image files in public/photos/ (location data removed) and add entries below. See UPDATING.md.",
+    "last_reviewed": "2026-11-11"
+  },
+  "pairs": [],
+  "stations": {
+    "swami-samarth-nagar": [
+      {
+        "src": "/photos/swami-samarth-nagar-video-2026-08-08-a.jpg",
+        "alt": "Ground view on the platform deck of Swami Samarth Nagar station under the steel roof frame, with puddles on the deck and housing blocks on both sides; the creator's label names the station",
+        "caption": "On the platform under the roof frame. The creator says the finishing work is moving fast",
+        "date": "2026-08-08",
+        "kind": "video",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=GKJLENdWdYA&t=120s",
+        "video_t": 120,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "adarsh-nagar": [
+      {
+        "src": "/photos/adarsh-nagar-video-2026-08-08-a.jpg",
+        "alt": "Ground view along the track bed at Adarsh Nagar station, with rail pieces laid out and the first roof poles up, between glass towers; the creator's labels name the station and say roof pole work has started",
+        "caption": "Roof poles going up over the track bed. The creator calls it one of the most advanced stations on the line",
+        "date": "2026-08-08",
+        "kind": "video",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=GKJLENdWdYA&t=184s",
+        "video_t": 184,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "jogeshwari-west": [
+      {
+        "src": "/photos/jogeshwari-west-aerial-2026-08-08-a.jpg",
+        "alt": "Drone view of the viaduct and the Jogeshwari (W) station structure between housing blocks, with work sites on the ground below; the creator's label names the station",
+        "caption": "The station structure among housing blocks. The creator says the main structural work is still going on here",
+        "date": "2026-08-08",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=GKJLENdWdYA&t=218s",
+        "video_t": 218,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "jvlr": [
+      {
+        "src": "/photos/jvlr-aerial-2026-08-08-a.jpg",
+        "alt": "Drone view along the double viaduct towards the JVLR station site at the junction on the Jogeshwari-Vikhroli Link Road, where the creator's label marks Metro Line 7 crossing",
+        "caption": "The deck near the junction with Line 7, an interchange. The creator says the station's civil structure is done and the roofing is next",
+        "date": "2026-08-08",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=GKJLENdWdYA&t=309s",
+        "video_t": 309,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "shyam-nagar": [
+      {
+        "src": "/photos/shyam-nagar-aerial-2026-08-08-a.jpg",
+        "alt": "Drone view along the viaduct with track laid and a yellow track machine on it, over low housing; the creator's label names Shyam Nagar station",
+        "caption": "Track laying on the viaduct at the station. The creator says the station is still waiting for its roof",
+        "date": "2026-08-08",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=GKJLENdWdYA&t=355s",
+        "video_t": 355,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "mahakali-caves": [
+      {
+        "src": "/photos/mahakali-caves-aerial-2026-08-08-a.jpg",
+        "alt": "Drone view along the tracks into Mahakali Caves station, with its arched roof frame, green hills and a work site beside it; the creator's label names the station",
+        "caption": "The tracks into the station, with the hills behind. The creator says it is a little ahead of Shyam Nagar",
+        "date": "2026-08-08",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=GKJLENdWdYA&t=406s",
+        "video_t": 406,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "seepz-village": [
+      {
+        "src": "/photos/seepz-village-video-2026-08-08-a.jpg",
+        "alt": "Ground view inside the SEEPZ Village station concourse, with pipes, roof sheets and floor slabs stacked on the floor and green netting along the edge",
+        "caption": "Materials stacked in the concourse. The creator says architectural finishing is going on",
+        "date": "2026-08-08",
+        "kind": "video",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=GKJLENdWdYA&t=470s",
+        "video_t": 470,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "saki-vihar-road": [
+      {
+        "src": "/photos/saki-vihar-road-aerial-2026-08-08-a.jpg",
+        "alt": "Drone view over traffic on Saki Vihar Road, with a column and the station under construction between the trees; the creator's label names the station",
+        "caption": "The station site over the road traffic. The creator says construction here is still going on",
+        "date": "2026-08-08",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=GKJLENdWdYA&t=506s",
+        "video_t": 506,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "rambaug": [
+      {
+        "src": "/photos/rambaug-aerial-2026-08-08-a.jpg",
+        "alt": "Drone view along the viaduct into Rambaug station and its curved steel roof frame, with stairs on the left and housing towers on the right",
+        "caption": "The station's roof frame beside new towers. The creator says the roofing is in progress",
+        "date": "2026-08-08",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=GKJLENdWdYA&t=532s",
+        "video_t": 532,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "powai-lake": [
+      {
+        "src": "/photos/powai-lake-aerial-2026-08-08-a.jpg",
+        "alt": "Drone view of the viaduct and Powai Lake station beside the lake and its water hyacinth, with towers behind; the creator's label names the station",
+        "caption": "The station beside the lake. The creator calls it one of the more advanced stations on the line",
+        "date": "2026-08-08",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=GKJLENdWdYA&t=589s",
+        "video_t": 589,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "iit-powai": [
+      {
+        "src": "/photos/iit-powai-aerial-2026-08-08-a.jpg",
+        "alt": "Drone view along the tracks into IIT Powai station, under the steel arches of its roof frame; the creator's label names the station",
+        "caption": "The tracks into the station under its roof frame. The creator says the roofing work is in progress",
+        "date": "2026-08-08",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=GKJLENdWdYA&t=641s",
+        "video_t": 641,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "kanjur-marg-west": [
+      {
+        "src": "/photos/kanjur-marg-west-aerial-2026-08-08-a.jpg",
+        "alt": "Drone view of pier caps and deck under construction at the Kanjur Marg (W) station site, beside a playing field, with glass towers behind; the creator's label names the station Gandhi Nagar (Kanjurmarg)",
+        "caption": "Deck work at the interchange site. The creator calls the station Gandhi Nagar and says it links to Line 4",
+        "date": "2026-08-08",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=GKJLENdWdYA&t=716s",
+        "video_t": 716,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "vikhroli-eeh": [
+      {
+        "src": "/photos/vikhroli-eeh-aerial-2026-08-08-a.jpg",
+        "alt": "Drone view along the viaduct over the road to Vikhroli (EEH) station, with mangroves and open land around it; the creator's label names the station",
+        "caption": "The viaduct to the last station on the line, with the mangroves around it",
+        "date": "2026-08-08",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=GKJLENdWdYA&t=743s",
+        "video_t": 743,
+        "width": 1600,
+        "height": 900
+      }
+    ]
+  }
+}

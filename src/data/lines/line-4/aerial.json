@@ -1,0 +1,59 @@
+{
+  "_meta": {
+    "description": "A drone flight along the line, by a creator who gave permission to use it. 'video' is the YouTube video; 'stops' are the stations in the order the flight reaches them, with 't' the second in the video where the station comes into view (each checked against the creator's on-screen station label). Stills from the video are in photos.json under each station. The flight covers Phase 1 only; the Phase 2 stills come from the same creator's flight of 24 Oct 2026 (jqqYy_kCPQE), checked the same way. See UPDATING.md.",
+    "permission": "InfraUnfiltered gave the owner permission to use their drone videos (owner, 2026-10-16); the owner shared these Line 4 videos in chat on 2026-11-11.",
+    "last_reviewed": "2026-11-11"
+  },
+  "video": {
+    "id": "8cCOx0tovUM",
+    "title": "Mumbai Metro Line 4 Update | 3 Months Progress Report | December 2026 Deadline?",
+    "creator": "InfraUnfiltered",
+    "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+    "published": "2026-10-20",
+    "duration_s": 725,
+    "poster": "/photos/cadbury-junction-aerial-2026-10-20-a.jpg",
+    "covers": "Phase 1, from Gaimukh to Cadbury Junction"
+  },
+  "stops": [
+    {
+      "station": "gaimukh",
+      "t": 64
+    },
+    {
+      "station": "gowniwada",
+      "t": 164
+    },
+    {
+      "station": "kasarvadavali",
+      "t": 230
+    },
+    {
+      "station": "vijay-garden",
+      "t": 284
+    },
+    {
+      "station": "dongripada",
+      "t": 346
+    },
+    {
+      "station": "tikujiniwadi",
+      "t": 406
+    },
+    {
+      "station": "manpada",
+      "t": 448
+    },
+    {
+      "station": "kapurbawdi",
+      "t": 488
+    },
+    {
+      "station": "majiwada",
+      "t": 566
+    },
+    {
+      "station": "cadbury-junction",
+      "t": 616
+    }
+  ]
+}

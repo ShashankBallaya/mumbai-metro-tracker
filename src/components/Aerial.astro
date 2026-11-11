@@ -16,6 +16,8 @@ const { video, stops } = line.aerial!;
 const all = [...line.stations, ...line.spurStations];
 const nameOf = (id: string) => all.find((s) => s.id === id)?.name ?? id;
 const watch = (t = 0) => `https://www.youtube.com/watch?v=${video.id}${t ? `&t=${t}s` : ''}`;
+// A creator's title can end in its own "?" or "!"; add a full stop only when it does not.
+const titleEnd = /[.?!]$/.test(video.title.trim()) ? '' : '.';
 ---
 
 <section id="from-the-air" class="section page air" aria-labelledby="air-title" data-air={video.id}>
@@ -41,7 +43,7 @@ const watch = (t = 0) => `https://www.youtube.com/watch?v=${video.id}${t ? `&t=$
         </a>
       </div>
       <figcaption class="air__caption">
-        {video.title}. Video by {video.creator} on YouTube.
+        {video.title}{titleEnd} Video by {video.creator} on YouTube.
       </figcaption>
     </figure>
 

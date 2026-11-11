@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "description": "Dated ground photos, by the owner or by people who gave permission to use them. 'pairs' are before/after pairs shown under the satellite comparison. 'stations' holds photos for each station page, keyed by the station id in stations.json. Put the image files in public/photos/ (location data removed) and add entries below. See UPDATING.md.",
-    "last_reviewed": "2026-11-09"
+    "description": "Dated ground photos, by the owner or by people who gave permission to use them. Entries with kind \"drone\" are stills from InfraUnfiltered's drone flights, shared with permission (owner, 2026-10-16; these videos shared by the owner on 2026-11-11): Phase 1 from the flight of 20 Oct 2026 (8cCOx0tovUM, also in aerial.json), Phase 2 from the flight of 24 Oct 2026 (jqqYy_kCPQE). Each still is matched to its station by the creator's on-screen station label; 'date' is the day the video was published, video_t is the second in the video, and source_url opens the video there. 'pairs' are before/after pairs shown under the satellite comparison. 'stations' holds photos for each station page, keyed by the station id in stations.json. Put the image files in public/photos/ (location data removed) and add entries below. See UPDATING.md.",
+    "last_reviewed": "2026-11-11"
   },
   "pairs": [],
   "stations": {
@@ -15,6 +15,319 @@
         "handle": "mojo11697",
         "width": 1600,
         "height": 1066
+      },
+      {
+        "src": "/photos/kapurbawdi-aerial-2026-10-20-a.jpg",
+        "alt": "Drone view of Kapurbawdi station with its green roof, the two tracks and their crossovers running out of it, and the road under the viaduct",
+        "caption": "The station and the crossover tracks next to it",
+        "date": "2026-10-20",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=8cCOx0tovUM&t=500s",
+        "video_t": 500,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "gaimukh": [
+      {
+        "src": "/photos/gaimukh-aerial-2026-10-20-a.jpg",
+        "alt": "Drone view down on Gaimukh station: two metro trains stand side by side on the tracks under the green station roofs, with the road on both sides",
+        "caption": "Two trains parked at Gaimukh, the end of Phase 1",
+        "date": "2026-10-20",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=8cCOx0tovUM&t=72s",
+        "video_t": 72,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "gowniwada": [
+      {
+        "src": "/photos/gowniwada-aerial-2026-10-20-a.jpg",
+        "alt": "Drone view along the viaduct into Gowniwada station, with its curved green roof, overhead wire masts and a footbridge on the left",
+        "caption": "Track and overhead wires laid through the station",
+        "date": "2026-10-20",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=8cCOx0tovUM&t=172s",
+        "video_t": 172,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "kasarvadavali": [
+      {
+        "src": "/photos/kasarvadavali-aerial-2026-10-20-a.jpg",
+        "alt": "Drone view along the tracks into Kasarvadavali station, under the steel frame of the roof, with green covers over the stairs on both sides",
+        "caption": "Through the station under its roof frame",
+        "date": "2026-10-20",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=8cCOx0tovUM&t=250s",
+        "video_t": 250,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "vijay-garden": [
+      {
+        "src": "/photos/vijay-garden-aerial-2026-10-20-a.jpg",
+        "alt": "Drone view along the viaduct towards Vijay Garden station and its green roof, between a road and tall buildings",
+        "caption": "The viaduct running into the station",
+        "date": "2026-10-20",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=8cCOx0tovUM&t=290s",
+        "video_t": 290,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "dongripada": [
+      {
+        "src": "/photos/dongripada-aerial-2026-10-20-a.jpg",
+        "alt": "Drone view of Dongari Pada station and its green roof beside the road, with thick trees on the right; the creator's label names the station",
+        "caption": "The station beside the road, with trees on the hillside next to it",
+        "date": "2026-10-20",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=8cCOx0tovUM&t=354s",
+        "video_t": 354,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "tikujiniwadi": [
+      {
+        "src": "/photos/tikujiniwadi-aerial-2026-10-20-a.jpg",
+        "alt": "Drone view along the curving viaduct beside the road towards Tikuji-Ni-Wadi station, with cleared land on the right; the creator's label names the station",
+        "caption": "The viaduct curving towards the station",
+        "date": "2026-10-20",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=8cCOx0tovUM&t=412s",
+        "video_t": 412,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "manpada": [
+      {
+        "src": "/photos/manpada-aerial-2026-10-20-a.jpg",
+        "alt": "Drone view inside Manpada station under the roof: the two tracks run between the platforms, with roof sheets, cables and materials piled on the platform edge",
+        "caption": "Finishing work on the platforms, with materials still piled up",
+        "date": "2026-10-20",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=8cCOx0tovUM&t=468s",
+        "video_t": 468,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "majiwada": [
+      {
+        "src": "/photos/majiwada-aerial-2026-10-20-a.jpg",
+        "alt": "Drone view of Majiwada station and its green roof beside a building under construction, with the flyover and traffic on the left",
+        "caption": "The station next to the Majiwada flyover",
+        "date": "2026-10-20",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=8cCOx0tovUM&t=574s",
+        "video_t": 574,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "cadbury-junction": [
+      {
+        "src": "/photos/cadbury-junction-aerial-2026-10-20-a.jpg",
+        "alt": "Drone view of Cadbury Junction station and its green roof, with two metro trains standing at the platforms and traffic on the road beside",
+        "caption": "Two trains parked at Cadbury Junction, where Phase 1 ends",
+        "date": "2026-10-20",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=8cCOx0tovUM&t=626s",
+        "video_t": 626,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "mahapalika-marg": [
+      {
+        "src": "/photos/mahapalika-marg-aerial-2026-10-24-a.jpg",
+        "alt": "Drone view along the tracks into Mahapalika Marg station under its roof, with the road and traffic on the left",
+        "caption": "Track laid through the station. The creator says the roofing is done and electrical work, floor tiles and platform screen doors come next",
+        "date": "2026-10-24",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=jqqYy_kCPQE&t=104s",
+        "video_t": 104,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "rto-thane": [
+      {
+        "src": "/photos/rto-thane-aerial-2026-10-24-a.jpg",
+        "alt": "Drone view along the viaduct beside a tree-lined road to RTO Thane station, which has its steel roof frame but no roof sheets",
+        "caption": "The station's roof frame, without its sheets. The creator says the roofing has not started",
+        "date": "2026-10-24",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=jqqYy_kCPQE&t=148s",
+        "video_t": 148,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "teen-haath-naka": [
+      {
+        "src": "/photos/teen-haath-naka-aerial-2026-10-24-a.jpg",
+        "alt": "Drone view of Thane Teen Haath Naka station from the side: the long station with its steel roof frame and green signs, above the road, with housing towers behind; the creator's label names the station",
+        "caption": "The station from the side. The creator says a train came here for clearance tests",
+        "date": "2026-10-24",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=jqqYy_kCPQE&t=190s",
+        "video_t": 190,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "mulund-naka": [
+      {
+        "src": "/photos/mulund-naka-aerial-2026-10-24-a.jpg",
+        "alt": "Drone view straight down on the steel roof frame over the tracks at Mulund Naka station, with a building's roof on the right",
+        "caption": "Looking down on the roof frame over the tracks. The creator says the roofing is moving towards its final stage",
+        "date": "2026-10-24",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=jqqYy_kCPQE&t=256s",
+        "video_t": 256,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "mulund-fire-station": [
+      {
+        "src": "/photos/mulund-fire-station-aerial-2026-10-24-a.jpg",
+        "alt": "Drone view along the viaduct past a garden and thick trees to the Mulund Fire Station stop in the distance; the creator's label names the station",
+        "caption": "The viaduct running to the station. The creator says the roof poles are nearly done and the roofing has not started",
+        "date": "2026-10-24",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=jqqYy_kCPQE&t=310s",
+        "video_t": 310,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "sonapur": [
+      {
+        "src": "/photos/sonapur-aerial-2026-10-24-a.jpg",
+        "alt": "Drone view along the viaduct at Sonapur, between a building under construction and a glass tower, with the station deck and its green-edged walls in the middle",
+        "caption": "The station deck between new towers. The creator says the roofing has not moved in three months",
+        "date": "2026-10-24",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=jqqYy_kCPQE&t=365s",
+        "video_t": 365,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "shangrila": [
+      {
+        "src": "/photos/shangrila-aerial-2026-10-24-a.jpg",
+        "alt": "Drone view along the viaduct over low buildings and trees towards Shangrila station; the creator's label names the station",
+        "caption": "The viaduct towards the station. The creator says platform slabs and U-girders are still going in here",
+        "date": "2026-10-24",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=jqqYy_kCPQE&t=434s",
+        "video_t": 434,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "bhandup": [
+      {
+        "src": "/photos/bhandup-aerial-2026-10-24-a.jpg",
+        "alt": "Drone view of the viaduct curving between a tall red and white tower and low housing towards Bhandup Metro station",
+        "caption": "The viaduct curving towards the station. The creator says the station has not changed much in three months",
+        "date": "2026-10-24",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=jqqYy_kCPQE&t=462s",
+        "video_t": 462,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "bhandup-mahapalika": [
+      {
+        "src": "/photos/bhandup-mahapalika-aerial-2026-10-24-a.jpg",
+        "alt": "Drone view along the tracks into Bhandup Mahapalika station, with a building under green netting on the left; the creator's label names the station",
+        "caption": "Track laid through the station deck. The creator says the roof poles have not started",
+        "date": "2026-10-24",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=jqqYy_kCPQE&t=524s",
+        "video_t": 524,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "naval-housing": [
+      {
+        "src": "/photos/naval-housing-aerial-2026-10-24-a.jpg",
+        "alt": "Drone view along the viaduct to Naval Housing station, with its green-edged deck, beside a playground and thick trees; the creator's label names the station",
+        "caption": "The station deck among the trees. The creator says track laying goes on here and the roof poles have not started",
+        "date": "2026-10-24",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=jqqYy_kCPQE&t=554s",
+        "video_t": 554,
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "gandhi-nagar": [
+      {
+        "src": "/photos/gandhi-nagar-aerial-2026-10-24-a.jpg",
+        "alt": "Drone view of the viaduct curving into Gandhi Nagar station, with the Line 6 viaduct crossing in the back; the creator's labels name the station and Line 6",
+        "caption": "The viaduct into the station, with Line 6 crossing behind. The creator says the deck slab is done and the roof poles have not started",
+        "date": "2026-10-24",
+        "kind": "drone",
+        "credit": "InfraUnfiltered",
+        "channel_url": "https://www.youtube.com/channel/UCo5qzCLWc46M9JOYMpUA4JQ",
+        "source_url": "https://www.youtube.com/watch?v=jqqYy_kCPQE&t=583s",
+        "video_t": 583,
+        "width": 1600,
+        "height": 900
       }
     ]
   }
