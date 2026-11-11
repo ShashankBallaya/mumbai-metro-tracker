@@ -1,0 +1,798 @@
+{
+  "_meta": {
+    "description": "Places near each station, from OpenStreetMap: the nearest few of each kind within its radius, measured in a straight line from the station point to the place (to the centre of an area such as a campus). Bus stops: one entry for each name. Built by scripts/fetch-nearby.mjs; do not edit by hand. OpenStreetMap data is ODbL; credit \"OpenStreetMap contributors\".",
+    "kinds": [
+      {
+        "id": "rail",
+        "label": "Railway stations",
+        "radius_m": 1500,
+        "max": 2
+      },
+      {
+        "id": "bus",
+        "label": "Bus stops",
+        "radius_m": 500,
+        "max": 3
+      },
+      {
+        "id": "chowk",
+        "label": "Chowks and nakas",
+        "radius_m": 1000,
+        "max": 3
+      },
+      {
+        "id": "college",
+        "label": "Colleges",
+        "radius_m": 1000,
+        "max": 4
+      },
+      {
+        "id": "mall",
+        "label": "Malls",
+        "radius_m": 1500,
+        "max": 3
+      },
+      {
+        "id": "office",
+        "label": "Offices and IT parks",
+        "radius_m": 1000,
+        "max": 4
+      },
+      {
+        "id": "hospital",
+        "label": "Hospitals",
+        "radius_m": 1000,
+        "max": 3
+      }
+    ],
+    "status": "reported",
+    "source_url": "https://www.openstreetmap.org/copyright",
+    "last_verified": "2026-11-11"
+  },
+  "stations": {
+    "swami-samarth-nagar": {
+      "bus": [
+        {
+          "name": "Swami Samarth Nagar",
+          "distance_m": 210,
+          "osm": "node/9125877273"
+        },
+        {
+          "name": "Sundarvan",
+          "distance_m": 340,
+          "osm": "node/9120485010"
+        },
+        {
+          "name": "Sundervan",
+          "distance_m": 440,
+          "osm": "node/9125904942"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Gandharv K. Sudhir Phadke Chowk",
+          "distance_m": 110,
+          "osm": "node/13598845194"
+        },
+        {
+          "name": "Lokhandwala Circle",
+          "distance_m": 170,
+          "osm": "way/1239342851"
+        },
+        {
+          "name": "Aai Tulja Bhavani Chowk",
+          "distance_m": 260,
+          "osm": "node/13571831783"
+        }
+      ],
+      "college": [
+        {
+          "name": "National Institute of Oceanography",
+          "distance_m": 460,
+          "osm": "way/204885504"
+        },
+        {
+          "name": "Roshan Taneja School of Acting",
+          "distance_m": 550,
+          "osm": "way/207905223"
+        },
+        {
+          "name": "Oriental College",
+          "distance_m": 650,
+          "osm": "way/250492234"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Infiniti Mall",
+          "distance_m": 420,
+          "osm": "way/193632118"
+        },
+        {
+          "name": "Citi Mall",
+          "distance_m": 510,
+          "osm": "way/193632123"
+        },
+        {
+          "name": "Crystal Plaza",
+          "distance_m": 580,
+          "osm": "node/342120028"
+        }
+      ],
+      "office": [
+        {
+          "name": "Lotus Business Park",
+          "distance_m": 810,
+          "osm": "way/1340039919"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Axis Orthopaedic Hospital",
+          "distance_m": 500,
+          "osm": "node/9215424189"
+        },
+        {
+          "name": "Doctor M.I. Doongerwala",
+          "distance_m": 580,
+          "osm": "node/7067961276"
+        },
+        {
+          "name": "Dr Eye Institute Pvt Ltd",
+          "distance_m": 590,
+          "osm": "node/7055330884"
+        }
+      ]
+    },
+    "adarsh-nagar": {
+      "bus": [
+        {
+          "name": "Lokhandwala Link Road",
+          "distance_m": 180,
+          "osm": "node/2366784472"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Aai Tulja Bhavani Chowk",
+          "distance_m": 440,
+          "osm": "node/13571831783"
+        },
+        {
+          "name": "Vasantrav Shinde Chowk",
+          "distance_m": 480,
+          "osm": "node/14197852550"
+        },
+        {
+          "name": "Colonel A.B. Tarapore Chowk",
+          "distance_m": 510,
+          "osm": "node/2120428871"
+        }
+      ],
+      "college": [
+        {
+          "name": "Oriental College",
+          "distance_m": 210,
+          "osm": "way/250492234"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Crystal Plaza",
+          "distance_m": 130,
+          "osm": "node/342120028"
+        },
+        {
+          "name": "Infiniti Mall",
+          "distance_m": 260,
+          "osm": "way/193632118"
+        },
+        {
+          "name": "Citi Mall",
+          "distance_m": 390,
+          "osm": "way/193632123"
+        }
+      ],
+      "office": [
+        {
+          "name": "Lotus Business Park",
+          "distance_m": 570,
+          "osm": "way/1340039919"
+        },
+        {
+          "name": "Reliable Business Centre",
+          "distance_m": 780,
+          "osm": "way/844474525"
+        },
+        {
+          "name": "AFCONS Infrastructure Private Limited",
+          "distance_m": 890,
+          "osm": "way/1444323688"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Bluebell Hospital",
+          "distance_m": 80,
+          "osm": "node/14357979757"
+        },
+        {
+          "name": "Dr Eye Institute Pvt Ltd",
+          "distance_m": 360,
+          "osm": "node/7055330884"
+        },
+        {
+          "name": "Doctor M.I. Doongerwala",
+          "distance_m": 610,
+          "osm": "node/7067961276"
+        }
+      ]
+    },
+    "jogeshwari-west": {
+      "rail": [
+        {
+          "name": "Jogeshwari (Harbour Line)",
+          "distance_m": 770,
+          "osm": "node/12189351698"
+        },
+        {
+          "name": "Jogeshwari (Western Line)",
+          "distance_m": 840,
+          "osm": "node/12189363305"
+        }
+      ],
+      "bus": [
+        {
+          "name": "Jogeshwari Telephone Exchange",
+          "distance_m": 150,
+          "osm": "node/9788429237"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Crystal Plaza",
+          "distance_m": 1020,
+          "osm": "node/342120028"
+        },
+        {
+          "name": "Citi Mall",
+          "distance_m": 1150,
+          "osm": "way/193632123"
+        },
+        {
+          "name": "Infiniti Mall",
+          "distance_m": 1190,
+          "osm": "way/193632118"
+        }
+      ],
+      "office": [
+        {
+          "name": "AFCONS Infrastructure Private Limited",
+          "distance_m": 990,
+          "osm": "way/1444323688"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Millat Dialysis Center",
+          "distance_m": 70,
+          "osm": "node/8797130860"
+        },
+        {
+          "name": "Diamond Hospital",
+          "distance_m": 150,
+          "osm": "node/7073099556"
+        },
+        {
+          "name": "Orbit Eye Hospital, Mumbai",
+          "distance_m": 360,
+          "osm": "node/7049344773"
+        }
+      ]
+    },
+    "jvlr": {
+      "rail": [
+        {
+          "name": "Jogeshwari (Harbour Line)",
+          "distance_m": 470,
+          "osm": "node/12189351698"
+        },
+        {
+          "name": "Jogeshwari (Western Line)",
+          "distance_m": 690,
+          "osm": "node/12189363305"
+        }
+      ],
+      "bus": [
+        {
+          "name": "Pratap Nagar",
+          "distance_m": 310,
+          "osm": "node/5472603121"
+        }
+      ],
+      "college": [
+        {
+          "name": "Ismail Yusuf College",
+          "distance_m": 750,
+          "osm": "way/625929087"
+        }
+      ],
+      "office": [
+        {
+          "name": "Lotus Corporate Park",
+          "distance_m": 530,
+          "osm": "way/353161506"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Hindu Hruday Samrat Balasaheb Thackerey Trauma Care Municipal Hospital",
+          "distance_m": 80,
+          "osm": "way/554967613"
+        },
+        {
+          "name": "Shalyak Hospital",
+          "distance_m": 330,
+          "osm": "node/7663961488"
+        },
+        {
+          "name": "matoshri umabai RANE hospital",
+          "distance_m": 440,
+          "osm": "node/8797161232"
+        }
+      ]
+    },
+    "shyam-nagar": {
+      "rail": [
+        {
+          "name": "Jogeshwari (Harbour Line)",
+          "distance_m": 1320,
+          "osm": "node/12189351698"
+        },
+        {
+          "name": "Jogeshwari (Western Line)",
+          "distance_m": 1390,
+          "osm": "node/12189363305"
+        }
+      ],
+      "bus": [
+        {
+          "name": "Shyam Nagar",
+          "distance_m": 170,
+          "osm": "node/4483498789"
+        },
+        {
+          "name": "Majas Depot",
+          "distance_m": 330,
+          "osm": "node/4483498869"
+        },
+        {
+          "name": "Rameadi",
+          "distance_m": 350,
+          "osm": "node/10298085103"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "DNA Hospital",
+          "distance_m": 220,
+          "osm": "node/7663961438"
+        },
+        {
+          "name": "matoshri umabai RANE hospital",
+          "distance_m": 590,
+          "osm": "node/8797161232"
+        },
+        {
+          "name": "Kokan Hospital",
+          "distance_m": 690,
+          "osm": "node/7055749046"
+        }
+      ]
+    },
+    "mahakali-caves": {
+      "bus": [
+        {
+          "name": "Durga Nagar",
+          "distance_m": 330,
+          "osm": "node/5472603521"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Sanvidha Chowk",
+          "distance_m": 690,
+          "osm": "node/10296439231"
+        },
+        {
+          "name": "Maroshi Naka",
+          "distance_m": 890,
+          "osm": "node/2236679734"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Dr Phadkes Maternity and Surgical Hospital",
+          "distance_m": 560,
+          "osm": "node/7086283489"
+        },
+        {
+          "name": "BMC arogya Kendra",
+          "distance_m": 620,
+          "osm": "node/8797904410"
+        },
+        {
+          "name": "Uma Maternity Nursing Home",
+          "distance_m": 770,
+          "osm": "node/7083324261"
+        }
+      ]
+    },
+    "seepz-village": {
+      "chowk": [
+        {
+          "name": "Sanvidha Chowk",
+          "distance_m": 520,
+          "osm": "node/10296439231"
+        },
+        {
+          "name": "Maroshi Naka",
+          "distance_m": 700,
+          "osm": "node/2236679734"
+        }
+      ],
+      "office": [
+        {
+          "name": "Zycus Infotech Pvt Ltd",
+          "distance_m": 300,
+          "osm": "way/353141393"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Gokul Maternity & Surgical Home",
+          "distance_m": 900,
+          "osm": "node/7067540680"
+        },
+        {
+          "name": "The Vein Center Andheri",
+          "distance_m": 980,
+          "osm": "way/356531771"
+        },
+        {
+          "name": "BMC arogya Kendra",
+          "distance_m": 990,
+          "osm": "node/8797904410"
+        }
+      ]
+    },
+    "saki-vihar-road": {
+      "bus": [
+        {
+          "name": "Doctor Ambedkar Park",
+          "distance_m": 310,
+          "osm": "node/10310554351"
+        },
+        {
+          "name": "LIC Gate No.6",
+          "distance_m": 320,
+          "osm": "node/10310554331"
+        },
+        {
+          "name": "I E S High School",
+          "distance_m": 410,
+          "osm": "node/4849543421"
+        }
+      ],
+      "office": [
+        {
+          "name": "L& T Infotech",
+          "distance_m": 390,
+          "osm": "way/366912371"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "S B Nursing Home and Icu",
+          "distance_m": 210,
+          "osm": "node/7043397403"
+        },
+        {
+          "name": "Nirali A M Naik Charitable Health-Care Facility",
+          "distance_m": 560,
+          "osm": "way/959572919"
+        }
+      ]
+    },
+    "rambaug": {
+      "college": [
+        {
+          "name": "Chanfrabhan Sharma collehe of arts & science",
+          "distance_m": 750,
+          "osm": "node/11697998052"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Heera Panna Shopping Complex",
+          "distance_m": 800,
+          "osm": "way/353206876"
+        },
+        {
+          "name": "Galleria",
+          "distance_m": 1380,
+          "osm": "way/195694235"
+        }
+      ],
+      "office": [
+        {
+          "name": "L& T Infotech",
+          "distance_m": 600,
+          "osm": "way/366912371"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Nirali A M Naik Charitable Health-Care Facility",
+          "distance_m": 780,
+          "osm": "way/959572919"
+        },
+        {
+          "name": "S B Nursing Home and Icu",
+          "distance_m": 890,
+          "osm": "node/7043397403"
+        }
+      ]
+    },
+    "powai-lake": {
+      "bus": [
+        {
+          "name": "Shetty Vidyalay",
+          "distance_m": 450,
+          "osm": "node/3518744772"
+        }
+      ],
+      "college": [
+        {
+          "name": "Chanfrabhan Sharma collehe of arts & science",
+          "distance_m": 480,
+          "osm": "node/11697998052"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Heera Panna Shopping Complex",
+          "distance_m": 180,
+          "osm": "way/353206876"
+        },
+        {
+          "name": "Galleria",
+          "distance_m": 610,
+          "osm": "way/195694235"
+        },
+        {
+          "name": "Powai Plaza",
+          "distance_m": 850,
+          "osm": "node/11697795359"
+        }
+      ]
+    },
+    "iit-powai": {
+      "bus": [
+        {
+          "name": "3 Step Park (No Service)",
+          "distance_m": 160,
+          "osm": "node/5078296184"
+        },
+        {
+          "name": "Lake Gate (No Service)",
+          "distance_m": 220,
+          "osm": "node/5078296183"
+        },
+        {
+          "name": "IIT Main Gate",
+          "distance_m": 300,
+          "osm": "node/10289597036"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Dr. Abdul Kalam Chowk",
+          "distance_m": 380,
+          "osm": "node/10296439235"
+        }
+      ],
+      "college": [
+        {
+          "name": "Department of Metalurgical and Material Science Engineering",
+          "distance_m": 890,
+          "osm": "way/315588847"
+        },
+        {
+          "name": "Shailesh J Mehta Institute of Management",
+          "distance_m": 910,
+          "osm": "node/668494244"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Powai Plaza",
+          "distance_m": 100,
+          "osm": "node/11697795359"
+        },
+        {
+          "name": "Hakone",
+          "distance_m": 150,
+          "osm": "node/11697823599"
+        },
+        {
+          "name": "Galleria",
+          "distance_m": 530,
+          "osm": "way/195694235"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "dr.anjali's hospital",
+          "distance_m": 300,
+          "osm": "node/11617868277"
+        },
+        {
+          "name": "Powai Hospital",
+          "distance_m": 330,
+          "osm": "node/1855812194"
+        },
+        {
+          "name": "Powai Dental Clinic",
+          "distance_m": 430,
+          "osm": "node/1855812192"
+        }
+      ]
+    },
+    "kanjur-marg-west": {
+      "rail": [
+        {
+          "name": "Kanjur Marg",
+          "distance_m": 530,
+          "osm": "node/619992025"
+        }
+      ],
+      "bus": [
+        {
+          "name": "Gandhi Nagar",
+          "distance_m": 40,
+          "osm": "node/10253292688"
+        },
+        {
+          "name": "Gandhi Nagar Vikhroli",
+          "distance_m": 130,
+          "osm": "node/4624037663"
+        },
+        {
+          "name": "Hindustan Company",
+          "distance_m": 360,
+          "osm": "node/4644026868"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Shuamlal Sohanlal Chowk",
+          "distance_m": 170,
+          "osm": "node/1646887643"
+        },
+        {
+          "name": "Dr. Abdul Kalam Chowk",
+          "distance_m": 820,
+          "osm": "node/10296439235"
+        }
+      ],
+      "college": [
+        {
+          "name": "CAD Centre",
+          "distance_m": 970,
+          "osm": "way/622819448"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Brand Factory Vikhroli",
+          "distance_m": 540,
+          "osm": "node/5580528930"
+        },
+        {
+          "name": "Hakone",
+          "distance_m": 1170,
+          "osm": "node/11697823599"
+        },
+        {
+          "name": "Powai Plaza",
+          "distance_m": 1210,
+          "osm": "node/11697795359"
+        }
+      ],
+      "office": [
+        {
+          "name": "Lodha iThink",
+          "distance_m": 760,
+          "osm": "way/483179409"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Nihal Nursing Home & Opthalmologist",
+          "distance_m": 560,
+          "osm": "node/6801919192"
+        },
+        {
+          "name": "Sri Sai Eye Care Centre",
+          "distance_m": 650,
+          "osm": "node/7043397404"
+        },
+        {
+          "name": "Powai Dental Clinic",
+          "distance_m": 750,
+          "osm": "node/1855812192"
+        }
+      ]
+    },
+    "vikhroli-eeh": {
+      "rail": [
+        {
+          "name": "Kanjur Marg",
+          "distance_m": 860,
+          "osm": "node/619992025"
+        }
+      ],
+      "bus": [
+        {
+          "name": "Vikhroli Police Station",
+          "distance_m": 470,
+          "osm": "node/10247412243"
+        }
+      ],
+      "college": [
+        {
+          "name": "Asmita College",
+          "distance_m": 670,
+          "osm": "way/1123725999"
+        },
+        {
+          "name": "Vikas College",
+          "distance_m": 790,
+          "osm": "way/354602301"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Brand Factory Vikhroli",
+          "distance_m": 960,
+          "osm": "node/5580528930"
+        }
+      ],
+      "office": [
+        {
+          "name": "Lodha iThink",
+          "distance_m": 770,
+          "osm": "way/483179409"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Atul - Lok Hospital",
+          "distance_m": 620,
+          "osm": "node/7063805560"
+        },
+        {
+          "name": "Aniket Nursing Home",
+          "distance_m": 650,
+          "osm": "way/353785599"
+        },
+        {
+          "name": "Ankur Maternity and Surgical Nursing Home",
+          "distance_m": 720,
+          "osm": "node/7069569114"
+        }
+      ]
+    }
+  }
+}

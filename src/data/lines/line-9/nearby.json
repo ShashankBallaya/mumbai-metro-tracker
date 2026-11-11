@@ -1,0 +1,400 @@
+{
+  "_meta": {
+    "description": "Places near each station, from OpenStreetMap: the nearest few of each kind within its radius, measured in a straight line from the station point to the place (to the centre of an area such as a campus). Bus stops: one entry for each name. Built by scripts/fetch-nearby.mjs; do not edit by hand. OpenStreetMap data is ODbL; credit \"OpenStreetMap contributors\".",
+    "kinds": [
+      {
+        "id": "rail",
+        "label": "Railway stations",
+        "radius_m": 1500,
+        "max": 2
+      },
+      {
+        "id": "bus",
+        "label": "Bus stops",
+        "radius_m": 500,
+        "max": 3
+      },
+      {
+        "id": "chowk",
+        "label": "Chowks and nakas",
+        "radius_m": 1000,
+        "max": 3
+      },
+      {
+        "id": "college",
+        "label": "Colleges",
+        "radius_m": 1000,
+        "max": 4
+      },
+      {
+        "id": "mall",
+        "label": "Malls",
+        "radius_m": 1500,
+        "max": 3
+      },
+      {
+        "id": "office",
+        "label": "Offices and IT parks",
+        "radius_m": 1000,
+        "max": 4
+      },
+      {
+        "id": "hospital",
+        "label": "Hospitals",
+        "radius_m": 1000,
+        "max": 3
+      }
+    ],
+    "status": "reported",
+    "source_url": "https://www.openstreetmap.org/copyright",
+    "last_verified": "2026-11-11"
+  },
+  "stations": {
+    "dahisar-east": {
+      "rail": [
+        {
+          "name": "Dahisar",
+          "distance_m": 820,
+          "osm": "node/213030669"
+        }
+      ],
+      "bus": [
+        {
+          "name": "Ghartan Pada",
+          "distance_m": 130,
+          "osm": "node/10251478064"
+        },
+        {
+          "name": "Ganesh Nagar",
+          "distance_m": 460,
+          "osm": "node/10247438185"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Toll Naka",
+          "distance_m": 810,
+          "osm": "node/342119953"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Aashapuri Hospital",
+          "distance_m": 160,
+          "osm": "node/7663833170"
+        },
+        {
+          "name": "Sanghavi Eye and Diabetes Care Center",
+          "distance_m": 360,
+          "osm": "node/7063805504"
+        },
+        {
+          "name": "Shraddha Hospital, Mumbai",
+          "distance_m": 440,
+          "osm": "node/7066505741"
+        }
+      ]
+    },
+    "pandurang-wadi": {
+      "bus": [
+        {
+          "name": "Samrat Hotel / Mahavishnu Mandir",
+          "distance_m": 30,
+          "osm": "node/10251478073"
+        },
+        {
+          "name": "Golden Chemicals / Thakur Mall",
+          "distance_m": 350,
+          "osm": "node/10247438189"
+        },
+        {
+          "name": "Mira Gaothan",
+          "distance_m": 360,
+          "osm": "node/10251478069"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Toll Naka",
+          "distance_m": 980,
+          "osm": "node/2249202040"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Thakur Shopping Mall & Multiplex",
+          "distance_m": 220,
+          "osm": "node/1070841437"
+        },
+        {
+          "name": "Surya Shopping Centre",
+          "distance_m": 1210,
+          "osm": "way/353396353"
+        }
+      ],
+      "office": [
+        {
+          "name": "Benn Electricals Private Limited",
+          "distance_m": 450,
+          "osm": "way/1332146617"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Orbit Super Speciality Hospital",
+          "distance_m": 600,
+          "osm": "node/7067158386"
+        },
+        {
+          "name": "Bhaktivedanta Hospital",
+          "distance_m": 740,
+          "osm": "node/7055463124"
+        }
+      ]
+    },
+    "miragaon": {
+      "bus": [
+        {
+          "name": "Amar Palace",
+          "distance_m": 280,
+          "osm": "node/10247438194"
+        },
+        {
+          "name": "Kashimira",
+          "distance_m": 310,
+          "osm": "node/10251478076"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Thakur Shopping Mall & Multiplex",
+          "distance_m": 1110,
+          "osm": "node/1070841437"
+        },
+        {
+          "name": "Surya Shopping Centre",
+          "distance_m": 1250,
+          "osm": "way/353396353"
+        }
+      ],
+      "office": [
+        {
+          "name": "Benn Electricals Private Limited",
+          "distance_m": 520,
+          "osm": "way/1332146617"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Orbit Super Speciality Hospital",
+          "distance_m": 300,
+          "osm": "node/7067158386"
+        },
+        {
+          "name": "Saint Anne's Hospital",
+          "distance_m": 370,
+          "osm": "node/342119964"
+        }
+      ]
+    },
+    "kashigaon": {
+      "bus": [
+        {
+          "name": "Green Park / Pleasant Park",
+          "distance_m": 160,
+          "osm": "node/10247438178"
+        },
+        {
+          "name": "Vinay Nagar bus stop",
+          "distance_m": 250,
+          "osm": "node/13377986459"
+        },
+        {
+          "name": "Hatkesh",
+          "distance_m": 400,
+          "osm": "node/10251478077"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Surya Shopping Centre",
+          "distance_m": 1170,
+          "osm": "way/353396353"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Saint Anne's Hospital",
+          "distance_m": 590,
+          "osm": "node/342119964"
+        },
+        {
+          "name": "Samartha Hospital",
+          "distance_m": 690,
+          "osm": "node/7054153830"
+        },
+        {
+          "name": "Orbit Super Speciality Hospital",
+          "distance_m": 970,
+          "osm": "node/7067158386"
+        }
+      ]
+    },
+    "sai-baba-nagar": {
+      "bus": [
+        {
+          "name": "Silver Park",
+          "distance_m": 400,
+          "osm": "node/10247438179"
+        },
+        {
+          "name": "Jangid Circle",
+          "distance_m": 450,
+          "osm": "node/10251478084"
+        },
+        {
+          "name": "Beverly Park",
+          "distance_m": 470,
+          "osm": "node/12824002647"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Surya Shopping Centre",
+          "distance_m": 1110,
+          "osm": "way/353396353"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "A Care Orthopaedic and General Hospital",
+          "distance_m": 80,
+          "osm": "node/7054394705"
+        },
+        {
+          "name": "Samartha Hospital",
+          "distance_m": 520,
+          "osm": "node/7054153830"
+        },
+        {
+          "name": "Vipassana Hospital",
+          "distance_m": 550,
+          "osm": "node/7051832702"
+        }
+      ]
+    },
+    "meditiya-nagar": {
+      "rail": [
+        {
+          "name": "Mira Road",
+          "distance_m": 1430,
+          "osm": "node/5122858908"
+        }
+      ],
+      "bus": [
+        {
+          "name": "Golden Nest Circle",
+          "distance_m": 120,
+          "osm": "node/12828304509"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Golden Nest Circle",
+          "distance_m": 240,
+          "osm": "node/9130272923"
+        }
+      ],
+      "college": [
+        {
+          "name": "Banegar College Ground",
+          "distance_m": 610,
+          "osm": "way/1568437282"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Maxus Mall",
+          "distance_m": 1200,
+          "osm": "way/352922998"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Balaji Hospital",
+          "distance_m": 150,
+          "osm": "node/4548656491"
+        },
+        {
+          "name": "Chirayu Superspeciality Hospital",
+          "distance_m": 180,
+          "osm": "node/7054385780"
+        },
+        {
+          "name": "Deepak Hospital",
+          "distance_m": 240,
+          "osm": "node/4572621489"
+        }
+      ]
+    },
+    "shahid-bhagat-singh-garden": {
+      "chowk": [
+        {
+          "name": "Golden Nest Circle",
+          "distance_m": 940,
+          "osm": "node/9130272923"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Maxus Mall",
+          "distance_m": 190,
+          "osm": "way/352922998"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "MIRA Cancer Superspeciality Hospital",
+          "distance_m": 250,
+          "osm": "node/13078411701"
+        },
+        {
+          "name": "Tembha Hospital",
+          "distance_m": 330,
+          "osm": "node/7663684010"
+        },
+        {
+          "name": "Kasturi Hospital",
+          "distance_m": 600,
+          "osm": "node/7663684044"
+        }
+      ]
+    },
+    "subhash-chandra-bose-stadium": {
+      "mall": [
+        {
+          "name": "Maxus Mall",
+          "distance_m": 600,
+          "osm": "way/352922998"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Tembha Hospital",
+          "distance_m": 660,
+          "osm": "node/7663684010"
+        },
+        {
+          "name": "MIRA Cancer Superspeciality Hospital",
+          "distance_m": 770,
+          "osm": "node/13078411701"
+        },
+        {
+          "name": "Ramlok ENT Hospital",
+          "distance_m": 780,
+          "osm": "node/7051759660"
+        }
+      ]
+    }
+  }
+}

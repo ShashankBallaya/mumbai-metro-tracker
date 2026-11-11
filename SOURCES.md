@@ -75,7 +75,7 @@ Since 2026-09-29 the route line (`src/data/alignment-mmrda-2025.geojson`) and ev
 | Source | Used for | Licence / terms |
 |---|---|---|
 | [OpenFreeMap](https://openfreemap.org) vector tiles, [OpenMapTiles](https://openmaptiles.org) schema | Base map | Free, no key. Attribution shown on the map. |
-| [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors | Map data | ODbL, attribution shown |
+| [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors | Map data; places near each station (`nearby.json`) | ODbL, attribution shown |
 | [Esri World Imagery Wayback](https://livingatlas.arcgis.com/wayback/) | Before and after imagery (Maxar 10 May 2022, Vantor 12 Oct 2025) | Esri terms of use, attribution shown. Capture dates from Esri's imagery metadata service. |
 | [Mapillary](https://www.mapillary.com) (optional) | Street-level photos with capture dates | CC BY-SA 4.0, needs `PUBLIC_MAPILLARY_TOKEN` |
 
@@ -90,7 +90,7 @@ Since 2026-09-29 the route line (`src/data/alignment-mmrda-2025.geojson`) and ev
 7. **Systems tender number.** "CA-315" and the EMD come from a search snippet of a paywalled page. Marked unverified.
 8. **General Consultant value.** Rs 265.10 crore covers Lines 10 and 12 together. There is no source for the Line 12 share.
 9. **Line 12A.** Separate 18.4 km project approved in Feb 2026. It is listed under `related_projects` and kept out of Line 12 totals. Resolved 2026-10-28: Line 12A has its own page at /line-12a/ (see "Line 12A" below). Update 2026-10-28: the state Cabinet Infrastructure Committee cleared it on 27 Oct 2026 at Rs 13,856.37 crore (with integrated flyovers; the Feb 2026 figure was Rs 8,414.53 crore), with a deadline of three and a half years. Reported only; no MMRDA document yet.
-10. **Nearby landmarks.** Station context comes only from DPR text (roads, chowks, villages) and engineering reports. I did not add landmarks from maps, to avoid invented facts. Phase 3 can add them from OpenStreetMap with attribution.
+10. **Nearby landmarks.** Station context comes only from DPR text (roads, chowks, villages) and engineering reports. I did not add landmarks from maps, to avoid invented facts. Resolved 2026-11-11: a separate "Nearby" row on each station page lists railway stations, bus stops, chowks and nakas, colleges, malls, offices and IT parks, and hospitals from OpenStreetMap (ODbL, credited, graded reported, each place linked to its OpenStreetMap entry). Distances are straight-line. Built by `scripts/fetch-nearby.mjs`; the idea came from a reader on X (ketan_jn, 11 Nov 2026). "Around the station" still holds only sourced context.
 11. **Social posts.** `social.json` has no posts yet. There is one candidate for you to review.
 
 ## Leads to verify (supplied by the owner, 2026-09-28, no source URL yet)

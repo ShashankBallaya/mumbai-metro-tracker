@@ -1,0 +1,672 @@
+{
+  "_meta": {
+    "description": "Places near each station, from OpenStreetMap: the nearest few of each kind within its radius, measured in a straight line from the station point to the place (to the centre of an area such as a campus). Bus stops: one entry for each name. Built by scripts/fetch-nearby.mjs; do not edit by hand. OpenStreetMap data is ODbL; credit \"OpenStreetMap contributors\".",
+    "kinds": [
+      {
+        "id": "rail",
+        "label": "Railway stations",
+        "radius_m": 1500,
+        "max": 2
+      },
+      {
+        "id": "bus",
+        "label": "Bus stops",
+        "radius_m": 500,
+        "max": 3
+      },
+      {
+        "id": "chowk",
+        "label": "Chowks and nakas",
+        "radius_m": 1000,
+        "max": 3
+      },
+      {
+        "id": "college",
+        "label": "Colleges",
+        "radius_m": 1000,
+        "max": 4
+      },
+      {
+        "id": "mall",
+        "label": "Malls",
+        "radius_m": 1500,
+        "max": 3
+      },
+      {
+        "id": "office",
+        "label": "Offices and IT parks",
+        "radius_m": 1000,
+        "max": 4
+      },
+      {
+        "id": "hospital",
+        "label": "Hospitals",
+        "radius_m": 1000,
+        "max": 3
+      }
+    ],
+    "status": "reported",
+    "source_url": "https://www.openstreetmap.org/copyright",
+    "last_verified": "2026-11-11"
+  },
+  "stations": {
+    "kapurbawdi": {
+      "bus": [
+        {
+          "name": "Tattvagyan Vidyapeeth",
+          "distance_m": 80,
+          "osm": "node/8789863205"
+        },
+        {
+          "name": "Kapurbawadi",
+          "distance_m": 280,
+          "osm": "node/8789863204"
+        },
+        {
+          "name": "Shruti Park",
+          "distance_m": 380,
+          "osm": "node/8794902858"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Tatvagyan Vidyapeeth Circle",
+          "distance_m": 140,
+          "osm": "node/9214918879"
+        },
+        {
+          "name": "Tulsidham Circle",
+          "distance_m": 460,
+          "osm": "node/9214918805"
+        },
+        {
+          "name": "Hiranandani Meadows Circle",
+          "distance_m": 930,
+          "osm": "way/910066622"
+        }
+      ],
+      "mall": [
+        {
+          "name": "WonderMall",
+          "distance_m": 340,
+          "osm": "way/352922006"
+        },
+        {
+          "name": "R-Mall (Ghodbunder)",
+          "distance_m": 660,
+          "osm": "way/353157826"
+        },
+        {
+          "name": "Lake City Mall",
+          "distance_m": 800,
+          "osm": "way/234977124"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Highland Speciality Hospital",
+          "distance_m": 230,
+          "osm": "way/1013529991"
+        },
+        {
+          "name": "Dr Walvatkars Eye Care Center",
+          "distance_m": 550,
+          "osm": "node/7044745237"
+        },
+        {
+          "name": "Navjeewan Hospital",
+          "distance_m": 760,
+          "osm": "node/7064125733"
+        }
+      ]
+    },
+    "balkum-naka": {
+      "bus": [
+        {
+          "name": "Balkum Naka",
+          "distance_m": 120,
+          "osm": "node/10247412270"
+        },
+        {
+          "name": "Balkum Pada No 2",
+          "distance_m": 150,
+          "osm": "node/10251521065"
+        },
+        {
+          "name": "Colour Chem",
+          "distance_m": 220,
+          "osm": "node/10251521067"
+        }
+      ],
+      "college": [
+        {
+          "name": "University of Mumbai Thane Sub-Campus",
+          "distance_m": 490,
+          "osm": "way/946542636"
+        }
+      ],
+      "mall": [
+        {
+          "name": "High Street Mall",
+          "distance_m": 910,
+          "osm": "way/234977123"
+        },
+        {
+          "name": "Lake City Mall",
+          "distance_m": 1060,
+          "osm": "way/234977124"
+        },
+        {
+          "name": "Boulevard",
+          "distance_m": 1070,
+          "osm": "way/234976487"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Mauli Hospital",
+          "distance_m": 340,
+          "osm": "node/7663684023"
+        }
+      ]
+    },
+    "kasheli": {
+      "bus": [
+        {
+          "name": "Durgesh Complex",
+          "distance_m": 120,
+          "osm": "node/10251478019"
+        },
+        {
+          "name": "Hanuman Complex",
+          "distance_m": 180,
+          "osm": "node/10251478016"
+        },
+        {
+          "name": "Kasheli Gaon",
+          "distance_m": 430,
+          "osm": "node/10251478024"
+        }
+      ]
+    },
+    "kalher": {
+      "bus": [
+        {
+          "name": "Kopar",
+          "distance_m": 190,
+          "osm": "node/10251478026"
+        }
+      ]
+    },
+    "purna": {
+      "bus": [
+        {
+          "name": "Khandagale Estate",
+          "distance_m": 180,
+          "osm": "node/10247412282"
+        },
+        {
+          "name": "Purna",
+          "distance_m": 230,
+          "osm": "node/10251478027"
+        }
+      ]
+    },
+    "anjurphata": {
+      "rail": [
+        {
+          "name": "Bhivandi Road",
+          "distance_m": 720,
+          "osm": "node/213017960"
+        }
+      ],
+      "bus": [
+        {
+          "name": "Anjur Phata",
+          "distance_m": 240,
+          "osm": "node/10247412283"
+        },
+        {
+          "name": "Oswal Sagar Hall",
+          "distance_m": 260,
+          "osm": "node/10247412284"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Anjurphata",
+          "distance_m": 720,
+          "osm": "way/868743272"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Shushrusha Hospital, Thane",
+          "distance_m": 350,
+          "osm": "node/7074541572"
+        },
+        {
+          "name": "Lotus Hospital",
+          "distance_m": 860,
+          "osm": "node/7663684052"
+        }
+      ]
+    },
+    "dhamankar-naka": {
+      "bus": [
+        {
+          "name": "Narpoli Police Station",
+          "distance_m": 350,
+          "osm": "node/10247412280"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Guru Krupa Hospital and Polyclinic",
+          "distance_m": 310,
+          "osm": "node/7043062926"
+        },
+        {
+          "name": "Mehar Hospital and Iccu",
+          "distance_m": 750,
+          "osm": "node/7073438363"
+        },
+        {
+          "name": "Vision Tec Advanced Eye Care Centre",
+          "distance_m": 760,
+          "osm": "node/7066374618"
+        }
+      ]
+    },
+    "bhiwandi": {
+      "bus": [
+        {
+          "name": "Kalyan Naka",
+          "distance_m": 460,
+          "osm": "node/10251478030"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Ashirwad Hospital, Bhiwandi",
+          "distance_m": 560,
+          "osm": "node/7086516372"
+        },
+        {
+          "name": "Indira Gandhi Memorial Hospital, Bhiwandi",
+          "distance_m": 630,
+          "osm": "node/7226636091"
+        },
+        {
+          "name": "Apex Multispeciality Hospital & ICU",
+          "distance_m": 630,
+          "osm": "node/7663684053"
+        }
+      ]
+    },
+    "temghar": {
+      "bus": [
+        {
+          "name": "Saibaba Mandir",
+          "distance_m": 210,
+          "osm": "node/10247438112"
+        },
+        {
+          "name": "Kalyan Bypass",
+          "distance_m": 380,
+          "osm": "node/10247438111"
+        },
+        {
+          "name": "Swayam Siddhi College",
+          "distance_m": 470,
+          "osm": "node/10247412307"
+        }
+      ]
+    },
+    "rajnouli": {
+      "bus": [
+        {
+          "name": "Kalyan Bypass",
+          "distance_m": 460,
+          "osm": "node/10251478040"
+        }
+      ]
+    },
+    "gove-gaon": {
+      "hospital": [
+        {
+          "name": "Pranayu Multispeciality Hospital",
+          "distance_m": 40,
+          "osm": "node/8816670648"
+        }
+      ]
+    },
+    "kongaon-west": {
+      "hospital": [
+        {
+          "name": "Goverment Hospital",
+          "distance_m": 450,
+          "osm": "node/7663684041"
+        },
+        {
+          "name": "Puja Nursing Home",
+          "distance_m": 460,
+          "osm": "node/7663684071"
+        },
+        {
+          "name": "Ved Hospital",
+          "distance_m": 730,
+          "osm": "node/7663684026"
+        }
+      ]
+    },
+    "kon-gaon": {
+      "chowk": [
+        {
+          "name": "shivaji chowk",
+          "distance_m": 880,
+          "osm": "way/1435240357"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Ved Hospital",
+          "distance_m": 300,
+          "osm": "node/7663684026"
+        },
+        {
+          "name": "Puja Nursing Home",
+          "distance_m": 560,
+          "osm": "node/7663684071"
+        },
+        {
+          "name": "Goverment Hospital",
+          "distance_m": 650,
+          "osm": "node/7663684041"
+        }
+      ]
+    },
+    "durgadi-fort": {
+      "chowk": [
+        {
+          "name": "Chatrapati Shivaji Maharaj Putala Chowk",
+          "distance_m": 340,
+          "osm": "way/684130784"
+        }
+      ],
+      "college": [
+        {
+          "name": "Regal College",
+          "distance_m": 940,
+          "osm": "node/8957834994"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Cauvery Uroderm Centre",
+          "distance_m": 390,
+          "osm": "node/7054352748"
+        },
+        {
+          "name": "Phadke Hospital",
+          "distance_m": 580,
+          "osm": "node/7663684032"
+        },
+        {
+          "name": "APEX HOSPITAL",
+          "distance_m": 580,
+          "osm": "way/758756974"
+        }
+      ]
+    },
+    "khadakpada": {
+      "chowk": [
+        {
+          "name": "Khadakpada Circle",
+          "distance_m": 230,
+          "osm": "way/789273517"
+        },
+        {
+          "name": "Sai Chowk",
+          "distance_m": 650,
+          "osm": "way/979456767"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Pratibha Hospital",
+          "distance_m": 170,
+          "osm": "node/7082626980"
+        },
+        {
+          "name": "Kilbil Children's Hospital",
+          "distance_m": 240,
+          "osm": "node/7049614840"
+        },
+        {
+          "name": "alfi diagnostics & smart clinics",
+          "distance_m": 330,
+          "osm": "node/13601936279"
+        }
+      ]
+    },
+    "bhoirwadi": {
+      "chowk": [
+        {
+          "name": "Bhavani Chowk",
+          "distance_m": 850,
+          "osm": "way/790947567"
+        },
+        {
+          "name": "Sai Chowk",
+          "distance_m": 880,
+          "osm": "way/979456767"
+        },
+        {
+          "name": "Khadakpada Circle",
+          "distance_m": 960,
+          "osm": "way/789273519"
+        }
+      ],
+      "college": [
+        {
+          "name": "Birla College",
+          "distance_m": 280,
+          "osm": "way/683838280"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Sai Sanjivani Criticare Hospital",
+          "distance_m": 180,
+          "osm": "node/7079411305"
+        },
+        {
+          "name": "Gurukripa Criticare Hospital, Kalyan",
+          "distance_m": 310,
+          "osm": "node/7047327181"
+        },
+        {
+          "name": "Sampada Hospital",
+          "distance_m": 350,
+          "osm": "node/7069569112"
+        }
+      ]
+    },
+    "shivaji-path": {
+      "rail": [
+        {
+          "name": "Kalyan Junction",
+          "distance_m": 1130,
+          "osm": "node/4548442653"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Leela Eye Institute",
+          "distance_m": 50,
+          "osm": "node/7052957362"
+        },
+        {
+          "name": "Holy Cross Hospital, Thane",
+          "distance_m": 120,
+          "osm": "node/7044023358"
+        },
+        {
+          "name": "Dr Shahs Laser Eye Institute",
+          "distance_m": 170,
+          "osm": "node/7048167597"
+        }
+      ]
+    },
+    "kalyan": {
+      "rail": [
+        {
+          "name": "Kalyan Junction",
+          "distance_m": 570,
+          "osm": "node/4548442653"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Shivaji Chowk",
+          "distance_m": 330,
+          "osm": "way/791314953"
+        }
+      ],
+      "college": [
+        {
+          "name": "Regal College",
+          "distance_m": 640,
+          "osm": "node/8957834994"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Sarvoday mall",
+          "distance_m": 600,
+          "osm": "way/353815814"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Sai Sanket Hospital",
+          "distance_m": 80,
+          "osm": "node/7049071905"
+        },
+        {
+          "name": "AM PM 24 Hrs Hospital",
+          "distance_m": 150,
+          "osm": "node/7663684051"
+        },
+        {
+          "name": "Om Hospital",
+          "distance_m": 180,
+          "osm": "node/7663684035"
+        }
+      ]
+    },
+    "shanti-nagar": {
+      "rail": [
+        {
+          "name": "Vithalwadi",
+          "distance_m": 530,
+          "osm": "node/276562459"
+        },
+        {
+          "name": "Shahad",
+          "distance_m": 1420,
+          "osm": "node/2143751910"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Sheva Niketan Hospital",
+          "distance_m": 760,
+          "osm": "node/7663684034"
+        },
+        {
+          "name": "Life care Hospital",
+          "distance_m": 770,
+          "osm": "node/8816868782"
+        },
+        {
+          "name": "Sanjeevani Hopital",
+          "distance_m": 950,
+          "osm": "node/7049277971"
+        }
+      ]
+    },
+    "shivaji-chowk": {
+      "rail": [
+        {
+          "name": "Ulhasnagar",
+          "distance_m": 1050,
+          "osm": "node/5764394234"
+        },
+        {
+          "name": "Vithalwadi",
+          "distance_m": 1320,
+          "osm": "node/276562459"
+        }
+      ],
+      "college": [
+        {
+          "name": "Smt. Chandibai Himathmal Mansukhani College",
+          "distance_m": 780,
+          "osm": "way/286294712"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Meera ENT Hospital",
+          "distance_m": 190,
+          "osm": "node/7663612915"
+        },
+        {
+          "name": "Shraddha General Hospital and Icu and Stone Centre",
+          "distance_m": 450,
+          "osm": "node/7080269604"
+        },
+        {
+          "name": "SN Hospital",
+          "distance_m": 490,
+          "osm": "node/7663612929"
+        }
+      ]
+    },
+    "ulhasnagar": {
+      "rail": [
+        {
+          "name": "Ulhasnagar",
+          "distance_m": 970,
+          "osm": "node/5764394234"
+        }
+      ],
+      "college": [
+        {
+          "name": "Smt. Chandibai Himathmal Mansukhani College",
+          "distance_m": 840,
+          "osm": "way/286294712"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "SN Hospital",
+          "distance_m": 760,
+          "osm": "node/7663612929"
+        },
+        {
+          "name": "Surekha Criticare Hospital",
+          "distance_m": 840,
+          "osm": "node/7663612914"
+        },
+        {
+          "name": "Mauli Hospital",
+          "distance_m": 970,
+          "osm": "node/7663612899"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,193 @@
+{
+  "_meta": {
+    "description": "Places near each station, from OpenStreetMap: the nearest few of each kind within its radius, measured in a straight line from the station point to the place (to the centre of an area such as a campus). Bus stops: one entry for each name. Built by scripts/fetch-nearby.mjs; do not edit by hand. OpenStreetMap data is ODbL; credit \"OpenStreetMap contributors\".",
+    "kinds": [
+      {
+        "id": "rail",
+        "label": "Railway stations",
+        "radius_m": 1500,
+        "max": 2
+      },
+      {
+        "id": "bus",
+        "label": "Bus stops",
+        "radius_m": 500,
+        "max": 3
+      },
+      {
+        "id": "chowk",
+        "label": "Chowks and nakas",
+        "radius_m": 1000,
+        "max": 3
+      },
+      {
+        "id": "college",
+        "label": "Colleges",
+        "radius_m": 1000,
+        "max": 4
+      },
+      {
+        "id": "mall",
+        "label": "Malls",
+        "radius_m": 1500,
+        "max": 3
+      },
+      {
+        "id": "office",
+        "label": "Offices and IT parks",
+        "radius_m": 1000,
+        "max": 4
+      },
+      {
+        "id": "hospital",
+        "label": "Hospitals",
+        "radius_m": 1000,
+        "max": 3
+      }
+    ],
+    "status": "reported",
+    "source_url": "https://www.openstreetmap.org/copyright",
+    "last_verified": "2026-11-11"
+  },
+  "stations": {
+    "manpada": {
+      "mall": [
+        {
+          "name": "Rmall",
+          "distance_m": 330,
+          "osm": "way/353811933"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Jupiter Hospital",
+          "distance_m": 220,
+          "osm": "node/13635535147"
+        }
+      ]
+    },
+    "katai-naka": {
+      "mall": [
+        {
+          "name": "Lodha Xperia Mall",
+          "distance_m": 540,
+          "osm": "way/935761735"
+        }
+      ],
+      "office": [
+        {
+          "name": "Lodha iThink",
+          "distance_m": 760,
+          "osm": "way/935867272"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "MGM Hospital",
+          "distance_m": 200,
+          "osm": "node/7663684025"
+        }
+      ]
+    },
+    "desai-naka": {
+      "rail": [
+        {
+          "name": "Nilaje",
+          "distance_m": 1380,
+          "osm": "node/6568083089"
+        }
+      ],
+      "bus": [
+        {
+          "name": "Khirkali",
+          "distance_m": 150,
+          "osm": "node/10247438113"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Desai Naka",
+          "distance_m": 10,
+          "osm": "node/10717689044"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Lodha Xperia Mall",
+          "distance_m": 950,
+          "osm": "way/935761735"
+        }
+      ],
+      "office": [
+        {
+          "name": "Lodha iThink",
+          "distance_m": 740,
+          "osm": "way/935867272"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Ratnadeep Children's Hospitals",
+          "distance_m": 750,
+          "osm": "node/7663684015"
+        },
+        {
+          "name": "Shree Manav Kalyan Hospital",
+          "distance_m": 850,
+          "osm": "node/7663612922"
+        }
+      ]
+    },
+    "padle-gaon": {
+      "bus": [
+        {
+          "name": "Padle Gaon",
+          "distance_m": 10,
+          "osm": "node/10247438117"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Sunanda Circle",
+          "distance_m": 160,
+          "osm": "way/958167579"
+        }
+      ]
+    },
+    "kalyan-phata": {
+      "bus": [
+        {
+          "name": "Kalyan Phata",
+          "distance_m": 70,
+          "osm": "node/10251521014"
+        },
+        {
+          "name": "Shil Phata",
+          "distance_m": 170,
+          "osm": "node/10251521020"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Kalyan Phata",
+          "distance_m": 10,
+          "osm": "node/344399096"
+        },
+        {
+          "name": "Shill Phata",
+          "distance_m": 530,
+          "osm": "node/2629849624"
+        }
+      ]
+    },
+    "rohinjan": {
+      "bus": [
+        {
+          "name": "Rohinjan Bus Stop",
+          "distance_m": 0,
+          "osm": "node/13703628282"
+        }
+      ]
+    }
+  }
+}

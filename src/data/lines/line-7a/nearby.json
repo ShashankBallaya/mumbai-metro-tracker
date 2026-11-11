@@ -1,0 +1,178 @@
+{
+  "_meta": {
+    "description": "Places near each station, from OpenStreetMap: the nearest few of each kind within its radius, measured in a straight line from the station point to the place (to the centre of an area such as a campus). Bus stops: one entry for each name. Built by scripts/fetch-nearby.mjs; do not edit by hand. OpenStreetMap data is ODbL; credit \"OpenStreetMap contributors\".",
+    "kinds": [
+      {
+        "id": "rail",
+        "label": "Railway stations",
+        "radius_m": 1500,
+        "max": 2
+      },
+      {
+        "id": "bus",
+        "label": "Bus stops",
+        "radius_m": 500,
+        "max": 3
+      },
+      {
+        "id": "chowk",
+        "label": "Chowks and nakas",
+        "radius_m": 1000,
+        "max": 3
+      },
+      {
+        "id": "college",
+        "label": "Colleges",
+        "radius_m": 1000,
+        "max": 4
+      },
+      {
+        "id": "mall",
+        "label": "Malls",
+        "radius_m": 1500,
+        "max": 3
+      },
+      {
+        "id": "office",
+        "label": "Offices and IT parks",
+        "radius_m": 1000,
+        "max": 4
+      },
+      {
+        "id": "hospital",
+        "label": "Hospitals",
+        "radius_m": 1000,
+        "max": 3
+      }
+    ],
+    "status": "reported",
+    "source_url": "https://www.openstreetmap.org/copyright",
+    "last_verified": "2026-11-11"
+  },
+  "stations": {
+    "airport-colony": {
+      "rail": [
+        {
+          "name": "Vile Parle",
+          "distance_m": 1250,
+          "osm": "node/2630075010"
+        }
+      ],
+      "bus": [
+        {
+          "name": "Hanuman Society",
+          "distance_m": 230,
+          "osm": "node/9741160300"
+        },
+        {
+          "name": "Subhash Marg Parle",
+          "distance_m": 230,
+          "osm": "node/9741160299"
+        },
+        {
+          "name": "Hanuman Road",
+          "distance_m": 280,
+          "osm": "node/1579329389"
+        }
+      ],
+      "college": [
+        {
+          "name": "Dahanukar College of Commerce",
+          "distance_m": 860,
+          "osm": "way/353364342"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Parle Square Mall",
+          "distance_m": 1090,
+          "osm": "way/353364357"
+        }
+      ],
+      "office": [
+        {
+          "name": "BookMyShow Office",
+          "distance_m": 320,
+          "osm": "node/11426733288"
+        },
+        {
+          "name": "Airports Authority of India",
+          "distance_m": 350,
+          "osm": "way/570936326"
+        },
+        {
+          "name": "Jaisingh Business Center",
+          "distance_m": 360,
+          "osm": "way/1481731198"
+        },
+        {
+          "name": "Glennmark Corporate Enclave",
+          "distance_m": 700,
+          "osm": "way/1576479019"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "V N Shirodkar Hospital",
+          "distance_m": 230,
+          "osm": "node/7225067197"
+        },
+        {
+          "name": "gr8 smile dental clinic",
+          "distance_m": 350,
+          "osm": "node/3403264488"
+        },
+        {
+          "name": "Dr.Satish G.Desai",
+          "distance_m": 390,
+          "osm": "node/7053189597"
+        }
+      ]
+    },
+    "csia": {
+      "bus": [
+        {
+          "name": "CSMI Airport Terminal 2",
+          "distance_m": 170,
+          "osm": "node/4237791504"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Marol Naka",
+          "distance_m": 890,
+          "osm": "node/1199606539"
+        }
+      ],
+      "office": [
+        {
+          "name": "Samhita complex",
+          "distance_m": 660,
+          "osm": "way/1413771903"
+        },
+        {
+          "name": "IDfy",
+          "distance_m": 870,
+          "osm": "node/11423030518"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Airport Health Organization",
+          "distance_m": 350,
+          "osm": "node/13996773101"
+        },
+        {
+          "name": "Medicare Hospital",
+          "distance_m": 860,
+          "osm": "node/7663961402"
+        },
+        {
+          "name": "Central Hospital & Child Care Centre",
+          "distance_m": 940,
+          "osm": "node/7663961482"
+        }
+      ]
+    }
+  }
+}

@@ -190,10 +190,35 @@ export interface Line {
   stationModel?: StationModelFile;
   /** A drone flight along the line, when there is one. */
   aerial?: Aerial;
+  /** Places near each station, from OpenStreetMap (nearby.json, built by scripts/fetch-nearby.mjs). */
+  nearby?: NearbyFile;
   /** The GeoJSON named by `alignment` in lines.json, as text. */
   alignmentRaw?: string;
   /** The latest review date across this line's fact files. */
   lastReviewed: string;
+}
+
+/** One place near a station: its OpenStreetMap name, the straight-line distance, and its entry ("node/123"). */
+export interface NearbyPlace {
+  name: string;
+  distance_m: number;
+  osm: string;
+}
+
+/** A line's nearby.json: the kinds of place in page order, then each station's places by kind. */
+export interface NearbyFile {
+  _meta: {
+    kinds: { id: string; label: string; radius_m: number; max: number }[];
+    status: Grade;
+    source_url: string;
+    last_verified: string;
+  };
+  stations: Record<string, Record<string, NearbyPlace[]>>;
+}
+
+/** A straight-line distance for a reader: "40 m", "850 m", "1.4 km". */
+export function distanceText(m: number): string {
+  return m < 1000 ? `${m} m` : `${(m / 1000).toLocaleString('en-IN', { maximumFractionDigits: 1 })} km`;
 }
 
 const byId = new Map<string, Line>();
@@ -238,6 +263,7 @@ export function getLine(id: LineId): Line {
     beforeAfter: file('beforeafter.json'),
     stationModel: file('station-model.json'),
     aerial: file<Aerial>('aerial.json'),
+    nearby: file<NearbyFile>('nearby.json'),
     alignmentRaw: info.alignment ? rawFiles[dir + info.alignment] : undefined,
     lastReviewed: [project, stations, timeline, tenders, contractors, rollingstock, social]
       .map((f) => f?._meta.last_reviewed)

@@ -111,6 +111,53 @@
   display: grid;
   gap: var(--s-1);
 }
+/* Places near a station: each kind as a small label over its places, the distance set to the right. */
+.facts .nearby {
+  display: grid;
+  gap: var(--s-4) var(--s-5);
+  margin: 0;
+}
+@media (min-width: 48rem) {
+  .facts .nearby {
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    align-items: start;
+  }
+}
+.facts .nearby > div {
+  display: grid;
+  gap: var(--s-1);
+}
+.facts .nearby dt {
+  font-family: var(--font-body);
+  font-stretch: 100%;
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--ink-2);
+}
+.facts .nearby dd {
+  display: block;
+}
+.facts .nearby ul {
+  gap: var(--s-1);
+}
+.facts .nearby li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--s-3);
+  padding-block: var(--s-1);
+  border-bottom: var(--rule-w) dotted var(--rule);
+}
+.facts .nearby li:last-child {
+  border-bottom: 0;
+}
+.nearby__dist {
+  flex: none;
+  font-size: var(--step--1);
+  color: var(--ink-2);
+}
+
 /* One or more grade marks under a fact, each with its own source, never run together. */
 .grades {
   display: flex;

@@ -148,6 +148,16 @@ These are built from the data files. You never edit them by hand:
 - `/status/` answers common questions from `project.json`, `contractors.json` and `rollingstock.json`. When a fact changes there, the answer changes too.
 - `sitemap.xml` and `llms.txt` (a plain summary for AI assistants) are rebuilt on every deploy.
 
+### Nearby places
+
+The "Nearby" row on each station page comes from `src/data/lines/<line>/nearby.json`, built from OpenStreetMap by `scripts/fetch-nearby.mjs`. Do not edit those files by hand. To refresh them (for example once a month, or after you add stations or a line):
+
+```
+node scripts/fetch-nearby.mjs
+```
+
+The kinds of place, their radius and how many to keep are at the top of the script. A fake or wrong OpenStreetMap entry goes in its `SKIP` list, with the reason. Better still, fix it on OpenStreetMap itself, and it is gone at the next refresh.
+
 ## Newer satellite imagery
 
 Esri adds new imagery releases every few weeks. To refresh the before/after dates:

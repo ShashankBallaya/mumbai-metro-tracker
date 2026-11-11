@@ -1,0 +1,337 @@
+{
+  "_meta": {
+    "description": "Places near each station, from OpenStreetMap: the nearest few of each kind within its radius, measured in a straight line from the station point to the place (to the centre of an area such as a campus). Bus stops: one entry for each name. Built by scripts/fetch-nearby.mjs; do not edit by hand. OpenStreetMap data is ODbL; credit \"OpenStreetMap contributors\".",
+    "kinds": [
+      {
+        "id": "rail",
+        "label": "Railway stations",
+        "radius_m": 1500,
+        "max": 2
+      },
+      {
+        "id": "bus",
+        "label": "Bus stops",
+        "radius_m": 500,
+        "max": 3
+      },
+      {
+        "id": "chowk",
+        "label": "Chowks and nakas",
+        "radius_m": 1000,
+        "max": 3
+      },
+      {
+        "id": "college",
+        "label": "Colleges",
+        "radius_m": 1000,
+        "max": 4
+      },
+      {
+        "id": "mall",
+        "label": "Malls",
+        "radius_m": 1500,
+        "max": 3
+      },
+      {
+        "id": "office",
+        "label": "Offices and IT parks",
+        "radius_m": 1000,
+        "max": 4
+      },
+      {
+        "id": "hospital",
+        "label": "Hospitals",
+        "radius_m": 1000,
+        "max": 3
+      }
+    ],
+    "status": "reported",
+    "source_url": "https://www.openstreetmap.org/copyright",
+    "last_verified": "2026-11-11"
+  },
+  "stations": {
+    "kalyan": {
+      "rail": [
+        {
+          "name": "Kalyan Junction",
+          "distance_m": 470,
+          "osm": "node/4548442653"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Shivaji Chowk",
+          "distance_m": 210,
+          "osm": "way/791314953"
+        }
+      ],
+      "college": [
+        {
+          "name": "Regal College",
+          "distance_m": 590,
+          "osm": "node/8957834994"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Sarvoday mall",
+          "distance_m": 700,
+          "osm": "way/353815814"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Shelar Hospital",
+          "distance_m": 190,
+          "osm": "node/7047391022"
+        },
+        {
+          "name": "Sai Sanket Hospital",
+          "distance_m": 200,
+          "osm": "node/7049071905"
+        },
+        {
+          "name": "Om Hospital",
+          "distance_m": 220,
+          "osm": "node/7663684035"
+        }
+      ]
+    },
+    "apmc-kalyan": {
+      "rail": [
+        {
+          "name": "Kalyan Junction",
+          "distance_m": 820,
+          "osm": "node/4548442653"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Shivaji Chowk",
+          "distance_m": 820,
+          "osm": "way/791314953"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Sarvoday mall",
+          "distance_m": 100,
+          "osm": "way/353815814"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Fortis Hospitals Ltd Kalyan",
+          "distance_m": 230,
+          "osm": "node/7054452022"
+        },
+        {
+          "name": "AM PM 24 Hrs Hospital",
+          "distance_m": 380,
+          "osm": "node/7663684051"
+        },
+        {
+          "name": "Meera Hospital-Kalyan",
+          "distance_m": 390,
+          "osm": "node/7042885999"
+        }
+      ]
+    },
+    "ganesh-nagar": {
+      "rail": [
+        {
+          "name": "Kalyan Junction",
+          "distance_m": 1160,
+          "osm": "node/4548442653"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Sarvoday mall",
+          "distance_m": 600,
+          "osm": "way/353815814"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Shubhamkar Hospital",
+          "distance_m": 350,
+          "osm": "node/7043575871"
+        },
+        {
+          "name": "Kalyan Metro Multi Speciality Hospital Pvt. Ltd",
+          "distance_m": 650,
+          "osm": "node/7066954921"
+        },
+        {
+          "name": "Star city Multispeciality Hospital",
+          "distance_m": 670,
+          "osm": "node/8817169582"
+        }
+      ]
+    },
+    "pisavali-gaon": {
+      "hospital": [
+        {
+          "name": "Jeevanjyoti Hospital",
+          "distance_m": 910,
+          "osm": "node/7075916832"
+        },
+        {
+          "name": "Kalyan Metro Multi Speciality Hospital Pvt. Ltd",
+          "distance_m": 910,
+          "osm": "node/7066954921"
+        }
+      ]
+    },
+    "golavli": {
+      "office": [
+        {
+          "name": "Infinity Business Park",
+          "distance_m": 780,
+          "osm": "way/1436348756"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "ayodhya",
+          "distance_m": 750,
+          "osm": "node/11543550793"
+        },
+        {
+          "name": "Aims (Asian Institute Of Medical Sciences) - Dombivli",
+          "distance_m": 780,
+          "osm": "node/7050601465"
+        },
+        {
+          "name": "Kamat Hospital",
+          "distance_m": 900,
+          "osm": "node/7050932257"
+        }
+      ]
+    },
+    "dombivli-midc": {
+      "hospital": [
+        {
+          "name": "Neptune Superspeciality Hospital",
+          "distance_m": 260,
+          "osm": "node/7663684059"
+        },
+        {
+          "name": "Kamat Hospital",
+          "distance_m": 450,
+          "osm": "node/7050932257"
+        },
+        {
+          "name": "SRV Hospitals - Dombivali (Formerly Mamata Hospital)",
+          "distance_m": 510,
+          "osm": "node/7076267210"
+        }
+      ]
+    },
+    "sagaon": {
+      "hospital": [
+        {
+          "name": "Neptune Superspeciality Hospital",
+          "distance_m": 750,
+          "osm": "node/7663684059"
+        },
+        {
+          "name": "Platinum Hospital",
+          "distance_m": 860,
+          "osm": "node/7663684058"
+        },
+        {
+          "name": "Aarogyam Hospital, Thane",
+          "distance_m": 920,
+          "osm": "node/7073537695"
+        }
+      ]
+    },
+    "sonarpada": {
+      "bus": [
+        {
+          "name": "Manpada NMMT Bus Stop",
+          "distance_m": 210,
+          "osm": "node/6352848506"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Rmall",
+          "distance_m": 790,
+          "osm": "way/353811933"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Jupiter Hospital",
+          "distance_m": 720,
+          "osm": "node/13635535147"
+        }
+      ]
+    },
+    "manpada": {
+      "mall": [
+        {
+          "name": "Rmall",
+          "distance_m": 330,
+          "osm": "way/353811933"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Jupiter Hospital",
+          "distance_m": 220,
+          "osm": "node/13635535147"
+        }
+      ]
+    },
+    "hedutane": {},
+    "kolegaon": {},
+    "nilje-gaon": {
+      "rail": [
+        {
+          "name": "Nilaje",
+          "distance_m": 1440,
+          "osm": "node/6568083089"
+        }
+      ]
+    },
+    "vadavli": {},
+    "bale": {},
+    "waklan": {},
+    "turbhe": {},
+    "pisarve-depot": {},
+    "pisarve": {
+      "rail": [
+        {
+          "name": "Taloje Panchanand",
+          "distance_m": 960,
+          "osm": "node/6568083144"
+        }
+      ]
+    },
+    "amandoot": {
+      "rail": [
+        {
+          "name": "Taloje Panchanand",
+          "distance_m": 860,
+          "osm": "node/6568083144"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Al Shifa Multi Speciality Hospital",
+          "distance_m": 580,
+          "osm": "node/7663521039"
+        },
+        {
+          "name": "Ayesha Hospital",
+          "distance_m": 920,
+          "osm": "node/7663521081"
+        }
+      ]
+    }
+  }
+}

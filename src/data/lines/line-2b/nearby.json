@@ -1,0 +1,1473 @@
+{
+  "_meta": {
+    "description": "Places near each station, from OpenStreetMap: the nearest few of each kind within its radius, measured in a straight line from the station point to the place (to the centre of an area such as a campus). Bus stops: one entry for each name. Built by scripts/fetch-nearby.mjs; do not edit by hand. OpenStreetMap data is ODbL; credit \"OpenStreetMap contributors\".",
+    "kinds": [
+      {
+        "id": "rail",
+        "label": "Railway stations",
+        "radius_m": 1500,
+        "max": 2
+      },
+      {
+        "id": "bus",
+        "label": "Bus stops",
+        "radius_m": 500,
+        "max": 3
+      },
+      {
+        "id": "chowk",
+        "label": "Chowks and nakas",
+        "radius_m": 1000,
+        "max": 3
+      },
+      {
+        "id": "college",
+        "label": "Colleges",
+        "radius_m": 1000,
+        "max": 4
+      },
+      {
+        "id": "mall",
+        "label": "Malls",
+        "radius_m": 1500,
+        "max": 3
+      },
+      {
+        "id": "office",
+        "label": "Offices and IT parks",
+        "radius_m": 1000,
+        "max": 4
+      },
+      {
+        "id": "hospital",
+        "label": "Hospitals",
+        "radius_m": 1000,
+        "max": 3
+      }
+    ],
+    "status": "reported",
+    "source_url": "https://www.openstreetmap.org/copyright",
+    "last_verified": "2026-11-11"
+  },
+  "stations": {
+    "esic-nagar": {
+      "bus": [
+        {
+          "name": "Juhu Ville Parle Bus Station",
+          "distance_m": 50,
+          "osm": "node/9137876887"
+        },
+        {
+          "name": "Juhu Circle",
+          "distance_m": 200,
+          "osm": "node/2131134159"
+        },
+        {
+          "name": "New DN Nagar",
+          "distance_m": 300,
+          "osm": "node/7162508697"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Juhu Circle",
+          "distance_m": 200,
+          "osm": "way/1423501107"
+        },
+        {
+          "name": "Hasyakalakar Mehmood Chowk",
+          "distance_m": 810,
+          "osm": "node/866733633"
+        }
+      ],
+      "college": [
+        {
+          "name": "Sir Sorabji Pochkhanawala Bankers Training College",
+          "distance_m": 800,
+          "osm": "way/1170351963"
+        },
+        {
+          "name": "Sardar Patel College of Engineering",
+          "distance_m": 900,
+          "osm": "way/1170368727"
+        },
+        {
+          "name": "Sardar Patel Institute of Technology",
+          "distance_m": 910,
+          "osm": "way/1170368726"
+        },
+        {
+          "name": "Mukesh Patel School of Technology Management and Engineering",
+          "distance_m": 910,
+          "osm": "way/1170351971"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Sujay Hospital",
+          "distance_m": 230,
+          "osm": "node/1787854399"
+        },
+        {
+          "name": "Oculus Eye Hospital Pvt. Ltd",
+          "distance_m": 250,
+          "osm": "node/7049847480"
+        },
+        {
+          "name": "Criticare Multispeciality Hospital and Research Centre",
+          "distance_m": 370,
+          "osm": "node/7049336179"
+        }
+      ]
+    },
+    "prem-nagar": {
+      "rail": [
+        {
+          "name": "Vile Parle",
+          "distance_m": 1270,
+          "osm": "node/2630075010"
+        }
+      ],
+      "bus": [
+        {
+          "name": "Dr. Cooper Hospital Bus Stop",
+          "distance_m": 120,
+          "osm": "node/13122913778"
+        },
+        {
+          "name": "Irla",
+          "distance_m": 400,
+          "osm": "node/14038912006"
+        },
+        {
+          "name": "Bus #339 , 256",
+          "distance_m": 410,
+          "osm": "node/1101397910"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Juhu Jagruti Chowk",
+          "distance_m": 90,
+          "osm": "node/12768107143"
+        },
+        {
+          "name": "Velankanni Mata Chowk",
+          "distance_m": 370,
+          "osm": "node/10296626432"
+        },
+        {
+          "name": "Hasyakalakar Mehmood Chowk",
+          "distance_m": 740,
+          "osm": "node/866733633"
+        }
+      ],
+      "college": [
+        {
+          "name": "Mukesh Patel School of Technology Management and Engineering",
+          "distance_m": 120,
+          "osm": "way/1170351971"
+        },
+        {
+          "name": "SVKM",
+          "distance_m": 190,
+          "osm": "way/1170351964"
+        },
+        {
+          "name": "Sir Sorabji Pochkhanawala Bankers Training College",
+          "distance_m": 190,
+          "osm": "way/1170351963"
+        },
+        {
+          "name": "Narsee Monjee College of Commerce",
+          "distance_m": 610,
+          "osm": "way/79670766"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Parle Square Mall",
+          "distance_m": 1350,
+          "osm": "way/353364357"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Life Care Iccu , Medical and Surgical Emergencies",
+          "distance_m": 70,
+          "osm": "node/7070859138"
+        },
+        {
+          "name": "Dr. R. N. Cooper General Hospital Blood Bank",
+          "distance_m": 190,
+          "osm": "node/6881057808"
+        },
+        {
+          "name": "Iris Eye Center",
+          "distance_m": 280,
+          "osm": "node/7085742120"
+        }
+      ]
+    },
+    "indira-nagar": {
+      "rail": [
+        {
+          "name": "Vile Parle",
+          "distance_m": 900,
+          "osm": "node/2630075010"
+        }
+      ],
+      "bus": [
+        {
+          "name": "Nanavati Hospital",
+          "distance_m": 310,
+          "osm": "node/9769859116"
+        },
+        {
+          "name": "Cooper Hospital",
+          "distance_m": 360,
+          "osm": "node/4109115231"
+        },
+        {
+          "name": "Erla",
+          "distance_m": 370,
+          "osm": "node/9769880917"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Shri Vileparle Kelawani Mandal Chowk",
+          "distance_m": 210,
+          "osm": "node/14038912010"
+        },
+        {
+          "name": "Juhu Jagruti Chowk",
+          "distance_m": 440,
+          "osm": "node/12768107143"
+        },
+        {
+          "name": "Velankanni Mata Chowk",
+          "distance_m": 540,
+          "osm": "node/10296626432"
+        }
+      ],
+      "college": [
+        {
+          "name": "Narsee Monjee College of Commerce",
+          "distance_m": 90,
+          "osm": "way/79670766"
+        },
+        {
+          "name": "Narsee Monjee Institute Of Management Studies",
+          "distance_m": 140,
+          "osm": "way/1170351966"
+        },
+        {
+          "name": "Mithibai College of Arts and Jitendra Chauhan College of Science",
+          "distance_m": 180,
+          "osm": "way/1170351967"
+        },
+        {
+          "name": "SVKM",
+          "distance_m": 360,
+          "osm": "way/1170351964"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Parle Square Mall",
+          "distance_m": 1040,
+          "osm": "way/353364357"
+        }
+      ],
+      "office": [
+        {
+          "name": "Conversantech",
+          "distance_m": 760,
+          "osm": "node/11505778319"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Sunridges Speciality Hospital",
+          "distance_m": 260,
+          "osm": "node/7663961465"
+        },
+        {
+          "name": "Khandwala Eye Hospital and Polyclinic",
+          "distance_m": 280,
+          "osm": "node/7070859097"
+        },
+        {
+          "name": "Iris Eye Center",
+          "distance_m": 300,
+          "osm": "node/7085742120"
+        }
+      ]
+    },
+    "nanavati-hospital": {
+      "rail": [
+        {
+          "name": "Vile Parle",
+          "distance_m": 660,
+          "osm": "node/2630075010"
+        }
+      ],
+      "bus": [
+        {
+          "name": "Nanavati Hospital",
+          "distance_m": 30,
+          "osm": "node/9769880920"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Gaondevi Mandir Chowk",
+          "distance_m": 650,
+          "osm": "node/12936465967"
+        },
+        {
+          "name": "Shri Vileparle Kelawani Mandal Chowk",
+          "distance_m": 820,
+          "osm": "node/14038912010"
+        }
+      ],
+      "college": [
+        {
+          "name": "Mithibai College of Arts and Jitendra Chauhan College of Science",
+          "distance_m": 840,
+          "osm": "way/1170351967"
+        },
+        {
+          "name": "Narsee Monjee Institute Of Management Studies",
+          "distance_m": 910,
+          "osm": "way/1170351966"
+        },
+        {
+          "name": "Narsee Monjee College of Commerce",
+          "distance_m": 930,
+          "osm": "way/79670766"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Parle Square Mall",
+          "distance_m": 820,
+          "osm": "way/353364357"
+        }
+      ],
+      "office": [
+        {
+          "name": "Conversantech",
+          "distance_m": 400,
+          "osm": "node/11505778319"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Nanavati Hospital, Mumbai",
+          "distance_m": 60,
+          "osm": "node/3951526714"
+        },
+        {
+          "name": "Shree Ramnath Eye Care",
+          "distance_m": 590,
+          "osm": "node/7082499146"
+        },
+        {
+          "name": "Surya Hospital",
+          "distance_m": 660,
+          "osm": "node/8798161108"
+        }
+      ]
+    },
+    "khira-nagar": {
+      "rail": [
+        {
+          "name": "Santa Cruz",
+          "distance_m": 390,
+          "osm": "node/213030714"
+        }
+      ],
+      "bus": [
+        {
+          "name": "Santa Cruz Station (W)",
+          "distance_m": 20,
+          "osm": "node/9739950364"
+        },
+        {
+          "name": "Santacruz Station",
+          "distance_m": 160,
+          "osm": "node/13231589589"
+        },
+        {
+          "name": "Khira Road",
+          "distance_m": 360,
+          "osm": "node/9739950362"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Bhagirath Chunnilal Dalal Chowk",
+          "distance_m": 100,
+          "osm": "node/13773028263"
+        },
+        {
+          "name": "Maharana Pratap Chowk",
+          "distance_m": 260,
+          "osm": "node/12936465957"
+        },
+        {
+          "name": "J.G. Malhotara Chowk",
+          "distance_m": 370,
+          "osm": "node/2629418534"
+        }
+      ],
+      "college": [
+        {
+          "name": "Raheja College, Juhu",
+          "distance_m": 680,
+          "osm": "way/706489199"
+        },
+        {
+          "name": "SNDT Women's University,Juhu",
+          "distance_m": 980,
+          "osm": "way/202917551"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Radiance Laser Vision Centre",
+          "distance_m": 130,
+          "osm": "node/7080878125"
+        },
+        {
+          "name": "Mangal nursing home",
+          "distance_m": 250,
+          "osm": "way/1447315313"
+        },
+        {
+          "name": "Mumbai Retina Centre",
+          "distance_m": 360,
+          "osm": "node/7043376493"
+        }
+      ]
+    },
+    "saraswat-nagar": {
+      "rail": [
+        {
+          "name": "Khar Road",
+          "distance_m": 580,
+          "osm": "node/347138797"
+        },
+        {
+          "name": "Santa Cruz",
+          "distance_m": 1060,
+          "osm": "node/213030714"
+        }
+      ],
+      "bus": [
+        {
+          "name": "St Teresa Convent School",
+          "distance_m": 210,
+          "osm": "node/9739950365"
+        },
+        {
+          "name": "Khar Linking Road",
+          "distance_m": 350,
+          "osm": "node/13238145684"
+        },
+        {
+          "name": "Linking Road Khar",
+          "distance_m": 360,
+          "osm": "node/2128596711"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Norman Francis Lewis Chowk",
+          "distance_m": 270,
+          "osm": "node/245667861"
+        },
+        {
+          "name": "Mrs. Rose Maria Lewis Chowk",
+          "distance_m": 310,
+          "osm": "node/245667860"
+        },
+        {
+          "name": "Swami Vivekananda Chowk",
+          "distance_m": 350,
+          "osm": "node/245667875"
+        }
+      ],
+      "college": [
+        {
+          "name": "MMK College",
+          "distance_m": 970,
+          "osm": "node/347138192"
+        }
+      ],
+      "office": [
+        {
+          "name": "Hi-Tech Town Centre",
+          "distance_m": 520,
+          "osm": "way/357472209"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Dr Gupte Lying-In Surgical Hospital",
+          "distance_m": 140,
+          "osm": "node/7064405838"
+        },
+        {
+          "name": "G.M.Medical Centre - Khar",
+          "distance_m": 270,
+          "osm": "node/7055441837"
+        },
+        {
+          "name": "Ramakrishna Mission Hospital, Mumbai",
+          "distance_m": 310,
+          "osm": "node/4352387478"
+        }
+      ]
+    },
+    "national-college": {
+      "rail": [
+        {
+          "name": "Bandra Terminus",
+          "distance_m": 420,
+          "osm": "way/107303404"
+        },
+        {
+          "name": "Khar Road",
+          "distance_m": 600,
+          "osm": "node/347138797"
+        }
+      ],
+      "bus": [
+        {
+          "name": "Old Khar",
+          "distance_m": 30,
+          "osm": "node/9769880922"
+        },
+        {
+          "name": "Bandra Talkies",
+          "distance_m": 230,
+          "osm": "node/12855850039"
+        },
+        {
+          "name": "National College",
+          "distance_m": 270,
+          "osm": "node/11364283706"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Dr. Keshav Baliram Marg-Chowk",
+          "distance_m": 210,
+          "osm": "way/1526167381"
+        },
+        {
+          "name": "Shri Harishchandra Goyal Chowk",
+          "distance_m": 330,
+          "osm": "node/1468337691"
+        },
+        {
+          "name": "Shri Narayan Daji Samant Chowk",
+          "distance_m": 440,
+          "osm": "node/2629418478"
+        }
+      ],
+      "college": [
+        {
+          "name": "TSEC College",
+          "distance_m": 170,
+          "osm": "way/154837257"
+        },
+        {
+          "name": "R D National College Of Arts & Commerce",
+          "distance_m": 230,
+          "osm": "way/154837241"
+        },
+        {
+          "name": "Yuva Parivartan ( Youth Recreation center )",
+          "distance_m": 720,
+          "osm": "way/291327674"
+        },
+        {
+          "name": "Sheila Raheja Institute of Hotel Management",
+          "distance_m": 830,
+          "osm": "node/12921818966"
+        }
+      ],
+      "office": [
+        {
+          "name": "Hi-Tech Town Centre",
+          "distance_m": 530,
+          "osm": "way/357472209"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Western Railway Health Unit Bandra West",
+          "distance_m": 110,
+          "osm": "way/1524835595"
+        },
+        {
+          "name": "Dr A K Chandiramani Hospital",
+          "distance_m": 190,
+          "osm": "node/7073765630"
+        },
+        {
+          "name": "Kohinoor Hospital",
+          "distance_m": 270,
+          "osm": "node/7663961419"
+        }
+      ]
+    },
+    "bandra-metro": {
+      "rail": [
+        {
+          "name": "Bandra",
+          "distance_m": 280,
+          "osm": "node/2630075000"
+        },
+        {
+          "name": "Bandra Terminus",
+          "distance_m": 1060,
+          "osm": "way/107303404"
+        }
+      ],
+      "bus": [
+        {
+          "name": "Bandra Station Road (W)",
+          "distance_m": 20,
+          "osm": "node/3467500468"
+        },
+        {
+          "name": "Bandra Bus Station (W)",
+          "distance_m": 140,
+          "osm": "node/13063238675"
+        },
+        {
+          "name": "Bandra Bus Station West",
+          "distance_m": 240,
+          "osm": "node/5332861141"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Padmashri Mohammed Rafi Chowk",
+          "distance_m": 40,
+          "osm": "node/4090487179"
+        },
+        {
+          "name": "Shri Narayan Daji Samant Chowk",
+          "distance_m": 660,
+          "osm": "node/2629418478"
+        },
+        {
+          "name": "Dr. Keshav Baliram Marg-Chowk",
+          "distance_m": 880,
+          "osm": "way/1526167381"
+        }
+      ],
+      "college": [
+        {
+          "name": "Ali Yavar Jung National Institute for the Hearing Handicapped",
+          "distance_m": 340,
+          "osm": "way/152629597"
+        },
+        {
+          "name": "Sheila Raheja Institute of Hotel Management",
+          "distance_m": 880,
+          "osm": "node/12921818966"
+        },
+        {
+          "name": "IES College Of Architecture",
+          "distance_m": 940,
+          "osm": "way/237027561"
+        },
+        {
+          "name": "St Andrew's College of Arts, Science and Commerce",
+          "distance_m": 990,
+          "osm": "node/12433269419"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Jio World Drive",
+          "distance_m": 1330,
+          "osm": "way/923192619"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Mahatma Gandhi Seva Mandir",
+          "distance_m": 270,
+          "osm": "node/7054682098"
+        },
+        {
+          "name": "Parekh Eye Hospital",
+          "distance_m": 310,
+          "osm": "node/7055590161"
+        },
+        {
+          "name": "K B Bhabha Municipal General Hospital",
+          "distance_m": 630,
+          "osm": "way/665481038"
+        }
+      ]
+    },
+    "income-tax-office": {
+      "rail": [
+        {
+          "name": "Bandra Terminus",
+          "distance_m": 1340,
+          "osm": "way/107303404"
+        },
+        {
+          "name": "Bandra",
+          "distance_m": 1350,
+          "osm": "node/2630075000"
+        }
+      ],
+      "bus": [
+        {
+          "name": "Reserve Bank of India",
+          "distance_m": 50,
+          "osm": "node/5506317375"
+        },
+        {
+          "name": "MMRDA/Family Court",
+          "distance_m": 210,
+          "osm": "node/5506320974"
+        },
+        {
+          "name": "Income Tax Office",
+          "distance_m": 260,
+          "osm": "node/5506320554"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Ambedkar Chowk",
+          "distance_m": 460,
+          "osm": "way/1235767988"
+        },
+        {
+          "name": "Late Madhukarrao Sarpotdar Chowk",
+          "distance_m": 690,
+          "osm": "node/14156528731"
+        }
+      ],
+      "college": [
+        {
+          "name": "Chetana College",
+          "distance_m": 590,
+          "osm": "way/291330549"
+        },
+        {
+          "name": "Sheila Raheja Institute of Hotel Management",
+          "distance_m": 950,
+          "osm": "node/12921818966"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Jio World Drive",
+          "distance_m": 490,
+          "osm": "way/923192619"
+        }
+      ],
+      "office": [
+        {
+          "name": "Maker Maxity",
+          "distance_m": 490,
+          "osm": "way/126018393"
+        },
+        {
+          "name": "Securities and Exchange Board of India (SEBI)",
+          "distance_m": 960,
+          "osm": "way/430414026"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Guru Nanak Hospital",
+          "distance_m": 220,
+          "osm": "way/1149824759"
+        },
+        {
+          "name": "Agarwal Children's Hospital",
+          "distance_m": 520,
+          "osm": "node/12150771601"
+        },
+        {
+          "name": "Shivam Nursing Home",
+          "distance_m": 810,
+          "osm": "node/5506320776"
+        }
+      ]
+    },
+    "ilfs": {
+      "bus": [
+        {
+          "name": "I.C.I.C.I Junction",
+          "distance_m": 160,
+          "osm": "node/5506317374"
+        },
+        {
+          "name": "Bandra Kurla Complex Police Station",
+          "distance_m": 180,
+          "osm": "node/5506320532"
+        },
+        {
+          "name": "Diamond Market",
+          "distance_m": 230,
+          "osm": "node/5506320552"
+        }
+      ],
+      "college": [
+        {
+          "name": "University of Mumbai",
+          "distance_m": 920,
+          "osm": "way/49682797"
+        }
+      ],
+      "office": [
+        {
+          "name": "The Capital",
+          "distance_m": 290,
+          "osm": "way/430413547"
+        },
+        {
+          "name": "Securities and Exchange Board of India (SEBI)",
+          "distance_m": 520,
+          "osm": "way/430414026"
+        },
+        {
+          "name": "Meta",
+          "distance_m": 580,
+          "osm": "node/4271113411"
+        },
+        {
+          "name": "The Institute of Chartered Accountants of India - ICAI",
+          "distance_m": 710,
+          "osm": "way/430412670"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Asian Heart Institute",
+          "distance_m": 220,
+          "osm": "way/430418378"
+        }
+      ]
+    },
+    "mtnl-metro": {
+      "rail": [
+        {
+          "name": "Kurla",
+          "distance_m": 1170,
+          "osm": "way/427199220"
+        }
+      ],
+      "bus": [
+        {
+          "name": "MMRDA Grounds",
+          "distance_m": 150,
+          "osm": "node/2966429909"
+        },
+        {
+          "name": "BKC Telephone Exchange",
+          "distance_m": 290,
+          "osm": "node/2966429910"
+        },
+        {
+          "name": "Amar Brass",
+          "distance_m": 470,
+          "osm": "node/5470234225"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "MTNL Junction",
+          "distance_m": 380,
+          "osm": "way/1465595239"
+        },
+        {
+          "name": "Ahmed Raza Chowk",
+          "distance_m": 580,
+          "osm": "node/10265662158"
+        }
+      ],
+      "office": [
+        {
+          "name": "Pinnacle Corporate Park",
+          "distance_m": 350,
+          "osm": "way/353192757"
+        },
+        {
+          "name": "Equinox Business Park",
+          "distance_m": 830,
+          "osm": "way/589139610"
+        },
+        {
+          "name": "The Institute of Chartered Accountants of India - ICAI",
+          "distance_m": 870,
+          "osm": "way/430412670"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Alphine Life Solutions General Hospital",
+          "distance_m": 410,
+          "osm": "node/7663961454"
+        },
+        {
+          "name": "Despande Nursing Home",
+          "distance_m": 650,
+          "osm": "node/7067373861"
+        },
+        {
+          "name": "Fauziya hospital",
+          "distance_m": 870,
+          "osm": "node/10172914421"
+        }
+      ]
+    },
+    "sg-barve-marg": {
+      "rail": [
+        {
+          "name": "Kurla",
+          "distance_m": 980,
+          "osm": "way/427199220"
+        },
+        {
+          "name": "Lokmanya Tilak Terminus",
+          "distance_m": 1290,
+          "osm": "node/6175360983"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "MTNL Junction",
+          "distance_m": 940,
+          "osm": "way/1465595239"
+        }
+      ],
+      "college": [
+        {
+          "name": "Kohinoor Educational Complex",
+          "distance_m": 630,
+          "osm": "way/260786330"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Kohinoor City Mall",
+          "distance_m": 1050,
+          "osm": "way/427242796"
+        }
+      ],
+      "office": [
+        {
+          "name": "Equinox Business Park",
+          "distance_m": 510,
+          "osm": "way/589139610"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Kurla Nursing Room",
+          "distance_m": 350,
+          "osm": "node/3289580677"
+        },
+        {
+          "name": "New Noor Hospital",
+          "distance_m": 380,
+          "osm": "way/353181448"
+        },
+        {
+          "name": "bhabha hospital",
+          "distance_m": 440,
+          "osm": "node/10172914423"
+        }
+      ]
+    },
+    "kurla-east": {
+      "rail": [
+        {
+          "name": "Tilak Nagar",
+          "distance_m": 640,
+          "osm": "node/3530903066"
+        },
+        {
+          "name": "Kurla",
+          "distance_m": 640,
+          "osm": "node/2663447640"
+        }
+      ],
+      "bus": [
+        {
+          "name": "Naik Nagar",
+          "distance_m": 140,
+          "osm": "node/9788462262"
+        },
+        {
+          "name": "Nehru Nagar- Kurla",
+          "distance_m": 210,
+          "osm": "node/3207677587"
+        },
+        {
+          "name": "Nehru Nagar",
+          "distance_m": 220,
+          "osm": "node/9788462263"
+        }
+      ],
+      "college": [
+        {
+          "name": "National Society For Equal Opportunities For the Handicapped - NASEOH",
+          "distance_m": 970,
+          "osm": "way/1126992613"
+        }
+      ],
+      "office": [
+        {
+          "name": "Corporate Park",
+          "distance_m": 970,
+          "osm": "way/1126997784"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Aryan Hospital and Iccu - Kurla-Mumbai",
+          "distance_m": 280,
+          "osm": "node/7045324038"
+        },
+        {
+          "name": "arayan hospital",
+          "distance_m": 330,
+          "osm": "node/3532126359"
+        },
+        {
+          "name": "Prarushi Healthcare Pvt Ltd / Kusumesh Chandra Maternity Hospital",
+          "distance_m": 370,
+          "osm": "node/7087131468"
+        }
+      ]
+    },
+    "eeh": {
+      "rail": [
+        {
+          "name": "Tilak Nagar",
+          "distance_m": 1160,
+          "osm": "node/3530903066"
+        },
+        {
+          "name": "Kurla",
+          "distance_m": 1410,
+          "osm": "node/2663447640"
+        }
+      ],
+      "bus": [
+        {
+          "name": "S.G.Barve Marg Jn.",
+          "distance_m": 170,
+          "osm": "node/3207732982"
+        },
+        {
+          "name": "S.G.Barve Marg Jun (Thakkar Bappa )",
+          "distance_m": 270,
+          "osm": "node/3207720197"
+        },
+        {
+          "name": "thakkar Bappa colony",
+          "distance_m": 370,
+          "osm": "node/3530954289"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Chembur Naka",
+          "distance_m": 710,
+          "osm": "node/2629741725"
+        },
+        {
+          "name": "Hasu Advani Chowk",
+          "distance_m": 770,
+          "osm": "node/8894103006"
+        }
+      ],
+      "college": [
+        {
+          "name": "National Society For Equal Opportunities For the Handicapped - NASEOH",
+          "distance_m": 700,
+          "osm": "way/1126992613"
+        },
+        {
+          "name": "V.E.S College of Arts, Science and Commerce",
+          "distance_m": 890,
+          "osm": "way/430024307"
+        }
+      ],
+      "office": [
+        {
+          "name": "Corporate Park",
+          "distance_m": 150,
+          "osm": "way/1126997784"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Sushrut Hospital and Research Centre",
+          "distance_m": 170,
+          "osm": "way/1126997792"
+        },
+        {
+          "name": "Swastik Hospital and Research Centre, Mumbai",
+          "distance_m": 190,
+          "osm": "node/7043233247"
+        },
+        {
+          "name": "Surana Sethia Hospital And Research Centre",
+          "distance_m": 260,
+          "osm": "node/7046777602"
+        }
+      ]
+    },
+    "chembur": {
+      "rail": [
+        {
+          "name": "Chembur",
+          "distance_m": 1320,
+          "osm": "node/2454571178"
+        },
+        {
+          "name": "Tilak Nagar",
+          "distance_m": 1340,
+          "osm": "node/3530903066"
+        }
+      ],
+      "bus": [
+        {
+          "name": "Kumbharwada",
+          "distance_m": 80,
+          "osm": "node/3204480436"
+        },
+        {
+          "name": "Chembur Naka",
+          "distance_m": 90,
+          "osm": "node/3204472731"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Chembur Naka",
+          "distance_m": 210,
+          "osm": "node/2629741725"
+        },
+        {
+          "name": "Fine Arts Chowk",
+          "distance_m": 870,
+          "osm": "node/1651421959"
+        },
+        {
+          "name": "Advocate Parshottam Puri Chowk",
+          "distance_m": 910,
+          "osm": "node/12934751687"
+        }
+      ],
+      "college": [
+        {
+          "name": "National Society For Equal Opportunities For the Handicapped - NASEOH",
+          "distance_m": 620,
+          "osm": "way/1126992613"
+        },
+        {
+          "name": "V.E.S College of Arts, Science and Commerce",
+          "distance_m": 770,
+          "osm": "way/430024307"
+        },
+        {
+          "name": "VES College of Architecture",
+          "distance_m": 960,
+          "osm": "way/1242795257"
+        },
+        {
+          "name": "VES Institute of Management",
+          "distance_m": 990,
+          "osm": "way/353181024"
+        }
+      ],
+      "office": [
+        {
+          "name": "Corporate Park",
+          "distance_m": 590,
+          "osm": "way/1126997784"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Sai Hospital",
+          "distance_m": 150,
+          "osm": "node/7663961434"
+        },
+        {
+          "name": "Sitla Hospital",
+          "distance_m": 210,
+          "osm": "node/7043236781"
+        },
+        {
+          "name": "Mata Ramabai B Ambedkar Hospital",
+          "distance_m": 290,
+          "osm": "node/2319217775"
+        }
+      ]
+    },
+    "diamond-garden": {
+      "rail": [
+        {
+          "name": "Chembur",
+          "distance_m": 1200,
+          "osm": "node/2454571178"
+        },
+        {
+          "name": "Govandi",
+          "distance_m": 1480,
+          "osm": "node/3205733664"
+        }
+      ],
+      "bus": [
+        {
+          "name": "neeta volvo",
+          "distance_m": 270,
+          "osm": "node/3534580595"
+        },
+        {
+          "name": "sandu wadi",
+          "distance_m": 450,
+          "osm": "node/3529572106"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Advocate Parshottam Puri Chowk",
+          "distance_m": 620,
+          "osm": "node/12934751687"
+        },
+        {
+          "name": "Chembur Naka",
+          "distance_m": 760,
+          "osm": "node/2629741725"
+        },
+        {
+          "name": "Dr Babasaheb Ambedkar Udyan Circle",
+          "distance_m": 870,
+          "osm": "way/1235505952"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Oma Hospital",
+          "distance_m": 70,
+          "osm": "node/7054759108"
+        },
+        {
+          "name": "Niramaya General Hospital",
+          "distance_m": 380,
+          "osm": "node/7042871859"
+        },
+        {
+          "name": "Sunny Childrens Hospital",
+          "distance_m": 400,
+          "osm": "node/7073537782"
+        }
+      ]
+    },
+    "shivaji-chowk": {
+      "rail": [
+        {
+          "name": "Govandi",
+          "distance_m": 1190,
+          "osm": "node/3205733664"
+        }
+      ],
+      "bus": [
+        {
+          "name": "Deonar Bus Depot Stop",
+          "distance_m": 480,
+          "osm": "node/1058313607"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Shivaji Chowk",
+          "distance_m": 320,
+          "osm": "node/2440098106"
+        },
+        {
+          "name": "Borbadevi Chowk",
+          "distance_m": 890,
+          "osm": "node/245665060"
+        },
+        {
+          "name": "Gaondevi Chowk",
+          "distance_m": 1000,
+          "osm": "node/1336410623"
+        }
+      ],
+      "college": [
+        {
+          "name": "Shah & Anchor Kutchhi Engineering College",
+          "distance_m": 510,
+          "osm": "way/1009229727"
+        },
+        {
+          "name": "Tata Institute of Social Sciences (TISS)",
+          "distance_m": 730,
+          "osm": "way/302858264"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Amarnath Multidisciplinary Children's Hospital",
+          "distance_m": 170,
+          "osm": "node/7663961441"
+        },
+        {
+          "name": "Niramaya General Hospital",
+          "distance_m": 340,
+          "osm": "node/7042871859"
+        },
+        {
+          "name": "Apollo Spectra Hospital",
+          "distance_m": 460,
+          "osm": "way/1009229724"
+        }
+      ]
+    },
+    "bsnl-metro": {
+      "rail": [
+        {
+          "name": "Govandi",
+          "distance_m": 1200,
+          "osm": "node/3205733664"
+        }
+      ],
+      "bus": [
+        {
+          "name": "TISS Bus Stop",
+          "distance_m": 390,
+          "osm": "node/8256840249"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Western Sector Circle",
+          "distance_m": 640,
+          "osm": "way/905716267"
+        },
+        {
+          "name": "Chhatrapati Shivaji Chowk",
+          "distance_m": 870,
+          "osm": "way/42354434"
+        }
+      ],
+      "college": [
+        {
+          "name": "Tata Institute of Social Sciences (TISS)",
+          "distance_m": 490,
+          "osm": "way/302858264"
+        },
+        {
+          "name": "Atomic Energy Central School -1",
+          "distance_m": 530,
+          "osm": "node/7463765700"
+        },
+        {
+          "name": "Tata Institute of Social Sciences, New Campus",
+          "distance_m": 640,
+          "osm": "way/122294390"
+        },
+        {
+          "name": "Shah & Anchor Kutchhi Engineering College",
+          "distance_m": 680,
+          "osm": "way/1009229727"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "jonsons diagnostics",
+          "distance_m": 630,
+          "osm": "node/3204211842"
+        },
+        {
+          "name": "Apollo Spectra Hospital",
+          "distance_m": 700,
+          "osm": "way/1009229724"
+        },
+        {
+          "name": "Shatabdi Hospital",
+          "distance_m": 830,
+          "osm": "way/411617420"
+        }
+      ]
+    },
+    "mankhurd": {
+      "rail": [
+        {
+          "name": "Mankhurd",
+          "distance_m": 150,
+          "osm": "node/2629720841"
+        }
+      ],
+      "college": [
+        {
+          "name": "Homi Bhabha Centre for Science Education",
+          "distance_m": 640,
+          "osm": "way/250329736"
+        }
+      ],
+      "mall": [
+        {
+          "name": "WMART",
+          "distance_m": 1130,
+          "osm": "node/11716428186"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Goverment hospital",
+          "distance_m": 960,
+          "osm": "node/14172771968"
+        }
+      ]
+    },
+    "mandale": {
+      "rail": [
+        {
+          "name": "Mankhurd",
+          "distance_m": 750,
+          "osm": "node/2629720841"
+        }
+      ],
+      "mall": [
+        {
+          "name": "WMART",
+          "distance_m": 1480,
+          "osm": "node/11716428186"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Goverment hospital",
+          "distance_m": 80,
+          "osm": "node/14172771968"
+        }
+      ]
+    }
+  }
+}

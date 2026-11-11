@@ -1,0 +1,1990 @@
+{
+  "_meta": {
+    "description": "Places near each station, from OpenStreetMap: the nearest few of each kind within its radius, measured in a straight line from the station point to the place (to the centre of an area such as a campus). Bus stops: one entry for each name. Built by scripts/fetch-nearby.mjs; do not edit by hand. OpenStreetMap data is ODbL; credit \"OpenStreetMap contributors\".",
+    "kinds": [
+      {
+        "id": "rail",
+        "label": "Railway stations",
+        "radius_m": 1500,
+        "max": 2
+      },
+      {
+        "id": "bus",
+        "label": "Bus stops",
+        "radius_m": 500,
+        "max": 3
+      },
+      {
+        "id": "chowk",
+        "label": "Chowks and nakas",
+        "radius_m": 1000,
+        "max": 3
+      },
+      {
+        "id": "college",
+        "label": "Colleges",
+        "radius_m": 1000,
+        "max": 4
+      },
+      {
+        "id": "mall",
+        "label": "Malls",
+        "radius_m": 1500,
+        "max": 3
+      },
+      {
+        "id": "office",
+        "label": "Offices and IT parks",
+        "radius_m": 1000,
+        "max": 4
+      },
+      {
+        "id": "hospital",
+        "label": "Hospitals",
+        "radius_m": 1000,
+        "max": 3
+      }
+    ],
+    "status": "reported",
+    "source_url": "https://www.openstreetmap.org/copyright",
+    "last_verified": "2026-11-11"
+  },
+  "stations": {
+    "bhakti-park": {},
+    "wadala-tt": {},
+    "anik-nagar-bus-depot": {
+      "rail": [
+        {
+          "name": "Chuna Bhatti",
+          "distance_m": 1130,
+          "osm": "node/2663219988"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Hasu Advani Chowk",
+          "distance_m": 770,
+          "osm": "node/8894103006"
+        }
+      ],
+      "college": [
+        {
+          "name": "KJ Somaiya Medical College & Research Centre",
+          "distance_m": 360,
+          "osm": "node/13927730285"
+        },
+        {
+          "name": "Padhmabhushan Vasantdada Patil Pratishthan's College Of Engineering",
+          "distance_m": 380,
+          "osm": "way/486564717"
+        },
+        {
+          "name": "K. J. Somaiya College of Physiotherapy",
+          "distance_m": 580,
+          "osm": "way/909382851"
+        },
+        {
+          "name": "Somaiya Ayurvihar",
+          "distance_m": 600,
+          "osm": "way/1504445716"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "K.J. Somaiya Hospital and Research Centre",
+          "distance_m": 370,
+          "osm": "way/1052052198"
+        },
+        {
+          "name": "Santrupti hospital",
+          "distance_m": 740,
+          "osm": "node/10172914429"
+        },
+        {
+          "name": "Prathamesh Hospital",
+          "distance_m": 760,
+          "osm": "node/7663961479"
+        }
+      ]
+    },
+    "siddharth-colony": {
+      "rail": [
+        {
+          "name": "Tilak Nagar",
+          "distance_m": 660,
+          "osm": "node/3530903066"
+        },
+        {
+          "name": "Chembur",
+          "distance_m": 1010,
+          "osm": "node/2454571178"
+        }
+      ],
+      "bus": [
+        {
+          "name": "Postal Colony",
+          "distance_m": 220,
+          "osm": "node/3204171920"
+        },
+        {
+          "name": "Chembir Fine Arts",
+          "distance_m": 500,
+          "osm": "node/10304641567"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Fine Arts Chowk",
+          "distance_m": 540,
+          "osm": "node/1651421959"
+        },
+        {
+          "name": "Chembur Naka",
+          "distance_m": 720,
+          "osm": "node/2629741725"
+        },
+        {
+          "name": "Doctor Ramjibhai Pethad Chowk",
+          "distance_m": 790,
+          "osm": "node/12934970605"
+        }
+      ],
+      "college": [
+        {
+          "name": "National Society For Equal Opportunities For the Handicapped - NASEOH",
+          "distance_m": 160,
+          "osm": "way/1126992613"
+        }
+      ],
+      "office": [
+        {
+          "name": "Corporate Park",
+          "distance_m": 790,
+          "osm": "way/1126997784"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "maa hospital",
+          "distance_m": 240,
+          "osm": "node/3206033563"
+        },
+        {
+          "name": "Apex Kidney Care Pvt. Ltd.",
+          "distance_m": 330,
+          "osm": "node/7085422809"
+        },
+        {
+          "name": "Mangal Anand Hospital",
+          "distance_m": 410,
+          "osm": "node/7051595414"
+        }
+      ]
+    },
+    "garodia-nagar": {
+      "rail": [
+        {
+          "name": "Vidyavihar",
+          "distance_m": 970,
+          "osm": "node/620013256"
+        },
+        {
+          "name": "Chembur",
+          "distance_m": 1080,
+          "osm": "node/2454571178"
+        }
+      ],
+      "bus": [
+        {
+          "name": "somaiya collage bus stop",
+          "distance_m": 310,
+          "osm": "node/13382893789"
+        },
+        {
+          "name": "Chedda Nagar",
+          "distance_m": 420,
+          "osm": "node/2317279162"
+        },
+        {
+          "name": "Jeejabhai Bhosale Junction",
+          "distance_m": 460,
+          "osm": "node/5470237926"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Chedda Nagar Junction",
+          "distance_m": 570,
+          "osm": "node/5843735650"
+        }
+      ],
+      "college": [
+        {
+          "name": "Somaiya Vidyavihar University",
+          "distance_m": 380,
+          "osm": "way/1390433259"
+        }
+      ],
+      "mall": [
+        {
+          "name": "R Odean",
+          "distance_m": 1110,
+          "osm": "way/255629913"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Dr Nandita Rane's Eye Clinic",
+          "distance_m": 360,
+          "osm": "node/7043077889"
+        },
+        {
+          "name": "Dr Chauhans Sanjeevani Hospital",
+          "distance_m": 370,
+          "osm": "node/7065561525"
+        },
+        {
+          "name": "Tara Neo Surg Hospital",
+          "distance_m": 390,
+          "osm": "node/7044669600"
+        }
+      ]
+    },
+    "pant-nagar": {
+      "rail": [
+        {
+          "name": "Ghatkopar",
+          "distance_m": 600,
+          "osm": "node/4264539430"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Ambedkar Chowk",
+          "distance_m": 200,
+          "osm": "way/1274395011"
+        },
+        {
+          "name": "Raigad Chowk",
+          "distance_m": 440,
+          "osm": "node/2246472892"
+        },
+        {
+          "name": "Patel Chowk",
+          "distance_m": 470,
+          "osm": "node/1454672572"
+        }
+      ],
+      "college": [
+        {
+          "name": "SNDT College",
+          "distance_m": 920,
+          "osm": "way/1119968793"
+        }
+      ],
+      "mall": [
+        {
+          "name": "R Odean",
+          "distance_m": 490,
+          "osm": "way/255629913"
+        }
+      ],
+      "office": [
+        {
+          "name": "Suchita Business Park",
+          "distance_m": 440,
+          "osm": "way/1330629250"
+        },
+        {
+          "name": "Sai Infotech",
+          "distance_m": 490,
+          "osm": "way/1330629247"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Vatsal Nicu and Childrens Hospital",
+          "distance_m": 390,
+          "osm": "node/7042999151"
+        },
+        {
+          "name": "Khushal Hospital and Maternity Home",
+          "distance_m": 430,
+          "osm": "node/7050614446"
+        },
+        {
+          "name": "Parakh Hospital and Research Centre - Ghatkopar",
+          "distance_m": 610,
+          "osm": "node/12311758511"
+        }
+      ]
+    },
+    "laxmi-nagar": {
+      "rail": [
+        {
+          "name": "Ghatkopar",
+          "distance_m": 1160,
+          "osm": "node/4264539430"
+        }
+      ],
+      "bus": [
+        {
+          "name": "Laxmi Nagar",
+          "distance_m": 210,
+          "osm": "node/5448604926"
+        },
+        {
+          "name": "Ghatkopar Depot",
+          "distance_m": 230,
+          "osm": "node/4761353924"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Ambedkar Chowk",
+          "distance_m": 790,
+          "osm": "way/131956576"
+        }
+      ],
+      "mall": [
+        {
+          "name": "R City Mall",
+          "distance_m": 1080,
+          "osm": "way/1039904192"
+        },
+        {
+          "name": "R Odean",
+          "distance_m": 1500,
+          "osm": "way/255629913"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Suyog Urology Centre",
+          "distance_m": 630,
+          "osm": "node/7049803405"
+        },
+        {
+          "name": "Sapna Health Care Centre Pvt Ltd",
+          "distance_m": 650,
+          "osm": "node/7080141268"
+        },
+        {
+          "name": "Shantiniketan Hospital",
+          "distance_m": 740,
+          "osm": "node/8797173216"
+        }
+      ]
+    },
+    "shreyas-cinema": {
+      "rail": [
+        {
+          "name": "Ghatkopar",
+          "distance_m": 1340,
+          "osm": "node/4264539430"
+        }
+      ],
+      "bus": [
+        {
+          "name": "Shreyas Cinema",
+          "distance_m": 400,
+          "osm": "node/3204516948"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Amrut Nagar Circle",
+          "distance_m": 870,
+          "osm": "node/10279704572"
+        }
+      ],
+      "mall": [
+        {
+          "name": "R City Mall",
+          "distance_m": 530,
+          "osm": "way/1039904192"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Shantiniketan Hospital",
+          "distance_m": 300,
+          "osm": "node/8797173216"
+        },
+        {
+          "name": "Suyog Urology Centre",
+          "distance_m": 400,
+          "osm": "node/7049803405"
+        },
+        {
+          "name": "Amruta Surgical and Maternity Home",
+          "distance_m": 490,
+          "osm": "node/7049182746"
+        }
+      ]
+    },
+    "godrej-company": {
+      "rail": [
+        {
+          "name": "Vikhroli",
+          "distance_m": 1220,
+          "osm": "node/4258411797"
+        }
+      ],
+      "bus": [
+        {
+          "name": "Godrej Bus Stop Gate 3",
+          "distance_m": 80,
+          "osm": "node/4220016693"
+        },
+        {
+          "name": "Vikhroli Depot",
+          "distance_m": 110,
+          "osm": "node/4632210296"
+        },
+        {
+          "name": "Godrej Company (W)",
+          "distance_m": 220,
+          "osm": "node/4676916085"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Amrut Nagar Circle",
+          "distance_m": 940,
+          "osm": "node/10279704572"
+        }
+      ],
+      "mall": [
+        {
+          "name": "R City Mall",
+          "distance_m": 580,
+          "osm": "way/1039904192"
+        }
+      ],
+      "office": [
+        {
+          "name": "Accenture",
+          "distance_m": 110,
+          "osm": "way/352987352"
+        },
+        {
+          "name": "Kailash Business Park",
+          "distance_m": 940,
+          "osm": "way/496837191"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Godrej Memorial Hospital, Mumbai",
+          "distance_m": 780,
+          "osm": "way/436606769"
+        },
+        {
+          "name": "Samarth Hospital, Mumbai",
+          "distance_m": 960,
+          "osm": "node/7052767202"
+        }
+      ]
+    },
+    "vikhroli": {
+      "rail": [
+        {
+          "name": "Vikhroli",
+          "distance_m": 480,
+          "osm": "node/4258411797"
+        }
+      ],
+      "bus": [
+        {
+          "name": "Asha & Usha Estates",
+          "distance_m": 60,
+          "osm": "node/4644026881"
+        },
+        {
+          "name": "Vikhroli Station (W)",
+          "distance_m": 340,
+          "osm": "node/4632210300"
+        }
+      ],
+      "mall": [
+        {
+          "name": "R City Mall",
+          "distance_m": 1320,
+          "osm": "way/1039904192"
+        },
+        {
+          "name": "Brand Factory Vikhroli",
+          "distance_m": 1380,
+          "osm": "node/5580528930"
+        }
+      ],
+      "office": [
+        {
+          "name": "Kailash Business Park",
+          "distance_m": 710,
+          "osm": "way/496837191"
+        },
+        {
+          "name": "Accenture",
+          "distance_m": 730,
+          "osm": "way/352987352"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Samarth Hospital, Mumbai",
+          "distance_m": 230,
+          "osm": "node/7052767202"
+        },
+        {
+          "name": "Godrej Memorial Hospital, Mumbai",
+          "distance_m": 630,
+          "osm": "way/436606769"
+        },
+        {
+          "name": "Laxmi Health Care Center and Iccu",
+          "distance_m": 900,
+          "osm": "node/7050603512"
+        }
+      ]
+    },
+    "surya-nagar": {
+      "rail": [
+        {
+          "name": "Vikhroli",
+          "distance_m": 730,
+          "osm": "node/4258411797"
+        },
+        {
+          "name": "Kanjur Marg",
+          "distance_m": 1230,
+          "osm": "node/619992025"
+        }
+      ],
+      "bus": [
+        {
+          "name": "Paper Mill",
+          "distance_m": 10,
+          "osm": "node/4644026873"
+        },
+        {
+          "name": "Cipla",
+          "distance_m": 390,
+          "osm": "node/4644026876"
+        },
+        {
+          "name": "Hindustan Company",
+          "distance_m": 460,
+          "osm": "node/4625570585"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Shuamlal Sohanlal Chowk",
+          "distance_m": 920,
+          "osm": "node/1646887643"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Brand Factory Vikhroli",
+          "distance_m": 360,
+          "osm": "node/5580528930"
+        },
+        {
+          "name": "Hakone",
+          "distance_m": 1410,
+          "osm": "node/11697823599"
+        },
+        {
+          "name": "Powai Plaza",
+          "distance_m": 1470,
+          "osm": "node/11697795359"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Priya Maternity Home",
+          "distance_m": 510,
+          "osm": "node/7062539947"
+        },
+        {
+          "name": "Modi General Hospital and Iccu",
+          "distance_m": 550,
+          "osm": "node/7048950247"
+        },
+        {
+          "name": "Ruby Hospital",
+          "distance_m": 620,
+          "osm": "node/7663961445"
+        }
+      ]
+    },
+    "gandhi-nagar": {
+      "rail": [
+        {
+          "name": "Kanjur Marg",
+          "distance_m": 380,
+          "osm": "node/619992025"
+        }
+      ],
+      "bus": [
+        {
+          "name": "Gandhi Nagar",
+          "distance_m": 20,
+          "osm": "node/10253594984"
+        },
+        {
+          "name": "Gandhi Nagar Vikhroli",
+          "distance_m": 240,
+          "osm": "node/4644026865"
+        },
+        {
+          "name": "Huma Talkies",
+          "distance_m": 250,
+          "osm": "node/4625570586"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Shuamlal Sohanlal Chowk",
+          "distance_m": 290,
+          "osm": "node/1646887643"
+        },
+        {
+          "name": "Dr. Abdul Kalam Chowk",
+          "distance_m": 920,
+          "osm": "node/10296439235"
+        }
+      ],
+      "college": [
+        {
+          "name": "CAD Centre",
+          "distance_m": 930,
+          "osm": "way/622819448"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Brand Factory Vikhroli",
+          "distance_m": 640,
+          "osm": "node/5580528930"
+        },
+        {
+          "name": "Hakone",
+          "distance_m": 1300,
+          "osm": "node/11697823599"
+        },
+        {
+          "name": "Powai Plaza",
+          "distance_m": 1330,
+          "osm": "node/11697795359"
+        }
+      ],
+      "office": [
+        {
+          "name": "Lodha iThink",
+          "distance_m": 610,
+          "osm": "way/483179409"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Naval Hospital",
+          "distance_m": 650,
+          "osm": "node/7663961464"
+        },
+        {
+          "name": "Nihal Nursing Home & Opthalmologist",
+          "distance_m": 660,
+          "osm": "node/6801919192"
+        },
+        {
+          "name": "Anket Nursing Home",
+          "distance_m": 690,
+          "osm": "node/3587131699"
+        }
+      ]
+    },
+    "naval-housing": {
+      "rail": [
+        {
+          "name": "Kanjur Marg",
+          "distance_m": 480,
+          "osm": "node/619992025"
+        }
+      ],
+      "bus": [
+        {
+          "name": "Dockyard kanjurmarg St",
+          "distance_m": 100,
+          "osm": "node/4625570581"
+        },
+        {
+          "name": "Birla Company",
+          "distance_m": 130,
+          "osm": "node/4644026859"
+        },
+        {
+          "name": "Huma Talkies",
+          "distance_m": 460,
+          "osm": "node/4676916067"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Shuamlal Sohanlal Chowk",
+          "distance_m": 980,
+          "osm": "node/1646887643"
+        }
+      ],
+      "college": [
+        {
+          "name": "CAD Centre",
+          "distance_m": 960,
+          "osm": "way/622819448"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Magnet Mall",
+          "distance_m": 1050,
+          "osm": "way/151205176"
+        },
+        {
+          "name": "Brand Factory Vikhroli",
+          "distance_m": 1330,
+          "osm": "node/5580528930"
+        }
+      ],
+      "office": [
+        {
+          "name": "Lodha iThink",
+          "distance_m": 440,
+          "osm": "way/483179409"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Naval Hospital",
+          "distance_m": 240,
+          "osm": "node/7663961464"
+        },
+        {
+          "name": "Anket Nursing Home",
+          "distance_m": 330,
+          "osm": "node/3587131699"
+        },
+        {
+          "name": "Aniket Nursing Home",
+          "distance_m": 800,
+          "osm": "way/353785599"
+        }
+      ]
+    },
+    "bhandup-mahapalika": {
+      "rail": [
+        {
+          "name": "Bhandup",
+          "distance_m": 880,
+          "osm": "node/3248305759"
+        },
+        {
+          "name": "Kanjur Marg",
+          "distance_m": 1130,
+          "osm": "node/619992025"
+        }
+      ],
+      "bus": [
+        {
+          "name": "Mangatram Petrol Pump",
+          "distance_m": 50,
+          "osm": "node/4625570689"
+        },
+        {
+          "name": "Birla Company",
+          "distance_m": 250,
+          "osm": "node/4761370027"
+        },
+        {
+          "name": "Janata Market Bhandup",
+          "distance_m": 490,
+          "osm": "node/4624037657"
+        }
+      ],
+      "college": [
+        {
+          "name": "Guru Nanak English Academy",
+          "distance_m": 910,
+          "osm": "way/345151607"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Magnet Mall",
+          "distance_m": 370,
+          "osm": "way/151205176"
+        }
+      ],
+      "office": [
+        {
+          "name": "Lodha iThink",
+          "distance_m": 990,
+          "osm": "way/483179409"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Devaki Hospital",
+          "distance_m": 310,
+          "osm": "node/7663961491"
+        },
+        {
+          "name": "Sai Sparsh Hospital and Iccu",
+          "distance_m": 760,
+          "osm": "node/7064867148"
+        },
+        {
+          "name": "Shaha Children Hospital",
+          "distance_m": 810,
+          "osm": "node/7055223581"
+        }
+      ]
+    },
+    "bhandup": {
+      "rail": [
+        {
+          "name": "Bhandup",
+          "distance_m": 440,
+          "osm": "node/3248305759"
+        },
+        {
+          "name": "Nahur",
+          "distance_m": 1420,
+          "osm": "node/2629791007"
+        }
+      ],
+      "bus": [
+        {
+          "name": "Bhandup Station West",
+          "distance_m": 50,
+          "osm": "node/6038193885"
+        },
+        {
+          "name": "Bhandup St (W)",
+          "distance_m": 180,
+          "osm": "node/4624037656"
+        },
+        {
+          "name": "ishwar nagar stop",
+          "distance_m": 310,
+          "osm": "node/3554037797"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Late Meenatai Thakrey Chowk",
+          "distance_m": 680,
+          "osm": "node/1644082017"
+        }
+      ],
+      "college": [
+        {
+          "name": "V K Krishna Menon College",
+          "distance_m": 500,
+          "osm": "node/13102965801"
+        },
+        {
+          "name": "Guru Nanak English Academy",
+          "distance_m": 710,
+          "osm": "way/345151607"
+        },
+        {
+          "name": "Navjeevan Junior College",
+          "distance_m": 870,
+          "osm": "way/1120635381"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Magnet Mall",
+          "distance_m": 730,
+          "osm": "way/151205176"
+        },
+        {
+          "name": "Filix Mall",
+          "distance_m": 1480,
+          "osm": "way/617989959"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Sunrise Hospital",
+          "distance_m": 70,
+          "osm": "node/8797353176"
+        },
+        {
+          "name": "Sulochan Eye",
+          "distance_m": 90,
+          "osm": "node/7048110383"
+        },
+        {
+          "name": "Saarthi Hospital, Mumbai",
+          "distance_m": 150,
+          "osm": "node/7062490980"
+        }
+      ]
+    },
+    "shangrila": {
+      "rail": [
+        {
+          "name": "Nahur",
+          "distance_m": 960,
+          "osm": "node/2629791007"
+        },
+        {
+          "name": "Bhandup",
+          "distance_m": 1240,
+          "osm": "node/3248305759"
+        }
+      ],
+      "bus": [
+        {
+          "name": "Bhandup Police Station",
+          "distance_m": 350,
+          "osm": "node/4644026853"
+        },
+        {
+          "name": "Kasturi Vidyalay",
+          "distance_m": 350,
+          "osm": "node/4632210339"
+        },
+        {
+          "name": "Usha Nagar",
+          "distance_m": 460,
+          "osm": "node/4632210341"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Haji Murtuja Choudhary Chowk",
+          "distance_m": 850,
+          "osm": "node/2237026443"
+        }
+      ],
+      "college": [
+        {
+          "name": "Navjeevan Junior College",
+          "distance_m": 740,
+          "osm": "way/1120635381"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Filix Mall",
+          "distance_m": 650,
+          "osm": "way/617989959"
+        }
+      ],
+      "office": [
+        {
+          "name": "Edifycode",
+          "distance_m": 530,
+          "osm": "node/13546527739"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Dr Bhatia’s Hospital, Bhandup",
+          "distance_m": 320,
+          "osm": "node/8797077000"
+        },
+        {
+          "name": "Nadkarni Eye Care Centre",
+          "distance_m": 360,
+          "osm": "node/7054913128"
+        },
+        {
+          "name": "Dr.Badwaik's Maternity and General Hospital",
+          "distance_m": 400,
+          "osm": "node/7049604152"
+        }
+      ]
+    },
+    "sonapur": {
+      "bus": [
+        {
+          "name": "Hoechst Company",
+          "distance_m": 50,
+          "osm": "node/10279838116"
+        },
+        {
+          "name": "Duncan Company",
+          "distance_m": 210,
+          "osm": "node/10259362740"
+        },
+        {
+          "name": "Dr Hegdewar Chowk",
+          "distance_m": 300,
+          "osm": "node/10259321587"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Madame Bhikaji Cama Chowk",
+          "distance_m": 160,
+          "osm": "node/5924611769"
+        },
+        {
+          "name": "Doctor Keshav Baliram Hedgewar Chowk",
+          "distance_m": 300,
+          "osm": "node/5924612038"
+        },
+        {
+          "name": "Dr Hegdewar Chowk",
+          "distance_m": 310,
+          "osm": "node/10259362737"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Filix Mall",
+          "distance_m": 760,
+          "osm": "way/617989959"
+        }
+      ],
+      "office": [
+        {
+          "name": "Avior Corporate Park",
+          "distance_m": 750,
+          "osm": "way/665687017"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Anil Cancer Clinic",
+          "distance_m": 200,
+          "osm": "node/7059172358"
+        },
+        {
+          "name": "Fortis Hospitals",
+          "distance_m": 630,
+          "osm": "way/627628780"
+        },
+        {
+          "name": "Surya Eye Institute and Research Centre",
+          "distance_m": 730,
+          "osm": "node/7043123119"
+        }
+      ]
+    },
+    "mulund-fire-station": {
+      "bus": [
+        {
+          "name": "Johnson & Johnson",
+          "distance_m": 0,
+          "osm": "node/12768025013"
+        },
+        {
+          "name": "Shivram Society",
+          "distance_m": 200,
+          "osm": "node/10255680424"
+        },
+        {
+          "name": "Mulund Depot",
+          "distance_m": 430,
+          "osm": "node/10255674907"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Ezhikara Ambujakshan Chowk",
+          "distance_m": 90,
+          "osm": "node/2241633971"
+        },
+        {
+          "name": "Rohitkumar Ratanshi Reshamwala Chowk",
+          "distance_m": 190,
+          "osm": "node/5924612079"
+        },
+        {
+          "name": "Khalsa Panth Trai Shatabdi Chowk",
+          "distance_m": 340,
+          "osm": "node/10841886497"
+        }
+      ],
+      "college": [
+        {
+          "name": "JJ Academy",
+          "distance_m": 270,
+          "osm": "node/10250511726"
+        }
+      ],
+      "mall": [
+        {
+          "name": "R Mall",
+          "distance_m": 1370,
+          "osm": "way/627612997"
+        },
+        {
+          "name": "Color Scape Mall",
+          "distance_m": 1490,
+          "osm": "way/632275578"
+        }
+      ],
+      "office": [
+        {
+          "name": "Avior Corporate Park",
+          "distance_m": 320,
+          "osm": "way/665687017"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Veena Nagar Health Care Center and Hospital",
+          "distance_m": 50,
+          "osm": "node/7082579559"
+        },
+        {
+          "name": "Anjali Maternity and Surgical Hospital - Mulund",
+          "distance_m": 400,
+          "osm": "node/7073888629"
+        },
+        {
+          "name": "ESIS Hospital",
+          "distance_m": 570,
+          "osm": "way/627628785"
+        }
+      ]
+    },
+    "mulund-naka": {
+      "rail": [
+        {
+          "name": "Mulund",
+          "distance_m": 1400,
+          "osm": "node/1643351703"
+        }
+      ],
+      "bus": [
+        {
+          "name": "Santoshi Mata Temple",
+          "distance_m": 30,
+          "osm": "node/10251521040"
+        },
+        {
+          "name": "Santoshi Mata Mandir",
+          "distance_m": 130,
+          "osm": "node/10247406102"
+        },
+        {
+          "name": "Maharana Pratap Chowk",
+          "distance_m": 210,
+          "osm": "node/6038148785"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Balrajeshwar Mahadev Prasanna Chowk",
+          "distance_m": 130,
+          "osm": "node/10293864760"
+        },
+        {
+          "name": "Check Naka",
+          "distance_m": 300,
+          "osm": "node/1386641229"
+        },
+        {
+          "name": "Mulund Check Naka",
+          "distance_m": 360,
+          "osm": "node/2440235117"
+        }
+      ],
+      "mall": [
+        {
+          "name": "R Mall",
+          "distance_m": 140,
+          "osm": "way/627612997"
+        },
+        {
+          "name": "Color Scape Mall",
+          "distance_m": 400,
+          "osm": "way/632275578"
+        },
+        {
+          "name": "Eternity Mall",
+          "distance_m": 1370,
+          "osm": "way/725461236"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Platinum Hospitals",
+          "distance_m": 390,
+          "osm": "node/7062497091"
+        },
+        {
+          "name": "Dr.Redkar's Maternity and Nursing Home",
+          "distance_m": 420,
+          "osm": "node/7073537693"
+        },
+        {
+          "name": "Om Children Maternity and Surgical Nursing Home",
+          "distance_m": 470,
+          "osm": "node/7073879390"
+        }
+      ]
+    },
+    "teen-haath-naka": {
+      "bus": [
+        {
+          "name": "Johnson Company",
+          "distance_m": 0,
+          "osm": "node/6038146489"
+        },
+        {
+          "name": "Teen Hath Naka",
+          "distance_m": 190,
+          "osm": "node/6038133186"
+        },
+        {
+          "name": "Highway Darshan Society",
+          "distance_m": 290,
+          "osm": "node/10251478051"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Teen Hath Naka",
+          "distance_m": 290,
+          "osm": "node/6802412635"
+        },
+        {
+          "name": "Sant Namdeo Chowk",
+          "distance_m": 650,
+          "osm": "node/6802852073"
+        },
+        {
+          "name": "Mulund Checknaka",
+          "distance_m": 680,
+          "osm": "node/9887571390"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Eternity Mall",
+          "distance_m": 150,
+          "osm": "way/725461236"
+        },
+        {
+          "name": "Color Scape Mall",
+          "distance_m": 890,
+          "osm": "way/632275578"
+        },
+        {
+          "name": "Rmall",
+          "distance_m": 1070,
+          "osm": "node/9887637253"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "HIGHWAY HOSPITAL",
+          "distance_m": 340,
+          "osm": "node/4585381996"
+        },
+        {
+          "name": "Abhimaan Maternity and Surgical Hospital - Thane",
+          "distance_m": 400,
+          "osm": "node/7053008622"
+        },
+        {
+          "name": "Dr Milind Patils Revival Bone and Joint Hospital",
+          "distance_m": 500,
+          "osm": "node/7050253933"
+        }
+      ]
+    },
+    "rto-thane": {
+      "bus": [
+        {
+          "name": "Thane RTO",
+          "distance_m": 40,
+          "osm": "node/8795776785"
+        },
+        {
+          "name": "Louis Wadi",
+          "distance_m": 350,
+          "osm": "node/6038148685"
+        },
+        {
+          "name": "Gurukul Society",
+          "distance_m": 390,
+          "osm": "node/10057041049"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Teen Hath Naka",
+          "distance_m": 480,
+          "osm": "node/6802412635"
+        },
+        {
+          "name": "Harinivas Circle",
+          "distance_m": 550,
+          "osm": "way/1299085433"
+        },
+        {
+          "name": "Sant Namdeo Chowk",
+          "distance_m": 770,
+          "osm": "node/6802852073"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Eternity Mall",
+          "distance_m": 610,
+          "osm": "way/725461236"
+        },
+        {
+          "name": "Korum Mall",
+          "distance_m": 1190,
+          "osm": "way/194579567"
+        },
+        {
+          "name": "Color Scape Mall",
+          "distance_m": 1430,
+          "osm": "way/632275578"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "HIGHWAY HOSPITAL",
+          "distance_m": 350,
+          "osm": "node/4585381996"
+        },
+        {
+          "name": "Aadhar Hospital",
+          "distance_m": 420,
+          "osm": "node/7663684046"
+        },
+        {
+          "name": "Abhimaan Maternity and Surgical Hospital - Thane",
+          "distance_m": 440,
+          "osm": "node/7053008622"
+        }
+      ]
+    },
+    "mahapalika-marg": {
+      "bus": [
+        {
+          "name": "Sambhaji Nagar",
+          "distance_m": 100,
+          "osm": "node/8795776790"
+        },
+        {
+          "name": "Nitin Company",
+          "distance_m": 230,
+          "osm": "node/8795208236"
+        },
+        {
+          "name": "Siddheshwar Lake",
+          "distance_m": 260,
+          "osm": "node/8795776791"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Cadbury Junction",
+          "distance_m": 540,
+          "osm": "node/3878627345"
+        },
+        {
+          "name": "Almeda Chowk",
+          "distance_m": 820,
+          "osm": "node/6802893033"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Korum Mall",
+          "distance_m": 210,
+          "osm": "way/194579567"
+        },
+        {
+          "name": "Lake Shore Mall",
+          "distance_m": 1070,
+          "osm": "node/13514028003"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Criticare Superspeciality Hospital",
+          "distance_m": 60,
+          "osm": "node/7070245120"
+        },
+        {
+          "name": "Kaushalya Medical Foundation Trust Hospital, Mumbai",
+          "distance_m": 210,
+          "osm": "node/7049483334"
+        },
+        {
+          "name": "Medicare Hospital, Thane",
+          "distance_m": 250,
+          "osm": "node/7066505701"
+        }
+      ]
+    },
+    "cadbury-junction": {
+      "bus": [
+        {
+          "name": "Laxmi Nagar",
+          "distance_m": 50,
+          "osm": "node/10247412210"
+        },
+        {
+          "name": "Pujani Estate",
+          "distance_m": 190,
+          "osm": "node/8795776771"
+        },
+        {
+          "name": "Cadbury Junction",
+          "distance_m": 240,
+          "osm": "node/13431778553"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Cadbury Junction",
+          "distance_m": 220,
+          "osm": "node/3878627345"
+        },
+        {
+          "name": "Kolbad Naka",
+          "distance_m": 770,
+          "osm": "node/10275450996"
+        },
+        {
+          "name": "Meenatai Thakrey Chowk",
+          "distance_m": 780,
+          "osm": "node/5620630677"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Lake Shore Mall",
+          "distance_m": 320,
+          "osm": "node/13514028003"
+        },
+        {
+          "name": "Korum Mall",
+          "distance_m": 630,
+          "osm": "way/194579567"
+        }
+      ],
+      "office": [
+        {
+          "name": "iThink",
+          "distance_m": 610,
+          "osm": "way/627547486"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Sahil Hospital, Thane",
+          "distance_m": 370,
+          "osm": "node/7045681875"
+        },
+        {
+          "name": "Dr Manish Patankar's Nath Hospital",
+          "distance_m": 400,
+          "osm": "node/7054818486"
+        },
+        {
+          "name": "Senses Eye and Ent Hospital",
+          "distance_m": 440,
+          "osm": "node/7069927158"
+        }
+      ]
+    },
+    "majiwada": {
+      "bus": [
+        {
+          "name": "Muktai Nagar",
+          "distance_m": 160,
+          "osm": "node/6038134585"
+        },
+        {
+          "name": "Hardas Nagar",
+          "distance_m": 200,
+          "osm": "node/10247412288"
+        },
+        {
+          "name": "Siddhivinayak Tower",
+          "distance_m": 220,
+          "osm": "node/10247412211"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Meenatai Thakrey Chowk",
+          "distance_m": 760,
+          "osm": "node/5620630677"
+        },
+        {
+          "name": "Kolbad Naka",
+          "distance_m": 900,
+          "osm": "node/10275450996"
+        },
+        {
+          "name": "Uthalsar Naka",
+          "distance_m": 970,
+          "osm": "node/414595021"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Lake Shore Mall",
+          "distance_m": 520,
+          "osm": "way/234977280"
+        },
+        {
+          "name": "Lake City Mall",
+          "distance_m": 720,
+          "osm": "way/234977124"
+        },
+        {
+          "name": "High Street Mall",
+          "distance_m": 820,
+          "osm": "way/234977123"
+        }
+      ],
+      "office": [
+        {
+          "name": "iThink",
+          "distance_m": 430,
+          "osm": "way/627547486"
+        },
+        {
+          "name": "Rutu Business Park",
+          "distance_m": 700,
+          "osm": "way/931950694"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Param Hospital and Icu",
+          "distance_m": 140,
+          "osm": "node/7073827666"
+        },
+        {
+          "name": "Sai Ashutosh Hospital",
+          "distance_m": 250,
+          "osm": "node/7663684060"
+        },
+        {
+          "name": "Aditya Orthopedic Hospital",
+          "distance_m": 320,
+          "osm": "node/7085988150"
+        }
+      ]
+    },
+    "kapurbawdi": {
+      "bus": [
+        {
+          "name": "Tattvagyan Vidyapeeth",
+          "distance_m": 10,
+          "osm": "node/8789863205"
+        },
+        {
+          "name": "Kapurbawadi",
+          "distance_m": 210,
+          "osm": "node/8789863204"
+        },
+        {
+          "name": "Shruti Park",
+          "distance_m": 410,
+          "osm": "node/8794902858"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Tatvagyan Vidyapeeth Circle",
+          "distance_m": 70,
+          "osm": "node/9214918879"
+        },
+        {
+          "name": "Tulsidham Circle",
+          "distance_m": 430,
+          "osm": "node/9214918805"
+        },
+        {
+          "name": "Hiranandani Meadows Circle",
+          "distance_m": 970,
+          "osm": "way/910066622"
+        }
+      ],
+      "mall": [
+        {
+          "name": "WonderMall",
+          "distance_m": 260,
+          "osm": "way/352922006"
+        },
+        {
+          "name": "R-Mall (Ghodbunder)",
+          "distance_m": 730,
+          "osm": "way/353157826"
+        },
+        {
+          "name": "Lake City Mall",
+          "distance_m": 730,
+          "osm": "way/234977124"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Highland Speciality Hospital",
+          "distance_m": 230,
+          "osm": "way/1013529991"
+        },
+        {
+          "name": "Dr Walvatkars Eye Care Center",
+          "distance_m": 480,
+          "osm": "node/7044745237"
+        },
+        {
+          "name": "Navjeewan Hospital",
+          "distance_m": 820,
+          "osm": "node/7064125733"
+        }
+      ]
+    },
+    "manpada": {
+      "bus": [
+        {
+          "name": "R-Mall",
+          "distance_m": 180,
+          "osm": "node/6116158099"
+        },
+        {
+          "name": "Manorama Nagar",
+          "distance_m": 390,
+          "osm": "node/10247412260"
+        },
+        {
+          "name": "Manpada",
+          "distance_m": 410,
+          "osm": "node/12591896952"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Khewra Circle",
+          "distance_m": 700,
+          "osm": "way/910066623"
+        },
+        {
+          "name": "Hiranandani Meadows Circle",
+          "distance_m": 810,
+          "osm": "way/910066622"
+        },
+        {
+          "name": "Netaji Subhash Chandra Bose Circle",
+          "distance_m": 910,
+          "osm": "way/910066635"
+        }
+      ],
+      "mall": [
+        {
+          "name": "R-Mall (Ghodbunder)",
+          "distance_m": 180,
+          "osm": "way/353157826"
+        },
+        {
+          "name": "WonderMall",
+          "distance_m": 1160,
+          "osm": "way/352922006"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Shree Eye Hospital",
+          "distance_m": 90,
+          "osm": "node/7082499140"
+        },
+        {
+          "name": "Orthonova Hospital",
+          "distance_m": 360,
+          "osm": "node/7055431560"
+        },
+        {
+          "name": "Metropol Hospital and Icu",
+          "distance_m": 490,
+          "osm": "node/7044011261"
+        }
+      ]
+    },
+    "tikujiniwadi": {
+      "bus": [
+        {
+          "name": "Mulla Bagh",
+          "distance_m": 110,
+          "osm": "node/8792348032"
+        },
+        {
+          "name": "Dharamvir Nagar",
+          "distance_m": 250,
+          "osm": "node/12593351264"
+        },
+        {
+          "name": "Azad Nagar Naka",
+          "distance_m": 270,
+          "osm": "node/8792348021"
+        }
+      ],
+      "chowk": [
+        {
+          "name": "Netaji Subhash Chandra Bose Circle",
+          "distance_m": 640,
+          "osm": "way/910066635"
+        },
+        {
+          "name": "Chhatrapati Shivaji Maharaj Circle",
+          "distance_m": 710,
+          "osm": "way/912688747"
+        },
+        {
+          "name": "Khewra Circle",
+          "distance_m": 890,
+          "osm": "way/910066623"
+        }
+      ],
+      "mall": [
+        {
+          "name": "R-Mall (Ghodbunder)",
+          "distance_m": 920,
+          "osm": "way/353157826"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Titan",
+          "distance_m": 260,
+          "osm": "node/12595485524"
+        },
+        {
+          "name": "Shree Sai Hospital",
+          "distance_m": 350,
+          "osm": "node/12591894395"
+        },
+        {
+          "name": "Tirupati Hospital",
+          "distance_m": 580,
+          "osm": "node/7663684048"
+        }
+      ]
+    },
+    "dongripada": {
+      "bus": [
+        {
+          "name": "Dongaripada",
+          "distance_m": 30,
+          "osm": "node/1235720534"
+        },
+        {
+          "name": "Waghbil Naka",
+          "distance_m": 280,
+          "osm": "node/8792348026"
+        }
+      ],
+      "college": [
+        {
+          "name": "Shubham Raje",
+          "distance_m": 720,
+          "osm": "way/950395643"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Horizon Prime Hospital",
+          "distance_m": 380,
+          "osm": "node/8816683705"
+        },
+        {
+          "name": "Currae Hospital",
+          "distance_m": 610,
+          "osm": "node/4216317814"
+        },
+        {
+          "name": "Aditya Ortho Spine Clinic",
+          "distance_m": 650,
+          "osm": "node/14048349391"
+        }
+      ]
+    },
+    "vijay-garden": {
+      "bus": [
+        {
+          "name": "Panchamrit",
+          "distance_m": 140,
+          "osm": "node/8792348025"
+        },
+        {
+          "name": "Vijay Garden / D-Mart",
+          "distance_m": 150,
+          "osm": "node/8792348022"
+        },
+        {
+          "name": "Sambhaji Hotel",
+          "distance_m": 270,
+          "osm": "node/10247412217"
+        }
+      ],
+      "college": [
+        {
+          "name": "Arun Muchhala polytechnic college",
+          "distance_m": 520,
+          "osm": "way/1080710143"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Big Centre",
+          "distance_m": 1210,
+          "osm": "way/353175535"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Maheshwari Multispeciality Hospital",
+          "distance_m": 100,
+          "osm": "node/7663684028"
+        },
+        {
+          "name": "Healing Hands Clinic - Thane West",
+          "distance_m": 180,
+          "osm": "node/13805568840"
+        },
+        {
+          "name": "Currae Hospital",
+          "distance_m": 330,
+          "osm": "node/4216317814"
+        }
+      ]
+    },
+    "kasarvadavali": {
+      "bus": [
+        {
+          "name": "Sainath Nagar",
+          "distance_m": 60,
+          "osm": "node/6618393200"
+        },
+        {
+          "name": "Kasarvadavali Naka",
+          "distance_m": 260,
+          "osm": "node/8796504392"
+        },
+        {
+          "name": "Anand Nagar",
+          "distance_m": 320,
+          "osm": "node/8796504393"
+        }
+      ],
+      "college": [
+        {
+          "name": "AP shah Institute of Technology",
+          "distance_m": 100,
+          "osm": "way/1412114957"
+        },
+        {
+          "name": "Arun Muchhala polytechnic college",
+          "distance_m": 580,
+          "osm": "way/1080710143"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Big Centre",
+          "distance_m": 180,
+          "osm": "way/353175535"
+        }
+      ],
+      "office": [
+        {
+          "name": "G Corp Tech Park",
+          "distance_m": 170,
+          "osm": "node/2902109610"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Janani Nursing Home & Hospital",
+          "distance_m": 330,
+          "osm": "node/7663684039"
+        },
+        {
+          "name": "Dr. Maheshwari Hospital",
+          "distance_m": 370,
+          "osm": "node/7663684036"
+        },
+        {
+          "name": "Tieten Medicity",
+          "distance_m": 620,
+          "osm": "way/957214449"
+        }
+      ]
+    },
+    "gowniwada": {
+      "bus": [
+        {
+          "name": "Trimurti School",
+          "distance_m": 90,
+          "osm": "node/10247438204"
+        },
+        {
+          "name": "Shri Ram Hospital",
+          "distance_m": 140,
+          "osm": "node/10247438206"
+        },
+        {
+          "name": "Ovala Gaon",
+          "distance_m": 370,
+          "osm": "node/10247438201"
+        }
+      ],
+      "mall": [
+        {
+          "name": "Big Centre",
+          "distance_m": 1200,
+          "osm": "way/353175535"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Shree Ram Hospital",
+          "distance_m": 210,
+          "osm": "node/7663684073"
+        },
+        {
+          "name": "Bhaskar EyeCare",
+          "distance_m": 450,
+          "osm": "way/549692990"
+        },
+        {
+          "name": "Dhanwantri Hospital",
+          "distance_m": 570,
+          "osm": "node/4375287768"
+        }
+      ]
+    },
+    "gaimukh": {
+      "bus": [
+        {
+          "name": "Imperial Sqaure",
+          "distance_m": 40,
+          "osm": "node/10247438199"
+        }
+      ]
+    }
+  }
+}

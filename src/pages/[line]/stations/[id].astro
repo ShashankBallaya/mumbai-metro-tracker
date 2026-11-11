@@ -10,7 +10,7 @@ import Grade from '../../../components/Grade.astro';
 import LocatorMap from '../../../components/LocatorMap.astro';
 import LineMark from '../../../components/LineMark.astro';
 import PhotoCredit from '../../../components/PhotoCredit.astro';
-import { getLine, dprLabel, inSentence, isRing, lines, lineNodeId, lineBase, SITE_NAME, stationHref, positionBasis, streetViewUrl, plannedInterchanges, tableInterchanges, INTERCHANGE_TABLE, formatDate, sectionOf, openedOf, announcedOf, sectionName, clock, frequencyText, inr, videoTime, type LineId, type Station, type StationPhoto } from '../../../lib/data';
+import { getLine, dprLabel, inSentence, isRing, lines, lineNodeId, lineBase, SITE_NAME, stationHref, positionBasis, streetViewUrl, plannedInterchanges, tableInterchanges, INTERCHANGE_TABLE, formatDate, sectionOf, openedOf, announcedOf, sectionName, clock, frequencyText, inr, videoTime, distanceText, type LineId, type Station, type StationPhoto } from '../../../lib/data';
 import { hasStatusPage } from '../../../lib/answers';
 import '../../../styles/inner.css';
 
@@ -93,6 +93,12 @@ const moreTitle = more.every((ph) => ph.kind === 'drone')
   : more.some((ph) => ph.kind === 'drone') ? 'More pictures' : 'More from the ground';
 // The flight past this station in the line's drone video, when there is one.
 const flight = line.aerial?.stops.find((st) => st.station === s.id);
+// Places near the station from OpenStreetMap, in the kinds' order; kinds with nothing nearby are left out.
+const nearbyMeta = line.nearby?._meta;
+const nearbyHere = line.nearby?.stations[s.id] ?? {};
+const nearby = (nearbyMeta?.kinds ?? []).map((k) => ({ ...k, places: nearbyHere[k.id] ?? [] })).filter((k) => k.places.length > 0);
+const nearbyMissing = (nearbyMeta?.kinds ?? []).filter((k) => !nearbyHere[k.id]?.length);
+const pagePath = `${base}stations/${s.id}/`;
 
 const title = `${s.name} Metro Station, ${about.name} (${route_short})`;
 const description = `${s.name} is station ${s.order} of ${total} on ${on}, ${route_short}. Where it is, what is around it, interchanges and construction status, each with its source.`;
@@ -264,6 +270,42 @@ const schema: Record<string, unknown>[] = [
           {sameSite && <p>Same site as <LineMark lineId={other!.line} />{sameSite.href ? <a href={sameSite.href}>{sameSite.label}</a> : sameSite.label}.</p>}
         </dd>
       </div>
+
+      {nearbyMeta && loc.lat !== null && (
+        <div id="nearby">
+          <dt>Nearby</dt>
+          <dd>
+            {nearby.length > 0 ? (
+              <dl class="nearby">
+                {nearby.map((k) => (
+                  <div>
+                    <dt>{k.label}</dt>
+                    <dd>
+                      <ul>
+                        {k.places.map((p) => (
+                          <li>
+                            <a href={`https://www.openstreetmap.org/${p.osm}`} target="_blank" rel="noopener">{p.name}<span class="visually-hidden"> on OpenStreetMap (opens in a new tab)</span></a>
+                            <span class="nearby__dist num">{distanceText(p.distance_m)}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            ) : (
+              <p>OpenStreetMap shows none of the places we list near this station yet.</p>
+            )}
+            <p class="fact__note">
+              From <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors<span class="visually-hidden"> (opens in a new tab)</span></a>, checked {formatDate(nearbyMeta.last_verified)}.
+              Distances are in a straight line from the station point, to the centre of large sites; the walk is longer.
+              {nearbyMissing.length > 0 && <> None mapped close by: {nearbyMissing.map((k) => k.label.charAt(0).toLowerCase() + k.label.slice(1)).join(', ')}.</>}
+            </p>
+            <p class="grades"><Grade status={nearbyMeta.status} source={nearbyMeta.source_url} /></p>
+            <p><a href={`/correct/?page=${encodeURIComponent(pagePath)}`}>A place missing or wrong? Tell us</a></p>
+          </dd>
+        </div>
+      )}
 
       {s.context.length > 0 && (
         <div>
