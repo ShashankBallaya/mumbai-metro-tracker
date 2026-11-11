@@ -539,6 +539,7 @@ Research of 2026-10-30 for `src/data/lines/line-7a/`, with the tender search. 7A
 
 - `scripts/build-alignment-line7a.py` takes the midpoint of the file's two tracks as the centre line. Airport Colony is 6 m from it and CSIA 29 m. Distances count from Airport Colony; the 455 m from Gundavali is not drawn. The underground stretch is MMRDA's 2.195 km measured back from the end of the tracks (from 0.87 km after Airport Colony); where the ramp goes below ground is not published exactly. The bend sits where the line turns east off the Western Express Highway (0.42 km).
 - The hub map still draws 7A from all the file's line pieces; it could use this line instead.
+- Before and after (2026-11-11): `scripts/build-wayback.mjs line-7a`, Esri World Imagery Wayback, Airport Colony only (25 Oct 2018 against 11 Nov 2025). Construction counts from CA-48 (September 2019). CSIA is left out: its 2018 imagery already shows the Line 3 station dig beside it, which would read as 7A work.
 
 ## Items that need your review
 
@@ -587,6 +588,8 @@ Research of 2026-11-10 for `src/data/lines/line-9/` (a viewer noted the site had
 ## Derived data
 
 - `scripts/build-alignment-line9.py` derives the centre line from the corridor polygon (as for Line 2B). All 8 points within 13 m, in order. Drawn from Dahisar (E) to Subhash Chandra Bose Stadium: 8.26 km. The 1.9 km of corridor past the last station is not drawn.
+
+- Before and after (2026-11-11): `scripts/build-wayback.mjs line-9`, Esri World Imagery Wayback, all eight stations (25 Oct 2018 against 10 Oct 2025). Construction counts from the civil contract of 13 Sep 2019.
 
 ## Items that need your review
 
@@ -666,6 +669,16 @@ Research of 2026-10-29 for `src/data/network.json` (first draft). The four track
 |---|---|---|
 | MMRDA line pages (`/en/projects/transport/metro-line-<n>/overview`) for Lines 1, 2A, 2B, 6, 7, 9 and 7A | 2026-10-29 (status as of 31 Aug 2026) | Length, stations, colour, opening dates of each phase, progress |
 | MMRDA has no page for Lines 7A (it shares Line 9's), 8, 10, 11, 13 or 14 (each URL returns 404) | 2026-10-29 | |
+| MMRCL, Project Reports & Documents, Line 11 (corporate.mmrcl.com/en/corporate/pages/project-reports-documents; the owner's link) | 2026-11-11 | Line 11: agency, length, stations (see "Line 11 documents" below) |
+
+### Line 11 documents (MMRCL, read 2026-11-11)
+
+- **EIA, Building Environment (India), Dec 2024** (`EIA_Report_-_Line-11_Anik_Depot-_Gateway_of_India.pdf`): 17.51 km, 16.39 km underground (16.833 km in another table of the same report), 14 stations: Anik Bus Depot (at grade, chainage 0), Wadala Depot, CGS Colony, Ganesh Nagar, BPT Hospital, Sewri, Hay Bunder, Darukhana, Byculla, Nagpada Junction, Bhendi Bazaar, CSMT Metro, Horniman Circle, Gateway of India. Station chainages in its Table II. Design speed 90 km/h, operating 80 km/h, schedule 35 km/h, all "as per DPR". An earlier option was Wadala (Bhakti Park) to CSMT, 12.774 km, partly elevated.
+- **JICA supplementary EIA, Nov 2025**: calls the route "Corridor 1 of Line 11". Line 4 meets it at Anik Depot; Line 11 is underground and Line 4 elevated, so no through trains. It assumes opening in 2031. One page says 15 stations but lists 14.
+- **Notices**: stakeholder consultations on 22 and 23 Aug 2025 and 23 Sep 2025. The Government of Maharashtra implements the line through MMRCL; "fully underground".
+- **Interim consultant RFP**, e-tender MMRC/PLN/L11/TP-05/IC/2025/01, 20 Oct 2025; bids due 3 Dec 2025; addenda 2 and 3 and pre-bid answers also posted. No award found yet.
+- **Chainage file** links to a KMZ of the alignment on Google Drive (drive.google.com/drive/folders/1jTjTVYGkqTeHlBDEb6en51lGo5gAAWXJ). Use it for the Line 11 page.
+- **Alignment map** PNG (28 MB) and the SIA reports: not read yet.
 
 ## Secondary sources
 
@@ -690,7 +703,7 @@ Research of 2026-10-29 for `src/data/network.json` (first draft). The four track
 1. **Stage definitions** (HUB-PLAN.md). Line 4's first stretch and Line 5's Phase 1 are built but not open, so they stay "under construction" until passengers ride.
 2. **Thane ring.** Now tracked in full at `/thane-ring/` and moved to "under construction" (2026-11-03); see "Thane Integral Ring Metro" above.
 3. **Line 8.** A Jan 2026 approval by the state's Cabinet Infrastructure Committee at Rs 22,862 crore is reported (Lokmat Times), but the page refused the fetch.
-4. **Line 11.** Is it one line from Bandra Terminus to Gateway, or Line 4's extension plus a branch? Sources differ.
+4. **Line 11.** Is it one line from Bandra Terminus to Gateway, or Line 4's extension plus a branch? Sources differ. Partly answered 2026-11-11: MMRCL's documents treat Anik Depot to Gateway as its own underground line that meets Line 4 at Anik Depot, with no through trains. The Bandra Terminus extension is still news only.
 5. **Line 2B stations.** MMRDA says both 19 and 20. Line 2B now has its own page; see Line 2B above.
 6. **Future prospects.** Only Virar to Alibaug is in. Other ideas you know of (with a source) can join.
 

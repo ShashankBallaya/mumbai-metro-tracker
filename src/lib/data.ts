@@ -445,6 +445,8 @@ export function outletName(url: string | null | undefined): string {
   const host = new URL(url).hostname.replace(/^www\./, '');
   const known: Record<string, string> = {
     'mmrda.maharashtra.gov.in': 'MMRDA',
+    'mmrcl-development.s3.amazonaws.com': 'MMRCL',
+    'corporate.mmrcl.com': 'MMRCL',
     'themetrorailguy.com': 'The Metro Rail Guy',
     'metrorailtoday.com': 'Metro Rail Today',
     'metrorailnews.in': 'Metro Rail News',
