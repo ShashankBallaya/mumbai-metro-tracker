@@ -109,7 +109,7 @@ const {{ number = '12', label = 'Line 12' }} = Astro.props;
     --iso-door: #8f8a82;
     --iso-road: rgb(12 20 34 / 0.85);
     --iso-mark: #efe9de;
-    --iso-twelve: #0c1422;
+    --iso-twelve: var(--on-signal); /* the line number, in the colour that reads on the line's own */
     --iso-ground: rgb(12 20 34 / 0.08);
     margin: 0;
     background-color: var(--signal);

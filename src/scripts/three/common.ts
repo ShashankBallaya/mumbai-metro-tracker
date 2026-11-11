@@ -168,9 +168,10 @@ export function lightRig(scene: THREE.Scene, { shadows = false, span = 120 } = {
 /**
  * A generic three-car metro train, 3.2 m wide (as the 2019 project report plans),
  * in a livery inspired by the Line 5 train design: deep blue body, orange and brown bands.
+ * `band` swaps the orange for another line's colour (the viaduct scene on other lines' pages).
  * Length runs along x. Returns the group; its origin is the centre of the train at rail level.
  */
-export function buildTrain(cars = 3): THREE.Group {
+export function buildTrain(cars = 3, band = '#e8742a'): THREE.Group {
   const group = new THREE.Group();
   const CAR = 21;
   const GAP = 0.6;
@@ -178,7 +179,9 @@ export function buildTrain(cars = 3): THREE.Group {
   const H = 3.7;
   const body = flat('#2a3a8c');
   const glass = flat('#131a2b');
-  const orange = flat('#e8742a');
+  // The band: Line 5's orange unless a scene gives the line's own colour.
+  const orange = flat(band);
+  orange.userData.band = true;
   const brown = flat('#6b4a3c');
   const roof = flat('#c9ccd3');
   const under = flat('#23262d');

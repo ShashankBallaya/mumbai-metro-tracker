@@ -2,10 +2,12 @@
  * Hero scene: an isometric, flat-shaded stretch of viaduct on an orange halftone field, a train gliding
  * along it, and the line's number painted giant on the ground (the Tren Urbano reference). The number
  * comes from the host's data-line-number (FrontPage); Line 12's "12" when it has none.
+ * With a line number, the field, the number and the train's band take that line's colour from the page
+ * (--signal and --on-signal), and follow the edition theme. Line 12 keeps its fixed orange.
  * Orthographic camera, so it reads like the drawing it replaces. Original geometry, not an official design.
  */
 import * as THREE from 'three';
-import { createStage, lightRig, box, flat, buildTrain, textTexture } from './common';
+import { createStage, lightRig, box, flat, buildTrain, textTexture, onThemeChange } from './common';
 
 export async function mount(host: HTMLElement, { reduced }: { reduced: boolean }) {
   // The canvas gets its own box above the figure caption; the drawing is hidden once live.
@@ -24,16 +26,31 @@ export async function mount(host: HTMLElement, { reduced }: { reduced: boolean }
   const { scene } = stage;
   lightRig(scene, { shadows: true, span: 110 });
 
-  // Orange field with newsprint halftone dots.
+  // The line's colours: Line 12's fixed orange, or the page's accent for another line.
+  const lineNumber = host.dataset.lineNumber;
+  const colours = () => {
+    if (!lineNumber) return { field: '#f26b1d', ink: '#0c1422' };
+    const css = getComputedStyle(host);
+    return {
+      field: css.getPropertyValue('--signal').trim() || '#f26b1d',
+      ink: css.getPropertyValue('--on-signal').trim() || '#0c1422',
+    };
+  };
+  let col = colours();
+
+  // Field in the line's colour with newsprint halftone dots.
   const dots = document.createElement('canvas');
   dots.width = dots.height = 32;
   const g = dots.getContext('2d')!;
-  g.fillStyle = '#f26b1d';
-  g.fillRect(0, 0, 32, 32);
-  g.fillStyle = 'rgba(12,20,34,0.22)';
-  g.beginPath();
-  g.arc(16, 16, 3.2, 0, Math.PI * 2);
-  g.fill();
+  const paintField = () => {
+    g.fillStyle = col.field;
+    g.fillRect(0, 0, 32, 32);
+    g.fillStyle = 'rgba(12,20,34,0.22)';
+    g.beginPath();
+    g.arc(16, 16, 3.2, 0, Math.PI * 2);
+    g.fill();
+  };
+  paintField();
   const dotTex = new THREE.CanvasTexture(dots);
   dotTex.wrapS = dotTex.wrapT = THREE.RepeatWrapping;
   dotTex.repeat.set(160, 160);
@@ -59,11 +76,9 @@ export async function mount(host: HTMLElement, { reduced }: { reduced: boolean }
   }
 
   // The giant line number, painted flat on the field in front of the road.
-  const tex = await textTexture(host.dataset.lineNumber ?? '12', '#0c1422');
-  const number = new THREE.Mesh(
-    new THREE.PlaneGeometry(46, 46),
-    new THREE.MeshLambertMaterial({ map: tex, transparent: true }),
-  );
+  const tex = await textTexture(lineNumber ?? '12', col.ink);
+  const numberMat = new THREE.MeshLambertMaterial({ map: tex, transparent: true });
+  const number = new THREE.Mesh(new THREE.PlaneGeometry(46, 46), numberMat);
   number.rotation.x = -Math.PI / 2;
   number.position.set(-8, 0.04, 36);
   number.receiveShadow = true;
@@ -80,7 +95,7 @@ export async function mount(host: HTMLElement, { reduced }: { reduced: boolean }
   scene.add(box(600, 1.3, 0.6, con, 0, 16.4, 4.2));
 
   // The train.
-  const train = buildTrain(3);
+  const train = buildTrain(3, lineNumber ? col.field : undefined);
   train.position.set(0, 15.8, 1.8);
   scene.add(train);
 
@@ -107,6 +122,30 @@ export async function mount(host: HTMLElement, { reduced }: { reduced: boolean }
     if (x > SPAN / 2) x = -SPAN / 2;
     train.position.x = x;
   });
+  // Another line's colours follow the edition theme (its accent differs on night paper).
+  if (lineNumber) {
+    const stop = onThemeChange(async () => {
+      const next = colours();
+      if (next.field === col.field && next.ink === col.ink) return;
+      col = next;
+      paintField();
+      dotTex.needsUpdate = true;
+      const old = numberMat.map;
+      numberMat.map = await textTexture(lineNumber, col.ink);
+      numberMat.needsUpdate = true;
+      old?.dispose();
+      train.traverse((o) => {
+        const m = (o as THREE.Mesh).material as THREE.MeshLambertMaterial | undefined;
+        if (m?.userData.band) m.color.set(col.field);
+      });
+      stage.renderOnce();
+    });
+    const dispose = stage.dispose.bind(stage);
+    stage.dispose = () => {
+      stop();
+      dispose();
+    };
+  }
   stage.renderOnce();
   host.classList.add('is-live');
   return stage;

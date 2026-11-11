@@ -29,7 +29,7 @@ jobs:
           node-version: 26
       # The imagery script and the data check use Node's own modules only, so no npm install.
       # One run for each line with before/after spots (the LINES table in the script).
-      - run: for l in line-12 line-5 line-2b line-4 line-6; do node scripts/build-wayback.mjs "$l"; done
+      - run: for l in line-12 line-5 line-2b line-4 line-6 line-9 line-7a; do node scripts/build-wayback.mjs "$l"; done
       - run: node scripts/validate-data.mjs
       - id: commit
         run: |
