@@ -37,17 +37,17 @@
         ],
         "runs": "which runs fully elevated from D N Nagar in Andheri through Bandra, BKC, Kurla and Chembur to Mandale",
         "station_state": null,
-        "stations_section": "All {total}, in order from ESIC Nagar, the first station from D N Nagar, to Mandale, then the one an earlier plan had. Names follow MMRDA. Select a station to ride to it, or open its own page.",
+        "stations_section": "All {total}, in order from ESIC Nagar, the first station from D N Nagar, to Mandale, then the two that earlier plans had. Names follow MMRDA. Select a station to ride to it, or open its own page.",
         "stations_page": "All {total}, in order from ESIC Nagar to Mandale. Every station is elevated. The line is {km} km long from D N Nagar, where it leaves Line 2A. Mandale to Chembur is open.",
         "stations_page_description": "The {total} stations of {name} in order, from ESIC Nagar in Andheri through Bandra, BKC, Kurla and Chembur to Mandale, with interchanges, which are open and a page for each station.",
-        "route_section": "Twenty stations, ESIC Nagar to Mandale. Scroll to ride the line station by station. Distances follow MMRDA's alignment file of March 2025, from ESIC Nagar.",
+        "route_section": "Nineteen stations, ESIC Nagar to Mandale. Scroll to ride the line station by station. Distances follow MMRDA's alignment file of March 2025, from ESIC Nagar.",
         "route_legend": "A solid line marks track open to riders, Mandale to Chembur; a hollow line marks track under construction.",
         "drawn_from": [
           "MMRDA's alignment file",
           " of March 2025"
         ],
         "headline_html": "Follow Mumbai Metro Line&nbsp;2B<br> from Mandale to D&nbsp;N&nbsp;Nagar.",
-        "front_standfirst": "Six stations are open, from Mandale through Mankhurd to Chembur. The other fourteen, from Chembur through Kurla, BKC and Bandra to D N Nagar, are being built: on {as_of}, MMRDA put pier work at about {pct:Pier works} per cent and girder work at about {pct:U and I girder works} per cent. {stations} stations in all.",
+        "front_standfirst": "Six stations are open, from Mandale through Mankhurd to Chembur. The other thirteen, from Chembur through Kurla, BKC and Bandra to D N Nagar, are being built: on {as_of}, MMRDA put pier work at about {pct:Pier works} per cent and girder work at about {pct:U and I girder works} per cent. {stations} stations in all.",
         "countdown_title": "Days to the reported target",
         "target_html": "Target: <strong>{target}</strong> for the next stretch, Diamond Garden to Saraswat Nagar, as reported. No month; the site counts to the end of the year. MMRDA has announced no date.",
         "lead_scene": "viaduct",
@@ -57,7 +57,7 @@
         "map_first_station": "chembur",
         "numbers": {
           "length_unit": "km, fully elevated, from D N Nagar",
-          "stations_unit": "all elevated; MMRDA also says 19",
+          "stations_unit": "all elevated; MMRDA's list still names 20",
           "cost_unit": ", with taxes, escalation and interest",
           "cost_note": "MMRDA's Line 2B page, the figure of the project report approved in 2016. No revised cost was found.",
           "funding_head": "MMRDA and ADB, as planned",
@@ -88,14 +88,14 @@
             "url": "https://www.freepressjournal.in/mumbai/mumbai-metro-line-2b-launched-travel-from-mankhurd-to-chembur-in-just-20-check-ticket-fare-here"
           }
         ],
-        "page_description": "Unofficial, sourced tracker for Mumbai Metro Line 2B (Yellow Line), D N Nagar to Mandale: what is open, train times and fares, progress on the rest, all 20 stations, map and contracts. Every figure links to its source.",
+        "page_description": "Unofficial, sourced tracker for Mumbai Metro Line 2B (Yellow Line), D N Nagar to Mandale: what is open, train times and fares, progress on the rest, all 19 stations, map and contracts. Every figure links to its source.",
         "status_title": "Mumbai Metro Line 2B Status: open stations, progress, route",
         "status_description": "Which part of Metro Line 2B (D N Nagar to Mandale) is open, train times and fares, when the rest opens, stations, cost and depot. Answers from MMRDA and news sources, checked {checked}.",
         "status_h1": "Metro Line 2B status, answered",
         "status_mr": "डी. एन. नगर-मंडाळे मेट्रो २ब",
         "status_lead": "The questions people ask about Mumbai Metro Line 2B, D N Nagar to Mandale.",
         "footer_disclaimer": "Mumbai Metro Tracker is an independent public-interest site. It is not affiliated with, endorsed by or connected to MMRDA, Maha Mumbai Metro or the Government of Maharashtra. Drawings are original illustrations, not official designs. Check official sources before making decisions.",
-        "dropped_heading": "In an earlier plan, not on MMRDA's list now"
+        "dropped_heading": "In an earlier plan, dropped since"
       }
     },
     {

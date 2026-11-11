@@ -577,7 +577,7 @@ function line2b(line: Line): Answer[] {
     {
       id: 'stations',
       q: 'Which stations are on Line 2B?',
-      a: `${stations.length}, all elevated, in order from ESIC Nagar: ${stations.map((s) => s.name).join(', ')}. MMRDA's own page says 20 in one place and ${x.stations_count.alternatives[0].value} in another; it names 20. ${droppedStations.length ? `An earlier plan also had ${list(droppedStations.map((s) => s.name))}, between SG Barve Marg and Kurla (E); it is not on MMRDA's list now.` : ''}`,
+      a: `${stations.length}, all elevated, in order from ESIC Nagar: ${stations.map((s) => s.name).join(', ')}. MMRDA's feature table says ${x.stations_count.value}; its list still names 20, with National College, between Saraswat Nagar and Bandra Metro, which MMRDA's Authority dropped in 2023, as reported. An earlier plan also had Kurla Terminus, between SG Barve Marg and Kurla (E); it is not on MMRDA's list now.`,
       grades: [
         { status: x.stations_count.status, source: x.stations_count.source_url },
         ...droppedStations.map((s) => ({ status: s.construction_status.status, source: s.construction_status.source_url })),

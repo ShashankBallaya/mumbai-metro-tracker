@@ -54,7 +54,7 @@
       "agency": { "value": "MMRDA", "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview", "last_verified": "2026-10-29" },
       "ends": ["ESIC Nagar", "Mandale"],
       "length_km": { "value": 23.643, "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview", "last_verified": "2026-10-29" },
-      "stations": { "value": 20, "status": "conflicting", "alternatives": [{ "value": 19, "note": "MMRDA's feature table says 19 Nos. but lists 20 names; its introduction says 20 stations." }], "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview", "last_verified": "2026-10-29" },
+      "stations": { "value": 19, "status": "conflicting", "alternatives": [{ "value": 20, "note": "MMRDA's introduction says 20 stations and its list still names 20, with National College, which MMRDA's Authority dropped in 2023, as reported." }], "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview", "last_verified": "2026-11-11" },
       "parts": [
         { "name": "Phase I, Mandale to Diamond Garden", "stage": "operational", "opened": "2026-04-07", "length_km": 5.5, "stations": 5, "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview", "last_verified": "2026-10-29" },
         { "name": "Phase IA, Diamond Garden to Chembur", "stage": "operational", "opened": "2026-08-13", "length_km": 0.29, "stations": 1, "status": "verified", "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview", "last_verified": "2026-10-29" },

@@ -5,3 +5,7 @@
 /stations /line-12/stations/ 301
 /stations/ /line-12/stations/ 301
 /stations/* /line-12/stations/:splat 301
+
+# Line 2B: MMRDA dropped National College station (2023); the site moved it to the dropped stations on 11 Nov 2026.
+/line-2b/stations/national-college/ /line-2b/stations/ 301
+/line-2b/stations/national-college /line-2b/stations/ 301

@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "description": "Line 2B's stations in order from ESIC Nagar (the first station from D N Nagar) to Mandale, as MMRDA's Line 2B page lists them. 'phase' is the order of opening: 1 Phase I, Mandale to Diamond Garden (open 7 Apr 2026); 2 Phase IA, Chembur (open 13 Aug 2026); 3 the rest, Chembur to D N Nagar, under construction (MMRDA names Phases I and IA; the rest has no MMRDA name). 'kml_name' is the station's point in MMRDA's alignment file. Positions and along_m come from scripts/build-alignment-line2b.py. 'dropped_stations' were in an earlier plan and are not on MMRDA's list now. Names follow MMRDA's list; the full names shown at the open stations are in 'context'.",
+    "description": "Line 2B's stations in order from ESIC Nagar (the first station from D N Nagar) to Mandale, as MMRDA's Line 2B page lists them. 'phase' is the order of opening: 1 Phase I, Mandale to Diamond Garden (open 7 Apr 2026); 2 Phase IA, Chembur (open 13 Aug 2026); 3 the rest, Chembur to D N Nagar, under construction (MMRDA names Phases I and IA; the rest has no MMRDA name). 'kml_name' is the station's point in MMRDA's alignment file. Positions and along_m come from scripts/build-alignment-line2b.py. 'dropped_stations' were in an earlier plan and are dropped now: National College by MMRDA's Authority in 2023 (MMRDA's page still lists it), Kurla Terminus no longer on MMRDA's list. Names follow MMRDA's list; the full names shown at the open stations are in 'context'.",
     "order_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
     "order_status": "verified",
     "count_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
@@ -8,7 +8,7 @@
     "names_mr_status": "verified",
     "phase_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
     "phase_status": "verified",
-    "last_reviewed": "2026-10-30"
+    "last_reviewed": "2026-11-11"
   },
   "stations": [
     {
@@ -228,43 +228,8 @@
       "dpr_chainage_m": null
     },
     {
-      "id": "national-college",
-      "order": 7,
-      "name": "National College",
-      "name_mr": "नॅशनल कॉलेज",
-      "phase": 3,
-      "type": "Elevated",
-      "name_status": "verified",
-      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
-      "dpr_name": null,
-      "kml_name": "NATIONAL COLLEGE (M) STATION",
-      "location": {
-        "lng": 72.83735,
-        "lat": 19.063474,
-        "along_m": 6433,
-        "method": "MMRDA alignment file for Line 2B (KML on the Metro Influence Zone page, uploaded March 2025): point \"NATIONAL COLLEGE (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from ESIC Nagar station; the point is 6 m from that line.",
-        "status": "verified",
-        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
-      },
-      "interchanges": {
-        "value": [],
-        "status": "verified",
-        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview"
-      },
-      "context": [],
-      "construction_status": {
-        "value": "Under construction",
-        "status": "verified",
-        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
-        "notes": "MMRDA publishes progress for the whole line only (piers 99%, U and I girders 90% as of 31 Aug 2026), not by station. Civil package L2B-C101 (J Kumar Infraprojects), ESIC Nagar to ILFS."
-      },
-      "notes": null,
-      "last_verified": "2026-10-30",
-      "dpr_chainage_m": null
-    },
-    {
       "id": "bandra-metro",
-      "order": 8,
+      "order": 7,
       "name": "Bandra Metro",
       "name_mr": "बांद्रा मेट्रो",
       "phase": 3,
@@ -311,7 +276,7 @@
     },
     {
       "id": "income-tax-office",
-      "order": 9,
+      "order": 8,
       "name": "Income Tax Office",
       "name_mr": "इनकमटॅक्स ऑफिस",
       "phase": 3,
@@ -349,7 +314,7 @@
     },
     {
       "id": "ilfs",
-      "order": 10,
+      "order": 9,
       "name": "ILFS",
       "name_mr": "आय एल एफ एस",
       "phase": 3,
@@ -384,7 +349,7 @@
     },
     {
       "id": "mtnl-metro",
-      "order": 11,
+      "order": 10,
       "name": "MTNL Metro",
       "name_mr": "एम टी एन एल मेट्रो",
       "phase": 3,
@@ -419,7 +384,7 @@
     },
     {
       "id": "sg-barve-marg",
-      "order": 12,
+      "order": 11,
       "name": "SG Barve Marg",
       "name_mr": "एस जि बर्वे मार्ग",
       "phase": 3,
@@ -463,7 +428,7 @@
     },
     {
       "id": "kurla-east",
-      "order": 13,
+      "order": 12,
       "name": "Kurla (E)",
       "name_mr": "कुर्ला (पूर्व)",
       "phase": 3,
@@ -501,7 +466,7 @@
     },
     {
       "id": "eeh",
-      "order": 14,
+      "order": 13,
       "name": "EEH",
       "name_mr": "इ. इ. एच.",
       "phase": 3,
@@ -554,7 +519,7 @@
     },
     {
       "id": "chembur",
-      "order": 15,
+      "order": 14,
       "name": "Chembur",
       "name_mr": "चेंबूर",
       "phase": 2,
@@ -598,7 +563,7 @@
     },
     {
       "id": "diamond-garden",
-      "order": 16,
+      "order": 15,
       "name": "Diamond Garden",
       "name_mr": "डायमंड गार्डन",
       "phase": 1,
@@ -639,7 +604,7 @@
     },
     {
       "id": "shivaji-chowk",
-      "order": 17,
+      "order": 16,
       "name": "Shivaji Chowk",
       "name_mr": "शिवाजी चौक",
       "phase": 1,
@@ -680,7 +645,7 @@
     },
     {
       "id": "bsnl-metro",
-      "order": 18,
+      "order": 17,
       "name": "BSNL Metro",
       "name_mr": "बी एस एन एल मेट्रो",
       "phase": 1,
@@ -721,7 +686,7 @@
     },
     {
       "id": "mankhurd",
-      "order": 19,
+      "order": 18,
       "name": "Mankhurd",
       "name_mr": "मानखुर्द",
       "phase": 1,
@@ -768,7 +733,7 @@
     },
     {
       "id": "mandale",
-      "order": 20,
+      "order": 19,
       "name": "Mandale Metro",
       "name_mr": "मंडाळे मेट्रो",
       "phase": 1,
@@ -809,6 +774,46 @@
     }
   ],
   "dropped_stations": [
+    {
+      "id": "national-college",
+      "order": null,
+      "name": "National College",
+      "name_mr": "नॅशनल कॉलेज",
+      "phase": 3,
+      "type": "Elevated",
+      "name_status": "verified",
+      "name_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+      "dpr_name": null,
+      "kml_name": "NATIONAL COLLEGE (M) STATION",
+      "location": {
+        "lng": 72.83735,
+        "lat": 19.063474,
+        "along_m": 6433,
+        "method": "MMRDA alignment file for Line 2B (KML on the Metro Influence Zone page, uploaded March 2025): point \"NATIONAL COLLEGE (M) STATION\". along_m is measured along a centre line derived from MMRDA's corridor polygon, from ESIC Nagar station; the point is 6 m from that line.",
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/division/metro-piu/metro-influence-zone-noc"
+      },
+      "interchanges": {
+        "value": [],
+        "status": "verified",
+        "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview"
+      },
+      "context": [],
+      "construction_status": {
+        "value": "Dropped",
+        "status": "reported",
+        "source_url": "https://www.freepressjournal.in/mumbai/mumbai-news-dropping-national-college-metro-station-creates-new-set-of-issues",
+        "notes": "Free Press Journal reported MMRDA's decision on 4 Sep 2023: residents had asked for the station to go back to its first site, and MMRDA said a shaft of a sewage project stood in the way of the station's pillars there. Construction World (18 Dec 2023) says MMRDA had announced it earlier. Journalist Rajendra B. Aklekar posted the Authority's resolution 1682 in April 2024. In March 2026 the viaduct was complete here with no station on it (Mumbai Wiki on X). MMRDA's Line 2B page still names it in its list of 20, while its feature table says 19."
+      },
+      "notes": "Between Saraswat Nagar and Bandra Metro, on S V Road by R D National College. With it gone, Saraswat Nagar to Bandra Metro is about 2 km (Free Press Journal).",
+      "last_verified": "2026-11-11",
+      "dpr_chainage_m": null,
+      "dropped": {
+        "value": "MMRDA's Authority approved dropping it from the line (resolution 1682)",
+        "status": "reported",
+        "source_url": "https://x.com/rajtoday/status/1779584065336926273"
+      }
+    },
     {
       "id": "kurla-terminus",
       "order": null,
