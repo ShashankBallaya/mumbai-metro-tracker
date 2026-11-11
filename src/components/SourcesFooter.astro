@@ -41,8 +41,8 @@ const grades: G[] = ['verified', 'reported', 'unverified', 'conflicting'];
 
     <div class="correct">
       <h3 class="sources__title">Spotted a mistake?</h3>
-      <p>Tell us what is wrong and where you saw the right figure. Corrections are public and dated.</p>
-      <a class="correct__btn" data-magnetic href={correctionUrl(line)} rel="noopener" target="_blank">Report a correction on GitHub</a>
+      <p>Tell us what is wrong and where you saw the right figure. We check every correction by hand and fix the page.</p>
+      <a class="correct__btn" data-magnetic href={correctionUrl(Astro.url.pathname)}>Send a correction</a>
       <h3 class="sources__title correct__next">Seen the work?</h3>
       <p>Send your photos of {line.info.label} or what you saw on site. We check every entry by hand and credit you by name.</p>
       <a class="correct__btn" data-magnetic href={`/send/?line=${line.id}`}>Send a photo or update</a>

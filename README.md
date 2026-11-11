@@ -89,7 +89,7 @@ All facts live in `src/data/`, one folder for each line under `src/data/lines/`.
 
 ## Corrections
 
-Found a mistake? [Open a correction issue](https://github.com/ShashankBallaya/mumbai-metro-tracker/issues/new?labels=correction&title=Correction%3A%20) with the right figure and where you saw it.
+Found a mistake? Use the [correction form](https://www.mumbaimetrotracker.com/correct/) on the site: say what is wrong, the right figure and where you saw it. It goes to a private queue that the owner checks by hand.
 
 ## Licence and credits
 

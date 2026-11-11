@@ -5,7 +5,7 @@
  * On a station page the photo credits come first.
  */
 import { PRESS } from '../lib/press';
-import { formatDate, lastReviewed as siteReviewed, REPO_URL, CORRECTION_URL, SITE_NAME, lines, lineBase, photoContributorsFor, type Line } from '../lib/data';
+import { formatDate, lastReviewed as siteReviewed, REPO_URL, correctionUrl, SITE_NAME, lines, lineBase, photoContributorsFor, type Line } from '../lib/data';
 import LineMark from './LineMark.astro';
 import BackPageScene from './BackPageScene.astro';
 
@@ -76,7 +76,7 @@ const press = PRESS[0];
           <li><a href="/#lines">Every line in the region</a></li>
           <li><a href="/#updates">Latest updates</a></li>
           <li><a href="/send/">Send a photo or update</a></li>
-          <li><a href={CORRECTION_URL} rel="noopener" target="_blank">Send a correction<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+          <li><a href={correctionUrl(Astro.url.pathname)}>Send a correction</a></li>
           <li><a href={REPO_URL} rel="noopener" target="_blank">Source code<span class="visually-hidden"> (opens in a new tab)</span></a></li>
         </ul>
       </nav>

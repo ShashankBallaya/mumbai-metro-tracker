@@ -13,11 +13,17 @@ type LineRef = { id: string; label: string; stations: StationRef[] };
 type FileMeta = { key: string; type: string; bytes: number; original_name: string };
 type Entry = {
   id: string;
+  /** A correction from /correct/; absent on photo and update entries from /send/. */
+  kind?: 'correction';
+  page?: string;
+  wrong?: string;
+  right?: string | null;
+  source?: string | null;
   received_at: string;
-  line: string;
+  line: string | null;
   station: string | null;
   note: string;
-  name: string;
+  name: string | null;
   handle: string | null;
   taken: string | null;
   files: FileMeta[];
@@ -28,7 +34,7 @@ type Entry = {
 
 const LINES: LineRef[] = JSON.parse(document.getElementById('admin-data')!.textContent!);
 const lineById = new Map(LINES.map((l) => [l.id, l]));
-const stationName = (line: string, id: string | null) => (id ? (lineById.get(line)?.stations.find((s) => s.id === id)?.name ?? id) : null);
+const stationName = (line: string | null, id: string | null) => (id ? ((line && lineById.get(line)?.stations.find((s) => s.id === id)?.name) ?? id) : null);
 
 const $ = <T extends Element>(sel: string, root: ParentNode = document) => root.querySelector<T>(sel)!;
 const list = $<HTMLOListElement>('[data-list]');
@@ -81,8 +87,36 @@ function fmtTime(iso: string) {
   return new Date(iso).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', dateStyle: 'medium', timeStyle: 'short' });
 }
 
+/** A correction: which page, what is wrong, what is right and the reader's source. Text only. */
+function correctionCard(e: Entry) {
+  const where = [e.line ? (lineById.get(e.line)?.label ?? e.line) : 'Site', stationName(e.line, e.station)].filter(Boolean).join(' · ');
+  const by = e.name ? (e.handle ? `${e.name} (@${e.handle})` : e.name) : e.handle ? `@${e.handle}` : 'no name given';
+  const li = el('li', { class: 'adm-entry adm-entry--fix' });
+  const page = el('a', { href: e.page ?? '/', target: '_blank', rel: 'noopener', textContent: e.page ?? '/' });
+  li.append(
+    el('p', { class: 'adm-entry__where' }, el('span', { class: 'adm-entry__tag' }, 'Correction'), ` ${where} `, page),
+    el('p', { class: 'adm-entry__meta' }, `Sent ${fmtTime(e.received_at)} by ${by}${e.moved_by ? `. ${state === 'approved' ? 'Fixed' : 'Not a mistake'}, marked by ${e.moved_by}` : ''}`),
+    el('p', { class: 'adm-entry__note' }, el('strong', {}, 'Wrong: '), e.wrong ?? e.note),
+  );
+  if (e.right) li.append(el('p', { class: 'adm-entry__note' }, el('strong', {}, 'Right: '), e.right));
+  if (e.source) {
+    // A reader's link: shown as text plus a link, never followed by the page itself.
+    const safe = /^https?:\/\//.test(e.source);
+    li.append(el('p', { class: 'adm-entry__note' }, el('strong', {}, 'Source: '), safe ? el('a', { href: e.source, target: '_blank', rel: 'noopener noreferrer', textContent: e.source }) : e.source));
+  }
+  if (state === 'queue') {
+    const fixed = el('button', { type: 'button', class: 'adm__btn', textContent: 'Fixed' });
+    const not = el('button', { type: 'button', class: 'adm__btn adm__btn--quiet', textContent: 'Not a mistake' });
+    fixed.addEventListener('click', () => move(e, 'approved', fixed));
+    not.addEventListener('click', () => move(e, 'rejected', not));
+    li.append(el('div', { class: 'adm-entry__actions' }, fixed, not));
+  }
+  return li;
+}
+
 function card(e: Entry) {
-  const where = [lineById.get(e.line)?.label ?? e.line, stationName(e.line, e.station)].filter(Boolean).join(' · ');
+  if (e.kind === 'correction') return correctionCard(e);
+  const where = [lineById.get(e.line ?? '')?.label ?? e.line, stationName(e.line, e.station)].filter(Boolean).join(' · ');
   const by = e.handle ? `${e.name} (@${e.handle})` : e.name;
   const li = el('li', { class: 'adm-entry' });
   li.append(
@@ -121,7 +155,8 @@ function card(e: Entry) {
 }
 
 async function move(e: Entry, to: 'approved' | 'rejected', btn: HTMLButtonElement) {
-  if (to === 'rejected' && !confirm('Reject this entry? It moves to Rejected, and nothing is published.')) return;
+  const ask = e.kind === 'correction' ? 'Mark as not a mistake? It moves to Rejected.' : 'Reject this entry? It moves to Rejected, and nothing is published.';
+  if (to === 'rejected' && !confirm(ask)) return;
   btn.disabled = true;
   const res = await api('move', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ id: e.id, from: 'queue', to }) });
   if (res.ok) void load();
@@ -503,8 +538,8 @@ async function openEditor(entry: Entry, file: FileMeta) {
   canvas.width = 1;
   canvas.height = 1;
 
-  f.line.value = entry.line;
-  fillStations(entry.line, entry.station);
+  f.line.value = entry.line ?? '';
+  fillStations(entry.line ?? '', entry.station);
   // An entry sent for no station is most likely a place between stations.
   targetRadios.forEach((r) => (r.checked = r.value === (entry.station ? 'station' : 'watch')));
   f.wtitle.value = '';
@@ -515,7 +550,7 @@ async function openEditor(entry: Entry, file: FileMeta) {
   f.date.value = '';
   f.alt.value = '';
   f.caption.value = '';
-  f.credit.value = entry.name;
+  f.credit.value = entry.name ?? '';
   f.handle.value = entry.handle && /^[A-Za-z0-9_]{1,15}$/.test(entry.handle) ? entry.handle : '';
   f.source.value = '';
   dialog.showModal();

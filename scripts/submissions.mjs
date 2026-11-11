@@ -50,6 +50,14 @@ async function api(path, init = {}) {
 const list = async (state = 'queue') => (await (await api(`list?state=${state}`)).json()).entries;
 
 function describe(e) {
+  if (e.kind === 'correction') {
+    const who = e.name ? (e.handle ? `${e.name} (@${e.handle})` : e.name) : e.handle ? `@${e.handle}` : 'no name';
+    const cut = (t) => t.replace(/\s+/g, ' ').slice(0, 160) + (t.length > 160 ? '…' : '');
+    return `  ${e.id}  CORRECTION ${e.page}  by ${who}
+    wrong: "${cut(e.wrong)}"${e.right ? `
+    right: "${cut(e.right)}"` : ''}${e.source ? `
+    source: ${e.source}` : ''}`;
+  }
   const where = e.station ? `${e.line} / ${e.station}` : e.line;
   const who = e.handle ? `${e.name} (@${e.handle})` : e.name;
   const files = e.files.length ? `${e.files.length} photo${e.files.length > 1 ? 's' : ''}` : 'no photos';

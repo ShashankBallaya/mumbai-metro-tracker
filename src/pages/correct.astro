@@ -1,0 +1,188 @@
+---
+/**
+ * /correct/: readers tell us what is wrong on a page. The form posts to functions/api/submit.js (kind=correction),
+ * which keeps it in the same private queue as photos. The owner checks it in /admin/ and fixes the page.
+ * Every page links here with ?page=<its path> (Colophon, SourcesFooter), and the script below fills it in.
+ */
+import Base from '../layouts/Base.astro';
+import Masthead from '../components/Masthead.astro';
+import Colophon from '../components/Colophon.astro';
+import '../styles/inner.css';
+import '../styles/form.css';
+
+const title = 'Send a correction';
+const description = 'Found a mistake on Mumbai Metro Tracker? Tell us what is wrong and where you saw the right figure. We check every correction by hand.';
+
+// Cloudflare's always-pass test key in `astro dev`. In a build without the real key the form says it is not open yet.
+const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || (import.meta.env.DEV ? '1x00000000000000000000AA' : '');
+---
+
+<Base title={title} description={description}>
+  <Masthead home={false} />
+  <main id="main" class="page inner send">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">All lines</a></li>
+        <li aria-current="page">Send a correction</li>
+      </ol>
+    </nav>
+
+    <header class="inner__head">
+      <h1 class="inner__title">Send a correction</h1>
+      <p class="inner__mr mr" lang="mr">दुरुस्ती पाठवा</p>
+      <p class="inner__standfirst">
+        Every figure on this site links to its source, but sources change and we make mistakes. Tell us what is wrong and where you saw the right figure. We check every
+        correction by hand and fix the page.
+      </p>
+    </header>
+
+    <div class="send__status" data-send-status role="status" aria-live="polite" hidden></div>
+
+    {siteKey ? (
+      <form class="send__form" method="post" action="/api/submit" data-send-form>
+        <input type="hidden" name="kind" value="correction" />
+
+        <fieldset class="send__group">
+          <legend>Where</legend>
+          <div class="send__field">
+            <label for="fix-page">Page</label>
+            <input id="fix-page" name="page" type="text" maxlength="130" required pattern="/[a-z0-9\-\/]*" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="/line-12/" data-fix-page />
+            <p class="send__hint">The page's address on this site, from the first slash. A link from a page fills this in.</p>
+          </div>
+        </fieldset>
+
+        <fieldset class="send__group">
+          <legend>What</legend>
+          <div class="send__field">
+            <label for="fix-wrong">What is wrong?</label>
+            <textarea id="fix-wrong" name="wrong" rows="4" maxlength="2000" required minlength="10"></textarea>
+            <p class="send__hint">Quote the figure or the sentence, so we find it fast.</p>
+          </div>
+          <div class="send__field">
+            <label for="fix-right">What is right? <span class="send__opt">(optional)</span></label>
+            <textarea id="fix-right" name="right" rows="3" maxlength="2000"></textarea>
+          </div>
+          <div class="send__field">
+            <label for="fix-source">Where did you see it? <span class="send__opt">(optional)</span></label>
+            <input id="fix-source" name="source" type="url" maxlength="500" placeholder="https://" autocomplete="off" />
+            <p class="send__hint">A link to MMRDA, an official post or a news report. We cannot use Wikipedia as a source.</p>
+          </div>
+        </fieldset>
+
+        <fieldset class="send__group">
+          <legend>You <span class="send__opt">(optional)</span></legend>
+          <div class="send__field">
+            <label for="fix-name">Your name <span class="send__opt">(optional)</span></label>
+            <input id="fix-name" name="name" type="text" maxlength="80" autocomplete="name" />
+          </div>
+          <div class="send__field">
+            <label for="fix-handle">X or Instagram handle <span class="send__opt">(optional)</span></label>
+            <input id="fix-handle" name="handle" type="text" maxlength="60" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="@" />
+            <p class="send__hint">Only if we may ask you about it.</p>
+          </div>
+        </fieldset>
+
+        <div class="send__trap" aria-hidden="true">
+          <label for="fix-website">Leave this empty</label>
+          <input id="fix-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <input type="hidden" name="cf-turnstile-response" value="" data-send-token />
+        <div class="send__turnstile" data-sitekey={siteKey} data-send-turnstile></div>
+
+        <div class="send__actions">
+          <button class="send__btn" type="submit" data-send-submit>Send correction</button>
+          <p class="send__hint">It goes to a private queue. No one else sees it.</p>
+        </div>
+      </form>
+    ) : (
+      <p class="send__closed">The form opens soon. Until then, tag <a href="https://x.com/SBallaya" rel="noopener" target="_blank">@SBallaya<span class="visually-hidden"> on X (opens in a new tab)</span></a> on X with the mistake.</p>
+    )}
+
+    <section class="inner__block send__after" aria-labelledby="fix-after">
+      <h2 id="fix-after">What happens next</h2>
+      <ol>
+        <li>Your correction goes to a private queue.</li>
+        <li>We check it against the source you give and the site's own sources.</li>
+        <li>If it is right, we fix the page and its "last checked" date.</li>
+      </ol>
+    </section>
+  </main>
+  <Colophon />
+</Base>
+
+<script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-send-form]');
+  const status = document.querySelector<HTMLElement>('[data-send-status]')!;
+  const params = new URL(location.href).searchParams;
+
+  const messages: Record<string, string> = {
+    sent: 'Thank you. Your correction is in the queue. We check each one by hand, so a fix can take a few days.',
+    'no-page': 'Give the page address, from the first slash, like /line-12/, then send again.',
+    'no-wrong': 'Say what is wrong in at least a sentence, then send again.',
+    'bad-source': 'The link must start with https:// or http://.',
+    'check-failed': 'The spam check did not pass. Wait for it to finish, then send again.',
+    'bad-form': 'Something went wrong. Please send again.',
+    network: 'The correction did not reach us. Check your connection and send again.',
+  };
+
+  function show(kind: 'ok' | 'error', text: string) {
+    status.hidden = false;
+    status.dataset.kind = kind;
+    status.textContent = text;
+    status.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  }
+
+  if (params.get('sent')) show('ok', messages.sent);
+  else if (params.get('error')) show('error', messages[params.get('error')!] ?? messages['bad-form']);
+
+  if (form) {
+    const page = form.querySelector<HTMLInputElement>('[data-fix-page]')!;
+    const token = form.querySelector<HTMLInputElement>('[data-send-token]')!;
+    const submit = form.querySelector<HTMLButtonElement>('[data-send-submit]')!;
+    const box = form.querySelector<HTMLElement>('[data-send-turnstile]')!;
+
+    // A link from a page fills in which page.
+    const want = params.get('page');
+    if (want && /^\/[a-z0-9\-/]{0,120}$/.test(want)) page.value = want;
+
+    const render = () => {
+      const ts = (window as unknown as { turnstile?: { render: (el: HTMLElement, o: object) => void } }).turnstile;
+      if (!ts) return void setTimeout(render, 200);
+      ts.render(box, {
+        sitekey: box.dataset.sitekey,
+        theme: 'auto',
+        callback: (t: string) => (token.value = t),
+        'expired-callback': () => (token.value = ''),
+      });
+    };
+    render();
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      if (!token.value) return show('error', messages['check-failed']);
+
+      submit.disabled = true;
+      submit.textContent = 'Sending…';
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { accept: 'application/json' } });
+        const out = await res.json().catch(() => ({ ok: false, error: 'bad-form' }));
+        if (out.ok) {
+          form.hidden = true;
+          show('ok', messages.sent);
+        } else {
+          show('error', messages[out.error] ?? messages['bad-form']);
+          (window as unknown as { turnstile?: { reset: (el: HTMLElement) => void } }).turnstile?.reset(box);
+          token.value = '';
+        }
+      } catch {
+        show('error', messages.network);
+      } finally {
+        submit.disabled = false;
+        submit.textContent = 'Send correction';
+      }
+    });
+  }
+</script>

@@ -220,6 +220,8 @@ A creator's ground ride along a line (not a drone flight) can also fill the stat
 
 Readers send photos and updates with the form at `/send/`. Station pages and line pages link to it with the line and station filled in. `functions/api/submit.js` puts each entry in a private R2 bucket (`metro-submissions`) under `queue/<id>/`. Nothing goes live until you publish it by hand.
 
+Corrections use the form at `/correct/` (the "Send a correction" links on every page fill in the page). They go to the same queue, text only, with `"kind": "correction"` in `meta.json`: the page, what is wrong, what is right and the reader's source. In `/admin/` a correction shows as a "Correction" card: fix the page in the repository, then press **Fixed** (it moves to Approved) or **Not a mistake** (Rejected). `npm run submissions` lists them too. They no longer go to GitHub issues.
+
 ### One-time setup (Cloudflare and GitHub)
 
 Do these before the first push that includes `wrangler.toml`. The deploy fails if the bucket does not exist.

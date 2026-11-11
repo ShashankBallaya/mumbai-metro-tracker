@@ -1,5 +1,6 @@
 /**
- * POST /api/submit: a reader sends photos or an update about a line or a station (the form at /send/).
+ * POST /api/submit: a reader sends photos or an update about a line or a station (the form at /send/),
+ * or a correction to a page (kind=correction, the form at /correct/).
  *
  * Nothing here goes public. Each entry lands in the private R2 bucket under queue/<id>/, as meta.json plus the
  * photos as sent (with their EXIF, which the owner needs to match a photo to a station). The owner reviews the
@@ -48,11 +49,11 @@ async function turnstileOk(token, secret, ip) {
 }
 
 /** A form post goes back to the form; a script asking for JSON gets JSON. */
-function reply(request, status, payload, back) {
+function reply(request, status, payload, back, form = '/send/') {
   if ((request.headers.get('accept') ?? '').includes('application/json')) {
     return Response.json(payload, { status, headers: { 'cache-control': 'no-store' } });
   }
-  const to = new URL('/send/', request.url);
+  const to = new URL(form, request.url);
   for (const [k, v] of Object.entries(back)) if (v) to.searchParams.set(k, v);
   if (payload.ok) to.searchParams.set('sent', '1');
   else to.searchParams.set('error', payload.error);
@@ -67,6 +68,7 @@ export async function onRequest({ request, env }) {
   } catch {
     return reply(request, 400, { ok: false, error: 'bad-form' }, {});
   }
+  if (clean(form.get('kind'), 20) === 'correction') return correction(request, env, form);
 
   const line = clean(form.get('line'), 40);
   const station = clean(form.get('station'), 40);
@@ -132,4 +134,61 @@ export async function onRequest({ request, env }) {
   });
 
   return reply(request, 200, { ok: true, id }, back);
+}
+
+const MAX_TEXT = 2000;
+/** A page path on this site: /line-4/stations/thane/ and the like. No host, no query. */
+const PAGE_RE = /^\/[a-z0-9\-/]{0,120}$/;
+
+/**
+ * A correction: which page, what is wrong, what is right and where the reader saw it. Text only, no files.
+ * It joins the same private queue as photos (meta.json with kind "correction"); the moderator marks it fixed
+ * (Approved) or not a mistake (Rejected) in /admin/. A name is optional here: a correction needs no credit.
+ */
+async function correction(request, env, form) {
+  const page = clean(form.get('page'), 130);
+  const back = { page: PAGE_RE.test(page) ? page : '' };
+  const fail = (status, error) => reply(request, status, { ok: false, error }, back, '/correct/');
+
+  if (clean(form.get('website'), 200)) return fail(400, 'bad-form');
+  if (!PAGE_RE.test(page)) return fail(400, 'no-page');
+
+  const ip = request.headers.get('cf-connecting-ip');
+  if (!(await turnstileOk(clean(form.get('cf-turnstile-response'), 2048), env.TURNSTILE_SECRET, ip))) {
+    return fail(403, 'check-failed');
+  }
+
+  const wrong = clean(form.get('wrong'), MAX_TEXT);
+  const right = clean(form.get('right'), MAX_TEXT);
+  const source = clean(form.get('source'), 500);
+  const name = clean(form.get('name'), 80);
+  const handle = clean(form.get('handle'), 60).replace(/^@/, '');
+  if (wrong.length < 10) return fail(400, 'no-wrong');
+  if (source && !/^https?:\/\/[^\s]+$/.test(source)) return fail(400, 'bad-source');
+
+  // The line the page belongs to, so the moderator sees where it is at a glance.
+  const first = page.split('/')[1] ?? '';
+  const id = newId();
+  const meta = {
+    id,
+    kind: 'correction',
+    received_at: new Date().toISOString(),
+    page,
+    line: ID_RE.test(first) && first.length > 0 ? first : null,
+    station: page.match(/\/stations\/([a-z0-9-]+)\/?$/)?.[1] ?? null,
+    wrong,
+    right: right || null,
+    source: source || null,
+    // The same field as a photo entry's note, so older tools still show the gist.
+    note: wrong,
+    name: name || null,
+    handle: handle || null,
+    taken: null,
+    files: [],
+    country: request.cf?.country ?? null,
+  };
+  await env.SUBMISSIONS.put(`queue/${id}/meta.json`, JSON.stringify(meta, null, 2), {
+    httpMetadata: { contentType: 'application/json' },
+  });
+  return reply(request, 200, { ok: true, id }, back, '/correct/');
 }
