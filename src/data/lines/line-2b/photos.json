@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "Dated ground photos, by the owner or by people who gave permission to use them. Entries with kind \"video\" are stills from a creator's ground video, shared with permission (InfraUnfiltered, owner confirmed 2026-11-10); 'date' is then the day the video was published, video_t is the second in the video, and source_url opens the video there. Each still is matched to its station by the creator's spoken station name at that point. 'stations' holds photos for each station page, keyed by the station id in stations.json. Put the image files in public/photos/ (location data removed) and add entries below. See UPDATING.md.",
-    "last_reviewed": "2026-11-10"
+    "last_reviewed": "2026-11-11"
   },
   "pairs": [],
   "stations": {
@@ -194,6 +194,50 @@
     ],
     "ilfs": [
       {
+        "src": "/photos/ilfs-2026-11-11-a.jpg",
+        "alt": "The Line 2B viaduct and the frame of ILFS station over a junction in BKC, with green safety net under the deck and cars at a traffic island",
+        "caption": "The station frame over the junction, with safety net under the deck",
+        "date": "2026-11-11",
+        "credit": "KP",
+        "handle": "NathanDrakeSir",
+        "source_url": "https://x.com/NathanDrakeSir/status/2120447629989740931",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "src": "/photos/ilfs-2026-11-11-b.jpg",
+        "alt": "The two decks of ILFS station seen from below, with steel bars sticking up along the top deck and a truck lift parked under it",
+        "caption": "The two decks of the station are cast; steel bars still stick up along the top",
+        "date": "2026-11-11",
+        "credit": "KP",
+        "handle": "NathanDrakeSir",
+        "source_url": "https://x.com/NathanDrakeSir/status/2120447629989740931",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "src": "/photos/ilfs-2026-11-11-c.jpg",
+        "alt": "The Line 2B viaduct over a wide road in BKC, with steel props standing under a crossbeam and offices behind",
+        "caption": "Steel props under a crossbeam on the road by the station",
+        "date": "2026-11-11",
+        "credit": "KP",
+        "handle": "NathanDrakeSir",
+        "source_url": "https://x.com/NathanDrakeSir/status/2120447629989740931",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "src": "/photos/ilfs-2026-11-11-d.jpg",
+        "alt": "The viaduct curving over the road at ILFS, with a mobile crane and a scaffold tower under it",
+        "caption": "A mobile crane and a scaffold tower under the viaduct",
+        "date": "2026-11-11",
+        "credit": "KP",
+        "handle": "NathanDrakeSir",
+        "source_url": "https://x.com/NathanDrakeSir/status/2120447629989740931",
+        "width": 1600,
+        "height": 1200
+      },
+      {
         "src": "/photos/ilfs-video-2026-07-21-a.jpg",
         "alt": "Portal frames of ILFS station over the road in BKC, with reinforcement bars standing up for the deck and steel parts by the roadside",
         "caption": "The station frames. The creator says the platform deck is not started yet",
@@ -208,6 +252,39 @@
       }
     ],
     "mtnl-metro": [
+      {
+        "src": "/photos/mtnl-metro-2026-11-11-a.jpg",
+        "alt": "MTNL Metro station along a road in BKC: the viaduct on tall piers, the station block with its curved roof frame up, and a boom lift at work",
+        "caption": "The station block with its roof frame up, seen along the road",
+        "date": "2026-11-11",
+        "credit": "KP",
+        "handle": "NathanDrakeSir",
+        "source_url": "https://x.com/NathanDrakeSir/status/2120448731090972971",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "src": "/photos/mtnl-metro-2026-11-11-b.jpg",
+        "alt": "Side view of MTNL Metro station: concrete walls of the concourse are cast, with openings still bare, and curved roof ribs on top",
+        "caption": "Concourse walls are cast; the roof ribs are up but not covered",
+        "date": "2026-11-11",
+        "credit": "KP",
+        "handle": "NathanDrakeSir",
+        "source_url": "https://x.com/NathanDrakeSir/status/2120448731090972971",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "src": "/photos/mtnl-metro-2026-11-11-c.jpg",
+        "alt": "The road under MTNL Metro station, with slanted piers, blue sheets round the base and a worker on a scaffold above",
+        "caption": "Under the station: blue sheets round the base and a scaffold above",
+        "date": "2026-11-11",
+        "credit": "KP",
+        "handle": "NathanDrakeSir",
+        "source_url": "https://x.com/NathanDrakeSir/status/2120448731090972971",
+        "width": 1600,
+        "height": 1200
+      },
       {
         "src": "/photos/mtnl-metro-video-2026-07-21-a.jpg",
         "alt": "The MTNL Metro station structure along the road in BKC, with its concrete side walls and wide underside",
@@ -299,6 +376,121 @@
           "credit": "Kalpesh Patel",
           "width": 1600,
           "height": 528
+        }
+      ]
+    },
+    {
+      "id": "mithi-bridge-kurla",
+      "title": "Mithi river bridge, Kapadia Nagar",
+      "kind": "crossing",
+      "status": "open",
+      "added": "2026-11-11",
+      "lat": 19.07433,
+      "lng": 72.87179,
+      "between": [
+        "mtnl-metro",
+        "sg-barve-marg"
+      ],
+      "note": "A balanced cantilever bridge takes the line over the Mithi river by Kapadia Nagar, Kurla. On 11 Nov 2026 the arms from the two banks were not yet joined.",
+      "sources": [
+        "https://x.com/NathanDrakeSir/status/2120450237731102941"
+      ],
+      "photos": [
+        {
+          "src": "/photos/mithi-bridge-kurla-2026-11-11-a.jpg",
+          "alt": "Bandra end of the bridge over the Mithi: a concrete cantilever arm with a steel traveller on its tip, on props, beside a finished viaduct",
+          "caption": "Bandra end: the cantilever arm with its traveller",
+          "date": "2026-11-11",
+          "credit": "KP",
+          "handle": "NathanDrakeSir",
+          "source_url": "https://x.com/NathanDrakeSir/status/2120450237731102941",
+          "width": 1600,
+          "height": 1200
+        },
+        {
+          "src": "/photos/mithi-bridge-kurla-2026-11-11-b.jpg",
+          "alt": "The middle of the bridge over the Mithi seen from the bank: two cantilever arms reach towards each other with a gap between them",
+          "caption": "Middle: the two arms with a gap still to close",
+          "date": "2026-11-11",
+          "credit": "KP",
+          "handle": "NathanDrakeSir",
+          "source_url": "https://x.com/NathanDrakeSir/status/2120450237731102941",
+          "width": 1600,
+          "height": 1200
+        },
+        {
+          "src": "/photos/mithi-bridge-kurla-2026-11-11-c.jpg",
+          "alt": "Kurla end of the bridge at Kapadia Nagar: the cantilever arm in green net above shop fronts and a residential building",
+          "caption": "Kurla end at Kapadia Nagar, in safety net",
+          "date": "2026-11-11",
+          "credit": "KP",
+          "handle": "NathanDrakeSir",
+          "source_url": "https://x.com/NathanDrakeSir/status/2120450237731102941",
+          "width": 1600,
+          "height": 1200
+        }
+      ]
+    },
+    {
+      "id": "bandra-rail-bridge",
+      "title": "Cable-stayed bridge over the railway, Bandra",
+      "kind": "crossing",
+      "status": "open",
+      "added": "2026-11-11",
+      "lat": 19.05141,
+      "lng": 72.8419,
+      "between": [
+        "bandra-metro",
+        "income-tax-office"
+      ],
+      "note": "A cable-stayed bridge takes the line over the Western Railway and Harbour Line tracks at Bandra. On 11 Nov 2026 both pylons were still in scaffolding and safety net, on steel props.",
+      "sources": [
+        "https://x.com/NathanDrakeSir/status/2120453003962626215"
+      ],
+      "photos": [
+        {
+          "src": "/photos/bandra-rail-bridge-2026-11-11-a.jpg",
+          "alt": "The BKC side pylon of the cable-stayed bridge at Bandra, wrapped in green net on rows of steel props, with a tower crane and traffic below",
+          "caption": "BKC side pylon, on steel props",
+          "date": "2026-11-11",
+          "credit": "KP",
+          "handle": "NathanDrakeSir",
+          "source_url": "https://x.com/NathanDrakeSir/status/2120453003962626215",
+          "width": 1600,
+          "height": 1430
+        },
+        {
+          "src": "/photos/bandra-rail-bridge-2026-11-11-b.jpg",
+          "alt": "The BKC side pylon seen from the road, in green net, with an orange tower crane beside it",
+          "caption": "BKC side pylon and its tower crane",
+          "date": "2026-11-11",
+          "credit": "KP",
+          "handle": "NathanDrakeSir",
+          "source_url": "https://x.com/NathanDrakeSir/status/2120453003962626215",
+          "width": 1508,
+          "height": 1600
+        },
+        {
+          "src": "/photos/bandra-rail-bridge-2026-11-11-c.jpg",
+          "alt": "The Bandra side pylon of the cable-stayed bridge, in green net on steel props, above a busy road",
+          "caption": "Bandra side pylon, in safety net",
+          "date": "2026-11-11",
+          "credit": "KP",
+          "handle": "NathanDrakeSir",
+          "source_url": "https://x.com/NathanDrakeSir/status/2120453003962626215",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "src": "/photos/bandra-rail-bridge-2026-11-11-d.jpg",
+          "alt": "The Bandra side pylon and the rows of steel props under its deck, with a taxi passing",
+          "caption": "Bandra side pylon and the props under its deck",
+          "date": "2026-11-11",
+          "credit": "KP",
+          "handle": "NathanDrakeSir",
+          "source_url": "https://x.com/NathanDrakeSir/status/2120453003962626215",
+          "width": 1200,
+          "height": 1600
         }
       ]
     }
