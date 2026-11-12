@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "description": "Dated ground photos, by the owner or by people who gave permission to use them. Entries with kind \"drone\" are stills from InfraUnfiltered's drone flights, shared with permission (owner, 2026-10-16; these videos shared by the owner on 2026-11-11): Phase 1 from the flight of 20 Oct 2026 (8cCOx0tovUM, also in aerial.json), Phase 2 from the flight of 24 Oct 2026 (jqqYy_kCPQE). Each still is matched to its station by the creator's on-screen station label; 'date' is the day the video was published, video_t is the second in the video, and source_url opens the video there. 'pairs' are before/after pairs shown under the satellite comparison. 'stations' holds photos for each station page, keyed by the station id in stations.json. Put the image files in public/photos/ (location data removed) and add entries below. See UPDATING.md.",
-    "last_reviewed": "2026-11-11"
+    "description": "Dated ground photos, by the owner or by people who gave permission to use them. Entries with kind \"drone\" are stills from InfraUnfiltered's drone flights, shared with permission (owner, 2026-10-16; these videos shared by the owner on 2026-11-11): Phase 1 from the flight of 20 Oct 2026 (8cCOx0tovUM, also in aerial.json), Phase 2 from the flight of 24 Oct 2026 (jqqYy_kCPQE). Each still is matched to its station by the creator's on-screen station label; 'date' is the day the video was published, video_t is the second in the video, and source_url opens the video there. 'pairs' are before/after pairs shown under the satellite comparison. 'stations' holds photos for each station page, keyed by the station id in stations.json. Put the image files in public/photos/ (location data removed) and add entries below. See UPDATING.md. Ground photos by Pratham Kushwaha (@prathmkushwaha) are used with his permission (X reply to the owner, 5 Nov 2026: https://x.com/prathmkushwaha/status/2118058612522356948); their 'date' is the day of his post.",
+    "last_reviewed": "2026-11-12"
   },
   "pairs": [],
   "stations": {
@@ -257,6 +257,28 @@
     ],
     "shangrila": [
       {
+        "src": "/photos/shangrila-2026-10-18-a.jpg",
+        "alt": "Two new pier caps on tall piers wrapped in scaffolding and green netting, seen from under the viaduct",
+        "caption": "Two new pier caps on the last piers before the station",
+        "date": "2026-10-18",
+        "credit": "Pratham Kushwaha",
+        "handle": "prathmkushwaha",
+        "source_url": "https://x.com/prathmkushwaha/status/2111797375895548402",
+        "width": 1200,
+        "height": 1600
+      },
+      {
+        "src": "/photos/shangrila-2026-10-18-b.jpg",
+        "alt": "Two pier caps under green covers on scaffolded piers, below power lines, with a crane in front",
+        "caption": "The same pier caps, from the road. One platform-level pier cap was left to place",
+        "date": "2026-10-18",
+        "credit": "Pratham Kushwaha",
+        "handle": "prathmkushwaha",
+        "source_url": "https://x.com/prathmkushwaha/status/2111797375895548402",
+        "width": 1169,
+        "height": 1600
+      },
+      {
         "src": "/photos/shangrila-aerial-2026-10-24-a.jpg",
         "alt": "Drone view along the viaduct over low buildings and trees towards Shangrila station; the creator's label names the station",
         "caption": "The viaduct towards the station. The creator says platform slabs and U-girders are still going in here",
@@ -271,6 +293,72 @@
       }
     ],
     "bhandup": [
+      {
+        "src": "/photos/bhandup-2026-11-05-a.jpg",
+        "alt": "Looking up from the road at Bhandup station: the viaduct overhead and the station block, partly under green netting, with a single tall pole standing on top",
+        "caption": "The first roof pole, on the Gaimukh side of the station",
+        "date": "2026-11-05",
+        "credit": "Pratham Kushwaha",
+        "handle": "prathmkushwaha",
+        "source_url": "https://x.com/prathmkushwaha/status/2118301524673847654",
+        "width": 1241,
+        "height": 1600
+      },
+      {
+        "src": "/photos/bhandup-2026-11-05-b.jpg",
+        "alt": "A large crane with a lime-green boom working beside the station at night, under street lights, with the viaduct and green netting on the left",
+        "caption": "A crane at the station at night, the day roof work began",
+        "date": "2026-11-05",
+        "credit": "Pratham Kushwaha",
+        "handle": "prathmkushwaha",
+        "source_url": "https://x.com/prathmkushwaha/status/2118301524673847654",
+        "width": 1200,
+        "height": 1600
+      },
+      {
+        "src": "/photos/bhandup-2026-11-05-c.jpg",
+        "alt": "The viaduct and the station seen from the other side of the road at dusk, under a tree, with shops and a hoarding below",
+        "caption": "The station from the other side",
+        "date": "2026-11-05",
+        "credit": "Pratham Kushwaha",
+        "handle": "prathmkushwaha",
+        "source_url": "https://x.com/prathmkushwaha/status/2118321281724809671",
+        "width": 1200,
+        "height": 1600
+      },
+      {
+        "src": "/photos/bhandup-2026-06-28-a.jpg",
+        "alt": "Looking along the station deck from the road: girders and concourse beams on the piers, with traffic and a foot bridge below",
+        "caption": "All the station girders in place",
+        "date": "2026-06-28",
+        "credit": "Pratham Kushwaha",
+        "handle": "prathmkushwaha",
+        "source_url": "https://x.com/prathmkushwaha/status/2071220803975389290",
+        "width": 1221,
+        "height": 1600
+      },
+      {
+        "src": "/photos/bhandup-2026-06-28-b.jpg",
+        "alt": "Close view of the station girders and cross arms, with steel bars sticking out of the concrete, over a busy shop-lined road",
+        "caption": "Girders and cross arms, with bars left out for the next pour",
+        "date": "2026-06-28",
+        "credit": "Pratham Kushwaha",
+        "handle": "prathmkushwaha",
+        "source_url": "https://x.com/prathmkushwaha/status/2071220803975389290",
+        "width": 1200,
+        "height": 1600
+      },
+      {
+        "src": "/photos/bhandup-2026-06-28-c.jpg",
+        "alt": "The viaduct curving into the station under green safety netting, with hoardings and street lights below",
+        "caption": "The station under green netting; parapet work had begun on the other side",
+        "date": "2026-06-28",
+        "credit": "Pratham Kushwaha",
+        "handle": "prathmkushwaha",
+        "source_url": "https://x.com/prathmkushwaha/status/2071220803975389290",
+        "width": 1200,
+        "height": 1600
+      },
       {
         "src": "/photos/bhandup-aerial-2026-10-24-a.jpg",
         "alt": "Drone view of the viaduct curving between a tall red and white tower and low housing towards Bhandup Metro station",
@@ -316,6 +404,18 @@
       }
     ],
     "gandhi-nagar": [
+      {
+        "src": "/photos/gandhi-nagar-2026-11-07-a.jpg",
+        "alt": "A red crane lifting a girder into the concourse level of the station at night, beside a tall glass building",
+        "caption": "A concourse-level girder going up at night",
+        "date": "2026-11-07",
+        "kind": "video",
+        "credit": "Pratham Kushwaha",
+        "channel_url": "https://x.com/prathmkushwaha/status/2118949383182115081",
+        "source_url": "https://x.com/prathmkushwaha/status/2118949383182115081",
+        "width": 720,
+        "height": 1280
+      },
       {
         "src": "/photos/gandhi-nagar-aerial-2026-10-24-a.jpg",
         "alt": "Drone view of the viaduct curving into Gandhi Nagar station, with the Line 6 viaduct crossing in the back; the creator's labels name the station and Line 6",
