@@ -741,7 +741,7 @@ function line9(line: Line): Answer[] {
     {
       id: 'builder',
       q: 'Who is building Line 9?',
-      a: `MMRDA. J Kumar Infraprojects builds the viaduct, stations and flyover (package CA-48, ${formatDate(tender('ca-48').award_date)}, shared with 7A). Rahee Infratech bid lowest for the track (CA-167), Leena Powertech and Umesh Brothers for the power (CA-176, with 7A), and Rithwik-Soma JV builds the Dongri depot (CA-207), all as reported.`,
+      a: `MMRDA. J Kumar Infraprojects builds the viaduct, stations and flyover (package CA-48, ${formatDate(tender('ca-48').award_date)}, shared with 7A). Rahee Infratech bid lowest for the track (CA-167), Leena Powertech and Umesh Brothers for the power (CA-176, with 7A), and Rithwik-Soma JV won the Dongri depot (CA-207), which MMRDA has since dropped, all as reported.`,
       grades: [
         { status: p.implementing_agency.status, source: p.implementing_agency.source_url },
         { status: tender('ca-48').status, source: tender('ca-48').source_url },
@@ -752,7 +752,7 @@ function line9(line: Line): Answer[] {
     {
       id: 'depot',
       q: 'Where is the Line 9 depot?',
-      a: `A depot for the whole Red Line is being built at Dongri, near Uttan (Rs ${inr(tender('ca-207').awarded_value_crore!)} crore, awarded ${formatDate(tender('ca-207').award_date)}), to be reached by a 4.9 km extension along Uttan Road. Until it is ready, Line 9's trains are kept at Line 7's Charkop depot, as reported.`,
+      a: `At Charkop, Line 7's depot, which is to serve Lines 7, 7A and 9 together. In November 2026 MMRDA dropped the separate depot at Dongri, near Uttan (Rs ${inr(tender('ca-207').awarded_value_crore!)} crore, awarded ${formatDate(tender('ca-207').award_date)}); about 12,000 trees there are spared. As reported.`,
       grades: [{ status: x.depot.status, source: x.depot.source_url }],
     },
     {
@@ -809,11 +809,12 @@ function line6(line: Line): Answer[] {
     {
       id: 'depot',
       q: 'What is the Kanjurmarg depot problem?',
-      a: `MMRDA plans the depot at ${x.depot.value}, on ${x.depot.area_ha} hectares. The district collector handed about 15 ha to MMRDA in April 2023, but the Centre's salt department challenged it, and in October 2024 the High Court ordered status quo. The state has sent a proposal to the Centre; the land is still not handed over, as reported in August and September 2026. The depot contract went to Sam India Builtwell for Rs 547.45 crore in March 2024 and waits for the land.`,
+      a: `MMRDA plans the depot at ${x.depot.value}, on ${x.depot.area_ha} hectares. The district collector handed about 15 ha to MMRDA in April 2023, but the Centre's salt department challenged it, and in October 2024 the High Court ordered status quo. The state has sent a proposal to the Centre; the land is still not handed over, as reported in August and September 2026. The depot contract went to Sam India Builtwell for Rs 547.45 crore in March 2024 and waits for the land. Pahadi Goregaon was the fallback site, but in November 2026 MMRDA dropped it too; the line is to run with a pit line and may share Line 4's maintenance works, as reported.`,
       grades: [
         { status: x.depot.status, source: x.depot.source_url },
         { status: x.depot.land.status, source: x.depot.land.source_url },
         { status: x.depot.contract.status, source: x.depot.contract.source_url },
+        { status: 'reported', source: 'https://www.freepressjournal.in/mumbai/mmrda-scraps-uttan-dongri-and-pahadi-goregaon-car-shed-plans-12000-trees-to-be-spared' },
       ],
     },
     {

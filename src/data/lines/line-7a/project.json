@@ -100,13 +100,16 @@
     "last_verified": "2026-10-30"
   },
   "depot": {
-    "value": "None of its own",
-    "context": "7A extends Line 7, whose trains it is to share. No depot is named for 7A.",
-    "notes": "No source names a depot for 7A. The Metro Rail Guy describes 7A as part of the Red Line (Line 7).",
+    "value": "None of its own; Charkop, shared with Line 7",
+    "context": "7A extends Line 7, whose trains it is to share. MMRDA plans to keep the trains of Lines 7, 7A and 9 at Line 7's Charkop depot (MMRDA official, as reported, 11 Nov 2026).",
+    "notes": "The Metro Rail Guy describes 7A as part of the Red Line (Line 7). The Dongri depot, once planned for the whole Red Line, was dropped in Nov 2026 (Free Press Journal).",
     "history": [],
     "status": "reported",
-    "source_url": "https://themetrorailguy.com/2025/07/15/j-kumars-mumbai-metro-tbm-dhruv-records-final-breakthrough-for-line-7a/",
-    "last_verified": "2026-10-30"
+    "source_url": "https://www.freepressjournal.in/mumbai/mmrda-scraps-uttan-dongri-and-pahadi-goregaon-car-shed-plans-12000-trees-to-be-spared",
+    "last_verified": "2026-11-12",
+    "also_see": [
+      "https://themetrorailguy.com/2025/07/15/j-kumars-mumbai-metro-tbm-dhruv-records-final-breakthrough-for-line-7a/"
+    ]
   },
   "interchanges": {
     "value": [

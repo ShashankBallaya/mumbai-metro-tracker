@@ -374,7 +374,12 @@
           "cost_note": "MMRDA's Line 6 page. MMRDA does not say what the figure includes.",
           "funding_head": "MMRDA and NDB",
           "funding_note": "A New Development Bank loan of USD 241 million pays for the trains and systems; MMRDA pays the rest (The Metro Rail Guy). No loan agreement was read.",
-          "depot_history": [],
+          "depot_history": [
+            [
+              "Pahadi Goregaon",
+              "fallback while Kanjurmarg is in court; dropped Nov 2026 (reported)"
+            ]
+          ],
           "travel_head": "30 to 45 minutes",
           "travel_unit": "saved between Andheri and the Eastern Express Highway (MMRDA)"
         },
@@ -560,7 +565,12 @@
           "cost_note": "MMRDA's Line 9 and 7A page gives one cost for both lines, including state taxes and escalation. No figure for Line 9 alone was read from MMRDA.",
           "funding_head": "Not published",
           "funding_note": "No loan or funding split for Line 9 was read.",
-          "depot_history": [],
+          "depot_history": [
+            [
+              "Dongri, near Uttan, 41.36 ha",
+              "dropped Nov 2026 (reported)"
+            ]
+          ],
           "travel_head": "50 to 75% shorter",
           "travel_unit": "than by road today, for Lines 9 and 7A (MMRDA)"
         },

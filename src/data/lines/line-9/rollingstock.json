@@ -56,7 +56,7 @@
   "facts": [
     {
       "label": "On Line 9",
-      "value": "The trains run through from Gundavali on Line 7 to Kashigaon, and are kept at Charkop, Line 7's depot, until the Dongri depot is built",
+      "value": "The trains run through from Gundavali on Line 7 to Kashigaon, and are kept at Charkop, Line 7's depot. MMRDA has since dropped the Dongri depot, so Charkop is to stay their depot (Free Press Journal, 11 Nov 2026)",
       "status": "reported",
       "source_url": "https://www.freepressjournal.in/mumbai/good-news-commuters-now-travel-from-andheri-to-kashigaon-at-rs-50-know-fares-on-newly-launched-mumbai-metro-line-9",
       "last_verified": "2026-11-10"

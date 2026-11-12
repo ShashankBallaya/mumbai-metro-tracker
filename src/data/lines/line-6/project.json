@@ -111,10 +111,13 @@
     },
     "interim": {
       "value": "An elevated pit line at the Vikhroli end, for routine inspection and maintenance, so that services can start before the depot is built",
-      "notes": "Free Press Journal (21 Jan 2026, citing Hindustan Times): an elevated eight-lane corridor with pit lines beside the Eastern Express Highway, already under construction; trains due for periodic overhaul would go to MMRDA's Mandale depot. Lokshahi (Aug 2026): a stabling line, washing plant, inspection pit and workshop on the Kanjurmarg viaduct, on the Pune Metro model.",
+      "notes": "Free Press Journal (21 Jan 2026, citing Hindustan Times): an elevated eight-lane corridor with pit lines beside the Eastern Express Highway, already under construction; trains due for periodic overhaul would go to MMRDA's Mandale depot. Lokshahi (Aug 2026): a stabling line, washing plant, inspection pit and workshop on the Kanjurmarg viaduct, on the Pune Metro model. Pahadi Goregaon was the fallback site while the Kanjurmarg land is in court (owner's note, 2026-11-12). Free Press Journal (11 Nov 2026, citing an MMRDA official): MMRDA has dropped the Pahadi Goregaon car shed; Line 6 is to run with a pit line, and its link to Line 4 may let it share Line 4's maintenance works. Kanjurmarg stays MMRDA's listed depot.",
       "status": "reported",
       "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-line-6-may-begin-services-without-full-depot-as-mmrda-plans-temporary-maintenance-facility-at-vikhroli",
-      "last_verified": "2026-10-30"
+      "last_verified": "2026-11-12",
+      "also_see": [
+        "https://www.freepressjournal.in/mumbai/mmrda-scraps-uttan-dongri-and-pahadi-goregaon-car-shed-plans-12000-trees-to-be-spared"
+      ]
     },
     "history": []
   },

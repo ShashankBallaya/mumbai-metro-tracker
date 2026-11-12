@@ -485,6 +485,7 @@ Research of 2026-10-30 for `src/data/lines/line-6/`, including the tender search
 | Free Press Journal (Hindustan Times) | 21 Jan 2026 | Open in the second half of 2026 without the Kanjurmarg depot; elevated pit lines beside the EEH; overhauls at Mandale |
 | Lokshahi | 4 Aug 2026 | Target 2027; about 88% complete; depot land history (collector 19 Apr 2023, status quo 24 Oct 2024, proposal to DPIIT) |
 | Free Press Journal | 1 Sep 2026 | Elevated pit line at the Vikhroli end; salt pan land still pending with the Union government |
+| Free Press Journal | 11 Nov 2026 | Pahadi Goregaon car shed (the fallback for Kanjurmarg, owner's note) dropped; pit line; may share Line 4's maintenance works (MMRDA official) | https://www.freepressjournal.in/mumbai/mmrda-scraps-uttan-dongri-and-pahadi-goregaon-car-shed-plans-12000-trees-to-be-spared |
 
 ## Derived data
 
@@ -534,6 +535,7 @@ Research of 2026-10-30 for `src/data/lines/line-7a/`, with the tender search. 7A
 | Free Press Journal | 27 Aug 2026 | Airport height limit: ramp needs 2.4 m more, others 0.025 to 2.244 m; more than Rs 260 crore at risk; consultant SYSTRA-CEG-SMCIPL |
 | Re-Mumbai | 27 Aug 2026 | 3.42 km; 7A costs Rs 812 crore; AAI permits 2 Jan 2024 and March 2024; work stopped in the affected areas |
 | Construction World | 8 Oct 2026 | AAI final assessment pending; ramp 95% by Feb 2026 |
+| Free Press Journal | 11 Nov 2026 | 7A to share the Charkop depot with Lines 7 and 9 (MMRDA official) | https://www.freepressjournal.in/mumbai/mmrda-scraps-uttan-dongri-and-pahadi-goregaon-car-shed-plans-12000-trees-to-be-spared |
 
 ## Derived data
 
@@ -584,6 +586,7 @@ Research of 2026-11-10 for `src/data/lines/line-9/` (a viewer noted the site had
 | Free Press Journal | 7 Apr 2026 (two reports) | Opening; hours 5:50 am to 11 pm; under 6 min at peak; trips; fares |
 | Free Press Journal | 1 Aug 2026 | Power on from Kashigaon from 29 Jul 2026; 10.5 km; 5.8 km left |
 | Swarajya; Construction World | 21 and 23 Oct 2026 | Rest of the line expected in December 2026; 96% |
+| Free Press Journal | 11 Nov 2026 | Dongri depot dropped; trains of Lines 7, 7A and 9 to share Charkop; about 12,000 trees spared (MMRDA official) | https://www.freepressjournal.in/mumbai/mmrda-scraps-uttan-dongri-and-pahadi-goregaon-car-shed-plans-12000-trees-to-be-spared |
 
 ## Derived data
 
