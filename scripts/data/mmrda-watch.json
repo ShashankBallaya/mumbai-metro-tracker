@@ -6,16 +6,18 @@
         "Press Release and Published News",
         "Published News",
         "Sr. No. | Title | Start Date | End Date | Download/Details",
-        "1 | Taloja MIDC To Badlapur Ambernath Katai Naka Road | 11-06-2026 | 11-12-2026 | Download(2.17 MB) | News",
-        "2 | IN THE HIGH COURT OF JUDICAATT BUOMRBAEY ORDINARY ORIGINAL CIVIL JURISDICTION PUBLIC INTEREST LITIGATION NO.71 OF 2013 | 18-11-2025 | 18-11-2026 | Download(12.67 MB) | Press Release",
-        "3 | Public Notice | 13-10-2025 | 13-11-2026 | Download(194.12 KB) | Press Release",
+        "1 | MMRDA’s Atal Setu–Mumbai–Pune Expressway Connector Achieves 67% Physical Progress | 12-11-2026 | 20-11-2026 | Download(3.71 MB) | Press Release",
+        "3 | IN THE HIGH COURT OF JUDICAATT BUOMRBAEY ORDINARY ORIGINAL CIVIL JURISDICTION PUBLIC INTEREST LITIGATION NO.71 OF 2013 | 18-11-2025 | 18-11-2026 | Download(12.67 MB) | Press Release",
+        "4 | Public Notice | 13-10-2025 | 13-11-2026 | Download(194.12 KB) | Press Release",
+        "2 | Taloja MIDC To Badlapur Ambernath Katai Naka Road | 11-06-2026 | 11-12-2026 | Download(2.17 MB) | News",
         "Archive Published News",
         "<a href=\"https://"
       ],
       "links": {
-        "https://mmrda.maharashtra.gov.in/sites/default/files/2026-06/land_acquisition_and_rehabilation_cell.pdf": "1 Taloja MIDC To Badlapur Ambernath Katai Naka Road 11-06-2026 11-12-2026",
-        "https://mmrda.maharashtra.gov.in/sites/default/files/2025-11/final_order_in_pil_71_of_2023_high_court_on_its_motion_potholes_2.pdf": "2 IN THE HIGH COURT OF JUDICAATT BUOMRBAEY ORDINARY ORIGINAL CIVIL JURISDICTION PUBLIC INTEREST LITIGATION NO.71 OF 2013 18-11-2025 18-11-2026",
-        "https://mmrda.maharashtra.gov.in/sites/default/files/2025-11/public_notice.pdf": "3 Public Notice 13-10-2025 13-11-2026"
+        "https://mmrda.maharashtra.gov.in/sites/default/files/2026-11/mmrda_s_atal_setu-mumbai-pune_expressway_connector_achieves_67_physical_progress.pdf": "1 MMRDA’s Atal Setu–Mumbai–Pune Expressway Connector Achieves 67% Physical Progress 12-11-2026 20-11-2026",
+        "https://mmrda.maharashtra.gov.in/sites/default/files/2025-11/final_order_in_pil_71_of_2023_high_court_on_its_motion_potholes_2.pdf": "3 IN THE HIGH COURT OF JUDICAATT BUOMRBAEY ORDINARY ORIGINAL CIVIL JURISDICTION PUBLIC INTEREST LITIGATION NO.71 OF 2013 18-11-2025 18-11-2026",
+        "https://mmrda.maharashtra.gov.in/sites/default/files/2025-11/public_notice.pdf": "4 Public Notice 13-10-2025 13-11-2026",
+        "https://mmrda.maharashtra.gov.in/sites/default/files/2026-06/land_acquisition_and_rehabilation_cell.pdf": "2 Taloja MIDC To Badlapur Ambernath Katai Naka Road 11-06-2026 11-12-2026"
       }
     },
     "/en/tenders/tender-notices": {
@@ -78,6 +80,7 @@
     "/en": {
       "lines": [],
       "links": {
+        "https://mmrda.maharashtra.gov.in/en/news-and-announcements/mmrdas-atal-setu-mumbai-pune-expressway-connector-achieves-67-physical": "MMRDA’s Atal Setu–Mumbai–Pune Expressway Connector Achieves 67% Physical Progress",
         "https://mmrda.maharashtra.gov.in/en/news-and-announcements/taloja-midc-badlapur-ambernath-katai-naka-road": "Taloja MIDC To Badlapur Ambernath Katai Naka Road",
         "https://mmrda.maharashtra.gov.in/en/news-and-announcements/high-court-judicaatt-buomrbaey-ordinary-original-civil-jurisdiction-public": "IN THE HIGH COURT OF JUDICAATT BUOMRBAEY ORDINARY ORIGINAL CIVIL JURISDICTION PUBLIC INTEREST LITIGATION NO.71 OF 2013",
         "https://mmrda.maharashtra.gov.in/en/news-and-announcements/public-notice": "Public Notice",
