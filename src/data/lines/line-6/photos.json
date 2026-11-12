@@ -210,5 +210,34 @@
         "height": 900
       }
     ]
-  }
+  },
+  "watch_points": [
+    {
+      "id": "kanjurmarg-rob",
+      "title": "Kanjurmarg ROB",
+      "kind": "crossing",
+      "status": "open",
+      "added": "2026-11-07",
+      "lat": 19.12522,
+      "lng": 72.92824,
+      "between": [
+        "kanjur-marg-west",
+        "vikhroli-eeh"
+      ],
+      "note": "",
+      "sources": [],
+      "photos": [
+        {
+          "src": "/photos/kanjurmarg-rob-2026-11-07-a.jpg",
+          "alt": "Cage Pier erected near Kanjurmarg ROB",
+          "caption": "Cage Pier erected near Kanjurmarg ROB",
+          "date": "2026-11-07",
+          "credit": "Arindam Mahapatra",
+          "handle": "Maha7Arindam",
+          "width": 1200,
+          "height": 1600
+        }
+      ]
+    }
+  ]
 }
