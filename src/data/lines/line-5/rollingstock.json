@@ -1,7 +1,7 @@
 {
  "_meta": {
   "description": "Rolling stock for Line 5. The trains are ordered: Titagarh Rail Systems holds package CA-241 (trains, signalling, telecom, platform screen doors, depot machinery) for Phases 1 and 2. 'specs' are MMRDA's published figures, shown as rows. Phase 3 and the Line 5A spur are not in this contract.",
-  "last_reviewed": "2026-10-09"
+  "last_reviewed": "2026-11-13"
  },
  "procurement": {
   "manufacturer": "Titagarh Rail Systems",
@@ -79,6 +79,30 @@
   "last_verified": "2026-10-09",
   "notes": "ABB's order from Titagarh (January 2026) covers 40 six-car trains: 22 for Line 5 and 18 for Line 6."
  },
+ "facts": [
+  {
+   "label": "Until they arrive",
+   "value": "MMRDA uses BEML-built trains from the Lines 2A and 7 fleet for the trial runs, the CMRS safety checks and the opening, as on Line 4. They run until the Titagarh trains arrive (reported for next year) and pass their own trials. The first one reached Line 5 through the Kasarvadavali link with Line 4 during Navratri, October 2026. Service is to start at a five to six minute interval",
+   "status": "reported",
+   "source_url": "https://swarajyamag.com/news-brief/maharashtras-thane-bhiwandi-metro-line-5-gets-first-rake-trial-runs-to-begin-next-week",
+   "also_see": [
+    "https://www.mumbailive.com/en/civic/mumbai-metro-line-5-first-train-arrives-on-thane-bhiwandi-corridor-trials-to-begin-soon-94800"
+   ],
+   "last_verified": "2026-11-13",
+   "notes": "Swarajya (Arun Dhital, 23 Oct 2026) and Mumbai Live (about 23 Oct 2026). Both call the train borrowed; the owner's reading (2026-11-13) is that these trains carry Line 5 through testing, CMRS and the first months of service, so the page says what they are used for."
+  },
+  {
+   "label": "At the depot",
+   "value": "Two of the BEML trains entered the Kasheli depot for the first time during trials on 12 Nov 2026, and ballasted track work has started in the depot. Until the depot is complete, temporary pit lines serve the first phase",
+   "status": "reported",
+   "source_url": "https://x.com/bodkeitis/status/2120925544191873195",
+   "also_see": [
+    "https://www.mumbailive.com/en/civic/mumbai-metro-line-5-first-train-arrives-on-thane-bhiwandi-corridor-trials-to-begin-soon-94800"
+   ],
+   "last_verified": "2026-11-13",
+   "notes": "Swarup Bodke on X (12 Nov 2026), citing PCRO; replace with a news or MMRDA source when one appears. The pit lines are from Mumbai Live."
+  }
+ ],
  "image": {
   "src": "/images/titagarh-mumbai-metro-render.webp",
   "width": 443,

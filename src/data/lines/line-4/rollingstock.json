@@ -132,11 +132,14 @@
   },
   {
    "label": "Until they arrive",
-   "value": "MMRDA plans to open the first stretch with trains from Lines 2 and 7, as reported, and to replace them once the Alstom trains are tested. Alstom's contract milestone for passenger service with its trains is August 2027",
+   "value": "MMRDA uses BEML-built trains from the Lines 2A and 7 fleet for the trials, the CMRS safety checks and the opening of the first stretch, and replaces them once the Alstom trains are tested. Alstom's contract milestone for passenger service with its trains is August 2027",
    "status": "reported",
    "source_url": "https://psuwatch.com/newsupdates/alstom-to-deliver-first-metro-line-4-train-in-mumbai-by-december-official",
-   "last_verified": "2026-10-19",
-   "notes": "PSU Watch (PTI), 14 Oct 2026. Construction World (Sep 2025) also reports trains from the Yellow Line in the first trials."
+   "also_see": [
+    "https://swarajyamag.com/news-brief/maharashtras-thane-bhiwandi-metro-line-5-gets-first-rake-trial-runs-to-begin-next-week"
+   ],
+   "last_verified": "2026-11-13",
+   "notes": "PSU Watch (PTI), 14 Oct 2026. Construction World (Sep 2025) also reports trains from the Yellow Line in the first trials. Swarajya (23 Oct 2026) names them as BEML-built trains kept at the Mandale depot and moved to Line 4 coach by coach."
   },
   {
    "label": "Where they will be kept",

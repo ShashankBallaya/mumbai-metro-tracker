@@ -208,6 +208,28 @@
       "last_verified": "2026-10-09"
     },
     {
+      "id": "first-train",
+      "date": "2026-10",
+      "date_precision": "month",
+      "kind": "construction",
+      "title": "First train reaches Line 5",
+      "summary": "A BEML-built train from the Lines 2A and 7 fleet comes on to Line 5 through the Kasarvadavali link with Line 4, during Navratri. These trains carry the trials, the CMRS checks and the opening until the Titagarh trains arrive.",
+      "status": "reported",
+      "source_url": "https://swarajyamag.com/news-brief/maharashtras-thane-bhiwandi-metro-line-5-gets-first-rake-trial-runs-to-begin-next-week",
+      "last_verified": "2026-11-13"
+    },
+    {
+      "id": "trains-enter-kasheli-depot",
+      "date": "2026-11-12",
+      "date_precision": "day",
+      "kind": "construction",
+      "title": "Trains enter the Kasheli depot",
+      "summary": "During trials, two BEML trains enter the Kasheli depot for the first time. Ballasted track work has started in the depot.",
+      "status": "reported",
+      "source_url": "https://x.com/bodkeitis/status/2120925544191873195",
+      "last_verified": "2026-11-13"
+    },
+    {
       "id": "phase1-opening-target",
       "date": "2026-12",
       "date_precision": "month",
