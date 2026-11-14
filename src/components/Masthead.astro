@@ -1,5 +1,6 @@
 ---
 import { agencyOf, formatDate, lineBase, hasService, lastReviewed as siteReviewed, type Line } from '../lib/data';
+import HubBoard from './HubBoard.astro';
 
 interface Props {
   /** The line this page is about. Off a line page (the hub), dates are site-wide and the band is the site's own. */
@@ -8,8 +9,11 @@ interface Props {
   home?: boolean;
   /** The hub's own "Inside" index: [section id, label]. */
   sections?: [string, string][];
+  /** The hub's band: the site's name as a destination board (HubBoard.astro). */
+  board?: boolean;
 }
-const { line, home = true, sections } = Astro.props;
+const { line, home = true, sections, board = false } = Astro.props;
+const SITE_TAG = 'Every metro line in the Mumbai region. The unofficial tracker.';
 const lastReviewed = line?.lastReviewed ?? siteReviewed;
 const base = line ? lineBase(line.id) : '/';
 const to = (id: string) => (home ? `#${id}` : `${base}#${id}`);
@@ -53,6 +57,7 @@ if (!line && sections) inside.push(...sections);
 
 <header class="masthead">
   <div class:list={['masthead__band', !line && 'masthead__band--site']}>
+    {!line && board ? <HubBoard tagline={SITE_TAG} /> : (
     <div class="page masthead__inner">
       {line ? (
         <a class="masthead__title" href={base}>
@@ -65,8 +70,9 @@ if (!line && sections) inside.push(...sections);
           <span class="masthead__mr" lang="mr" aria-hidden="true">मुंबई मेट्रो</span>
         </h1>
       )}
-      <p class="masthead__tag">{line ? `Mumbai Metro, ${line.info.route_short}. The unofficial tracker.` : 'Every metro line in the Mumbai region. The unofficial tracker.'}</p>
+      <p class="masthead__tag">{line ? `Mumbai Metro, ${line.info.route_short}. The unofficial tracker.` : SITE_TAG}</p>
     </div>
+    )}
   </div>
   <div class="page masthead__edition">
     <p>

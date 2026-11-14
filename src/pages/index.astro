@@ -1,12 +1,12 @@
 ---
 /**
  * The hub: the front page of Mumbai Metro Tracker, printed in the line pages' newspaper world.
- *   1. The front: every MMR metro line on the real map, by stage, beside a fact box. The box opens on
- *      the index of lines being built and upcoming; choosing a line (on the map or in the index) prints
- *      its record there: stage, opening target, authority, size, cost and funding, tenders, latest update.
- *   2. The register: every line's record, grouped by stage (the box prints these same records).
+ *   1. The front: every MMR metro line on the real map, by stage, as a stage (src/scripts/network-stage.ts).
+ *      A rail of slips, one per line, drives the map: a phone swipes it, a wide screen pins the stage and
+ *      scrolls through it. A slip names the line's stage, target and size, and links to its tracker or record.
+ *   2. The register: every line's record, grouped by stage.
  *   3. The latest updates across the tracked lines, and where the tracked lines meet.
- * Without JavaScript the map is a drawing of the real geometry and each index entry jumps to its record.
+ * Without JavaScript the map is a drawing of the real geometry and each slip links to its tracker or record.
  */
 import Base from '../layouts/Base.astro';
 import Masthead from '../components/Masthead.astro';
@@ -19,6 +19,7 @@ import { hasStatusPage } from '../lib/answers';
 import { network, STAGES, networkReviewed, networkDrawing, bundleColours, type NetworkLine, type Stage } from '../lib/network';
 import geometryRaw from '../data/network-geometry.geojson?raw';
 import '../styles/hub.css';
+import '../styles/hub-stage.css';
 
 const drawing = networkDrawing(JSON.parse(geometryRaw));
 const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' });
@@ -127,9 +128,24 @@ const sourcesOf = (l: NetworkLine) => {
   return [...seen].map(([name, url]) => ({ name, url }));
 };
 
-const mapData = JSON.stringify(network.map((l) => ({ id: l.id, number: l.number, name: l.name, stage: l.stage, colour: l.colour ?? null })));
-// The legend is a key to the strokes drawn (no counts: the register below counts lines by work stage).
-const counts = STAGES.filter((s) => s.id !== 'future' && network.some((l) => l.parts.some((p) => p.stage === s.id)));
+// ----- The front's stage: the map, its key, and one slip per line of the index -----
+const drawnIds = new Set(drawing.paths.map((p) => p.line));
+const stageData = JSON.stringify(network.filter((l) => drawnIds.has(l.id)).map((l) => ({ id: l.id, n: mark(l), colour: l.colour ?? null })));
+// The key names the strokes drawn (no counts: the register below counts lines by work stage).
+const stageKeys = STAGES.filter((s) => s.id !== 'future' && network.some((l) => l.parts.some((p) => p.stage === s.id)));
+// The rail runs like the register: work going on first, running lines last. A line only studied has no slip.
+const slipGroups = groups.filter((g) => g.id !== 'future').map((g) => ({ id: g.id, lines: g.lines.map(({ l }) => l) }));
+const slips = slipGroups.flatMap((g) => g.lines);
+// A tracked line prints its short label and route (lines.json), so a slip's head stays on one line where it can.
+// A line of another system is named "System Line n, from to": the name is the head, the rest is the route.
+const slipInfo = (l: NetworkLine) => lines.find((x) => x.id === l.trackedId);
+const slipTitle = (l: NetworkLine) => slipInfo(l)?.label ?? (l.system ? l.name.split(', ')[0] : `Line ${l.number}`);
+const slipRoute = (l: NetworkLine) =>
+  slipInfo(l)?.route_short ?? (l.system ? l.name.split(', ').slice(1).join(', ') || (l.system === l.name ? null : l.system) : l.name);
+const slipTarget = (l: NetworkLine) => {
+  const r = record(l);
+  return r?.target?.value ? formatDate(r.target.value) : null;
+};
 
 // The bundle: one stroke per primary line colour, in line-number order (bundleColours in src/lib/network.ts).
 // It runs across the top of the page and bends down its left side; each section hangs off it at a stop.
@@ -173,7 +189,7 @@ const schema = [
 ---
 
 <Base title={title} description={description} schema={schema}>
-  <Masthead sections={[['map', 'Map'], ['lines', 'Every line'], ['updates', 'Updates'], ['meet', 'Where lines meet']]} />
+  <Masthead board sections={[['map', 'Map'], ['lines', 'Every line'], ['updates', 'Updates'], ['meet', 'Where lines meet']]} />
   <PressBanner />
   <main id="main" class="hubmain" style={bundleStyle}>
     <div class="bundle" aria-hidden="true">
@@ -186,63 +202,75 @@ const schema = [
       </div>
     </div>
 
-    <!-- 1. The front: the map and its fact box -->
-    <section id="map" class="front page" aria-label="The network map and the record of each line" data-front>
+    <!-- 1. The front: the network map as a stage, with one slip per line -->
+    <section id="map" class="stage page" aria-label="The network map" data-stage data-lines={stageData} data-bounds={JSON.stringify(drawing.bounds)}>
       <span class="stop stop--front" aria-hidden="true"></span>
-      <div class="front__map" data-network-map data-lines={mapData} data-bounds={JSON.stringify(drawing.bounds)}>
-        <svg class="front__drawing" viewBox={`0 0 ${drawing.width} ${drawing.height}`} preserveAspectRatio="xMidYMid meet" role="img" aria-label={`Drawing of the ${network.length} metro lines in the Mumbai region, by stage. The register below lists every line.`} data-drawing>
-          {[...new Set(drawing.paths.map((p) => p.line))].map((id) => {
+      <div class="stage__frame">
+        <ul class="stage__key" role="list">
+          {stageKeys.map((s) => (
+            <li><span class={`stroke stroke--${s.id}`} aria-hidden="true"></span>{s.short}</li>
+          ))}
+        </ul>
+        <svg class="stage__ghost" viewBox={`0 0 ${drawing.width} ${drawing.height}`} preserveAspectRatio="xMidYMid meet" role="img" aria-label={`Drawing of the ${drawnIds.size} metro lines with a published route in the Mumbai region, by stage.`}>
+          {[...drawnIds].map((id) => {
             const l = network.find((x) => x.id === id)!;
             return (
-              <g class="nl" data-line={id} style={l.colour ? `--c:var(--${l.colour})` : undefined}>
+              <g style={l.colour ? `--c:var(--${l.colour})` : undefined}>
                 {drawing.paths.filter((p) => p.line === id).map((p) => <path d={p.d} class={`nl__path nl__path--${p.stage}`} vector-effect="non-scaling-stroke" />)}
               </g>
             );
           })}
-          {drawing.labels.map((lb) => {
-            const l = network.find((x) => x.id === lb.line)!;
-            return <text class="nl__num" x={lb.x.toFixed(1)} y={lb.y.toFixed(1)} data-line={lb.line}>{mark(l)}</text>;
-          })}
         </svg>
-        <ul class="front__legend" role="list">
-          {counts.map((s) => (
-            <li><span class={`stroke stroke--${s.id}`} aria-hidden="true"></span>{s.label}</li>
-          ))}
-        </ul>
-      </div>
+        <div class="stage__live" data-live></div>
 
-      <aside class="box" aria-labelledby="box-title" data-box>
-        <div class="box__index" data-box-index>
-          <h2 id="box-title" class="box__title">Being built and upcoming</h2>
-          <p class="box__lede">
-            {upcoming.reduce((t, g) => t + g.lines.length, 0)} lines in the region are under construction, approved or proposed. Choose one on the map or below for its record.
+        <div class="dock">
+        <div class="dock__top">
+          <p class="dock__hint" aria-hidden="true">
+            <span class="dock__hint-touch">Swipe for the next line</span>
+            <span class="dock__hint-scroll">Scroll for the next line</span>
+            <span class="dock__hint-keys">Arrow keys for the next line</span>
+            <svg viewBox="0 0 24 24" focusable="false"><path d="M4 12h15M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" /></svg>
           </p>
-          {upcoming.map((g) => (
-            <section class="box__group" aria-labelledby={`box-${g.id}`}>
-              <h3 id={`box-${g.id}`} class="box__group-title"><span class={`stroke stroke--${g.id}`} aria-hidden="true"></span>{g.label}</h3>
-              <ul class="pick-list" role="list">
-                {g.lines.map(({ l, r }) => (
-                  <li>
-                    <a class="pick" href={`#${l.id}`} data-pick={l.id} style={colourStyle(l)}>
-                      <span class:list={['lmark', !l.colour && 'lmark--none']} aria-hidden="true">{mark(l)}</span>
-                      <span class="pick__name">{titleOf(l)}{routeOf(l) && <span class="pick__route">{routeOf(l)}{partlyOpen(l) && <span class="pick__open">, partly open</span>}</span>}</span>
-                      <span class="pick__when">{r ? formatDate(r.target.value) : stageShort(workStage(l))}</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          ))}
-          {running && <p class="box__more"><a href="#stage-operational" data-plain>{running.lines.length} running lines</a> are in the register below.</p>}
+          <p class="dock__count" aria-live="polite"><b data-slip-at>1</b> of {slips.length + 1}</p>
         </div>
-        <div class="box__record" data-box-record hidden>
-          <button class="box__back" type="button" data-box-back>
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 12H5M12 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" /></svg>
-            All lines
-          </button>
-          <div class="box__slot" data-box-slot tabindex="-1"></div>
+        <ol class="rail" role="list" aria-label="The lines, one slip each" tabindex="0" data-rail>
+          <li class="slip slip--all is-on" data-card="">
+            <h2 class="slip__name">The network</h2>
+            <p class="slip__route">{network.length} metro lines, Mumbai region</p>
+            <dl class="slip__facts">
+              {slipGroups.map((g) => (
+                <div><dt>{stageShort(g.id)}</dt><dd>{g.lines.length}</dd></div>
+              ))}
+            </dl>
+          </li>
+          {slips.map((l) => {
+            const target = slipTarget(l);
+            const stage = workStage(l);
+            return (
+              <li class="slip" data-card={l.id} style={colourStyle(l)}>
+                <div class="slip__head">
+                  <span class:list={['lmark', !l.colour && 'lmark--none']} aria-hidden="true">{mark(l)}</span>
+                  <h3 class="slip__name">{slipTitle(l)}</h3>
+                  <span class="slip__stage"><span class={`stroke stroke--${stage}`} aria-hidden="true"></span>{stageShort(stage)}{partlyOpen(l) && ', partly open'}</span>
+                </div>
+                <p class="slip__route">{slipRoute(l) ?? l.ends.join(' to ')}</p>
+                {!drawnIds.has(l.id) && <p class="slip__undrawn">No published route. Listed, not drawn.</p>}
+                <dl class="slip__facts">
+                  {target && <div><dt>Target</dt><dd>{target}</dd></div>}
+                  {km(l.length.value) && <div><dt>Length</dt><dd>{km(l.length.value)}</dd></div>}
+                  {l.stations.value !== null && <div><dt>Stations</dt><dd>{l.stations.value}</dd></div>}
+                </dl>
+                <a class="slip__open" href={l.trackedId ? lineBase(l.trackedId as LineId) : `#${l.id}`}>
+                  {l.trackedId ? `Open the ${slipTitle(l)} tracker` : 'Read its record'}
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" /></svg>
+                </a>
+              </li>
+            );
+          })}
+        </ol>
         </div>
-      </aside>
+      </div>
+      <p class="stage__note">Lights move on running stretches. They are not live train positions.</p>
     </section>
 
     <!-- 2. The register: every line's record -->
@@ -403,5 +431,5 @@ const schema = [
 </Base>
 
 <script>
-  import '../scripts/hub';
+  import '../scripts/network-stage';
 </script>

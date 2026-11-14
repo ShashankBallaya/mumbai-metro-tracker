@@ -1,0 +1,295 @@
+---
+/**
+ * The hub's masthead as a destination board: the site's name in amber lamps on a dark panel, the
+ * Marathi mark beside a tagline that passes right to left, and the bundle's colours as the band's edge.
+ *   - The name is the page's h1 and stays real text; a mask of round dots cuts it into lamps.
+ *   - On load the board switches on column by column, once. The tagline then moves at one reading
+ *     speed; a press on it pauses it (WCAG 2.2.2), and it rests while off screen.
+ *   - Reduced motion: the board is on, and the tagline stands still.
+ * Used by Masthead.astro on the hub (`board`). Amber (#ffb224) belongs to this board only.
+ */
+import { bundleColours } from '../lib/network';
+
+interface Props {
+  tagline: string;
+}
+const { tagline } = Astro.props;
+const share = 100 / bundleColours.length;
+const stripes = bundleColours.map((c, i) => `var(--${c}) ${(i * share).toFixed(2)}% ${((i + 1) * share).toFixed(2)}%`).join(', ');
+---
+
+<div class="page board-page">
+  <div class="board-fit">
+    <div class="board" data-board>
+      <h1 class="board__name dm"><span class="dm__lit">Mumbai Metro Tracker</span></h1>
+      <div class="board__row">
+        <p class="board__mr dm" lang="mr" aria-hidden="true"><span class="dm__lit">मुंबई मेट्रो</span></p>
+        <p class="visually-hidden">{tagline}</p>
+        <button class="ticker dm" type="button" aria-pressed="false" aria-label="Pause the moving text" data-ticker>
+          <span class="dm__lit" aria-hidden="true">
+            <span class="ticker__run">
+              <span>{tagline}</span>
+              <span>{tagline}</span>
+            </span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="board-edge" style={`--stripes:${stripes}`} aria-hidden="true"></div>
+
+<script>
+  // The moving text can be stopped: a press on it pauses it, the next press starts it again.
+  const ticker = document.querySelector<HTMLButtonElement>('[data-ticker]');
+  if (ticker) {
+    ticker.addEventListener('click', () => {
+      const paused = ticker.classList.toggle('is-paused');
+      ticker.setAttribute('aria-pressed', String(paused));
+    });
+    const run = ticker.querySelector<HTMLElement>('.ticker__run')!;
+    // One reading speed at every size: the text passes at 2.4 times its own height each second,
+    // so a wide screen's longer run takes longer and never rushes.
+    const pace = () => {
+      const size = parseFloat(getComputedStyle(run).fontSize);
+      run.style.animationDuration = `${(run.offsetWidth / 2 / (size * 2.4)).toFixed(1)}s`;
+    };
+    pace();
+    addEventListener('resize', pace);
+    document.fonts?.ready.then(pace);
+    // Off screen, the board rests.
+    new IntersectionObserver(([entry]) => ticker.classList.toggle('is-away', !entry.isIntersecting)).observe(ticker);
+  }
+</script>
+
+<style>
+  .board-page {
+    padding-block: var(--s-4) var(--s-3);
+  }
+  .board-fit {
+    container-type: inline-size;
+  }
+  .board p,
+  .board h1 {
+    margin: 0;
+  }
+  .board__name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-stretch: 75%;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+  /* The band ends on the bundle's colours, one stripe per primary line colour. */
+  .board-edge {
+    height: 1.25rem;
+    background: linear-gradient(180deg, var(--stripes));
+  }
+  @media (min-width: 48rem) {
+    .board-page {
+      padding-block: var(--s-5) var(--s-4);
+    }
+    .board-edge {
+      height: 1.75rem;
+    }
+  }
+
+  @property --lit {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 100%;
+  }
+  /* The board: a dark panel in both editions, with amber lamps, as on a platform or a train's front. */
+  .board {
+    --amber: #ffb224;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr); /* the moving text never widens the panel */
+    gap: 6px;
+    padding: 6px 8px;
+    background: var(--on-signal);
+    color: var(--amber);
+    /* A hairline bezel, so the panel keeps its edge on the navy band of the morning edition. */
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--amber) 24%, transparent);
+  }
+  /* One display module: its unlit lamps, and (in .dm__lit) the lit ones. */
+  .dm {
+    --dot: 0.085em;
+    --dot: round(0.085em, 1px);
+    /* A lit lamp nearly fills its cell; an unlit one is a small faint point. */
+    --lamp: radial-gradient(circle closest-side at center, #000 0 84%, transparent 96%);
+    padding-block: var(--dot);
+    line-height: 0.84;
+    background: radial-gradient(circle closest-side at center, color-mix(in srgb, var(--amber) 16%, transparent) 0 46%, transparent 58%) 0 0 / var(--dot) var(--dot);
+  }
+  .dm__lit {
+    display: block;
+    overflow: hidden;
+    margin-block: calc(-1 * var(--dot));
+    padding-block: var(--dot);
+    -webkit-mask-image: var(--lamp), linear-gradient(90deg, #000 var(--lit), transparent var(--lit));
+    mask-image: var(--lamp), linear-gradient(90deg, #000 var(--lit), transparent var(--lit));
+    -webkit-mask-size: var(--dot) var(--dot), 100% 100%;
+    mask-size: var(--dot) var(--dot), 100% 100%;
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+  }
+  /* The name, edge to edge inside the panel (capped on a very wide screen). */
+  .board__name {
+    font-size: min((100cqi - 16px) * 0.129, 8.25rem);
+  }
+  /* The second row: the Marathi mark, then the tagline moving right to left. */
+  .board__row {
+    min-width: 0;
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .board__mr {
+    flex: none;
+    font-family: 'Anek Devanagari Mark', var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.5rem, 7.4cqi, 3.2rem);
+    --dot: 2px;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+  .ticker {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    padding-inline: 0;
+    border: 0;
+    color: inherit;
+    font-family: var(--font-display);
+    font-stretch: 87.5%;
+    font-weight: 800; /* heavy strokes keep their shape when cut into lamps */
+    font-size: clamp(1.35rem, 6.6cqi, 2.6rem);
+    --dot: 2px;
+    text-transform: uppercase;
+    text-align: left;
+    cursor: pointer;
+    transition: opacity 0.2s var(--ease-out), filter 0.12s var(--ease-out);
+  }
+  /* The press answers at once: the lamps dip. */
+  .ticker:active {
+    filter: brightness(0.78);
+  }
+  /* Paused: the lamps dim, so the state shows without a second control. */
+  .ticker.is-paused {
+    opacity: 0.62;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .ticker:hover {
+      filter: brightness(1.12);
+    }
+    .ticker:hover:active {
+      filter: brightness(0.78);
+    }
+  }
+  .ticker:focus-visible {
+    outline: 3px solid var(--amber);
+    outline-offset: 3px;
+  }
+  .ticker .dm__lit {
+    flex: 1;
+    min-width: 0;
+  }
+  .ticker__run {
+    display: inline-flex;
+    width: max-content;
+    white-space: nowrap;
+    will-change: translate;
+  }
+  /* Between two passes: the paper's square separator, in lamps. */
+  .ticker__run span::after {
+    content: '';
+    display: inline-block;
+    width: 0.42em;
+    height: 0.42em;
+    margin-inline: 1.1em;
+    background: currentColor;
+    vertical-align: 0.08em;
+  }
+  @media (min-width: 48rem) {
+    .board {
+      gap: 10px;
+      padding: 10px 14px;
+    }
+    .board__name {
+      font-size: min((100cqi - 28px) * 0.129, 8.25rem);
+    }
+    .board__mr,
+    .ticker {
+      --dot: 3px;
+    }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    /* The board switches on column by column, once: the name first, then each module of the second
+       row a beat later. The sweep runs at a constant rate, as a scan does. */
+    .board:not(.is-off) .dm__lit {
+      animation: dm-on 0.9s steps(45, end) 0.15s both;
+    }
+    .board:not(.is-off) .board__mr .dm__lit {
+      animation-duration: 0.3s;
+      animation-timing-function: steps(12, end);
+      animation-delay: 0.23s;
+    }
+    .board:not(.is-off) .ticker .dm__lit {
+      animation-duration: 0.6s;
+      animation-timing-function: steps(30, end);
+      animation-delay: 0.31s;
+    }
+    /* Then the lamps settle from a brief overdrive to their running brightness. */
+    .board:not(.is-off) {
+      animation: board-settle 0.45s var(--ease-out) 1.05s backwards;
+    }
+    /* The tagline passes at a constant speed, without end, until the reader pauses it.
+       The script sets the duration from the text's length; 22s stands in without it. */
+    .ticker__run {
+      animation: ticker 22s linear 1.3s infinite;
+    }
+    .ticker.is-paused .ticker__run,
+    .ticker.is-away .ticker__run {
+      animation-play-state: paused;
+    }
+  }
+  /* Reduced motion: the board is on, and the tagline stands still on as many lines as it needs. */
+  @media (prefers-reduced-motion: reduce) {
+    .ticker__run {
+      display: block;
+      width: auto;
+      white-space: normal;
+      font-size: 0.7em;
+      line-height: 1.1;
+    }
+    .ticker__run span + span {
+      display: none;
+    }
+    .ticker__run span::after {
+      display: none;
+    }
+  }
+  @keyframes dm-on {
+    from {
+      --lit: 0%;
+    }
+    to {
+      --lit: 100%;
+    }
+  }
+  @keyframes board-settle {
+    from {
+      filter: brightness(1.35) saturate(1.1);
+    }
+    to {
+      filter: none;
+    }
+  }
+  @keyframes ticker {
+    to {
+      translate: -50% 0;
+    }
+  }
+</style>
