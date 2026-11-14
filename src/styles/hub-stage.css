@@ -1,0 +1,470 @@
+/*
+ * The hub's front: the network map as a stage (src/pages/index.astro), over hub.css.
+ * Phone first: the map bleeds off the right edge, the rail of slips sits in the thumb zone.
+ */
+.stage {
+  position: relative;
+  margin-block: var(--s-5) var(--s-8);
+}
+.stage__frame {
+  --key-h: 2.75rem; /* room the key takes at the top of the drawing */
+  position: relative;
+  height: min(86svh, 44rem);
+  margin-right: calc(-1 * var(--gutter)); /* off the right edge of the phone */
+  overflow: hidden;
+  background: var(--paper-2);
+  border-top: var(--rule-heavy) solid var(--rule-strong);
+}
+
+/* The key: printed on the map's top edge; it wraps on a phone. */
+.stage__key {
+  position: absolute;
+  inset: var(--s-2) 3rem auto var(--s-3);
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.15rem var(--s-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.78rem;
+  color: var(--ink-2);
+  pointer-events: none;
+}
+/* A phone prints the key two by two, so no stage is left alone on a row. */
+@media (max-width: 29.99rem) {
+  .stage__key {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+  }
+}
+/* The ground under the key, so place names do not run through it. */
+.stage__frame::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 2;
+  height: 5rem;
+  background: linear-gradient(color-mix(in srgb, var(--paper-2) 92%, transparent) 45%, transparent);
+  pointer-events: none;
+}
+.stage__key li {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.stage__key .stroke {
+  width: 1.4rem;
+  height: 3px;
+}
+
+/* The drawing: the whole picture without JavaScript, a pencil ghost while the street map loads. */
+.stage__ghost {
+  position: absolute;
+  inset: calc(var(--key-h) + var(--s-4)) var(--s-4) 12rem;
+  width: calc(100% - 2 * var(--s-4));
+  height: calc(100% - var(--key-h) - var(--s-4) - 12rem);
+  transition: opacity 0.4s var(--ease-out);
+}
+.stage.is-booting .stage__ghost {
+  opacity: 0.3;
+}
+.stage.is-live .stage__ghost {
+  opacity: 0;
+}
+.stage__frame > .stage__live {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s var(--ease-out);
+}
+.stage.is-live .stage__live {
+  opacity: 1;
+}
+/* The ground under the rail, so the slips stand off the map. */
+.stage__frame::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 2;
+  height: 13rem;
+  background: linear-gradient(transparent, color-mix(in srgb, var(--paper-2) 92%, transparent) 70%);
+  pointer-events: none;
+}
+
+/* A line's mark on the map: the same mark as in the index, with a 44px touch area. */
+.mk {
+  position: relative;
+  border: 0;
+  outline: 2px solid var(--paper-2);
+  min-width: 2.1em;
+  height: 1.5em;
+  font-size: 0.74rem;
+  cursor: pointer;
+  opacity: 0;
+  scale: 0.9; /* a mark arrives from near its size, never from nothing */
+  transition: opacity 0.25s var(--ease-out), scale 0.25s var(--ease-out);
+}
+.mk::after {
+  content: '';
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 44px;
+  height: 44px;
+  translate: -50% -50%;
+}
+.mk.lmark--none {
+  background: var(--paper);
+}
+.mk.is-in {
+  opacity: 1;
+  scale: 1;
+}
+.mk.is-in.is-dim {
+  opacity: 0.28;
+  scale: 0.88;
+}
+.mk.is-in.is-on {
+  scale: 1.2;
+}
+/* The press answers at once, in every state. */
+.mk.is-in:active {
+  scale: 0.94;
+  transition-duration: 0.12s;
+}
+.mk.is-in.is-on:active {
+  scale: 1.13;
+}
+
+/* The street map's controls on paper. */
+.stage__live .maplibregl-ctrl.maplibregl-ctrl-attrib {
+  background: var(--paper);
+  color: var(--ink-3);
+}
+.stage__live .maplibregl-ctrl-attrib a {
+  color: var(--ink-2);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .stage__live .maplibregl-ctrl-attrib-button {
+    filter: invert(1);
+  }
+}
+:root[data-theme='dark'] .stage__live .maplibregl-ctrl-attrib-button {
+  filter: invert(1);
+}
+
+/* ---------- The rail: one slip per line, in the thumb zone ---------- */
+/* The dock holds the rail and, for a mouse or a keyboard, its previous and next buttons. */
+.dock {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+}
+/* Over the rail: the hint for the reader's own input and, on a wide screen, the slip's place in the run. */
+.dock__top {
+  display: flex;
+  align-self: flex-end;
+  align-items: stretch;
+  gap: var(--s-2);
+  margin: 0 var(--s-3) 0 0;
+  pointer-events: none;
+}
+.dock__hint,
+.dock__count {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  margin: 0;
+  padding: 0.3rem var(--s-3) 0.25rem;
+  font-family: var(--font-display);
+  font-stretch: 87.5%;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+/* A printed label, until the reader has moved the rail once. */
+.dock__hint {
+  padding-right: var(--s-2);
+  background: var(--ink);
+  color: var(--paper);
+  opacity: 0;
+  translate: 0 4px;
+  transition: opacity 0.2s var(--ease-out), translate 0.2s var(--ease-out);
+}
+.dock__hint svg {
+  width: 1.1em;
+  height: 1.1em;
+}
+.stage.is-live:not(.has-moved) .dock__hint {
+  opacity: 1;
+  translate: 0 0;
+  transition: opacity 0.4s var(--ease-out) 2.6s, translate 0.4s var(--ease-out) 2.6s; /* after the lines are drawn */
+}
+@media (prefers-reduced-motion: no-preference) {
+  .stage.is-live:not(.has-moved) .dock__hint svg {
+    animation: nudge 1.4s var(--ease-out) 3.2s 6;
+  }
+}
+/* The hint names the input: a swipe on a phone, the page's scroll when the stage is pinned, else the arrow keys. */
+.dock__hint-scroll,
+.dock__hint-keys {
+  display: none;
+}
+.dock__count {
+  display: none;
+  background: var(--paper);
+  outline: var(--rule-w) solid var(--rule);
+  outline-offset: calc(-1 * var(--rule-w));
+  color: var(--ink-2);
+  gap: 0.3em;
+}
+.dock__count b {
+  color: var(--ink);
+}
+@media (min-width: 64rem) {
+  .dock__top {
+    margin-right: var(--s-4);
+  }
+  .dock__count {
+    display: flex;
+  }
+  .dock__hint-touch {
+    display: none;
+  }
+  .dock__hint-keys {
+    display: inline;
+  }
+  .stage.is-pinned .dock__hint-keys {
+    display: none;
+  }
+  .stage.is-pinned .dock__hint-scroll {
+    display: inline;
+  }
+  /* Pinned: the page's scroll moves the rail, so it does not scroll or snap by itself. */
+  .stage.is-pinned .rail {
+    overflow-x: hidden;
+    scroll-snap-type: none;
+  }
+}
+
+.rail {
+  --slip-w: min(100% - 2.75rem, 21rem);
+  position: relative; /* the slips measure their place from the rail */
+  display: flex;
+  align-items: flex-end;
+  gap: var(--s-3);
+  margin: 0;
+  padding: var(--s-3) var(--s-3) var(--s-4);
+  list-style: none;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: var(--s-3);
+  scrollbar-width: none;
+}
+.rail::-webkit-scrollbar {
+  display: none;
+}
+.rail:focus-visible {
+  outline: 2px solid var(--signal-line);
+  outline-offset: -2px;
+}
+/* Room after the last slip, so it can come to the front. */
+.rail::after {
+  content: '';
+  flex: none;
+  width: calc(100% - var(--slip-w) - var(--s-3));
+}
+.slip {
+  flex: none;
+  width: var(--slip-w);
+  container-type: inline-size; /* the figures size to the slip, so three of them always fit a phone */
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  padding: var(--s-3) var(--s-3) 0;
+  background: var(--paper);
+  border-top: 5px solid var(--c, var(--ink));
+  outline: var(--rule-w) solid var(--rule);
+  opacity: 0.78;
+  cursor: pointer;
+  transition: opacity 0.2s var(--ease-out), translate 0.3s var(--ease-out), scale 0.16s var(--ease-out);
+  translate: 0 6px;
+}
+.slip.is-on {
+  opacity: 1;
+  translate: 0 0;
+  cursor: auto;
+}
+/* A slip behind the front one is a control: it gives under the thumb. */
+.slip:not(.is-on):active {
+  scale: 0.98;
+}
+.slip--all {
+  padding-bottom: var(--s-3);
+}
+.slip--all .slip__facts {
+  justify-content: space-between;
+  gap: var(--s-1);
+}
+.slip--all .slip__facts dt {
+  font-size: 0.68rem;
+  letter-spacing: 0.02em;
+}
+.slip__head {
+  display: flex;
+  flex-wrap: wrap; /* a long name keeps the row; its stage then moves under it */
+  align-items: center;
+  gap: var(--s-1) var(--s-2);
+}
+.slip__name {
+  flex: 1 1 0;
+  min-width: min-content;
+  font-size: var(--step-1);
+  line-height: 1;
+  text-transform: uppercase;
+  text-wrap: balance; /* a long name takes a second line; it is never cut */
+}
+.slip__stage {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+.slip__stage .stroke {
+  width: 1.3rem;
+  height: 3px;
+}
+.slip__route {
+  margin-top: var(--s-1);
+  font-family: var(--font-display);
+  font-stretch: 87.5%;
+  font-weight: 700;
+  font-size: 0.86rem;
+  text-transform: uppercase;
+  line-height: 1.2;
+  color: var(--ink-2);
+  text-wrap: balance; /* a long route takes a second line; it is never cut */
+}
+.slip__undrawn {
+  margin-top: var(--s-2);
+  font-size: var(--step--1);
+  color: var(--ink-2);
+}
+.slip__facts {
+  display: flex;
+  flex-wrap: wrap; /* the last guard: a figure moves to a new row before it leaves the slip */
+  gap: var(--s-2) clamp(0.6rem, 5cqi, 1.25rem);
+  margin: var(--s-3) 0 0;
+}
+.slip__facts dt {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.slip__facts dd {
+  margin: 0;
+  font-family: var(--font-display);
+  font-stretch: 75%;
+  font-weight: 800;
+  font-size: clamp(1.02rem, 7.6cqi, 1.3rem);
+  line-height: 1.1;
+  font-variant-numeric: lining-nums tabular-nums;
+  white-space: nowrap;
+}
+.slip__open {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-2);
+  min-height: 44px;
+  margin-top: var(--s-3);
+  border-top: var(--rule-w) solid var(--rule);
+  font-size: var(--step--1);
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+  transition: scale 0.16s var(--ease-out);
+}
+.slip__open svg {
+  flex: none;
+  width: 1.15em;
+  height: 1.15em;
+  transition: translate 0.2s var(--ease-out);
+}
+.slip__open:active {
+  scale: 0.98;
+}
+.slip__open:active svg {
+  translate: 3px 0;
+}
+@media (hover: hover) and (pointer: fine) {
+  .slip__open:hover svg {
+    translate: 3px 0;
+  }
+  .slip:not(.is-on):hover {
+    opacity: 0.9;
+  }
+}
+@keyframes nudge {
+  50% {
+    translate: 6px 0;
+  }
+}
+
+/* Reduced motion: the states still cross-fade; nothing moves or changes size. */
+@media (prefers-reduced-motion: reduce) {
+  .mk,
+  .mk.is-in.is-dim,
+  .mk.is-in.is-on,
+  .mk.is-in:active,
+  .slip,
+  .slip:not(.is-on):active,
+  .slip__open:active {
+    scale: 1;
+    translate: 0 0;
+  }
+  .slip__open svg {
+    transition: none;
+  }
+  .dock__hint {
+    translate: 0 0;
+  }
+}
+
+.stage__note {
+  margin-top: var(--s-2);
+  font-size: 0.78rem;
+  color: var(--ink-3);
+}
+
+@media (min-width: 64rem) {
+  .stage__frame {
+    height: max(34rem, calc(100svh - 15rem));
+    margin-right: 0;
+  }
+  .stage__key {
+    font-size: var(--step--1);
+    gap: var(--s-2) var(--s-5);
+  }
+  .stage__key .stroke {
+    width: 2.2rem;
+  }
+  .rail {
+    --slip-w: 21rem;
+    padding-inline: var(--s-4);
+    scroll-padding-left: var(--s-4);
+  }
+  .slip {
+    padding-inline: var(--s-4);
+  }
+}

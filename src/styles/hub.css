@@ -122,6 +122,48 @@
   }
 }
 
+/* ---------- Selected text prints in the line colours ----------
+ * Inside a line's own record, index row, update or slip, the selection takes that line's colour.
+ * Everywhere else it runs through the bundle's colours in line-number order (blue, yellow, aqua,
+ * green, orange, pink, red, gold), one per sibling, so a selection across rows reads as the bundle. */
+.hubmain :nth-child(8n + 1)::selection {
+  background: var(--net-blue);
+  color: var(--on-net-blue);
+}
+.hubmain :nth-child(8n + 2)::selection {
+  background: var(--line-2b);
+  color: var(--on-line-2b);
+}
+.hubmain :nth-child(8n + 3)::selection {
+  background: var(--net-aqua);
+  color: var(--on-net-aqua);
+}
+.hubmain :nth-child(8n + 4)::selection {
+  background: var(--line-4);
+  color: var(--on-line-4);
+}
+.hubmain :nth-child(8n + 5)::selection {
+  background: var(--line-orange);
+  color: var(--on-line-orange);
+}
+.hubmain :nth-child(8n + 6)::selection {
+  background: var(--line-6);
+  color: var(--on-line-6);
+}
+.hubmain :nth-child(8n + 7)::selection {
+  background: var(--net-red);
+  color: var(--on-net-red);
+}
+.hubmain :nth-child(8n + 8)::selection {
+  background: var(--net-gold);
+  color: var(--on-net-gold);
+}
+.hubmain [style*='--c:']::selection,
+.hubmain [style*='--c:'] *::selection {
+  background: var(--c);
+  color: var(--on-c);
+}
+
 /* ---------- Stage strokes: the key shared by the map, the index and the register ---------- */
 .stroke {
   display: inline-block;
