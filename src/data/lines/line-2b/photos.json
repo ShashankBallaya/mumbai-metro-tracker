@@ -79,6 +79,26 @@
     ],
     "esic-nagar": [
       {
+        "src": "/photos/esic-nagar-2026-11-15-a.jpg",
+        "alt": "ESIC Nagar station from the road: the curved steel roof frame on top of the station deck, on round concrete piers, with the viaduct to its left",
+        "caption": "The station roof frame is up",
+        "date": "2026-11-15",
+        "credit": "KV Subramanian",
+        "handle": "kvsmahesh",
+        "width": 1591,
+        "height": 1600
+      },
+      {
+        "src": "/photos/esic-nagar-2026-11-15-b.jpg",
+        "alt": "ESIC Nagar station seen from Juhu Circle, behind the flower sculpture and a traffic signal: the curved steel roof frame over the station deck",
+        "caption": "From Juhu Circle",
+        "date": "2026-11-15",
+        "credit": "KV Subramanian",
+        "handle": "kvsmahesh",
+        "width": 1565,
+        "height": 1600
+      },
+      {
         "src": "/photos/esic-nagar-2026-11-07-a.jpg",
         "alt": "Girder launching work underway at Juhu Circle.",
         "date": "2026-11-07",
@@ -100,26 +120,6 @@
         "video_t": 212,
         "width": 1600,
         "height": 900
-      },
-      {
-        "src": "/photos/esic-nagar-2026-11-15-a.jpg",
-        "alt": "ESIC Nagar Station",
-        "caption": "ESIC Nagar Station",
-        "date": "2026-11-15",
-        "credit": "KV Subramanian",
-        "handle": "kvsmahesh",
-        "width": 1591,
-        "height": 1600
-      },
-      {
-        "src": "/photos/esic-nagar-2026-11-15-b.jpg",
-        "alt": "ESIC Nagar Station",
-        "caption": "ESIC Nagar Station",
-        "date": "2026-11-15",
-        "credit": "KV Subramanian",
-        "handle": "kvsmahesh",
-        "width": 1565,
-        "height": 1600
       }
     ],
     "prem-nagar": [

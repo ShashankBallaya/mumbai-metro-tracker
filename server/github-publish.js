@@ -235,9 +235,10 @@ export async function publishPhoto(env, photo, note) {
       height: photo.height,
     };
     if (photo.station) {
-      // Ground photos go before drone stills, so a ground photo leads the station page.
-      const firstDrone = list.findIndex((p) => p.kind === 'drone');
-      list.splice(firstDrone === -1 ? list.length : firstDrone, 0, entry);
+      // Ground photos newest first, before drone stills, so the latest ground photo leads the station page.
+      // A photo of the same date goes after those already there, so one reader's set keeps its order.
+      const at = list.findIndex((p) => p.kind === 'drone' || p.date < entry.date);
+      list.splice(at === -1 ? list.length : at, 0, entry);
     } else {
       // Watch point photos: newest first, so the latest state of the place leads.
       const at = list.findIndex((p) => p.date < entry.date);
