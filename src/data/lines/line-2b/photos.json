@@ -493,6 +493,34 @@
           "height": 1600
         }
       ]
+    },
+    {
+      "id": "juhu-circle",
+      "title": "Juhu Circle",
+      "kind": "demolition",
+      "status": "open",
+      "added": "2026-11-07",
+      "lat": 19.11626,
+      "lng": 72.83036,
+      "between": [
+        "esic-nagar",
+        "prem-nagar"
+      ],
+      "note": "",
+      "sources": [],
+      "photos": [
+        {
+          "src": "/photos/juhu-circle-2026-11-07-a.jpg",
+          "alt": "The full 185-metre stretch, which curves over Juhu Circle, cannot be completed until the buildings are demolished.",
+          "caption": "The full 185-metre stretch, which curves over Juhu Circle, cannot be completed until the buildings are demolished.",
+          "date": "2026-11-07",
+          "credit": "Sagar",
+          "handle": "sssaaagar",
+          "source_url": "https://x.com/sssaaagar/status/2118935276773056579?a=XBYtR8zJj8fGOZ4G7X8&s=20",
+          "width": 1200,
+          "height": 1600
+        }
+      ]
     }
   ]
 }
