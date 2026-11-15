@@ -38,6 +38,9 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run validate
+      # The photo credit labels (scripts/stamp-photos.mjs) are drawn in DejaVu Sans.
+      - name: Font for photo credit labels
+        run: fc-list | grep -qi dejavu || (sudo apt-get update -qq && sudo apt-get install -y -qq fonts-dejavu-core)
       - run: npm run build
         env:
           PUBLIC_MAPILLARY_TOKEN: ${{ vars.PUBLIC_MAPILLARY_TOKEN }}

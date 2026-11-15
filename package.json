@@ -6,7 +6,7 @@
   "description": "Unofficial public-interest tracker for the Mumbai Metro lines around Kalyan (Line 12, Line 5).",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/stamp-photos.mjs",
     "preview": "astro preview",
     "check": "astro check && node scripts/validate-data.mjs",
     "validate": "node scripts/validate-data.mjs",

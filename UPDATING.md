@@ -208,7 +208,9 @@ Every station page has a photo slot beside its headline. Until you add a photo, 
 }
 ```
 
-The first photo fills the slot. Any more appear under "More from the ground" further down the page. `width` and `height` are the file's real pixel size, so the page does not jump while the photo loads.
+The first photo fills the slot. Any more appear under "More from the ground" further down the page. `width` and `height` are the file's real pixel size, so the page does not jump while the photo loads. Ground photos are listed newest first; the dashboard publishes them in that order.
+
+Every credited photo gets a credit label in its bottom-right corner when the site builds ("Photo: KP @NathanDrakeSir · mumbaimetrotracker.com"; "Video: ..." for video and drone stills; the site name only on your own photos), so a saved copy keeps the credit. `scripts/stamp-photos.mjs` does it to the copies in `dist/`; the files in `public/photos/` stay clean. To leave one photo without a label, add `"stamp": false` to its entry.
 
 A photo by someone else needs their permission first. Put their name in `credit`, their X handle (without the @) in `handle`, and a link to their own post in `source_url`. The caption then links the name to that post and shows the handle. A large credit with their name and handle also shows at the top of the footer of that station page.
 
