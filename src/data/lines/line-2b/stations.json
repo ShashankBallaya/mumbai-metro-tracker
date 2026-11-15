@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "description": "Line 2B's stations in order from ESIC Nagar (the first station from D N Nagar) to Mandale, as MMRDA's Line 2B page lists them. 'phase' is the order of opening: 1 Phase I, Mandale to Diamond Garden (open 7 Apr 2026); 2 Phase IA, Chembur (open 13 Aug 2026); 3 the rest, Chembur to D N Nagar, under construction (MMRDA names Phases I and IA; the rest has no MMRDA name). 'kml_name' is the station's point in MMRDA's alignment file. Positions and along_m come from scripts/build-alignment-line2b.py. 'dropped_stations' were in an earlier plan and are dropped now: National College by MMRDA's Authority in 2023 (MMRDA's page still lists it), Kurla Terminus no longer on MMRDA's list. Names follow MMRDA's list; the full names shown at the open stations are in 'context'.",
+    "description": "Line 2B's stations in order from ESIC Nagar (the first station from D N Nagar) to Mandale, as MMRDA's Line 2B page lists them. 'phase' is the order of opening: 1 Phase I, Mandale to Diamond Garden (open 7 Apr 2026); 2 Phase IA, Chembur (open 13 Aug 2026); 3 the rest, Chembur to D N Nagar, under construction (MMRDA names Phases I and IA; the rest has no MMRDA name). 'kml_name' is the station's point in MMRDA's alignment file. Positions and along_m come from scripts/build-alignment-line2b.py. 'dropped_stations' were in an earlier plan and are dropped now: National College by MMRDA's Authority in 2023 (MMRDA's page still lists it), Kurla Terminus no longer on MMRDA's list. Names follow MMRDA's list; the full names shown at the open stations are in 'context'. 'outside_stations' are stations of another line where this line joins it (D N Nagar on Line 2A); watch points may name them in 'between'. They have no Line 2B page.",
     "order_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
     "order_status": "verified",
     "count_source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
@@ -849,6 +849,17 @@
       "notes": "A property site (Housing.com) says it was dropped because it sat under the approach funnel of an airport; no MMRDA document on it was found.",
       "last_verified": "2026-10-30",
       "dpr_chainage_m": null
+    }
+  ],
+  "outside_stations": [
+    {
+      "id": "d-n-nagar",
+      "name": "D N Nagar",
+      "line": "Line 2A",
+      "note": "Where Line 2B leaves Line 2A. ESIC Nagar is the first Line 2B station from here.",
+      "status": "verified",
+      "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-2b/overview",
+      "last_verified": "2026-11-15"
     }
   ]
 }

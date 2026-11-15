@@ -38,7 +38,7 @@ export interface WatchPoint {
   cleared?: string;
   lat: number;
   lng: number;
-  /** The station ids on each side, in line order. */
+  /** The station ids on each side, in line order. One may be in stations.json `outside_stations` (a station of the line this one joins). */
   between: [string, string];
   /** What holds up the work here, in a sentence or two. */
   note: string;

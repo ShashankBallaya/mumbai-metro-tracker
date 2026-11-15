@@ -15,6 +15,7 @@ const data = lines.map((l) => {
     id: l.id,
     label: l.label,
     stations: [...line.stations, ...line.spurStations].map((s) => ({ id: s.id, name: s.name, lat: s.location?.lat ?? null, lng: s.location?.lng ?? null })),
+    outside: line.outsideStations.map((s) => ({ id: s.id, name: `${s.name} (${s.line})` })),
   };
 });
 ---

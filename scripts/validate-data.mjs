@@ -121,7 +121,8 @@ for (const line of lines) {
   const dir = join(DIR, 'lines', line.id);
   const photos = existsSync(join(dir, 'photos.json')) ? JSON.parse(readFileSync(join(dir, 'photos.json'), 'utf8')) : null;
   const st = existsSync(join(dir, 'stations.json')) ? JSON.parse(readFileSync(join(dir, 'stations.json'), 'utf8')) : null;
-  const stationIds = new Set([...(st?.stations ?? []), ...(st?.spur_stations ?? [])].map((s) => s.id));
+  // outside_stations: stations of a line this one joins (D N Nagar on Line 2A), allowed in a watch point's between.
+  const stationIds = new Set([...(st?.stations ?? []), ...(st?.spur_stations ?? []), ...(st?.outside_stations ?? [])].map((s) => s.id));
   const seen = new Set();
   (photos?.watch_points ?? []).forEach((w, i) => {
     const at = `lines/${line.id}/photos.json watch_points[${i}]`;

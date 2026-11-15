@@ -16,7 +16,9 @@ const points = line.watchPoints;
 const open = points.filter((w) => w.status === 'open').length;
 const cleared = points.length - open;
 const stations = [...line.stations, ...line.spurStations];
-const name = (id: string) => stations.find((s) => s.id === id)?.name ?? id;
+// A station of the line this one joins (D N Nagar on Line 2A) has no page here, so it shows as text.
+const outside = (id: string) => line.outsideStations.find((s) => s.id === id);
+const name = (id: string) => stations.find((s) => s.id === id)?.name ?? outside(id)?.name ?? id;
 const href = (id: string) => stationHref(line.id, id) ?? `#station-${id}`;
 const sendHref = `/send/?line=${line.id}`;
 const host = (url: string) => {
@@ -67,7 +69,13 @@ const tally = [open && `${open} open`, cleared && `${cleared} cleared`].filter(B
                 </p>
                 <h3 class="wp__title">{w.title}</h3>
                 <p class="wp__where">
-                  Between <a href={href(w.between[0])}>{name(w.between[0])}</a> and <a href={href(w.between[1])}>{name(w.between[1])}</a>.{' '}
+                  Between{' '}
+                  {w.between.map((id, i) => (
+                    <>
+                      {i > 0 && ' and '}
+                      {outside(id) ? `${name(id)} (${outside(id)!.line})` : <a href={href(id)}>{name(id)}</a>}
+                    </>
+                  ))}.{' '}
                   <a href={mapHref(w.lat, w.lng)} rel="noopener" target="_blank">
                     See the place on a map<span class="visually-hidden"> (opens in a new tab)</span>
                   </a>

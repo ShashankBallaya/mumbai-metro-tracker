@@ -9,7 +9,8 @@
 import { WATCH_KINDS, kindLabel, type WatchPoint } from '../lib/watch';
 
 type StationRef = { id: string; name: string; lat: number | null; lng: number | null };
-type LineRef = { id: string; label: string; stations: StationRef[] };
+/** `outside`: stations of a line this one joins (D N Nagar on Line 2A); watch points may name them. */
+type LineRef = { id: string; label: string; stations: StationRef[]; outside: { id: string; name: string }[] };
 type FileMeta = { key: string; type: string; bytes: number; original_name: string };
 type Entry = {
   id: string;
@@ -667,7 +668,8 @@ async function loadWatch() {
 }
 
 function watchForm(line: string, w: WatchPoint) {
-  const stations = lineById.get(line)?.stations ?? [];
+  const ref = lineById.get(line);
+  const stations = [...(ref?.stations ?? []), ...(ref?.outside ?? [])];
   const name = (id: string) => stations.find((s) => s.id === id)?.name ?? id;
   const title = el('input', { type: 'text', value: w.title, maxLength: 80, minLength: 4, required: true });
   const kind = el('select');

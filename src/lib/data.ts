@@ -160,6 +160,15 @@ export interface EarlierPlan extends Sourced {
  * lists are empty and other parts undefined when the line has no file for them,
  * and the section that needs them does not show.
  */
+/** A station of another line where this line joins it (stations.json `outside_stations`). */
+export interface OutsideStation {
+  id: string;
+  name: string;
+  /** The other line, as a label ("Line 2A"). */
+  line: string;
+  note?: string;
+}
+
 export interface Line {
   id: LineId;
   info: LineInfo;
@@ -169,6 +178,8 @@ export interface Line {
   spurStations: Station[];
   /** Stations of an earlier plan that the current plan drops. */
   droppedStations: Station[];
+  /** Stations of another line where this line joins it (D N Nagar on Line 2A for Line 2B). Watch points may name them; they have no page here. */
+  outsideStations: OutsideStation[];
   /** The station the spur leaves from (alignment property `branch_from_station`), when the line has a spur. */
   spurFrom?: Station;
   /** The 2017 plan's stations, when the line's plan has changed since (Line 5). */
@@ -246,6 +257,7 @@ export function getLine(id: LineId): Line {
     stations: stations.stations,
     spurStations: (stations as { spur_stations?: Station[] }).spur_stations ?? [],
     droppedStations: (stations as { dropped_stations?: Station[] }).dropped_stations ?? [],
+    outsideStations: (stations as { outside_stations?: OutsideStation[] }).outside_stations ?? [],
     plan2017: (stations as { plan_2017?: EarlierPlan }).plan_2017,
     stationsMeta: stations._meta,
     timeline: timeline?.events ?? [],
