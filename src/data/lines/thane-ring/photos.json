@@ -1,0 +1,20 @@
+{
+  "_meta": {
+    "description": "Dated ground photos, by the owner or by people who gave permission to use them. 'stations' holds photos for each station page, keyed by the station id in stations.json. Put the image files in public/photos/ (location data removed) and add entries below. See UPDATING.md."
+  },
+  "pairs": [],
+  "stations": {
+    "wagle-circle": [
+      {
+        "src": "/photos/wagle-circle-2026-11-14-a.jpg",
+        "alt": "Construction of piers has started near Wagle Circle.",
+        "caption": "Construction of Piers have started near Wagle Circle.",
+        "date": "2026-11-14",
+        "credit": "Varad Rane",
+        "handle": "varadrane_",
+        "width": 888,
+        "height": 1600
+      }
+    ]
+  }
+}
