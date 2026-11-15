@@ -1,0 +1,98 @@
+---
+/**
+ * The page for an address the site does not have. Astro builds it as dist/404.html, and Cloudflare Pages
+ * serves that file with status 404 for every unknown path. Without it, Pages served the hub with status 200,
+ * so a wrong link looked like the home page and search engines saw a soft 404.
+ */
+import Base from '../layouts/Base.astro';
+import Masthead from '../components/Masthead.astro';
+import Colophon from '../components/Colophon.astro';
+import LineMark from '../components/LineMark.astro';
+import { lines, lineBase } from '../lib/data';
+import '../styles/inner.css';
+
+const title = 'Page not found';
+const description = 'This address is not on Mumbai Metro Tracker. Pick a line, or go back to the map of all lines.';
+---
+
+<Base title={title} description={description} noindex>
+  <Masthead home={false} />
+  <main id="main" class="page inner lost">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">All lines</a></li>
+        <li aria-current="page">Page not found</li>
+      </ol>
+    </nav>
+
+    <header class="inner__head">
+      <h1 class="inner__title">Page not found</h1>
+      <p class="inner__mr mr" lang="mr">पेज सापडले नाही</p>
+      <p class="inner__standfirst">
+        This address is not on the site. The link can be old, or the address can have a typo. Pick a line below, or go back to <a href="/">the map of all lines</a>.
+      </p>
+    </header>
+
+    <section class="inner__block" aria-labelledby="lost-lines">
+      <h2 id="lost-lines">The lines</h2>
+      <ul class="lost__lines" role="list">
+        {lines.map((l) => (
+          <li>
+            <a href={lineBase(l.id)}>
+              <LineMark lineId={l.id} />
+              <span>{l.label}<small>{l.route_short}</small></span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <p class="inner__note">
+      A link on this site brought you here? <a href="/correct/" data-lost-fix>Tell us</a>, and we fix it.
+    </p>
+  </main>
+  <Colophon />
+</Base>
+
+<style>
+  .lost__lines {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: var(--rule-w) solid var(--rule);
+  }
+  .lost__lines li {
+    border-bottom: var(--rule-w) solid var(--rule);
+  }
+  .lost__lines a {
+    display: flex;
+    align-items: center;
+    gap: var(--s-3);
+    min-height: 44px;
+    padding-block: var(--s-3);
+    text-decoration: none;
+  }
+  .lost__lines span {
+    display: grid;
+    font-weight: 600;
+  }
+  .lost__lines small {
+    font-weight: 400;
+    font-size: var(--step--1);
+    color: var(--ink-3);
+  }
+  @media (hover: hover) {
+    .lost__lines a:hover span {
+      text-decoration: underline;
+    }
+  }
+</style>
+
+<script>
+  // The correction form gets the broken address, so the owner knows which link to fix.
+  const fix = document.querySelector<HTMLAnchorElement>('[data-lost-fix]');
+  const path = location.pathname.toLowerCase();
+  if (fix && /^\/[a-z0-9\-/]{0,120}$/.test(path)) fix.href = `/correct/?page=${encodeURIComponent(path)}`;
+</script>
