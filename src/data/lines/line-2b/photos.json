@@ -496,7 +496,7 @@
     },
     {
       "id": "juhu-circle",
-      "title": "Juhu Circle",
+      "title": "Juhu Circle, 185 m gap",
       "kind": "demolition",
       "status": "open",
       "added": "2026-11-07",
@@ -506,13 +506,16 @@
         "esic-nagar",
         "prem-nagar"
       ],
-      "note": "",
-      "sources": [],
+      "note": "The last 185 m of track before Line 2A, between D N Nagar and ESIC Nagar, curve over two old buildings at Juhu Circle. MMRDA got the plot in a land swap completed in September 2026, but can finish the stretch only after the buildings are vacated and demolished. Until then there are no full track, overhead wire or trial runs from Andheri West. The last three girders here are due by 18 Nov 2026 (TOI).",
+      "sources": [
+        "https://indianexpress.com/article/cities/mumbai/mumbai-metro-line-2b-andheri-khar-185-metre-gap-juhu-circle-gulmohar-society-10963441/",
+        "https://x.com/manthanmTOI/status/2121848935535018243"
+      ],
       "photos": [
         {
           "src": "/photos/juhu-circle-2026-11-07-a.jpg",
-          "alt": "The full 185-metre stretch, which curves over Juhu Circle, cannot be completed until the buildings are demolished.",
-          "caption": "The full 185-metre stretch, which curves over Juhu Circle, cannot be completed until the buildings are demolished.",
+          "alt": "Looking up at curved concrete girders over Juhu Circle, on a pier with steel props and a ladder, beside an old, mostly empty building",
+          "caption": "The girders curve right past the old building that has to come down",
           "date": "2026-11-07",
           "credit": "Sagar",
           "handle": "sssaaagar",

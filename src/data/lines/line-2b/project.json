@@ -371,7 +371,7 @@
           {
             "name": "Opening",
             "state": "next",
-            "note": "Reported target: 2027 for Diamond Garden to Saraswat Nagar"
+            "note": "Reported target: 31 Mar 2027 for Andheri West to Saraswat Nagar"
           }
         ],
         "service": {
@@ -413,14 +413,19 @@
     "last_verified": "2026-10-30"
   },
   "target_completion": {
-    "value": "2027",
-    "countdown_date": "2027-12-31",
-    "precision": "year",
-    "scope": "Diamond Garden to Saraswat Nagar",
+    "value": "2027-03-31",
+    "countdown_date": "2027-03-31",
+    "precision": "day",
+    "scope": "Andheri West (D N Nagar) to Saraswat Nagar, 7.53 km",
     "status": "reported",
-    "source_url": "https://www.freepressjournal.in/mumbai/chembur-metro-station-in-mumbai-set-for-early-launch-as-line-2b-witnesses-low-ridership-report",
-    "last_verified": "2026-10-30",
+    "source_url": "https://x.com/manthanmTOI/status/2121848935535018243",
+    "last_verified": "2026-11-15",
     "history": [
+      {
+        "value": "2027 for Diamond Garden to Saraswat Nagar; no month",
+        "context": "Free Press Journal, Apr 2026",
+        "source_url": "https://www.freepressjournal.in/mumbai/chembur-metro-station-in-mumbai-set-for-early-launch-as-line-2b-witnesses-low-ridership-report"
+      },
       {
         "value": "Summer 2026 for D N Nagar to Saraswat Nagar; no deadline for Bandra, BKC and Kurla",
         "context": "Swarajya, citing Hindustan Times, Oct 2025; passed",
@@ -437,7 +442,7 @@
         "source_url": "https://indianinfrastructure.com/2016/05/14/draft-plan-for-the-dn-nagar-mankhurd-corridor-of-mumbai-metro-approved/"
       }
     ],
-    "notes": "MMRDA has announced no date for the rest of the line. Free Press Journal (25 Apr 2026) gives 2027 as the scheduled completion of the stretch from Diamond Garden to Saraswat Nagar; no month. Sources differ on how the rest opens: one stretch from Chembur west, or Saraswat Nagar to D N Nagar first. Owner to confirm.",
+    "notes": "MMRDA has announced no date. Manthan K Mehta of the Times of India (X, 15 Nov 2026) gives 31 Mar 2027 as the target for the 7.53 km stretch from Andheri West to Saraswat Nagar, with the last three girders near Juhu Circle due by 18 Nov 2026. The Indian Express (15 Nov 2026) also calls the Andheri to Khar stretch the one due to open next, held up by 185 m at Juhu Circle. Free Press Journal (25 Apr 2026) gave 2027, no month, for Diamond Garden to Saraswat Nagar.",
     "rest_of_line": {
       "value": "2027 to Saraswat Nagar",
       "context": "Reported in April 2026; no month",
@@ -446,7 +451,7 @@
       "last_verified": "2026-10-30"
     },
     "countdown": true,
-    "countdown_label": "Rest of the line, reported target: 2027"
+    "countdown_label": "Andheri West to Saraswat Nagar, reported target: 31 Mar 2027"
   },
   "technical": {
     "structure": "Fully elevated",

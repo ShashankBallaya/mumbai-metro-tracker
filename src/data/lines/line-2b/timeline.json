@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "Key milestones of Line 2B, oldest first. 'date_precision' is day, month or year. 'kind' is planning, approval, tender, award, construction, related or future. Only events whose source was read are listed.",
-    "last_reviewed": "2026-10-30"
+    "last_reviewed": "2026-11-15"
   },
   "events": [
     {
@@ -69,6 +69,17 @@
       "status": "reported",
       "source_url": "https://themetrorailguy.com/2020/01/27/ncc-launches-1st-set-of-u-girders-for-mumbai-metro-line-2b/",
       "last_verified": "2026-10-30"
+    },
+    {
+      "id": "juhu-circle-court-order",
+      "date": "2019-08",
+      "date_precision": "month",
+      "kind": "related",
+      "title": "High Court allows the route change at Juhu Circle",
+      "summary": "A 2015 route change put the line over the plot of the Juhu Gulmohar housing society, which asked the Bombay High Court in 2018 to set it aside. The court's August 2019 order says MMRDA may change the route in the larger public interest. Talks on a land swap had failed over who pays the higher MHADA premium.",
+      "status": "reported",
+      "source_url": "https://indianexpress.com/article/cities/mumbai/mumbai-metro-line-2b-andheri-khar-185-metre-gap-juhu-circle-gulmohar-society-10963441/",
+      "last_verified": "2026-11-15"
     },
     {
       "id": "contracts-ended",
@@ -203,6 +214,28 @@
       "last_verified": "2026-10-30"
     },
     {
+      "id": "juhu-circle-land-swap",
+      "date": "2026-09",
+      "date_precision": "month",
+      "kind": "related",
+      "title": "Land swap at Juhu Circle complete",
+      "summary": "Under a second agreement signed in early 2025, MMRDA pays MHADA Rs 34 crore. By September 2026 the society has the lease for a 2,345 sq m plot at Tilak Udyan, 650 m away, and the BMC has changed the land use of both plots. The society's old plot becomes the garden, with the Metro overhead.",
+      "status": "reported",
+      "source_url": "https://indianexpress.com/article/cities/mumbai/mumbai-metro-line-2b-andheri-khar-185-metre-gap-juhu-circle-gulmohar-society-10963441/",
+      "last_verified": "2026-11-15"
+    },
+    {
+      "id": "juhu-circle-gap",
+      "date": "2026-11-15",
+      "date_precision": "day",
+      "kind": "construction",
+      "title": "185 m at Juhu Circle hold up D N Nagar to Khar",
+      "summary": "Track is laid on the 8 km Andheri to Khar stretch except 185 m between D N Nagar and ESIC Nagar, where the line joins Line 2A. Foundations, piers and girders are going up, but the curve over Juhu Circle can be finished only after two old buildings are vacated and demolished. Until then there is no full track, overhead wire, power or trial runs.",
+      "status": "reported",
+      "source_url": "https://indianexpress.com/article/cities/mumbai/mumbai-metro-line-2b-andheri-khar-185-metre-gap-juhu-circle-gulmohar-society-10963441/",
+      "last_verified": "2026-11-15"
+    },
+    {
       "id": "saraswat-nagar-target",
       "date": "2027",
       "date_precision": "year",
@@ -212,6 +245,17 @@
       "status": "reported",
       "source_url": "https://www.freepressjournal.in/mumbai/chembur-metro-station-in-mumbai-set-for-early-launch-as-line-2b-witnesses-low-ridership-report",
       "last_verified": "2026-10-30"
+    },
+    {
+      "id": "andheri-saraswat-nagar-target",
+      "date": "2027-03-31",
+      "date_precision": "day",
+      "kind": "future",
+      "title": "Reported target: Andheri West to Saraswat Nagar",
+      "summary": "Manthan K Mehta of the Times of India gives 31 Mar 2027 as the target for the 7.53 km stretch from Andheri West to Saraswat Nagar. MMRDA has announced no date.",
+      "status": "reported",
+      "source_url": "https://x.com/manthanmTOI/status/2121848935535018243",
+      "last_verified": "2026-11-15"
     }
   ]
 }

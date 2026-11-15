@@ -1,9 +1,19 @@
 {
   "_meta": {
     "description": "Hand-curated X (Twitter) posts, newest first. Each post is printed as a ruled row (date, author, text); X's script loads only when a reader asks for one full post with its photos. 'status' grades the post's claims, not the account: posts by enthusiasts are 'reported' at best; posts by MMRDA and by the line's operator, Maha Mumbai Metro (MMMOCL), are 'verified'. Dates come from the post ID.",
-    "last_reviewed": "2026-11-09"
+    "last_reviewed": "2026-11-15"
   },
   "posts": [
+    {
+      "url": "https://x.com/manthanmTOI/status/2121848935535018243",
+      "author": "Manthan K Mehta",
+      "handle": "manthanmTOI",
+      "date": "2026-11-15",
+      "text": "Times of India reporter: the 7.53 km stretch from Andheri West to Saraswat Nagar is targeted to open by 31 Mar 2027. The last three girders near Juhu Circle are due to be launched by 18 Nov.",
+      "status": "reported",
+      "source_url": "https://x.com/manthanmTOI/status/2121848935535018243",
+      "last_verified": "2026-11-15"
+    },
     {
       "url": "https://x.com/Hrishix_/status/2115309132945482051",
       "author": "Hrishi",
