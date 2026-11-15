@@ -7,6 +7,7 @@
  */
 import { formatDate, stationHref, type Line } from '../lib/data';
 import { kindLabel } from '../lib/watch';
+import PhotoViewer from './PhotoViewer.astro';
 
 interface Props {
   line: Line;
@@ -29,7 +30,8 @@ const host = (url: string) => {
   }
 };
 const mapHref = (lat: number, lng: number) => `https://www.openstreetmap.org/?mlat=${lat}&mlon=${lng}#map=17/${lat}/${lng}`;
-const tally = [open && `${open} open`, cleared && `${cleared} cleared`].filter(Boolean).join(', ');
+const meta = (p: { date: string; credit: string }) => `${formatDate(p.date)}. Photo by ${p.credit}.`;
+const tally =[open && `${open} open`, cleared && `${cleared} cleared`].filter(Boolean).join(', ');
 ---
 
 <section id="watch-points" class="section page wp" aria-labelledby="wp-title">
@@ -52,10 +54,12 @@ const tally = [open && `${open} open`, cleared && `${cleared} cleared`].filter(B
           const [lead, ...more] = w.photos;
           const credits = [...new Map(w.photos.map((p) => [p.credit, p])).values()];
           return (
-            <li class="wp__item" id={`watch-${w.id}`} data-status={w.status}>
+            <li class="wp__item" id={`watch-${w.id}`} data-status={w.status} data-viewer>
               {lead && (
                 <figure class="wp__lead">
-                  <img src={lead.src} alt={lead.alt} width={lead.width} height={lead.height} loading="lazy" decoding="async" />
+                  <a href={lead.src} data-photo data-caption={lead.caption} data-meta={meta(lead)}>
+                    <img src={lead.src} alt={lead.alt} width={lead.width} height={lead.height} loading="lazy" decoding="async" />
+                  </a>
                   <figcaption>
                     {formatDate(lead.date)}. Photo by {lead.handle ? <a href={`https://x.com/${lead.handle}`} rel="noopener" target="_blank">{lead.credit}</a> : lead.credit}
                     {lead.caption && <>. {lead.caption}</>}
@@ -85,7 +89,7 @@ const tally = [open && `${open} open`, cleared && `${cleared} cleared`].filter(B
                   <ul class="wp__more" aria-label={`More photos of ${w.title}, newest first`}>
                     {more.map((p) => (
                       <li>
-                        <a href={p.src}>
+                        <a href={p.src} data-photo data-caption={p.caption} data-meta={meta(p)}>
                           <img src={p.src} alt={p.alt} width={p.width} height={p.height} loading="lazy" decoding="async" />
                         </a>
                         <span>{formatDate(p.date)}</span>
@@ -116,6 +120,7 @@ const tally = [open && `${open} open`, cleared && `${cleared} cleared`].filter(B
     )
   }
 
+  {points.length > 0 && <PhotoViewer />}
   {points.length > 0 && <p class="wp__ask">Seen a place like this on {line.info.label}? <a href={sendHref}>Send a photo</a>.</p>}
 </section>
 
@@ -152,7 +157,13 @@ const tally = [open && `${open} open`, cleared && `${cleared} cleared`].filter(B
     gap: var(--s-2);
     margin: 0;
   }
+  .wp__lead a,
+  .wp__more a {
+    display: block;
+    cursor: zoom-in;
+  }
   .wp__lead img {
+    display: block;
     width: 100%;
     height: auto;
     aspect-ratio: 4 / 3;

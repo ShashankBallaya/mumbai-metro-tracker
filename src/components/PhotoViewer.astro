@@ -1,0 +1,266 @@
+---
+/**
+ * Photo viewer: opens a photo full size over the page instead of on a page of its own.
+ * Put it once on a page. Any element with `data-viewer` is a set; each link inside it with `data-photo`
+ * (href = the image) opens the viewer at that photo, and the reader can step through the set.
+ * Optional on the link: data-caption, data-meta (date and credit line). Without JavaScript the link
+ * still opens the image file.
+ * Phones: swipe left or right (a hint says so the first time). Desktop: buttons and the arrow keys.
+ * Esc, the close button or a tap outside the photo closes it.
+ */
+---
+
+<!-- data-lenis-prevent: the smooth scroll (src/scripts/motion.ts) leaves wheel and touch inside the viewer alone. -->
+<dialog class="pv" aria-label="Photo viewer" data-pv data-lenis-prevent>
+  <div class="pv__bar">
+    <p class="pv__count" data-pv-count aria-live="polite"></p>
+    <button type="button" class="pv__close" data-pv-close>Close <span aria-hidden="true">✕</span></button>
+  </div>
+  <div class="pv__stage" data-pv-stage>
+    <button type="button" class="pv__nav pv__nav--prev" data-pv-prev aria-label="Previous photo"><span aria-hidden="true">←</span></button>
+    <button type="button" class="pv__nav pv__nav--next" data-pv-next aria-label="Next photo"><span aria-hidden="true">→</span></button>
+  </div>
+  <div class="pv__text">
+    <p class="pv__caption" data-pv-caption></p>
+    <p class="pv__meta" data-pv-meta></p>
+    <p class="pv__hint" data-pv-hint hidden>Swipe for more photos</p>
+  </div>
+</dialog>
+
+<script>
+  const dlg = document.querySelector<HTMLDialogElement>('[data-pv]');
+  if (dlg && typeof dlg.showModal === 'function') {
+    const q = <T extends Element>(s: string) => dlg.querySelector<T>(s)!;
+    // The photo element is made here, so the closed viewer holds no empty image.
+    const img = document.createElement('img');
+    img.className = 'pv__img';
+    img.decoding = 'async';
+    q('[data-pv-stage]').insertBefore(img, q('[data-pv-next]'));
+    const count = q<HTMLElement>('[data-pv-count]');
+    const caption = q<HTMLElement>('[data-pv-caption]');
+    const meta = q<HTMLElement>('[data-pv-meta]');
+    const hint = q<HTMLElement>('[data-pv-hint]');
+    const prev = q<HTMLButtonElement>('[data-pv-prev]');
+    const next = q<HTMLButtonElement>('[data-pv-next]');
+    let set: HTMLAnchorElement[] = [];
+    let at = 0;
+    let opener: HTMLElement | null = null;
+    let hinted = false;
+
+    const show = (i: number) => {
+      at = (i + set.length) % set.length;
+      const a = set[at];
+      const thumb = a.querySelector('img');
+      img.src = a.href;
+      img.alt = thumb?.alt ?? '';
+      if (thumb?.width && thumb?.height) {
+        img.width = thumb.width;
+        img.height = thumb.height;
+      }
+      caption.textContent = a.dataset.caption ?? '';
+      caption.hidden = !a.dataset.caption;
+      meta.textContent = a.dataset.meta ?? '';
+      meta.hidden = !a.dataset.meta;
+      const many = set.length > 1;
+      count.textContent = many ? `Photo ${at + 1} of ${set.length}` : '';
+      prev.hidden = next.hidden = !many;
+      // Load the neighbours, so the next step shows at once.
+      if (many) for (const j of [at + 1, at - 1]) new Image().src = set[(j + set.length) % set.length].href;
+    };
+
+    document.addEventListener('click', (e) => {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      const a = (e.target as Element).closest<HTMLAnchorElement>('a[data-photo]');
+      if (!a) return;
+      const group = a.closest('[data-viewer]');
+      set = group ? [...group.querySelectorAll<HTMLAnchorElement>('a[data-photo]')] : [a];
+      e.preventDefault();
+      opener = a;
+      show(set.indexOf(a));
+      const touch = matchMedia('(pointer: coarse)').matches;
+      hint.hidden = !(touch && set.length > 1 && !hinted);
+      if (touch && set.length > 1) hinted = true;
+      dlg.showModal();
+      document.documentElement.classList.add('pv-open');
+    });
+
+    dlg.addEventListener('close', () => {
+      document.documentElement.classList.remove('pv-open');
+      img.removeAttribute('src');
+      opener?.focus();
+    });
+    q('[data-pv-close]').addEventListener('click', () => dlg.close());
+    prev.addEventListener('click', () => show(at - 1));
+    next.addEventListener('click', () => show(at + 1));
+    dlg.addEventListener('keydown', (e) => {
+      if (set.length < 2) return;
+      if (e.key === 'ArrowLeft') show(at - 1);
+      else if (e.key === 'ArrowRight') show(at + 1);
+    });
+    // A tap on the dark area around the photo closes it (the dialog itself is the backdrop area).
+    dlg.addEventListener('click', (e) => {
+      if (e.target === dlg || e.target === q('[data-pv-stage]')) dlg.close();
+    });
+
+    // Swipe: a mostly sideways move of 40 px or more steps; the photo follows the finger meanwhile.
+    let x0 = 0;
+    let y0 = 0;
+    let dx = 0;
+    let tracking = false;
+    const still = matchMedia('(prefers-reduced-motion: reduce)');
+    img.addEventListener('touchstart', (e) => {
+      if (set.length < 2 || e.touches.length !== 1) return;
+      tracking = true;
+      x0 = e.touches[0].clientX;
+      y0 = e.touches[0].clientY;
+      dx = 0;
+      img.style.transition = 'none';
+    }, { passive: true });
+    img.addEventListener('touchmove', (e) => {
+      if (!tracking) return;
+      dx = e.touches[0].clientX - x0;
+      const dy = e.touches[0].clientY - y0;
+      if (Math.abs(dy) > Math.abs(dx)) return;
+      if (!still.matches) img.style.transform = `translateX(${dx}px)`;
+    }, { passive: true });
+    img.addEventListener('touchend', () => {
+      if (!tracking) return;
+      tracking = false;
+      img.style.transition = '';
+      img.style.transform = '';
+      if (Math.abs(dx) >= 40) {
+        hint.hidden = true;
+        show(dx < 0 ? at + 1 : at - 1);
+      }
+    });
+  }
+</script>
+
+<style>
+  .pv {
+    --pv-bg: #0c1422;
+    --pv-ink: #efe9de;
+    --pv-ink-2: #c9c1b3;
+    width: 100vw;
+    max-width: none;
+    height: 100dvh;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: var(--pv-ink);
+    background: rgb(12 20 34 / 0.96);
+  }
+  .pv[open] {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+  }
+  .pv::backdrop {
+    background: rgb(12 20 34 / 0.96);
+  }
+  :global(html.pv-open) {
+    overflow: hidden;
+  }
+  .pv__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s-3);
+    padding: var(--s-3) var(--gutter);
+  }
+  .pv__count {
+    font-size: var(--step--1);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--pv-ink-2);
+  }
+  .pv__close,
+  .pv__nav {
+    font: inherit;
+    color: var(--pv-ink);
+    background: transparent;
+    border: var(--rule-w) solid currentColor;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+  .pv__close {
+    min-height: 44px;
+    padding: 0 var(--s-4);
+    font-weight: 600;
+  }
+  .pv__close:hover,
+  .pv__nav:hover {
+    color: var(--on-signal);
+    background: var(--signal);
+    border-color: var(--signal);
+  }
+  .pv__close:focus-visible,
+  .pv__nav:focus-visible {
+    outline: 3px solid var(--signal);
+    outline-offset: 2px;
+  }
+  .pv__stage {
+    position: relative;
+    display: grid;
+    grid-template: minmax(0, 1fr) / minmax(0, 1fr);
+    min-height: 0;
+    overflow: hidden;
+    padding: 0 var(--gutter);
+  }
+  /* Made by the script, so the style is global, kept inside the viewer. */
+  .pv :global(.pv__img) {
+    /* Fills the stage; contain keeps the whole photo in view at its own shape. */
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    object-fit: contain;
+    transition: transform 0.25s var(--ease-out);
+    touch-action: pan-y;
+    user-select: none;
+  }
+  .pv__nav {
+    position: absolute;
+    top: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.4rem;
+    background: rgb(12 20 34 / 0.6);
+    transform: translateY(-50%);
+  }
+  .pv__nav--prev {
+    left: var(--s-3);
+  }
+  .pv__nav--next {
+    right: var(--s-3);
+  }
+  /* Phones swipe; the arrow buttons are for a mouse. */
+  @media (pointer: coarse) {
+    .pv__nav {
+      display: none;
+    }
+  }
+  .pv__text {
+    display: grid;
+    gap: var(--s-1);
+    max-width: var(--measure);
+    padding: var(--s-3) var(--gutter) var(--s-5);
+  }
+  .pv__caption {
+    font-size: var(--step-0);
+  }
+  .pv__meta,
+  .pv__hint {
+    font-size: var(--step--1);
+    color: var(--pv-ink-2);
+  }
+  .pv__hint {
+    font-weight: 600;
+    color: var(--signal);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pv :global(.pv__img) {
+      transition: none;
+    }
+  }
+</style>
