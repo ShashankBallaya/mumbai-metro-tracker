@@ -548,6 +548,15 @@ export function keepTogether(text: string): string {
     .replace(/(\d[\d,.]*)\s+(km|m|ha|crore|Cr|cr|lakh|stations?|cars?|trains?|days|months|years|per cent)\b/g, '$1 $2');
 }
 
+/**
+ * "Kasheli metro station", but "Bhandup Metro station": names that already end in "Metro" (MMRDA's
+ * names on Lines 2B and 4) do not get the word twice. `title` gives "Metro Station" in title case.
+ */
+export function metroStation(name: string, title = false): string {
+  if (/\bmetro$/i.test(name)) return `${name} ${title ? 'Station' : 'station'}`;
+  return `${name} ${title ? 'Metro Station' : 'metro station'}`;
+}
+
 export function formatDate(value: string | null | undefined): string {
   if (!value) return 'Date not announced';
   const [y, m, d] = value.split('-');

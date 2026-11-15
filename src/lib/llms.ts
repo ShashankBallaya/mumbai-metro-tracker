@@ -5,7 +5,7 @@
  * Both loop over lines.json and take their words from the status answers (src/lib/answers.ts),
  * so a new line or a changed fact shows here with no edit to this file.
  */
-import { getLine, lines, lineBase, formatDate, inr, changesFor, lastReviewed as siteReviewed, SITE_NAME, type Line, type Station } from './data';
+import { getLine, lines, lineBase, formatDate, inr, metroStation, changesFor, lastReviewed as siteReviewed, SITE_NAME, type Line, type Station } from './data';
 import { answersFor, type Answer } from './answers';
 
 type Url = (path: string) => string;
@@ -70,7 +70,7 @@ ${linePages(line, url)}`;
     const line = getLine(id);
     const base = lineBase(id);
     return allStations(line)
-      .map((s) => `- [${s.name} metro station, ${line.info.label}](${url(`${base}stations/${s.id}/`)})`)
+      .map((s) => `- [${metroStation(s.name)}, ${line.info.label}](${url(`${base}stations/${s.id}/`)})`)
       .join('\n');
   });
 

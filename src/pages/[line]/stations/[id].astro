@@ -10,7 +10,7 @@ import Grade from '../../../components/Grade.astro';
 import LocatorMap from '../../../components/LocatorMap.astro';
 import LineMark from '../../../components/LineMark.astro';
 import PhotoCredit from '../../../components/PhotoCredit.astro';
-import { getLine, dprLabel, inSentence, isRing, lines, lineNodeId, lineBase, SITE_NAME, stationHref, positionBasis, streetViewUrl, plannedInterchanges, tableInterchanges, INTERCHANGE_TABLE, formatDate, sectionOf, openedOf, announcedOf, sectionName, clock, frequencyText, inr, videoTime, distanceText, type LineId, type Station, type StationPhoto } from '../../../lib/data';
+import { getLine, dprLabel, inSentence, isRing, lines, lineNodeId, lineBase, SITE_NAME, stationHref, positionBasis, streetViewUrl, plannedInterchanges, tableInterchanges, INTERCHANGE_TABLE, formatDate, metroStation, sectionOf, openedOf, announcedOf, sectionName, clock, frequencyText, inr, videoTime, distanceText, type LineId, type Station, type StationPhoto } from '../../../lib/data';
 import { hasStatusPage } from '../../../lib/answers';
 import '../../../styles/inner.css';
 
@@ -100,8 +100,15 @@ const nearby = (nearbyMeta?.kinds ?? []).map((k) => ({ ...k, places: nearbyHere[
 const nearbyMissing = (nearbyMeta?.kinds ?? []).filter((k) => !nearbyHere[k.id]?.length);
 const pagePath = `${base}stations/${s.id}/`;
 
-const title = `${s.name} Metro Station, ${about.name} (${route_short})`;
-const description = `${s.name} is station ${s.order} of ${total} on ${on}, ${route_short}. Where it is, what is around it, interchanges and construction status, each with its source.`;
+// Search titles and descriptions: what people who search "<name> metro station" want first, whether it
+// is open, and where it is. Names that already end in "Metro" (Bhandup Metro, MTNL Metro) do not get it twice.
+const stationName = metroStation(s.name, true);
+const nowState = opened
+  ? `open since ${formatDate(opened.date)}`
+  : (s.construction_status?.value ?? '').split('.')[0].replace(/^./, (c) => c.toLowerCase()) || 'planned';
+const title = `${stationName} (${label}): ${opened ? 'open, location, route' : 'status, location, route'}`;
+const between = prev && next ? `, between ${prev.name} and ${next.name}` : prev ? `, after ${prev.name}` : next ? `, before ${next.name}` : '';
+const description = `${stationName} on ${about.name} (${route_short}): ${nowState}. Station ${s.order} of ${total}${between}. Map, places nearby, interchanges and progress, each with its source.`;
 
 const schema: Record<string, unknown>[] = [
   {
@@ -115,7 +122,7 @@ const schema: Record<string, unknown>[] = [
   },
   {
     '@type': 'TrainStation',
-    name: `${s.name} metro station`,
+    name: metroStation(s.name),
     ...(s.name_mr ? { alternateName: `${s.name_mr} मेट्रो स्थानक` } : {}),
     description: `${s.type} station ${s.order} of ${total} on ${on} (${route_short}). ${state}`,
     url: `${site}${base.slice(1)}stations/${s.id}/`,
@@ -140,7 +147,7 @@ const schema: Record<string, unknown>[] = [
 
     <div class="inner__lead">
       <header class="inner__head">
-        <h1 class="inner__title">{s.name} metro station</h1>
+        <h1 class="inner__title">{metroStation(s.name)}</h1>
         {s.name_mr && <p class="inner__mr mr" lang="mr">{s.name_mr} मेट्रो स्थानक</p>}
         <p class="inner__standfirst">
           Station {s.order} of {total} on {on}, {copy.runs}.{' '}

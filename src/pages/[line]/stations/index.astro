@@ -17,7 +17,7 @@ const { label, route_short, about } = line.info;
 const base = lineBase(line.id);
 const total = stations.length;
 const site = Astro.site!.toString();
-const title = `${about.name} Stations: all ${total}, ${route_short}`;
+const title = `${about.name} Stations and Route: all ${total}, ${route_short}`;
 const description = lineCopy(line, 'stations_page_description');
 
 const schema = [
