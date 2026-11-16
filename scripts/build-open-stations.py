@@ -76,7 +76,7 @@ def main():
             'source': 'OpenStreetMap contributors (ODbL)',
             'source_url': 'https://www.openstreetmap.org/copyright',
             'status': 'reported',
-            'checked': CHECKED,
+            'last_verified': CHECKED,
             'note': 'Stop nodes of each route relation, in route order. Built by scripts/build-open-stations.py.',
         },
         'lines': lines,
