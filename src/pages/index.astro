@@ -16,6 +16,7 @@ import SendBanner from '../components/SendBanner.astro';
 import Grade from '../components/Grade.astro';
 import { getLine, lines, lineBase, formatDate, outletName, inr, SITE_NAME, INTERCHANGE_TABLE, type LineId } from '../lib/data';
 import { hasStatusPage } from '../lib/answers';
+import { stationCards } from '../lib/station-cards';
 import { network, STAGES, networkReviewed, networkDrawing, bundleColours, type NetworkLine, type Stage } from '../lib/network';
 import geometryRaw from '../data/network-geometry.geojson?raw';
 import '../styles/hub.css';
@@ -130,6 +131,8 @@ const sourcesOf = (l: NetworkLine) => {
 
 // ----- The front's stage: the map, its key, and one slip per line of the index -----
 const drawnIds = new Set(drawing.paths.map((p) => p.line));
+// The tracked lines' stations, for station names on hover and a card on a click (src/scripts/station-card.ts).
+const stageStations = JSON.stringify(stationCards());
 const stageData = JSON.stringify(network.filter((l) => drawnIds.has(l.id)).map((l) => ({ id: l.id, n: mark(l), colour: l.colour ?? null })));
 // The key names the strokes drawn (no counts: the register below counts lines by work stage).
 const stageKeys = STAGES.filter((s) => s.id !== 'future' && network.some((l) => l.parts.some((p) => p.stage === s.id)));
@@ -222,6 +225,8 @@ const schema = [
           })}
         </svg>
         <div class="stage__live" data-live></div>
+        <div class="stage__sheet" data-station-sheet hidden></div>
+        <script type="application/json" data-stage-stations set:html={stageStations} />
 
         <div class="dock">
         <div class="dock__top">

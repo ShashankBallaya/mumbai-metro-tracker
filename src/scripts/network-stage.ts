@@ -6,6 +6,8 @@
  *   - Wide screens (motion allowed): the stage pins and the page's scroll moves the rail, one line per step.
  *   - Each line has its mark on the map as a tap target.
  *   - Lights move on running stretches only (not live train positions). On the night edition the lines glow.
+ *   - Station dots (from street level 11): hover shows the name as a platform sign; a click or tap opens the
+ *     station's card in a sheet at the foot of the map (src/scripts/station-card.ts).
  * The choice lives in the address (?line=). With reduced motion, nothing draws in, flies or moves.
  */
 import { gsap } from 'gsap';
@@ -16,6 +18,8 @@ import mapCssUrl from 'maplibre-gl/dist/maplibre-gl.css?url';
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 import geometryRaw from '../data/network-geometry.geojson?raw';
 import { MAP_TILES, MAP_GLYPHS } from '../config';
+import { signHtml, sheetHtml } from './station-card';
+import type { StationCard } from '../lib/station-cards';
 
 maplibregl.setWorkerUrl(workerUrl);
 gsap.registerPlugin(ScrollTrigger);
@@ -106,7 +110,17 @@ function boot(el: HTMLElement) {
   }
   const feature = (p: Piece, coords: number[][]): GeoJSON.Feature => ({ type: 'Feature', properties: { line: p.line, stage: p.stage }, geometry: { type: 'LineString', coordinates: coords } });
   const collection = (features: GeoJSON.Feature[]): GeoJSON.FeatureCollection => ({ type: 'FeatureCollection', features });
-  const fullNet = collection([...pieces.map((p) => feature(p, p.coords)), ...stations]);
+  const fullNet = collection(pieces.map((p) => feature(p, p.coords)));
+  // ----- Station dots: the tracked lines' own stations (named, with a page); the hub file's points for the rest -----
+  const stationList: StationCard[] = JSON.parse(el.querySelector('[data-stage-stations]')?.textContent || '[]');
+  const trackedLines = new Set(stationList.map((s) => s.line));
+  const cardOf = new Map(stationList.map((s) => [s.id, s]));
+  const dots = collection([
+    ...stationList.map((s, i) => ({ type: 'Feature' as const, id: i + 1, properties: { sid: s.id, line: s.line }, geometry: { type: 'Point' as const, coordinates: [s.lng, s.lat] } })),
+    ...stations
+      .filter((f) => !trackedLines.has((f.properties as { line: string }).line))
+      .map((f, i) => ({ ...f, id: stationList.length + i + 1, properties: { sid: '', line: (f.properties as { line: string }).line } })),
+  ]);
   /** The network at share t of its drawing-in. */
   const drawnTo = (t: number) =>
     collection(
@@ -172,6 +186,7 @@ function boot(el: HTMLElement) {
     const width = (a: number, b: number): ExpressionSpecification => ['interpolate', ['linear'], ['zoom'], 9, a, 14, b];
     const stageIs = (s: string): ExpressionSpecification => ['==', ['get', 'stage'], s];
     const notPoint: ExpressionSpecification = ['!=', ['geometry-type'], 'Point'];
+    const hot: ExpressionSpecification = ['any', ['boolean', ['feature-state', 'hover'], false], ['boolean', ['feature-state', 'sel'], false]];
     return {
       version: 8,
       glyphs: MAP_GLYPHS,
@@ -181,6 +196,7 @@ function boot(el: HTMLElement) {
         omt: { type: 'vector', url: MAP_TILES, attribution: '<a href="https://openfreemap.org" target="_blank">OpenFreeMap</a> <a href="https://www.openmaptiles.org/" target="_blank">&copy; OpenMapTiles</a> Data from <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>' },
         net: { type: 'geojson', data: revealed ? fullNet : collection([]) },
         lights: { type: 'geojson', data: collection([]) },
+        dots: { type: 'geojson', data: dots },
       },
       layers: [
         { id: 'bg', type: 'background', paint: { 'background-color': bg } },
@@ -196,7 +212,8 @@ function boot(el: HTMLElement) {
         { id: 'building-line', type: 'line', source: 'net', filter: stageIs('under_construction'), layout: { 'line-join': 'round' }, paint: { 'line-color': colourOf, 'line-width': width(...WIDTHS['building-line']), 'line-dasharray': [2.2, 1.1] } },
         { id: 'approved', type: 'line', source: 'net', filter: stageIs('planned'), layout: { 'line-join': 'round' }, paint: { 'line-color': colourOf, 'line-width': width(...WIDTHS.approved), 'line-dasharray': [0.9, 1.3] } },
         { id: 'proposed', type: 'line', source: 'net', filter: stageIs('proposed'), layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': colourOf, 'line-width': width(...WIDTHS.proposed), 'line-dasharray': [0.1, 2] } },
-        { id: 'stations', type: 'circle', source: 'net', filter: ['==', ['geometry-type'], 'Point'], minzoom: 11, paint: { 'circle-radius': width(1.5, 4), 'circle-color': ink, 'circle-stroke-color': bg, 'circle-stroke-width': 1.5 } },
+        // A dot under the pointer, or chosen, grows and takes its line's colour.
+        { id: 'stations', type: 'circle', source: 'dots', minzoom: 11, paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 9, ['case', hot, 5, 1.5], 14, ['case', hot, 9, 4]], 'circle-color': ['case', hot, colourOf, ink], 'circle-stroke-color': ['case', hot, ink, bg], 'circle-stroke-width': ['case', hot, 2.5, 1.5] } },
         ...(dark ? [{ id: 'light-glow', type: 'circle' as const, source: 'lights', paint: { 'circle-radius': width(7, 14), 'circle-color': colourOf, 'circle-blur': 1, 'circle-opacity': 0.75 } }] : []),
         { id: 'light', type: 'circle', source: 'lights', paint: { 'circle-radius': width(2.6, 5), 'circle-color': light, 'circle-stroke-color': dark ? colourOf : bg, 'circle-stroke-width': 1.5 } },
         { id: 'place', type: 'symbol', source: 'omt', 'source-layer': 'place', filter: ['in', ['get', 'class'], ['literal', ['city', 'town', 'suburb']]], layout: { 'text-field': ['get', 'name:latin'], 'text-font': ['Noto Sans Regular'], 'text-size': ['match', ['get', 'class'], 'city', 14, 'town', 13, 11], 'text-transform': 'uppercase', 'text-letter-spacing': 0.08 }, paint: { 'text-color': label, 'text-halo-color': bg, 'text-halo-width': 2 } },
@@ -224,6 +241,8 @@ function boot(el: HTMLElement) {
     cooperativeGestures: true,
   });
   map.addControl(new maplibregl.AttributionControl({ compact: true }), 'top-right');
+  // `astro dev` only: lets capture scripts drive the map.
+  if (import.meta.env.DEV) (window as unknown as { __map: maplibregl.Map }).__map = map;
 
   const markers = new Map<string, HTMLElement>();
   const paintSelection = () => {
@@ -234,6 +253,8 @@ function boot(el: HTMLElement) {
       map.setPaintProperty(layer, 'line-opacity', pickOr(1, 0.14));
       map.setPaintProperty(layer, 'line-width', ['interpolate', ['linear'], ['zoom'], 9, pickOr(a * (selected ? 1.7 : 1), a), 14, pickOr(b * (selected ? 1.7 : 1), b)]);
     }
+    if (map.getLayer('stations')) map.setPaintProperty('stations', 'circle-opacity', pickOr(1, 0.3));
+    if (map.getLayer('stations')) map.setPaintProperty('stations', 'circle-stroke-opacity', pickOr(1, 0.3));
     if (map.getLayer('glow')) map.setPaintProperty('glow', 'line-opacity', selected ? ['case', isSel, 0.7, 0.03] : 0.4);
     // The lights come up once the lines are drawn.
     const lit = revealed ? 1 : 0;
@@ -271,6 +292,8 @@ function boot(el: HTMLElement) {
     const place = cards.indexOf(card);
     count.textContent = String(place + 1);
     const id = card.dataset.card || null;
+    // Another line: a station card left open would belong to the last one.
+    if (chosenId !== null) closeSheet();
     select(id, instant);
     history.replaceState(null, '', id ? `${location.pathname}?line=${encodeURIComponent(id)}` : location.pathname);
   };
@@ -400,10 +423,77 @@ function boot(el: HTMLElement) {
   };
   for (const layer of Object.keys(WIDTHS)) {
     map.on('click', layer, (e) => {
+      // A click on a station opens its card instead.
+      if (dotAt(e.point, touchFirst ? 16 : 10)) return;
       const id = (e.features?.[0]?.properties as { line?: string } | undefined)?.line;
       if (id) steer(id);
     });
   }
+
+  // ----- Stations: the name on hover, the card on a click or tap -----
+  const sheet = el.querySelector<HTMLElement>('[data-station-sheet]')!;
+  const canHover = matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const touchFirst = !canHover;
+  /** The dot nearest the pointer within r px: the dots are small. */
+  function dotAt(point: maplibregl.Point, r: number) {
+    if (!map.getLayer('stations')) return null;
+    const found = map.queryRenderedFeatures([[point.x - r, point.y - r], [point.x + r, point.y + r]], { layers: ['stations'] });
+    const dist = (f: maplibregl.MapGeoJSONFeature) => {
+      const p = map.project((f.geometry as GeoJSON.Point).coordinates as [number, number]);
+      return Math.hypot(p.x - point.x, p.y - point.y);
+    };
+    return found.sort((a, b) => dist(a) - dist(b))[0] ?? null;
+  }
+  let hoverId: number | null = null;
+  let chosenId: number | null = null;
+  const dotState = (id: number | null, key: 'hover' | 'sel', on: boolean) => {
+    if (id !== null) map.setFeatureState({ source: 'dots', id }, { [key]: on });
+  };
+  const sign = new maplibregl.Popup({ className: 'ssign-pop', closeButton: false, closeOnClick: false, offset: 14, anchor: 'bottom', maxWidth: 'none' });
+  const closeSheet = () => {
+    sheet.hidden = true;
+    sheet.replaceChildren();
+    el.classList.remove('has-station');
+    dotState(chosenId, 'sel', false);
+    chosenId = null;
+  };
+  const openSheet = (fid: number, s: StationCard) => {
+    closeSheet();
+    sign.remove();
+    chosenId = fid;
+    dotState(fid, 'sel', true);
+    sheet.innerHTML = sheetHtml(s);
+    sheet.hidden = false;
+    el.classList.add('has-station');
+    sheet.querySelector('[data-close]')!.addEventListener('click', closeSheet);
+  };
+  map.on('mousemove', (e) => {
+    if (!canHover) return;
+    const f = dotAt(e.point, 10);
+    const fid = f ? (f.id as number) : null;
+    map.getCanvas().style.cursor = f ? 'pointer' : '';
+    if (fid === hoverId) return;
+    dotState(hoverId, 'hover', false);
+    hoverId = fid;
+    dotState(hoverId, 'hover', true);
+    const s = f && cardOf.get((f.properties as { sid: string }).sid);
+    if (!s || fid === chosenId) return void sign.remove();
+    sign.setLngLat([s.lng, s.lat]).setHTML(signHtml(s)).addTo(map);
+  });
+  map.on('mouseout', () => {
+    dotState(hoverId, 'hover', false);
+    hoverId = null;
+    sign.remove();
+  });
+  map.on('click', (e) => {
+    const f = dotAt(e.point, touchFirst ? 16 : 10);
+    const s = f && cardOf.get((f.properties as { sid: string }).sid);
+    if (f && s) openSheet(f.id as number, s);
+    else if (chosenId !== null) closeSheet();
+  });
+  el.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && chosenId !== null) closeSheet();
+  });
 
   // ----- Motion: the drawing-in, then the lights -----
   let inView = true;
@@ -458,7 +548,10 @@ function boot(el: HTMLElement) {
   // The other edition: restyle, keep the choice.
   const restyle = () => {
     map.setStyle(style());
-    map.once('styledata', paintSelection);
+    map.once('styledata', () => {
+      paintSelection();
+      dotState(chosenId, 'sel', true);
+    });
   };
   new MutationObserver(restyle).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change', restyle);

@@ -468,3 +468,187 @@
     padding-inline: var(--s-4);
   }
 }
+
+/* ----- A station on the map (src/scripts/station-card.ts) ----- */
+/* Hover: the name as a platform sign in the line's colour, with the Marathi name and the line's number. */
+.ssign-pop .maplibregl-popup-content {
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+.ssign-pop .maplibregl-popup-tip {
+  display: none;
+}
+.ssign {
+  min-width: 10rem;
+  padding: 0.35rem 0.75rem 0.45rem;
+  border-radius: 4px;
+  background: var(--c, var(--concrete));
+  color: var(--on-c, var(--ink));
+  box-shadow: 0 3px 0 rgb(0 0 0 / 0.35);
+  font-family: var(--font-display);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.ssign__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+.ssign__name {
+  font-weight: 800;
+  font-size: 1.25rem;
+  line-height: 1.05;
+}
+.ssign__mark {
+  padding: 0 0.35rem;
+  border: 1.5px solid currentColor;
+  border-radius: 3px;
+  font-weight: 800;
+  font-size: 0.8rem;
+}
+.ssign__mr {
+  font-family: 'Anek Devanagari Text', var(--font-display);
+  font-size: 0.95rem;
+  line-height: 1.1;
+  opacity: 0.92;
+}
+
+/* Click or tap: the station's card in a sheet at the foot of the map, over the rail (thumb zone). */
+.stage__sheet {
+  position: absolute;
+  inset: auto var(--s-3) var(--s-3);
+  z-index: 4;
+  max-width: 34rem;
+}
+.stage.has-station .dock {
+  visibility: hidden;
+}
+.scard {
+  position: relative;
+  display: grid;
+  grid-template-columns: 6rem 1fr;
+  gap: 0.75rem;
+  padding: 1.1rem 0.75rem 0.75rem;
+  border-radius: 14px;
+  background: var(--paper);
+  color: var(--ink);
+  /* The line's colour as a band across the top, inside the rounded corners. */
+  box-shadow: inset 0 6px 0 var(--c, var(--concrete)), 0 10px 30px rgb(0 0 0 / 0.25);
+  animation: scard-in 0.22s var(--ease-out);
+}
+@keyframes scard-in {
+  from {
+    opacity: 0;
+    translate: 0 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scard {
+    animation: none;
+  }
+}
+.scard--text {
+  grid-template-columns: 1fr;
+}
+.scard__photo {
+  margin: 0;
+}
+.scard__photo img {
+  display: block;
+  width: 6rem;
+  height: 6rem;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.scard__photo figcaption {
+  margin-top: 2px;
+  font-size: 0.72rem;
+  color: var(--ink-3);
+}
+.scard__text {
+  min-width: 0;
+  padding-right: 2rem;
+}
+.scard__chip {
+  display: inline-block;
+  padding: 1px 7px;
+  border-radius: 3px;
+  background: var(--c, var(--concrete));
+  color: var(--on-c, var(--ink));
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+.scard__name {
+  margin: 0.15rem 0 0;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  line-height: 1.05;
+}
+.scard__facts {
+  margin: 0.35rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+.scard__facts span:not(.scard__status) {
+  color: var(--ink-3);
+}
+.scard__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.scard__status::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+}
+.scard__status.is-open::before {
+  background: currentColor;
+}
+.scard__links {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 0.5rem;
+}
+.scard__links a {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.35rem 0.75rem;
+  border: 1.5px solid currentColor;
+  border-radius: 6px;
+  color: inherit;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.scard__links a.is-main {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+.scard__close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.4rem;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background: none;
+  color: inherit;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
