@@ -12,7 +12,7 @@ const mapsUrl = (s: StationCard) => `https://www.google.com/maps/search/?api=1&q
 const dirUrl = (s: StationCard) => `https://www.google.com/maps/dir/?api=1&destination=${s.lat},${s.lng}`;
 
 export function signHtml(s: StationCard): string {
-  return `<div class="ssign" style="${cvars(s)}"><div class="ssign__row"><span class="ssign__name">${esc(s.name)}</span><span class="ssign__mark">${esc(s.label.replace(/^Line /, ''))}</span></div>${s.mr ? `<div class="ssign__mr" lang="mr">${esc(s.mr)}</div>` : ''}</div>`;
+  return `<div class="ssign" style="${cvars(s)}"><div class="ssign__row"><span class="ssign__name">${esc(s.name)}</span><span class="ssign__mark">${esc(s.mark)}</span></div>${s.mr ? `<div class="ssign__mr" lang="mr">${esc(s.mr)}</div>` : ''}</div>`;
 }
 
 export function sheetHtml(s: StationCard): string {
@@ -32,7 +32,7 @@ export function sheetHtml(s: StationCard): string {
       </ul>
     </div>
     <div class="scard__links">
-      ${s.href ? `<a class="is-main" href="${s.href}">Station page</a>` : ''}
+      ${s.href ? `<a class="is-main" href="${s.href}">${esc(s.hrefLabel)}</a>` : ''}
       <a href="${mapsUrl(s)}" target="_blank" rel="noopener">Google Maps ↗</a>
       ${s.open ? `<a href="${dirUrl(s)}" target="_blank" rel="noopener">Directions ↗</a>` : ''}
     </div>

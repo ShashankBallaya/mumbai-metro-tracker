@@ -241,6 +241,16 @@ function boot(el: HTMLElement) {
     cooperativeGestures: true,
   });
   map.addControl(new maplibregl.AttributionControl({ compact: true }), 'top-right');
+  // Ctrl + scroll anywhere on the stage zooms the map, never the page: over the slips, the key or the
+  // station sheet the browser would otherwise zoom the whole page. The map's own canvas handles it itself.
+  pinned.addEventListener('wheel', (event) => {
+    if (!event.ctrlKey || live.querySelector('canvas')?.contains(event.target as Node)) return;
+    event.preventDefault();
+    const box = live.getBoundingClientRect();
+    const around = map.unproject([event.clientX - box.left, event.clientY - box.top]);
+    // A wheel notch is about 100 px; a trackpad pinch sends small steps. Half a zoom level per notch.
+    map.easeTo({ zoom: map.getZoom() - event.deltaY * 0.005, around, duration: reduced ? 0 : 120, easing: glide });
+  }, { passive: false });
   // `astro dev` only: lets capture scripts drive the map.
   if (import.meta.env.DEV) (window as unknown as { __map: maplibregl.Map }).__map = map;
 
@@ -293,7 +303,7 @@ function boot(el: HTMLElement) {
     count.textContent = String(place + 1);
     const id = card.dataset.card || null;
     // Another line: a station card left open would belong to the last one.
-    if (chosenId !== null) closeSheet();
+    closeSheet();
     select(id, instant);
     history.replaceState(null, '', id ? `${location.pathname}?line=${encodeURIComponent(id)}` : location.pathname);
   };
@@ -450,22 +460,81 @@ function boot(el: HTMLElement) {
     if (id !== null) map.setFeatureState({ source: 'dots', id }, { [key]: on });
   };
   const sign = new maplibregl.Popup({ className: 'ssign-pop', closeButton: false, closeOnClick: false, offset: 14, anchor: 'bottom', maxWidth: 'none' });
-  const closeSheet = () => {
-    sheet.hidden = true;
-    sheet.replaceChildren();
-    el.classList.remove('has-station');
+  // The first sign fades up; moving on to the next dot within a moment swaps it at once (no animation),
+  // so running the pointer along a line reads names without lag.
+  let signGoneAt = 0;
+  const showSign = (s: StationCard) => {
+    const instant = sign.isOpen() || performance.now() - signGoneAt < 300;
+    sign.setLngLat([s.lng, s.lat]).setHTML(signHtml(s)).addTo(map);
+    if (instant) sign.getElement()?.querySelector('.ssign')?.classList.add('is-instant');
+  };
+  const hideSign = () => {
+    if (sign.isOpen()) signGoneAt = performance.now();
+    sign.remove();
+  };
+
+  // The sheet: rises on the first station, swaps in place for the next, and sinks away (faster) on close.
+  let leaving = 0;
+  const closeSheet = (instant = false) => {
+    if (chosenId === null) return;
     dotState(chosenId, 'sel', false);
     chosenId = null;
+    el.classList.remove('has-station');
+    const card = sheet.querySelector<HTMLElement>('.scard');
+    const done = () => {
+      sheet.hidden = true;
+      sheet.replaceChildren();
+    };
+    if (instant || reduced || !card) return done();
+    card.classList.remove('is-instant');
+    card.classList.add('is-leaving');
+    card.style.transform = '';
+    window.clearTimeout(leaving);
+    leaving = window.setTimeout(done, 160);
   };
   const openSheet = (fid: number, s: StationCard) => {
-    closeSheet();
-    sign.remove();
+    hideSign();
+    window.clearTimeout(leaving);
+    const swap = chosenId !== null;
+    dotState(chosenId, 'sel', false);
     chosenId = fid;
     dotState(fid, 'sel', true);
     sheet.innerHTML = sheetHtml(s);
+    const card = sheet.querySelector<HTMLElement>('.scard')!;
+    if (swap) card.classList.add('is-instant');
     sheet.hidden = false;
     el.classList.add('has-station');
-    sheet.querySelector('[data-close]')!.addEventListener('click', closeSheet);
+    card.querySelector('[data-close]')!.addEventListener('click', () => closeSheet());
+    dragToDismiss(card);
+  };
+  /** A downward flick or drag puts the sheet away: past 64 px, or fast (velocity over 0.11 px/ms) from any distance.
+   *  Upward, it gives a little and comes back. */
+  const dragToDismiss = (card: HTMLElement) => {
+    let from: { y: number; t: number; id: number } | null = null;
+    let dy = 0;
+    card.addEventListener('pointerdown', (event) => {
+      if (from || (event.target as Element).closest('a, button')) return; // one finger only; buttons stay buttons
+      from = { y: event.clientY, t: event.timeStamp, id: event.pointerId };
+      dy = 0;
+      card.setPointerCapture(event.pointerId);
+      card.classList.add('is-dragging');
+    });
+    card.addEventListener('pointermove', (event) => {
+      if (!from || event.pointerId !== from.id) return;
+      const d = event.clientY - from.y;
+      dy = d > 0 ? d : d * 0.15; // friction upward, not a wall
+      card.style.transform = `translateY(${dy}px)`;
+    });
+    const end = (event: PointerEvent) => {
+      if (!from || event.pointerId !== from.id) return;
+      const velocity = Math.abs(dy) / Math.max(1, event.timeStamp - from.t);
+      from = null;
+      card.classList.remove('is-dragging');
+      if (dy > 64 || (dy > 8 && velocity > 0.11)) closeSheet();
+      else card.style.transform = '';
+    };
+    card.addEventListener('pointerup', end);
+    card.addEventListener('pointercancel', end);
   };
   map.on('mousemove', (e) => {
     if (!canHover) return;
@@ -477,22 +546,24 @@ function boot(el: HTMLElement) {
     hoverId = fid;
     dotState(hoverId, 'hover', true);
     const s = f && cardOf.get((f.properties as { sid: string }).sid);
-    if (!s || fid === chosenId) return void sign.remove();
-    sign.setLngLat([s.lng, s.lat]).setHTML(signHtml(s)).addTo(map);
+    if (!s || fid === chosenId) return hideSign();
+    showSign(s);
   });
   map.on('mouseout', () => {
     dotState(hoverId, 'hover', false);
     hoverId = null;
-    sign.remove();
+    hideSign();
   });
   map.on('click', (e) => {
     const f = dotAt(e.point, touchFirst ? 16 : 10);
     const s = f && cardOf.get((f.properties as { sid: string }).sid);
-    if (f && s) openSheet(f.id as number, s);
-    else if (chosenId !== null) closeSheet();
+    if (f && s) {
+      if (f.id !== chosenId) openSheet(f.id as number, s);
+    } else closeSheet();
   });
+  // From the keyboard the sheet goes at once: no motion on keyboard actions.
   el.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && chosenId !== null) closeSheet();
+    if (event.key === 'Escape') closeSheet(true);
   });
 
   // ----- Motion: the drawing-in, then the lights -----

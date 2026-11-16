@@ -1,0 +1,608 @@
+{
+  "_meta": {
+    "source": "OpenStreetMap contributors (ODbL)",
+    "source_url": "https://www.openstreetmap.org/copyright",
+    "status": "reported",
+    "checked": "2026-11-16",
+    "note": "Stop nodes of each route relation, in route order. Built by scripts/build-open-stations.py."
+  },
+  "lines": {
+    "line-1": {
+      "osm_relation": 3808111,
+      "route": "Line 1 (Versova → Ghatkopar)",
+      "stations": [
+        {
+          "name": "Versova",
+          "name_mr": "वर्सोवा",
+          "lat": 19.130278,
+          "lng": 72.821387,
+          "osm_node": 623881991
+        },
+        {
+          "name": "D. N. Nagar",
+          "name_mr": "डी. एन. नगर",
+          "lat": 19.128178,
+          "lng": 72.830812,
+          "osm_node": 623881914
+        },
+        {
+          "name": "Azad Nagar",
+          "name_mr": "आझाद नगर",
+          "lat": 19.126805,
+          "lng": 72.838267,
+          "osm_node": 3389150482
+        },
+        {
+          "name": "Andheri",
+          "name_mr": "अंधेरी",
+          "lat": 19.120041,
+          "lng": 72.849482,
+          "osm_node": 3389150481
+        },
+        {
+          "name": "Western Express Highway",
+          "name_mr": "पश्चिम द्रुतगती महामार्ग",
+          "lat": 19.115564,
+          "lng": 72.856983,
+          "osm_node": 3389150483
+        },
+        {
+          "name": "Chakala - J.B. Nagar",
+          "name_mr": "चकाला - जे. बी. नगर",
+          "lat": 19.111907,
+          "lng": 72.868242,
+          "osm_node": 3389210700
+        },
+        {
+          "name": "Airport Road",
+          "name_mr": "विमानतळ रस्ता",
+          "lat": 19.109915,
+          "lng": 72.874797,
+          "osm_node": 3175794769
+        },
+        {
+          "name": "Marol Naka",
+          "name_mr": "मरोळ नाका",
+          "lat": 19.107946,
+          "lng": 72.880109,
+          "osm_node": 3175794775
+        },
+        {
+          "name": "Saki Naka",
+          "name_mr": "साकी नाका",
+          "lat": 19.103217,
+          "lng": 72.888509,
+          "osm_node": 3389210701
+        },
+        {
+          "name": "Asalpha",
+          "name_mr": "असल्फा",
+          "lat": 19.096097,
+          "lng": 72.895413,
+          "osm_node": 3389249957
+        },
+        {
+          "name": "Jagruti Nagar",
+          "name_mr": "जागृती नगर",
+          "lat": 19.092171,
+          "lng": 72.9026,
+          "osm_node": 3175794773
+        },
+        {
+          "name": "Ghatkopar",
+          "name_mr": "घाटकोपर",
+          "lat": 19.086286,
+          "lng": 72.908123,
+          "osm_node": 3175794772
+        }
+      ]
+    },
+    "line-2a": {
+      "osm_relation": 13989912,
+      "route": "Line 2 (Andheri West → Dahisar (East))",
+      "stations": [
+        {
+          "name": "Andheri (West)",
+          "name_mr": "अंधेरी (पश्चिम)",
+          "lat": 19.12918,
+          "lng": 72.831425,
+          "osm_node": 5219622852
+        },
+        {
+          "name": "Lower Oshiwara",
+          "name_mr": "लोअर ओशिवरा",
+          "lat": 19.140721,
+          "lng": 72.831687,
+          "osm_node": 10576726749
+        },
+        {
+          "name": "Oshiwara",
+          "name_mr": "ओशिवारा",
+          "lat": 19.146055,
+          "lng": 72.833951,
+          "osm_node": 5219622868
+        },
+        {
+          "name": "Goregaon (West)",
+          "name_mr": "गोरेगाँव (पश्चिम)",
+          "lat": 19.153023,
+          "lng": 72.835694,
+          "osm_node": 5219622877
+        },
+        {
+          "name": "Bangur Nagar",
+          "name_mr": "बांगुर नगर",
+          "lat": 19.162872,
+          "lng": 72.834836,
+          "osm_node": 10576726758
+        },
+        {
+          "name": "Lower Malad",
+          "name_mr": "लोअर मालाड",
+          "lat": 19.173107,
+          "lng": 72.836453,
+          "osm_node": 5219622339
+        },
+        {
+          "name": "Malad West",
+          "name_mr": "मालाड पश्चिम",
+          "lat": 19.185286,
+          "lng": 72.835833,
+          "osm_node": 5219622340
+        },
+        {
+          "name": "Valnai-Meeth Chowky",
+          "name_mr": "वळनई-मीठ चौकी",
+          "lat": 19.196825,
+          "lng": 72.83379,
+          "osm_node": 5219622913
+        },
+        {
+          "name": "Dahanukarwadi",
+          "name_mr": "डहाणूकरवाडी",
+          "lat": 19.206211,
+          "lng": 72.834777,
+          "osm_node": 9630642169
+        },
+        {
+          "name": "Kandivali (West)",
+          "name_mr": "कांदिवली (पश्चिम)",
+          "lat": 19.214014,
+          "lng": 72.837292,
+          "osm_node": 9630642170
+        },
+        {
+          "name": "Shimpoli",
+          "name_mr": "शिंपोली",
+          "lat": 19.222832,
+          "lng": 72.840919,
+          "osm_node": 9630642171
+        },
+        {
+          "name": "Borivali (West)",
+          "name_mr": "बोरिवली (पश्चिम)",
+          "lat": 19.23139,
+          "lng": 72.84084,
+          "osm_node": 9630642172
+        },
+        {
+          "name": "Eksar",
+          "name_mr": "एकसर",
+          "lat": 19.24044,
+          "lng": 72.843482,
+          "osm_node": 9630642173
+        },
+        {
+          "name": "Mandapeshwar - I.C. Colony",
+          "name_mr": "मंडपेश्वर - आय.सी. कॉलनी",
+          "lat": 19.249583,
+          "lng": 72.845714,
+          "osm_node": 9630642175
+        },
+        {
+          "name": "Rushi Sankul",
+          "name_mr": "ॠषि संकुल",
+          "lat": 19.256638,
+          "lng": 72.850624,
+          "osm_node": 9630642178
+        },
+        {
+          "name": "Anand Nagar",
+          "name_mr": "आनंद नगर",
+          "lat": 19.257289,
+          "lng": 72.866002,
+          "osm_node": 9630642181
+        },
+        {
+          "name": "Dahisar (East)",
+          "name_mr": "दहिसर (पूर्व)",
+          "lat": 19.251561,
+          "lng": 72.867364,
+          "osm_node": 5220954732
+        }
+      ]
+    },
+    "line-3": {
+      "osm_relation": 7898597,
+      "route": "Line 3 (Aarey JVLR → Cuffe Parade)",
+      "stations": [
+        {
+          "name": "Aarey JVLR",
+          "name_mr": "आरे कॉलनी",
+          "lat": 19.131046,
+          "lng": 72.884197,
+          "osm_node": 12074903239
+        },
+        {
+          "name": "SEEPZ",
+          "name_mr": "सीप्झ",
+          "lat": 19.12529,
+          "lng": 72.87327,
+          "osm_node": 12074903238
+        },
+        {
+          "name": "MIDC - Andheri",
+          "name_mr": "एम.आय.डी.सी. - अंधेरी",
+          "lat": 19.117287,
+          "lng": 72.874205,
+          "osm_node": 12074903236
+        },
+        {
+          "name": "Marol Naka",
+          "name_mr": "मरोळ नाका",
+          "lat": 19.108276,
+          "lng": 72.878694,
+          "osm_node": 12074903233
+        },
+        {
+          "name": "CSMIA International T2",
+          "name_mr": "छ.शि.म.आं.वि. ट-२",
+          "lat": 19.102157,
+          "lng": 72.873666,
+          "osm_node": 12074903232
+        },
+        {
+          "name": "Sahar Road",
+          "name_mr": "सहार रोड",
+          "lat": 19.102056,
+          "lng": 72.864711,
+          "osm_node": 12074903230
+        },
+        {
+          "name": "CSMIA Domestic",
+          "name_mr": "छ.शि.म.आं.वि. ट-१",
+          "lat": 19.09362,
+          "lng": 72.853081,
+          "osm_node": 12074903228
+        },
+        {
+          "name": "Santacruz",
+          "name_mr": "सांताक्रूझ",
+          "lat": 19.078737,
+          "lng": 72.847139,
+          "osm_node": 12074903226
+        },
+        {
+          "name": "Bandra Colony",
+          "name_mr": null,
+          "lat": 19.069313,
+          "lng": 72.84984,
+          "osm_node": 12074903224
+        },
+        {
+          "name": "Bandra Kurla Complex (BKC)",
+          "name_mr": "वांद्रे कुर्ला कॉम्प्लेक्स (बीकेसी)",
+          "lat": 19.060234,
+          "lng": 72.854963,
+          "osm_node": 12074903222
+        },
+        {
+          "name": "Dharavi",
+          "name_mr": "धारावी",
+          "lat": 19.046152,
+          "lng": 72.849423,
+          "osm_node": 5221297188
+        },
+        {
+          "name": "Shitala Devi Mandir",
+          "name_mr": "शितला देवी मंदिर",
+          "lat": 19.03832,
+          "lng": 72.842042,
+          "osm_node": 5221297196
+        },
+        {
+          "name": "Dadar",
+          "name_mr": "दादर",
+          "lat": 19.023353,
+          "lng": 72.839047,
+          "osm_node": 5221297205
+        },
+        {
+          "name": "Siddhivinayak Temple",
+          "name_mr": "सिद्धिविनायक मंदिर",
+          "lat": 19.015959,
+          "lng": 72.830562,
+          "osm_node": 5221295394
+        },
+        {
+          "name": "Worli",
+          "name_mr": "वरळी",
+          "lat": 19.008596,
+          "lng": 72.819294,
+          "osm_node": 5221295399
+        },
+        {
+          "name": "Acharya Atre Chowk",
+          "name_mr": "आचार्य अत्रे चौक",
+          "lat": 18.997826,
+          "lng": 72.81774,
+          "osm_node": 5221297425
+        },
+        {
+          "name": "Science Museum",
+          "name_mr": "विज्ञान संग्रहालय",
+          "lat": 18.990901,
+          "lng": 72.821376,
+          "osm_node": 5221297427
+        },
+        {
+          "name": "Mahalaxmi",
+          "name_mr": "महालक्ष्मी",
+          "lat": 18.979447,
+          "lng": 72.825422,
+          "osm_node": 5221297435
+        },
+        {
+          "name": "Jagannath Shankar Sheth Metro",
+          "name_mr": "जगन्नाथ शंकर शेठ मेट्रो",
+          "lat": 18.96998,
+          "lng": 72.821203,
+          "osm_node": 5221297443
+        },
+        {
+          "name": "Grant Road",
+          "name_mr": "ग्रँट रोड",
+          "lat": 18.96321,
+          "lng": 72.818068,
+          "osm_node": 5221297448
+        },
+        {
+          "name": "Girgaon",
+          "name_mr": "गिरगाव",
+          "lat": 18.952126,
+          "lng": 72.822235,
+          "osm_node": 5221295402
+        },
+        {
+          "name": "Kalbadevi",
+          "name_mr": "काळबादेवी",
+          "lat": 18.946345,
+          "lng": 72.827204,
+          "osm_node": 5221297463
+        },
+        {
+          "name": "Chhatrapati Shivaji Maharaj Terminus",
+          "name_mr": "छत्रपती शिवाजी महाराज टर्मिनस",
+          "lat": 18.940873,
+          "lng": 72.8319,
+          "osm_node": 13207029321
+        },
+        {
+          "name": "Hutatma Chowk",
+          "name_mr": "हुतात्मा चौक",
+          "lat": 18.93417,
+          "lng": 72.83252,
+          "osm_node": 5221295404
+        },
+        {
+          "name": "Churchgate",
+          "name_mr": "चर्चगेट",
+          "lat": 18.931482,
+          "lng": 72.826962,
+          "osm_node": 5221297484
+        },
+        {
+          "name": "Vidhan Bhavan",
+          "name_mr": "विधान भवन",
+          "lat": 18.924809,
+          "lng": 72.82555,
+          "osm_node": 5221297488
+        },
+        {
+          "name": "Cuffe Parade",
+          "name_mr": "कफ परेड",
+          "lat": 18.913543,
+          "lng": 72.820749,
+          "osm_node": 5221297495
+        }
+      ]
+    },
+    "line-7": {
+      "osm_relation": 13989914,
+      "route": "Line 7 (Gundavali → Dahisar (East))",
+      "stations": [
+        {
+          "name": "Gundavali",
+          "name_mr": "गुंदवली",
+          "lat": 19.114509,
+          "lng": 72.855177,
+          "osm_node": 5220954818
+        },
+        {
+          "name": "Mogra",
+          "name_mr": "मोगरा",
+          "lat": 19.128448,
+          "lng": 72.855465,
+          "osm_node": 5220954744
+        },
+        {
+          "name": "Jogeshwari (East)",
+          "name_mr": "जोगेश्वरी (पूर्व)",
+          "lat": 19.142934,
+          "lng": 72.855207,
+          "osm_node": 5220954743
+        },
+        {
+          "name": "Goregaon (East)",
+          "name_mr": "गोरेगाव (पूर्व)",
+          "lat": 19.152412,
+          "lng": 72.856622,
+          "osm_node": 5220954742
+        },
+        {
+          "name": "Aarey",
+          "name_mr": "आरे रोड जंक्शन",
+          "lat": 19.169533,
+          "lng": 72.858836,
+          "osm_node": 5220954741
+        },
+        {
+          "name": "Dindoshi",
+          "name_mr": "दिंडोशी",
+          "lat": 19.179757,
+          "lng": 72.858321,
+          "osm_node": 5220954738
+        },
+        {
+          "name": "Kurar",
+          "name_mr": "कुरार",
+          "lat": 19.187101,
+          "lng": 72.85854,
+          "osm_node": 9130397819
+        },
+        {
+          "name": "Akurli",
+          "name_mr": "आकुर्ली",
+          "lat": 19.198314,
+          "lng": 72.860647,
+          "osm_node": 9130397818
+        },
+        {
+          "name": "Mahindra & Mahindra",
+          "name_mr": "महिंद्रा आणि महिंद्रा (पोईसर)",
+          "lat": 19.203758,
+          "lng": 72.863339,
+          "osm_node": 9130397817
+        },
+        {
+          "name": "Magathane",
+          "name_mr": "मगाठाणे",
+          "lat": 19.217126,
+          "lng": 72.866797,
+          "osm_node": 5220954766
+        },
+        {
+          "name": "Devipada",
+          "name_mr": "देवीपाडा",
+          "lat": 19.224342,
+          "lng": 72.864227,
+          "osm_node": 5220954735
+        },
+        {
+          "name": "Rashtriya Udyan",
+          "name_mr": "राष्ट्रीय उद्यान",
+          "lat": 19.234616,
+          "lng": 72.863159,
+          "osm_node": 5220954734
+        },
+        {
+          "name": "Ovaripada",
+          "name_mr": "ओवरीपाडा",
+          "lat": 19.24294,
+          "lng": 72.864196,
+          "osm_node": 5220954733
+        },
+        {
+          "name": "Dahisar (East)",
+          "name_mr": "दहिसर (पूर्व)",
+          "lat": 19.250616,
+          "lng": 72.866659,
+          "osm_node": 9627118207
+        }
+      ]
+    },
+    "nmm-1": {
+      "osm_relation": 16533436,
+      "route": "Line 1 (CBD Belapur → Pendhar)",
+      "stations": [
+        {
+          "name": "CBD Belapur",
+          "name_mr": "सी बी डी बेलापूर",
+          "lat": 19.020664,
+          "lng": 73.040237,
+          "osm_node": 11278650147
+        },
+        {
+          "name": "RBI Colony",
+          "name_mr": "आर.बी.आय. कॉलनी",
+          "lat": 19.023003,
+          "lng": 73.047947,
+          "osm_node": 5501092417
+        },
+        {
+          "name": "Belpada",
+          "name_mr": "बेलपाडा",
+          "lat": 19.025297,
+          "lng": 73.054924,
+          "osm_node": 5461505089
+        },
+        {
+          "name": "Utsav Chowk",
+          "name_mr": "उत्सव चौक",
+          "lat": 19.032611,
+          "lng": 73.05894,
+          "osm_node": 5501092821
+        },
+        {
+          "name": "Kendriya Vihar",
+          "name_mr": "केंद्रीय विहार",
+          "lat": 19.037688,
+          "lng": 73.064094,
+          "osm_node": 5501092822
+        },
+        {
+          "name": "Kharghar Village",
+          "name_mr": "खारघर गाव",
+          "lat": 19.043227,
+          "lng": 73.074339,
+          "osm_node": 5501092823
+        },
+        {
+          "name": "Central Park",
+          "name_mr": "सेंट्रल पार्क",
+          "lat": 19.05368,
+          "lng": 73.075984,
+          "osm_node": 5501092824
+        },
+        {
+          "name": "Pethpada",
+          "name_mr": "पेठपाडा",
+          "lat": 19.063875,
+          "lng": 73.077348,
+          "osm_node": 5501092825
+        },
+        {
+          "name": "Sector 34",
+          "name_mr": "सेक्टर 34",
+          "lat": 19.073688,
+          "lng": 73.08187,
+          "osm_node": 5501092826
+        },
+        {
+          "name": "Panchanand",
+          "name_mr": "पंचानंद",
+          "lat": 19.074636,
+          "lng": 73.090672,
+          "osm_node": 5501092827
+        },
+        {
+          "name": "Pendhar",
+          "name_mr": "पेंढार",
+          "lat": 19.072228,
+          "lng": 73.097859,
+          "osm_node": 5501092830
+        }
+      ]
+    }
+  }
+}
