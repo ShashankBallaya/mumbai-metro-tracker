@@ -271,6 +271,14 @@
       "status": "verified",
       "source_url": "https://thanemetrorail.com/route-map",
       "last_verified": "2026-11-03"
+    },
+    {
+      "name": "Thane bullet train station link (study)",
+      "status": "reported",
+      "source_url": "https://x.com/bodkeitis/status/2122342723760095740",
+      "last_verified": "2026-11-17",
+      "notes": "Maha Metro's map is marked tentative. RITES tender RITES/CEDS/GT/MAHA METRO/THANE/Tender/2026, dated 9 Oct 2026: geotechnical investigation for the project report, estimate Rs 18.60 lakh, one month. Lowest bid Idhitri Geoservices, Rs 16.01 lakh (Tenderkart, as posted). Images posted on X by Swarup Bodke, 16 Nov 2026; not yet on Maha Metro's or RITES's own pages.",
+      "summary": "A planned link from the ring at Thane Junction to the Thane station of the Mumbai-Ahmedabad bullet train: 9.75 km and 7 stations on Maha Metro's tentative map, underground from Thane Junction, then a ramp, then elevated. RITES is preparing the project report; its tender also covers onward links to Dombivli and to Line 12 at Sonarpada."
     }
   ]
 }

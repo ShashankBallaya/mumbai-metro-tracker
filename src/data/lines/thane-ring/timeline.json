@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "Key milestones of the Thane Integral Ring Metro, oldest first. 'date_precision' is day, month or year. 'kind' is planning, approval, tender, award, construction, related or future. Only events whose source was read are listed.",
-    "last_reviewed": "2026-11-03"
+    "last_reviewed": "2026-11-17"
   },
   "events": [
     {
@@ -102,6 +102,17 @@
       "status": "reported",
       "source_url": "https://x.com/bodkeitis/status/2098068165867810917",
       "last_verified": "2026-11-03"
+    },
+    {
+      "id": "hsr-link-study",
+      "date": "2026-10-09",
+      "date_precision": "day",
+      "kind": "related",
+      "title": "Study starts on a link to the Thane bullet train station",
+      "summary": "RITES invites bids for soil tests for the project report of a link from Thane Junction to the Thane bullet train station, with onward links to Dombivli and to Line 12 at Sonarpada. Maha Metro's tentative map: 9.75 km and 7 stations, underground, then a ramp, then elevated.",
+      "status": "reported",
+      "source_url": "https://x.com/bodkeitis/status/2122342723760095740",
+      "last_verified": "2026-11-17"
     },
     {
       "id": "md-session",
