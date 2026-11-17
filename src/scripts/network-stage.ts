@@ -8,6 +8,9 @@
  *   - Lights move on running stretches only (not live train positions). On the night edition the lines glow.
  *   - Station dots (from street level 11): hover shows the name as a platform sign; a click or tap opens the
  *     station's card in a sheet at the foot of the map (src/scripts/station-card.ts).
+ *   - Quiet context under the lines, in one neutral colour (owner's choice D, /lab/context/, 2026-11-17): suburban and
+ *     main-line rail as a hairline, railway stations as small rings (named from street level), the bullet train
+ *     (being built) with its BKC, Thane and Virar stations, and the airports. It never takes a hover or a click.
  * The choice lives in the address (?line=). With reduced motion, nothing draws in, flies or moves.
  */
 import { gsap } from 'gsap';
@@ -17,6 +20,7 @@ import type { ExpressionSpecification, GeoJSONSource, StyleSpecification } from 
 import mapCssUrl from 'maplibre-gl/dist/maplibre-gl.css?url';
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 import geometryRaw from '../data/network-geometry.geojson?raw';
+import hsrRaw from '../data/context-hsr.geojson?raw';
 import { MAP_TILES, MAP_GLYPHS } from '../config';
 import { signHtml, sheetHtml } from './station-card';
 import type { StationCard } from '../lib/station-cards';
@@ -53,8 +57,8 @@ const isDark = () => {
 };
 const palette = () =>
   isDark()
-    ? { bg: '#121d31', land: '#16223a', water: '#0b1424', road: '#24314c', rail: '#3a4766', label: '#978f82', ink: '#ece5d8', building: '#253554', light: '#fff6dd' }
-    : { bg: '#e5ddcf', land: '#ded5c5', water: '#c3cfd0', road: '#d0c6b4', rail: '#a69e91', label: '#5f584f', ink: '#111a28', building: '#cbc1b0', light: '#111a28' };
+    ? { bg: '#121d31', land: '#16223a', water: '#0b1424', road: '#24314c', rail: '#3a4766', label: '#978f82', ink: '#ece5d8', building: '#253554', light: '#fff6dd', ctx: '#8a93a8', ctxSoft: '#56617a', air: '#1b2942' }
+    : { bg: '#e5ddcf', land: '#ded5c5', water: '#c3cfd0', road: '#d0c6b4', rail: '#a69e91', label: '#5f584f', ink: '#111a28', building: '#cbc1b0', light: '#111a28', ctx: '#6f675c', ctxSoft: '#9c9385', air: '#d6ccbb' };
 
 const km = (a: number[], b: number[]) => Math.hypot((b[0] - a[0]) * Math.cos((a[1] * Math.PI) / 180), b[1] - a[1]) * 111.2;
 /** Out curves only: a stroke or the camera starts at once and settles (the paper's one easing, DESIGN.md). */
@@ -111,6 +115,8 @@ function boot(el: HTMLElement) {
   const feature = (p: Piece, coords: number[][]): GeoJSON.Feature => ({ type: 'Feature', properties: { line: p.line, stage: p.stage }, geometry: { type: 'LineString', coordinates: coords } });
   const collection = (features: GeoJSON.Feature[]): GeoJSON.FeatureCollection => ({ type: 'FeatureCollection', features });
   const fullNet = collection(pieces.map((p) => feature(p, p.coords)));
+  // Context: the bullet train and its stations (the map tiles leave out lines being built).
+  const hsr = JSON.parse(hsrRaw) as GeoJSON.FeatureCollection;
   // ----- Station dots: the tracked lines' own stations (named, with a page); the hub file's points for the rest -----
   const stationList: StationCard[] = JSON.parse(el.querySelector('[data-stage-stations]')?.textContent || '[]');
   const trackedLines = new Set(stationList.map((s) => s.line));
@@ -181,12 +187,16 @@ function boot(el: HTMLElement) {
   let revealed = reduced || Boolean(asked);
 
   function style(): StyleSpecification {
-    const { bg, land, water, road, rail: railway, label, ink, building, light } = palette();
+    const { bg, land, water, road, label, ink, building, light, ctx, ctxSoft, air } = palette();
     const dark = isDark();
     const width = (a: number, b: number): ExpressionSpecification => ['interpolate', ['linear'], ['zoom'], 9, a, 14, b];
     const stageIs = (s: string): ExpressionSpecification => ['==', ['get', 'stage'], s];
     const notPoint: ExpressionSpecification = ['!=', ['geometry-type'], 'Point'];
     const hot: ExpressionSpecification = ['any', ['boolean', ['feature-state', 'hover'], false], ['boolean', ['feature-state', 'sel'], false]];
+    // Context: rail without sidings and yards; railway stations, not metro ones (OpenMapTiles keeps both in poi/railway).
+    const railLine: ExpressionSpecification = ['all', ['==', ['get', 'class'], 'rail'], ['!', ['has', 'service']]];
+    const railStation: ExpressionSpecification = ['all', ['==', ['get', 'class'], 'railway'], ['in', ['get', 'subclass'], ['literal', ['station', 'halt']]], ['!', ['in', 'Metro', ['coalesce', ['get', 'name:latin'], ['get', 'name'], '']]]];
+    const isKind = (k: string): ExpressionSpecification => ['==', ['get', 'kind'], k];
     return {
       version: 8,
       glyphs: MAP_GLYPHS,
@@ -197,13 +207,17 @@ function boot(el: HTMLElement) {
         net: { type: 'geojson', data: revealed ? fullNet : collection([]) },
         lights: { type: 'geojson', data: collection([]) },
         dots: { type: 'geojson', data: dots },
+        hsr: { type: 'geojson', data: hsr },
       },
       layers: [
         { id: 'bg', type: 'background', paint: { 'background-color': bg } },
         { id: 'landuse', type: 'fill', source: 'omt', 'source-layer': 'landuse', paint: { 'fill-color': land } },
         { id: 'water', type: 'fill', source: 'omt', 'source-layer': 'water', paint: { 'fill-color': water } },
         { id: 'road', type: 'line', source: 'omt', 'source-layer': 'transportation', filter: ['in', ['get', 'class'], ['literal', ['motorway', 'trunk', 'primary']]], paint: { 'line-color': road, 'line-width': width(0.6, 3) } },
-        { id: 'rail', type: 'line', source: 'omt', 'source-layer': 'transportation', filter: ['==', ['get', 'class'], 'rail'], paint: { 'line-color': railway, 'line-width': 1, 'line-dasharray': [3, 2] } },
+        { id: 'ctx-air', type: 'fill', source: 'omt', 'source-layer': 'aeroway', filter: ['in', ['get', 'class'], ['literal', ['aerodrome', 'apron']]], paint: { 'fill-color': air, 'fill-outline-color': ctxSoft } },
+        { id: 'ctx-runway', type: 'line', source: 'omt', 'source-layer': 'aeroway', filter: ['==', ['get', 'class'], 'runway'], paint: { 'line-color': ctxSoft, 'line-width': width(1.2, 6) } },
+        { id: 'ctx-rail', type: 'line', source: 'omt', 'source-layer': 'transportation', filter: railLine, layout: { 'line-join': 'round' }, paint: { 'line-color': ctxSoft, 'line-width': width(0.7, 1.6) } },
+        { id: 'ctx-hsr', type: 'line', source: 'hsr', filter: isKind('hsr'), layout: { 'line-join': 'round' }, paint: { 'line-color': ctx, 'line-width': width(1.2, 2.4), 'line-dasharray': [3, 2] } },
         { id: 'building', type: 'fill-extrusion', source: 'omt', 'source-layer': 'building', minzoom: 13, paint: { 'fill-extrusion-color': building, 'fill-extrusion-height': ['coalesce', ['get', 'render_height'], 8], 'fill-extrusion-base': ['coalesce', ['get', 'render_min_height'], 0], 'fill-extrusion-opacity': 0.9 } },
         { id: 'casing', type: 'line', source: 'net', filter: notPoint, layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': bg, 'line-width': width(5, 11) } },
         // Night edition only: each line throws its own light on the ground.
@@ -214,8 +228,13 @@ function boot(el: HTMLElement) {
         { id: 'proposed', type: 'line', source: 'net', filter: stageIs('proposed'), layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': colourOf, 'line-width': width(...WIDTHS.proposed), 'line-dasharray': [0.1, 2] } },
         // A dot under the pointer, or chosen, grows and takes its line's colour.
         { id: 'stations', type: 'circle', source: 'dots', minzoom: 11, paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 9, ['case', hot, 5, 1.5], 14, ['case', hot, 9, 4]], 'circle-color': ['case', hot, colourOf, ink], 'circle-stroke-color': ['case', hot, ink, bg], 'circle-stroke-width': ['case', hot, 2.5, 1.5] } },
+        { id: 'ctx-rail-station', type: 'circle', source: 'omt', 'source-layer': 'poi', minzoom: 11.5, filter: railStation, paint: { 'circle-radius': width(1.5, 3.5), 'circle-color': bg, 'circle-stroke-color': ctx, 'circle-stroke-width': 1.2 } },
+        { id: 'ctx-hsr-station', type: 'circle', source: 'hsr', filter: isKind('hsr-station'), paint: { 'circle-radius': width(2.5, 5), 'circle-color': bg, 'circle-stroke-color': ctx, 'circle-stroke-width': 1.6 } },
         ...(dark ? [{ id: 'light-glow', type: 'circle' as const, source: 'lights', paint: { 'circle-radius': width(7, 14), 'circle-color': colourOf, 'circle-blur': 1, 'circle-opacity': 0.75 } }] : []),
         { id: 'light', type: 'circle', source: 'lights', paint: { 'circle-radius': width(2.6, 5), 'circle-color': light, 'circle-stroke-color': dark ? colourOf : bg, 'circle-stroke-width': 1.5 } },
+        { id: 'ctx-rail-name', type: 'symbol', source: 'omt', 'source-layer': 'poi', minzoom: 13, filter: railStation, layout: { 'text-field': ['coalesce', ['get', 'name:latin'], ['get', 'name']], 'text-font': ['Noto Sans Italic'], 'text-size': 10.5, 'text-offset': [0, 0.9], 'text-anchor': 'top', 'text-optional': true }, paint: { 'text-color': ctx, 'text-halo-color': bg, 'text-halo-width': 1.6 } },
+        { id: 'ctx-hsr-name', type: 'symbol', source: 'hsr', minzoom: 10, filter: isKind('hsr-station'), layout: { 'text-field': ['concat', ['get', 'name'], ' · bullet train'], 'text-font': ['Noto Sans Italic'], 'text-size': 10.5, 'text-offset': [0.9, 0], 'text-anchor': 'left', 'text-allow-overlap': true }, paint: { 'text-color': ctx, 'text-halo-color': bg, 'text-halo-width': 1.8 } },
+        { id: 'ctx-air-name', type: 'symbol', source: 'omt', 'source-layer': 'aerodrome_label', filter: ['has', 'iata'], layout: { 'text-field': ['concat', '✈ ', ['coalesce', ['get', 'iata'], ['get', 'name:latin']]], 'text-font': ['Noto Sans Bold'], 'text-size': 11, 'text-letter-spacing': 0.06 }, paint: { 'text-color': ctx, 'text-halo-color': bg, 'text-halo-width': 2 } },
         { id: 'place', type: 'symbol', source: 'omt', 'source-layer': 'place', filter: ['in', ['get', 'class'], ['literal', ['city', 'town', 'suburb']]], layout: { 'text-field': ['get', 'name:latin'], 'text-font': ['Noto Sans Regular'], 'text-size': ['match', ['get', 'class'], 'city', 14, 'town', 13, 11], 'text-transform': 'uppercase', 'text-letter-spacing': 0.08 }, paint: { 'text-color': label, 'text-halo-color': bg, 'text-halo-width': 2 } },
       ],
     };

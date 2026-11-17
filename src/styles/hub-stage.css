@@ -58,6 +58,52 @@
   width: 1.4rem;
   height: 3px;
 }
+/* Context under the lines (rail, bullet train, airports): a quieter row, on the live map only. */
+.stage__key .stage__ctx {
+  display: none;
+  grid-column: 1 / -1;
+  flex-basis: 100%;
+  flex-wrap: wrap;
+  /* The row wraps inside the key's width and never widens the key's columns. */
+  contain: inline-size;
+  width: 100%;
+  gap: 0.15rem var(--s-2);
+  font-size: 0.72rem;
+  color: var(--ink-3);
+}
+.stage__ctx b {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+.stage__ctx > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.stage.is-live .stage__ctx {
+  display: flex;
+}
+.ctxk {
+  display: inline-block;
+  width: 1.2rem;
+  border-top: 1.5px solid var(--ink-3);
+}
+.ctxk--hsr {
+  border-top: 2px dashed var(--ink-3);
+}
+.ctxk--ring {
+  width: 0.5rem;
+  height: 0.5rem;
+  border: 1.5px solid var(--ink-3);
+  border-radius: 50%;
+}
+.ctxk--air {
+  width: 0.8rem;
+  height: 0.55rem;
+  border: 1px solid var(--ink-3);
+  background: color-mix(in srgb, var(--ink-3) 15%, transparent);
+}
 
 /* The drawing: the whole picture without JavaScript, a pencil ghost while the street map loads. */
 .stage__ghost {

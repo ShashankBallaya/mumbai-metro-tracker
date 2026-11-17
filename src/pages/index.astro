@@ -213,6 +213,13 @@ const schema = [
           {stageKeys.map((s) => (
             <li><span class={`stroke stroke--${s.id}`} aria-hidden="true"></span>{s.short}</li>
           ))}
+          <li class="stage__ctx">
+            <b>Context</b>
+            <span><span class="ctxk ctxk--rail" aria-hidden="true"></span>Rail</span>
+            <span><span class="ctxk ctxk--ring" aria-hidden="true"></span>Station</span>
+            <span><span class="ctxk ctxk--hsr" aria-hidden="true"></span>Bullet train</span>
+            <span><span class="ctxk ctxk--air" aria-hidden="true"></span>Airport</span>
+          </li>
         </ul>
         <svg class="stage__ghost" viewBox={`0 0 ${drawing.width} ${drawing.height}`} preserveAspectRatio="xMidYMid meet" role="img" aria-label={`Drawing of the ${drawnIds.size} metro lines with a published route in the Mumbai region, by stage.`}>
           {[...drawnIds].map((id) => {
