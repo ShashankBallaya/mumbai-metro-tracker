@@ -98,6 +98,63 @@
   border: 1.5px solid var(--ink-3);
   border-radius: 50%;
 }
+.ctxk--walk {
+  width: 0.9rem;
+  border-top: 2px solid var(--ink);
+}
+/* A walkway's card: printed on the paper, square, one rule. */
+.conn-pop .maplibregl-popup-content {
+  background: var(--paper);
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  border-radius: 0;
+  padding: var(--s-2) var(--s-3);
+  box-shadow: none;
+  font-size: 0.86rem;
+  line-height: 1.4;
+}
+.conn-pop .maplibregl-popup-tip {
+  border-top-color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+.conn-pop .maplibregl-popup-close-button {
+  color: var(--ink);
+  font-size: 1.1rem;
+}
+.cc h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  line-height: 1.15;
+  margin: 2px 0 6px;
+}
+.cc p {
+  margin: 0 0 6px;
+}
+.cc__kind {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.7rem;
+  color: var(--ink-3);
+}
+.cc__status {
+  font-weight: 600;
+}
+.cc__note {
+  color: var(--ink-3);
+  font-size: 0.78rem;
+}
+.cc__src {
+  font-size: 0.8rem;
+  color: var(--ink-2);
+}
+.cc__grade {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.68rem;
+  border: 1px solid var(--ink-3);
+  padding: 0 4px;
+  margin-right: 4px;
+}
 .ctxk--air {
   width: 0.8rem;
   height: 0.55rem;

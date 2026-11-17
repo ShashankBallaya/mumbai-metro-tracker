@@ -11,6 +11,11 @@
  *   - Quiet context under the lines, in one neutral colour (owner's choice D, /lab/context/, 2026-11-17): suburban and
  *     main-line rail as a hairline, railway stations as small rings (named from street level), the bullet train
  *     (being built) with its BKC, Thane and Virar stations, and the airports. It never takes a hover or a click.
+ *     Monorail stops are kept out of the railway station rings (the tiles do not tell them apart).
+ *   - Walkways between lines at interchanges (owner's choice C, /lab/connectors/, 2026-11-17): a thin ink thread
+ *     between the stations a walkway joins (a ring where one end only is known), in the stage strokes (solid open,
+ *     long dashes being built, short dashes tendered or approved, dots planned), labelled from street level. A click
+ *     opens a small card with its facts and source. Data: src/data/connectors.json (INTERCHANGE-CONNECTORS.md).
  * The choice lives in the address (?line=). With reduced motion, nothing draws in, flies or moves.
  */
 import { gsap } from 'gsap';
@@ -21,6 +26,7 @@ import mapCssUrl from 'maplibre-gl/dist/maplibre-gl.css?url';
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 import geometryRaw from '../data/network-geometry.geojson?raw';
 import hsrRaw from '../data/context-hsr.geojson?raw';
+import connRaw from '../data/connectors.json?raw';
 import { MAP_TILES, MAP_GLYPHS } from '../config';
 import { signHtml, sheetHtml } from './station-card';
 import type { StationCard } from '../lib/station-cards';
@@ -59,6 +65,55 @@ const palette = () =>
   isDark()
     ? { bg: '#121d31', land: '#16223a', water: '#0b1424', road: '#24314c', rail: '#3a4766', label: '#978f82', ink: '#ece5d8', building: '#253554', light: '#fff6dd', ctx: '#8a93a8', ctxSoft: '#56617a', air: '#1b2942' }
     : { bg: '#e5ddcf', land: '#ded5c5', water: '#c3cfd0', road: '#d0c6b4', rail: '#a69e91', label: '#5f584f', ink: '#111a28', building: '#cbc1b0', light: '#111a28', ctx: '#6f675c', ctxSoft: '#9c9385', air: '#d6ccbb' };
+
+/** Monorail stops, kept out of the railway station rings: the map tiles mark both as plain stations, and some share a name
+ * (Chembur, Lower Parel, GTB Nagar) with a railway station 290 m to 680 m away. A square of about 65 m round each stop. */
+const MONORAIL: number[][] = [
+  [72.89759, 19.06121], [72.89428, 19.05264], [72.89346, 19.04388], [72.89555, 19.03528], [72.89144, 19.02772], [72.87757, 19.02897],
+  [72.87403, 19.03882], [72.87079, 19.03669], [72.86695, 19.03018], [72.8638, 19.02365], [72.85932, 19.01748], [72.85223, 19.01625],
+  [72.84787, 19.00954], [72.84423, 19.00159], [72.84331, 18.99451], [72.83147, 18.99312], [72.82859, 18.98309],
+];
+const MONO_AREA: GeoJSON.MultiPolygon = {
+  type: 'MultiPolygon',
+  coordinates: MONORAIL.map(([x, y]) => [[[x - 0.0006, y - 0.0006], [x + 0.0006, y - 0.0006], [x + 0.0006, y + 0.0006], [x - 0.0006, y + 0.0006], [x - 0.0006, y - 0.0006]]]),
+};
+
+// ----- Walkways between lines (src/data/connectors.json) -----
+interface Conn {
+  id: string;
+  name: string;
+  type: string;
+  status: string;
+  agency: string;
+  source_date: string;
+  grade: string;
+  source_url: string;
+  details: string;
+  note: string | null;
+  geometry: GeoJSON.LineString | GeoJSON.Point;
+}
+const CONNS: Conn[] = JSON.parse(connRaw).connectors;
+const CONN_BY_ID = new Map(CONNS.map((c) => [c.id, c]));
+/** A walkway's status in the map's stage strokes. */
+const CONN_STAGE: Record<string, string> = {
+  open: 'open', built: 'open', 'under construction': 'building', tendered: 'approved', approved: 'approved', planned: 'planned', proposed: 'planned', 'not given': 'planned',
+};
+const connMid = (g: Conn['geometry']): [number, number] => {
+  if (g.type === 'Point') return g.coordinates as [number, number];
+  const cs = g.coordinates;
+  return [cs.reduce((t, c) => t + c[0], 0) / cs.length, cs.reduce((t, c) => t + c[1], 0) / cs.length];
+};
+const connLabel = (c: Conn) => `${c.type.startsWith('Two ') ? 'Subways' : c.type.replace(/ (to|between|over|with) .*/, '')} · ${c.status}`;
+const CONN_LINES: GeoJSON.FeatureCollection = { type: 'FeatureCollection', features: CONNS.filter((c) => c.geometry.type === 'LineString').map((c) => ({ type: 'Feature', properties: { id: c.id, stage: CONN_STAGE[c.status] }, geometry: c.geometry })) };
+const CONN_POINTS: GeoJSON.FeatureCollection = { type: 'FeatureCollection', features: CONNS.map((c) => ({ type: 'Feature', properties: { id: c.id, stage: CONN_STAGE[c.status], one: c.geometry.type === 'Point', label: connLabel(c) }, geometry: { type: 'Point', coordinates: connMid(c.geometry) } })) };
+const CONN_LAYERS = ['conn-open', 'conn-building', 'conn-approved', 'conn-planned', 'conn-one'];
+const esc = (t: string) => t.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
+const connCard = (c: Conn) =>
+  `<div class="cc"><div class="cc__kind">${esc(c.type)}</div><h3>${esc(c.name)}</h3>` +
+  `<p class="cc__status">${esc(c.status[0].toUpperCase() + c.status.slice(1))} · ${esc(c.agency)}</p>` +
+  `<p>${esc(c.details)}</p>${c.note ? `<p class="cc__note">${esc(c.note)}</p>` : ''}` +
+  `<p class="cc__src"><span class="cc__grade">${esc(c.grade)}</span> <a href="${c.source_url}" target="_blank" rel="noopener">${esc(new URL(c.source_url).hostname.replace(/^www\./, ''))}, ${esc(c.source_date)} ↗</a></p>` +
+  `<p class="cc__note">The line shows which stations it joins, not its route.</p></div>`;
 
 const km = (a: number[], b: number[]) => Math.hypot((b[0] - a[0]) * Math.cos((a[1] * Math.PI) / 180), b[1] - a[1]) * 111.2;
 /** Out curves only: a stroke or the camera starts at once and settles (the paper's one easing, DESIGN.md). */
@@ -195,7 +250,9 @@ function boot(el: HTMLElement) {
     const hot: ExpressionSpecification = ['any', ['boolean', ['feature-state', 'hover'], false], ['boolean', ['feature-state', 'sel'], false]];
     // Context: rail without sidings and yards; railway stations, not metro ones (OpenMapTiles keeps both in poi/railway).
     const railLine: ExpressionSpecification = ['all', ['==', ['get', 'class'], 'rail'], ['!', ['has', 'service']]];
-    const railStation: ExpressionSpecification = ['all', ['==', ['get', 'class'], 'railway'], ['in', ['get', 'subclass'], ['literal', ['station', 'halt']]], ['!', ['in', 'Metro', ['coalesce', ['get', 'name:latin'], ['get', 'name'], '']]]];
+    const railStation: ExpressionSpecification = ['all', ['==', ['get', 'class'], 'railway'], ['in', ['get', 'subclass'], ['literal', ['station', 'halt']]], ['!', ['in', 'Metro', ['coalesce', ['get', 'name:latin'], ['get', 'name'], '']]], ['!', ['within', MONO_AREA]]] as ExpressionSpecification;
+    const connWidth: ExpressionSpecification = ['interpolate', ['linear'], ['zoom'], 11, 1.5, 15, 3.5];
+    const connThread = (st: string, dash: number[] | null) => ({ id: `conn-${st}`, type: 'line' as const, source: 'conn-lines', minzoom: 12, filter: stageIs(st), layout: { 'line-cap': (dash ? 'butt' : 'round') as 'butt' | 'round' }, paint: { 'line-color': ink, 'line-width': connWidth, ...(dash ? { 'line-dasharray': dash } : {}) } });
     const isKind = (k: string): ExpressionSpecification => ['==', ['get', 'kind'], k];
     return {
       version: 8,
@@ -208,6 +265,8 @@ function boot(el: HTMLElement) {
         lights: { type: 'geojson', data: collection([]) },
         dots: { type: 'geojson', data: dots },
         hsr: { type: 'geojson', data: hsr },
+        'conn-lines': { type: 'geojson', data: CONN_LINES },
+        'conn-points': { type: 'geojson', data: CONN_POINTS },
       },
       layers: [
         { id: 'bg', type: 'background', paint: { 'background-color': bg } },
@@ -230,9 +289,17 @@ function boot(el: HTMLElement) {
         { id: 'stations', type: 'circle', source: 'dots', minzoom: 11, paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 9, ['case', hot, 5, 1.5], 14, ['case', hot, 9, 4]], 'circle-color': ['case', hot, colourOf, ink], 'circle-stroke-color': ['case', hot, ink, bg], 'circle-stroke-width': ['case', hot, 2.5, 1.5] } },
         { id: 'ctx-rail-station', type: 'circle', source: 'omt', 'source-layer': 'poi', minzoom: 11.5, filter: railStation, paint: { 'circle-radius': width(1.5, 3.5), 'circle-color': bg, 'circle-stroke-color': ctx, 'circle-stroke-width': 1.2 } },
         { id: 'ctx-hsr-station', type: 'circle', source: 'hsr', filter: isKind('hsr-station'), paint: { 'circle-radius': width(2.5, 5), 'circle-color': bg, 'circle-stroke-color': ctx, 'circle-stroke-width': 1.6 } },
+        // Walkways between lines: a casing, then the thread in its stage stroke; a ring where one end only is known.
+        { id: 'conn-casing', type: 'line', source: 'conn-lines', minzoom: 12, layout: { 'line-cap': 'round' }, paint: { 'line-color': bg, 'line-width': ['interpolate', ['linear'], ['zoom'], 11, 4, 15, 8] } },
+        connThread('open', null),
+        connThread('building', [2.2, 1.1]),
+        connThread('approved', [0.9, 1.3]),
+        connThread('planned', [0.1, 2]),
+        { id: 'conn-one', type: 'circle', source: 'conn-points', minzoom: 12, filter: ['==', ['get', 'one'], true], paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 11, 4, 15, 8], 'circle-color': 'rgba(0,0,0,0)', 'circle-stroke-color': ink, 'circle-stroke-width': ['case', stageIs('open'), 2.2, 1.4] } },
         ...(dark ? [{ id: 'light-glow', type: 'circle' as const, source: 'lights', paint: { 'circle-radius': width(7, 14), 'circle-color': colourOf, 'circle-blur': 1, 'circle-opacity': 0.75 } }] : []),
         { id: 'light', type: 'circle', source: 'lights', paint: { 'circle-radius': width(2.6, 5), 'circle-color': light, 'circle-stroke-color': dark ? colourOf : bg, 'circle-stroke-width': 1.5 } },
         { id: 'ctx-rail-name', type: 'symbol', source: 'omt', 'source-layer': 'poi', minzoom: 13, filter: railStation, layout: { 'text-field': ['coalesce', ['get', 'name:latin'], ['get', 'name']], 'text-font': ['Noto Sans Italic'], 'text-size': 10.5, 'text-offset': [0, 0.9], 'text-anchor': 'top', 'text-optional': true }, paint: { 'text-color': ctx, 'text-halo-color': bg, 'text-halo-width': 1.6 } },
+        { id: 'conn-label', type: 'symbol', source: 'conn-points', minzoom: 14, layout: { 'text-field': ['get', 'label'], 'text-font': ['Noto Sans Bold'], 'text-size': 10.5, 'text-offset': [0, 1.2], 'text-anchor': 'top', 'text-optional': true }, paint: { 'text-color': ink, 'text-halo-color': bg, 'text-halo-width': 2 } },
         { id: 'ctx-hsr-name', type: 'symbol', source: 'hsr', minzoom: 10, filter: isKind('hsr-station'), layout: { 'text-field': ['concat', ['get', 'name'], ' · bullet train'], 'text-font': ['Noto Sans Italic'], 'text-size': 10.5, 'text-offset': [0.9, 0], 'text-anchor': 'left', 'text-allow-overlap': true }, paint: { 'text-color': ctx, 'text-halo-color': bg, 'text-halo-width': 1.8 } },
         { id: 'ctx-air-name', type: 'symbol', source: 'omt', 'source-layer': 'aerodrome_label', filter: ['has', 'iata'], layout: { 'text-field': ['concat', '✈ ', ['coalesce', ['get', 'iata'], ['get', 'name:latin']]], 'text-font': ['Noto Sans Bold'], 'text-size': 11, 'text-letter-spacing': 0.06 }, paint: { 'text-color': ctx, 'text-halo-color': bg, 'text-halo-width': 2 } },
         { id: 'place', type: 'symbol', source: 'omt', 'source-layer': 'place', filter: ['in', ['get', 'class'], ['literal', ['city', 'town', 'suburb']]], layout: { 'text-field': ['get', 'name:latin'], 'text-font': ['Noto Sans Regular'], 'text-size': ['match', ['get', 'class'], 'city', 14, 'town', 13, 11], 'text-transform': 'uppercase', 'text-letter-spacing': 0.08 }, paint: { 'text-color': label, 'text-halo-color': bg, 'text-halo-width': 2 } },
@@ -452,8 +519,8 @@ function boot(el: HTMLElement) {
   };
   for (const layer of Object.keys(WIDTHS)) {
     map.on('click', layer, (e) => {
-      // A click on a station opens its card instead.
-      if (dotAt(e.point, touchFirst ? 16 : 10)) return;
+      // A click on a station or a walkway opens its card instead.
+      if (dotAt(e.point, touchFirst ? 16 : 10) || connAt(e.point, touchFirst ? 12 : 7)) return;
       const id = (e.features?.[0]?.properties as { line?: string } | undefined)?.line;
       if (id) steer(id);
     });
@@ -463,6 +530,14 @@ function boot(el: HTMLElement) {
   const sheet = el.querySelector<HTMLElement>('[data-station-sheet]')!;
   const canHover = matchMedia('(hover: hover) and (pointer: fine)').matches;
   const touchFirst = !canHover;
+  /** The walkway under the pointer, within r px. */
+  function connAt(point: maplibregl.Point, r: number): Conn | null {
+    const layers = CONN_LAYERS.filter((l) => map.getLayer(l));
+    if (!layers.length) return null;
+    const f = map.queryRenderedFeatures([[point.x - r, point.y - r], [point.x + r, point.y + r]], { layers })[0];
+    return f ? CONN_BY_ID.get((f.properties as { id: string }).id) ?? null : null;
+  }
+  const connPop = new maplibregl.Popup({ closeButton: true, maxWidth: '300px', className: 'conn-pop' });
   /** The dot nearest the pointer within r px: the dots are small. */
   function dotAt(point: maplibregl.Point, r: number) {
     if (!map.getLayer('stations')) return null;
@@ -559,7 +634,7 @@ function boot(el: HTMLElement) {
     if (!canHover) return;
     const f = dotAt(e.point, 10);
     const fid = f ? (f.id as number) : null;
-    map.getCanvas().style.cursor = f ? 'pointer' : '';
+    map.getCanvas().style.cursor = f || connAt(e.point, 6) ? 'pointer' : '';
     if (fid === hoverId) return;
     dotState(hoverId, 'hover', false);
     hoverId = fid;
@@ -577,8 +652,13 @@ function boot(el: HTMLElement) {
     const f = dotAt(e.point, touchFirst ? 16 : 10);
     const s = f && cardOf.get((f.properties as { sid: string }).sid);
     if (f && s) {
+      connPop.remove();
       if (f.id !== chosenId) openSheet(f.id as number, s);
-    } else closeSheet();
+      return;
+    }
+    closeSheet();
+    const c = connAt(e.point, touchFirst ? 12 : 7);
+    if (c) connPop.setLngLat(connMid(c.geometry)).setHTML(connCard(c)).addTo(map);
   });
   // From the keyboard the sheet goes at once: no motion on keyboard actions.
   el.addEventListener('keydown', (event) => {
