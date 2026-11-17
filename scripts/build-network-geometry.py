@@ -263,7 +263,7 @@ def main():
     # Tracked lines: their own alignment files, split where the tracked data says the stage changes.
     tracked = {
         'line-4': ('src/data/lines/line-4/alignment-mmrda-2025.geojson', {'current': 'under_construction', 'extension': 'under_construction'}),
-        'line-5': ('src/data/lines/line-5/alignment-mmrda-2025.geojson', {'current': 'under_construction', 'spur': 'planned'}),
+        'line-5': ('src/data/lines/line-5/alignment-mmrda-2025.geojson', {'current': 'under_construction', 'spur': 'planned', 'indicative': 'planned'}),
         'line-12': ('src/data/lines/line-12/alignment-mmrda-2025.geojson', None),
         'line-12a': ('src/data/lines/line-12a/alignment-indicative.geojson', None),
     }
@@ -276,7 +276,8 @@ def main():
                 continue
             stage = (by_part or {}).get(part, stage0)
             src = {'name': f'{line_id} alignment ({os.path.basename(path)})', 'url': f'/{line_id}/', 'status': f['properties'].get('status', 'verified' if 'mmrda' in path else 'unverified'), 'checked': CHECKED}
-            feats.append(line_feature(line_id, stage, [[to_xy(c) for c in g['coordinates']]], src, indicative=line_id == 'line-12a' or None))
+            # An 'indicative' part (Line 5's straight link to Kalyan, not tendered yet) is drawn as such.
+            feats.append(line_feature(line_id, stage, [[to_xy(c) for c in g['coordinates']]], src, indicative=line_id == 'line-12a' or part == 'indicative' or None))
     feats += planned_features(net)
     # Line 5 beyond Phase 1 is approved, not under construction: split the centre line at Dhamankar Naka.
     st5 = json.load(open('src/data/lines/line-5/stations.json', encoding='utf-8'))['stations']
