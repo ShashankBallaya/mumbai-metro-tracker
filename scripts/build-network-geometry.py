@@ -6,9 +6,13 @@
 #     Each holds the corridor as a polygon; the centre line is the midpoints between its two long sides, as in
 #     build-alignment-line4.py. Line 7A's file holds line pieces instead, which are used as drawn.
 #   - The tracked lines' own files: src/data/lines/<id>/alignment-*.geojson (Lines 4, 5, 12, 12A).
+#   - Line 11: src/data/line-11-alignment.geojson and src/data/planned-stations.json (scripts/build-line11.py): MMRCL's
+#     alignment file for Anik Depot to Gateway, and an indicative trace of the proposed extension to Bandra Terminus.
+#   - Line 13: src/data/line-13-alignment.geojson (scripts/build-line13.py), traced from MMRDA's route map; indicative.
+#   - Line 8: src/data/line-8-alignment.geojson (scripts/build-line8.py), straight lines between reported stations; indicative.
 #   - The Thane Integral Ring Metro project's route map (Google My Maps, linked from thanemetrorail.com).
 #   - OpenStreetMap (ODbL) for Line 3 and Navi Mumbai Metro Line 1, which have no agency file.
-# Lines with no published route (8, 10, 11, 13, 14, Navi Mumbai Line 2, Virar to Alibaug) get no geometry.
+# Lines with no published route (10, 14, Navi Mumbai Line 2, Virar to Alibaug) get no geometry.
 # Run from the repo root: python scripts/build-network-geometry.py [cache-dir]
 # With a cache dir, files already there are read instead of downloaded. Standard library only.
 import io
@@ -191,6 +195,32 @@ def osm_geometry(rel_id, cache):
     return [[nodes[n] for n in e['nodes']] for e in d['elements'] if e['type'] == 'way' and e['id'] in way_ids]
 
 
+# Planned lines without a tracker, drawn from their own files (scripts/build-line8.py, build-line11.py, build-line13.py).
+PLANNED_FILES = {
+    'line-11': ('src/data/line-11-alignment.geojson', {'main': 'MMRCL alignment file (KMZ, Jul 2025)',
+                                                       'extension': "Traced from MMRC's map of the proposed extension"}),
+    'line-13': ('src/data/line-13-alignment.geojson', {'main': "Traced from MMRDA's route map (X, Aug 2026)"}),
+    'line-8': ('src/data/line-8-alignment.geojson', {'main': 'Straight lines between reported station places'}),
+}
+
+
+def planned_features(net):
+    """Lines 8, 11 and 13: their routes, by part (stage from network.json), and their stations."""
+    out = []
+    stations = json.load(open('src/data/planned-stations.json', encoding='utf-8'))['lines']
+    for line_id, (path, names) in PLANNED_FILES.items():
+        gj = json.load(open(path, encoding='utf-8'))
+        stages = dict(zip(names, stages_of(net, line_id)))
+        for f in gj['features']:
+            pr = f['properties']
+            src = {'name': names[pr['part']], 'url': pr['source_url'], 'status': pr['status'], 'checked': '2026-11-17'}
+            out.append(line_feature(line_id, stages[pr['part']], [[to_xy(c) for c in f['geometry']['coordinates']]], src,
+                                    indicative=pr.get('indicative') or None))
+        for st in stations[line_id]['stations']:
+            out.append(feature('Point', list(to_ll(to_xy((st['lng'], st['lat'])))), line=line_id, kind='station'))
+    return out
+
+
 def main():
     cache = sys.argv[1] if len(sys.argv) > 1 else None
     if cache:
@@ -247,6 +277,7 @@ def main():
             stage = (by_part or {}).get(part, stage0)
             src = {'name': f'{line_id} alignment ({os.path.basename(path)})', 'url': f'/{line_id}/', 'status': f['properties'].get('status', 'verified' if 'mmrda' in path else 'unverified'), 'checked': CHECKED}
             feats.append(line_feature(line_id, stage, [[to_xy(c) for c in g['coordinates']]], src, indicative=line_id == 'line-12a' or None))
+    feats += planned_features(net)
     # Line 5 beyond Phase 1 is approved, not under construction: split the centre line at Dhamankar Naka.
     st5 = json.load(open('src/data/lines/line-5/stations.json', encoding='utf-8'))['stations']
     dhamankar = next(s for s in st5 if s['id'] == 'dhamankar-naka')

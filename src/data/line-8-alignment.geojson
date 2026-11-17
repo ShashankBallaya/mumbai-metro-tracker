@@ -1,0 +1,105 @@
+{
+ "type": "FeatureCollection",
+ "properties": {
+  "note": "Line 8, indicative: straight lines between station places. No agency has published a route. Built by scripts/build-line8.py.",
+  "last_verified": "2026-11-17"
+ },
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "part": "main",
+    "name": "CSMIA Terminal 2 to NMIA Terminal 2",
+    "status": "unverified",
+    "indicative": true,
+    "source_url": "https://www.freepressjournal.in/mumbai/metro-line-8-to-link-mumbai-navi-mumbai-airports-with-11-stations-across-key-suburbs",
+    "length_m": 34893
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      72.872593,
+      19.101357
+     ],
+     [
+      72.889215,
+      19.086278
+     ],
+     [
+      72.880715,
+      19.073968
+     ],
+     [
+      72.880284,
+      19.065817
+     ],
+     [
+      72.891978,
+      19.069466
+     ],
+     [
+      72.908522,
+      19.074133
+     ],
+     [
+      72.924969,
+      19.061898
+     ],
+     [
+      72.93059,
+      19.047354
+     ],
+     [
+      72.958,
+      19.056
+     ],
+     [
+      73.000251,
+      19.063716
+     ],
+     [
+      73.009393,
+      19.067952
+     ],
+     [
+      73.019155,
+      19.055929
+     ],
+     [
+      73.024486,
+      19.04589
+     ],
+     [
+      73.019683,
+      19.03414
+     ],
+     [
+      73.018458,
+      19.020367
+     ],
+     [
+      73.029128,
+      19.020577
+     ],
+     [
+      73.037,
+      19.017
+     ],
+     [
+      73.034402,
+      18.990134
+     ],
+     [
+      73.053977,
+      18.988501
+     ],
+     [
+      73.065748,
+      18.991351
+     ]
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,517 @@
+{
+  "_meta": {
+    "note": "Stations of planned lines that have no tracker, in route order, for the hub map's names and cards. Each line names its sources."
+  },
+  "lines": {
+    "line-11": {
+      "sources": {
+        "main": "https://drive.google.com/drive/folders/1jTjTVYGkqTeHlBDEb6en51lGo5gAAWXJ",
+        "main_status": "verified",
+        "extension": "https://www.freepressjournal.in/mumbai/mumbai-metro-line-11-gets-major-expansion-69-km-dharavibandra-link-added-to-wadalagateway-corridor-adding-5-new-stations-check-project-cost-new-route",
+        "extension_status": "reported",
+        "documents": "https://corporate.mmrcl.com/en/corporate/pages/project-reports-documents"
+      },
+      "last_verified": "2026-11-17",
+      "stations": [
+        {
+          "name": "Bandra Terminus",
+          "lat": 19.061504,
+          "lng": 72.841462,
+          "part": "extension",
+          "stage": "proposed",
+          "position": "indicative, traced from MMRC's extension map"
+        },
+        {
+          "name": "Bandra",
+          "lat": 19.053045,
+          "lng": 72.839228,
+          "part": "extension",
+          "stage": "proposed",
+          "position": "indicative, traced from MMRC's extension map"
+        },
+        {
+          "name": "Central Dharavi",
+          "lat": 19.044444,
+          "lng": 72.855264,
+          "part": "extension",
+          "stage": "proposed",
+          "position": "indicative, traced from MMRC's extension map"
+        },
+        {
+          "name": "Sion",
+          "lat": 19.047847,
+          "lng": 72.863203,
+          "part": "extension",
+          "stage": "proposed",
+          "position": "indicative, traced from MMRC's extension map"
+        },
+        {
+          "name": "Chunabhatti",
+          "lat": 19.053542,
+          "lng": 72.869686,
+          "part": "extension",
+          "stage": "proposed",
+          "position": "indicative, traced from MMRC's extension map"
+        },
+        {
+          "name": "Anik Depot",
+          "lat": 19.046307,
+          "lng": 72.877914,
+          "part": "main",
+          "stage": "planned",
+          "position": "MMRCL alignment file, station label moved onto the centre line"
+        },
+        {
+          "name": "Wadala Depot",
+          "lat": 19.038465,
+          "lng": 72.873604,
+          "part": "main",
+          "stage": "planned",
+          "position": "MMRCL alignment file, station label moved onto the centre line"
+        },
+        {
+          "name": "CGS Colony",
+          "lat": 19.028596,
+          "lng": 72.87168,
+          "part": "main",
+          "stage": "planned",
+          "position": "MMRCL alignment file, station label moved onto the centre line"
+        },
+        {
+          "name": "Ganesh Nagar",
+          "lat": 19.020166,
+          "lng": 72.866207,
+          "part": "main",
+          "stage": "planned",
+          "position": "MMRCL alignment file, station label moved onto the centre line"
+        },
+        {
+          "name": "BPT Hospital",
+          "lat": 19.012616,
+          "lng": 72.862456,
+          "part": "main",
+          "stage": "planned",
+          "position": "MMRCL alignment file, station label moved onto the centre line"
+        },
+        {
+          "name": "Sewri",
+          "lat": 18.998812,
+          "lng": 72.854102,
+          "part": "main",
+          "stage": "planned",
+          "position": "MMRCL alignment file, station label moved onto the centre line"
+        },
+        {
+          "name": "Hay Bunder",
+          "lat": 18.985614,
+          "lng": 72.851465,
+          "part": "main",
+          "stage": "planned",
+          "position": "MMRCL alignment file, station label moved onto the centre line"
+        },
+        {
+          "name": "Darukhana",
+          "lat": 18.978066,
+          "lng": 72.846484,
+          "part": "main",
+          "stage": "planned",
+          "position": "MMRCL alignment file, station label moved onto the centre line"
+        },
+        {
+          "name": "Byculla",
+          "lat": 18.97569,
+          "lng": 72.835111,
+          "part": "main",
+          "stage": "planned",
+          "position": "MMRCL alignment file, station label moved onto the centre line"
+        },
+        {
+          "name": "Nagpada Junction",
+          "lat": 18.967562,
+          "lng": 72.828448,
+          "part": "main",
+          "stage": "planned",
+          "position": "MMRCL alignment file, station label moved onto the centre line"
+        },
+        {
+          "name": "Bhendi Bazaar",
+          "lat": 18.955446,
+          "lng": 72.832207,
+          "part": "main",
+          "stage": "planned",
+          "position": "MMRCL alignment file, station label moved onto the centre line"
+        },
+        {
+          "name": "CSMT Metro",
+          "lat": 18.941353,
+          "lng": 72.834727,
+          "part": "main",
+          "stage": "planned",
+          "position": "MMRCL alignment file, station label moved onto the centre line"
+        },
+        {
+          "name": "Horniman Circle",
+          "lat": 18.932208,
+          "lng": 72.83584,
+          "part": "main",
+          "stage": "planned",
+          "position": "MMRCL alignment file, station label moved onto the centre line"
+        },
+        {
+          "name": "Gateway of India",
+          "lat": 18.925263,
+          "lng": 72.832563,
+          "part": "main",
+          "stage": "planned",
+          "position": "MMRCL alignment file, station label moved onto the centre line"
+        }
+      ]
+    },
+    "line-13": {
+      "sources": {
+        "main": "https://x.com/MMRDAOfficial/status/2094370679206629747",
+        "main_status": "verified",
+        "positions_status": "unverified"
+      },
+      "last_verified": "2026-11-17",
+      "stations": [
+        {
+          "name": "Naigaon",
+          "lat": 19.346207,
+          "lng": 72.841861,
+          "part": "main",
+          "stage": "planned",
+          "underground": false,
+          "position": "indicative, where the label meets the line on MMRDA's route map"
+        },
+        {
+          "name": "Chhatrapati Shivaji Maharaj Chowk",
+          "lat": 19.358081,
+          "lng": 72.855989,
+          "part": "main",
+          "stage": "planned",
+          "underground": false,
+          "position": "indicative, where the label meets the line on MMRDA's route map"
+        },
+        {
+          "name": "Juchandra",
+          "lat": 19.364521,
+          "lng": 72.858148,
+          "part": "main",
+          "stage": "planned",
+          "underground": false,
+          "position": "indicative, where the label meets the line on MMRDA's route map"
+        },
+        {
+          "name": "Rajvali",
+          "lat": 19.37093,
+          "lng": 72.861152,
+          "part": "main",
+          "stage": "planned",
+          "underground": false,
+          "position": "indicative, where the label meets the line on MMRDA's route map"
+        },
+        {
+          "name": "Golani Naka",
+          "lat": 19.37936,
+          "lng": 72.859252,
+          "part": "main",
+          "stage": "planned",
+          "underground": false,
+          "position": "indicative, where the label meets the line on MMRDA's route map"
+        },
+        {
+          "name": "Vasai",
+          "lat": 19.388364,
+          "lng": 72.852507,
+          "part": "main",
+          "stage": "planned",
+          "underground": false,
+          "position": "indicative, where the label meets the line on MMRDA's route map"
+        },
+        {
+          "name": "VVMC Fire Brigade Station",
+          "lat": 19.394773,
+          "lng": 72.847,
+          "part": "main",
+          "stage": "planned",
+          "underground": true,
+          "position": "indicative, where the label meets the line on MMRDA's route map"
+        },
+        {
+          "name": "Achole Gaon",
+          "lat": 19.408544,
+          "lng": 72.832106,
+          "part": "main",
+          "stage": "planned",
+          "underground": true,
+          "position": "indicative, where the label meets the line on MMRDA's route map"
+        },
+        {
+          "name": "Nallasopara East",
+          "lat": 19.420857,
+          "lng": 72.826841,
+          "part": "main",
+          "stage": "planned",
+          "underground": true,
+          "position": "indicative, where the label meets the line on MMRDA's route map"
+        },
+        {
+          "name": "Nallasopara West",
+          "lat": 19.427306,
+          "lng": 72.809384,
+          "part": "main",
+          "stage": "planned",
+          "underground": false,
+          "position": "indicative, where the label meets the line on MMRDA's route map"
+        },
+        {
+          "name": "Morya Nagar",
+          "lat": 19.441319,
+          "lng": 72.810252,
+          "part": "main",
+          "stage": "planned",
+          "underground": false,
+          "position": "indicative, where the label meets the line on MMRDA's route map"
+        },
+        {
+          "name": "Yashwant Nagar",
+          "lat": 19.446504,
+          "lng": 72.810573,
+          "part": "main",
+          "stage": "planned",
+          "underground": false,
+          "position": "indicative, where the label meets the line on MMRDA's route map"
+        },
+        {
+          "name": "Virar",
+          "lat": 19.454235,
+          "lng": 72.80757,
+          "part": "main",
+          "stage": "planned",
+          "underground": false,
+          "position": "indicative, where the label meets the line on MMRDA's route map"
+        },
+        {
+          "name": "VIVA College",
+          "lat": 19.460013,
+          "lng": 72.807838,
+          "part": "main",
+          "stage": "planned",
+          "underground": false,
+          "position": "indicative, where the label meets the line on MMRDA's route map"
+        },
+        {
+          "name": "Yazoo Park",
+          "lat": 19.46521,
+          "lng": 72.809469,
+          "part": "main",
+          "stage": "planned",
+          "underground": false,
+          "position": "indicative, where the label meets the line on MMRDA's route map"
+        },
+        {
+          "name": "Dongarpada",
+          "lat": 19.477019,
+          "lng": 72.813058,
+          "part": "main",
+          "stage": "planned",
+          "underground": false,
+          "position": "indicative, where the label meets the line on MMRDA's route map"
+        }
+      ]
+    },
+    "line-8": {
+      "sources": {
+        "list": "https://www.homebazaar.com/knowledge/?p=25764",
+        "list_status": "unverified",
+        "navi_mumbai": "https://www.freepressjournal.in/mumbai/metro-line-8-to-link-mumbai-navi-mumbai-airports-with-11-stations-across-key-suburbs",
+        "navi_mumbai_status": "reported",
+        "positions_status": "unverified"
+      },
+      "last_verified": "2026-11-17",
+      "stations": [
+        {
+          "name": "CSMIA Terminal 2",
+          "lat": 19.101357,
+          "lng": 72.872593,
+          "part": "main",
+          "stage": "planned",
+          "underground": true,
+          "position": "indicative: OpenStreetMap node 4237791504 (CSMI Airport Terminal 2)"
+        },
+        {
+          "name": "Phoenix Mall",
+          "lat": 19.086278,
+          "lng": 72.889215,
+          "part": "main",
+          "stage": "planned",
+          "underground": true,
+          "position": "indicative: OpenStreetMap way 151889253 (Phoenix Marketcity, Kurla)"
+        },
+        {
+          "name": "SG Barve Marg",
+          "lat": 19.073968,
+          "lng": 72.880715,
+          "part": "main",
+          "stage": "planned",
+          "underground": true,
+          "position": "indicative: Line 2B's SG Barve Marg station point (MMRDA)"
+        },
+        {
+          "name": "Kurla",
+          "lat": 19.065817,
+          "lng": 72.880284,
+          "part": "main",
+          "stage": "planned",
+          "underground": true,
+          "position": "indicative: OpenStreetMap way 122303852 (Kurla railway station)"
+        },
+        {
+          "name": "Lokmanya Tilak Terminus",
+          "lat": 19.069466,
+          "lng": 72.891978,
+          "part": "main",
+          "stage": "planned",
+          "underground": true,
+          "position": "indicative: OpenStreetMap node 6175360983 (Lokmanya Tilak Terminus)"
+        },
+        {
+          "name": "Garodia Nagar",
+          "lat": 19.074133,
+          "lng": 72.908522,
+          "part": "main",
+          "stage": "planned",
+          "underground": true,
+          "position": "indicative: OpenStreetMap node 245667945 (Garodia Nagar)"
+        },
+        {
+          "name": "Baiganwadi",
+          "lat": 19.061898,
+          "lng": 72.924969,
+          "part": "main",
+          "stage": "planned",
+          "underground": false,
+          "position": "indicative: OpenStreetMap way 289795851 (Baiganwadi)"
+        },
+        {
+          "name": "Mankhurd",
+          "lat": 19.047354,
+          "lng": 72.93059,
+          "part": "main",
+          "stage": "planned",
+          "underground": false,
+          "position": "indicative: Line 2B's Mankhurd station point (MMRDA)"
+        },
+        {
+          "name": "ISBT",
+          "lat": 19.056,
+          "lng": 72.958,
+          "part": "main",
+          "stage": "planned",
+          "underground": false,
+          "position": "indicative: No map source; put by the Sion-Panvel Highway on the Mankhurd side of Vashi Creek"
+        },
+        {
+          "name": "Vashi",
+          "lat": 19.063716,
+          "lng": 73.000251,
+          "part": "main",
+          "stage": "planned",
+          "underground": false,
+          "position": "indicative: OpenStreetMap way 1013444814 (Vashi railway station)"
+        },
+        {
+          "name": "Sanpada",
+          "lat": 19.067952,
+          "lng": 73.009393,
+          "part": "main",
+          "stage": "planned",
+          "underground": false,
+          "position": "indicative: OpenStreetMap node 4665010293 (Sanpada railway station stop, on the Sion-Panvel Highway)"
+        },
+        {
+          "name": "Juinagar",
+          "lat": 19.055929,
+          "lng": 73.019155,
+          "part": "main",
+          "stage": "planned",
+          "underground": false,
+          "position": "indicative: OpenStreetMap node 4646739694 (Juinagar railway station stop, on the Sion-Panvel Highway)"
+        },
+        {
+          "name": "LP",
+          "lat": 19.04589,
+          "lng": 73.024486,
+          "part": "main",
+          "stage": "planned",
+          "underground": false,
+          "position": "indicative: OpenStreetMap node 4646678594 (Nerul LP (DY Patil College) bus stop)"
+        },
+        {
+          "name": "Nerul",
+          "lat": 19.03414,
+          "lng": 73.019683,
+          "part": "main",
+          "stage": "planned",
+          "underground": false,
+          "position": "indicative: OpenStreetMap node 4662975890 (Nerul railway station stop, east)"
+        },
+        {
+          "name": "Seawoods",
+          "lat": 19.020367,
+          "lng": 73.018458,
+          "part": "main",
+          "stage": "planned",
+          "underground": false,
+          "position": "indicative: OpenStreetMap node 9861985267 (Seawoods railway station stop)"
+        },
+        {
+          "name": "Apollo",
+          "lat": 19.020577,
+          "lng": 73.029128,
+          "part": "main",
+          "stage": "planned",
+          "underground": false,
+          "position": "indicative: OpenStreetMap way 566277100 (Apollo Hospitals, Navi Mumbai)"
+        },
+        {
+          "name": "Sagar Sangam",
+          "lat": 19.017,
+          "lng": 73.037,
+          "part": "main",
+          "stage": "planned",
+          "underground": false,
+          "position": "indicative: No map source; put behind the NMMC headquarters, CBD Belapur, as Free Press Journal describes"
+        },
+        {
+          "name": "Targhar",
+          "lat": 18.990134,
+          "lng": 73.034402,
+          "part": "main",
+          "stage": "planned",
+          "underground": false,
+          "position": "indicative: OpenStreetMap way 648990356 (Targhar railway station)"
+        },
+        {
+          "name": "NMIA West",
+          "lat": 18.988501,
+          "lng": 73.053977,
+          "part": "main",
+          "stage": "planned",
+          "underground": false,
+          "position": "indicative: OpenStreetMap way 1413816601 (NMIA Terminal 1, the west terminal)"
+        },
+        {
+          "name": "NMIA Terminal 2",
+          "lat": 18.991351,
+          "lng": 73.065748,
+          "part": "main",
+          "stage": "planned",
+          "underground": false,
+          "position": "indicative: No map source for Terminal 2; put at the centre of the airport (OpenStreetMap way 455547086)"
+        }
+      ]
+    }
+  }
+}

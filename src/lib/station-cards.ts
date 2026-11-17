@@ -2,12 +2,14 @@
  * The stations on the hub map, for their names and cards (src/scripts/station-card.ts):
  *   - every tracked line's own stations, from its stations.json, with a station page;
  *   - every running line without a tracker (Lines 1, 2A, 3, 7, Navi Mumbai Line 1), from OpenStreetMap
- *     (src/data/open-stations.json, scripts/build-open-stations.py), linking to the line's record on the hub.
+ *     (src/data/open-stations.json, scripts/build-open-stations.py), linking to the line's record on the hub;
+ *   - planned lines without a tracker (Line 11), from src/data/planned-stations.json (scripts/build-line11.py).
  * Only public, sourced fields, kept short: the card links on for the rest.
  */
 import { lines, getLine, isOpen, changesFor, stationHref, type LineId } from './data';
 import { network } from './network';
 import openStations from '../data/open-stations.json';
+import plannedStations from '../data/planned-stations.json';
 
 export interface StationCard {
   /** "<line id>/<station id>" */
@@ -95,5 +97,31 @@ export function stationCards(): StationCard[] {
       photo: null,
     }));
   });
-  return [...tracked, ...running];
+  // Planned lines without a tracker (Line 11): their stations from src/data/planned-stations.json
+  // (scripts/build-line11.py), linking to the line's record on the hub.
+  const planned = Object.entries(plannedStations.lines).flatMap(([id, route]) => {
+    const l = network.find((x) => x.id === id);
+    if (!l) throw new Error(`planned-stations.json: no line "${id}" in network.json`);
+    const label = `Line ${l.number}`;
+    return route.stations.map((s, i) => ({
+      id: `${id}/${i + 1}`,
+      line: id,
+      label,
+      mark: markOf(id),
+      colour: l.colour ?? null,
+      name: s.name,
+      mr: null,
+      order: i + 1,
+      of: route.stations.length,
+      status: s.stage === 'proposed' ? 'Proposed extension' : 'Planned',
+      open: false,
+      changes: [],
+      href: `/#${id}`,
+      hrefLabel: `About ${label}`,
+      lat: s.lat,
+      lng: s.lng,
+      photo: null,
+    }));
+  });
+  return [...tracked, ...running, ...planned];
 }
