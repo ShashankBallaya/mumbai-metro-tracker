@@ -1,12 +1,12 @@
 {
   "_meta": {
     "description": "Written by scripts/fetch-feed.mjs. Do not edit by hand: add an item's URL to exclude_urls in feed-sources.json to hide it. Items are found automatically and are not checked by a person.",
-    "updated_at": "2026-11-16T06:51:32.176Z",
+    "updated_at": "2026-11-17T21:07:31.477Z",
     "updated_at_by_line": {
       "line-12": "2026-10-15T17:11:33.436Z",
       "line-12a": "2026-10-29T06:02:07.530Z",
-      "line-5": "2026-11-03T19:40:01.432Z",
-      "line-2b": "2026-11-16T06:51:32.176Z",
+      "line-5": "2026-11-17T21:07:31.477Z",
+      "line-2b": "2026-11-17T21:07:31.477Z",
       "line-6": "2026-10-29T06:02:07.530Z",
       "line-9": "2026-11-10T15:12:35.309Z",
       "line-7a": "2026-10-30T22:30:48.988Z",
@@ -14,6 +14,33 @@
     }
   },
   "news": [
+    {
+      "title": "Mumbai Metro Line 5 Gains Momentum With First Train at Kasheli Depot",
+      "outlet": "Urban Acres",
+      "date": "2026-11-18",
+      "url": "https://urbanacres.in/mumbai-metro-line-5-gains-momentum-with-first-train-at-kasheli-depot/",
+      "lines": [
+        "line-5"
+      ]
+    },
+    {
+      "title": "Mumbai Metro-5 gets first train at Kasheli Depot as preparations gather pace",
+      "outlet": "Mid-day",
+      "date": "2026-11-17",
+      "url": "https://www.mid-day.com/mumbai/mumbai-news/article/mumbai-metro-updates-line-5-gets-first-train-at-kasheli-depot-as-preparations-gather-pace-23660300",
+      "lines": [
+        "line-5"
+      ]
+    },
+    {
+      "title": "Rs 10,986-Crore Metro Line 2B Stuck Over Land Dispute With 55-Year-Old Resident",
+      "outlet": "Re-Mumbai",
+      "date": "2026-11-17",
+      "url": "https://remumbai.in/2026/11/17/single-residents-relocation-dispute-holds-up-crucial-185-metre-stretch-of-mumbai-metro-line-2b/",
+      "lines": [
+        "line-2b"
+      ]
+    },
     {
       "title": "Mumbai Metro 2B: MMRDA Races to Install Final Three Girders at Juhu Circle for Andheri West-Saraswat Nagar Stretch",
       "outlet": "Metro Rail News",
