@@ -191,12 +191,12 @@
       "id": "line-13",
       "number": "13",
       "name": "Mira-Bhayandar to Virar",
-      "agency": { "value": "MMRDA", "status": "unverified", "note": "The approval report does not name the agency; MMRDA sought the approval.", "source_url": "https://www.freepressjournal.in/mumbai/mmrda-seeks-state-nod-for-mumbai-metro-13-connecting-mira-bhayandar-virar-project-cost-jumps-88-to-17725-crore-know-how", "last_verified": "2026-10-29" },
+      "agency": { "value": "MMRDA", "status": "verified", "source_url": "https://x.com/MMRDAOfficial/status/2094370679206629747", "last_verified": "2026-11-17" },
       "ends": ["Mira Road", "Virar"],
-      "length_km": { "value": 25.03, "status": "reported", "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-line-13-17725-crore-corridor-connecting-mira-bhayandar-with-vasai-virar-gets-maharashtra-govt-nod", "last_verified": "2026-10-29" },
-      "stations": { "value": 16, "status": "reported", "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-line-13-17725-crore-corridor-connecting-mira-bhayandar-with-vasai-virar-gets-maharashtra-govt-nod", "last_verified": "2026-10-29" },
+      "length_km": { "value": 25.03, "status": "verified", "note": "21.78 km elevated and 3.25 km underground.", "source_url": "https://x.com/MMRDAOfficial/status/2094370679206629747", "last_verified": "2026-11-17" },
+      "stations": { "value": 16, "status": "verified", "note": "13 elevated and 3 underground.", "source_url": "https://x.com/MMRDAOfficial/status/2094370679206629747", "last_verified": "2026-11-17" },
       "parts": [
-        { "name": "Whole line", "stage": "planned", "note": "Approved by the state's Cabinet Infrastructure Committee, Rs 17,724.99 crore (reported 19 Aug 2026); 3.25 km underground; target five years from approval.", "status": "reported", "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-line-13-17725-crore-corridor-connecting-mira-bhayandar-with-vasai-virar-gets-maharashtra-govt-nod", "last_verified": "2026-10-29" }
+        { "name": "Whole line", "stage": "planned", "note": "Approved by the state's Cabinet Infrastructure Committee, Rs 17,724.99 crore (MMRDA, 31 Aug 2026). Through Mira-Bhayandar, Vasai, Naigaon, Nalasopara and Virar, with a 4.92 km road and metro bridge across Vasai Creek. Interchanges with suburban rail at Naigaon, Nalasopara and Virar; a connection with Line 9 at Netaji Subhash Chandra Bose Stadium is proposed. Depot proposed at Chikhal Dongri. Target five years from approval (reported).", "status": "verified", "source_url": "https://x.com/MMRDAOfficial/status/2094370679206629747", "last_verified": "2026-11-17" }
       ]
     },
     {
