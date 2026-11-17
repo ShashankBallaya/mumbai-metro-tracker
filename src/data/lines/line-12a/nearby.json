@@ -188,6 +188,27 @@
           "osm": "node/13703628282"
         }
       ]
+    },
+    "amandoot": {
+      "rail": [
+        {
+          "name": "Taloje Panchanand",
+          "distance_m": 860,
+          "osm": "node/6568083144"
+        }
+      ],
+      "hospital": [
+        {
+          "name": "Al Shifa Multi Speciality Hospital",
+          "distance_m": 580,
+          "osm": "node/7663521039"
+        },
+        {
+          "name": "Ayesha Hospital",
+          "distance_m": 920,
+          "osm": "node/7663521081"
+        }
+      ]
     }
   }
 }

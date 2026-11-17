@@ -464,7 +464,7 @@ function line12a(line: Line): Answer[] {
     {
       id: 'route',
       q: 'What is the route of Metro Line 12A?',
-      a: `${x.route.value}. It is ${p.length_km.value} km long with the link to the car shed, fully elevated, as reported. It runs on Kalyan-Shilphata Road from Manpada to Kalyan Phata, then by Dahisar Mori towards Taloja. MMRDA has published no alignment, so the map on this site is indicative.`,
+      a: `${x.route.value}. It is ${p.length_km.value} km long with the link to the car shed, fully elevated, as reported. It runs on Kalyan-Shilphata Road from Manpada to Kalyan Phata, then by Dahisar Mori to Amandoot in Taloja, as MMRDA's route map shows. MMRDA has published no route file, so the map on this site is indicative.`,
       grades: [
         { status: x.route.status, source: x.route.source_url },
         { status: p.length_km.status, source: p.length_km.source_url },
@@ -474,14 +474,14 @@ function line12a(line: Line): Answer[] {
     {
       id: 'stations',
       q: 'Which stations are on Line 12A?',
-      a: `${stations.length}, all elevated, in order from Manpada: ${stations.map((s) => s.name).join(', ')}, as reported. MMRDA has published no station list or positions. On this site's map, ${list(placed.map((s) => s.name))} sit at their named places; the others are not yet mapped.`,
+      a: `${stations.length}, all elevated, in order from Manpada: ${stations.map((s) => s.name).join(', ')}, as MMRDA's route map of October 2026 shows them. MMRDA has published no station positions. On this site's map, ${list(placed.map((s) => s.name))} sit at their named places; the others are not yet mapped.`,
       grades: [{ status: p.stations_count.status, source: p.stations_count.source_url }],
       more: { href: `${base}stations/`, label: 'All Line 12A stations' },
     },
     {
       id: 'line-12',
       q: 'Is Line 12A the same as Line 12?',
-      a: `No. Line 12 runs from Kalyan to Taloja and is being built. Line 12A is a separate, newer project: it starts at Manpada, a Line 12 station, runs along Kalyan-Shilphata Road to Kalyan Phata, and joins Line 12 again near Khutari village, before Amandoot (Taloja). The interchange with Line 12 is reported at Katai Naka. Its figures are not counted in Line 12's. Between Katai Naka and Kalyan Phata it is reported to share track and stations with the proposed Line 14.`,
+      a: `No. Line 12 runs from Kalyan to Taloja and is being built. Line 12A is a separate, newer project: it starts at Manpada, a Line 12 station, runs along Kalyan-Shilphata Road to Kalyan Phata, and meets Line 12 again at Amandoot (Taloja), its last station. It also meets Line 12 at Katai Naka. Its figures are not counted in Line 12's. Between Katai Naka and Kalyan Phata it is reported to share track and stations with the proposed Line 14.`,
       grades: [
         { status: x.route.status, source: x.route.source_url },
         { status: x.interchanges.status, source: x.interchanges.source_url },
@@ -500,7 +500,7 @@ function line12a(line: Line): Answer[] {
     {
       id: 'interchanges',
       q: 'Where does Line 12A connect to other lines?',
-      a: `${x.interchanges.value.map((i) => `${i.station}: ${i.connects_to}`).join('. ')}. Navi Mumbai Metro Line 1 meets Line 12 at Amandoot, past the point where Line 12A joins it. A spur to the Thane bullet train station is possible, as reported. All as reported; MMRDA has published no interchange list for Line 12A.`,
+      a: `${x.interchanges.value.map((i) => `${i.station}: ${i.connects_to}`).join('. ')}. MMRDA lists these on X (October 2026). A spur to the Thane bullet train station is possible, as reported.`,
       grades: [
         { status: x.interchanges.status, source: x.interchanges.source_url },
         ...x.interchanges.planned.map((i) => ({ status: i.status, source: i.source_url })),

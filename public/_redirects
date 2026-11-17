@@ -9,3 +9,7 @@
 # Line 2B: MMRDA dropped National College station (2023); the site moved it to the dropped stations on 11 Nov 2026.
 /line-2b/stations/national-college/ /line-2b/stations/ 301
 /line-2b/stations/national-college /line-2b/stations/ 301
+
+# Line 12A: MMRDA's route map (31 Oct 2026) has no Growth Centre station; the site dropped it on 17 Nov 2026.
+/line-12a/stations/growth-centre/ /line-12a/stations/ 301
+/line-12a/stations/growth-centre /line-12a/stations/ 301

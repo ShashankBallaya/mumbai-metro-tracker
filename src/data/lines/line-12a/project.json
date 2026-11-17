@@ -1,8 +1,8 @@
 {
   "_meta": {
-    "description": "Headline facts about Mumbai Metro Line 12A (Manpada-Katai Naka to Taloja via Kalyan Phata). MMRDA has published no project page, report or alignment for Line 12A (checked 2026-10-28), so every fact here comes from news reports of the State's approvals of February and October 2026 and is graded reported at best. Line 12A is a separate project from Line 12, and its figures are not counted in Line 12's.",
+    "description": "Headline facts about Mumbai Metro Line 12A (Manpada-Katai Naka to Taloja via Kalyan Phata). MMRDA has published no project page, report or route file for Line 12A (checked 2026-10-28). Its posts on X of 28 and 31 Oct 2026 (a route map, the interchanges, length, stations and cost) are graded verified; the other facts come from news reports of the State's approvals of February and October 2026 and are graded reported at best. Line 12A is a separate project from Line 12, and its figures are not counted in Line 12's.",
     "status_values": "verified: MMRDA says it. reported: a news or trade outlet says it, MMRDA does not (yet). unverified: one weak source, or the site's own drawing. conflicting: sources disagree.",
-    "last_reviewed": "2026-10-28"
+    "last_reviewed": "2026-11-17"
   },
   "name": {
     "value": "Mumbai Metro Line 12A",
@@ -30,14 +30,15 @@
     "notes": "MMRDA has published no colour for Line 12A. The site draws it in Line 12's orange, its own choice (owner, 2026-10-28); the 12A on the mark tells the lines apart."
   },
   "route": {
-    "value": "Manpada-Katai Naka to Taloja via Kalyan Phata, joining Line 12 near Khutari village",
-    "status": "reported",
-    "source_url": "https://www.financialexpress.com/business/infrastructure-mumbai-metro-line-12ars-13856-crore-project-to-connectkalyan-dombivli-navi-mumbai-andcut-travel-time-by-50-4371131/",
-    "last_verified": "2026-10-28",
+    "value": "Manpada-Katai Naka to Amandoot (Taloja) via Kalyan Phata",
+    "status": "verified",
+    "source_url": "https://x.com/MMRDAOfficial/status/2116486575437869115",
+    "last_verified": "2026-11-17",
     "also_see": [
+      "https://x.com/MMMOCL_Official/status/2115474295317283326",
       "https://www.freepressjournal.in/mumbai/metro-12a-extension-approved-at-8414-cr-to-boost-kalyan-connectivity"
     ],
-    "notes": "The line runs on Kalyan-Shilphata Road from Manpada to Kalyan Phata (Shilphata), then by Dahisar Mori towards Taloja, on the Mumbra-Panvel road (NH 48, Swarajya, Feb 2026). It joins Line 12 near Khutari village before Taloja (Amandoot) station (Free Press Journal, Feb 2026). MMRDA has published no alignment, so the map shows an indicative route along those roads."
+    "notes": "MMRDA's route map (on X, 31 Oct 2026) shows twelve stations from Manpada to Amandoot, Line 12's last station, where it meets Navi Mumbai Metro Line 1. The line runs on Kalyan-Shilphata Road from Manpada to Kalyan Phata (Shilphata), then by Dahisar Mori towards Taloja, on the Mumbra-Panvel road (NH 48, Swarajya, Feb 2026). Free Press Journal (Feb 2026) said it joins Line 12 near Khutari village before Amandoot. MMRDA has published no route file, so the map shows an indicative route along those roads."
   },
   "length_km": {
     "value": 18.4,
@@ -47,15 +48,18 @@
     "last_verified": "2026-10-28",
     "context": "Including the link to the car shed (Loksatta, 27 Oct 2026).",
     "notes": "Every report since February 2026 gives 18.4 km. Free Press Journal (20 Feb 2026) says about 10.5 km of it was already under construction then, without saying which part; this may be the stretch shared with Line 12 or Line 14.",
-    "history": []
+    "history": [],
+    "also_see": [
+      "https://x.com/MMMOCL_Official/status/2115474295317283326"
+    ]
   },
   "stations_count": {
     "value": 12,
     "structure": "All elevated",
-    "status": "reported",
-    "source_url": "https://www.financialexpress.com/business/infrastructure-mumbai-metro-line-12ars-13856-crore-project-to-connectkalyan-dombivli-navi-mumbai-andcut-travel-time-by-50-4371131/",
-    "last_verified": "2026-10-28",
-    "context": "Names from Loksatta (27 Oct 2026).",
+    "status": "verified",
+    "source_url": "https://x.com/MMRDAOfficial/status/2116486575437869115",
+    "last_verified": "2026-11-17",
+    "context": "Names and order from MMRDA's route map (31 Oct 2026), Manpada to Amandoot. An earlier news list (Loksatta, 27 Oct 2026) had Growth Centre and no Amandoot.",
     "history": [
       {
         "value": "10 to 12",
@@ -107,27 +111,24 @@
       },
       {
         "station": "Katai Naka to Kalyan Phata",
-        "connects_to": "Metro Line 14 (Kanjurmarg-Badlapur), shared track and stations"
+        "connects_to": "Metro Line 14 (Kanjurmarg-Badlapur)"
+      },
+      {
+        "station": "Amandoot",
+        "connects_to": "Navi Mumbai Metro Line 1, and Metro Line 12"
       }
     ],
-    "status": "reported",
-    "source_url": "https://www.financialexpress.com/business/infrastructure-mumbai-metro-line-12ars-13856-crore-project-to-connectkalyan-dombivli-navi-mumbai-andcut-travel-time-by-50-4371131/",
-    "last_verified": "2026-10-28",
+    "status": "verified",
+    "source_url": "https://x.com/MMMOCL_Official/status/2115474295317283326",
+    "last_verified": "2026-11-17",
     "lines": [
       "Metro Line 12 (Kalyan-Taloja)",
       "Metro Line 14 (Kanjurmarg-Badlapur)",
       "Navi Mumbai Metro Line 1",
       "Mumbai-Ahmedabad bullet train (Thane station)"
     ],
-    "notes": "Financial Express (PTI) also names Amandoot for Navi Mumbai Metro Line 1. Amandoot is Line 12's last station, past the point where Line 12A joins Line 12, so it is not in Line 12A's own station list. Newsband (Oct 2026) also says Line 12A connects with Line 5, without naming a station.",
+    "notes": "MMMOCL and MMRDA on X (28 and 31 Oct 2026) list the interchanges at Katai Naka, between Katai Naka and Kalyan Phata, and at Amandoot. Financial Express (PTI) reports that Line 12A shares track and stations with Line 14 between Katai Naka and Kalyan Phata. Newsband (Oct 2026) also says Line 12A connects with Line 5, without naming a station.",
     "planned": [
-      {
-        "station": "Amandoot (on Line 12)",
-        "connects_to": "Navi Mumbai Metro Line 1",
-        "status": "reported",
-        "source_url": "https://www.financialexpress.com/business/infrastructure-mumbai-metro-line-12ars-13856-crore-project-to-connectkalyan-dombivli-navi-mumbai-andcut-travel-time-by-50-4371131/",
-        "last_verified": "2026-10-28"
-      },
       {
         "station": "A spur, not yet placed",
         "connects_to": "the Thane bullet train station, possible",

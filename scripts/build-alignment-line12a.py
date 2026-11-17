@@ -3,11 +3,12 @@
 # MMRDA has published no alignment file, station points or project page for Line 12A (checked
 # 2026-10-28: its Metro Influence Zone for NOC page lists 11 lines, not 12A). The news reports say
 # the line runs on Kalyan-Shilphata Road from Manpada to Kalyan Phata, then on the Mumbra-Panvel road
-# (NH 48) to Khutari village near Taloja. Until MMRDA publishes a route, this script draws an
+# (NH 48) towards Taloja. MMRDA's route map (on X, 31 Oct 2026) ends it at Amandoot, Line 12's last
+# station. Until MMRDA publishes a route file, this script draws an
 # indicative one (owner's decision, 2026-10-28):
 #   - each station that an open map source names gets a point: its place in OpenStreetMap, moved to
 #     the nearest point on the road the line follows (OSRM's nearest service on OpenStreetMap roads);
-#     Manpada takes Line 12's Manpada station point from MMRDA's approved alignment,
+#     Manpada and Amandoot take Line 12's station points from MMRDA's approved alignment,
 #   - the route line is the road route through those points (OSRM, driving profile), so it follows
 #     the roads, not the viaduct's real line,
 #   - along_m is the distance along that route from Manpada.
@@ -20,7 +21,7 @@ import json
 import math
 import urllib.request
 
-CHECKED = '2026-10-28'
+CHECKED = '2026-11-17'
 STATIONS = 'src/data/lines/line-12a/stations.json'
 LINE12 = 'src/data/lines/line-12/stations.json'
 OUT = 'src/data/lines/line-12a/alignment-indicative.geojson'
@@ -37,6 +38,7 @@ PLACES = [
     ('padle-gaon', {'node': 10247438117, 'what': 'Padle Gaon bus stop', 'road': 'Kalyan - Shil Road'}),
     ('kalyan-phata', {'node': 344399096, 'what': 'Kalyan Phata', 'road': None}),
     ('rohinjan', {'node': 13703628282, 'what': 'Rohinjan bus stop', 'road': None}),
+    ('amandoot', {'line12': 'amandoot'}),
 ]
 
 # A flat projection, good to well under a metre across this short line.
@@ -72,7 +74,7 @@ def main():
         if 'line12' in src:
             loc = line12[src['line12']]['location']
             points.append((sid, loc['lng'], loc['lat'],
-                           "Indicative. Line 12's Manpada station point in MMRDA's approved alignment of 20 Mar 2025. "
+                           f"Indicative. Line 12's {line12[src['line12']]['name']} station point in MMRDA's approved alignment of 20 Mar 2025. "
                            'No source says whether Line 12A uses the same station.', MMRDA_NOC))
             continue
         lng, lat = osm_node(src['node'])
@@ -104,7 +106,7 @@ def main():
         'properties': {
             'note': ('Indicative only. MMRDA has published no route for Line 12A. This line follows the roads the news reports '
                      'name (Kalyan-Shilphata Road from Manpada to Kalyan Phata, then the Mumbra-Panvel road towards Taloja) '
-                     'through the stations that OpenStreetMap names, from Manpada to Rohinjan. It is a road route from OSRM on '
+                     'through the stations that OpenStreetMap names, from Manpada to Amandoot. It is a road route from OSRM on '
                      'OpenStreetMap data, not the viaduct. Built by scripts/build-alignment-line12a.py.'),
             'source_url': 'https://www.openstreetmap.org/copyright',
             'status': 'unverified',
@@ -115,7 +117,7 @@ def main():
         'features': [{
             'type': 'Feature',
             'properties': {'name': 'Line 12A centre line', 'part': 'indicative',
-                           'note': 'Road route from Manpada to Rohinjan through the named places. Not the viaduct.'},
+                           'note': 'Road route from Manpada to Amandoot through the named places. Not the viaduct.'},
             'geometry': {'type': 'LineString', 'coordinates': line},
         }],
     }

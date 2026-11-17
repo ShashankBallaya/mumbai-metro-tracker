@@ -719,33 +719,33 @@
           "Metro 12A",
           "Kalyan Phata-Taloja Metro"
         ],
-        "description": "A planned elevated metro line from Manpada through Katai Naka and Kalyan Phata to Khutari village near Taloja, where it joins Line 12, to be built by MMRDA. Approved by the State in October 2026.",
+        "description": "A planned elevated metro line from Manpada through Katai Naka and Kalyan Phata to Amandoot in Taloja, where it meets Line 12 and Navi Mumbai Metro Line 1, to be built by MMRDA. Approved by the State in October 2026.",
         "same_as": []
       },
       "position_basis": {
         "default": "indicative: the named place in OpenStreetMap, on the road",
         "by_source": {
-          "mmrda.maharashtra.gov.in": "indicative: Line 12's Manpada station point (MMRDA, 2025)"
+          "mmrda.maharashtra.gov.in": "indicative: Line 12's station point (MMRDA, 2025)"
         }
       },
       "copy": {
         "ends": [
           "Manpada",
-          "Khutari"
+          "Amandoot"
         ],
-        "runs": "which will run fully elevated from Manpada along Kalyan-Shilphata Road to Kalyan Phata, then towards Taloja to join Line 12 near Khutari",
+        "runs": "which will run fully elevated from Manpada along Kalyan-Shilphata Road to Kalyan Phata, then towards Taloja to end at Amandoot, on Line 12",
         "station_state": "Planned. Not started.",
-        "stations_section": "All twelve, in order from Manpada, as the news reports list them. MMRDA has published no station list or positions; six stations are not yet on the map. Select a station to ride to it, or open its own page.",
-        "stations_page": "All {total}, in order from Manpada to Khutari Gaon, as reported. Every station is elevated. The line is {km} km long. MMRDA has published no station positions, so the map is indicative.",
-        "stations_page_description": "The {total} planned stations of {name} in order, from Manpada through Katai Naka and Kalyan Phata to Khutari near Taloja, with interchanges and a page for each station.",
-        "route_section": "Twelve stations, Manpada to Khutari Gaon. Scroll to ride the line station by station. MMRDA has published no route: distances follow the roads between the places OpenStreetMap names, and the stations it does not name are spaced evenly.",
+        "stations_section": "All twelve, in order from Manpada to Amandoot, as MMRDA's route map shows them. MMRDA has published no station positions; five stations are not yet on the map. Select a station to ride to it, or open its own page.",
+        "stations_page": "All {total}, in order from Manpada to Amandoot, as MMRDA's route map shows them. Every station is elevated. The line is {km} km long. MMRDA has published no station positions, so the map is indicative.",
+        "stations_page_description": "The {total} planned stations of {name} in order, from Manpada through Katai Naka and Kalyan Phata to Amandoot in Taloja, with interchanges and a page for each station.",
+        "route_section": "Twelve stations, Manpada to Amandoot. Scroll to ride the line station by station. MMRDA has published no route: distances follow the roads between the places OpenStreetMap names, and the stations it does not name are spaced evenly.",
         "route_legend": "A dashed outline marks an indicative route: MMRDA has published none. Construction has not started.",
         "drawn_from": [
           "OpenStreetMap",
           " roads through the named places, an indicative route; MMRDA has published none"
         ],
         "headline_html": "Follow Mumbai Metro Line&nbsp;12A<br> from approval to opening.",
-        "front_standfirst": "The line will run fully elevated from Manpada along Kalyan-Shilphata Road to Kalyan Phata, then by Dahisar Mori to Khutari near Taloja, where it joins Line 12: {stations} stations, as reported. The State cleared it on 27 October 2026. Construction has not started.",
+        "front_standfirst": "The line will run fully elevated from Manpada along Kalyan-Shilphata Road to Kalyan Phata, then by Dahisar Mori to Amandoot in Taloja, where it meets Line 12: {stations} stations, on MMRDA's route map. The State cleared it on 27 October 2026. Construction has not started.",
         "countdown_title": "Days to the reported deadline",
         "target_html": "Deadline: <strong>{target}</strong>, three and a half years from the approval of 27 October 2026, as the site counts it. The State set the deadline; no source gives its start date.",
         "lead_scene": "viaduct",

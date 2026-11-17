@@ -60,7 +60,7 @@ interface AlignmentProps {
 
 /**
  * Distances along the line. Stations without one are spaced evenly between their placed neighbours
- * (one alone sits at the midpoint). Past the last placed station (Line 12A's Khutari), they follow on
+ * (one alone sits at the midpoint). Past the last placed station, they follow on
  * at the line's mean spacing between placed stations.
  */
 function distances(stations: Station[]): { along: number[]; placed: boolean[] } {
