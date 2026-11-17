@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "description": "Pedestrian connectors at MMR interchanges, from the research note INTERCHANGE-CONNECTORS.md (2026-11-17). status: open, built, under construction, tendered, approved, planned, proposed, not given. grade: verified (the agency says it), reported (news), unverified. Ends: metro stations from the site's data; railway and Monorail stations from the map tiles (OpenMapTiles, OpenStreetMap); the BKC bullet train station from context-hsr.geojson. A drawn line joins the two ends in a straight line: it shows which stations a connector joins, not its route. A connector with one known end is a point.",
+    "description": "Pedestrian connectors at MMR interchanges and stations, from the research note INTERCHANGE-CONNECTORS.md (2026-11-17). work_status: open, built, under construction, tendered, approved, planned, proposed, not given. status (the grade): verified (the agency says it), reported (news), unverified. Ends: metro stations from the site's data; railway and Monorail stations from the map tiles (OpenMapTiles, OpenStreetMap); the BKC bullet train station from context-hsr.geojson. A drawn line joins the two ends in a straight line: it shows which stations a connector joins, not its route. A connector with one known end is a point.",
     "research": "INTERCHANGE-CONNECTORS.md",
     "last_verified": "2026-11-17"
   },
@@ -13,10 +13,10 @@
         "Gundavali (Line 7)"
       ],
       "type": "Footbridge",
-      "status": "built",
+      "work_status": "built",
       "agency": "MMRDA",
       "source_date": "2022-11-29",
-      "grade": "reported",
+      "status": "reported",
       "source_url": "https://www.freepressjournal.in/mumbai/mumbai-mmrda-completes-58m-long-fob-linking-2-metro-lines-in-15-days",
       "details": "58 m long, 4 m to 8 m wide. No source we read gives its opening date.",
       "note": null,
@@ -32,7 +32,8 @@
             19.114509
           ]
         ]
-      }
+      },
+      "last_verified": "2026-11-17"
     },
     {
       "id": "ghatkopar-deck",
@@ -42,10 +43,10 @@
         "Ghatkopar (Central)"
       ],
       "type": "Elevated deck and footbridge",
-      "status": "open",
+      "work_status": "open",
       "agency": "MRVC",
       "source_date": "2026-07-24",
-      "grade": "reported",
+      "status": "reported",
       "source_url": "https://www.freepressjournal.in/mumbai/mrvc-opens-new-elevated-deck-and-first-phase-of-south-end-fob-at-ghatkopar-to-ease-congestion-for-commuters",
       "details": "A 55 m deck and the first phase of a 12 m wide south-end footbridge, with a stair straight to the Metro station. More stairs, 6 escalators and 4 lifts later.",
       "note": null,
@@ -61,7 +62,8 @@
             19.08569
           ]
         ]
-      }
+      },
+      "last_verified": "2026-11-17"
     },
     {
       "id": "dahisar-transfer",
@@ -70,10 +72,10 @@
         "Dahisar (East) (Lines 2A, 7, 9)"
       ],
       "type": "Transfer inside the station",
-      "status": "open",
+      "work_status": "open",
       "agency": "MMRDA, MMMOCL",
       "source_date": "2026-04-07",
-      "grade": "reported",
+      "status": "reported",
       "source_url": "https://www.freepressjournal.in/mumbai/mumbai-metro-expansion-dahisar-east-station-emerges-as-key-interchange-for-lines-7-9-2a-step-by-step-guide-for-commuters",
       "details": "Change lines without a new ticket or a new security check.",
       "note": null,
@@ -83,7 +85,8 @@
           72.866659,
           19.250616
         ]
-      }
+      },
+      "last_verified": "2026-11-17"
     },
     {
       "id": "dn-nagar",
@@ -93,10 +96,10 @@
         "Andheri (West) (Line 2A)"
       ],
       "type": "Footbridge",
-      "status": "planned",
+      "work_status": "planned",
       "agency": "MMRDA",
       "source_date": "2020-06-30",
-      "grade": "reported",
+      "status": "reported",
       "source_url": "https://themetrorailguy.com/2020/06/30/mmrda-invites-ddc-bids-for-13-mumbai-metro-interchange-facilities/",
       "details": "In MMRDA's 2020 design tender for 13 interchanges. No later news found.",
       "note": null,
@@ -112,7 +115,8 @@
             19.12913
           ]
         ]
-      }
+      },
+      "last_verified": "2026-11-17"
     },
     {
       "id": "csia-subways",
@@ -121,10 +125,10 @@
         "CSIA (Line 7A)"
       ],
       "type": "Two subways",
-      "status": "under construction",
+      "work_status": "under construction",
       "agency": "MMRDA",
       "source_date": "2026-08-31",
-      "grade": "verified",
+      "status": "verified",
       "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-9/overview",
       "details": "MMRDA's progress table: Subway 1 base slab and wall 100%, Subway 2 wall 77% (31 Aug 2026). The page does not say where the subways lead.",
       "note": null,
@@ -134,7 +138,8 @@
           72.87418,
           19.101479
         ]
-      }
+      },
+      "last_verified": "2026-11-17"
     },
     {
       "id": "jvlr",
@@ -144,12 +149,12 @@
         "Jogeshwari (East) (Line 7)"
       ],
       "type": "Footbridge between the two paid concourses",
-      "status": "planned",
+      "work_status": "tendered",
       "agency": "MMRDA",
-      "source_date": "2022-11-22",
-      "grade": "reported",
+      "source_date": "2024-08-10",
+      "status": "reported",
       "source_url": "https://themetrorailguy.com/2022/11/22/mumbai-metro-line-6s-56m-girders-placed-over-weh-and-line-7/",
-      "details": "About 300 m. It slopes down from Line 6 (33.8 m high) to Line 7 (23.3 m).",
+      "details": "About 300 m, L-shaped, between the two paid concourses. JVLR has two concourse levels, and the footbridge is double-decker. It slopes down from Line 6 (33.8 m high) to Line 7 (23.3 m). Part of MMRDA's Line 6 finishing tender, package 1: five stations plus the Adarsh Nagar and JVLR interchange footbridges, Rs 166 crore (Aug 2024).",
       "note": null,
       "geometry": {
         "type": "LineString",
@@ -163,7 +168,12 @@
             19.14294
           ]
         ]
-      }
+      },
+      "last_verified": "2026-11-17",
+      "also_see": [
+        "https://x.com/RahulChels/status/1822192840597803149",
+        "https://x.com/RahulChels/status/1822191522831270040"
+      ]
     },
     {
       "id": "seepz-aarey",
@@ -173,10 +183,10 @@
         "Aarey JVLR (Line 3)"
       ],
       "type": "Footbridge over JVLR",
-      "status": "tendered",
+      "work_status": "tendered",
       "agency": "MMRDA",
       "source_date": "2025-04-02",
-      "grade": "reported",
+      "status": "reported",
       "source_url": "https://www.freepressjournal.in/mumbai/mmrda-to-build-4341-crore-fob-linking-mumbai-metro-lines-6-3-for-seamless-connectivity",
       "details": "250 m, Rs 43.41 crore, five entries and exits, escalators or lifts. 15 months to build.",
       "note": null,
@@ -192,22 +202,26 @@
             19.13043
           ]
         ]
-      }
+      },
+      "last_verified": "2026-11-17",
+      "also_see": [
+        "https://x.com/RahulChels/status/1907646609095008288"
+      ]
     },
     {
       "id": "jogeshwari-fob",
       "name": "Jogeshwari: Line 6 to Western line",
       "ends": [
         "Jogeshwari (W) (Line 6)",
-        "Jogeshwari (Western)"
+        "Jogeshwari (Western and Harbour)"
       ],
       "type": "Footbridge",
-      "status": "tendered",
+      "work_status": "tendered",
       "agency": "MMRDA",
       "source_date": "2026-10-24",
-      "grade": "reported",
+      "status": "reported",
       "source_url": "https://swarajyamag.com/news-brief/mumbai-metro-6-commuters-to-get-direct-footbridge-links-to-kanjurmarg-and-jogeshwari-railway-stations",
-      "details": "700 m. Tendered on 16 Oct 2026 with the Kanjurmarg footbridge; about Rs 184.7 crore for both. 24 months.",
+      "details": "700 m, east along the road from the Line 6 station to the railway, between the Western and Harbour platforms (tender map). Tendered on 16 Oct 2026 with the Kanjurmarg footbridge; about Rs 184.7 crore for both. 24 months.",
       "note": null,
       "geometry": {
         "type": "LineString",
@@ -217,11 +231,15 @@
             19.14009
           ],
           [
-            72.84894,
-            19.13611
+            72.8492,
+            19.1398
           ]
         ]
-      }
+      },
+      "also_see": [
+        "https://x.com/Maha7Arindam/status/2111539240454742331"
+      ],
+      "last_verified": "2026-11-17"
     },
     {
       "id": "jogeshwari-terminus",
@@ -230,10 +248,10 @@
         "Ram Mandir (Western)"
       ],
       "type": "Skywalk",
-      "status": "proposed",
+      "work_status": "proposed",
       "agency": "Western Railway and MMRDA",
       "source_date": "2026-06-13",
-      "grade": "reported",
+      "status": "reported",
       "source_url": "https://www.freepressjournal.in/fpj-shorts/jogeshwari-terminus-to-get-direct-metro-access-via-skywalk-integrating-rail-with-metro-lines-6-and-7a-2",
       "details": "Links Jogeshwari Terminus and Ram Mandir, with a link to the Goregaon Metro station under consideration. Phase 1 by 2027.",
       "note": null,
@@ -243,29 +261,43 @@
           72.85015,
           19.15102
         ]
-      }
+      },
+      "last_verified": "2026-11-17"
     },
     {
       "id": "kanjurmarg-fob",
-      "name": "Kanjurmarg: Metro to Central line",
+      "name": "Kanjurmarg: Line 6 (Vikhroli) to Central line",
       "ends": [
+        "Vikhroli (EEH) (Line 6)",
         "Kanjur Marg (Central)"
       ],
       "type": "Footbridge with a moving walkway",
-      "status": "tendered",
+      "work_status": "tendered",
       "agency": "MMRDA",
-      "source_date": "2026-10-24",
-      "grade": "reported",
-      "source_url": "https://swarajyamag.com/news-brief/mumbai-metro-6-commuters-to-get-direct-footbridge-links-to-kanjurmarg-and-jogeshwari-railway-stations",
-      "details": "740 m, about Rs 93 crore. Sources disagree on the Metro end: Vikhroli Metro (Line 4), the Line 4 depot, or a Line 6 station.",
-      "note": "Metro end conflicting: drawn as a mark at the railway station only.",
+      "source_date": "2026-10-18",
+      "status": "reported",
+      "source_url": "https://x.com/Maha7Arindam/status/2111539240454742331",
+      "details": "740 m, with a moving walkway, about Rs 93 crore. MMRDA cancelled the first tender in April 2026 (two bids reached the financial stage; none was accepted) and issued a fresh one in October 2026. The first call for bids was in November 2025. The tender drawing runs from Kanjurmarg railway station to Vikhroli Metro Station (Line 6).",
+      "note": "Earlier reports named Line 4's Vikhroli or the Line 4 depot; the tender drawing shows Line 6's Vikhroli (EEH).",
       "geometry": {
-        "type": "Point",
+        "type": "LineString",
         "coordinates": [
-          72.92804,
-          19.12865
+          [
+            72.934999,
+            19.12459
+          ],
+          [
+            72.92804,
+            19.12865
+          ]
         ]
-      }
+      },
+      "also_see": [
+        "https://x.com/Maha7Arindam/status/2111539240454742331",
+        "https://swarajyamag.com/news-brief/mumbai-metro-6-commuters-to-get-direct-footbridge-links-to-kanjurmarg-and-jogeshwari-railway-stations",
+        "https://x.com/RahulChels/status/1994314496278429802"
+      ],
+      "last_verified": "2026-11-17"
     },
     {
       "id": "adarsh-shastri",
@@ -275,12 +307,12 @@
         "Shastri Nagar (Line 2A)"
       ],
       "type": "Footbridge",
-      "status": "planned",
+      "work_status": "tendered",
       "agency": "MMRDA",
-      "source_date": "2020-06-30",
-      "grade": "reported",
-      "source_url": "https://themetrorailguy.com/2020/06/30/mmrda-invites-ddc-bids-for-13-mumbai-metro-interchange-facilities/",
-      "details": "In MMRDA's 2020 design tender. Shastri Nagar is \"Lower Oshiwara\" in OpenStreetMap.",
+      "source_date": "2024-08-10",
+      "status": "unverified",
+      "source_url": "https://x.com/RahulChels/status/1822191522831270040",
+      "details": "L-shaped, joining both stations at concourse level. Shastri Nagar is \"Lower Oshiwara\" in OpenStreetMap and in the post. Part of MMRDA's Line 6 finishing tender, package 1, Rs 166 crore with four other stations and the JVLR footbridge (Aug 2024). Also in the 2020 design tender.",
       "note": null,
       "geometry": {
         "type": "LineString",
@@ -294,7 +326,11 @@
             19.1407
           ]
         ]
-      }
+      },
+      "last_verified": "2026-11-17",
+      "also_see": [
+        "https://themetrorailguy.com/2020/06/30/mmrda-invites-ddc-bids-for-13-mumbai-metro-interchange-facilities/"
+      ]
     },
     {
       "id": "kanjur-gandhi",
@@ -304,10 +340,10 @@
         "Gandhi Nagar (Line 4)"
       ],
       "type": "Common concourse",
-      "status": "planned",
+      "work_status": "planned",
       "agency": "MMRDA",
       "source_date": "2020-06-30",
-      "grade": "reported",
+      "status": "reported",
       "source_url": "https://themetrorailguy.com/2020/06/30/mmrda-invites-ddc-bids-for-13-mumbai-metro-interchange-facilities/",
       "details": "In MMRDA's 2020 design tender.",
       "note": null,
@@ -323,7 +359,8 @@
             19.126585
           ]
         ]
-      }
+      },
+      "last_verified": "2026-11-17"
     },
     {
       "id": "kapurbawdi",
@@ -332,10 +369,10 @@
         "Kapurbawdi (Lines 4 and 5)"
       ],
       "type": "Common station",
-      "status": "under construction",
+      "work_status": "under construction",
       "agency": "MMRDA",
       "source_date": "2026-02-12",
-      "grade": "reported",
+      "status": "reported",
       "source_url": "https://www.freepressjournal.in/mumbai/girder-link-between-metro-4-metro-5-to-be-completed-as-kapurbawadi-obstruction-removed-in-thane",
       "details": "One station for both lines. MMRDA cleared a building that blocked the girder joining Line 5 to Line 4.",
       "note": null,
@@ -345,7 +382,8 @@
           72.977414,
           19.223477
         ]
-      }
+      },
+      "last_verified": "2026-11-17"
     },
     {
       "id": "vikhroli-fob",
@@ -355,12 +393,12 @@
         "Vikhroli (Central)"
       ],
       "type": "Footbridge to the railway skywalk",
-      "status": "tendered",
+      "work_status": "tendered",
       "agency": "MMRDA",
       "source_date": "2025-04-14",
-      "grade": "reported",
+      "status": "reported",
       "source_url": "https://www.constructionworld.in/transport-infrastructure/highways-and-roads-infrastructure/mmrda-enhances-metro-access-with-four-railway-linked-foot-overbridges/71931",
-      "details": "One of four footbridges (Pant Nagar, Vikhroli, Bhandup, Vijay Garden), Rs 129 crore together.",
+      "details": "From Line 4's Vikhroli station on LBS Marg to Vikhroli railway station. One of four Line 4 footbridges tendered in April 2025, Rs 129 crore plus Rs 8 crore for utilities, 15 months.",
       "note": null,
       "geometry": {
         "type": "LineString",
@@ -374,7 +412,12 @@
             19.11148
           ]
         ]
-      }
+      },
+      "last_verified": "2026-11-17",
+      "also_see": [
+        "https://x.com/RahulChels/status/1838465790560834026",
+        "https://x.com/RahulChels/status/1908067183877304404"
+      ]
     },
     {
       "id": "bhandup-fob",
@@ -384,12 +427,12 @@
         "Bhandup (Central)"
       ],
       "type": "Footbridge to the railway skywalk",
-      "status": "tendered",
+      "work_status": "tendered",
       "agency": "MMRDA",
       "source_date": "2025-04-14",
-      "grade": "reported",
+      "status": "reported",
       "source_url": "https://www.constructionworld.in/transport-infrastructure/highways-and-roads-infrastructure/mmrda-enhances-metro-access-with-four-railway-linked-foot-overbridges/71931",
-      "details": "One of four footbridges, Rs 129 crore together.",
+      "details": "A small footbridge to the existing footbridge that leads to Bhandup railway station (MMRDA's station access plan, Sep 2024). One of four Line 4 footbridges tendered in April 2025 (Pant Nagar, Vikhroli, Bhandup, Vijay Garden), Rs 129 crore plus Rs 8 crore for utilities, 15 months.",
       "note": null,
       "geometry": {
         "type": "LineString",
@@ -403,7 +446,12 @@
             19.14276
           ]
         ]
-      }
+      },
+      "last_verified": "2026-11-17",
+      "also_see": [
+        "https://x.com/RahulChels/status/1838469843806245034",
+        "https://x.com/RahulChels/status/1908067183877304404"
+      ]
     },
     {
       "id": "eeh-siddharth",
@@ -413,10 +461,10 @@
         "Siddharth Colony (Line 4)"
       ],
       "type": "Common concourse",
-      "status": "planned",
+      "work_status": "planned",
       "agency": "MMRDA",
       "source_date": "2020-06-30",
-      "grade": "reported",
+      "status": "reported",
       "source_url": "https://themetrorailguy.com/2020/06/30/mmrda-invites-ddc-bids-for-13-mumbai-metro-interchange-facilities/",
       "details": "In MMRDA's 2020 design tender.",
       "note": null,
@@ -432,7 +480,8 @@
             19.060024
           ]
         ]
-      }
+      },
+      "last_verified": "2026-11-17"
     },
     {
       "id": "chembur-mono",
@@ -442,12 +491,12 @@
         "V N Purav Marg (Monorail)"
       ],
       "type": "Footbridge",
-      "status": "under construction",
+      "work_status": "under construction",
       "agency": "MMRDA",
       "source_date": "2026-04-25",
-      "grade": "reported",
+      "status": "reported",
       "source_url": "https://swarajyamag.com/amp/story/news-brief/mumbais-chembur-metro-station-to-open-early-as-line-2b-footfall-stays-low",
-      "details": "MMRDA was building it in April 2026; no source confirms that it is finished.",
+      "details": "MMRDA was building it in April 2026; no source confirms that it is finished. MMRDA's 2023 consultant tender for Line 2B footbridges gives 140 m.",
       "note": null,
       "geometry": {
         "type": "LineString",
@@ -461,7 +510,11 @@
             19.05264
           ]
         ]
-      }
+      },
+      "also_see": [
+        "https://x.com/RahulChels/status/1709412453476618658"
+      ],
+      "last_verified": "2026-11-17"
     },
     {
       "id": "mankhurd",
@@ -471,12 +524,12 @@
         "Mankhurd (Harbour)"
       ],
       "type": "Footbridge",
-      "status": "planned",
+      "work_status": "planned",
       "agency": "MMRDA",
-      "source_date": "2020-06-30",
-      "grade": "reported",
+      "source_date": "2023-10-04",
+      "status": "reported",
       "source_url": "https://themetrorailguy.com/2020/06/30/mmrda-invites-ddc-bids-for-13-mumbai-metro-interchange-facilities/",
-      "details": "In MMRDA's 2020 design tender. No later news found.",
+      "details": "120 m to the Mankhurd suburban station. In MMRDA's 2020 design tender and its 2023 consultant tender for Line 2B footbridges (design and contractor selection 6 months, building 12 months). No later news found.",
       "note": null,
       "geometry": {
         "type": "LineString",
@@ -490,7 +543,11 @@
             19.04821
           ]
         ]
-      }
+      },
+      "also_see": [
+        "https://x.com/RahulChels/status/1709412453476618658"
+      ],
+      "last_verified": "2026-11-17"
     },
     {
       "id": "ilfs-hsr",
@@ -500,10 +557,10 @@
         "BKC (bullet train)"
       ],
       "type": "Interchange facility",
-      "status": "planned",
+      "work_status": "planned",
       "agency": "MMRDA",
       "source_date": "2020-06-30",
-      "grade": "reported",
+      "status": "reported",
       "source_url": "https://themetrorailguy.com/2020/06/30/mmrda-invites-ddc-bids-for-13-mumbai-metro-interchange-facilities/",
       "details": "In MMRDA's 2020 design tender (Phase III). No later news found.",
       "note": null,
@@ -519,7 +576,8 @@
             19.0687
           ]
         ]
-      }
+      },
+      "last_verified": "2026-11-17"
     },
     {
       "id": "mahalaxmi-skywalk",
@@ -530,10 +588,10 @@
         "Mahalaxmi (Line 3)"
       ],
       "type": "Skywalk with travelators and lifts",
-      "status": "under construction",
+      "work_status": "under construction",
       "agency": "MMRDA",
       "source_date": "2026-08-03",
-      "grade": "reported",
+      "status": "reported",
       "source_url": "https://www.constructionworld.in/transport-infrastructure/metro-rail-and-railways-infrastructure/mumbai-to-get-indias-first-travelator-skywalk-linking-transit/95406",
       "details": "283 m long, 11 m wide, six travelators and two lifts, about 4,500 people an hour. Nearly 90% done (Aug 2026); no opening date.",
       "note": "The drawn line joins the three stations; the source gives no route.",
@@ -553,7 +611,8 @@
             18.97947
           ]
         ]
-      }
+      },
+      "last_verified": "2026-11-17"
     },
     {
       "id": "csmt-subway",
@@ -563,10 +622,10 @@
         "CSMT (Central and Harbour)"
       ],
       "type": "Underground subway",
-      "status": "approved",
+      "work_status": "approved",
       "agency": "MMRCL",
       "source_date": "2023-07-24",
-      "grade": "reported",
+      "status": "reported",
       "source_url": "https://swarajyamag.com/infrastructure/mumbai-underground-pedestrian-subway-approved-to-provide-direct-link-between-csmt-and-metro-line-3-stations",
       "details": "365 m, access-controlled. Cost shared by the State and Indian Railways.",
       "note": null,
@@ -582,7 +641,8 @@
             18.94049
           ]
         ]
-      }
+      },
+      "last_verified": "2026-11-17"
     },
     {
       "id": "csmt-bmc",
@@ -591,10 +651,10 @@
         "CSMT (Line 3)"
       ],
       "type": "Underground pathway",
-      "status": "under construction",
+      "work_status": "under construction",
       "agency": "not named",
       "source_date": "2025-07-07",
-      "grade": "reported",
+      "status": "reported",
       "source_url": "https://www.constructionworld.in/transport-infrastructure/metro-rail-and-railways-infrastructure/pathway-linking-bmc-subway-to-aqua-line-3-metro-at-csmt-unveiled/75867",
       "details": "Joins the Metro station to the existing BMC subway. No later news found.",
       "note": null,
@@ -604,7 +664,8 @@
           72.83186,
           18.94083
         ]
-      }
+      },
+      "last_verified": "2026-11-17"
     },
     {
       "id": "santacruz",
@@ -614,10 +675,10 @@
         "Santacruz (Western)"
       ],
       "type": "Skywalk",
-      "status": "open",
+      "work_status": "open",
       "agency": "MMRCL (release)",
       "source_date": "2024-10-14",
-      "grade": "reported",
+      "status": "reported",
       "source_url": "https://swarajyamag.com/infrastructure/mumbai-metro-3-mmrc-unveils-multi-modal-integration-to-provide-seamless-connectivity-for-aqua-line-passengers",
       "details": "An existing skywalk, about 800 m, and an underground crossing under the highway.",
       "note": null,
@@ -633,7 +694,8 @@
             19.08152
           ]
         ]
-      }
+      },
+      "last_verified": "2026-11-17"
     },
     {
       "id": "marol",
@@ -643,10 +705,10 @@
         "Marol Naka (Line 3)"
       ],
       "type": "Staircase",
-      "status": "open",
+      "work_status": "open",
       "agency": "MMRCL",
       "source_date": "2024-10-14",
-      "grade": "reported",
+      "status": "reported",
       "source_url": "https://swarajyamag.com/infrastructure/mumbai-metro-3-mmrc-unveils-multi-modal-integration-to-provide-seamless-connectivity-for-aqua-line-passengers",
       "details": "A new staircase from the nearest Line 1 exit to the Line 3 concourse.",
       "note": null,
@@ -662,7 +724,8 @@
             19.1081
           ]
         ]
-      }
+      },
+      "last_verified": "2026-11-17"
     },
     {
       "id": "t2-fob",
@@ -671,12 +734,12 @@
         "CSMIA T2 (Line 3)"
       ],
       "type": "Footbridge",
-      "status": "open",
+      "work_status": "open",
       "agency": "MMRDA",
-      "source_date": "2025-08-21",
-      "grade": "reported",
-      "source_url": "https://www.constructionworld.in/amp/transport-infrastructure/aviation-and-airport-infra/new-footbridge-links-mumbai-metro-to-csmia-terminal-2/77867",
-      "details": "About 100 m to Lift Entry/Exit A1. The walk falls from about 450 m to 118 m.",
+      "source_date": "2025-08-16",
+      "status": "verified",
+      "source_url": "https://x.com/MMRDAOfficial/status/1956586190133686428",
+      "details": "88 m long, 4.3 m wide, about 23 m above the ground over the Line 7A station works. The walk falls from 450 m to 118 m, with no road to cross.",
       "note": null,
       "geometry": {
         "type": "Point",
@@ -684,7 +747,11 @@
           72.87447,
           19.10234
         ]
-      }
+      },
+      "last_verified": "2026-11-17",
+      "also_see": [
+        "https://www.constructionworld.in/amp/transport-infrastructure/aviation-and-airport-infra/new-footbridge-links-mumbai-metro-to-csmia-terminal-2/77867"
+      ]
     },
     {
       "id": "t1-canopy",
@@ -693,10 +760,10 @@
         "CSMIA T1 (Line 3)"
       ],
       "type": "Covered walkway",
-      "status": "not given",
+      "work_status": "not given",
       "agency": "MMRCL",
       "source_date": "2024-10-14",
-      "grade": "reported",
+      "status": "reported",
       "source_url": "https://swarajyamag.com/infrastructure/mumbai-metro-3-mmrc-unveils-multi-modal-integration-to-provide-seamless-connectivity-for-aqua-line-passengers",
       "details": "Covered canopies for walkers. No length given.",
       "note": null,
@@ -706,7 +773,8 @@
           72.85358,
           19.0939
         ]
-      }
+      },
+      "last_verified": "2026-11-17"
     },
     {
       "id": "bkc-hsr-tunnel",
@@ -716,10 +784,10 @@
         "BKC (bullet train)"
       ],
       "type": "Underground walkway",
-      "status": "proposed",
+      "work_status": "proposed",
       "agency": "MMRCL with NHSRCL",
       "source_date": "2025-07-08",
-      "grade": "reported",
+      "status": "reported",
       "source_url": "https://www.constructionworld.in/transport-infrastructure/metro-rail-and-railways-infrastructure/bkc-may-get-tunnel-linking-metro-line-3-and-bullet-train-terminal/75962",
       "details": "About 1.3 km to 1.4 km, about 12 m deep, under the Vakola nallah. Travelators uncertain.",
       "note": null,
@@ -735,7 +803,456 @@
             19.0687
           ]
         ]
-      }
+      },
+      "last_verified": "2026-11-17"
+    },
+    {
+      "id": "esic-jvpd",
+      "name": "ESIC Nagar to JVPD bus depot",
+      "ends": [
+        "ESIC Nagar (Line 2B)",
+        "JVPD bus depot"
+      ],
+      "type": "Footbridge",
+      "work_status": "planned",
+      "agency": "MMRDA",
+      "source_date": "2023-10-04",
+      "status": "reported",
+      "source_url": "https://x.com/RahulChels/status/1709412453476618658",
+      "details": "175 m. In MMRDA's 2023 consultant tender for Line 2B footbridges. No later news found.",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            72.831793,
+            19.116032
+          ],
+          [
+            72.8292327,
+            19.1163753
+          ]
+        ]
+      },
+      "note": null,
+      "last_verified": "2026-11-17"
+    },
+    {
+      "id": "prem-cooper",
+      "name": "Prem Nagar to Cooper Hospital",
+      "ends": [
+        "Prem Nagar (Line 2B)",
+        "Cooper Hospital"
+      ],
+      "type": "Footbridge",
+      "work_status": "planned",
+      "agency": "MMRDA",
+      "source_date": "2023-10-04",
+      "status": "reported",
+      "source_url": "https://x.com/RahulChels/status/1709412453476618658",
+      "details": "15 m. In MMRDA's 2023 consultant tender for Line 2B footbridges. No later news found.",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            72.837051,
+            19.109229
+          ],
+          [
+            72.836803,
+            19.1076442
+          ]
+        ]
+      },
+      "note": null,
+      "last_verified": "2026-11-17"
+    },
+    {
+      "id": "aarey-oberoi",
+      "name": "Aarey (Line 7) to Oberoi's towers",
+      "ends": [
+        "Aarey (Line 7)",
+        "Oberoi Commerz"
+      ],
+      "type": "Footbridge",
+      "work_status": "open",
+      "agency": "Oberoi Realty (private)",
+      "source_date": "2026-11-05",
+      "status": "unverified",
+      "source_url": "https://x.com/Sahilinfra2/status/2118154700138934438",
+      "details": "Joins the station to the developer's property and to the existing footbridge, so riders need not come down to the road. The entry to the commercial towers was not open yet (5 Nov 2026).",
+      "note": "One post on X only.",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            72.85879,
+            19.16932
+          ],
+          [
+            72.8602744,
+            19.1713321
+          ]
+        ]
+      },
+      "last_verified": "2026-11-17"
+    },
+    {
+      "id": "kurla-rly-2b",
+      "name": "Kurla: railway to Line 2B",
+      "ends": [
+        "Kurla (Central and Harbour)",
+        "Kurla (E) (Line 2B)"
+      ],
+      "type": "Footbridge",
+      "work_status": "tendered",
+      "agency": "MMRDA",
+      "source_date": "2024-10-16",
+      "status": "unverified",
+      "source_url": "https://x.com/RahulChels/status/1846569516232266075",
+      "details": "470 m. Part of MMRDA's Kurla footbridge network, Rs 44.45 crore for four footbridges (bids invited Oct 2024).",
+      "note": "One post on X with the tender drawing. MMRDA's 2023 consultant tender gave 212 m for a Kurla (E) footbridge.",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            72.87937,
+            19.06538
+          ],
+          [
+            72.885061,
+            19.063187
+          ]
+        ]
+      },
+      "last_verified": "2026-11-17"
+    },
+    {
+      "id": "kurla-2b-ltt",
+      "name": "Kurla (E) to LTT",
+      "ends": [
+        "Kurla (E) (Line 2B)",
+        "Lokmanya Tilak Terminus"
+      ],
+      "type": "Footbridge",
+      "work_status": "tendered",
+      "agency": "MMRDA",
+      "source_date": "2024-10-16",
+      "status": "unverified",
+      "source_url": "https://x.com/RahulChels/status/1846569516232266075",
+      "details": "380 m. Part of MMRDA's Kurla footbridge network, Rs 44.45 crore for four footbridges (bids invited Oct 2024).",
+      "note": null,
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            72.885061,
+            19.063187
+          ],
+          [
+            72.8919779,
+            19.0694658
+          ]
+        ]
+      },
+      "last_verified": "2026-11-17"
+    },
+    {
+      "id": "tilaknagar-ltt",
+      "name": "Tilak Nagar to LTT",
+      "ends": [
+        "Tilak Nagar (Harbour)",
+        "Lokmanya Tilak Terminus"
+      ],
+      "type": "Footbridge",
+      "work_status": "tendered",
+      "agency": "MMRDA",
+      "source_date": "2024-10-16",
+      "status": "unverified",
+      "source_url": "https://x.com/RahulChels/status/1846569516232266075",
+      "details": "From the existing Tilak Nagar railway station. Part of MMRDA's Kurla footbridge network, Rs 44.45 crore for four footbridges (bids invited Oct 2024).",
+      "note": null,
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            72.8904702,
+            19.0657855
+          ],
+          [
+            72.8919779,
+            19.0694658
+          ]
+        ]
+      },
+      "last_verified": "2026-11-17"
+    },
+    {
+      "id": "kurla-2b-tilaknagar",
+      "name": "Kurla (E) to Tilak Nagar",
+      "ends": [
+        "Kurla (E) (Line 2B)",
+        "Tilak Nagar (Harbour)"
+      ],
+      "type": "Footbridge",
+      "work_status": "tendered",
+      "agency": "MMRDA",
+      "source_date": "2024-10-16",
+      "status": "unverified",
+      "source_url": "https://x.com/RahulChels/status/1846569516232266075",
+      "details": "Part of MMRDA's Kurla footbridge network, Rs 44.45 crore for four footbridges (bids invited Oct 2024).",
+      "note": null,
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            72.885061,
+            19.063187
+          ],
+          [
+            72.8904702,
+            19.0657855
+          ]
+        ]
+      },
+      "last_verified": "2026-11-17"
+    },
+    {
+      "id": "gandhi-kanjurmarg",
+      "name": "Gandhi Nagar (Line 4) to Kanjurmarg",
+      "ends": [
+        "Gandhi Nagar (Line 4)",
+        "Kanjur Marg (Central)"
+      ],
+      "type": "Footbridge",
+      "work_status": "planned",
+      "agency": "MMRDA",
+      "source_date": "2024-09-24",
+      "status": "unverified",
+      "source_url": "https://x.com/RahulChels/status/1838465790560834026",
+      "details": "A south-side footbridge to Kanjurmarg railway station, and two north-side footbridges across Gandhi Nagar junction, in MMRDA's station access plan. A separate link from the Line 6 (Vikhroli) footbridge.",
+      "note": null,
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            72.925196,
+            19.126585
+          ],
+          [
+            72.92804,
+            19.12865
+          ]
+        ]
+      },
+      "last_verified": "2026-11-17"
+    },
+    {
+      "id": "bandra-2b",
+      "name": "Bandra: Line 2B to Western line",
+      "ends": [
+        "Bandra Metro (Line 2B)",
+        "Bandra (Western)"
+      ],
+      "type": "Footbridge",
+      "work_status": "tendered",
+      "agency": "MMRDA",
+      "source_date": "2025-12-17",
+      "status": "unverified",
+      "source_url": "https://x.com/RahulChels/status/2001160706226524264",
+      "details": "278 m. Rs 41.44 crore, 18 months (bids invited Dec 2025).",
+      "note": null,
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            72.837933,
+            19.053681
+          ],
+          [
+            72.8401435,
+            19.0550693
+          ]
+        ]
+      },
+      "last_verified": "2026-11-17"
+    },
+    {
+      "id": "akurli-kandivali",
+      "name": "Akurli (Line 7) to Kandivali",
+      "ends": [
+        "Akurli (Line 7)",
+        "Kandivali (Western)"
+      ],
+      "type": "Footbridge",
+      "work_status": "tendered",
+      "agency": "MMRDA",
+      "source_date": "2024-08-03",
+      "status": "unverified",
+      "source_url": "https://x.com/RahulChels/status/1819668281348747574",
+      "details": "The north footbridge, 300 m, joins the existing 900 m footbridge to Kandivali (E) railway station. A second, south footbridge crosses the highway (bids invited Aug 2024).",
+      "note": "The drawn line joins the stations through both footbridges; the source gives no route.",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            72.860647,
+            19.198314
+          ],
+          [
+            72.8517376,
+            19.2041136
+          ]
+        ]
+      },
+      "last_verified": "2026-11-17"
+    },
+    {
+      "id": "mulund-naka-bus",
+      "name": "Mulund Naka (Line 4) to Mulund Check Naka bus station",
+      "ends": [
+        "Mulund Naka (Line 4)",
+        "Mulund Check Naka bus station"
+      ],
+      "type": "Footbridge",
+      "work_status": "under construction",
+      "agency": "BMC",
+      "source_date": "2025-06-09",
+      "status": "unverified",
+      "source_url": "https://x.com/Sahilinfra2/status/1931978323292278956",
+      "details": "BMC is building it, with three more entry points to the station.",
+      "note": null,
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            72.950506,
+            19.183333
+          ],
+          [
+            72.9540881,
+            19.1831456
+          ]
+        ]
+      },
+      "last_verified": "2026-11-17"
+    },
+    {
+      "id": "godrej-campus",
+      "name": "Godrej Company (Line 4) to the Godrej campus",
+      "ends": [
+        "Godrej Company (Line 4)"
+      ],
+      "type": "Footbridge",
+      "work_status": "approved",
+      "agency": "MMRDA",
+      "source_date": "2026-07-19",
+      "status": "unverified",
+      "source_url": "https://x.com/bodkeitis/status/2078826877184283042",
+      "details": "For employees and riders to reach the Godrej campus straight from the station. The alignment is not final.",
+      "note": "No final alignment: drawn as a mark at the station.",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9205,
+          19.103118
+        ]
+      },
+      "last_verified": "2026-11-17"
+    },
+    {
+      "id": "golden-nest",
+      "name": "Golden Nest Circle footbridge (Line 9)",
+      "ends": [
+        "Golden Nest Circle"
+      ],
+      "type": "Footbridge with 3 lifts",
+      "work_status": "tendered",
+      "agency": "MMRDA",
+      "source_date": "2025-11-28",
+      "status": "unverified",
+      "source_url": "https://x.com/RahulChels/status/1994307614805774440",
+      "details": "335 m, three lifts, Rs 44.7 crore, along Line 9 in Mira Bhayandar (bids invited Nov 2025).",
+      "note": "The post does not name the station it serves: drawn as a mark at the circle.",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.8580985,
+          19.2956104
+        ]
+      },
+      "last_verified": "2026-11-17"
+    },
+    {
+      "id": "majiwada-fob",
+      "name": "Majiwada (Line 4) footbridge",
+      "ends": [
+        "Majiwada (Line 4)"
+      ],
+      "type": "Footbridge",
+      "work_status": "tendered",
+      "agency": "MMRDA",
+      "source_date": "2024-07-07",
+      "status": "unverified",
+      "source_url": "https://x.com/RahulChels/status/1809978482983936011",
+      "details": "Tendered with the Cadbury Junction footbridge, Rs 77 crore for both (bids invited Jul 2024).",
+      "note": null,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.975724,
+          19.211598
+        ]
+      },
+      "last_verified": "2026-11-17"
+    },
+    {
+      "id": "cadbury-fob",
+      "name": "Cadbury Junction (Line 4) footbridge",
+      "ends": [
+        "Cadbury Junction (Line 4)"
+      ],
+      "type": "Footbridge",
+      "work_status": "tendered",
+      "agency": "MMRDA",
+      "source_date": "2024-07-07",
+      "status": "unverified",
+      "source_url": "https://x.com/RahulChels/status/1809978482983936011",
+      "details": "Tendered with the Majiwada footbridge, Rs 77 crore for both (bids invited Jul 2024).",
+      "note": null,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.970259,
+          19.205955
+        ]
+      },
+      "last_verified": "2026-11-17"
+    },
+    {
+      "id": "teen-hath-naka",
+      "name": "Teen Hath Naka (Line 4) skywalk",
+      "ends": [
+        "Teen Hath Naka (Line 4)"
+      ],
+      "type": "Skywalk",
+      "work_status": "tendered",
+      "agency": "MMRDA",
+      "source_date": "2024-03-15",
+      "status": "unverified",
+      "source_url": "https://x.com/RahulChels/status/1768465356375621796",
+      "details": "Rs 65.37 crore, 15 months (bids invited Mar 2024). A layout drawing was posted on 23 Mar 2024.",
+      "note": null,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.9615376,
+          19.1870711
+        ]
+      },
+      "last_verified": "2026-11-17",
+      "also_see": [
+        "https://x.com/RahulChels/status/1771575958778069065"
+      ]
     }
   ]
 }

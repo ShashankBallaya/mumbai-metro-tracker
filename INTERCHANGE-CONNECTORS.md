@@ -1,5 +1,7 @@
 # Interchange connectors in the MMR
 
+Update 2026-11-17: the Kanjurmarg footbridge's metro end is now settled (Line 6, Vikhroli (EEH)), from the tender drawing.
+
 Research note for the Mumbai Metro Tracker. Date: 2026-11-17. Not yet used on the site.
 
 ## 1. What this is
@@ -78,7 +80,7 @@ Tables are by corridor and agency. Each row has a source we read.
 | SEEPZ Village (Line 6) and Aarey JVLR (Line 3) | FOB over JVLR | 250 m. Rs 43.41 crore. Five entry and exit points, escalators or lifts, CCTV. Bids due 28 Apr 2025. 15 months to build. | tendered | MMRDA | 2 Apr 2025 | reported | https://www.freepressjournal.in/mumbai/mmrda-to-build-4341-crore-fob-linking-mumbai-metro-lines-6-3-for-seamless-connectivity |
 | Jogeshwari (W) (Line 6) and Jogeshwari (Western Railway) | FOB (tender Part B) | 700 m. Tender of 16 Oct 2026, with Part A (Kanjurmarg). Both parts about Rs 184.7 crore. 24 months. | tendered | MMRDA | 24 Oct 2026 | reported | https://swarajyamag.com/news-brief/mumbai-metro-6-commuters-to-get-direct-footbridge-links-to-kanjurmarg-and-jogeshwari-railway-stations |
 | Jogeshwari Terminus and Ram Mandir (Western Railway), with a link to Goregaon Metro station | Skywalk | Proposal "in its final stages". Phase 1 by 2027. A direct Goregaon Metro to Ram Mandir link is "under consideration". WR is also building two 6 m FOBs near the terminus. | proposed | Western Railway and MMRDA | 13 Jun 2026 | reported | https://www.freepressjournal.in/fpj-shorts/jogeshwari-terminus-to-get-direct-metro-access-via-skywalk-integrating-rail-with-metro-lines-6-and-7a-2 |
-| Kanjur Marg (W) (Line 6) / Line 4 and Kanjurmarg (Central Railway) | FOB with a moving walkway, lifts, escalator and CCTV | 740 m. About Rs 93 crore. 18 months after award. Sources disagree on the metro end: Line 4's Vikhroli station (FPJ, Nov 2025), the Line 4 depot at Kanjurmarg (FPJ, Dec 2025), or a "Vikhroli metro station" in the Line 6 tender of 16 Oct 2026 (Swarajya, Part A). | tendered | MMRDA | 28 Nov 2025; 11 Dec 2025; 24 Oct 2026 | reported (end point conflicting) | https://www.freepressjournal.in/mumbai/mumbai-news-mmrda-to-link-vikhroli-metro-kanjurmarg-railway-station-with-pedestrian-bridge ; https://www.freepressjournal.in/mumbai/mumbai-metro-4-update-mmrda-plans-new-bridge-linking-to-kanjurmarg-station-for-seamless-travel ; https://swarajyamag.com/news-brief/mumbai-metro-6-commuters-to-get-direct-footbridge-links-to-kanjurmarg-and-jogeshwari-railway-stations |
+| Vikhroli (EEH) (Line 6) and Kanjurmarg (Central Railway) | FOB with a moving walkway, lifts, escalator and CCTV | 740 m. About Rs 93 crore. MMRDA cancelled the first tender in Apr 2026 (two bids reached the financial stage; none was accepted) and issued a fresh tender in Oct 2026. The tender drawing, posted by Arindam Mahapatra, runs from Kanjurmarg railway station to "Vikhroli Metro Station" (Line 6). Earlier reports named Line 4's Vikhroli or the Line 4 depot. | tendered (fresh tender, Oct 2026) | MMRDA | 18 Oct 2026; 24 Oct 2026 | reported | https://x.com/Maha7Arindam/status/2111539240454742331 ; https://swarajyamag.com/news-brief/mumbai-metro-6-commuters-to-get-direct-footbridge-links-to-kanjurmarg-and-jogeshwari-railway-stations |
 | Adarsh Nagar (Line 6) and Shastri Nagar (Line 2A) | FOB (2020 list, "Type II") | Design only. MMRDA's Line 2A page names Shastri Nagar as the Line 6 interchange; its Line 6 page says "Metro Line 2A at Infinity Mall". | planned (2020 design tender) | MMRDA | 30 Jun 2020 | reported | https://themetrorailguy.com/2020/06/30/mmrda-invites-ddc-bids-for-13-mumbai-metro-interchange-facilities/ |
 | Kanjur Marg (W) (Line 6) and Gandhi Nagar (Line 4) | Common concourse (2020 list, "Type I") | Design only. | planned (2020 design tender) | MMRDA | 30 Jun 2020 | reported | https://themetrorailguy.com/2020/06/30/mmrda-invites-ddc-bids-for-13-mumbai-metro-interchange-facilities/ |
 
@@ -127,13 +129,50 @@ MMRDA invited bids on 30 Jun 2020 (tender Metro-PIU/Metro Interchange Stations/2
 | 4 | JVLR (Lines 7 and 6) | Type II, FOB | about 300 m, planned (TMRG 2022) |
 | 5 | Mankhurd (2B) and Harbour line | Type III, FOB to railway | none |
 | 6 | Vikhroli (4) and Central Railway | Type III, FOB to railway | FOB tendered (Apr 2025) |
-| 7 | Gandhi Nagar (4) and Kanjurmarg (CR) | Type III, FOB to railway | 740 m FOB tendered (end point conflicting) |
+| 7 | Gandhi Nagar (4) and Kanjurmarg (CR) | Type III, FOB to railway | the 740 m FOB now tendered runs to Line 6's Vikhroli (EEH), not Line 4 (tender drawing, Oct 2026) |
 | 8 | Bhandup (4) and Central Railway | Type III, FOB to railway | FOB tendered (Apr 2025) |
 | 9 | EEH (2B) and Siddharth Colony (4) | Type I, common concourse | none |
 | 10 | Gandhi Nagar (4) and Kanjur Marg (6) | Type I, common concourse | none |
 | 11 | Kapurbawdi (4 and 5) | Type I, common concourse | common station under construction |
 | 12 | Chembur (2B) and V N Purav Marg Monorail | Type II, FOB to Monorail | FOB under construction (Apr 2026) |
 | 13 | IL&FS (2B) and the bullet train | Type I, Phase III | none |
+
+### 3.6 Added on 2026-11-17 from posts the owner shared
+
+| Interchange or station | Connector type | Length / details | Status | Agency | Date of source | Grade | Source URL |
+|---|---|---|---|---|---|---|---|
+| ESIC Nagar (Line 2B) and JVPD bus depot | FOB | 175 m. MMRDA's tender for a consultant for the design and project management of footbridges at Line 2B stations (table posted on X). Design and contractor selection 6 months, building 12 months. | planned (consultant tender, Oct 2023) | MMRDA | 4 Oct 2023 | reported | https://x.com/RahulChels/status/1709412453476618658 |
+| Prem Nagar (Line 2B) and Cooper Hospital | FOB | 15 m. Same tender. Not an interchange; a station link. | planned (consultant tender, Oct 2023) | MMRDA | 4 Oct 2023 | reported | https://x.com/RahulChels/status/1709412453476618658 |
+| National College (Line 2B) and Bandra Terminus | FOB | 220 m. Same tender. MMRDA later dropped National College station, so this link is not on the map. | dropped with the station | MMRDA | 4 Oct 2023 | reported | https://x.com/RahulChels/status/1709412453476618658 |
+| Kurla (E) (Line 2B) and Kurla and Tilak Nagar (Central and Harbour), LTT | FOB | 212 m. Same tender. The table gives no route. | planned (consultant tender, Oct 2023) | MMRDA | 4 Oct 2023 | reported | https://x.com/RahulChels/status/1709412453476618658 |
+| Chembur (Line 2B) and V N Purav Marg (Monorail) | FOB | 140 m in the same tender (see 3.3). | see 3.3 | MMRDA | 4 Oct 2023 | reported | https://x.com/RahulChels/status/1709412453476618658 |
+| Mankhurd (Line 2B) and Mankhurd (Harbour) | FOB | 120 m in the same tender (see 3.3). | planned (consultant tender, Oct 2023) | MMRDA | 4 Oct 2023 | reported | https://x.com/RahulChels/status/1709412453476618658 |
+| Aarey (Line 7) and Oberoi's property | FOB | Joins the station to the developer's property and to the existing footbridge. The entry to the commercial towers was not open yet. A station link, not an interchange. | open (Nov 2026) | Oberoi Realty (private) | 5 Nov 2026 | unverified (one post on X) | https://x.com/Sahilinfra2/status/2118154700138934438 |
+| Vikhroli (EEH) (Line 6) and Kanjurmarg (Central) | FOB | The fresh tender drawing (Oct 2026) settles the metro end: Line 6's Vikhroli. The first tender was cancelled in Apr 2026. See 3.2. | tendered | MMRDA | 18 Oct 2026 | reported | https://x.com/Maha7Arindam/status/2111539240454742331 |
+
+### 3.7 Added on 2026-11-17 from a second set of posts the owner shared
+
+Most of these are posts on X that show MMRDA tender notices or drawings. Where only the post says it, the grade is unverified.
+
+| Interchange or station | Connector type | Length / details | Status | Agency | Date of source | Grade | Source URL |
+|---|---|---|---|---|---|---|---|
+| CSMIA T2 (Line 3) and Terminal 2 | FOB | MMRDA's own post: 88 m long, 4.3 m wide, about 23 m up over the Line 7A works; walk from 450 m to 118 m. Updates the row in 3.4. | open | MMRDA | 16 Aug 2025 | verified | https://x.com/MMRDAOfficial/status/1956586190133686428 |
+| Kurla (Central and Harbour), Kurla (E) (Line 2B), LTT and Tilak Nagar | Network of four FOBs | Kurla railway to Line 2B 470 m; Line 2B to LTT 380 m; Tilak Nagar to LTT; Line 2B to Tilak Nagar. Rs 44.45 crore. | tendered (bids invited Oct 2024) | MMRDA | 16 Oct 2024 | unverified | https://x.com/RahulChels/status/1846569516232266075 |
+| Bandra Metro (Line 2B) and Bandra (Western) | FOB | 278 m, Rs 41.44 crore, 18 months. | tendered (Dec 2025) | MMRDA | 17 Dec 2025 | unverified | https://x.com/RahulChels/status/2001160706226524264 |
+| Gandhi Nagar (Line 4) and Kanjurmarg (Central) | FOB, plus two north-side FOBs across Gandhi Nagar junction | MMRDA's station access plan. A separate link from the Line 6 (Vikhroli) footbridge in 3.2. | planned | MMRDA | 24 Sep 2024 | unverified | https://x.com/RahulChels/status/1838465790560834026 |
+| Vikhroli Metro (Line 4) and Vikhroli (Central) | FOB | Drawing of the footbridge from the station on LBS Marg to the railway station. Confirms 3.3. | planned, then tendered (Apr 2025) | MMRDA | 24 Sep 2024 | unverified | https://x.com/RahulChels/status/1838465790560834026 |
+| Bhandup Metro (Line 4) and Bhandup (Central) | Small FOB to the existing FOB | Confirms 3.3. | planned, then tendered (Apr 2025) | MMRDA | 24 Sep 2024 | unverified | https://x.com/RahulChels/status/1838469843806245034 |
+| Pant Nagar, Vikhroli, Bhandup, Vijay Garden (Line 4) | Four FOBs | Rs 129 crore plus Rs 8 crore for utilities, 15 months. Confirms 3.3. | tendered (Apr 2025) | MMRDA | 4 Apr 2025 | unverified | https://x.com/RahulChels/status/1908067183877304404 |
+| Aarey JVLR (Line 3) and SEEPZ (Line 6) | Interchange FOB | 250 m, Rs 43 crore, 15 months. Confirms 3.2. | tendered (Apr 2025) | MMRDA | 3 Apr 2025 | unverified | https://x.com/RahulChels/status/1907646609095008288 |
+| Vikhroli (EEH) (Line 6) and Kanjurmarg (Central) | FOB | 740 m, Rs 93 crore: the first call for bids (Nov 2025) before the cancellation. Confirms 3.2. | tendered | MMRDA | 28 Nov 2025 | unverified | https://x.com/RahulChels/status/1994314496278429802 |
+| Akurli (Line 7) and Kandivali (E) (Western) | Two FOBs | North: 300 m, joins the existing 900 m FOB to Kandivali (E) station. South: across the highway. | tendered (Aug 2024) | MMRDA | 3 Aug 2024 | unverified | https://x.com/RahulChels/status/1819668281348747574 |
+| Mulund Naka (Line 4) and Mulund Check Naka bus station | FOB, plus three entry points | BMC is building it. | under construction (Jun 2025) | BMC | 9 Jun 2025 | unverified | https://x.com/Sahilinfra2/status/1931978323292278956 |
+| Godrej Company (Line 4) and the Godrej campus | FOB | For employees and riders. Alignment not final. | approved | MMRDA | 19 Jul 2026 | unverified | https://x.com/bodkeitis/status/2078826877184283042 |
+| Golden Nest Circle (Line 9, Mira Bhayandar) | FOB with 3 lifts | 335 m, Rs 44.7 crore. The post does not name the station. | tendered (Nov 2025) | MMRDA | 28 Nov 2025 | unverified | https://x.com/RahulChels/status/1994307614805774440 |
+| Majiwada and Cadbury Junction (Line 4) | Two FOBs | Rs 77 crore for both. | tendered (Jul 2024) | MMRDA | 7 Jul 2024 | unverified | https://x.com/RahulChels/status/1809978482983936011 |
+| Teen Hath Naka (Line 4) | Skywalk | Rs 65.37 crore, 15 months. Layout drawing posted 23 Mar 2024. | tendered (Mar 2024) | MMRDA | 15 Mar 2024 | unverified | https://x.com/RahulChels/status/1768465356375621796 ; https://x.com/RahulChels/status/1771575958778069065 |
+| JVLR (Line 6) and Jogeshwari (E) (Line 7) | L-shaped interchange FOB, double-decker | Two concourse levels at the station. In MMRDA's Line 6 finishing tender, package 1 (five stations plus two interchange FOBs, Rs 166 crore). Updates 3.2. | tendered (Aug 2024) | MMRDA | 10 Aug 2024 | unverified | https://x.com/RahulChels/status/1822192840597803149 |
+| Adarsh Nagar (Line 6) and Lower Oshiwara (Shastri Nagar) (Line 2A) | L-shaped interchange FOB at concourse level | Same package. Updates 3.2. | tendered (Aug 2024) | MMRDA | 10 Aug 2024 | unverified | https://x.com/RahulChels/status/1822191522831270040 |
 
 ## 4. Interchanges with no connector found
 

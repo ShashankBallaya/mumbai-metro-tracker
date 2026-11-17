@@ -83,6 +83,31 @@
 }
 .stage.is-live .stage__ctx {
   display: flex;
+  opacity: 1;
+  transition: opacity 0.2s var(--ease-out);
+  @starting-style {
+    opacity: 0;
+  }
+}
+/* The key grows by the Context row: the ground under it grows with it, so place names never cross the key. */
+.stage.is-live .stage__frame::before {
+  height: 6.5rem;
+}
+@media (max-width: 29.99rem) {
+  .stage.is-live .stage__frame::before {
+    height: 7.5rem;
+  }
+  /* On a phone the key is a grid of two stage columns; a third, flexible column lets the Context row span the key's whole width. */
+  .stage.is-live .stage__key {
+    grid-template-columns: repeat(2, max-content) 1fr;
+  }
+  /* The stage strokes stay two by two in the first two columns. */
+  .stage.is-live .stage__key > li:nth-child(odd):not(.stage__ctx) {
+    grid-column: 1;
+  }
+  .stage.is-live .stage__key > li:nth-child(even):not(.stage__ctx) {
+    grid-column: 2;
+  }
 }
 .ctxk {
   display: inline-block;
@@ -102,24 +127,74 @@
   width: 0.9rem;
   border-top: 2px solid var(--ink);
 }
-/* A walkway's card: printed on the paper, square, one rule. */
+/* A walkway's card: printed on the paper, square, one rule. It grows out of the point it belongs to. */
 .conn-pop .maplibregl-popup-content {
   background: var(--paper);
   color: var(--ink);
   border: 1.5px solid var(--ink);
   border-radius: 0;
   padding: var(--s-2) var(--s-3);
+  padding-right: 2.25rem;
   box-shadow: none;
   font-size: 0.86rem;
   line-height: 1.4;
+  transform-origin: 50% 100%;
+  animation: conn-in 0.16s var(--ease-out);
+}
+.conn-pop.maplibregl-popup-anchor-top .maplibregl-popup-content,
+.conn-pop.maplibregl-popup-anchor-top-left .maplibregl-popup-content,
+.conn-pop.maplibregl-popup-anchor-top-right .maplibregl-popup-content {
+  transform-origin: 50% 0;
+}
+.conn-pop.maplibregl-popup-anchor-left .maplibregl-popup-content {
+  transform-origin: 0 50%;
+}
+.conn-pop.maplibregl-popup-anchor-right .maplibregl-popup-content {
+  transform-origin: 100% 50%;
+}
+@keyframes conn-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .conn-pop .maplibregl-popup-content {
+    animation-name: conn-fade;
+  }
+  @keyframes conn-fade {
+    from {
+      opacity: 0;
+    }
+  }
 }
 .conn-pop .maplibregl-popup-tip {
   border-top-color: var(--ink);
   border-bottom-color: var(--ink);
 }
+/* A 32 px target, so a thumb finds it; it answers the press. */
 .conn-pop .maplibregl-popup-close-button {
+  width: 2rem;
+  height: 2rem;
+  top: 0.15rem;
+  right: 0.15rem;
   color: var(--ink);
-  font-size: 1.1rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  border-radius: 0;
+  transition: scale 0.16s var(--ease-out);
+}
+.conn-pop .maplibregl-popup-close-button:active {
+  scale: 0.97;
+}
+.conn-pop .maplibregl-popup-close-button:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: -2px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .conn-pop .maplibregl-popup-close-button:hover {
+    background: color-mix(in srgb, var(--ink) 8%, transparent);
+  }
 }
 .cc h3 {
   font-family: var(--font-display);

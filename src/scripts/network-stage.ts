@@ -83,10 +83,10 @@ interface Conn {
   id: string;
   name: string;
   type: string;
-  status: string;
+  work_status: string;
   agency: string;
   source_date: string;
-  grade: string;
+  status: string;
   source_url: string;
   details: string;
   note: string | null;
@@ -103,16 +103,16 @@ const connMid = (g: Conn['geometry']): [number, number] => {
   const cs = g.coordinates;
   return [cs.reduce((t, c) => t + c[0], 0) / cs.length, cs.reduce((t, c) => t + c[1], 0) / cs.length];
 };
-const connLabel = (c: Conn) => `${c.type.startsWith('Two ') ? 'Subways' : c.type.replace(/ (to|between|over|with) .*/, '')} · ${c.status}`;
-const CONN_LINES: GeoJSON.FeatureCollection = { type: 'FeatureCollection', features: CONNS.filter((c) => c.geometry.type === 'LineString').map((c) => ({ type: 'Feature', properties: { id: c.id, stage: CONN_STAGE[c.status] }, geometry: c.geometry })) };
-const CONN_POINTS: GeoJSON.FeatureCollection = { type: 'FeatureCollection', features: CONNS.map((c) => ({ type: 'Feature', properties: { id: c.id, stage: CONN_STAGE[c.status], one: c.geometry.type === 'Point', label: connLabel(c) }, geometry: { type: 'Point', coordinates: connMid(c.geometry) } })) };
+const connLabel = (c: Conn) => `${c.type.startsWith('Two ') ? 'Subways' : c.type.replace(/ (to|between|over|with) .*/, '')} · ${c.work_status}`;
+const CONN_LINES: GeoJSON.FeatureCollection = { type: 'FeatureCollection', features: CONNS.filter((c) => c.geometry.type === 'LineString').map((c) => ({ type: 'Feature', properties: { id: c.id, stage: CONN_STAGE[c.work_status] }, geometry: c.geometry })) };
+const CONN_POINTS: GeoJSON.FeatureCollection = { type: 'FeatureCollection', features: CONNS.map((c) => ({ type: 'Feature', properties: { id: c.id, stage: CONN_STAGE[c.work_status], one: c.geometry.type === 'Point', label: connLabel(c) }, geometry: { type: 'Point', coordinates: connMid(c.geometry) } })) };
 const CONN_LAYERS = ['conn-open', 'conn-building', 'conn-approved', 'conn-planned', 'conn-one'];
 const esc = (t: string) => t.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
 const connCard = (c: Conn) =>
   `<div class="cc"><div class="cc__kind">${esc(c.type)}</div><h3>${esc(c.name)}</h3>` +
-  `<p class="cc__status">${esc(c.status[0].toUpperCase() + c.status.slice(1))} · ${esc(c.agency)}</p>` +
+  `<p class="cc__status">${esc(c.work_status[0].toUpperCase() + c.work_status.slice(1))} · ${esc(c.agency)}</p>` +
   `<p>${esc(c.details)}</p>${c.note ? `<p class="cc__note">${esc(c.note)}</p>` : ''}` +
-  `<p class="cc__src"><span class="cc__grade">${esc(c.grade)}</span> <a href="${c.source_url}" target="_blank" rel="noopener">${esc(new URL(c.source_url).hostname.replace(/^www\./, ''))}, ${esc(c.source_date)} ↗</a></p>` +
+  `<p class="cc__src"><span class="cc__grade">${esc(c.status)}</span> <a href="${c.source_url}" target="_blank" rel="noopener">${esc(new URL(c.source_url).hostname.replace(/^www\./, ''))}, ${esc(c.source_date)} ↗</a></p>` +
   `<p class="cc__note">The line shows which stations it joins, not its route.</p></div>`;
 
 const km = (a: number[], b: number[]) => Math.hypot((b[0] - a[0]) * Math.cos((a[1] * Math.PI) / 180), b[1] - a[1]) * 111.2;
@@ -285,9 +285,10 @@ function boot(el: HTMLElement) {
         { id: 'building-line', type: 'line', source: 'net', filter: stageIs('under_construction'), layout: { 'line-join': 'round' }, paint: { 'line-color': colourOf, 'line-width': width(...WIDTHS['building-line']), 'line-dasharray': [2.2, 1.1] } },
         { id: 'approved', type: 'line', source: 'net', filter: stageIs('planned'), layout: { 'line-join': 'round' }, paint: { 'line-color': colourOf, 'line-width': width(...WIDTHS.approved), 'line-dasharray': [0.9, 1.3] } },
         { id: 'proposed', type: 'line', source: 'net', filter: stageIs('proposed'), layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': colourOf, 'line-width': width(...WIDTHS.proposed), 'line-dasharray': [0.1, 2] } },
+        // Railway station rings sit under the metro dots: context never covers a line's own station.
+        { id: 'ctx-rail-station', type: 'circle', source: 'omt', 'source-layer': 'poi', minzoom: 11.5, filter: railStation, paint: { 'circle-radius': width(1.5, 3.5), 'circle-color': bg, 'circle-stroke-color': ctx, 'circle-stroke-width': 1.2 } },
         // A dot under the pointer, or chosen, grows and takes its line's colour.
         { id: 'stations', type: 'circle', source: 'dots', minzoom: 11, paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 9, ['case', hot, 5, 1.5], 14, ['case', hot, 9, 4]], 'circle-color': ['case', hot, colourOf, ink], 'circle-stroke-color': ['case', hot, ink, bg], 'circle-stroke-width': ['case', hot, 2.5, 1.5] } },
-        { id: 'ctx-rail-station', type: 'circle', source: 'omt', 'source-layer': 'poi', minzoom: 11.5, filter: railStation, paint: { 'circle-radius': width(1.5, 3.5), 'circle-color': bg, 'circle-stroke-color': ctx, 'circle-stroke-width': 1.2 } },
         { id: 'ctx-hsr-station', type: 'circle', source: 'hsr', filter: isKind('hsr-station'), paint: { 'circle-radius': width(2.5, 5), 'circle-color': bg, 'circle-stroke-color': ctx, 'circle-stroke-width': 1.6 } },
         // Walkways between lines: a casing, then the thread in its stage stroke; a ring where one end only is known.
         { id: 'conn-casing', type: 'line', source: 'conn-lines', minzoom: 12, layout: { 'line-cap': 'round' }, paint: { 'line-color': bg, 'line-width': ['interpolate', ['linear'], ['zoom'], 11, 4, 15, 8] } },
@@ -662,7 +663,10 @@ function boot(el: HTMLElement) {
   });
   // From the keyboard the sheet goes at once: no motion on keyboard actions.
   el.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') closeSheet(true);
+    if (event.key === 'Escape') {
+      closeSheet(true);
+      connPop.remove();
+    }
   });
 
   // ----- Motion: the drawing-in, then the lights -----
