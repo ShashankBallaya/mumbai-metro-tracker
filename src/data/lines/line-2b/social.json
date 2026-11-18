@@ -1,9 +1,19 @@
 {
   "_meta": {
     "description": "Hand-curated X (Twitter) posts, newest first. Each post is printed as a ruled row (date, author, text); X's script loads only when a reader asks for one full post with its photos. 'status' grades the post's claims, not the account: posts by enthusiasts are 'reported' at best; posts by MMRDA and by the line's operator, Maha Mumbai Metro (MMMOCL), are 'verified'. Dates come from the post ID.",
-    "last_reviewed": "2026-11-15"
+    "last_reviewed": "2026-11-18"
   },
   "posts": [
+    {
+      "url": "https://x.com/rajtoday/status/2122987898345857025",
+      "author": "Rajendra B. Aklekar",
+      "handle": "rajtoday",
+      "date": "2026-11-18",
+      "text": "Status of work from LBS Road to the entry into BKC. A short stretch near Kapadia Nagar is still left. Video.",
+      "status": "reported",
+      "source_url": "https://x.com/rajtoday/status/2122987898345857025",
+      "last_verified": "2026-11-18"
+    },
     {
       "url": "https://x.com/manthanmTOI/status/2121848935535018243",
       "author": "Manthan K Mehta",
