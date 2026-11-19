@@ -26,11 +26,14 @@
         "Date Of Issue",
         "Type",
         "- Any - Circular Drawing EOI Invitations IT Hardware List Notice Pre-Bid Meetings Pre-Qualification RFP Tender Corrigendum",
-        "Currently There is no Tenders & Notices.",
+        "Sr. No. | Division | Type | Title | Date of Issue | Valid Upto",
+        "1 | Town and Country Planning | Tender | Corrigendum-10 Extension of closing date of Tender for Lease of Commercial Plots from 'G' Block of BKC (204.27 KB) | 18-Nov-2026 | 1-Dec-2026",
         "Archive Tender and Notices",
         "<a href=\"https://"
       ],
-      "links": {}
+      "links": {
+        "https://mmrda.maharashtra.gov.in/sites/default/files/2026-11/v02_notice_corri_8_date_extn_commercial_plot_tender_14_10_2026.pdf": "Corrigendum-10 Extension of closing date of Tender for Lease of Commercial Plots from 'G' Block of BKC (204.27 KB)"
+      }
     },
     "/en/tenders/tender-notices/archive?field_division_target_id=423": {
       "lines": [],
@@ -218,13 +221,7 @@
       "links": {
         "https://mmrda.maharashtra.gov.in/sites/default/files/2023-05/4a.pdf": "Minutes of Public Consultation meeting environmental and social aspects of the Mumbai Metro Line-4A: (8.9 MB)",
         "https://mmrda.maharashtra.gov.in/sites/default/files/2023-05/4.pdf": "Environmental impact assessment report for proposed construction of 20 piers of approach road and metro spur line to mogharpada (8.9 MB)",
-        "https://mmrda.maharashtra.gov.in/sites/default/files/2023-05/Work%20Permit%20Metro%20Line%204.pdf": "Work Permit Metro Line 4 (8.9 MB)",
-        "https://mmrda.maharashtra.gov.in/sites/default/files/styles/photo_gallery_large_800_650_/public/2021-10/Photo%201_0.jpg": "",
-        "https://mmrda.maharashtra.gov.in/sites/default/files/styles/photo_gallery_large_800_650_/public/2021-10/Photo%202.jpg": "",
-        "https://mmrda.maharashtra.gov.in/sites/default/files/styles/photo_gallery_large_800_650_/public/2021-10/Photo%203.jpg": "",
-        "https://mmrda.maharashtra.gov.in/sites/default/files/styles/photo_gallery_large_800_650_/public/2021-10/Photo%204.jpg": "",
-        "https://mmrda.maharashtra.gov.in/sites/default/files/styles/photo_gallery_large_800_650_/public/2021-10/Photo%205.jpg": "",
-        "https://mmrda.maharashtra.gov.in/sites/default/files/styles/photo_gallery_large_800_650_/public/2021-10/Photo%206.jpg": ""
+        "https://mmrda.maharashtra.gov.in/sites/default/files/2023-05/Work%20Permit%20Metro%20Line%204.pdf": "Work Permit Metro Line 4 (8.9 MB)"
       }
     },
     "/en/projects/transport/metro-line-4-A/metro-line-4": {
