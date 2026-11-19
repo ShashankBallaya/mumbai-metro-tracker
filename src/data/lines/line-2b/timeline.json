@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "Key milestones of Line 2B, oldest first. 'date_precision' is day, month or year. 'kind' is planning, approval, tender, award, construction, related or future. Only events whose source was read are listed.",
-    "last_reviewed": "2026-11-15"
+    "last_reviewed": "2026-11-19"
   },
   "events": [
     {
@@ -234,6 +234,17 @@
       "status": "reported",
       "source_url": "https://indianexpress.com/article/cities/mumbai/mumbai-metro-line-2b-andheri-khar-185-metre-gap-juhu-circle-gulmohar-society-10963441/",
       "last_verified": "2026-11-15"
+    },
+    {
+      "id": "juhu-circle-girders-done",
+      "date": "2026-11-19",
+      "date_precision": "day",
+      "kind": "construction",
+      "title": "All 12 girders in place at Juhu Circle",
+      "summary": "MMRDA reports that all 12 girders at Juhu Circle are erected on Phase 2, the 7.167 km D N Nagar to Saraswat Nagar section with six stations.",
+      "status": "verified",
+      "source_url": "https://x.com/MMRDAOfficial/status/2123432690884223353",
+      "last_verified": "2026-11-19"
     },
     {
       "id": "saraswat-nagar-target",

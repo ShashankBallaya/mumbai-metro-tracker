@@ -1,9 +1,19 @@
 {
   "_meta": {
     "description": "Hand-curated X (Twitter) posts, newest first. Each post is printed as a ruled row (date, author, text); X's script loads only when a reader asks for one full post with its photos. 'status' grades the post's claims, not the account: posts by enthusiasts are 'reported' at best; posts by MMRDA and by the line's operator, Maha Mumbai Metro (MMMOCL), are 'verified'. Dates come from the post ID.",
-    "last_reviewed": "2026-11-18"
+    "last_reviewed": "2026-11-19"
   },
   "posts": [
+    {
+      "url": "https://x.com/MMRDAOfficial/status/2123432690884223353",
+      "author": "MMRDA",
+      "handle": "MMRDAOfficial",
+      "date": "2026-11-19",
+      "text": "All 12 girders at Juhu Circle are now in place on Phase 2, the 7.167 km D N Nagar to Saraswat Nagar section with six stations. It will meet Lines 1 and 2A at D N Nagar, and Khira Nagar station gives access to Santacruz railway station. Video.",
+      "status": "verified",
+      "source_url": "https://x.com/MMRDAOfficial/status/2123432690884223353",
+      "last_verified": "2026-11-19"
+    },
     {
       "url": "https://x.com/Hrishix_/status/2123036041145876673",
       "author": "Hrishi",
