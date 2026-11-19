@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "Written by scripts/fetch-feed.mjs. Do not edit by hand: add an item's URL to exclude_urls in feed-sources.json to hide it. Items are found automatically and are not checked by a person.",
-    "updated_at": "2026-11-18T20:44:51.450Z",
+    "updated_at": "2026-11-19T07:41:45.521Z",
     "updated_at_by_line": {
       "line-12": "2026-10-15T17:11:33.436Z",
       "line-12a": "2026-10-29T06:02:07.530Z",
@@ -10,10 +10,19 @@
       "line-6": "2026-10-29T06:02:07.530Z",
       "line-9": "2026-11-10T15:12:35.309Z",
       "line-7a": "2026-10-30T22:30:48.988Z",
-      "thane-ring": "2026-11-03T19:40:01.432Z"
+      "thane-ring": "2026-11-19T07:41:45.521Z"
     }
   },
   "news": [
+    {
+      "title": "Thane Ring Metro Faces High Court Scrutiny Over Tree Authority",
+      "outlet": "Urban Acres",
+      "date": "2026-11-19",
+      "url": "https://urbanacres.in/thane-ring-metro-faces-high-court-scrutiny-over-tree-authority-ua75195dc135956283/",
+      "lines": [
+        "thane-ring"
+      ]
+    },
     {
       "title": "Metro Line 5 Train Reaches Thane Depot, December Launch Planned",
       "outlet": "Urban Acres",
