@@ -776,7 +776,13 @@
     "status": "verified",
     "source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2026-05/extended_metro_line_5_to_strengthen_connectivity_across_thane_bhiwandi_kalyan_and_ulhasnagar.pdf"
    },
-   "context": [],
+   "context": [
+     {
+       "text": "After Bhoirwadi the line splits. The Ulhasnagar spur leaves on its own viaduct, north of the main line, with three pairs of crossovers so trains can run both ways (MMRDA's general consultant tender CA-328, Nov 2026).",
+       "source_url": "https://mahatenders.gov.in/nicgep/app?page=FrontEndTendersByOrganisation&service=page",
+       "status": "verified"
+     }
+   ],
    "construction_status": {
     "value": "Not started",
     "status": "reported",
@@ -823,7 +829,18 @@
     "status": "verified",
     "source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2026-05/extended_metro_line_5_to_strengthen_connectivity_across_thane_bhiwandi_kalyan_and_ulhasnagar.pdf"
    },
-   "context": [],
+   "context": [
+     {
+       "text": "Before this station, at Bhawani Chowk, the line turns onto Murbad road. MMRDA is building a two-level elevated road in the middle of that road (Palms Water Resort to Jagdish Dughdhalaya and Vitthalwadi, due April 2027), so the metro moves to the southern edge of the road and runs at level 3, above both flyover levels. It returns to the road centre about 630 m before Shivaji Path (MMRDA's tender CA-328, Nov 2026).",
+       "source_url": "https://mahatenders.gov.in/nicgep/app?page=FrontEndTendersByOrganisation&service=page",
+       "status": "verified"
+     },
+     {
+       "text": "Side-platform station on the Kalyan-Murbad road median (MMRDA's tender CA-328, Nov 2026).",
+       "source_url": "https://mahatenders.gov.in/nicgep/app?page=FrontEndTendersByOrganisation&service=page",
+       "status": "verified"
+     }
+   ],
    "construction_status": {
     "value": "Not started",
     "status": "reported",
@@ -875,7 +892,18 @@
     "source_url": "https://mmrda.maharashtra.gov.in/en/projects/transport/metro-line-5/overview",
     "notes": "MMRDA's Line 5 page says the line will connect with Line 12 and the Central Railway. In the revised plan Kalyan is reached by Phase 3, from Durgadi."
    },
-   "context": [],
+   "context": [
+     {
+       "text": "How Line 5 reaches Kalyan: from Shivaji Path it follows the Kalyan-Murbad road median and turns left at Shivaji Chowk, where some properties are affected. A road flyover being built on this road turns towards Kalyan railway station; where the two meet, the metro runs at level 2, above the flyover, on portal frames. Routes along the road edge were dropped because they needed many properties (MMRDA's tender CA-328, Nov 2026).",
+       "source_url": "https://mahatenders.gov.in/nicgep/app?page=FrontEndTendersByOrganisation&service=page",
+       "status": "verified"
+     },
+     {
+       "text": "Line 5 turns left towards Line 12's Kalyan station and joins Line 12's alignment at the end of its corridor. The tender gives two positions for the station: 72.7 m before that end in its table, 72.7 m past it in its text. Kalyan station itself is not in any Line 5 civil tender. Line 12's earlier plan ran along Agra Road after Shivaji Chowk (MMRDA's tender CA-328, Nov 2026).",
+       "source_url": "https://mahatenders.gov.in/nicgep/app?page=FrontEndTendersByOrganisation&service=page",
+       "status": "verified"
+     }
+   ],
    "construction_status": {
     "value": "Not started",
     "status": "reported",
@@ -1057,7 +1085,13 @@
     "status": "verified",
     "source_url": "https://mmrda.maharashtra.gov.in/sites/default/files/2026-05/extended_metro_line_5_to_strengthen_connectivity_across_thane_bhiwandi_kalyan_and_ulhasnagar.pdf"
    },
-   "context": [],
+   "context": [
+     {
+       "text": "Between Bhoirwadi and Shanti Nagar the spur crosses the Kasara railway line and runs along the Waldhuni river, beside MMRDA's elevated road from Palms Water Resort to Vitthalwadi. The spur's civil tender has steel spans over that road ('Valdhuni flyover'), the railway (55 m) and the river (MMRDA's tenders CA-314, Oct 2026, and CA-328, Nov 2026).",
+       "source_url": "https://mahatenders.gov.in/nicgep/app?page=FrontEndTendersByOrganisation&service=page",
+       "status": "verified"
+     }
+   ],
    "construction_status": {
     "value": "Not started",
     "status": "reported",

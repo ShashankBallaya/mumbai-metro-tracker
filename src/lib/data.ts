@@ -15,6 +15,8 @@ type ProjectFile = typeof import('../data/lines/line-12/project.json');
 type StationsFile = typeof import('../data/lines/line-12/stations.json');
 type TimelineFile = typeof import('../data/lines/line-12/timeline.json');
 type TendersFile = typeof import('../data/lines/line-12/tenders.json');
+/** Line 5's Phase 3 and spur from the CA-328 consultant tender (corridor.json): chainages, distances, stretch notes. */
+export type CorridorFile = typeof import('../data/lines/line-5/corridor.json');
 type ContractorsFile = typeof import('../data/lines/line-12/contractors.json');
 type RollingstockFile = typeof import('../data/lines/line-12/rollingstock.json');
 type SocialFile = typeof import('../data/lines/line-12/social.json');
@@ -190,6 +192,8 @@ export interface Line {
   contractors: ContractorsFile['contractors'];
   excludedClaims: ContractorsFile['excluded_claims'];
   rollingstock?: RollingstockFile;
+  /** Station chainages and route notes from a tender, when the line has them (corridor.json). */
+  corridor?: CorridorFile;
   socialPosts: SocialPost[];
   stationPhotos: Record<string, StationPhoto[]>;
   photoPairs: PhotosFile['pairs'];
@@ -265,6 +269,7 @@ export function getLine(id: LineId): Line {
     contractors: contractors?.contractors ?? [],
     excludedClaims: contractors?.excluded_claims ?? [],
     rollingstock,
+    corridor: file<CorridorFile>('corridor.json'),
     socialPosts: (social?.posts ?? []) as SocialPost[],
     stationPhotos: (photos?.stations ?? {}) as Record<string, StationPhoto[]>,
     photoPairs: photos?.pairs ?? [],

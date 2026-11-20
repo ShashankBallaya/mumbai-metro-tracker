@@ -557,13 +557,26 @@
         "https://x.com/Maha7Arindam/status/2029366179580772677",
         "https://x.com/bodkeitis/status/2094307767142244544"
       ],
-      "notes": "Inside MMRDA's 34.21 km total for Line 5, unlike Line 12A. The key plan comes from a consultant tender that was cancelled on 19 Aug 2026, so the route may still change. Shown on the Line 5 page, not on a page of its own (owner's decision, 2026-10-09).",
+      "notes": "Inside MMRDA's 34.21 km total for Line 5, unlike Line 12A. The key plan came from a consultant tender cancelled on 19 Aug 2026; MMRDA's civil tender CA-314 (Oct 2026) and the re-tendered consultant tender CA-328 (20 Nov 2026) follow the same route and chainages. Shown on the Line 5 page, not on a page of its own (owner's decision, 2026-10-09).",
       "length_km": 5.273,
       "stations": [
         "Shanti Nagar",
         "Shivaji Chowk",
         "Ulhasnagar"
       ]
+    },
+    {
+      "name": "Elevated road, Kalyan-Murbad Road (Palms Water Resort) to Badlapur Road (Jagdish Dughdhalaya) to Pune Link Road",
+      "summary": "MMRDA's four-lane (2+2) elevated road along the Waldhuni river, with two rail overbridges over the Karjat and Kasara lines and three junctions: Bhavani Chowk, Jagdish Dughdhalaya and Vitthalwadi. 4.30 km of elevated road with ramps and arms, 1.90 km of slip road. Ashoka Buildcon, Rs 474.10 crore (without GST and provisional sums); work order 11 Oct 2024, 30 months to build, so due about 10 Apr 2027.",
+      "status": "verified",
+      "source_url": "https://mahatenders.gov.in/nicgep/app?page=ResultOfTenders&service=page",
+      "last_verified": "2026-11-20",
+      "notes": "MMRDA's work order ED/KDMC/Waldhuni/WO/.../2024 of 11 Oct 2024, read 20 Nov 2026 (from the portal's Results of Tenders; uploaded 21 May 2025): e-tender 2024_MMRDA_1058714_1 of 25 Jul 2024; letter of acceptance 30 Sep 2024; Rs 474.10 crore; performance guarantee Rs 11.85 crore (2.5%); work starts 11 Oct 2024, 30 months plus 24 months defect liability; PMC Lion Engineering Consultants. The work order names no other bidders. Lengths, junctions, approval cost (Rs 642.98 crore) and progress (physical 11.45%, financial 10.13%; 20 of 194 piers and 13 of 483 girders; land acquisition by KDMC in progress) are from MMRDA project text supplied by the owner, page and date not known (reported). MMRDA's tender CA-328 says Line 5 runs at level 3 above this road's two levels near Bhavani Chowk, on the southern edge of Murbad road; CA-314 has steel spans for the Line 5A spur over the 'Valdhuni flyover'. A plan of the road with its ramps (Ramps 1 to 5, rail overbridge spans 56.25 m over the Kasara line and 51.0 m over the Karjat line) was posted on X by Artful Dodger (@RahulChels) on 13 May 2024.",
+      "also_see": [
+        "https://x.com/RahulChels/status/1789952957712146553"
+      ],
+      "tender_id": "2024_MMRDA_1058714_1",
+      "reference": "ED/KDMC/ERROB/TN2/2024"
     }
   ]
 }

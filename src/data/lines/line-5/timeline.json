@@ -230,6 +230,17 @@
       "last_verified": "2026-11-13"
     },
     {
+      "id": "phase3-gc-retender",
+      "date": "2026-11-20",
+      "date_precision": "day",
+      "kind": "tender",
+      "title": "Consultant tender for Phase 3 and the spur, again",
+      "summary": "MMRDA invites bids again for a general consultant for Durgadi to Kalyan and the Ulhasnagar spur, 7 stations, for 96 months. Bids close mid-December 2026.",
+      "status": "verified",
+      "source_url": "https://mahatenders.gov.in/nicgep/app?page=FrontEndTendersByOrganisation&service=page",
+      "last_verified": "2026-11-20"
+    },
+    {
       "id": "phase1-opening-target",
       "date": "2026-12",
       "date_precision": "month",

@@ -1,0 +1,221 @@
+{
+  "_meta": {
+    "description": "Phase 3 (Durgadi to Kalyan) and the Line 5A spur to Ulhasnagar as MMRDA's general consultant tender CA-328 describes them (Terms of Reference, section 2.2, November 2026). Chainages in metres from each corridor's own zero, as the tender prints them: Phase 3 from the east end of the Ulhas river bridge, the spur from its start past Bhoirwadi. 'from_previous_m' is the tender's inter-station distance. 'kind' is station (on this line), other (a station of another phase or line) or point (a corridor start or end).",
+    "source_url": "https://mahatenders.gov.in/nicgep/app?page=FrontEndTendersByOrganisation&service=page",
+    "status": "verified",
+    "last_reviewed": "2026-11-20",
+    "last_verified": "2026-11-20"
+  },
+  "tender": {
+    "package": "CA-328",
+    "title": "Appointment of General Consultant for Elevated Viaduct of Metro Line-5 (Thane - Bhiwandi - Kalyan) of Mumbai Metro Rail Project for Phase III: Durgadi to Kalyan (Ch: 300.00 m to 6,557.19 m) and Ulhasnagar Spur (Ch: 364.00 m to 5,272.63 m) including Seven (7) Elevated Station and Allied works",
+    "facts": [
+      {
+        "label": "Reference",
+        "value": "MMRDA/MPIU/ML5(III)/GC/CA-328; tender ID 2026_MMRDA_1356857_1"
+      },
+      {
+        "label": "Published",
+        "value": "20 Nov 2026 on the Maharashtra e-procurement portal. It replaces the general consultant tender CA-293, cancelled on 19 Aug 2026."
+      },
+      {
+        "label": "Length",
+        "value": "11.83 km, all elevated: 6,557.19 m from the Ulhas river bridge to Kalyan, and 5,272.63 m of spur to Ulhasnagar"
+      },
+      {
+        "label": "Stations",
+        "value": "7, all elevated with side platforms: Durgadi, Khadakpada, Bhoirwadi and Shivaji Path; Shanti Nagar, Shivaji Chowk and Ulhasnagar on the spur. Kalyan is a Line 12 station."
+      },
+      {
+        "label": "Term",
+        "value": "96 months: 42 for pre-construction and civil works, 42 for system works, 12 for track works"
+      },
+      {
+        "label": "Work",
+        "value": "Tender packaging and documents for the civil and system contracts (rolling stock, track, power, signalling, telecom, fare collection, platform screen doors, solar panels, depots), bid evaluation, proof-checking of designs, site supervision, testing and commissioning. The civil contracts are design and build. Traffic studies for flyovers or ramps that join the metro. Operation and maintenance are not included."
+      },
+      {
+        "label": "Selection",
+        "value": "Least cost, quality based. A bid needs 80 of 100 technical marks. A firm alone, or a joint venture of at most two firms."
+      },
+      {
+        "label": "Who can bid",
+        "value": "Average turnover of Rs 200 crore a year over the last five years; similar consultancy work worth Rs 170 crore (one project), Rs 107 crore (two) or Rs 85 crore (three) in the last ten years; and elevated or underground metro, rail, bridge or road work of 9.46 km (one project), 5.91 km (two) or 4.73 km (three)."
+      },
+      {
+        "label": "Bid security",
+        "value": "Rs 1.30 crore: Rs 13 lakh online, Rs 1.17 crore by bank guarantee"
+      },
+      {
+        "label": "Dates",
+        "value": "Pre-bid meeting 30 Nov 2026, 12:00 noon. Bids close 15 Dec 2026, 5:00 PM (the portal list shows 14 Dec). Technical bids open 16 Dec 2026, 12:00 noon; financial bids 24 Dec 2026, if possible."
+      },
+      {
+        "label": "Estimate",
+        "value": "Not printed. The qualification limits are 80, 50 and 40% of about Rs 213 crore (our working, derived)."
+      }
+    ]
+  },
+  "corridors": [
+    {
+      "id": "phase-3",
+      "name": "Durgadi to Kalyan (Phase 3)",
+      "length_m": 6557.19,
+      "rows": [
+        {
+          "name": "Kon Gaon East (Phase 2)",
+          "chainage_m": -696.09,
+          "from_previous_m": null,
+          "kind": "other",
+          "note": "The tender prints 696.09 without a sign; the station is 696.09 m before the zero."
+        },
+        {
+          "name": "Corridor start",
+          "chainage_m": 0,
+          "from_previous_m": null,
+          "kind": "point"
+        },
+        {
+          "name": "Durgadi",
+          "chainage_m": 550,
+          "from_previous_m": 1246.09,
+          "kind": "station",
+          "station": "durgadi-fort"
+        },
+        {
+          "name": "Khadakpada",
+          "chainage_m": 2060,
+          "from_previous_m": 1510,
+          "kind": "station",
+          "station": "khadakpada"
+        },
+        {
+          "name": "Bhoirwadi",
+          "chainage_m": 3330,
+          "from_previous_m": 1270,
+          "kind": "station",
+          "station": "bhoirwadi"
+        },
+        {
+          "name": "Shivaji Path",
+          "chainage_m": 5290,
+          "from_previous_m": 1960,
+          "kind": "station",
+          "station": "shivaji-path"
+        },
+        {
+          "name": "Kalyan (Line 12)",
+          "chainage_m": 6484.49,
+          "from_previous_m": 1339.89,
+          "kind": "other",
+          "station": "kalyan",
+          "note": "The tender does not agree with itself here. Its table gives chainage 6,484.49, but its distance of 1,339.89 m from Shivaji Path and its text (the corridor 'ends 72.7m ... before Kalyan Station') put the station 72.7 m past the corridor end, at about 6,629.89."
+        },
+        {
+          "name": "Corridor end",
+          "chainage_m": 6557.19,
+          "from_previous_m": 1267.19,
+          "kind": "point",
+          "note": "Joins the Line 12 alignment. Distance from Shivaji Path."
+        }
+      ],
+      "stretches": [
+        {
+          "from": "Corridor start",
+          "to": "Durgadi",
+          "text": "Starts at the east end of the planned Ulhas river bridge, south of the existing road bridge. Follows the Line 5 centre line for 140 m, then turns left onto the Bhiwandi-Murbad road at Durgadi Chowk (curve radius 135 m). The earlier Line 5 design turned right here, onto Agra Road. On the road centre to Durgadi station, near the Kalyan fire brigade."
+        },
+        {
+          "from": "Durgadi",
+          "to": "Khadakpada",
+          "text": "On the median of the Bhiwandi-Murbad road, then a right turn east at ch. 811.759 (radius 122.515 m) onto the Bhiwandi-Kalyan road. On the road centre, so no property is needed. Khadakpada serves dense homes and shops on both sides."
+        },
+        {
+          "from": "Khadakpada",
+          "to": "Bhoirwadi",
+          "text": "A right turn south-west at ch. 2,164.736 (radius 122.515 m), then on the Bhiwandi-Kalyan road median, with two gentle curves (radius 400 m and 2,000 m). Inside the road width, so no property is needed."
+        },
+        {
+          "from": "Bhoirwadi",
+          "to": "Shivaji Path",
+          "text": "On the road centre to Bhawani Chowk (ch. 4,019.061), then a right turn onto Murbad road (radius 122.515 m). The spur to Ulhasnagar leaves at ch. 3,630 on its own viaduct, north of the main line. At Bhawani Chowk the viaduct leaves the road at the sharp turn, placed to clear buildings. MMRDA's elevated road (Palms Water Resort to Vitthalwadi) has two levels in the middle of Murbad road here, so the metro runs on the southern edge of the road or footpath, at level 3. It returns to the road centre from ch. 4,662.962."
+        },
+        {
+          "from": "Shivaji Path",
+          "to": "Kalyan",
+          "text": "On the Kalyan-Murbad road median, with a left turn from ch. 5,411.939 (radius 200 m). A road flyover now being built on this road has ramps from ch. 5,768.754 and its viaduct from ch. 5,880, and turns left towards Kalyan railway station from ch. 5,992.364. Where they meet, the metro runs at level 2 on portal frames. Routes along the road edge were dropped because they needed many properties. From ch. 6,387.706 the metro turns left towards Line 12's Kalyan station and joins Line 12's alignment at ch. 6,557.19. Some properties are affected at the sharp turn at Shivaji Chowk. Line 12's earlier plan ran along Agra Road after Shivaji Chowk."
+        }
+      ]
+    },
+    {
+      "id": "spur",
+      "name": "Ulhasnagar spur (Line 5A)",
+      "length_m": 5272.63,
+      "rows": [
+        {
+          "name": "Bhoirwadi (main line)",
+          "chainage_m": -160,
+          "from_previous_m": null,
+          "kind": "other",
+          "station": "bhoirwadi",
+          "note": "160 m before the spur's zero, as the tender gives it."
+        },
+        {
+          "name": "Spur start",
+          "chainage_m": 0,
+          "from_previous_m": null,
+          "kind": "point"
+        },
+        {
+          "name": "Shanti Nagar",
+          "chainage_m": 2050,
+          "from_previous_m": 2210,
+          "kind": "station",
+          "station": "shanti-nagar"
+        },
+        {
+          "name": "Shivaji Chowk",
+          "chainage_m": 3430,
+          "from_previous_m": 1380,
+          "kind": "station",
+          "station": "shivaji-chowk"
+        },
+        {
+          "name": "Ulhasnagar",
+          "chainage_m": 4680,
+          "from_previous_m": 1250,
+          "kind": "station",
+          "station": "ulhasnagar"
+        },
+        {
+          "name": "Spur end",
+          "chainage_m": 5272.63,
+          "from_previous_m": 592.63,
+          "kind": "point"
+        }
+      ],
+      "stretches": [
+        {
+          "from": "Bhoirwadi",
+          "to": "Shanti Nagar",
+          "text": "Three pairs of crossovers after Bhoirwadi let trains run to and from Ulhasnagar. Over the road carriageway on portal frames, between the Ganesh Ghat bus depot and St Thomas Cathedral. Crosses the Central Railway line to Nashik at spur ch. 800, then follows the bank of the Valdhuni river to keep off open land. Two sharp curves back to back (radius 130 m and 122.515 m, ch. 1,000 to 1,170) bring it onto the Kalyan-Badlapur road median. Designed to avoid MMRDA's elevated road from Bhawani Chowk."
+        },
+        {
+          "from": "Shanti Nagar",
+          "to": "Shivaji Chowk",
+          "text": "On the Kalyan-Badlapur road median, with four curves (radius 2,000, 800, 250 and 300 m). No property is affected."
+        },
+        {
+          "from": "Shivaji Chowk",
+          "to": "Ulhasnagar",
+          "text": "On the Kalyan-Badlapur road median, with one right and two left turns, to Ulhasnagar station at Galaxy mall. Ulhasnagar railway station is about 1 km away; links to it can be planned later."
+        },
+        {
+          "from": "Ulhasnagar",
+          "to": "Spur end",
+          "text": "592.63 m more on the road median. Crossovers at both ends of Ulhasnagar station let trains turn back."
+        }
+      ]
+    }
+  ]
+}

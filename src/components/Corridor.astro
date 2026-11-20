@@ -1,0 +1,221 @@
+---
+import Grade from './Grade.astro';
+import { stationHref, type Line } from '../lib/data';
+
+interface Props {
+  line: Line;
+}
+const { line } = Astro.props;
+const c = line.corridor!;
+/** A chainage or distance in metres as the tender prints it: "6,557.19", "550". Before the zero gets a minus sign. */
+const m = (v: number | null) =>
+  v == null ? null : `${v < 0 ? '−' : ''}${Math.abs(v).toLocaleString('en-IN', { maximumFractionDigits: 3 })}`;
+const href = (id?: string) => (id ? stationHref(line.id, id) : null);
+const km = (v: number) => (v / 1000).toLocaleString('en-IN', { maximumFractionDigits: 2 });
+---
+
+<section id="corridor" class="section page" aria-labelledby="corridor-title">
+  <header class="section-head">
+    <h2 id="corridor-title">To Kalyan and Ulhasnagar</h2>
+    <p>
+      Phase 3 and the Line 5A spur as MMRDA's general consultant tender {c.tender.package} describes them: where each station sits, how far apart the stations are, and how the
+      line runs on each stretch. <Grade status={c._meta.status} source={c._meta.source_url} />
+    </p>
+  </header>
+
+  <dl class="terms">
+    {c.tender.facts.map((f) => (
+      <div class="term">
+        <dt>{f.label}</dt>
+        <dd>{f.value}</dd>
+      </div>
+    ))}
+  </dl>
+
+  {c.corridors.map((k) => (
+    <div class="corridor">
+      <h3 class="corridor__title">
+        {k.name} <span class="corridor__len num">{km(k.length_m)} km</span>
+      </h3>
+      <div class="table-wrap" role="region" aria-label={`${k.name}: stations and chainages`} tabindex="0">
+        <table class="chain">
+          <thead>
+            <tr>
+              <th scope="col">Station or point</th>
+              <th scope="col" class="r">Chainage (m)</th>
+              <th scope="col" class="r">From previous station (m)</th>
+              <th scope="col">Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            {k.rows.map((r) => (
+              <tr class:list={[`is-${r.kind}`]}>
+                <th scope="row" data-label="Station">
+                  {href(r.station) ? <a href={href(r.station)}>{r.name}</a> : r.name}
+                </th>
+                <td data-label="Chainage" class="r num">{m(r.chainage_m)}</td>
+                <td data-label="From previous" class="r num">{m(r.from_previous_m) ?? <span class="nil">-</span>}</td>
+                <td data-label="Note" class="note">{r.note ?? ''}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <ol class="stretches">
+        {k.stretches.map((s) => (
+          <li class="stretch">
+            <span class="stretch__ends">{s.from} to {s.to}</span>
+            <p>{s.text}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  ))}
+</section>
+
+<style>
+  .terms {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+    gap: 0 var(--s-6);
+    margin: 0 0 var(--s-7);
+    border-top: var(--rule-heavy) solid var(--rule-strong);
+  }
+  .term {
+    padding: var(--s-3) 0;
+    border-bottom: var(--rule-w) solid var(--rule);
+  }
+  .term dt {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-3);
+    font-weight: 500;
+  }
+  .term dd {
+    margin: var(--s-1) 0 0;
+    font-size: var(--step--1);
+    line-height: 1.45;
+    color: var(--ink-2);
+  }
+  .corridor + .corridor {
+    margin-top: var(--s-7);
+  }
+  .corridor__title {
+    font-size: var(--step-2);
+    text-transform: uppercase;
+    margin-bottom: var(--s-4);
+  }
+  .corridor__len {
+    color: var(--ink-3);
+    font-weight: 500;
+  }
+  .table-wrap {
+    overflow-x: auto;
+    border-top: var(--rule-heavy) solid var(--rule-strong);
+  }
+  .chain {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--step--1);
+    line-height: 1.4;
+  }
+  .chain th,
+  .chain td {
+    padding: var(--s-3) var(--s-3) var(--s-3) 0;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: var(--rule-w) solid var(--rule);
+  }
+  .chain thead th {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-3);
+    font-weight: 500;
+  }
+  .chain tbody th {
+    font-weight: 700;
+    min-width: 9rem;
+  }
+  .chain .is-point th,
+  .chain .is-other th {
+    font-weight: 400;
+    color: var(--ink-2);
+  }
+  .chain .r {
+    text-align: right;
+    white-space: nowrap;
+  }
+  .chain .note {
+    color: var(--ink-2);
+    min-width: 16rem;
+  }
+  .nil {
+    color: var(--ink-3);
+  }
+  .stretches {
+    margin: var(--s-5) 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: var(--s-4);
+  }
+  .stretch__ends {
+    display: block;
+    font-weight: 700;
+    font-size: var(--step--1);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .stretch p {
+    margin: var(--s-1) 0 0;
+    max-width: 70ch;
+    color: var(--ink-2);
+  }
+
+  /* Phones: each row becomes a labelled block. */
+  @media (max-width: 47.99rem) {
+    .table-wrap {
+      overflow: visible;
+    }
+    .chain,
+    .chain tbody,
+    .chain tr {
+      display: block;
+    }
+    .chain thead {
+      position: absolute;
+      clip: rect(0 0 0 0);
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+    .chain tr {
+      padding-block: var(--s-3);
+      border-bottom: var(--rule-w) solid var(--rule);
+    }
+    .chain tbody th,
+    .chain td {
+      display: grid;
+      grid-template-columns: 7rem minmax(0, 1fr);
+      gap: var(--s-3);
+      min-width: 0 !important;
+      padding: var(--s-1) 0;
+      border: 0;
+      text-align: left !important;
+    }
+    .chain td.note:empty {
+      display: none;
+    }
+    .chain tbody th::before,
+    .chain td::before {
+      content: attr(data-label);
+      color: var(--ink-3);
+      font-weight: 500;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+  }
+</style>

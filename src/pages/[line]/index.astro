@@ -11,6 +11,7 @@ import PlanChanges from '../../components/PlanChanges.astro';
 import Progress from '../../components/Progress.astro';
 import Timeline from '../../components/Timeline.astro';
 import Tenders from '../../components/Tenders.astro';
+import Corridor from '../../components/Corridor.astro';
 import Trains from '../../components/Trains.astro';
 import Stations from '../../components/Stations.astro';
 import StationModel from '../../components/StationModel.astro';
@@ -53,6 +54,7 @@ const schema = [
     {line.plan2017 && <PlanChanges line={line} />}
     <Progress line={line} />
     {line.tenders.length > 0 && <Tenders line={line} />}
+    {line.corridor && <Corridor line={line} />}
     {line.rollingstock && <Trains line={line} />}
     <Stations line={line} />
     <ReaderPhotos line={line} />

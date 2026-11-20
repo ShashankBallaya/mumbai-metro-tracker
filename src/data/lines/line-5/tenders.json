@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "Tenders and contract packages for Line 5, Line 5A included. Values in crore INR. 'tender_status' is floated, bids_opened, awarded, cancelled or unknown. Only packages whose source was read are listed. Notices that MMRDA itself issued (its website, its notices on mahatenders.gov.in, its AIIB procurement notices) are graded verified. Search of 30 Oct 2026: the portal's archive and award lists do not hold Metro PIU's own packages, so most rows come from MMRDA notices or trade press.",
-    "last_reviewed": "2026-11-05"
+    "last_reviewed": "2026-11-20"
   },
   "tenders": [
     {
@@ -285,7 +285,7 @@
       "source_url": "https://mahatenders.gov.in/nicgep/app?page=WebCancelledTenderLists&service=page",
       "reference": "MMRDA/MMRP/L-5A/GC/CA-293",
       "tender_id": "2026_MMRDA_1283742_1",
-      "notes": "On the Maharashtra e-procurement portal's Cancelled list (read 30 Oct 2026): tender ID 2026_MMRDA_1283742_1, published 4 Mar 2026, bids due 25 Aug 2026, opening 28 Aug 2026. Cancelled by a notice dated 19 Aug 2026 (@Maha7Arindam's reply of 31 Aug 2026). First floated in 2025: a photo of MMRDA's newspaper notice, posted by Artful Dodger (@RahulChels) on X on 24 Sep 2025, gives EMD Rs 37 lakh, cost of tender Rs 3,540 including GST, pre-bid meeting 10 Oct 2025, documents from 1 Oct 2025, last date 14 Nov 2025. The 2026 issue's key plan (posted by @Maha7Arindam, 5 Mar 2026) is the source of the Phase 3 and spur route.",
+      "notes": "On the Maharashtra e-procurement portal's Cancelled list (read 30 Oct 2026): tender ID 2026_MMRDA_1283742_1, published 4 Mar 2026, bids due 25 Aug 2026, opening 28 Aug 2026. Cancelled by a notice dated 19 Aug 2026 (@Maha7Arindam's reply of 31 Aug 2026). First floated in 2025: a photo of MMRDA's newspaper notice, posted by Artful Dodger (@RahulChels) on X on 24 Sep 2025, gives EMD Rs 37 lakh, cost of tender Rs 3,540 including GST, pre-bid meeting 10 Oct 2025, documents from 1 Oct 2025, last date 14 Nov 2025. The 2026 issue's key plan (posted by @Maha7Arindam, 5 Mar 2026) is the source of the Phase 3 and spur route. Re-tendered as CA-328 on 20 Nov 2026.",
       "also_see": [
         "https://x.com/RahulChels/status/1970707510278721681",
         "https://x.com/Maha7Arindam/status/2029366179580772677"
@@ -357,6 +357,48 @@
       "stations_matched": ["shivaji-path", "shanti-nagar", "shivaji-chowk", "ulhasnagar"],
       "notes": "MMRDA's notice on the Maharashtra e-procurement portal, published 30 Oct 2026 10:00 AM. Lump-sum, 2 covers. Tender fee Rs 11,800 plus Rs 500 processing. Bid security Rs 6.66 crore (Rs 0.67 crore online, Rs 5.99 crore by bank guarantee). Bid documents read 5 Nov 2026: the tender names all four stations; centres at line ch. 27,820 (Shivaji Maharaj Path), 28,226, 29,606 and 30,856 (spur stations, on the spur's own line chainage). Steel spans over the Valdhuni flyover, the Smart City flyover, the railway (55 m) and the Valdhuni river (62 + 73.5 + 62 m); the road flyover joins the Valdhuni flyover. Kalyan station is not in this package. MMRDA's schedules: Rs 39.24 crore miscellaneous works (Schedule B), Rs 84.58 crore provisional sum for utilities (Schedule C). The tender does not print the estimate; its qualification limits (Rs 1,065.74, 666.09 and 532.87 crore; turnover Rs 399.65 crore) are 80, 50, 40 and 30% of about Rs 1,332 crore (derived, our working). Corrigendum 2 (4 Nov 2026) moved the dates for all three Line 5 civil tenders: pre-bid meeting 20 Nov 2026 3:00 PM at MMRDA, BKC; bids close 8 Dec 2026 3:00 PM; bids open 10 Dec 2026 12:00 noon. 48 months to build from the letter of acceptance: 12 for land, utilities and permissions, then 36 to design and build.",
       "last_verified": "2026-11-05"
+    },
+    {
+      "id": "ca-328",
+      "package": "CA-328",
+      "scope": "General consultant for Phase 3 (Durgadi to Kalyan, Phase 3 ch. 300 to 6,557.19) and the Line 5A spur to Ulhasnagar (spur ch. 364 to 5,272.63): 7 elevated stations and allied works. Tender packaging and documents for the civil and system contracts (rolling stock, track, power, signalling, fare collection, platform screen doors, depots), bid evaluation, proof-checking of designs, site supervision, testing and commissioning",
+      "floated": "2026-11-20",
+      "estimated_value_crore": null,
+      "awarded_value_crore": null,
+      "awarded_to": null,
+      "award_date": null,
+      "duration_months": 96,
+      "tender_status": "floated",
+      "status": "verified",
+      "source_url": "https://mahatenders.gov.in/nicgep/app?page=FrontEndTendersByOrganisation&service=page",
+      "tender_id": "2026_MMRDA_1356857_1",
+      "reference": "MMRDA/MPIU/ML5(III)/GC/CA-328",
+      "chainage_m": [
+        {
+          "part": "Phase 3",
+          "from": 300,
+          "to": 6557.19,
+          "zero": "Phase 3, from the Ulhas river bridge, as in the March 2026 key plan"
+        },
+        {
+          "part": "Spur",
+          "from": 364,
+          "to": 5272.63,
+          "zero": "Line 5A spur, from Bhoirwadi, as in the March 2026 key plan"
+        }
+      ],
+      "stations_matched": [
+        "durgadi-fort",
+        "khadakpada",
+        "bhoirwadi",
+        "shivaji-path",
+        "shanti-nagar",
+        "shivaji-chowk",
+        "ulhasnagar"
+      ],
+      "replaces": "ca-293",
+      "notes": "MMRDA's notice on the Maharashtra e-procurement portal, published 20 Nov 2026 9:00 AM (portal ref MMRDA/MMRP/L-5/Phase III). Tender document (November 2026) read 20 Nov 2026. Re-tender of the cancelled CA-293. Least cost quality based selection; bids need 80 of 100 technical marks; joint ventures of at most two firms. Bid security Rs 1.30 crore (Rs 13 lakh online, Rs 1.17 crore by bank guarantee). Term 96 months: 42 for pre-construction and civil works, 42 for system works, 12 for track works. Dates in the document: pre-bid meeting 30 Nov 2026 12:00 noon; bids close 15 Dec 2026 5:00 PM (the portal list shows 14 Dec 2026 5:00 PM); technical bids open 16 Dec 2026 12:00 noon; financial bids 24 Dec 2026 12:00 noon if possible. Station centres on the Phase 3 chainage: Durgadi 550, Khadakpada 2,060, Bhoirwadi 3,330, Shivaji Path 5,290; Kalyan, a Line 12 station, at 6,484.49 in the table, but 72.7 m past the corridor end (about 6,629.89) by the text and the inter-station distance; Kon Gaon East is 696.09 m before the zero. On the spur: Shanti Nagar 2,050, Shivaji Chowk 3,430, Ulhasnagar 4,680. All seven are side-platform stations. Route notes: the spur leaves on its own viaduct at ch. 3,630, north of the main line; near Bhawani Chowk the metro runs on the southern edge of Murbad road at level 3, above the two levels of MMRDA's elevated road from Palms Water Resort to Vitthalwadi (being built); at the flyover now being built on the Kalyan-Murbad road it runs at level 2 on portal frames; some properties are affected at the sharp turn at Shivaji Chowk. The spur passes between the Ganesh Ghat bus depot and St Thomas Cathedral, crosses the Central Railway line to Nashik at spur ch. 800, follows the Valdhuni river bank, then the Kalyan-Badlapur road median to Ulhasnagar station near Galaxy mall, about 1 km from Ulhasnagar railway station. The tender does not print the estimate; its qualification limits (Rs 170, 107 and 85 crore for one, two or three past projects) are 80, 50 and 40% of about Rs 213 crore (derived, our working). The scoring table in the same document says Rs 172 crore for one project.",
+      "last_verified": "2026-11-20"
     }
   ]
 }
