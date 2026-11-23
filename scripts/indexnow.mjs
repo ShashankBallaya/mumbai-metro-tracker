@@ -57,11 +57,21 @@ console.log(`IndexNow: ${urls.length} page(s)${dryRun ? ' (dry run, not sent)' :
 for (const u of urls) console.log(`  ${u}`);
 if (dryRun) process.exit(0);
 
+// A new deploy takes some seconds to reach every Cloudflare edge; wait (up to 1 minute) until the
+// key file answers, so the engines can check the key when the request comes in.
+const keyUrl = `https://${HOST}/${KEY}.txt`;
+for (let i = 0; i < 12; i++) {
+  const ok = await fetch(`${keyUrl}?check=${Date.now()}`).then((r) => r.ok).catch(() => false);
+  if (ok) break;
+  if (i === 11) console.log('::warning::IndexNow: the key file is not live yet; sending anyway.');
+  else await new Promise((r) => setTimeout(r, 5000));
+}
+
 try {
   const res = await fetch(ENDPOINT, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json; charset=utf-8' },
-    body: JSON.stringify({ host: HOST, key: KEY, keyLocation: `https://${HOST}/${KEY}.txt`, urlList: urls }),
+    body: JSON.stringify({ host: HOST, key: KEY, keyLocation: keyUrl, urlList: urls }),
   });
   // 200 and 202 mean received. 403: key file not found or wrong. 422: a URL is not on the host.
   console.log(`IndexNow: answer ${res.status} ${res.statusText}`);
