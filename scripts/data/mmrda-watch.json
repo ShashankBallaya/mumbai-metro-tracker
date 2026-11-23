@@ -25,11 +25,13 @@
         "Type",
         "- Any - Circular Drawing EOI Invitations IT Hardware List Notice Pre-Bid Meetings Pre-Qualification RFP Tender Corrigendum",
         "Sr. No. | Division | Type | Title | Date of Issue | Valid Upto",
-        "1 | Town and Country Planning | Tender | Corrigendum-10 Extension of closing date of Tender for Lease of Commercial Plots from 'G' Block of BKC (204.07 KB) | 18-Nov-2026 | 1-Dec-2026",
+        "1 | IT Cell | Tender | Purchase of IT Hardware materials for MMRDA Offices (137.87 KB) | 18-Nov-2026 | 25-Nov-2026",
+        "2 | Town and Country Planning | Tender | Corrigendum-10 Extension of closing date of Tender for Lease of Commercial Plots from 'G' Block of BKC (204.07 KB) | 18-Nov-2026 | 1-Dec-2026",
         "Archive Tender and Notices",
         "<a href=\"https://"
       ],
       "links": {
+        "https://mmrda.maharashtra.gov.in/sites/default/files/2026-11/it_hardware_request_website.pdf": "Purchase of IT Hardware materials for MMRDA Offices (137.87 KB)",
         "https://mmrda.maharashtra.gov.in/sites/default/files/2026-11/v02_notice_corri_10_date_extn_com._plot_tender_18_11_2026.pdf": "Corrigendum-10 Extension of closing date of Tender for Lease of Commercial Plots from 'G' Block of BKC (204.07 KB)"
       }
     },
@@ -138,7 +140,7 @@
         "1 | Pile Cap | 100 % completed",
         "2 | Pier Works | 99% completed",
         "3 | Pier Cap/ Portal Beam | 99% completed",
-        "4 | U/ I Girder Works | 90% completed",
+        "4 | U/ I Girder Works | 93% completed",
         "5 | Mandale Depot works | 100% completed",
         "Work permit Metro Line 2B",
         "IEE Mumbai Metro Rail Systems",
@@ -194,8 +196,8 @@
         "3 | U Girder Erection | 94% completed",
         "4 | I Girder Erection | 97% completed",
         "5 | Deck Slab | 92% completed",
-        "6 | L Girder Erection | 96% completed",
-        "7 | T Girder Erection | 98% completed",
+        "6 | L Girder Erection | 97% completed",
+        "7 | T Girder Erection | 99% completed",
         "8 | RCC Beam Erection | 97% completed",
         "9 | Portal Beam Erection | 93% completed",
         "Minutes of Public Consultation meeting environmental and social aspects of the Mumbai Metro Line-4A: (8.9 MB)",
@@ -219,12 +221,12 @@
         "https://mmrda.maharashtra.gov.in/sites/default/files/2023-05/4a.pdf": "Minutes of Public Consultation meeting environmental and social aspects of the Mumbai Metro Line-4A: (8.9 MB)",
         "https://mmrda.maharashtra.gov.in/sites/default/files/2023-05/4.pdf": "Environmental impact assessment report for proposed construction of 20 piers of approach road and metro spur line to mogharpada (8.9 MB)",
         "https://mmrda.maharashtra.gov.in/sites/default/files/2023-05/Work%20Permit%20Metro%20Line%204.pdf": "Work Permit Metro Line 4 (8.9 MB)",
-        "https://mmrda.maharashtra.gov.in/sites/default/files/styles/photo_gallery_large_800_650_/public/2021-10/Photo%201_0.jpg": "",
-        "https://mmrda.maharashtra.gov.in/sites/default/files/styles/photo_gallery_large_800_650_/public/2021-10/Photo%202.jpg": "",
-        "https://mmrda.maharashtra.gov.in/sites/default/files/styles/photo_gallery_large_800_650_/public/2021-10/Photo%203.jpg": "",
-        "https://mmrda.maharashtra.gov.in/sites/default/files/styles/photo_gallery_large_800_650_/public/2021-10/Photo%204.jpg": "",
-        "https://mmrda.maharashtra.gov.in/sites/default/files/styles/photo_gallery_large_800_650_/public/2021-10/Photo%205.jpg": "",
-        "https://mmrda.maharashtra.gov.in/sites/default/files/styles/photo_gallery_large_800_650_/public/2021-10/Photo%206.jpg": ""
+        "http://mmrda.maharashtra.gov.in/sites/default/files/styles/photo_gallery_large_800_650_/public/2021-10/Photo%201_0.jpg": "",
+        "http://mmrda.maharashtra.gov.in/sites/default/files/styles/photo_gallery_large_800_650_/public/2021-10/Photo%202.jpg": "",
+        "http://mmrda.maharashtra.gov.in/sites/default/files/styles/photo_gallery_large_800_650_/public/2021-10/Photo%203.jpg": "",
+        "http://mmrda.maharashtra.gov.in/sites/default/files/styles/photo_gallery_large_800_650_/public/2021-10/Photo%204.jpg": "",
+        "http://mmrda.maharashtra.gov.in/sites/default/files/styles/photo_gallery_large_800_650_/public/2021-10/Photo%205.jpg": "",
+        "http://mmrda.maharashtra.gov.in/sites/default/files/styles/photo_gallery_large_800_650_/public/2021-10/Photo%206.jpg": ""
       }
     },
     "/en/projects/transport/metro-line-4-A/metro-line-4": {
@@ -256,9 +258,8 @@
         "5 | Deck Slab | 100% completed",
         "6 | L Girder erection | 100% completed",
         "7 | T Girder Erection | 100% completed",
-        "8 | RCC Beam Erection | 0% completed",
-        "9 | Portal Beam Erection | 100% completed",
-        "10 | PI Girder Erection | 100% completed",
+        "8 | Portal Beam Erection | 100% completed",
+        "9 | PI Girder Erection | 100% completed",
         "Description: In the presence of Hon’ble Chief Minister Shri Devendra Fadnavis and Hon’ble Deputy Chief Minister and Chairman, MMRDA Shri Eknath Shinde, the trial run of Phase 1 of Metro Green Line (Line 4/4A) was flagged off on 22 September,2025.",
         "<a href=\"https://"
       ],
