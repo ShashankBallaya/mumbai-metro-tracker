@@ -4,7 +4,7 @@
 # `parts`), and one Point for each station. Sources, best first:
 #   - MMRDA's alignment files on its Metro Influence Zone NOC page (March 2025): Lines 1, 2A, 2B, 6, 7, 7A, 9.
 #     Each holds the corridor as a polygon; the centre line is the midpoints between its two long sides, as in
-#     build-alignment-line4.py. Line 7A's file holds line pieces instead, which are used as drawn.
+#     build-alignment-line4.py. Line 2B uses the centre line of its own page (src/data/lines/line-2b/alignment-mmrda-2025.geojson). Line 7A's file holds line pieces instead, which are used as drawn.
 #   - The tracked lines' own files: src/data/lines/<id>/alignment-*.geojson (Lines 4, 5, 12, 12A).
 #   - Line 11: src/data/line-11-alignment.geojson and src/data/planned-stations.json (scripts/build-line11.py): MMRCL's
 #     alignment file for Anik Depot to Gateway, and an indicative trace of the proposed extension to Bandra Terminus.
@@ -24,7 +24,7 @@ import urllib.request
 import xml.etree.ElementTree as ET
 import zipfile
 
-CHECKED = '2026-10-29'
+CHECKED = '2026-11-23'
 OUT = 'src/data/network-geometry.geojson'
 NETWORK = 'src/data/network.json'
 UA = {'User-Agent': 'mumbai-metro-tracker build script (github.com/ShashankBallaya/mumbai-metro-tracker)'}
@@ -39,9 +39,10 @@ RING_PAGE = 'https://thanemetrorail.com/route-map'
 POLYGON_LINES = {
     'line-1': {'file': 'metro_line_1.kml', 'start': (72.8135, 19.1307)},
     'line-2a': {'file': 'metro_line_2a.kml', 'start': (72.8609, 19.2497)},
-    # Line 2B's corridor polygon defeats the midpoint method (the line drifts up to 900 m), so it is drawn
-    # through MMRDA's station points in the file's order, Mandale first.
-    'line-2b': {'file': 'line_2b.kml', 'start': (72.9303, 19.0488), 'chain': True, 'split': 'CHEMBUR (M) STATION'},
+    # Line 2B's corridor polygon defeats the plain midpoint method (the line drifts up to 900 m), so the hub
+    # uses the centre line the Line 2B page draws (scripts/build-alignment-line2b.py, from the same file), Mandale first.
+    'line-2b': {'file': 'line_2b.kml', 'start': (72.9303, 19.0488), 'split': 'CHEMBUR (M) STATION',
+                'alignment': 'src/data/lines/line-2b/alignment-mmrda-2025.geojson'},
     'line-6': {'file': 'line-6.kml', 'start': (72.8253, 19.1374)},
     'line-7': {'file': 'metro_line_7.kml', 'start': (72.8497, 19.1155)},
     'line-9': {'file': 'line-9_2.kml', 'start': (72.8617, 19.2515), 'split': 'Zankar Company (M) Station'},
@@ -234,14 +235,19 @@ def main():
         polys, _, points = kml_parts(get(MMRDA + cfg['file'], cfg['file'], cache))
         if len(polys) != 1:
             sys.exit(f'{cfg["file"]}: expected one corridor polygon, found {len(polys)}')
-        if cfg.get('chain'):
-            line = [to_xy(p) for p in reversed(list(points.values()))]
+        if cfg.get('alignment'):
+            gj = json.load(open(cfg['alignment'], encoding='utf-8'))
+            coords = next(f for f in gj['features'] if f['properties'].get('part') == 'current')['geometry']['coordinates']
+            line = [to_xy(c) for c in coords]
+            # Run from the end nearest `start`, so the split's first side is the start side.
+            if math.dist(line[0], to_xy(cfg['start'])) > math.dist(line[-1], to_xy(cfg['start'])):
+                line.reverse()
         else:
             line = centre_line(polys[0], cfg['start'], points.get(cfg.get('end_station')))
         stages = stages_of(net, line_id)
         if 'split' in cfg:
             a, b = split_at(line, points[cfg['split']])
-            src = dict(src_mmrda, method='through station points') if cfg.get('chain') else src_mmrda
+            src = dict(src_mmrda, method="centre line of the Line 2B page's alignment file") if cfg.get('alignment') else src_mmrda
             feats.append(line_feature(line_id, stages[0], [a], src))
             feats.append(line_feature(line_id, stages[-1], [b], src))
         else:
