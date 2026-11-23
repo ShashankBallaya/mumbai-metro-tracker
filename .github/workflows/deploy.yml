@@ -47,8 +47,16 @@ jobs:
           PUBLIC_STREET_LEVEL_PROVIDER: ${{ vars.PUBLIC_STREET_LEVEL_PROVIDER }}
           PUBLIC_GOOGLE_MAPS_KEY: ${{ vars.PUBLIC_GOOGLE_MAPS_KEY }}
           PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.PUBLIC_TURNSTILE_SITE_KEY }}
+      # The sitemap that is live now, so IndexNow can send only the pages that change in this deploy.
+      - name: Save the live sitemap
+        continue-on-error: true
+        run: curl -fsS --max-time 30 -o "$RUNNER_TEMP/sitemap-before.xml" https://www.mumbaimetrotracker.com/sitemap.xml
       - uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy dist --project-name=line12-tracker --branch=main
+      # Tell Bing and the other IndexNow engines which pages are new or changed (scripts/indexnow.mjs).
+      - name: IndexNow
+        continue-on-error: true
+        run: node scripts/indexnow.mjs --before "$RUNNER_TEMP/sitemap-before.xml"
