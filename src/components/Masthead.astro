@@ -65,10 +65,10 @@ if (!line && sections) inside.push(...sections);
           <span class="masthead__mr" lang="mr" aria-hidden="true">{line.info.mark_mr}</span>
         </a>
       ) : (
-        <h1 class="masthead__title">
+        <a class="masthead__title" href="/">
           <span class="masthead__name">Mumbai Metro Tracker</span>
           <span class="masthead__mr" lang="mr" aria-hidden="true">मुंबई मेट्रो</span>
-        </h1>
+        </a>
       )}
       <p class="masthead__tag">{line ? `Mumbai Metro, ${line.info.route_short}. The unofficial tracker.` : SITE_TAG}</p>
     </div>

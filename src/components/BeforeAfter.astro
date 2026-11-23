@@ -82,12 +82,12 @@ const basisOf = (id: string) => {
       <div class="ba__frame" style="--pos:50%">
         <div class="ba__layer ba__layer--before" aria-hidden="true">
           {mosaic(s.lat, s.lng, s.before.tile_url).map((t) => (
-            <img src={t.src} alt="" loading="lazy" decoding="async" style={`left:${t.left}%;top:${t.top}%`} />
+            <img src={t.src} alt={`Satellite image tile, ${month(s.before.captured)}`} loading="lazy" decoding="async" style={`left:${t.left}%;top:${t.top}%`} />
           ))}
         </div>
         <div class="ba__layer ba__layer--after" aria-hidden="true">
           {mosaic(s.lat, s.lng, s.after.tile_url).map((t) => (
-            <img src={t.src} alt="" loading="lazy" decoding="async" style={`left:${t.left}%;top:${t.top}%`} />
+            <img src={t.src} alt={`Satellite image tile, ${month(s.after.captured)}`} loading="lazy" decoding="async" style={`left:${t.left}%;top:${t.top}%`} />
           ))}
         </div>
         <span class="ba__tag ba__tag--before">{month(s.before.captured)}</span>

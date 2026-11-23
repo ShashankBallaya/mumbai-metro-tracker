@@ -121,7 +121,7 @@ const feedUpdated = (feed._meta.updated_at_by_line?.[line.id] ?? feed._meta.upda
           {videos.map((v) => (
             <li class="video">
               <a class="video__link" href={v.url} target="_blank" rel="noopener">
-                <img class="video__thumb" src={`https://i.ytimg.com/vi/${v.id}/mqdefault.jpg`} alt="" width="320" height="180" loading="lazy" decoding="async" />
+                <img class="video__thumb" src={`https://i.ytimg.com/vi/${v.id}/mqdefault.jpg`} alt="Video thumbnail" width="320" height="180" loading="lazy" decoding="async" />
                 <span class="video__title">{v.title}<span class="visually-hidden"> (video on YouTube, opens in a new tab)</span></span>
               </a>
               <p class="report__meta">{v.channel}, <time datetime={v.date}>{formatDate(v.date)}</time></p>

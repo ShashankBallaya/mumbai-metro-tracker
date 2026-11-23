@@ -35,7 +35,7 @@ const titleEnd = /[.?!]$/.test(video.title.trim()) ? '' : '.';
     <figure class="air__player">
       <div class="air__frame" data-air-frame>
         <a class="air__poster" href={watch()} rel="noopener" data-air-play="0">
-          <img src={video.poster} alt="" width="1600" height="900" loading="lazy" decoding="async" />
+          <img src={video.poster} alt={`Drone view along ${video.covers}`} width="1600" height="900" loading="lazy" decoding="async" />
           <span class="air__play">
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor" /></svg>
             <span data-air-label>Play the flight ({videoTime(video.duration_s)})</span>

@@ -73,10 +73,11 @@ const TRAIN_H = TB - TRAIN_Y;
 const ALT = "Illustration: a metro train crosses an elevated line at dusk, with the traffic below drawn as trails of light in the lines' colours.";
 ---
 
+{/* The layers carry short alt text for crawlers that flag alt="" (Bing site scan); inside role="img" they are presentational, so screen readers hear only ALT. */}
 <div class="scene-frame" data-scene-frame role="img" aria-label={ALT}>
   <div class="scene">
-    <img class="layer layer--day" src="/back-page/day-back.svg" alt="" width={W} height={H} loading="lazy" decoding="async" />
-    <img class="layer layer--night" src="/back-page/night-back.svg" alt="" width={W} height={H} loading="lazy" decoding="async" />
+    <img class="layer layer--day" src="/back-page/day-back.svg" alt="Back page drawing: sky and city, day" width={W} height={H} loading="lazy" decoding="async" />
+    <img class="layer layer--night" src="/back-page/night-back.svg" alt="Back page drawing: sky and city, night" width={W} height={H} loading="lazy" decoding="async" />
 
     <!-- The road: a long exposure of the traffic. The cores draw in first; the ribbons of light come
          up over them; then two veils slide inside their masks, so the light seems to stream. -->
@@ -85,15 +86,15 @@ const ALT = "Illustration: a metro train crosses an elevated line at dusk, with 
         {cores.map((t, i) => <path d={t.d} pathLength="1" style={`stroke:var(--${t.c});--i:${i}`} />)}
       </svg>
       <div class="layer road__light">
-        <img class="layer layer--day" src="/back-page/day-road.svg" alt="" width={W} height={ROAD_H} loading="lazy" decoding="async" />
-        <img class="layer layer--night" src="/back-page/night-road.svg" alt="" width={W} height={ROAD_H} loading="lazy" decoding="async" />
+        <img class="layer layer--day" src="/back-page/day-road.svg" alt="Back page drawing: road, day" width={W} height={ROAD_H} loading="lazy" decoding="async" />
+        <img class="layer layer--night" src="/back-page/night-road.svg" alt="Back page drawing: road, night" width={W} height={ROAD_H} loading="lazy" decoding="async" />
         <div class="layer flow flow--near"><div class="flow__run"></div></div>
         <div class="layer flow flow--far"><div class="flow__run"></div></div>
       </div>
     </div>
 
-    <img class="layer layer--day" src="/back-page/day-front.svg" alt="" width={W} height={H} loading="lazy" decoding="async" />
-    <img class="layer layer--night" src="/back-page/night-front.svg" alt="" width={W} height={H} loading="lazy" decoding="async" />
+    <img class="layer layer--day" src="/back-page/day-front.svg" alt="Back page drawing: viaduct and train line, day" width={W} height={H} loading="lazy" decoding="async" />
+    <img class="layer layer--night" src="/back-page/night-front.svg" alt="Back page drawing: viaduct and train line, night" width={W} height={H} loading="lazy" decoding="async" />
 
     <!-- The train, engraved and hand-coloured in the blue, white and yellow livery of the new lines'
          rakes. Original drawing: no maker's or authority's marks. -->
