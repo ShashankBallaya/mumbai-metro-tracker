@@ -10,7 +10,7 @@ import Grade from '../../../components/Grade.astro';
 import LocatorMap from '../../../components/LocatorMap.astro';
 import LineMark from '../../../components/LineMark.astro';
 import PhotoCredit from '../../../components/PhotoCredit.astro';
-import { getLine, dprLabel, inSentence, isRing, lines, lineNodeId, lineBase, SITE_NAME, stationHref, positionBasis, streetViewUrl, plannedInterchanges, tableInterchanges, INTERCHANGE_TABLE, formatDate, metroStation, sectionOf, openedOf, announcedOf, sectionName, clock, frequencyText, inr, videoTime, distanceText, type LineId, type Station, type StationPhoto } from '../../../lib/data';
+import { getLine, dprLabel, inSentence, isRing, lines, lineNodeId, lineBase, SITE_NAME, stationHref, positionBasis, streetViewUrl, plannedInterchanges, tableInterchanges, INTERCHANGE_TABLE, formatDate, fitTitle, metroStation, sectionOf, openedOf, announcedOf, sectionName, clock, frequencyText, inr, videoTime, distanceText, type LineId, type Station, type StationPhoto } from '../../../lib/data';
 import { hasStatusPage } from '../../../lib/answers';
 import '../../../styles/inner.css';
 
@@ -106,7 +106,14 @@ const stationName = metroStation(s.name, true);
 const nowState = opened
   ? `open since ${formatDate(opened.date)}`
   : (s.construction_status?.value ?? '').split('.')[0].replace(/^./, (c) => c.toLowerCase()) || 'planned';
-const title = `${stationName} (${label}): ${opened ? 'open, location, route' : 'status, location, route'}`;
+const facts = opened ? 'open, location, route' : 'status, location, route';
+const title = fitTitle(
+  `${stationName} (${label}): ${facts}`,
+  `${stationName} (${label}): ${opened ? 'open, location' : 'status, location'}`,
+  `${stationName} (${label}) ${opened ? 'open' : 'status'}`,
+  `${stationName}: ${opened ? 'open, location' : 'status, location'}`,
+  `${stationName} ${opened ? 'open' : 'status'}`,
+);
 const between = prev && next ? `, between ${prev.name} and ${next.name}` : prev ? `, after ${prev.name}` : next ? `, before ${next.name}` : '';
 const description = `${stationName} on ${about.name} (${route_short}): ${nowState}. Station ${s.order} of ${total}${between}. Map, places nearby, interchanges and progress, each with its source.`;
 

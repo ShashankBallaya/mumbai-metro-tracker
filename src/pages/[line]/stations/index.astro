@@ -5,7 +5,7 @@ import Masthead from '../../../components/Masthead.astro';
 import Colophon from '../../../components/Colophon.astro';
 import Grade from '../../../components/Grade.astro';
 import LineMark from '../../../components/LineMark.astro';
-import { changesFor, getLine, lines, lineBase, lineCopy, SITE_NAME, INTERCHANGE_TABLE, type LineId } from '../../../lib/data';
+import { changesFor, getLine, lines, lineBase, fitTitle, lineCopy, SITE_NAME, INTERCHANGE_TABLE, type LineId } from '../../../lib/data';
 import '../../../styles/inner.css';
 
 export function getStaticPaths() {
@@ -17,7 +17,11 @@ const { label, route_short, about } = line.info;
 const base = lineBase(line.id);
 const total = stations.length;
 const site = Astro.site!.toString();
-const title = `${about.name} Stations and Route: all ${total}, ${route_short}`;
+const title = fitTitle(
+  `${about.name} Stations and Route: all ${total}, ${route_short}`,
+  `${about.name} Stations: all ${total}, ${route_short}`,
+  `${about.name} Stations and Route: all ${total}`,
+);
 const description = lineCopy(line, 'stations_page_description');
 
 const schema = [

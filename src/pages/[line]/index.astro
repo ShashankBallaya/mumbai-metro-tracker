@@ -21,7 +21,7 @@ import SourcesFooter from '../../components/SourcesFooter.astro';
 import SendBanner from '../../components/SendBanner.astro';
 import WatchPoints from '../../components/WatchPoints.astro';
 import ReaderPhotos from '../../components/ReaderPhotos.astro';
-import { getLine, lines, hasService, lineBase, SITE_NAME, type LineId } from '../../lib/data';
+import { getLine, lines, hasService, lineBase, fitTitle, SITE_NAME, type LineId } from '../../lib/data';
 
 export function getStaticPaths() {
   return lines.map((l) => ({ params: { line: l.id } }));
@@ -40,7 +40,14 @@ const schema = [
 ];
 ---
 
-<Base title={`${about.name} Tracker: ${route_short} status, route, stations, map`} line={line} description={copy.page_description} schema={schema} front>
+<Base title={fitTitle(
+  `${about.name} Tracker: ${route_short} status, route, stations, map`,
+  `${about.name} Tracker: ${route_short} status, route, map`,
+  `${about.name}: ${route_short} status, route, map`,
+  `${about.name} Tracker: ${route_short} status`,
+  `${about.name}: ${route_short} status`,
+  `${about.name} Tracker: status, route, stations, map`,
+)} line={line} description={copy.page_description} schema={schema} front>
   <Masthead line={line} />
   <main id="main">
     <FrontPage line={line} />

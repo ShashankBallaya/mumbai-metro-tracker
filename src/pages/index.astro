@@ -173,7 +173,7 @@ const bundleStyle = `--tw:${k(TW)};--bend:${k(BEND)};--stops:${bundleStops}`;
 
 const DISCLAIMER =
   'Mumbai Metro Tracker is an independent public-interest site. It is not affiliated with, endorsed by or connected to MMRDA, MMRCL, CIDCO, MahaMetro or the Government of Maharashtra. The map uses OpenStreetMap data. Check official sources before making decisions.';
-const title = `${SITE_NAME}: every Mumbai Metro line, built, building and planned`;
+const title = `${SITE_NAME}: every metro line, built, building and planned`;
 // The lines covered in full, from lines.json: "Lines 2B, 4, ... 12A and the Thane Ring Metro".
 const numbered = lines.filter((l) => l.label.startsWith('Line ')).map((l) => l.number);
 const named = lines.filter((l) => !l.label.startsWith('Line ')).map((l) => `the ${l.label}`);

@@ -562,6 +562,17 @@ export function metroStation(name: string, title = false): string {
   return `${name} ${title ? 'Metro Station' : 'metro station'}`;
 }
 
+/** Bing flags page titles over 70 characters; Google cuts them near 60. */
+export const TITLE_MAX = 70;
+
+/**
+ * The first title that fits TITLE_MAX, from the fullest to the shortest. Put the search words
+ * (line or station name, "metro", the route) in every option; leave out only the extras.
+ */
+export function fitTitle(...options: string[]): string {
+  return options.find((t) => t.length <= TITLE_MAX) ?? options[options.length - 1];
+}
+
 export function formatDate(value: string | null | undefined): string {
   if (!value) return 'Date not announced';
   const [y, m, d] = value.split('-');

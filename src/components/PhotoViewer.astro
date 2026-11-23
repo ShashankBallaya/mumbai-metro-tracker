@@ -35,6 +35,8 @@
     const img = document.createElement('img');
     img.className = 'pv__img';
     img.decoding = 'async';
+    // Empty until a photo opens; show() then copies the thumbnail's alt text.
+    img.alt = '';
     q('[data-pv-stage]').insertBefore(img, q('[data-pv-next]'));
     const count = q<HTMLElement>('[data-pv-count]');
     const caption = q<HTMLElement>('[data-pv-caption]');
