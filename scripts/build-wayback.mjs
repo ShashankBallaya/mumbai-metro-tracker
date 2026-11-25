@@ -47,13 +47,27 @@ const LINES = {
     rule: 'Latest imagery captured before 20 Dec 2017 (first civil contract awarded).',
     began: 'December 2017',
     searchFrom: '2018-06-30',
-    // The eastern stretch, Mandale to Kurla (E), where the viaduct stands along the road.
+    // Every station, Mandale to ESIC Nagar (owner's request, 2026-11-25).
     spots: [
       { id: 'mandale', station: 'mandale', title: 'Mandale' },
       { id: 'mankhurd', station: 'mankhurd', title: 'Mankhurd' },
+      { id: 'bsnl-metro', station: 'bsnl-metro', title: 'BSNL Metro' },
+      { id: 'shivaji-chowk', station: 'shivaji-chowk', title: 'Shivaji Chowk' },
       { id: 'diamond-garden', station: 'diamond-garden', title: 'Diamond Garden' },
       { id: 'chembur', station: 'chembur', title: 'Chembur' },
+      { id: 'eeh', station: 'eeh', title: 'EEH' },
       { id: 'kurla-east', station: 'kurla-east', title: 'Kurla (E)' },
+      { id: 'sg-barve-marg', station: 'sg-barve-marg', title: 'SG Barve Marg' },
+      { id: 'mtnl-metro', station: 'mtnl-metro', title: 'MTNL Metro' },
+      { id: 'ilfs', station: 'ilfs', title: 'ILFS' },
+      { id: 'income-tax-office', station: 'income-tax-office', title: 'Income Tax Office' },
+      { id: 'bandra-metro', station: 'bandra-metro', title: 'Bandra Metro' },
+      { id: 'saraswat-nagar', station: 'saraswat-nagar', title: 'Saraswat Nagar' },
+      { id: 'khira-nagar', station: 'khira-nagar', title: 'Khira Nagar' },
+      { id: 'nanavati-hospital', station: 'nanavati-hospital', title: 'Nanavati Hospital' },
+      { id: 'indira-nagar', station: 'indira-nagar', title: 'Indira Nagar' },
+      { id: 'prem-nagar', station: 'prem-nagar', title: 'Prem Nagar' },
+      { id: 'esic-nagar', station: 'esic-nagar', title: 'ESIC Nagar' },
     ],
   },
   'line-4': {
