@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "Dated ground photos, by the owner or by people who gave permission to use them. Entries with kind \"video\" are stills from a creator's ground video, shared with permission (InfraUnfiltered, owner confirmed 2026-11-10); 'date' is then the day the video was published, video_t is the second in the video, and source_url opens the video there. Each still is matched to its station by the creator's spoken station name at that point. 'stations' holds photos for each station page, keyed by the station id in stations.json. Put the image files in public/photos/ (location data removed) and add entries below. See UPDATING.md.",
-    "last_reviewed": "2026-11-11"
+    "last_reviewed": "2026-11-25"
   },
   "pairs": [],
   "stations": {
@@ -18,6 +18,36 @@
       }
     ],
     "income-tax-office": [
+      {
+        "src": "/photos/income-tax-office-2026-11-25-a.jpg",
+        "alt": "A short stretch of Line 2B viaduct on concrete piers at a BKC junction, ending in mid-air with steel bars sticking out of its end",
+        "caption": "The viaduct ends in mid-air over the junction, with steel bars sticking out of the end",
+        "date": "2026-11-25",
+        "credit": "Arindam Mahapatra",
+        "handle": "Maha7Arindam",
+        "width": 1280,
+        "height": 816
+      },
+      {
+        "src": "/photos/income-tax-office-2026-11-25-b.jpg",
+        "alt": "The Line 2B viaduct running along a road near Income Tax Office junction, with autorickshaws and cars below",
+        "caption": "The viaduct along the road at the junction",
+        "date": "2026-11-25",
+        "credit": "Arindam Mahapatra",
+        "handle": "Maha7Arindam",
+        "width": 1280,
+        "height": 816
+      },
+      {
+        "src": "/photos/income-tax-office-2026-11-25-c.jpg",
+        "alt": "Viaduct ends on both sides of a wide junction near Income Tax Office, with open sky between them",
+        "caption": "Viaduct ends stand on both sides of the junction, with no span between them yet",
+        "date": "2026-11-25",
+        "credit": "Arindam Mahapatra",
+        "handle": "Maha7Arindam",
+        "width": 1280,
+        "height": 816
+      },
       {
         "src": "/photos/shunya-bridge-2026-05-24-a.jpg",
         "alt": "The zero-shaped steel pylon of the Shunya cable-stayed bridge in Bandra Kurla Complex, with MMRDA written across its top, against a blue sky with cranes and buildings under construction behind",
@@ -216,6 +246,56 @@
     ],
     "ilfs": [
       {
+        "src": "/photos/ilfs-2026-11-25-a.jpg",
+        "alt": "Yellow-painted Line 2B piers and viaduct over a busy junction in BKC, with the bare concrete frames of ILFS station and green safety net beyond",
+        "caption": "The painted viaduct at the junction runs into the station frames, which still carry safety net",
+        "date": "2026-11-25",
+        "credit": "Arindam Mahapatra",
+        "handle": "Maha7Arindam",
+        "width": 1280,
+        "height": 816
+      },
+      {
+        "src": "/photos/ilfs-2026-11-25-b.jpg",
+        "alt": "A bare concrete pier on a dusty plot in the foreground, with ILFS station frames standing on steel towers over the road behind",
+        "caption": "A bare pier by the road, with station frames on steel towers beyond",
+        "date": "2026-11-25",
+        "credit": "Arindam Mahapatra",
+        "handle": "Maha7Arindam",
+        "width": 1280,
+        "height": 816
+      },
+      {
+        "src": "/photos/ilfs-2026-11-25-c.jpg",
+        "alt": "The two concrete decks of ILFS station seen from the road below, with steel bars sticking up along the top deck and green net under it",
+        "caption": "Both station decks from below; steel bars still stick up along the top",
+        "date": "2026-11-25",
+        "credit": "Arindam Mahapatra",
+        "handle": "Maha7Arindam",
+        "width": 1280,
+        "height": 816
+      },
+      {
+        "src": "/photos/ilfs-2026-11-25-d.jpg",
+        "alt": "Rows of rusty steel brackets on top of the ILFS station frames over a road full of cars and a BEST bus",
+        "caption": "Steel brackets stand in rows on top of the station frames",
+        "date": "2026-11-25",
+        "credit": "Arindam Mahapatra",
+        "handle": "Maha7Arindam",
+        "width": 1280,
+        "height": 816
+      },
+      {
+        "src": "/photos/ilfs-2026-11-25-e.jpg",
+        "alt": "A concrete portal frame propped by two steel towers, with the Line 2B viaduct curving away along a wide BKC road",
+        "caption": "Steel towers prop a portal frame where the viaduct curves away along the road",
+        "date": "2026-11-25",
+        "credit": "Arindam Mahapatra",
+        "handle": "Maha7Arindam",
+        "width": 1280,
+        "height": 816
+      },
+      {
         "src": "/photos/ilfs-2026-11-11-a.jpg",
         "alt": "The Line 2B viaduct and the frame of ILFS station over a junction in BKC, with green safety net under the deck and cars at a traffic island",
         "caption": "The station frame over the junction, with safety net under the deck",
@@ -398,6 +478,46 @@
           "credit": "Kalpesh Patel",
           "width": 1600,
           "height": 528
+        },
+        {
+          "src": "/photos/shunya-bridge-bkc-2026-11-25-a.jpg",
+          "alt": "The zero-shaped pylon of the Shunya bridge at the left, and the bridge deck on blue falsework along the road, in front of a tall building under construction",
+          "caption": "The pylon and the deck on falsework along the road",
+          "date": "2026-11-25",
+          "credit": "Arindam Mahapatra",
+          "handle": "Maha7Arindam",
+          "width": 1280,
+          "height": 816
+        },
+        {
+          "src": "/photos/shunya-bridge-bkc-2026-11-25-b.jpg",
+          "alt": "The Shunya bridge pylon with a steel platform near its top, and the concrete deck beside it on blue steel props, with no stay cables",
+          "caption": "The deck is cast beside the pylon on blue props; no stay cables are in yet",
+          "date": "2026-11-25",
+          "credit": "Arindam Mahapatra",
+          "handle": "Maha7Arindam",
+          "width": 1280,
+          "height": 816
+        },
+        {
+          "src": "/photos/shunya-bridge-bkc-2026-11-25-c.jpg",
+          "alt": "Close view of one leg of the Shunya bridge pylon, with a steel platform and workers at its foot and a crane alongside",
+          "caption": "Workers on a steel platform at the foot of the pylon",
+          "date": "2026-11-25",
+          "credit": "Arindam Mahapatra",
+          "handle": "Maha7Arindam",
+          "width": 1280,
+          "height": 816
+        },
+        {
+          "src": "/photos/shunya-bridge-bkc-2026-11-25-d.jpg",
+          "alt": "The Shunya bridge pylon seen down a wide BKC road, with a yellow viaduct span crossing the road nearer the camera",
+          "caption": "The pylon seen down the road",
+          "date": "2026-11-25",
+          "credit": "Arindam Mahapatra",
+          "handle": "Maha7Arindam",
+          "width": 1280,
+          "height": 816
         }
       ]
     },
