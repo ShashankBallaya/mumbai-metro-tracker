@@ -90,11 +90,12 @@ document.addEventListener('click', async (event) => {
 const sceneLoaders: Record<string, () => Promise<{ mount: (host: HTMLElement, opts: { reduced: boolean }) => unknown }>> = {
   viaduct: () => import('./three/viaduct'),
   kasheli: () => import('./three/kasheli'),
+  shunya: () => import('./three/shunya'),
   station: () => import('./three/station'),
 };
 
 /** Front-page lead scenes: on screen at load, so they wait for idle (wide) or the first touch (phones). */
-const HERO = new Set(['viaduct', 'kasheli']);
+const HERO = new Set(['viaduct', 'kasheli', 'shunya']);
 
 /** Runs fn once the page has loaded and the browser is idle, so 3D never competes with first paint. */
 function afterIdle(fn: () => void, timeout = 2500) {
