@@ -76,6 +76,7 @@ const basisOf = (id: string) => {
       <button type="button" class="ba__tab" aria-pressed={i === 0 ? 'true' : 'false'} data-ba-tab={s.id}>{s.title}</button>
     ))}
   </div>
+  {data.spots.length > 3 && <p class="ba__hint" aria-hidden="true">Swipe for more places</p>}
 
   {data.spots.map((s, i) => (
     <figure class="ba__spot" data-ba-spot={s.id} hidden={i !== 0}>
@@ -172,6 +173,39 @@ const basisOf = (id: string) => {
     background: var(--ink);
     border-color: var(--ink);
     color: var(--paper);
+  }
+  .ba__hint {
+    display: none;
+  }
+  /* Phones: one row to swipe, so many spots never push the picture down (Line 2B has 19). The row
+     fades at its right edge and a short label says it scrolls. */
+  @media (max-width: 47.99rem) {
+    .ba__tabs {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-snap-type: x proximity;
+      scrollbar-width: none;
+      /* Room inside the scroll box for the focus ring, which a scroller would otherwise crop. */
+      padding: 4px 4px 4px 2px;
+      margin: -4px -4px calc(var(--s-2) - 4px) -2px;
+      mask-image: linear-gradient(to right, #000 calc(100% - 3rem), transparent);
+    }
+    .ba__tabs[data-at-end] {
+      mask-image: none;
+    }
+    .ba__tabs::-webkit-scrollbar {
+      display: none;
+    }
+    .ba__tab {
+      flex: none;
+      scroll-snap-align: start;
+    }
+    .ba__hint {
+      display: block;
+      margin: 0 0 var(--s-3);
+      font-size: var(--step--1);
+      color: var(--ink-3);
+    }
   }
   .ba__spot {
     margin: 0;
@@ -304,9 +338,20 @@ const basisOf = (id: string) => {
   // Tabs choose the spot; the range moves the divider. Works on keyboard and touch.
   document.querySelectorAll<HTMLElement>('[data-ba]').forEach((root) => {
     const tabs = root.querySelectorAll<HTMLButtonElement>('[data-ba-tab]');
+    // The phone row's right-edge fade says "more this way"; drop it once the row is scrolled to its end.
+    const row = root.querySelector<HTMLElement>('.ba__tabs');
+    if (row) {
+      const edge = () => row.toggleAttribute('data-at-end', row.scrollLeft + row.clientWidth >= row.scrollWidth - 2);
+      row.addEventListener('scroll', edge, { passive: true });
+      addEventListener('resize', edge);
+      edge();
+    }
     tabs.forEach((tab) =>
       tab.addEventListener('click', () => {
         tabs.forEach((t) => t.setAttribute('aria-pressed', String(t === tab)));
+        // On a phone's swipe row, bring the chosen place fully into view.
+        const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        tab.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: reduce ? 'auto' : 'smooth' });
         root.querySelectorAll<HTMLElement>('[data-ba-spot]').forEach((s) => (s.hidden = s.dataset.baSpot !== tab.dataset.baTab));
       }),
     );
