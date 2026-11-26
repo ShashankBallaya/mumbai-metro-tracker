@@ -114,6 +114,23 @@ const SKIP = new Map([
   ['node/8527126910', 'Fake entry: "Alice in boderland", office=it on Ghodbunder Road, phone 1111111111 (checked 2026-11-11)'],
 ]);
 
+/**
+ * Places that OpenStreetMap does not have yet, added by hand after a reader correction.
+ * Each needs a kind, a name, a point, and a source. Remove an entry once OpenStreetMap has the place.
+ */
+const EXTRA = [
+  {
+    kind: 'hospital',
+    name: 'Solaris Superspecialty Hospital',
+    lat: 19.26788,
+    lng: 72.96738,
+    point: 'Placed at AP Shah Institute of Technology (way/1412114957); listings put the hospital next to it, on the Ghodbunder Road service road',
+    source: 'https://www.hexahealth.com/thane/hospital/solaris-superspecialty-hospital-kasarvadavali',
+    added: '2026-11-26',
+    why: 'Reader correction for Line 4 Kasarvadavali, 25 Nov 2026',
+  },
+];
+
 /** Two entries of one kind closer than this are one place under two spellings ("Harinivas Circle", "Hariniwas Circle"). */
 const SAME_PLACE_M = 60;
 
@@ -172,6 +189,14 @@ for (const kind of KINDS) {
     .filter((el) => kind.keep(el.tags ?? {}))
     .map(place)
     .filter((p) => p && !SKIP.has(p.osm) && !seen.has(p.osm) && seen.add(p.osm));
+  for (const e of EXTRA.filter((x) => x.kind === kind.id)) {
+    const key = e.name.toLowerCase().replace(/[^a-z0-9]/g, '');
+    if (pools[kind.id].some((p) => p.name.toLowerCase().replace(/[^a-z0-9]/g, '') === key)) {
+      console.warn(`${kind.id}: "${e.name}" is now on OpenStreetMap; remove it from EXTRA`);
+      continue;
+    }
+    pools[kind.id].push({ name: e.name, lat: e.lat, lng: e.lng, link: e.source });
+  }
   console.log(`${kind.id}: ${pools[kind.id].length} places`);
   if (!CACHED) await sleep(5000);
 }
@@ -193,7 +218,7 @@ function nearest(kind, at) {
     kept.push(c);
   }
   return kept
-    .map(({ p, d }) => ({ name: p.name, distance_m: Math.round(d / 10) * 10, osm: p.osm }));
+    .map(({ p, d }) => ({ name: p.name, distance_m: Math.round(d / 10) * 10, ...(p.osm ? { osm: p.osm } : { link: p.link }) }));
 }
 
 for (const line of lines) {
@@ -209,7 +234,7 @@ for (const line of lines) {
   }
   const out = {
     _meta: {
-      description: 'Places near each station, from OpenStreetMap: the nearest few of each kind within its radius, measured in a straight line from the station point to the place (to the centre of an area such as a campus). Bus stops: one entry for each name. Built by scripts/fetch-nearby.mjs; do not edit by hand. OpenStreetMap data is ODbL; credit "OpenStreetMap contributors".',
+      description: 'Places near each station, from OpenStreetMap: the nearest few of each kind within its radius, measured in a straight line from the station point to the place (to the centre of an area such as a campus). Bus stops: one entry for each name. A few places OpenStreetMap does not have yet carry a "link" to their source instead of "osm" (EXTRA in the script). Built by scripts/fetch-nearby.mjs; do not edit by hand. OpenStreetMap data is ODbL; credit "OpenStreetMap contributors".',
       kinds: KINDS.map(({ id, label, radius_m, max }) => ({ id, label, radius_m, max })),
       status: 'reported',
       source_url: 'https://www.openstreetmap.org/copyright',

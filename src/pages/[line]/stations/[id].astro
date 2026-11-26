@@ -298,7 +298,11 @@ const schema: Record<string, unknown>[] = [
                       <ul>
                         {k.places.map((p) => (
                           <li>
-                            <a href={`https://www.openstreetmap.org/${p.osm}`} target="_blank" rel="noopener">{p.name}<span class="visually-hidden"> on OpenStreetMap (opens in a new tab)</span></a>
+                            {p.osm ? (
+                              <a href={`https://www.openstreetmap.org/${p.osm}`} target="_blank" rel="noopener">{p.name}<span class="visually-hidden"> on OpenStreetMap (opens in a new tab)</span></a>
+                            ) : (
+                              <a href={p.link} target="_blank" rel="noopener">{p.name}<span class="visually-hidden"> (source, opens in a new tab)</span></a>
+                            )}
                             <span class="nearby__dist num">{distanceText(p.distance_m)}</span>
                           </li>
                         ))}

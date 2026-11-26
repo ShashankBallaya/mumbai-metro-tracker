@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "description": "Places near each station, from OpenStreetMap: the nearest few of each kind within its radius, measured in a straight line from the station point to the place (to the centre of an area such as a campus). Bus stops: one entry for each name. Built by scripts/fetch-nearby.mjs; do not edit by hand. OpenStreetMap data is ODbL; credit \"OpenStreetMap contributors\".",
+    "description": "Places near each station, from OpenStreetMap: the nearest few of each kind within its radius, measured in a straight line from the station point to the place (to the centre of an area such as a campus). Bus stops: one entry for each name. A few places OpenStreetMap does not have yet carry a \"link\" to their source instead of \"osm\" (EXTRA in the script). Built by scripts/fetch-nearby.mjs; do not edit by hand. OpenStreetMap data is ODbL; credit \"OpenStreetMap contributors\".",
     "kinds": [
       {
         "id": "rail",
@@ -1918,6 +1918,11 @@
       ],
       "hospital": [
         {
+          "name": "Solaris Superspecialty Hospital",
+          "distance_m": 100,
+          "link": "https://www.hexahealth.com/thane/hospital/solaris-superspecialty-hospital-kasarvadavali"
+        },
+        {
           "name": "Janani Nursing Home & Hospital",
           "distance_m": 330,
           "osm": "node/7663684039"
@@ -1926,11 +1931,6 @@
           "name": "Dr. Maheshwari Hospital",
           "distance_m": 370,
           "osm": "node/7663684036"
-        },
-        {
-          "name": "Tieten Medicity",
-          "distance_m": 620,
-          "osm": "way/957214449"
         }
       ]
     },

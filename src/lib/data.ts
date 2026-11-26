@@ -213,11 +213,15 @@ export interface Line {
   lastReviewed: string;
 }
 
-/** One place near a station: its OpenStreetMap name, the straight-line distance, and its entry ("node/123"). */
+/**
+ * One place near a station: its name, the straight-line distance, and either its OpenStreetMap entry ("node/123")
+ * or, for a place OpenStreetMap does not have yet, a link to the source it was added from.
+ */
 export interface NearbyPlace {
   name: string;
   distance_m: number;
-  osm: string;
+  osm?: string;
+  link?: string;
 }
 
 /** A line's nearby.json: the kinds of place in page order, then each station's places by kind. */
