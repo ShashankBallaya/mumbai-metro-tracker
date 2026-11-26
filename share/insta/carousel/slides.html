@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Carousel: what is Mumbai Metro Tracker</title>
+<!-- Instagram carousel, 10 slides of 1080 x 1350. Rendered by render.mjs. Phone shots come from capture.mjs (live site). -->
+<style>
+  @font-face { font-family: 'Anek Latin Variable'; src: url('../../../node_modules/@fontsource-variable/anek-latin/files/anek-latin-latin-standard-normal.woff2') format('woff2'); font-weight: 100 800; font-stretch: 75% 125%; }
+  @font-face { font-family: 'Mukta'; src: url('../../../node_modules/@fontsource/mukta/files/mukta-latin-400-normal.woff2') format('woff2'); font-weight: 400; }
+  @font-face { font-family: 'Mukta'; src: url('../../../node_modules/@fontsource/mukta/files/mukta-latin-600-normal.woff2') format('woff2'); font-weight: 600; }
+  @font-face { font-family: 'Mukta'; src: url('../../../node_modules/@fontsource/mukta/files/mukta-latin-700-normal.woff2') format('woff2'); font-weight: 700; }
+  :root {
+    --navy: #0c1422; --navy-2: #121d31; --navy-3: #1a2740; --rule: #2d3a55;
+    --ink: #ece5d8; --ink-2: #bfb7a9; --ink-3: #978f82;
+    --orange: #f26b1d; --orange-l: #f5813c; --paper: #efe9de;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #333; }
+  .slide {
+    width: 1080px; height: 1350px; position: relative; overflow: hidden;
+    background: var(--navy); color: var(--ink);
+    font-family: 'Mukta', system-ui, sans-serif;
+    padding: 96px 84px 0 120px;
+    margin-bottom: 40px;
+  }
+  /* The site's bundle of line colours, down the left edge. */
+  .slide::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 56px;
+    background: linear-gradient(90deg,
+      #2f6fd6 0 7px, #36b7c9 7px 14px, #f2c11d 14px 21px, #1d7a3a 21px 28px,
+      #f26b1d 28px 35px, #c2306e 35px 42px, #c0272b 42px 49px, #6a3fb0 49px 56px);
+  }
+  .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 56px; }
+  .kicker { display: flex; align-items: center; gap: 18px; font: 600 26px/1 'Mukta'; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); }
+  .kicker::before { content: ''; width: 64px; height: 12px; background: var(--orange); }
+  .count { font: 800 30px/1 'Anek Latin Variable'; font-stretch: 75%; color: var(--ink-3); letter-spacing: .04em; }
+  h1, h2 { font-family: 'Anek Latin Variable'; font-weight: 800; font-stretch: 75%; text-transform: uppercase; letter-spacing: -0.01em; }
+  h1 { font-size: 168px; line-height: .86; }
+  h2 { font-size: 112px; line-height: .9; margin-bottom: 34px; }
+  .o { color: var(--orange); }
+  p.lead { font-size: 40px; line-height: 1.38; color: var(--ink); max-width: 860px; }
+  p.lead b { color: var(--orange-l); font-weight: 700; }
+  p.small { font-size: 30px; line-height: 1.4; color: var(--ink-2); }
+  .foot {
+    position: absolute; left: 120px; right: 84px; bottom: 56px;
+    display: flex; justify-content: space-between; align-items: center;
+    font: 600 26px/1 'Mukta'; color: var(--ink-3); letter-spacing: .04em;
+    border-top: 3px solid var(--rule); padding-top: 24px;
+  }
+    .foot .swipe { color: var(--orange-l); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+
+  /* A phone showing a real screen of the site. */
+  .phone {
+    position: absolute; width: 470px; height: 1010px; border-radius: 64px;
+    background: #05080e; padding: 16px; border: 3px solid #3a4866;
+    box-shadow: 0 40px 80px rgba(0,0,0,.55);
+  }
+  .phone .screen { width: 100%; height: 100%; border-radius: 50px; overflow: hidden; background-size: 100% auto; background-repeat: no-repeat; background-position: top center; }
+  .step { display: inline-block; font: 800 34px/1 'Anek Latin Variable'; font-stretch: 75%; background: var(--orange); color: var(--navy); padding: 14px 20px 10px; letter-spacing: .06em; margin-bottom: 30px; }
+  .split { display: flex; gap: 0; }
+  .split .text { width: 400px; }
+  .slide > .phone.side { right: 60px; top: 236px; width: 440px; height: 946px; }
+  .split p.lead { font-size: 35px; }
+
+  /* Slide 1 */
+  .cover h1 { margin-top: 30px; font-size: 150px; position: relative; z-index: 2; }
+  .cover .phone { right: -50px; top: 560px; transform: rotate(-6deg); }
+  .cover p.lead { width: 500px; margin-top: 48px; position: relative; z-index: 2; }
+
+  /* Pills */
+  .pills { display: flex; flex-wrap: wrap; gap: 18px; margin: 48px 0 56px; }
+  .pill { font: 700 32px/1 'Mukta'; padding: 18px 28px 14px; border: 3px solid var(--rule); color: var(--ink); display: flex; gap: 16px; align-items: center; }
+  .pill i { width: 46px; height: 0; border-top: 8px solid var(--ink); }
+  .pill.b i { border-top-style: dashed; }
+  .pill.a i { border-top-style: dotted; }
+  .pill.p i { border-top: 8px dotted var(--ink-3); }
+  .facts { list-style: none; display: grid; gap: 26px; }
+  .facts li { font-size: 40px; line-height: 1.25; display: flex; gap: 24px; align-items: baseline; }
+  .facts li::before { content: ''; flex: none; width: 22px; height: 22px; background: var(--orange); transform: translateY(-4px); }
+
+  /* Slide 3: the scatter */
+  .scatter { position: relative; height: 430px; margin: 40px 0 30px; }
+  .chip { position: absolute; font: 700 31px/1 'Mukta'; padding: 18px 24px 14px; background: var(--navy-3); border: 2px solid var(--rule); color: var(--ink-2); }
+  .arrow { position: absolute; left: 0; right: 0; bottom: 0; text-align: center; }
+  .one { display: inline-flex; gap: 18px; align-items: center; font: 800 46px/1 'Anek Latin Variable'; font-stretch: 75%; text-transform: uppercase; background: var(--orange); color: var(--navy); padding: 22px 30px 16px; }
+
+  /* Slide 8: grades */
+  .grades { display: grid; gap: 30px; margin-top: 20px; }
+  .g { display: grid; grid-template-columns: 76px 1fr; gap: 28px; align-items: start; border-top: 3px solid var(--rule); padding-top: 28px; }
+  .g svg { width: 64px; height: 64px; color: var(--ink); margin-top: 4px; }
+  .g h3 { font: 800 50px/1 'Anek Latin Variable'; font-stretch: 75%; text-transform: uppercase; letter-spacing: .02em; margin-bottom: 8px; }
+  .g p { font-size: 34px; line-height: 1.32; color: var(--ink-2); }
+
+  /* Slide 10 */
+  .end h2 { font-size: 128px; }
+  .ctas { display: grid; gap: 34px; margin-top: 30px; }
+  .cta { display: grid; grid-template-columns: 96px 1fr; gap: 30px; align-items: center; background: var(--navy-2); border: 3px solid var(--rule); padding: 30px 34px; }
+  .cta .ic { width: 96px; height: 96px; background: var(--orange); color: var(--navy); display: grid; place-items: center; font: 800 54px/1 'Anek Latin Variable'; }
+  .cta .ic svg { width: 56px; height: 56px; }
+  .cta b { display: block; font: 800 48px/1 'Anek Latin Variable'; font-stretch: 75%; text-transform: uppercase; margin-bottom: 8px; }
+  .cta span { font-size: 32px; color: var(--ink-2); line-height: 1.3; }
+</style>
+</head>
+<body>
+
+<!-- 1. Cover: the hook -->
+<section class="slide cover">
+  <div class="top"><div class="kicker">Mumbai Metro Tracker</div><div class="count">1 / 10</div></div>
+  <h1>Meri<br>metro<br><span class="o">kab<br>khulegi?</span></h1>
+  <p class="lead">One free website answers it for <b>every metro line</b> in the Mumbai region. Here is how to use it.</p>
+  <div class="phone"><div class="screen" style="background-image:url(shots/hub-map.png)"></div></div>
+  <div class="foot" style="right:600px"><span class="swipe">Swipe &rarr;</span></div>
+</section>
+
+<!-- 2. What it is -->
+<section class="slide">
+  <div class="top"><div class="kicker">What is it?</div><div class="count">2 / 10</div></div>
+  <h2>One website.<br><span class="o">Every metro line.</span></h2>
+  <p class="lead">Mumbai Metro Tracker follows every metro line in the Mumbai region, from Virar to Navi Mumbai: the lines you ride today and the ones still being built.</p>
+  <div class="pills">
+    <span class="pill"><i></i>Running</span>
+    <span class="pill b"><i></i>Building</span>
+    <span class="pill a"><i></i>Approved</span>
+    <span class="pill p"><i></i>Proposed</span>
+  </div>
+  <ul class="facts">
+    <li>Free. No app, no login.</li>
+    <li>Works on any phone browser.</li>
+    <li>Independent. Not MMRDA, not the government.</li>
+  </ul>
+  <div class="foot"><span>mumbaimetrotracker.com</span><span class="swipe">Swipe &rarr;</span></div>
+</section>
+
+<!-- 3. Why -->
+<section class="slide">
+  <div class="top"><div class="kicker">Why it exists</div><div class="count">3 / 10</div></div>
+  <h2>Metro news is<br><span class="o">all over the place.</span></h2>
+  <div class="scatter">
+    <span class="chip" style="left:0;top:10px;transform:rotate(-3deg)">MMRDA website</span>
+    <span class="chip" style="left:330px;top:0;transform:rotate(2deg)">Tender papers</span>
+    <span class="chip" style="left:640px;top:40px;transform:rotate(-2deg)">News reports</span>
+    <span class="chip" style="left:60px;top:120px;transform:rotate(2deg)">Old project reports</span>
+    <span class="chip" style="left:470px;top:130px;transform:rotate(-4deg)">WhatsApp forwards</span>
+    <span class="chip" style="left:200px;top:225px;transform:rotate(-1deg)">Dates that don't match</span>
+    <div class="arrow"><span class="one">&darr; One place, with the source</span></div>
+  </div>
+  <p class="lead">We read all of it and put it on one page for each line. Next to every fact, we show <b>where it comes from</b>.</p>
+  <div class="foot"><span>mumbaimetrotracker.com</span><span class="swipe">Swipe &rarr;</span></div>
+</section>
+
+<!-- 4. Step 1 -->
+<section class="slide">
+  <div class="top"><div class="kicker">How to use it</div><div class="count">4 / 10</div></div>
+  <div class="split"><div class="text">
+    <span class="step">Step 1</span>
+    <h2>Open<br>the map</h2>
+    <p class="lead">Go to <b>mumbaimetrotracker.com</b>. Every line is on one map.</p>
+    <p class="lead" style="margin-top:28px">A solid line runs today. A dashed line is being built.</p>
+    <p class="lead" style="margin-top:28px">Swipe to go line by line. Tap <b>Open the tracker</b> for yours.</p>
+  </div></div>
+  <div class="phone side"><div class="screen" style="background-image:url(shots/hub-map.png)"></div></div>
+  <div class="foot"><span>mumbaimetrotracker.com</span><span class="swipe">Swipe &rarr;</span></div>
+</section>
+
+<!-- 5. Step 2 -->
+<section class="slide">
+  <div class="top"><div class="kicker">How to use it</div><div class="count">5 / 10</div></div>
+  <div class="split"><div class="text">
+    <span class="step">Step 2</span>
+    <h2>See when<br>it opens</h2>
+    <p class="lead">Each line's page starts with the answer: the <b>target date</b> and a countdown.</p>
+    <p class="lead" style="margin-top:28px">No date yet? The page says so. We do not guess.</p>
+  </div></div>
+  <div class="phone side"><div class="screen" style="background-image:url(shots/line5-countdown.png)"></div></div>
+  <div class="foot"><span>Shown: Line 5, Thane to Kalyan</span><span class="swipe">Swipe &rarr;</span></div>
+</section>
+
+<!-- 6. Step 3 -->
+<section class="slide">
+  <div class="top"><div class="kicker">How to use it</div><div class="count">6 / 10</div></div>
+  <div class="split"><div class="text">
+    <span class="step">Step 3</span>
+    <h2>Ride<br>the line</h2>
+    <p class="lead">Scroll down and travel the route <b>station by station</b>.</p>
+    <p class="lead" style="margin-top:28px">Each stop shows how far it is, what is built, and where you can change to another line.</p>
+  </div></div>
+  <div class="phone side"><div class="screen" style="background-image:url(shots/line5-route.png)"></div></div>
+  <div class="foot"><span>Shown: Line 5, Thane to Kalyan</span><span class="swipe">Swipe &rarr;</span></div>
+</section>
+
+<!-- 7. Step 4 -->
+<section class="slide">
+  <div class="top"><div class="kicker">How to use it</div><div class="count">7 / 10</div></div>
+  <div class="split"><div class="text">
+    <span class="step">Step 4</span>
+    <h2>Find your<br>station</h2>
+    <p class="lead">Every station has its own page:</p>
+    <ul class="facts" style="margin-top:26px;gap:18px">
+      <li style="font-size:35px">Where it is</li>
+      <li style="font-size:35px">Next stations</li>
+      <li style="font-size:35px">Bus stops nearby</li>
+      <li style="font-size:35px">Work done so far</li>
+      <li style="font-size:35px">When it opens</li>
+    </ul>
+  </div></div>
+  <div class="phone side"><div class="screen" style="background-image:url(shots/station-nearby.png)"></div></div>
+  <div class="foot"><span>Shown: Kasheli, Line 5</span><span class="swipe">Swipe &rarr;</span></div>
+</section>
+
+<!-- 8. Trust marks -->
+<section class="slide">
+  <div class="top"><div class="kicker">Can I trust it?</div><div class="count">8 / 10</div></div>
+  <h2 style="font-size:100px">Every fact<br><span class="o">wears a mark.</span></h2>
+  <div class="grades">
+    <div class="g">
+      <svg viewBox="0 0 16 16"><rect x="1" y="1" width="14" height="14" fill="currentColor"/><path d="M4 8.4 6.9 11 12 5" fill="none" stroke="#0c1422" stroke-width="2" stroke-linecap="square"/></svg>
+      <div><h3>Verified</h3><p>MMRDA or its official project report confirms it.</p></div>
+    </div>
+    <div class="g">
+      <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+      <div><h3>Reported</h3><p>A newspaper or trade site says it. MMRDA has not confirmed it.</p></div>
+    </div>
+    <div class="g">
+      <svg viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="3 2.2"/></svg>
+      <div><h3>Unverified</h3><p>We could not confirm it. Take it with care.</p></div>
+    </div>
+    <div class="g">
+      <svg viewBox="0 0 16 16"><rect x="1.5" y="1.5" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M1.5 6.5 6.5 1.5M1.5 11.5 11.5 1.5M4.5 14.5 14.5 4.5M9.5 14.5 14.5 9.5M1.5 9.5 6.5 14.5M1.5 4.5 11.5 14.5M4.5 1.5 14.5 11.5M9.5 1.5 14.5 6.5" stroke="currentColor" stroke-width="1"/></svg>
+      <div><h3>Conflicting</h3><p>Sources disagree. We show you both.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>Tap the source name to read the original</span><span class="swipe">Swipe &rarr;</span></div>
+</section>
+
+<!-- 9. Help -->
+<section class="slide">
+  <div class="top"><div class="kicker">You can help</div><div class="count">9 / 10</div></div>
+  <div class="split"><div class="text">
+    <h2>Pass the<br>pillars<br><span class="o">every day?</span></h2>
+    <p class="lead">Send a photo of a station or a work site, or tell us what changed.</p>
+    <p class="lead" style="margin-top:28px">We check every entry and <b>credit you by name</b>.</p>
+    <p class="lead" style="margin-top:28px">Found a mistake? Tap <b>Tell us</b> on any page.</p>
+  </div></div>
+  <div class="phone side"><div class="screen" style="background-image:url(shots/send.png)"></div></div>
+  <div class="foot"><span>mumbaimetrotracker.com/send</span><span class="swipe">Swipe &rarr;</span></div>
+</section>
+
+<!-- 10. End -->
+<section class="slide end">
+  <div class="top"><div class="kicker">Mumbai Metro Tracker</div><div class="count">10 / 10</div></div>
+  <h2>Your metro,<br><span class="o">in one place.</span></h2>
+  <div class="ctas">
+    <div class="cta"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M6 3h12v18l-6-4-6 4z"/></svg></div><div><b>Save this post</b><span>for the day your line opens.</span></div></div>
+    <div class="cta"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg></div><div><b>Send it to a friend</b><span>who keeps asking when the metro will come.</span></div></div>
+    <div class="cta"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M12 5v14M5 12h14"/></svg></div><div><b>Follow @MumbaiMetroTracker</b><span>One line explained every week.</span></div></div>
+  </div>
+  <p class="small" style="margin-top:44px">Link in bio: <b style="color:var(--ink)">mumbaimetrotracker.com</b></p>
+  <div class="foot"><span>Unofficial. Not affiliated with MMRDA.</span><span>Nov 2026</span></div>
+</section>
+
+</body>
+</html>
