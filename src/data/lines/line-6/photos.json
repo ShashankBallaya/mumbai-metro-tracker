@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "description": "Dated ground photos, by the owner or by people who gave permission to use them. All entries now are stills from InfraUnfiltered's Line 6 ground report of 8 Aug 2026 (GKJLENdWdYA), shared with permission (owner, 2026-10-16 for drone videos and 2026-11-10 for ground videos; this video shared by the owner on 2026-11-11). The video mixes drone shots (kind \"drone\") and walks through the stations (kind \"video\"). Each still is matched to its station by the creator's on-screen station label or, for SEEPZ Village, by the station the creator names at that moment; 'date' is the day the video was published, video_t is the second in the video, and source_url opens the video there. 'pairs' are before/after pairs shown under the satellite comparison. 'stations' holds photos for each station page, keyed by the station id in stations.json. Put the image files in public/photos/ (location data removed) and add entries below. See UPDATING.md.",
-    "last_reviewed": "2026-11-11"
+    "description": "Dated ground photos, by the owner or by people who gave permission to use them. All entries now are stills from InfraUnfiltered's Line 6 ground report of 8 Aug 2026 (GKJLENdWdYA), shared with permission (owner, 2026-10-16 for drone videos and 2026-11-10 for ground videos; this video shared by the owner on 2026-11-11). The video mixes drone shots (kind \"drone\") and walks through the stations (kind \"video\"). Each still is matched to its station by the creator's on-screen station label or, for SEEPZ Village, by the station the creator names at that moment; 'date' is the day the video was published, video_t is the second in the video, and source_url opens the video there. 'pairs' are before/after pairs shown under the satellite comparison. 'stations' holds photos for each station page, keyed by the station id in stations.json. Put the image files in public/photos/ (location data removed) and add entries below. See UPDATING.md. Ground photos and video stills by Pratham Kushwaha (@prathmkushwaha) are used with his permission (he tagged the owner in his X posts).",
+    "last_reviewed": "2026-11-26"
   },
   "pairs": [],
   "stations": {
@@ -181,6 +181,18 @@
       }
     ],
     "kanjur-marg-west": [
+      {
+        "src": "/photos/kanjur-marg-west-2026-11-20-a.jpg",
+        "alt": "At night, a yellow crane lifts a dark steel girder on slings beside a concrete cross arm of the station",
+        "caption": "A steel girder going up for the station concourse, at night",
+        "date": "2026-11-20",
+        "kind": "video",
+        "credit": "Pratham Kushwaha",
+        "channel_url": "https://x.com/prathmkushwaha/status/2123686812816466061",
+        "source_url": "https://x.com/prathmkushwaha/status/2123686812816466061",
+        "width": 720,
+        "height": 560
+      },
       {
         "src": "/photos/kanjur-marg-west-aerial-2026-08-08-a.jpg",
         "alt": "Drone view of pier caps and deck under construction at the Kanjur Marg (W) station site, beside a playing field, with glass towers behind; the creator's label names the station Gandhi Nagar (Kanjurmarg)",

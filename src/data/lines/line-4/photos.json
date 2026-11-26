@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "Dated ground photos, by the owner or by people who gave permission to use them. Entries with kind \"drone\" are stills from InfraUnfiltered's drone flights, shared with permission (owner, 2026-10-16; these videos shared by the owner on 2026-11-11): Phase 1 from the flight of 20 Oct 2026 (8cCOx0tovUM, also in aerial.json), Phase 2 from the flight of 24 Oct 2026 (jqqYy_kCPQE). Each still is matched to its station by the creator's on-screen station label; 'date' is the day the video was published, video_t is the second in the video, and source_url opens the video there. 'pairs' are before/after pairs shown under the satellite comparison. 'stations' holds photos for each station page, keyed by the station id in stations.json. Put the image files in public/photos/ (location data removed) and add entries below. See UPDATING.md. Ground photos by Pratham Kushwaha (@prathmkushwaha) are used with his permission (X reply to the owner, 5 Nov 2026: https://x.com/prathmkushwaha/status/2118058612522356948); their 'date' is the day of his post.",
-    "last_reviewed": "2026-11-12"
+    "last_reviewed": "2026-11-26"
   },
   "pairs": [],
   "stations": {
@@ -242,6 +242,39 @@
     ],
     "sonapur": [
       {
+        "src": "/photos/sonapur-2026-11-26-a.jpg",
+        "alt": "Looking up from a busy junction at the viaduct: a long span with a metal side wall runs over the road to green-tiled piers, with towers behind",
+        "caption": "The viaduct near Sonapur junction, where OHE poles are now going up",
+        "date": "2026-11-26",
+        "credit": "Pratham Kushwaha",
+        "handle": "prathmkushwaha",
+        "source_url": "https://x.com/prathmkushwaha/status/2125903186901025135",
+        "width": 1200,
+        "height": 1600
+      },
+      {
+        "src": "/photos/sonapur-2026-11-26-b.jpg",
+        "alt": "The viaduct over the road between Sonapur and Shangrila, with a tall OHE pole on the deck, office towers on the right and trucks below",
+        "caption": "A new OHE pole on the viaduct towards Kalpataru Crest. So far only one side has poles",
+        "date": "2026-11-26",
+        "credit": "Pratham Kushwaha",
+        "handle": "prathmkushwaha",
+        "source_url": "https://x.com/prathmkushwaha/status/2125903186901025135",
+        "width": 1200,
+        "height": 1600
+      },
+      {
+        "src": "/photos/sonapur-2026-11-26-c.jpg",
+        "alt": "The viaduct passing under a tree canopy, with an OHE pole on the deck and green-tiled piers going into the distance",
+        "caption": "More OHE poles along the same stretch",
+        "date": "2026-11-26",
+        "credit": "Pratham Kushwaha",
+        "handle": "prathmkushwaha",
+        "source_url": "https://x.com/prathmkushwaha/status/2125903186901025135",
+        "width": 1200,
+        "height": 1600
+      },
+      {
         "src": "/photos/sonapur-aerial-2026-10-24-a.jpg",
         "alt": "Drone view along the viaduct at Sonapur, between a building under construction and a glass tower, with the station deck and its green-edged walls in the middle",
         "caption": "The station deck between new towers. The creator says the roofing has not moved in three months",
@@ -256,6 +289,39 @@
       }
     ],
     "shangrila": [
+      {
+        "src": "/photos/shangrila-2026-11-26-a.jpg",
+        "alt": "A finished viaduct span on a green-tiled pier on the left; beyond it, bare piers and pier caps still wait for their U-girders, under many overhead power lines",
+        "caption": "The gap near the station: Pratham says 3 U-girders are left to close the Phase 2 viaduct",
+        "date": "2026-11-26",
+        "credit": "Pratham Kushwaha",
+        "handle": "prathmkushwaha",
+        "source_url": "https://x.com/prathmkushwaha/status/2125903186901025135",
+        "width": 1200,
+        "height": 1600
+      },
+      {
+        "src": "/photos/shangrila-2026-11-22-a.jpg",
+        "alt": "Looking up at night at a station pier: wide cross arms carry the station beams and U-girders, lit by a work lamp",
+        "caption": "The station at night. Pratham reports that all its U-girders are now in place",
+        "date": "2026-11-22",
+        "credit": "Pratham Kushwaha",
+        "handle": "prathmkushwaha",
+        "source_url": "https://x.com/prathmkushwaha/status/2124510672373613000",
+        "width": 1200,
+        "height": 1600
+      },
+      {
+        "src": "/photos/shangrila-2026-11-22-b.jpg",
+        "alt": "A lone pier cap with a safety railing at night, under power lines and a transmission tower, with a palm frond on the right",
+        "caption": "The bare pier caps past the station, under the power lines. Pratham counted 5 U-girders left on Phase 2 that day",
+        "date": "2026-11-22",
+        "credit": "Pratham Kushwaha",
+        "handle": "prathmkushwaha",
+        "source_url": "https://x.com/prathmkushwaha/status/2124510672373613000",
+        "width": 1200,
+        "height": 1395
+      },
       {
         "src": "/photos/shangrila-2026-10-18-a.jpg",
         "alt": "Two new pier caps on tall piers wrapped in scaffolding and green netting, seen from under the viaduct",
