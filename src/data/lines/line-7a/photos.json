@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "description": "Dated ground photos, by the owner or by people who gave permission to use them. 'stations' holds photos for each station page, keyed by the station id in stations.json. Put the image files in public/photos/ (location data removed) and add entries below. See UPDATING.md.",
+    "last_reviewed": "2026-11-27"
+  },
+  "pairs": [],
+  "stations": {
+    "airport-colony": [
+      {
+        "src": "/photos/airport-colony-2026-11-27-a.jpg",
+        "alt": "The Airport Colony station deck on its concrete piers over the Western Express Highway, with curved roof frames on top, green netting at the far end and auto-rickshaws on the road below",
+        "caption": "The station deck is up and the roof frames are going on",
+        "date": "2026-11-27",
+        "credit": "Tyrone Dsouza",
+        "handle": "TyroneDsouza1",
+        "width": 959,
+        "height": 640
+      }
+    ]
+  }
+}

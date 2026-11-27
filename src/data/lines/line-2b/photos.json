@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "Dated ground photos, by the owner or by people who gave permission to use them. Entries with kind \"video\" are stills from a creator's ground video, shared with permission (InfraUnfiltered, owner confirmed 2026-11-10); 'date' is then the day the video was published, video_t is the second in the video, and source_url opens the video there. Each still is matched to its station by the creator's spoken station name at that point. 'stations' holds photos for each station page, keyed by the station id in stations.json. Put the image files in public/photos/ (location data removed) and add entries below. See UPDATING.md.",
-    "last_reviewed": "2026-11-25"
+    "last_reviewed": "2026-11-27"
   },
   "pairs": [],
   "stations": {
@@ -365,6 +365,50 @@
         "height": 1424
       },
       {
+        "src": "/photos/mtnl-metro-2026-11-23-a.jpg",
+        "alt": "The MTNL Metro station at night from the road below: the deck on its cross beams, curved steel roof frames on top, and a covered bridge leading off to the right",
+        "caption": "Steel roof frames are up over the station deck",
+        "date": "2026-11-23",
+        "credit": "Vidyasagar Jagadeesan",
+        "handle": "jvidyasagar",
+        "source_url": "https://x.com/jvidyasagar/status/2124870679208268071",
+        "width": 739,
+        "height": 1600
+      },
+      {
+        "src": "/photos/mtnl-metro-2026-11-23-b.jpg",
+        "alt": "An entry staircase under green netting rises to the station deck at night, beside a lit glass office tower, with people walking on the footpath below",
+        "caption": "An entry staircase, still under netting, next to the office towers",
+        "date": "2026-11-23",
+        "credit": "Vidyasagar Jagadeesan",
+        "handle": "jvidyasagar",
+        "source_url": "https://x.com/jvidyasagar/status/2124870679208268071",
+        "width": 739,
+        "height": 1600
+      },
+      {
+        "src": "/photos/mtnl-metro-2026-11-23-c.jpg",
+        "alt": "A steel foot bridge on tall concrete legs crosses from the station at night, with railings and green netting on top and people walking underneath",
+        "caption": "The steel foot bridge from the station, on its concrete legs",
+        "date": "2026-11-23",
+        "credit": "Vidyasagar Jagadeesan",
+        "handle": "jvidyasagar",
+        "source_url": "https://x.com/jvidyasagar/status/2124870679208268071",
+        "width": 739,
+        "height": 1600
+      },
+      {
+        "src": "/photos/mtnl-metro-2026-11-23-d.jpg",
+        "alt": "The long side of the station at night: a row of concrete columns along a fenced footpath, with people walking past",
+        "caption": "The station side along the footpath, columns and walls in place",
+        "date": "2026-11-23",
+        "credit": "Vidyasagar Jagadeesan",
+        "handle": "jvidyasagar",
+        "source_url": "https://x.com/jvidyasagar/status/2124870679208268071",
+        "width": 739,
+        "height": 1600
+      },
+      {
         "src": "/photos/mtnl-metro-2026-11-11-a.jpg",
         "alt": "MTNL Metro station along a road in BKC: the viaduct on tall piers, the station block with its curved roof frame up, and a boom lift at work",
         "caption": "The station block with its roof frame up, seen along the road",
@@ -437,6 +481,16 @@
       }
     ],
     "kurla-east": [
+      {
+        "src": "/photos/kurla-east-2026-11-27-a.jpg",
+        "alt": "The Kurla (E) station box with its curved yellow roof edge, a road flyover passing in front at the top, an orange excavator in the yard and pier caps on the right",
+        "caption": "The station building and roof, with the yard below still being cleared",
+        "date": "2026-11-27",
+        "credit": "Arindam Mahapatra",
+        "handle": "Maha7Arindam",
+        "width": 1280,
+        "height": 720
+      },
       {
         "src": "/photos/kurla-east-video-2026-07-21-a.jpg",
         "alt": "Kurla (E) station beside the road, with its steel roof frame on top of the station box",
